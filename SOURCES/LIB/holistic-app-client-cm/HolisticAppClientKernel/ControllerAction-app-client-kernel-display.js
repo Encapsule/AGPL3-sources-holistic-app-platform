@@ -25,7 +25,8 @@ const kernelConsoleStyles = {
         "padding-bottom: 0.25em",
         "font-family: 'Share Tech Mono'",
         "font-size: larger",
-        "color: #999999"
+        "font-weight: bold",
+        "color: #990000"
     ].join("; "),
 
 };

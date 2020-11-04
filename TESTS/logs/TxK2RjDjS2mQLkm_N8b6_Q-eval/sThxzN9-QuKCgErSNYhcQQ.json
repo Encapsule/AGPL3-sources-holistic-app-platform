@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "KCsVQmeiCOeWuAcbRiTYGw",
+                    "vdid": "AnDi7dJL-DdBhPXCcA2qtw",
                     "name": "Holistic App Client Kernel",
                     "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                     "cmat": {
@@ -22,20 +22,20 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "KCsVQmeiCOeWuAcbRiTYGw",
+                            "vdid": "AnDi7dJL-DdBhPXCcA2qtw",
                             "name": "Holistic App Client Kernel",
                             "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                             "type": "CM",
                             "PPL45jw5RDWSMNsB97WIWg": {
                               "id": "PPL45jw5RDWSMNsB97WIWg",
-                              "vdid": "z8RkrCele2B951wrt4Sf2Q",
+                              "vdid": "Wk6BwkRejgdc3qkwMAcC_A",
                               "name": "Holistic Client App Kernel",
                               "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                               "type": "APM"
                             },
                             "ZE1JY82CQ5uRlWQ-zgqz5g": {
                               "id": "ZE1JY82CQ5uRlWQ-zgqz5g",
-                              "vdid": "iI_l2VwvUW-MsXedl6ZeEQ",
+                              "vdid": "r26dQmsJ96kBlItgt8ezJQ",
                               "name": "Holistic App Client Kernel: Cell Plane Error Handler",
                               "description": "This action is dispatched generically by a CellProcessor's intrinsic Cell Process Manager process when it receives a notification from its contained OPC instance of a cell plane error(s) that occurred during the processing of the last external call to CellProcessor.act method.",
                               "type": "ACT"
@@ -63,14 +63,14 @@
                             },
                             "Aw4XWmZGSn2TM8XWJr642g": {
                               "id": "Aw4XWmZGSn2TM8XWJr642g",
-                              "vdid": "FJ5ZkC1P3L5mtjEg4OzQ5Q",
+                              "vdid": "LIisdYrhhQyllUvkgURYbQ",
                               "name": "Holistic App Client Kernel: Root Display Command Processor",
                               "description": "Provides low-level access to the \"root display\" which is active during kernel boot. And, subsequently only if catastrophic error occurs in the derived app client process or its subprocesses that are not handled by the derived app.",
                               "type": "ACT"
                             },
                             "qzMWhMstQ4Ki06O75y5hMA": {
                               "id": "qzMWhMstQ4Ki06O75y5hMA",
-                              "vdid": "nHN9S3LZjXyXmktQ-t1a6A",
+                              "vdid": "yaSCr3HH-9yMUtjGkI-TUA",
                               "name": "DOM Location Processor",
                               "description": "Abstracts monitoring and setting the window.location and hashroute.",
                               "type": "CM",
@@ -97,19 +97,19 @@
                               },
                               "RyMcv3MpTI-Co1EyVOIvlw": {
                                 "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                                "vdid": "oZ6ZoYZRkiiZicDxlvaaEA",
+                                "vdid": "KKuTEBdYi-jd3lle9wT9FQ",
                                 "name": "Holarchy CML",
                                 "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                                 "type": "CM",
                                 "c2cq2OE9SiaLKahL3Mk0KA": {
                                   "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                  "vdid": "QoXEthxCjMi85bkoYxQOBA",
+                                  "vdid": "TTPEEqe3jFzwhblTl5AOJg",
                                   "name": "Holarchy Base Cell Model",
                                   "description": "A collection of low-level building blocks.",
                                   "type": "CM",
                                   "U5iIpgd8SHCk7pvaciVLTQ": {
                                     "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                    "vdid": "s7f9RxEOioWUc0JCsNXdwA",
+                                    "vdid": "ITn9naf1ijR2PEI3Jo_d7w",
                                     "name": "Holarchy Base Memory Mailbox Flag",
                                     "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                     "type": "CM",
@@ -129,7 +129,7 @@
                                     },
                                     "MDVBKW89TvO9T62Ge7GmNg": {
                                       "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                      "vdid": "UEqtiv90WnIsAOBW80jNzA",
+                                      "vdid": "UErYE_90SmIsACXx80i-CA",
                                       "name": "Holarchy Core Actions & Operators",
                                       "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                       "type": "CM",
@@ -261,13 +261,13 @@
                                       },
                                       "YtwGXxryRyaNnxwc9NGJiQ": {
                                         "id": "YtwGXxryRyaNnxwc9NGJiQ",
-                                        "vdid": "hRJ0l49rW3OTUabYbvScGQ",
+                                        "vdid": "hRIHl49rjXOTUW_YbvS5GQ",
                                         "name": "Holarchy Core Utility Actions & Operators",
                                         "description": "A collection of ControllerAction & TransitionOperator plug-ins that are of general use when building custom APM's in particular.",
                                         "type": "CM",
                                         "aXju3wSBQnufe0r51Y04wg": {
                                           "id": "aXju3wSBQnufe0r51Y04wg",
-                                          "vdid": "6XkClZKOh7k55dmnITvs5Q",
+                                          "vdid": "oQg3iUsYh_q70TPFSGREtQ",
                                           "name": "Holarchy Core Util: Action Response Writer",
                                           "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
                                           "type": "ACT"
@@ -301,7 +301,7 @@
                             },
                             "vrmv3WMRQXql7Bx3DDEIDw": {
                               "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                              "vdid": "BO0uTQ7xw0Twi4EiRwzpAg",
+                              "vdid": "ZkA1vMCW2SFVa-33GG2arg",
                               "name": "Holistic Client App View Manager",
                               "description": "Provides management of client view cells in a holistic client app.",
                               "type": "CM",
@@ -315,13 +315,13 @@
                             },
                             "74npOB-3S8GEgHwdtWwHrg": {
                               "id": "74npOB-3S8GEgHwdtWwHrg",
-                              "vdid": "h0Ld90Fch-1ueD3Cack5Ng",
+                              "vdid": "PFYYNrDZDAu2vxWysdd63A",
                               "name": "Holistic App Common Kernel",
                               "description": "Provides core kernel cell process models shared by the holistic app server and holistic app client application cell models.",
                               "type": "CM",
                               "ABn1MUgSQT2dy8Lri8xDbA": {
                                 "id": "ABn1MUgSQT2dy8Lri8xDbA",
-                                "vdid": "xnIrl1bAFs4tK3QCgHtXlw",
+                                "vdid": "Uf2pKAi778PxXJdeY0NyQg",
                                 "name": "View Theme Processor",
                                 "description": "The ViewThemeProcessor cell model provides a simple service for generating a Holistic App Theme JSON document used to dynamically style display elements via React.",
                                 "type": "CM",
@@ -405,7 +405,7 @@
                         },
                         {
                           "id": "PPL45jw5RDWSMNsB97WIWg",
-                          "vdid": "z8RkrCele2B951wrt4Sf2Q",
+                          "vdid": "Wk6BwkRejgdc3qkwMAcC_A",
                           "name": "Holistic Client App Kernel",
                           "description": "This model manages, tracks, and controls the lifecycle of the client application."
                         },
@@ -523,13 +523,13 @@
                         },
                         {
                           "id": "aXju3wSBQnufe0r51Y04wg",
-                          "vdid": "6XkClZKOh7k55dmnITvs5Q",
+                          "vdid": "oQg3iUsYh_q70TPFSGREtQ",
                           "name": "Holarchy Core Util: Action Response Writer",
                           "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace."
                         },
                         {
                           "id": "ZE1JY82CQ5uRlWQ-zgqz5g",
-                          "vdid": "iI_l2VwvUW-MsXedl6ZeEQ",
+                          "vdid": "r26dQmsJ96kBlItgt8ezJQ",
                           "name": "Holistic App Client Kernel: Cell Plane Error Handler",
                           "description": "This action is dispatched generically by a CellProcessor's intrinsic Cell Process Manager process when it receives a notification from its contained OPC instance of a cell plane error(s) that occurred during the processing of the last external call to CellProcessor.act method."
                         },
@@ -547,7 +547,7 @@
                         },
                         {
                           "id": "Aw4XWmZGSn2TM8XWJr642g",
-                          "vdid": "FJ5ZkC1P3L5mtjEg4OzQ5Q",
+                          "vdid": "LIisdYrhhQyllUvkgURYbQ",
                           "name": "Holistic App Client Kernel: Root Display Command Processor",
                           "description": "Provides low-level access to the \"root display\" which is active during kernel boot. And, subsequently only if catastrophic error occurs in the derived app client process or its subprocesses that are not handled by the derived app."
                         },
@@ -603,20 +603,20 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "KCsVQmeiCOeWuAcbRiTYGw",
+                          "vdid": "AnDi7dJL-DdBhPXCcA2qtw",
                           "name": "Holistic App Client Kernel",
                           "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                           "type": "CM",
                           "PPL45jw5RDWSMNsB97WIWg": {
                             "id": "PPL45jw5RDWSMNsB97WIWg",
-                            "vdid": "z8RkrCele2B951wrt4Sf2Q",
+                            "vdid": "Wk6BwkRejgdc3qkwMAcC_A",
                             "name": "Holistic Client App Kernel",
                             "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                             "type": "APM"
                           },
                           "ZE1JY82CQ5uRlWQ-zgqz5g": {
                             "id": "ZE1JY82CQ5uRlWQ-zgqz5g",
-                            "vdid": "iI_l2VwvUW-MsXedl6ZeEQ",
+                            "vdid": "r26dQmsJ96kBlItgt8ezJQ",
                             "name": "Holistic App Client Kernel: Cell Plane Error Handler",
                             "description": "This action is dispatched generically by a CellProcessor's intrinsic Cell Process Manager process when it receives a notification from its contained OPC instance of a cell plane error(s) that occurred during the processing of the last external call to CellProcessor.act method.",
                             "type": "ACT"
@@ -644,14 +644,14 @@
                           },
                           "Aw4XWmZGSn2TM8XWJr642g": {
                             "id": "Aw4XWmZGSn2TM8XWJr642g",
-                            "vdid": "FJ5ZkC1P3L5mtjEg4OzQ5Q",
+                            "vdid": "LIisdYrhhQyllUvkgURYbQ",
                             "name": "Holistic App Client Kernel: Root Display Command Processor",
                             "description": "Provides low-level access to the \"root display\" which is active during kernel boot. And, subsequently only if catastrophic error occurs in the derived app client process or its subprocesses that are not handled by the derived app.",
                             "type": "ACT"
                           },
                           "qzMWhMstQ4Ki06O75y5hMA": {
                             "id": "qzMWhMstQ4Ki06O75y5hMA",
-                            "vdid": "nHN9S3LZjXyXmktQ-t1a6A",
+                            "vdid": "yaSCr3HH-9yMUtjGkI-TUA",
                             "name": "DOM Location Processor",
                             "description": "Abstracts monitoring and setting the window.location and hashroute.",
                             "type": "CM",
@@ -678,19 +678,19 @@
                             },
                             "RyMcv3MpTI-Co1EyVOIvlw": {
                               "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                              "vdid": "oZ6ZoYZRkiiZicDxlvaaEA",
+                              "vdid": "KKuTEBdYi-jd3lle9wT9FQ",
                               "name": "Holarchy CML",
                               "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                               "type": "CM",
                               "c2cq2OE9SiaLKahL3Mk0KA": {
                                 "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                "vdid": "QoXEthxCjMi85bkoYxQOBA",
+                                "vdid": "TTPEEqe3jFzwhblTl5AOJg",
                                 "name": "Holarchy Base Cell Model",
                                 "description": "A collection of low-level building blocks.",
                                 "type": "CM",
                                 "U5iIpgd8SHCk7pvaciVLTQ": {
                                   "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                  "vdid": "s7f9RxEOioWUc0JCsNXdwA",
+                                  "vdid": "ITn9naf1ijR2PEI3Jo_d7w",
                                   "name": "Holarchy Base Memory Mailbox Flag",
                                   "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                   "type": "CM",
@@ -710,7 +710,7 @@
                                   },
                                   "MDVBKW89TvO9T62Ge7GmNg": {
                                     "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                    "vdid": "UEqtiv90WnIsAOBW80jNzA",
+                                    "vdid": "UErYE_90SmIsACXx80i-CA",
                                     "name": "Holarchy Core Actions & Operators",
                                     "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                     "type": "CM",
@@ -842,13 +842,13 @@
                                     },
                                     "YtwGXxryRyaNnxwc9NGJiQ": {
                                       "id": "YtwGXxryRyaNnxwc9NGJiQ",
-                                      "vdid": "hRJ0l49rW3OTUabYbvScGQ",
+                                      "vdid": "hRIHl49rjXOTUW_YbvS5GQ",
                                       "name": "Holarchy Core Utility Actions & Operators",
                                       "description": "A collection of ControllerAction & TransitionOperator plug-ins that are of general use when building custom APM's in particular.",
                                       "type": "CM",
                                       "aXju3wSBQnufe0r51Y04wg": {
                                         "id": "aXju3wSBQnufe0r51Y04wg",
-                                        "vdid": "6XkClZKOh7k55dmnITvs5Q",
+                                        "vdid": "oQg3iUsYh_q70TPFSGREtQ",
                                         "name": "Holarchy Core Util: Action Response Writer",
                                         "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
                                         "type": "ACT"
@@ -882,7 +882,7 @@
                           },
                           "vrmv3WMRQXql7Bx3DDEIDw": {
                             "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                            "vdid": "BO0uTQ7xw0Twi4EiRwzpAg",
+                            "vdid": "ZkA1vMCW2SFVa-33GG2arg",
                             "name": "Holistic Client App View Manager",
                             "description": "Provides management of client view cells in a holistic client app.",
                             "type": "CM",
@@ -896,13 +896,13 @@
                           },
                           "74npOB-3S8GEgHwdtWwHrg": {
                             "id": "74npOB-3S8GEgHwdtWwHrg",
-                            "vdid": "h0Ld90Fch-1ueD3Cack5Ng",
+                            "vdid": "PFYYNrDZDAu2vxWysdd63A",
                             "name": "Holistic App Common Kernel",
                             "description": "Provides core kernel cell process models shared by the holistic app server and holistic app client application cell models.",
                             "type": "CM",
                             "ABn1MUgSQT2dy8Lri8xDbA": {
                               "id": "ABn1MUgSQT2dy8Lri8xDbA",
-                              "vdid": "xnIrl1bAFs4tK3QCgHtXlw",
+                              "vdid": "Uf2pKAi778PxXJdeY0NyQg",
                               "name": "View Theme Processor",
                               "description": "The ViewThemeProcessor cell model provides a simple service for generating a Holistic App Theme JSON document used to dynamically style display elements via React.",
                               "type": "CM",

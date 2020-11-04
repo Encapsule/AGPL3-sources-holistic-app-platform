@@ -206,7 +206,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "hvWG9VRwVHCkHqQediJ2Ig",
-                        "vdid": "-SHgTT925mXs4oFVUMV4jg",
+                        "vdid": "LvXpmZnJuZ7MtGQbZD6y7Q",
                         "name": "Proxy Test A Service Cell Process Manager (synthesized)",
                         "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Proxy Test A Service cell plane.",
                         "cmat": {
@@ -216,7 +216,7 @@
                               "type": "INDEX",
                               "hvWG9VRwVHCkHqQediJ2Ig": {
                                 "id": "hvWG9VRwVHCkHqQediJ2Ig",
-                                "vdid": "-SHgTT925mXs4oFVUMV4jg",
+                                "vdid": "LvXpmZnJuZ7MtGQbZD6y7Q",
                                 "name": "Proxy Test A Service Cell Process Manager (synthesized)",
                                 "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Proxy Test A Service cell plane.",
                                 "type": "CM",
@@ -327,7 +327,7 @@
                                 },
                                 "Rd5sgBjkSyq25-xIwydPRA": {
                                   "id": "Rd5sgBjkSyq25-xIwydPRA",
-                                  "vdid": "M5V6FwLX5Je_TqrGhdgd9Q",
+                                  "vdid": "M5V62ALX5Gy_Tqr_hdgdhQ",
                                   "name": "Cell Process Manager: Cell Plane Error Handler",
                                   "description": "This action is dispatched generically from OPC.act when an external actor makes an action request that produces a response.error. Or, a response.result.lastEvaluation containing transport error(s).",
                                   "type": "ACT"
@@ -411,7 +411,7 @@
                                 },
                                 "MDVBKW89TvO9T62Ge7GmNg": {
                                   "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                  "vdid": "UEqtiv90WnIsAOBW80jNzA",
+                                  "vdid": "UErYE_90SmIsACXx80i-CA",
                                   "name": "Holarchy Core Actions & Operators",
                                   "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                   "type": "CM",
@@ -543,13 +543,13 @@
                                   },
                                   "YtwGXxryRyaNnxwc9NGJiQ": {
                                     "id": "YtwGXxryRyaNnxwc9NGJiQ",
-                                    "vdid": "hRJ0l49rW3OTUabYbvScGQ",
+                                    "vdid": "hRIHl49rjXOTUW_YbvS5GQ",
                                     "name": "Holarchy Core Utility Actions & Operators",
                                     "description": "A collection of ControllerAction & TransitionOperator plug-ins that are of general use when building custom APM's in particular.",
                                     "type": "CM",
                                     "aXju3wSBQnufe0r51Y04wg": {
                                       "id": "aXju3wSBQnufe0r51Y04wg",
-                                      "vdid": "6XkClZKOh7k55dmnITvs5Q",
+                                      "vdid": "oQg3iUsYh_q70TPFSGREtQ",
                                       "name": "Holarchy Core Util: Action Response Writer",
                                       "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
                                       "type": "ACT"
@@ -6375,7 +6375,7 @@
                                           "____accept": "jsString",
                                           "____inValueSet": [
                                             "action-error",
-                                            "transport-error"
+                                            "evaluation-error"
                                           ]
                                         },
                                         "opcActResponse": {
@@ -6391,10 +6391,10 @@
                                 "____defaultValue": "okay"
                               },
                               "inputTypeVIID": "1fW356ml23UyAlLT6mSD8g",
-                              "inputTypeVDID": "sqF404fJXc_ZqF9--jyrtQ",
+                              "inputTypeVDID": "sqF4DIfJXUDZqF_K-jyrmw",
                               "outputTypeVIID": "CF5zxTny6pSJpqW4IHYbVQ",
                               "outputTypeVDID": "dXUuwlxR5gXEr31QN2mCtQ",
-                              "operationVDID": "QpuzA-KnRA9Fo3PN8WP_sg"
+                              "operationVDID": "QgLDA-JH_w9FajnN8SHpsg"
                             }
                           },
                           "wB5QKMYtS7yY2-v7Y3tGWA": {
@@ -7170,15 +7170,15 @@
                                           "____defaultValue": {},
                                           "reportInnerError": {
                                             "____label": "Report Inner Error",
-                                            "____description": "If false (default) then response.error returned by inner action request is not reported to the caller (we presume the caller looks at the inner action response written to dataPath).",
+                                            "____description": "If false (override you should not use) then response.error returned by inner action request is not reported to the caller (we presume the caller looks at the inner action response written to dataPath).",
                                             "____accept": "jsBoolean",
-                                            "____defaultValue": false
+                                            "____defaultValue": true
                                           },
                                           "reportInnerResult": {
                                             "____label": "Report Inner Result",
-                                            "____description": "If false (default) the response.result value of a successful inner action request is not reported to the caller (we presume the caller looks at the inner action response written to dataPath).",
+                                            "____description": "If false (override you should not use) the response.result value of a successful inner action request is not reported to the caller (we presume the caller looks at the inner action response written to dataPath).",
                                             "____accept": "jsBoolean",
-                                            "____defaultValue": false
+                                            "____defaultValue": true
                                           }
                                         }
                                       }
@@ -7190,10 +7190,10 @@
                                 "____opaque": true
                               },
                               "inputTypeVIID": "HiwULbPvbF4NiFgugv_ZSg",
-                              "inputTypeVDID": "IUdkGeSiluXaWE4uhUbcqg",
+                              "inputTypeVDID": "tZxqJT7QRf1g40xrU5N6cQ",
                               "outputTypeVIID": "YXPCMgl_OxPwupnLbcirow",
                               "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                              "operationVDID": "CChOE1TiW1cphX_th_NItA"
+                              "operationVDID": "CC_dE1SdBFcpeZrthwxNtA"
                             }
                           },
                           "_yxWfFLnTqqN-UxRdd7W5w": {
