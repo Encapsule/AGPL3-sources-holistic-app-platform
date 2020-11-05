@@ -198,7 +198,8 @@ module.exports = {
             description: "The holistic app client kernel process will now stop evaluating in the cell plane and will continue as an active cell servicing runtime requests from the derived app client service process (and its delegates).",
             actions: {
                 enter: [
-                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "Holistic app client kernel boot completed without error!" } } } } } } },
+                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel process has reached ready step." } } } } } } },
+                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client service is now active and running." } } } } } } },
                     { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { command: "hide" } } } } } } }
                 ]
             }

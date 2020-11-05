@@ -3,30 +3,33 @@ const holarchy = require("@encapsule/holarchy");
 
 const kernelConsoleStyles = {
     outerContainerDiv: [
-        "position: fixed",
+        "position: absolute",
         "top: 0px",
+        "bottom: -0px",
         "left: 0px",
-        "width: 100%",
-        "height: 100%",
+        "right: -0px",
         "opacity: 0",
         "overflow: hidden",
         "padding: 1em",
         "font-family: Play",
         "font-size: 12pt",
-        "color: black",
+        "color: #0099FF",
         "z-index: -1"
     ].join("; "),
 
     logMessageContainerDiv: [
         "margin-left: 0.5em",
         "margin-right: 0.5em",
+        "margin-top: 0.25em",
+        "margin-bottom: 0.25em",
+        "padding: 0.25em",
         "padding-left: 0.5em",
-        "padding-top: 0.25em",
-        "padding-bottom: 0.25em",
         "font-family: 'Share Tech Mono'",
-        "font-size: larger",
-        "font-weight: bold",
-        "color: #990000"
+        "font-weight: semibold",
+        "color: #0066CC",
+        "border-left: 0.5em solid rgba(0,0,0,0.025)",
+        "border-radius: 0.33em",
+        "background-color: rgba(0,0,0,0.0125)",
     ].join("; "),
 
 };
@@ -98,9 +101,11 @@ const controllerAction = new holarchy.ControllerAction({
                 rootDisplayDOMElement.setAttribute("style", kernelConsoleStyles.outerContainerDiv);
 
                 let innerHTML = `
-<h2>App Client Kernel Console</h2>
-<p><strong>@encapsule/holistic-app-client-cm v${holarchy.__meta.version}-${holarchy.__meta.codename} buildID ${holarchy.__meta.build}</strong><br/><br/></p>
+<h2>Holistic App Client Kernel Boot</h2>
+<h3>@encapsule/holistic-app-client-cm v${holarchy.__meta.version}-${holarchy.__meta.codename} buildID ${holarchy.__meta.build}</h3>
+<p>One moment please...</p>
 `;
+
                 rootDisplayDOMElement.innerHTML = innerHTML;
 
                 break;
@@ -111,19 +116,22 @@ const controllerAction = new holarchy.ControllerAction({
                         { opacity: 1 }
                     ],
                     {
-                        duration: 750,
+                        duration: 250,
                         fill: "forwards"
                     }
                 );
                 break;
             case "hide":
+                let style = rootDisplayDOMElement.getAttribute("style");
+                rootDisplayDOMElement.setAttribute("style", `${style} background-color: #66CCFF; opacity: 0.75`);
+
                 rootDisplayDOMElement.animate(
                     [
                         { opacity: 0 }
                     ],
                     {
-                        delay: 3500,
-                        duration: 1000,
+                        delay: 1000,
+                        duration: 500,
                         fill: "forwards",
                     }
                 );
