@@ -4,17 +4,18 @@ const holarchy = require("@encapsule/holarchy");
 const kernelConsoleStyles = {
     outerContainerDiv: [
         "position: absolute",
-        "top: 0px",
         "bottom: -0px",
         "left: 0px",
         "right: -0px",
         "opacity: 0",
         "overflow: hidden",
         "padding: 1em",
+        "padding-bottom: 2em",
         "font-family: Play",
         "font-size: 12pt",
         "color: #0099FF",
-        "z-index: -1"
+        "z-index: -1",
+        "border-top: 1px solid #66CCFF"
     ].join("; "),
 
     logMessageContainerDiv: [
@@ -25,7 +26,7 @@ const kernelConsoleStyles = {
         "padding: 0.25em",
         "padding-left: 0.5em",
         "font-family: 'Share Tech Mono'",
-        "font-weight: semibold",
+        "font-weight: bold",
         "color: #0066CC",
         "border-left: 0.5em solid rgba(0,0,0,0.025)",
         "border-radius: 0.33em",
@@ -122,16 +123,12 @@ const controllerAction = new holarchy.ControllerAction({
                 );
                 break;
             case "hide":
-                let style = rootDisplayDOMElement.getAttribute("style");
-                rootDisplayDOMElement.setAttribute("style", `${style} background-color: #66CCFF; opacity: 0.75`);
-
                 rootDisplayDOMElement.animate(
                     [
-                        { opacity: 0 }
+                        { opacity: 0, easing: "ease-out" }
                     ],
                     {
-                        delay: 1000,
-                        duration: 500,
+                        duration: 1000,
                         fill: "forwards",
                     }
                 );

@@ -1,6 +1,6 @@
 
 const React = require("react");
-const reactComponentBindingFactory = require("../binding-factory");
+const reactComponentBindingFactory = require("./binding-factory");
 
 const factoryResponse = reactComponentBindingFactory.create({
     id: "usYC_KHQRliNsKOqpokkTA",

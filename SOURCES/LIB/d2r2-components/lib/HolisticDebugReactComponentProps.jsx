@@ -2,7 +2,7 @@
 //
 
 const React = require('react');
-const reactComponentBindingFilterFactory = require('../binding-factory');
+const reactComponentBindingFilterFactory = require('./binding-factory');
 
 var factoryResponse = reactComponentBindingFilterFactory.create({
 

@@ -2,7 +2,7 @@
 //
 
 const React = require("react");
-const reactComponentBindingFilterFactory = require("../binding-factory");
+const reactComponentBindingFilterFactory = require("./binding-factory");
 
 const holismHttpResponseErrorResultSpec = require("@encapsule/holism/lib/iospecs/http-response-error-result-spec");
 const holismHttpErrorDataSpec = holismHttpResponseErrorResultSpec.error_descriptor.data;

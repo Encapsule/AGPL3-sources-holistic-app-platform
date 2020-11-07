@@ -60,7 +60,7 @@ var factoryResponse = arccore.filter.create({
 
             // Create an ARCcore.discriminator filter that routes its request to 1:N possible target filters.
             var innerFactoryResponse = arccore.discriminator.create({
-                options: { action: "getFilterID" },
+                options: { action: "getFilter" },
                 filters: d2r2ComponentFilters
             });
 

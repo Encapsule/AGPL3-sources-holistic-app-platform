@@ -10,7 +10,7 @@
 const path = require('path');
 const arccore = require('@encapsule/arccore');
 const React = require('react');
-const reactComponentBindingFilterFactory = require('../binding-factory');
+const reactComponentBindingFilterFactory = require('./binding-factory');
 const color = require('color');
 
 // TODO OCT 2019 --- The primary value of keeping this around right now seems to be that it's

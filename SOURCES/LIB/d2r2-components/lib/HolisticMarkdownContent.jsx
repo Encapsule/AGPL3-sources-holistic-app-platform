@@ -4,7 +4,7 @@
 //
 
 const React = require('react');
-const reactComponentBindingFilterFactory = require('../binding-factory');
+const reactComponentBindingFilterFactory = require('./binding-factory');
 const ReactMarkdown = require('react-markdown');
 
 var factoryResponse = reactComponentBindingFilterFactory.create({
