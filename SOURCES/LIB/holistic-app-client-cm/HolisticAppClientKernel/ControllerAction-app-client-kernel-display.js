@@ -114,9 +114,11 @@ const controllerAction = new holarchy.ControllerAction({
             case "show":
                 rootDisplayDOMElement.animate(
                     [
+                        { opacity: 0 },
                         { opacity: 1 }
                     ],
                     {
+                        easing: "ease-in",
                         duration: 250,
                         fill: "forwards"
                     }
@@ -125,9 +127,11 @@ const controllerAction = new holarchy.ControllerAction({
             case "hide":
                 rootDisplayDOMElement.animate(
                     [
-                        { opacity: 0, easing: "ease-out" }
+                        { opacity: 1 },
+                        { opacity: 0 }
                     ],
                     {
+                        easing: "ease-out",
                         duration: 1000,
                         fill: "forwards",
                     }

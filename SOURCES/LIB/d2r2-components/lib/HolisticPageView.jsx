@@ -71,12 +71,9 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
     reactComponent: class HolisticPageView extends React.Component {
         render() {
             let self = this;
-            const ComponentRouter = this.props.appStateContext.ComponentRouter;
-            const metadata = this.props.document.metadata;
-            const theme = metadata.site.theme;
+            const ComponentRouter = this.props.renderContext.ComponentRouter;
             const renderData = this.props.renderData;
             const renderMessage = renderData.HolisticPageView;
-            const renderStyles = renderData.styles;
 
             let index = 0;
             function makeKey() { return ("HolisticPageView" + index++); }
@@ -91,7 +88,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
                 content.push(<ComponentRouter key={makeKey()} {...self.props} renderData={contentRenderData_} />);
             });
 
-            return (<div id="idHolisticPageView" style={theme.HolisticPageView.container}>{content}<br/></div>);
+            return (<div>{content}</div>);
 
         }
     }

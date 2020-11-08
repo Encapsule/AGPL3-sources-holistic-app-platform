@@ -16,15 +16,25 @@ const factoryResponse = reactComponentBindingFilterFactory.create({
     // When <ComponentRouter/> receives a render request whose signature matches our dataBindingSpec, bind the request to this.props and render via the React component specified here.
     reactComponent: class HolismHttpServerErrorPageView extends React.Component {
         render () {
-            var ComponentRouter = this.props.appStateContext.ComponentRouter;
+
+            const ComponentRouter = this.props.renderContext.ComponentRouter;
+            return (<ComponentRouter {...this.props} renderData={ { HolisticPageView: { pageContentEP: [ { HolismHttpServerErrorPageContent: this.props.renderData["ESCW71rwTz24meWiZpJb4A"] } ] } } } />);
+
+
+            /*
+            const ComponentRouter = this.props.renderContext.ComponentRouter;
             const pageContentEP = {
                 HolisticPageView: {
                     pageContentEP: [
-                        { HolismHttpServerErrorPageContent: this.props.renderData['ESCW71rwTz24meWiZpJb4A'] }
+                        {
+                            HolismHttpServerErrorPageContent: this.props.renderData["ESCW71rwTz24meWiZpJb4A"]
+                        }
                     ]
                 }
             };
             return(<ComponentRouter {...this.props} renderData={pageContentEP} />);
+            */
+
         }
     }
 });

@@ -30,36 +30,30 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
         }
 
         render()  {
-            var ComponentRouter = this.props.appStateContext.ComponentRouter;
-            const metadata = this.props.document.metadata;
-            const theme = metadata.site.theme;
+
+            var ComponentRouter = this.props.renderContext.ComponentRouter;
+
             const renderData = this.props.renderData["HolismHttpServerErrorPageContent"];
             var keyIndex = 0;
             function makeKey() { return ("HolismHttpServerErrorPageContent" + keyIndex++); }
             var content = [];
+
             switch (renderData.http.code) {
+
             default:
-                content.push(<h1 key={makeKey()}>{metadata.site.name} Error {renderData.http.code}{': '}{renderData.http.message}</h1>);
-                content.push(<div key={makeKey()}>
-                             <p><span style={{ fontSize: "larger" }}>The {metadata.site.name} application server cannot process your request.</span></p>
-                             <p style={theme.base.PageContent_HttpServerError.errorMessage}>{renderData.error_message}</p>
-                             </div>);
-
-                content.push(<pre key={makeKey()}>
-                             {JSON.stringify(renderData, undefined, 4)}
-                             </pre>);
-
+                content.push(<h1 key={makeKey()}>App Server HTTP Error {renderData.http.code}{': '}{renderData.http.message}</h1>);
+                content.push(<div key={makeKey()}>{renderData.error_message}</div>);
+                content.push(<pre key={makeKey()}>{JSON.stringify(renderData, undefined, 4)}</pre>);
                 content.push(<div key={makeKey()} style={{ marginTop: "1em", fontWeight: "bold", textAlign: "right" }} >
                              [ <a href="/" title="Go home...">Home</a> ]
                              [ <a href="/login" title="Login...">Login</a> ]
                              [ <a href="/logout" title="Logout...">Logout</a> ]
-                             [ <a href="/user" title="User settings...">User</a> ]
                              </div>
                             );
                 break;
             }
 
-            return (<div style={theme.base.PageContent_HttpServerError.container}>{content}</div>);
+            return (<div>{content}</div>);
         }
     }
 });

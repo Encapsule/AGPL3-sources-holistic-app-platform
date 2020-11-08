@@ -13,9 +13,10 @@ const dataRoutableComponents = [
     require("./RUXBase_PageContent_HttpServerError.jsx"),
     require("./HolisticMarkdownContent.jsx"),
     require("./HolisticEmptyPlaceholder.jsx"),
-    require("./HolisticDebugReactComponentProps.jsx"),
-    require("./HolisticDebugOPC.jsx")
 
+    // DISABLED PENDING FURTHER REVIEW against @encapsule/holistic v0.0.47+
+    // require("./HolisticDebugReactComponentProps.jsx"),
+    // require("./HolisticDebugOPC.jsx")
 ];
 
 // Convert the array into a dictionary.
