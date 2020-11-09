@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "63Di7UtL-DfrhPXCpQ2qtw",
+                    "vdid": "R1kpKWEaQPQCfETDNVCVXQ",
                     "name": "Holistic App Client Kernel",
                     "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                     "cmat": {
@@ -22,13 +22,13 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "63Di7UtL-DfrhPXCpQ2qtw",
+                            "vdid": "R1kpKWEaQPQCfETDNVCVXQ",
                             "name": "Holistic App Client Kernel",
                             "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                             "type": "CM",
                             "PPL45jw5RDWSMNsB97WIWg": {
                               "id": "PPL45jw5RDWSMNsB97WIWg",
-                              "vdid": "wSl9MXfye3gBkH_U9rqfNw",
+                              "vdid": "6636pJJUgDZMyNGuQteb3Q",
                               "name": "Holistic Client App Kernel",
                               "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                               "type": "APM"
@@ -54,11 +54,18 @@
                               "description": "ControllerAction that signals the Holistic App Client Kernel process of the occurance of a previously-hooked DOM event.",
                               "type": "ACT"
                             },
+                            "4zsKHGrWRPm9fFa-RxsBuw": {
+                              "id": "4zsKHGrWRPm9fFa-RxsBuw",
+                              "vdid": "0awh2YufjDPaGqTbp71rFg",
+                              "name": "Holistic App Client Kernel: Process Step Worker",
+                              "description": "Performs actions on behalf of the Holistic App Client Kernel APM.",
+                              "type": "ACT"
+                            },
                             "mmLcuWywTe6lUL9OtMJisg": {
                               "id": "mmLcuWywTe6lUL9OtMJisg",
-                              "vdid": "2qH9EJakNEJ9psRgL7pRDg",
+                              "vdid": "zSeth5PtTpQ3lDh35HreGw",
                               "name": "Holistic App Client Kernel: Signal Lifecycle Event",
-                              "description": "Forwards a holistic app client lifecycle signal to the derived client application's daemon proces.",
+                              "description": "Forwards a holistic app client lifecycle signal to the derived app client service process.",
                               "type": "ACT"
                             },
                             "Aw4XWmZGSn2TM8XWJr642g": {
@@ -280,14 +287,14 @@
                             },
                             "UX7JquBhSZO0QyEk7u9-sw": {
                               "id": "UX7JquBhSZO0QyEk7u9-sw",
-                              "vdid": "cgpg7OLCSwMTSy5fT_o1ag",
+                              "vdid": "cjxg7OKJSwMThy5fT1c1ag",
                               "name": "Holistic App Client Kernel: d2r2/React Client Display Adaptor",
                               "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                               "type": "CM",
                               "IxoJ83u0TXmG7PLUYBvsyg": {
                                 "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                "vdid": "ddbCC4gMbcFS6IkV4gpjKw",
-                                "name": "Holistic Client App Kernel: d2r2/React Client Display Adaptor",
+                                "vdid": "DLUSQH8k45hdXUGc1UxHNA",
+                                "name": "Holistic Client App Kernel: d2r2/React Client Display Adapter",
                                 "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                 "type": "APM"
                               },
@@ -371,13 +378,13 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 51,
-                      "edges": 96,
+                      "vertices": 52,
+                      "edges": 98,
                       "artifacts": {
                         "cm": 13,
                         "apm": 6,
                         "top": 13,
-                        "act": 15
+                        "act": 16
                       }
                     }
                   },
@@ -405,14 +412,14 @@
                         },
                         {
                           "id": "PPL45jw5RDWSMNsB97WIWg",
-                          "vdid": "wSl9MXfye3gBkH_U9rqfNw",
+                          "vdid": "6636pJJUgDZMyNGuQteb3Q",
                           "name": "Holistic Client App Kernel",
                           "description": "This model manages, tracks, and controls the lifecycle of the client application."
                         },
                         {
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                          "vdid": "ddbCC4gMbcFS6IkV4gpjKw",
-                          "name": "Holistic Client App Kernel: d2r2/React Client Display Adaptor",
+                          "vdid": "DLUSQH8k45hdXUGc1UxHNA",
+                          "name": "Holistic Client App Kernel: d2r2/React Client Display Adapter",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React."
                         },
                         {
@@ -540,6 +547,12 @@
                           "description": "Registers DOM event handlers on behalf of the Holistic App Client Kernel process needed to track application lifespan and provide core services."
                         },
                         {
+                          "id": "4zsKHGrWRPm9fFa-RxsBuw",
+                          "vdid": "0awh2YufjDPaGqTbp71rFg",
+                          "name": "Holistic App Client Kernel: Process Step Worker",
+                          "description": "Performs actions on behalf of the Holistic App Client Kernel APM."
+                        },
+                        {
                           "id": "h-auSE-OSP2TG1jh_3EQ1Q",
                           "vdid": "skb4uUzHBoVDf_eq1J5S7A",
                           "name": "Holistic App Client Kernel: Receive DOM Event",
@@ -553,9 +566,9 @@
                         },
                         {
                           "id": "mmLcuWywTe6lUL9OtMJisg",
-                          "vdid": "2qH9EJakNEJ9psRgL7pRDg",
+                          "vdid": "zSeth5PtTpQ3lDh35HreGw",
                           "name": "Holistic App Client Kernel: Signal Lifecycle Event",
-                          "description": "Forwards a holistic app client lifecycle signal to the derived client application's daemon proces."
+                          "description": "Forwards a holistic app client lifecycle signal to the derived app client service process."
                         },
                         {
                           "id": "_yxWfFLnTqqN-UxRdd7W5w",
@@ -603,13 +616,13 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "63Di7UtL-DfrhPXCpQ2qtw",
+                          "vdid": "R1kpKWEaQPQCfETDNVCVXQ",
                           "name": "Holistic App Client Kernel",
                           "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                           "type": "CM",
                           "PPL45jw5RDWSMNsB97WIWg": {
                             "id": "PPL45jw5RDWSMNsB97WIWg",
-                            "vdid": "wSl9MXfye3gBkH_U9rqfNw",
+                            "vdid": "6636pJJUgDZMyNGuQteb3Q",
                             "name": "Holistic Client App Kernel",
                             "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                             "type": "APM"
@@ -635,11 +648,18 @@
                             "description": "ControllerAction that signals the Holistic App Client Kernel process of the occurance of a previously-hooked DOM event.",
                             "type": "ACT"
                           },
+                          "4zsKHGrWRPm9fFa-RxsBuw": {
+                            "id": "4zsKHGrWRPm9fFa-RxsBuw",
+                            "vdid": "0awh2YufjDPaGqTbp71rFg",
+                            "name": "Holistic App Client Kernel: Process Step Worker",
+                            "description": "Performs actions on behalf of the Holistic App Client Kernel APM.",
+                            "type": "ACT"
+                          },
                           "mmLcuWywTe6lUL9OtMJisg": {
                             "id": "mmLcuWywTe6lUL9OtMJisg",
-                            "vdid": "2qH9EJakNEJ9psRgL7pRDg",
+                            "vdid": "zSeth5PtTpQ3lDh35HreGw",
                             "name": "Holistic App Client Kernel: Signal Lifecycle Event",
-                            "description": "Forwards a holistic app client lifecycle signal to the derived client application's daemon proces.",
+                            "description": "Forwards a holistic app client lifecycle signal to the derived app client service process.",
                             "type": "ACT"
                           },
                           "Aw4XWmZGSn2TM8XWJr642g": {
@@ -861,14 +881,14 @@
                           },
                           "UX7JquBhSZO0QyEk7u9-sw": {
                             "id": "UX7JquBhSZO0QyEk7u9-sw",
-                            "vdid": "cgpg7OLCSwMTSy5fT_o1ag",
+                            "vdid": "cjxg7OKJSwMThy5fT1c1ag",
                             "name": "Holistic App Client Kernel: d2r2/React Client Display Adaptor",
                             "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                             "type": "CM",
                             "IxoJ83u0TXmG7PLUYBvsyg": {
                               "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                              "vdid": "ddbCC4gMbcFS6IkV4gpjKw",
-                              "name": "Holistic Client App Kernel: d2r2/React Client Display Adaptor",
+                              "vdid": "DLUSQH8k45hdXUGc1UxHNA",
+                              "name": "Holistic Client App Kernel: d2r2/React Client Display Adapter",
                               "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                               "type": "APM"
                             },

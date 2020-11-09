@@ -239,7 +239,7 @@
                     "ocdi": {
                       "test": {
                         "__apmiStep": "uninitialized",
-                        "__apmiEvalError": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Handled exception during controller action dispatch: This is a forced exception thrown from a controller action body function."
+                        "__apmiEvalError": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. An exception occurred inside the [V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2] ControllerAction plug-in: This is a forced exception thrown from a controller action body function."
                       }
                     },
                     "transitionDispatcher": {
@@ -2746,7 +2746,7 @@
                                           "badControllerActionThrowError": true
                                         },
                                         "response": {
-                                          "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Handled exception during controller action dispatch: This is a forced exception thrown from a controller action body function."
+                                          "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. An exception occurred inside the [V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2] ControllerAction plug-in: This is a forced exception thrown from a controller action body function."
                                         }
                                       }
                                     ],
