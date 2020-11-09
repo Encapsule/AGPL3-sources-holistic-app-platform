@@ -30,7 +30,7 @@ const holarchy = require("@encapsule/holarchy");
                     let actResponse = request_.act({
                         actorName: "Holistic App Client Kernel: Get Status",
                         actorTaskDescription: "Querying the CellProcessor to determine if and where in the cell plane the Holistic App Client Kernel process is activated.",
-                        actionRequest: { CellProcessor: { cell: { cellCoordinates: { apmID: "PPL45jw5RDWSMNsB97WIWg", instanceName: "daemon" }, query: { } } } }
+                        actionRequest: { CellProcessor: { cell: { cellCoordinates: { apmID: "PPL45jw5RDWSMNsB97WIWg" }, query: { } } } }
                     });
                     if (actResponse.error) {
                         errors.push(actResponse.error);

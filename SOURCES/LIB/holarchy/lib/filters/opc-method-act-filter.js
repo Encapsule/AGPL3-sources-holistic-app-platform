@@ -81,6 +81,7 @@ const factoryResponse = arccore.filter.create({
 
                 // Dispatch the action on behalf of the actor.
                 let actionResponse = null;
+                let actionFilter = null;
                 try {
                     // Dispatch the actor's requested action.
                     actionResponse = opcRef._private.actionDispatcher.request(controllerActionRequest);
@@ -89,7 +90,7 @@ const factoryResponse = arccore.filter.create({
                             error: "Invalid action request cannot be routed to any registered ControllerAction plug-in."
                         };
                     } else {
-                        let actionFilter = actionResponse.result;
+                        actionFilter = actionResponse.result;
 
                         logger.request({
                             opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
@@ -107,8 +108,9 @@ const factoryResponse = arccore.filter.create({
                     }
 
                 } catch (actionCallException_) {
-                    errors.push("Handled exception during controller action dispatch: " + actionCallException_.message);
-                    break;
+                    actionResponse = {
+                        error: `An exception occurred inside the [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}] ControllerAction plug-in: ${actionCallException_.message}`
+                    };
                 }
 
                 // If a transport error occurred dispatching the controller action,
@@ -159,7 +161,7 @@ const factoryResponse = arccore.filter.create({
                         opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
                                evalCount: opcRef._private.evalCount, frameCount: 0, actorStack: opcRef._private.opcActorStack },
                         subsystem: "opc", method: "act", phase: "body",
-                        message: "Propagating cell action affects through active cells..."
+                        message: "Propogating the affects of the external actor's action across the runtime cell plane..."
                     });
 
                     // Evaluate is an actor too. It adds itself to the OPC actor stack.
@@ -171,8 +173,18 @@ const factoryResponse = arccore.filter.create({
                         opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
                                evalCount: opcRef._private.evalCount, frameCount: 0, actorStack: opcRef._private.opcActorStack },
                         subsystem: "opc", method: "act", phase: "body",
-                        message: "Action affects propogation complete. CellProcessor instance will now go back to sleep."
+                        message: "The affect(s) of the external actor's action have been propogated across the runtime cell plane."
                     });
+
+                    logger.request({
+                        opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
+                               evalCount: opcRef._private.evalCount, frameCount: 0, actorStack: opcRef._private.opcActorStack },
+                        subsystem: "opc", method: "act", phase: "body",
+                        message: "CellProcessor will now go back to sleep and wait for another external actor to act..."
+
+                    });
+
+
 
                     if (evaluateResponse.error) {
                         errors.push("Unable to evaluate OPC state after executing controller action due to error:");

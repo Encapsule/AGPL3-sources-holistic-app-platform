@@ -226,16 +226,10 @@ const holarchy = require("@encapsule/holarchy");
                                         actionRequest: {
                                             CellProcessor: {
                                                 process: {
-                                                    processCoordinates: {
-                                                        apmID: "PPL45jw5RDWSMNsB97WIWg" /* Holistic App Client Kernel */,
-                                                        instanceName: "daemon"
-                                                    },
+                                                    processCoordinates: { apmID: "PPL45jw5RDWSMNsB97WIWg" /* Holistic App Client Kernel */ },
                                                     activate: {
                                                         processData: {
-                                                            derivedAppClientProcessCoordinates: {
-                                                                apmID: clientFactoryRequest_.apmID,
-                                                                instanceName: "daemon"
-                                                            }
+                                                            derivedAppClientProcessCoordinates: { apmID: clientFactoryRequest_.apmID }
                                                         }
                                                     },
                                                 }
@@ -255,8 +249,7 @@ const holarchy = require("@encapsule/holarchy");
                                             CellProcessor: {
                                                 process: {
                                                     processCoordinates: {
-                                                        apmID: clientFactoryRequest_.apmID, // X App Client (synthesized)
-                                                        instanceName: "daemon"
+                                                        apmID: clientFactoryRequest_.apmID // X App Client (synthesized)
                                                     },
                                                     activate: {
                                                         processData: {

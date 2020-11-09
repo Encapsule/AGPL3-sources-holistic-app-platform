@@ -1,7 +1,9 @@
 
 // ControllerAction-app-client-runtime-notify-event.js
 
-module.exports = {
+const holarchy = require("@encapsule/holarchy");
+
+const controllerAction = new holarchy.ControllerAction({
 
     id: "h-auSE-OSP2TG1jh_3EQ1Q",
     name: "Holistic App Client Kernel: Receive DOM Event",
@@ -50,30 +52,35 @@ module.exports = {
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const message = request_.actionRequest.holistic.app.client.kernel._private.notifyEvent;
+            const messageBody = request_.actionRequest.holistic.app.client.kernel._private.notifyEvent;
+            let ocdResponse;
 
-            switch (message.eventName) {
+            switch (messageBody.eventName) {
 
             case "window.onload":
-
                 // We just need to signal the HolisticAppClientRuntime cell process that the window has loaded.
-                let actionResponse = request_.context.act({
-                    actorName: "HolisticAppClientRuntime External DOM Event Notify",
-                    actorTaskDescription: "Inform the HolisticAppClientRutime cell process that the window has loaded.",
-                    actionRequest: { holarchy: { cm: { actions: { ocd: { setBooleanFlag: { path: "#.windowLoaded" } } } } } },
-                    apmBindingPath: request_.context.apmBindingPath
-                });
 
-                if (actionResponse.error) {
-                    // TODO: Report this back to the app kernel via an action that needs to get written soon.
-                    console.error(actionResponse.error);
+                ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.windowLoaded"}, true);
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
                 }
+
+                ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.windowLoadTimeMs" }, messageBody.eventData.timeStamp);
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error)
+                    break;
+                }
+
+                console.log(`> The browser tab reports that so far it has taken ${messageBody.eventData.timeStamp} ms to download and parse this HTML5 document + its referenced resources.`);
+
                 break;
 
             default:
-                errors.push(`Action implementation does not yet support event name '${message.eventName}'.`);
+                errors.push(`Internal error: unhandled event name "{messageBody.eventName}".`);
                 break;
-            }
+
+            } // end switch
 
 
             break;
@@ -84,4 +91,11 @@ module.exports = {
         return response;
     }
 
-};
+});
+
+if (!controllerAction.isValid()) {
+    throw new Error(controllerAction.toJSON());
+}
+
+module.exports = controllerAction;
+

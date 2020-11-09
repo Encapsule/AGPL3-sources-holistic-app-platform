@@ -6,7 +6,7 @@ const hackLib = require("./lib");
 const controllerAction = new holarchy.ControllerAction({
     id: "mmLcuWywTe6lUL9OtMJisg",
     name: "Holistic App Client Kernel: Signal Lifecycle Event",
-    description: "Forwards a holistic app client lifecycle signal to the derived client application's daemon proces.",
+    description: "Forwards a holistic app client lifecycle signal to the derived app client service process.",
 
     actionRequestSpec: {
         ____types: "jsObject",

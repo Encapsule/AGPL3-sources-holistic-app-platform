@@ -105,7 +105,13 @@ const controllerAction = new holarchy.ControllerAction({
                                     actionRequest: {
                                         CellProcessor: {
                                             process: {
-                                                activate: {},
+                                                activate: {
+                                                    processData: {
+                                                        construction: {
+                                                            d2r2Components: kernelCellData.lifecycleResponses.query.result.actionResult.d2r2ComponentsArray
+                                                        }
+                                                    }
+                                                },
                                                 processCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* "Holistic Client App Kernel: d2r2/React Client Display Adaptor" */ }
                                             }
                                         }

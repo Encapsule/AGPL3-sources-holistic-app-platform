@@ -27,6 +27,7 @@ module.exports = class CellProcessor {
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
             this.act = this.act.bind(this);
+
             let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
@@ -46,5 +47,14 @@ module.exports = class CellProcessor {
     toJSON() { return (this.isValid()?this._private:this._private.constructorError); }
 
     act(request_) { return (this.isValid()?actFilter.request({ ...request_, opcRef: this._private.opc }):{ error: this.toJSON() }); }
+
+    get memory() {
+        return (!this.isValid()?this.toJSON():(this.toJSON().opc.toJSON().ocdi.toJSON()));
+    }
+
+    get processes() {
+        return (!this.isValid()?this.toJSON():(this.toJSON().opc.toJSON().ocdi.toJSON()["x7pM9bwcReupSRh0fcYTgw_CellProcessor"].ownedCellProcesses.digraph.toJSON()));
+    }
+
 
 } // class CellProcessor
