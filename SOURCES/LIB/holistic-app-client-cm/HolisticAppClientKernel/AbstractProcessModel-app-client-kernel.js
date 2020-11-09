@@ -85,9 +85,6 @@ module.exports = {
                     { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { command: "show" } } } } } } },
                     { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel process is booting..." } } } } } } },
                     { holistic: { app: { client: { kernel: { _private: { hookDOMEvents: {} } } } } } },
-                    { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.serviceProcesses.domLocationProcessor", actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "-1Ptaq_zTUa8Gfv_3ODtDg" /* "Holistic App Client Kernel: DOM Location Processor" */ } } } } } } } },
-                    { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.serviceProcesses.d2r2DisplayAdapter", actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* "Holistic Client App Kernel: d2r2/React Client Display Adaptor" */ } } } } } } } },
-                    { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.serviceProcesses.clientViewProcessor", actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "Hsu-43zBRgqHItCPWPiBng" /* "Holistic App Client Kernel: Client View Processor" */ } } } } } } } },
                 ]
             },
             transitions: [
@@ -101,6 +98,32 @@ module.exports = {
                 exit: [
                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.init", actionRequest: { holistic: { app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "init" } } } } } } } } } } },
                     { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel has initialized the derived app client process." } } } } } } },
+                ]
+            },
+            transitions: [
+                { transitionIf: { always: true }, nextStep: "kernel-signal-lifecycle-query" }
+            ]
+        },
+
+        "kernel-signal-lifecycle-query": {
+            description: "Querying the derived holistic app client process for its runtime requirements and capabilities.",
+            actions: {
+                exit: [
+                    { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.query", actionRequest: { holistic: { app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "query" } } } } } } } } } } },
+                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel has queried the derived app client process." } } } } } } },
+                ]
+            },
+            transitions: [
+                { transitionIf: { always: true }, nextStep: "kernel-activate-subprocesses" }
+            ]
+        },
+
+
+        "kernel-activate-subprocesses": {
+            description: "Activating cell subprocesses required by the derived app client service.",
+            actions: {
+                enter: [
+                    { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "activate-subprocesses" } } } } } } }
                 ]
             },
             transitions: [
@@ -119,26 +142,12 @@ module.exports = {
                 {
                     transitionIf: {
                         and: [
-                            { CellProcessor: { cell: { query: { inStep: { apmStep: "wait" } }, cellCoordinates: { apmID: "-1Ptaq_zTUa8Gfv_3ODtDg" /* "Holistic App Client Kernel: DOM Location Processor" */ } } } },
-                            { CellProcessor: { cell: { query: { inStep: { apmStep: "initialized" } },  cellCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* "Holistic Client App Kernel: d2r2/React Client Display Adaptor" */ } } } },
-                            { CellProcessor: { cell: { query: { inStep: { apmStep: "wait_app_config" } }, cellCoordinates: { apmID: "Hsu-43zBRgqHItCPWPiBng" /* "Holistic App Client Kernel: Client View Processor" */ } } } },
+                            { CellProcessor: { cell: { query: { inStep: { apmStep: "display-adapter-wait-kernel" } },  cellCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* "Holistic Client App Kernel: d2r2/React Client Display Adaptor" */ } } } },
+                            { CellProcessor: { cell: { query: { inStep: { apmStep: "wait" } }, cellCoordinates: { apmID: "-1Ptaq_zTUa8Gfv_3ODtDg" /* "Holistic App Client Kernel: DOM Location Processor" */ } } } }
                         ]
                     },
-                    nextStep: "kernel-signal-lifecycle-query"
+                    nextStep: "kernel-wait-browser-tab-resources-loaded"
                 }
-            ]
-        },
-
-        "kernel-signal-lifecycle-query": {
-            description: "Querying the derived holistic app client process for its runtime requirements and capabilities.",
-            actions: {
-                exit: [
-                    { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.query", actionRequest: { holistic: { app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "query" } } } } } } } } } } },
-                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel has queried the derived app client process." } } } } } } },
-                ]
-            },
-            transitions: [
-                { transitionIf: { always: true }, nextStep: "kernel-wait-browser-tab-resources-loaded" }
             ]
         },
 

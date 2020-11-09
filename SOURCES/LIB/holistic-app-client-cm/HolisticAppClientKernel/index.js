@@ -10,6 +10,7 @@ const cellModel = new holarchy.CellModel({
         require("./ControllerAction-app-client-kernel-cell-plane-error"),
         require("./ControllerAction-app-client-kernel-hook-events"),
         require("./ControllerAction-app-client-kernel-notify-event"),
+        require("./ControllerAction-app-client-kernel-step-worker"),
         require("./ControllerAction-app-client-kernel-signal-lifecycle-event"),
         require("./ControllerAction-app-client-kernel-display")
     ],
