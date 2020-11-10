@@ -70,6 +70,32 @@ try {
       ]);
     */
 
+    console.log("> Loading repo-local copy of @encapsule/holism");
+    const local_holism = require("../PACKAGES/holism");
+
+    console.log("> Registered mock for @encapsule/holism");
+    mockery.registerMock("@encapsule/d2r2", local_holism);
+
+    // Special case?
+    console.log("> Loading repo-local copy of @encapsule/holism/lib/iospecs/http-response-error-result-spec");
+    const x = require("../PACKAGES/holism/lib/iospecs/http-response-error-result-spec");
+
+    console.log("> Registering mock for @encapsule/holism/lib/iospecs/http-response-error-result-spec");
+    mockery.registerMock("@encapsule/holism/lib/iospecs/http-response-error-result-spec", x);
+
+    console.log("> Loading repo-local copy of @encapsule/d2r2");
+    const local_d2r2 = require("../PACKAGES/d2r2");
+
+    console.log("> Registered mock for @encapsule/d2r2");
+    mockery.registerMock("@encapsule/d2r2", local_d2r2);
+
+    console.log("> Loading repo-local copy of @encapsule/d2r2-components");
+    const local_d2r2Components = require("../PACKAGES/d2r2-components");
+
+    console.log("> Registered mock for @encapsule/d2r2-components");
+    mockery.registerMock("@encapsule/d2r2-components", local_d2r2Components);
+
+
     console.log("> Loading repo-local copy of @encapsule/holarchy-cm");
     const local_holarchyCM = require("../PACKAGES/holarchy-cm");
 

@@ -7,7 +7,7 @@ const controllerAction = new holarchy.ControllerAction({
 
     id: "4zsKHGrWRPm9fFa-RxsBuw",
     name: "Holistic App Client Kernel: Process Step Worker",
-    description: "Performs actions on behalf of the Holistic App Client Kernel APM.",
+    description: "Performs actions on behalf of the Holistic App Client Kernel process.",
 
     actionRequestSpec: {
         ____types: "jsObject",
@@ -52,15 +52,15 @@ const controllerAction = new holarchy.ControllerAction({
             inBreakScope = true;
             const actorName = `[${this.operationID}::${this.operationName}]`;
             const messageBody = request_.actionRequest.holistic.app.client.kernel._private.stepWorker;
-            console.log(`${actorName} processing "${messageBody.action}" request from app client kernel APM.`);
+            console.log(`${actorName} processing "${messageBody.action}" request on behalf of app client kernel process.`);
 
             let hackLibResponse  = hackLib.getStatus.request(request_.context);
             if (hackLibResponse.error) {
                 errors.push(hackLibResponse.error);
                 break;
             }
-            let hackDescriptor = hackLibResponse.result;
-            let kernelCellData = hackDescriptor.cellMemory;
+            const hackDescriptor = hackLibResponse.result;
+            const kernelCellData = hackDescriptor.cellMemory;
             let actResponse, ocdResponse;
 
             switch (messageBody.action) {
