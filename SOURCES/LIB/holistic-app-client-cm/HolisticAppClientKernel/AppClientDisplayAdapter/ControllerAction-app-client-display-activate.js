@@ -2,7 +2,6 @@
 
 const holarchy = require("@encapsule/holarchy");
 const hacdLib = require("./lib");
-
 const React = require("react");
 const ReactDOM = require("react-dom");
 
@@ -65,25 +64,41 @@ const controllerAction = new holarchy.ControllerAction({
             const displayAdapterStatus = hacdLibResponse.result;
             let displayAdapterCellData = displayAdapterStatus.cellMemory;
 
+            if (displayAdapterCellData.__apmiStep !== "display-adapter-wait-initial-layout") {
+                errors.push("This action may only be called once the app client display adapter process is in its \"display-adapter-wait-initial-layout\" step.");
+                break;
+            }
+
             const thisProps = {
                 renderContext: {
-                    renderEnvironment: "server", // because messageBody.renderData was rendered by the app server process
+                    renderEnvironment: "server", // because renderData is a copy of renderData used by the app server process to render the static HTML5 that is currently inside our target DOM element.
                     ComponentRouter: displayAdapterCellData.config.ComponentRouter,
                     act: request_.context.act,
-                    apmBindingPath: request_.context.apmBindingPath
+                    apmBindingPath: request_.context.apmBindingPath // This will be the holistic app client kernel - not a view process.
                 },
                 renderData: messageBody.displayLayoutRequest.renderData
             };
 
+            // This re-renders the exact context rendered via ReactDOM by the app server process again in the client
+            // using markers embedded by React to make it fast. Effectively, this runs the React components through
+            // their full lifecycle (whereas they are not mounted ever in the context of the app server process).
             let d2r2Component = React.createElement(displayAdapterCellData.config.ComponentRouter, thisProps);
-
             ReactDOM.hydrate(d2r2Component, displayAdapterCellData.config.targetDOMElement);
 
+            // Re-render flipping the renderEnvironment flag to "client". Typically, this is used by the rendering d2r2 Component to trigger some sort of loading/spinner transition.
             thisProps.renderContext.renderEnvironment = "client";
-
             d2r2Component = React.createElement(displayAdapterCellData.config.ComponentRouter, thisProps);
+            ReactDOM.render(d2r2Component, displayAdapterCellData.config.targetDOMElement);
 
-            ReactDOM.hydrate(d2r2Component, displayAdapterCellData.config.targetDOMElement);
+            displayAdapterCellData.displayUpdateCount += 1;
+            const ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: displayAdapterStatus.displayAdapterProcess.apmBindingPath, dataPath: "#.displayUpdateCount" }, displayAdapterCellData.displayUpdateCount);
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
+
+            console.log(`> d2r2/React display adapter render #${displayAdapterCellData.displayUpdateCount} completed.`);
+            console.log("> The derived app client service display process has been activated, and the display surface is now interacive!");
 
             break;
         }

@@ -28,7 +28,7 @@
                       [
                         {
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                          "vdid": "P1zbBJ6ePo-LBEWDXMD54g",
+                          "vdid": "Xt3MRWiEKem28nPbG2rB4Q",
                           "name": "Holistic Client App Kernel: d2r2/React Client Display Adapter",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React."
                         }
@@ -50,6 +50,12 @@
                           "vdid": "o1o3dmSeXG4aJfr0HQap8A",
                           "name": "Holistic App Client Display Adapter: Process Step Worker",
                           "description": "Performs actions on behalf of the Holistic App Client Display Adapter process."
+                        },
+                        {
+                          "id": "RlNHSKNBT32xejFqjsiZyg",
+                          "vdid": "u3cpDPVf5bMGJZZtNco5iQ",
+                          "name": "Holistic App Client Display Adapter: Update Display Layout",
+                          "description": "Performs a programmatic re-rendering of the display adapter's DIV target using d2r2 <ComponentRouter/>."
                         }
                       ]
                     ]

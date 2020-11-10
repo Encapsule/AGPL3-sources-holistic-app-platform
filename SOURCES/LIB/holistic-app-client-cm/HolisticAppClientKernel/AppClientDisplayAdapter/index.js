@@ -10,8 +10,7 @@ module.exports = new holarchy.CellModel({
     actions: [
         require("./ControllerAction-app-client-display-step-worker"),
         require("./ControllerAction-app-client-display-activate"),
-
-
+        require("./ControllerAction-app-client-display-update")
     ],
     subcells: [ ]
 });

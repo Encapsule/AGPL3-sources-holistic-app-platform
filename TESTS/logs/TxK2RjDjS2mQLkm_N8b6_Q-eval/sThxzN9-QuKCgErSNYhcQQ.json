@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "ugne1_hxVLBu2RYwpV7Rjg",
+                    "vdid": "4nHVCvFhswIRV80vU7aK-Q",
                     "name": "Holistic App Client Kernel",
                     "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                     "cmat": {
@@ -22,7 +22,7 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "ugne1_hxVLBu2RYwpV7Rjg",
+                            "vdid": "4nHVCvFhswIRV80vU7aK-Q",
                             "name": "Holistic App Client Kernel",
                             "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                             "type": "CM",
@@ -287,13 +287,13 @@
                             },
                             "UX7JquBhSZO0QyEk7u9-sw": {
                               "id": "UX7JquBhSZO0QyEk7u9-sw",
-                              "vdid": "sfJcSRLuf7c21LeEoSWc9Q",
+                              "vdid": "xV9cYMvf1FbNBw6QBKduig",
                               "name": "Holistic App Client Kernel: d2r2/React Client Display Adaptor",
                               "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                               "type": "CM",
                               "IxoJ83u0TXmG7PLUYBvsyg": {
                                 "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                "vdid": "P1zbBJ6ePo-LBEWDXMD54g",
+                                "vdid": "Xt3MRWiEKem28nPbG2rB4Q",
                                 "name": "Holistic Client App Kernel: d2r2/React Client Display Adapter",
                                 "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                 "type": "APM"
@@ -310,6 +310,13 @@
                                 "vdid": "SGd_-7uH0LNjNCmRxuPbHg",
                                 "name": "Holistic App Client Display Adapter: Initialize Display Layout",
                                 "description": "Performs initial programmatic re-render of the display adapter's DIV target using d2r2 <ComponentRouter/> and a copy of the d2r2 renderData that the app server process used to render the static HTML5 content that resides currently in the display adapter's DIV target element.",
+                                "type": "ACT"
+                              },
+                              "RlNHSKNBT32xejFqjsiZyg": {
+                                "id": "RlNHSKNBT32xejFqjsiZyg",
+                                "vdid": "u3cpDPVf5bMGJZZtNco5iQ",
+                                "name": "Holistic App Client Display Adapter: Update Display Layout",
+                                "description": "Performs a programmatic re-rendering of the display adapter's DIV target using d2r2 <ComponentRouter/>.",
                                 "type": "ACT"
                               }
                             },
@@ -385,13 +392,13 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 53,
-                      "edges": 100,
+                      "vertices": 54,
+                      "edges": 102,
                       "artifacts": {
                         "cm": 13,
                         "apm": 6,
                         "top": 13,
-                        "act": 17
+                        "act": 18
                       }
                     }
                   },
@@ -425,7 +432,7 @@
                         },
                         {
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                          "vdid": "P1zbBJ6ePo-LBEWDXMD54g",
+                          "vdid": "Xt3MRWiEKem28nPbG2rB4Q",
                           "name": "Holistic Client App Kernel: d2r2/React Client Display Adapter",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React."
                         },
@@ -554,6 +561,12 @@
                           "description": "Performs actions on behalf of the Holistic App Client Display Adapter process."
                         },
                         {
+                          "id": "RlNHSKNBT32xejFqjsiZyg",
+                          "vdid": "u3cpDPVf5bMGJZZtNco5iQ",
+                          "name": "Holistic App Client Display Adapter: Update Display Layout",
+                          "description": "Performs a programmatic re-rendering of the display adapter's DIV target using d2r2 <ComponentRouter/>."
+                        },
+                        {
                           "id": "ZE1JY82CQ5uRlWQ-zgqz5g",
                           "vdid": "r26dQmsJ96kBlItgt8ezJQ",
                           "name": "Holistic App Client Kernel: Cell Plane Error Handler",
@@ -629,7 +642,7 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "ugne1_hxVLBu2RYwpV7Rjg",
+                          "vdid": "4nHVCvFhswIRV80vU7aK-Q",
                           "name": "Holistic App Client Kernel",
                           "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                           "type": "CM",
@@ -894,13 +907,13 @@
                           },
                           "UX7JquBhSZO0QyEk7u9-sw": {
                             "id": "UX7JquBhSZO0QyEk7u9-sw",
-                            "vdid": "sfJcSRLuf7c21LeEoSWc9Q",
+                            "vdid": "xV9cYMvf1FbNBw6QBKduig",
                             "name": "Holistic App Client Kernel: d2r2/React Client Display Adaptor",
                             "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                             "type": "CM",
                             "IxoJ83u0TXmG7PLUYBvsyg": {
                               "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                              "vdid": "P1zbBJ6ePo-LBEWDXMD54g",
+                              "vdid": "Xt3MRWiEKem28nPbG2rB4Q",
                               "name": "Holistic Client App Kernel: d2r2/React Client Display Adapter",
                               "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                               "type": "APM"
@@ -917,6 +930,13 @@
                               "vdid": "SGd_-7uH0LNjNCmRxuPbHg",
                               "name": "Holistic App Client Display Adapter: Initialize Display Layout",
                               "description": "Performs initial programmatic re-render of the display adapter's DIV target using d2r2 <ComponentRouter/> and a copy of the d2r2 renderData that the app server process used to render the static HTML5 content that resides currently in the display adapter's DIV target element.",
+                              "type": "ACT"
+                            },
+                            "RlNHSKNBT32xejFqjsiZyg": {
+                              "id": "RlNHSKNBT32xejFqjsiZyg",
+                              "vdid": "u3cpDPVf5bMGJZZtNco5iQ",
+                              "name": "Holistic App Client Display Adapter: Update Display Layout",
+                              "description": "Performs a programmatic re-rendering of the display adapter's DIV target using d2r2 <ComponentRouter/>.",
                               "type": "ACT"
                             }
                           },
