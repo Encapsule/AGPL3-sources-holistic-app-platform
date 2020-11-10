@@ -21,9 +21,6 @@
       is available for processing.
 */
 
-
-
-
 const holarchy = require("@encapsule/holarchy");
 
 const apm = new holarchy.AbstractProcessModel({
@@ -52,7 +49,7 @@ const apm = new holarchy.AbstractProcessModel({
                 ____label: "d2r2/React Components Array",
                 ____description: "An array of d2r2/React component binding filters the the derived app client process needs registered in the d2r2 request space.",
                 ____types: "jsArray",
-                d2r2ComponentWrapperFilter: { ____accept: "jsObject" }
+                d2r2Component: { ____accept: "jsObject" }
             },
             serverRenderData: {
                 ____label: "d2r2 Server Render Data",
