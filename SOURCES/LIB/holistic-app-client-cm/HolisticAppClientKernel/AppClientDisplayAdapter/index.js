@@ -8,8 +8,10 @@ module.exports = new holarchy.CellModel({
     description: "Manages the DOM display via @encapsule/d2r2 and React.",
     apm: require("./AbstractProcessModel-app-client-display-adapter"),
     actions: [
-        require("./ControllerAction-app-client-display-step-worker")
-        // require("./ControllerAction-react-render-client-view")
+        require("./ControllerAction-app-client-display-step-worker"),
+        require("./ControllerAction-app-client-display-activate"),
+
+
     ],
     subcells: [ ]
 });

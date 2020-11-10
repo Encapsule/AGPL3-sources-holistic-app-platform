@@ -28,6 +28,7 @@ const controllerAction = new holarchy.ControllerAction({
                                     ____inValueSet: [
                                         "noop",
                                         "activate-subprocesses",
+                                        "activate-display-adapter",
                                     ],
                                     ____defaultValue: "noop"
                                 }
@@ -129,6 +130,36 @@ const controllerAction = new holarchy.ControllerAction({
                 }
                 // TODO: Let's leave this out for now until the basic stuff is working end-to-end and requirements are less abstract.
                 // { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.serviceProcesses.clientViewProcessor", actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "Hsu-43zBRgqHItCPWPiBng" /* "Holistic App Client Kernel: Client View Processor" */ } } } } } } } },
+                break;
+
+            case "activate-display-adapter":
+                actResponse = request_.context.act({
+                    actorName,
+                    actorTaskDescription: "Sending initial layout request data to the app client display adapter to activate the display adapter process.",
+                    actionRequest: {
+                        holistic: {
+                            app: {
+                                client: {
+                                    display: {
+                                        _private: {
+                                            activate: {
+                                                displayLayoutRequest: {
+                                                    renderData: kernelCellData.bootROMData.document.data
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    apmBindingPath: request_.context.apmBindingPath // this will be the holistic app client kernel process
+                });
+                if (actResponse.error) {
+                    errors.push(actResponse.error);
+                    break;
+                }
+
                 break;
 
             default:

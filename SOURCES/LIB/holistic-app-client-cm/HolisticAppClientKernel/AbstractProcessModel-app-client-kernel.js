@@ -177,6 +177,7 @@ module.exports = {
             actions: {
                 enter: [
                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.deserialize", actionRequest: { holistic:{ app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "deserialize" } } } } } } } } } } },
+                    { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "activate-display-adapter" } } } } } } },
                     { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel has received deserialized application data from the derived app client process." } } } } } } },
                 ]
             },

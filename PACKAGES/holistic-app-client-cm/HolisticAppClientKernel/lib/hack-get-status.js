@@ -2,8 +2,6 @@
 
 var arccore = require("@encapsule/arccore");
 
-var holarchy = require("@encapsule/holarchy");
-
 (function () {
   var cachedKernelProcessQuery = null;
   var factoryResponse = arccore.filter.create({
