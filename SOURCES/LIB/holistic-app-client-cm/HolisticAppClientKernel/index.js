@@ -11,8 +11,7 @@ const cellModel = new holarchy.CellModel({
         require("./ControllerAction-app-client-kernel-hook-events"),
         require("./ControllerAction-app-client-kernel-notify-event"),
         require("./ControllerAction-app-client-kernel-step-worker"),
-        require("./ControllerAction-app-client-kernel-signal-lifecycle-event"),
-        require("./ControllerAction-app-client-kernel-display")
+        require("./ControllerAction-app-client-kernel-signal-lifecycle-event")
     ],
     subcells: [
         require("./AppClientDOMLocation"), // Manages the application's interface between the DOM href and hashrouter locations and the state of the cellular runtime process.
