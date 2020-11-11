@@ -144,7 +144,7 @@ const controllerAction = new holarchy.ControllerAction({
                                         _private: {
                                             activate: {
                                                 displayLayoutRequest: {
-                                                    renderData: kernelCellData.bootROMData.document.data
+                                                    renderData: kernelCellData.bootROMData.initialDisplayData.renderData
                                                 }
                                             }
                                         }

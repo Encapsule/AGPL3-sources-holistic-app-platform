@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "4nHVCvFhswIRV80vU7aK-Q",
+                    "vdid": "F0Y-AqdEMk3CENp1FQ5YMg",
                     "name": "Holistic App Client Kernel",
                     "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                     "cmat": {
@@ -22,13 +22,13 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "4nHVCvFhswIRV80vU7aK-Q",
+                            "vdid": "F0Y-AqdEMk3CENp1FQ5YMg",
                             "name": "Holistic App Client Kernel",
                             "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                             "type": "CM",
                             "PPL45jw5RDWSMNsB97WIWg": {
                               "id": "PPL45jw5RDWSMNsB97WIWg",
-                              "vdid": "eNoTJ8ScmCv11lnPFbzyBg",
+                              "vdid": "6RpFFoF4rHdU0h2WOzP72w",
                               "name": "Holistic Client App Kernel",
                               "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                               "type": "APM"
@@ -66,13 +66,6 @@
                               "vdid": "zSeth5PtTpQ3lDh35HreGw",
                               "name": "Holistic App Client Kernel: Signal Lifecycle Event",
                               "description": "Forwards a holistic app client lifecycle signal to the derived app client service process.",
-                              "type": "ACT"
-                            },
-                            "Aw4XWmZGSn2TM8XWJr642g": {
-                              "id": "Aw4XWmZGSn2TM8XWJr642g",
-                              "vdid": "LIisdYrhhQyllUvkgURYbQ",
-                              "name": "Holistic App Client Kernel: Root Display Command Processor",
-                              "description": "Provides low-level access to the \"root display\" which is active during kernel boot. And, subsequently only if catastrophic error occurs in the derived app client process or its subprocesses that are not handled by the derived app.",
                               "type": "ACT"
                             },
                             "qzMWhMstQ4Ki06O75y5hMA": {
@@ -392,13 +385,13 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 54,
-                      "edges": 102,
+                      "vertices": 53,
+                      "edges": 100,
                       "artifacts": {
                         "cm": 13,
                         "apm": 6,
                         "top": 13,
-                        "act": 18
+                        "act": 17
                       }
                     }
                   },
@@ -426,7 +419,7 @@
                         },
                         {
                           "id": "PPL45jw5RDWSMNsB97WIWg",
-                          "vdid": "eNoTJ8ScmCv11lnPFbzyBg",
+                          "vdid": "6RpFFoF4rHdU0h2WOzP72w",
                           "name": "Holistic Client App Kernel",
                           "description": "This model manages, tracks, and controls the lifecycle of the client application."
                         },
@@ -591,12 +584,6 @@
                           "description": "ControllerAction that signals the Holistic App Client Kernel process of the occurance of a previously-hooked DOM event."
                         },
                         {
-                          "id": "Aw4XWmZGSn2TM8XWJr642g",
-                          "vdid": "LIisdYrhhQyllUvkgURYbQ",
-                          "name": "Holistic App Client Kernel: Root Display Command Processor",
-                          "description": "Provides low-level access to the \"root display\" which is active during kernel boot. And, subsequently only if catastrophic error occurs in the derived app client process or its subprocesses that are not handled by the derived app."
-                        },
-                        {
                           "id": "mmLcuWywTe6lUL9OtMJisg",
                           "vdid": "zSeth5PtTpQ3lDh35HreGw",
                           "name": "Holistic App Client Kernel: Signal Lifecycle Event",
@@ -642,13 +629,13 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "4nHVCvFhswIRV80vU7aK-Q",
+                          "vdid": "F0Y-AqdEMk3CENp1FQ5YMg",
                           "name": "Holistic App Client Kernel",
                           "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                           "type": "CM",
                           "PPL45jw5RDWSMNsB97WIWg": {
                             "id": "PPL45jw5RDWSMNsB97WIWg",
-                            "vdid": "eNoTJ8ScmCv11lnPFbzyBg",
+                            "vdid": "6RpFFoF4rHdU0h2WOzP72w",
                             "name": "Holistic Client App Kernel",
                             "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                             "type": "APM"
@@ -686,13 +673,6 @@
                             "vdid": "zSeth5PtTpQ3lDh35HreGw",
                             "name": "Holistic App Client Kernel: Signal Lifecycle Event",
                             "description": "Forwards a holistic app client lifecycle signal to the derived app client service process.",
-                            "type": "ACT"
-                          },
-                          "Aw4XWmZGSn2TM8XWJr642g": {
-                            "id": "Aw4XWmZGSn2TM8XWJr642g",
-                            "vdid": "LIisdYrhhQyllUvkgURYbQ",
-                            "name": "Holistic App Client Kernel: Root Display Command Processor",
-                            "description": "Provides low-level access to the \"root display\" which is active during kernel boot. And, subsequently only if catastrophic error occurs in the derived app client process or its subprocesses that are not handled by the derived app.",
                             "type": "ACT"
                           },
                           "qzMWhMstQ4Ki06O75y5hMA": {
