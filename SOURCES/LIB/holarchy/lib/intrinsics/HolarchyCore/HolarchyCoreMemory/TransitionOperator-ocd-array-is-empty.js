@@ -34,8 +34,8 @@ module.exports = new TransitionOperator({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const message = request_.operatorRequest.holarchy.cm.operators.ocd.isArrayEmpty;
-            const rpResponse = ObservableControllerData.dataPathResolve({ dataPath: message.path, apmBindingPath: request_.context.apmBindingPath });
+            const messageBody = request_.operatorRequest.holarchy.cm.operators.ocd.arrayIsEmpty;
+            const rpResponse = ObservableControllerData.dataPathResolve({ dataPath: messageBody.path, apmBindingPath: request_.context.apmBindingPath });
             if (rpResponse.error) {
                 errors.push(rpResponse.error);
                 break;
