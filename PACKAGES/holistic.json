@@ -1,6 +1,6 @@
 {
     "name": "holistic",
-    "description": "Holistic app platform: A system of runtime libraries, tools, and developer process for building Node.js services and stateful HTML5 applications with React and re-usable, testable, composable, remixable plug-and-play software models.",
+    "description": "Holistic app platform is a domain modeling and runtime environment for building distributed web applications from reusable software models defined in JSON and implemented in JavaScript.",
     "version": "0.0.47",
     "codename": "alexandrite",
     "author": "Encapsule",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "vu-8tlTCTB2WCmSJXJ6DCw",
-    "buildSource": "31700c6e761b6a592e821fa8e274a85bbd04531d",
-    "buildTime": 1605115443,
-    "buildDateISO": "2020-11-11T17:24:03.000Z"
+    "buildID": "DmfzgMAkRyig-Fsi3QGYnQ",
+    "buildSource": "895b10612dcd763b6fa006ec7e3e9016ebb3832c",
+    "buildTime": 1605331311,
+    "buildDateISO": "2020-11-14T05:21:51.000Z"
 }

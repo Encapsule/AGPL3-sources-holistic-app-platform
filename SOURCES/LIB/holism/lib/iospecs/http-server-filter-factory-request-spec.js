@@ -28,8 +28,7 @@ module.exports = {
             buildID: { ____accept: "jsString" },
             buildSource: { ____accept: "jsString" },
             buildTime: { ____accept: "jsNumber" },
-            buildDateISO: { ____accept: "jsString" },
-            buildYear: { ____accept: "jsNumber" }
+            buildDateISO: { ____accept: "jsString" }
         },
         platform: {
             ____types: "jsObject",
