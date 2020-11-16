@@ -100,7 +100,7 @@ module.exports = new TransitionOperator({
                 } else {
                     const suboperatorRequest = { or: [] };
                     queryBody.apmStep.forEach((stepName_) => {
-                        subOperatorRequest.or.push({
+                        suboperatorRequest.or.push({
                             CellProcessor: {
                                 cell: {
                                     cellCoordinates: descendantCellProcessDescriptor_.apmBindingPath,

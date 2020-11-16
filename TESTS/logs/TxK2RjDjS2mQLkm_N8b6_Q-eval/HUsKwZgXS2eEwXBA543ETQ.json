@@ -77,7 +77,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "V_VX9bRwtHA9Hj0ebiJuIg",
-                        "vdid": "5i-epqQ3vqUjsGM6TdriKg",
+                        "vdid": "RS-epu83vqXasGM6IdriKg",
                         "name": "Useless CP Service Cell Process Manager (synthesized)",
                         "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Useless CP Service cell plane.",
                         "cmat": {
@@ -87,7 +87,7 @@
                               "type": "INDEX",
                               "V_VX9bRwtHA9Hj0ebiJuIg": {
                                 "id": "V_VX9bRwtHA9Hj0ebiJuIg",
-                                "vdid": "5i-epqQ3vqUjsGM6TdriKg",
+                                "vdid": "RS-epu83vqXasGM6IdriKg",
                                 "name": "Useless CP Service Cell Process Manager (synthesized)",
                                 "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Useless CP Service cell plane.",
                                 "type": "CM",
@@ -149,7 +149,7 @@
                                 },
                                 "esuJGgmERrSV3AFvFOMyhw": {
                                   "id": "esuJGgmERrSV3AFvFOMyhw",
-                                  "vdid": "p5PwQb6vyqR3_BfwrUNVkg",
+                                  "vdid": "y_ozG6EH6Az637gZJhb5jA",
                                   "name": "Cell Process Manager: Child Processes Any In Step",
                                   "description": "Returns Boolean true request.context.apmBindingPath is a cell process with any child cell process in the specified process step.",
                                   "type": "TOP"
@@ -1475,6 +1475,34 @@
                                 }
                               },
                               {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAnyInStep(jsObject).apmStep(jsArray)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.childProcessesAnyInStep.apmStep",
+                                  "filters": [
+                                    "esuJGgmERrSV3AFvFOMyhw"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsArray",
+                                  "filters1": [
+                                    "esuJGgmERrSV3AFvFOMyhw"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAnyInStep(jsObject).apmStep(jsString).stepName(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.childProcessesAnyInStep.apmStep.stepName",
+                                  "filters": [
+                                    "esuJGgmERrSV3AFvFOMyhw"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "esuJGgmERrSV3AFvFOMyhw"
+                                  ]
+                                }
+                              },
+                              {
                                 "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesActive(jsObject)",
                                 "p": {
                                   "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.descendantProcessesActive",
@@ -2630,6 +2658,18 @@
                               },
                               {
                                 "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAnyInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAnyInStep(jsObject).apmStep(jsArray)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAnyInStep(jsObject).apmStep(jsString)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAnyInStep(jsObject).apmStep(jsString).stepName(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
                                   "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAllInStep(jsObject)",
                                   "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsString)"
                                 }
@@ -3534,7 +3574,13 @@
                                         "childProcessesAnyInStep": {
                                           "____types": "jsObject",
                                           "apmStep": {
-                                            "____accept": "jsString"
+                                            "____types": [
+                                              "jsString",
+                                              "jsArray"
+                                            ],
+                                            "stepName": {
+                                              "____accept": "jsString"
+                                            }
                                           }
                                         }
                                       }
@@ -3546,10 +3592,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "oZS-VRf4CsfWWzLjNiCBig",
-                              "inputTypeVDID": "I96B4ynyZdTUGqD3lugS8g",
+                              "inputTypeVDID": "VfNt3VULd5zy6q_7s4nZag",
                               "outputTypeVIID": "KBov9UbxYf95j29LOwQo_Q",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "qk9tRNblOpNts3ucMFSEcg"
+                              "operationVDID": "qjl2RNb8LZNtKMWcMKUjcg"
                             }
                           },
                           "Fs6tE76WR5yTOdbwQ_N_FQ": {

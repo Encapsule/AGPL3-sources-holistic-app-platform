@@ -30,7 +30,12 @@ module.exports = new TransitionOperator({
                     filterBy: cellProcessQueryRequestFilterBySpec,
                     childProcessesAnyInStep: {
                         ____types: "jsObject",
-                        apmStep: { ____accept: "jsString" }
+                        apmStep: {
+                            // If apmStep is a single step name (string) then all child cell processes must be in that step.
+                            // If apmStep is an array of step names (strings), then all child cell processes must be in any of the indicated steps.
+                            ____types: [ "jsString", "jsArray" ],
+                            stepName: { ____accept: "jsString" }
+                        }
                     }
                 },
             }
@@ -96,7 +101,7 @@ module.exports = new TransitionOperator({
                 } else {
                     const suboperatorRequest = { or: [] };
                     queryBody.apmStep.forEach((stepName_) => {
-                        subOperatorRequest.or.push({
+                        suboperatorRequest.or.push({
                             CellProcessor: {
                                 cell: {
                                     cellCoordinates: childCellProcessDescriptor_.apmBindingPath,
