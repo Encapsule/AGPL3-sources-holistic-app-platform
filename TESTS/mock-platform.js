@@ -70,11 +70,17 @@ try {
       ]);
     */
 
+    console.log("> Loading repo-local copy of @encapsule/holism-metadata");
+    const local_holismMetadata = require("../PACKAGES/holism-metadata");
+
+    console.log("> Registered mock for @encapsule/holism-metadata");
+    mockery.registerMock("@encapsule/holism-metadata", local_holismMetadata);
+
     console.log("> Loading repo-local copy of @encapsule/holism");
     const local_holism = require("../PACKAGES/holism");
 
     console.log("> Registered mock for @encapsule/holism");
-    mockery.registerMock("@encapsule/d2r2", local_holism);
+    mockery.registerMock("@encapsule/holism", local_holism);
 
     // Special case?
     console.log("> Loading repo-local copy of @encapsule/holism/lib/iospecs/http-response-error-result-spec");

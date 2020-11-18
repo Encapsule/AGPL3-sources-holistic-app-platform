@@ -105,7 +105,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "O_U79QJwAnC7HrsebiJuIg",
-                        "vdid": "Va5ruj2dCYGuyMNAT0ocSA",
+                        "vdid": "dua6Xtl5W5E3fjHPqhDFyQ",
                         "name": "CPM Ancestor Processes Any In Step Operator Test Service Cell Process Manager (synthesized)",
                         "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Ancestor Processes Any In Step Operator Test Service cell plane.",
                         "cmat": {
@@ -115,7 +115,7 @@
                               "type": "INDEX",
                               "O_U79QJwAnC7HrsebiJuIg": {
                                 "id": "O_U79QJwAnC7HrsebiJuIg",
-                                "vdid": "Va5ruj2dCYGuyMNAT0ocSA",
+                                "vdid": "dua6Xtl5W5E3fjHPqhDFyQ",
                                 "name": "CPM Ancestor Processes Any In Step Operator Test Service Cell Process Manager (synthesized)",
                                 "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Ancestor Processes Any In Step Operator Test Service cell plane.",
                                 "type": "CM",
@@ -126,18 +126,18 @@
                                   "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Ancestor Processes Any In Step Operator Test Service cell plane.",
                                   "type": "APM"
                                 },
-                                "DxL0zD_ERu-0kNGX2FvoGg": {
-                                  "id": "DxL0zD_ERu-0kNGX2FvoGg",
-                                  "vdid": "SCCLmlJih8_upULrPln89A",
-                                  "name": "Cell Process Manager: Operator Request On Cell (opOn)",
-                                  "description": "Generically re-routes the TransitionOperator request specified by operatorRequest to the active cell indicated by apmBindingPath + path, or path (iff path is fully-qualified).",
-                                  "type": "TOP"
-                                },
                                 "9tNY7o5GTUGH_xda2GhP-w": {
                                   "id": "9tNY7o5GTUGH_xda2GhP-w",
                                   "vdid": "1LEwnh2s1u8LRnUeqbEV6Q",
                                   "name": "Cell Process Manager: Cell In Step Operator",
                                   "description": "Returns Boolean true iff the indicated cell is active and is in one of N >=1 APM process step label(s).",
+                                  "type": "TOP"
+                                },
+                                "DxL0zD_ERu-0kNGX2FvoGg": {
+                                  "id": "DxL0zD_ERu-0kNGX2FvoGg",
+                                  "vdid": "pYoi3OaUPgc-ckUigu9KLQ",
+                                  "name": "Cell Process Manager: Operator Request Delegate To Cell",
+                                  "description": "Generically re-routes the TransitionOperator request specified by operatorRequest to the active cell indicated by apmBindingPath + path, or path (iff path is fully-qualified).",
                                   "type": "TOP"
                                 },
                                 "gJnA-VJTTLa0g9TKFmjv1Q": {
@@ -254,8 +254,8 @@
                                 },
                                 "wB5QKMYtS7yY2-v7Y3tGWA": {
                                   "id": "wB5QKMYtS7yY2-v7Y3tGWA",
-                                  "vdid": "KNMJ-uyVFAg_Bp0UF8sEvA",
-                                  "name": "Cell Process Manager: ControllerAction Request On Cell (actOn)",
+                                  "vdid": "O_1lMFcNn1Yse0cx_NQvBw",
+                                  "name": "Cell Process Manager: ControllerAction Request Delegate To Cell",
                                   "description": "Generically re-routes the ControllerAction request specified by actRequest to the active cell specified by apmBindingPath + path, or path (iff path is fully-qualified).",
                                   "type": "ACT"
                                 },
@@ -701,14 +701,14 @@
                         },
                         "transitionDispatcher": {
                           "filterDescriptor": {
-                            "operationID": "HO1zVbhpLTT0Nb7ZdE5UWg",
+                            "operationID": "HHHd4riJL5X0WkAbdNLWDA",
                             "operationName": "Discriminator Filter",
                             "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                            "inputTypeVIID": "_Jljnn1ufDY6sHDYWIjC4Q",
+                            "inputTypeVIID": "EARDTnsAbQlpc5nrhiTxwA",
                             "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                            "outputTypeVIID": "YFN4T-NG8C_KlehunsbXsA",
+                            "outputTypeVIID": "-qbRynGXxUtnSWIJRV_TNg",
                             "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                            "operationVDID": "4YT0E3MvNVeuV47tQ4IUtA"
+                            "operationVDID": "qYP0E3HfNVdA9o7t320UtA"
                           },
                           "supportedFilters": [
                             "[gJnA-VJTTLa0g9TKFmjv1Q::Cell Process Manager: Ancestor Processes Active]",
@@ -721,7 +721,7 @@
                             "[Fs6tE76WR5yTOdbwQ_N_FQ::Cell Process Manager: Descendant Processes Active]",
                             "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
                             "[DzlsRZBOReO03GSPsU3CIg::Cell Process Manager: Descendant Processes Any In Step]",
-                            "[DxL0zD_ERu-0kNGX2FvoGg::Cell Process Manager: Operator Request On Cell (opOn)]",
+                            "[DxL0zD_ERu-0kNGX2FvoGg::Cell Process Manager: Operator Request Delegate To Cell]",
                             "[9HNGDusyTtKpleXFae7O5A::Cell Process Manager: Parent Process Active]",
                             "[PHPSWivjRyK80Gtymsp-pA::Cell Process Manager: Parent Process In Step]",
                             "[FTxze-WaRp6HS0Dlr_Ke6A::Cell Process Proxy: Proxy Operator]",
@@ -3896,10 +3896,10 @@
                           "DxL0zD_ERu-0kNGX2FvoGg": {
                             "filterDescriptor": {
                               "operationID": "DxL0zD_ERu-0kNGX2FvoGg",
-                              "operationName": "Cell Process Manager: Operator Request On Cell (opOn)",
+                              "operationName": "Cell Process Manager: Operator Request Delegate To Cell",
                               "operationDescription": "Generically re-routes the TransitionOperator request specified by operatorRequest to the active cell indicated by apmBindingPath + path, or path (iff path is fully-qualified).",
                               "inputFilterSpec": {
-                                "____label": "Cell Process Manager: Operator Request On Cell (opOn) Request",
+                                "____label": "Cell Process Manager: Operator Request Delegate To Cell Request",
                                 "____types": "jsObject",
                                 "context": {
                                   "____label": "OPC Context Descriptor",
@@ -3955,10 +3955,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "YLFJL6iCghMv4NEjeMpjUg",
-                              "inputTypeVDID": "Q-D0uRXRxgtMHqHPg3rtvg",
+                              "inputTypeVDID": "c6aupHLOI27cy2D9FNicjg",
                               "outputTypeVIID": "yhlYdTxhXIXWTUsdh8nWEQ",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "5F54RH4lIpPZVDacnzxZcg"
+                              "operationVDID": "5A2hRH7VRJPZV5ycn7zscg"
                             }
                           },
                           "9HNGDusyTtKpleXFae7O5A": {
@@ -5070,18 +5070,18 @@
                         },
                         "actionDispatcher": {
                           "filterDescriptor": {
-                            "operationID": "B7X_QjBKBgkeMstH8-R7Pg",
+                            "operationID": "U1enw6EWgeG-u7VgfrcH4g",
                             "operationName": "Discriminator Filter",
                             "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                            "inputTypeVIID": "Na_MVBb6HU353uWQOxP1kQ",
+                            "inputTypeVIID": "1MRIjT6TfHUIJg4WXWXfTQ",
                             "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                            "outputTypeVIID": "zNxk9kMp4m2h5SMTNKcHsA",
+                            "outputTypeVIID": "1rqp2KR5BwFqLU2EgdfV1g",
                             "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                            "operationVDID": "DvP0E3_VNVf27Y7trTEUtA"
+                            "operationVDID": "Apz0Ewd5NVeshY7tAAEUtA"
                           },
                           "supportedFilters": [
                             "[Rd5sgBjkSyq25-xIwydPRA::Cell Process Manager: Cell Plane Error Handler]",
-                            "[wB5QKMYtS7yY2-v7Y3tGWA::Cell Process Manager: ControllerAction Request On Cell (actOn)]",
+                            "[wB5QKMYtS7yY2-v7Y3tGWA::Cell Process Manager: ControllerAction Request Delegate To Cell]",
                             "[VNaA0AMsTXawb32xLaNGTA::Cell Process Manager: Initialize]",
                             "[SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create]",
                             "[4s_DUfKnQ4aS-xRjewAfUQ::Cell Process Manager: Process Delete]",
@@ -6286,10 +6286,10 @@
                           "wB5QKMYtS7yY2-v7Y3tGWA": {
                             "filterDescriptor": {
                               "operationID": "wB5QKMYtS7yY2-v7Y3tGWA",
-                              "operationName": "Cell Process Manager: ControllerAction Request On Cell (actOn)",
+                              "operationName": "Cell Process Manager: ControllerAction Request Delegate To Cell",
                               "operationDescription": "Generically re-routes the ControllerAction request specified by actRequest to the active cell specified by apmBindingPath + path, or path (iff path is fully-qualified).",
                               "inputFilterSpec": {
-                                "____label": "Cell Process Manager: ControllerAction Request On Cell (actOn) Request",
+                                "____label": "Cell Process Manager: ControllerAction Request Delegate To Cell Request",
                                 "____types": "jsObject",
                                 "context": {
                                   "____label": "OPC Context Descriptor",
@@ -6345,10 +6345,10 @@
                                 "____opaque": true
                               },
                               "inputTypeVIID": "xlhmOyBVsNE2aEhprpj6vg",
-                              "inputTypeVDID": "QZ6DlSj0BUWnSHV_q0FDRQ",
+                              "inputTypeVDID": "X_My95DvHHSJSEoxF5KF3g",
                               "outputTypeVIID": "L35hYFmSkJGtY4epRd-hcw",
                               "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                              "operationVDID": "XBn7E3ND1ldv18XtR_kEtA"
+                              "operationVDID": "XLPYE3PMuVdv_ULtR9QwtA"
                             }
                           },
                           "VNaA0AMsTXawb32xLaNGTA": {

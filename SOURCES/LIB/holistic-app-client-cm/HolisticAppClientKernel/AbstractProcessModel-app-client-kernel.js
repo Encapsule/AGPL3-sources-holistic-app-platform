@@ -37,6 +37,7 @@ module.exports = {
             domLocationProcessor: optionalFilterResponseSpec,
             d2r2DisplayAdapter: optionalFilterResponseSpec,
             clientViewProcessor: optionalFilterResponseSpec,
+            appMetadata: optionalFilterResponseSpec,
         },
 
         lifecycleResponses: {
@@ -46,7 +47,7 @@ module.exports = {
             query: optionalFilterResponseSpec,
             deserialize: optionalFilterResponseSpec,
             config: optionalFilterResponseSpec,
-            start: optionalFilterResponseSpec
+            start: optionalFilterResponseSpec,
         },
 
         windowLoaded: {

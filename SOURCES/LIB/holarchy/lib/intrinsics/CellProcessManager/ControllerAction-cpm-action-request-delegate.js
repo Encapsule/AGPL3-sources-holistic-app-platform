@@ -1,4 +1,4 @@
-// ControllerAction-cpm-action-request-on.js
+// ControllerAction-cpm-action-request-delegate.js
 
 const ControllerAction = require("../../../ControllerAction");
 const ObservableControllerData = require("../../../lib/ObservableControllerData");
@@ -6,7 +6,7 @@ const cpmLib = require("./lib");
 
 const controllerAction = new ControllerAction({
     id: "wB5QKMYtS7yY2-v7Y3tGWA",
-    name: "Cell Process Manager: ControllerAction Request On Cell (actOn)",
+    name: "Cell Process Manager: ControllerAction Request Delegate To Cell",
     description: "Generically re-routes the ControllerAction request specified by actRequest to the active cell specified by apmBindingPath + path, or path (iff path is fully-qualified).",
 
     actionRequestSpec: {

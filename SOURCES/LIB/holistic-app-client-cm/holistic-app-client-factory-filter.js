@@ -174,12 +174,12 @@ const holarchy = require("@encapsule/holarchy");
                                                 }
                                             }
                                         },
-                                        nextStep: "app-client-kernel-connected"
+                                        nextStep: "app-client-active"
                                     }
                                 ]
                             },
-                            "app-client-kernel-connected": {
-                                description: "Our local proxy to the app client kernel process has been connected."
+                            "app-client-active": {
+                                description: "The synthesized holistic app client process is now active.",
                             }
 
                         }
@@ -188,9 +188,8 @@ const holarchy = require("@encapsule/holarchy");
                     actions: [
 
                         // ----------------------------------------------------------------
-                        // ControllerAction: holistic.app.client.start
-                        // Call this action from outside CellProcessor in the client.js module to start the derived app client process.
-                        // clientAppCellProcessor.act({ actorName: "bootstrap", actorTaskDescription: "start the show...", actionRequest: { holistic: { app: { client: { start: {} } } } } });
+                        // ControllerAction: holistic.app.client.boot
+
                         {
                             id: arccore.identifier.irut.fromReference(`${clientFactoryRequest_.cellModelID}::holistic.app.client.start`).result,
                             name: `${clientFactoryRequest_.name} App Client Process Boot Action`,
@@ -234,7 +233,8 @@ const holarchy = require("@encapsule/holarchy");
                                                     },
                                                 }
                                             }
-                                        }
+                                        },
+                                        apmBindingPath: "~"
                                     });
                                     if (actResponse.error) {
                                         errors.push(actResponse.error);
@@ -258,7 +258,8 @@ const holarchy = require("@encapsule/holarchy");
                                                     },
                                                 }
                                             }
-                                        }
+                                        },
+                                        apmBindingPath: "~"
                                     });
                                     if (actResponse.error) {
                                         errors.push(actResponse.error);
@@ -329,6 +330,45 @@ const holarchy = require("@encapsule/holarchy");
                                 ____label: "Holistic App Client Runtime Query Result",
                                 ____types: "jsObject",
                                 ____defaultValue: {},
+                                appMetadata: {
+                                    ____label: "Application Common Metadata",
+                                    ____description: "The schema (via filter specs) and static values for derived-application-specific metadata that is presumed to be created by hand. Or, synthesized via some manual or automated build process to be used to answer app metadata queries from active cells.",
+                                    ____types: "jsObject",
+                                    constraints: {
+                                        ____label: "Application Common Metadata Contraints",
+                                        ____types: "jsObject",
+                                        org: {
+                                            ____label: "Organization Metadata Spec",
+                                            ____description: "A filter spec that constrains the data stored about the organization publishing this application/site/service.",
+                                            ____accept: "jsObject"
+                                        },
+                                        app: {
+                                            ____label: "Application Metadata Spec",
+                                            ____description: "A filter spec that constrains the data stored about this specific application/site/service.",
+                                            ____accept: "jsObject"
+                                        },
+                                        page: {
+                                            ____label: "Page Metadata Spec",
+                                            ____description: "A filter spec that constrains the data stored about a specific server synthesized page view (i.e. a serialized HTML5 app client process produced by a GET:/X service request that responded w/Content-Encoding: utf Content-Type: text/html).",
+                                            ____accept: "jsObject"
+                                        },
+                                        hashroute: {
+                                            ____label: "Hashroute Metadata Spec",
+                                            ____description: "A filter spec that constrains the data stored about a specific client-side hashroute. This information can be used for a variety of different purposes.",
+                                            ____accept: "jsObject"
+                                        }
+                                    },
+                                    values: {
+                                        ____label: "Application Common Metadata Values",
+                                        ____description: "Application-specific metadata values to be used to build the holistic app metadata digraph that services app metadata queries from active cells in the app client cellplane.",
+                                        ____types: "jsObject",
+                                        org: { ____accept: "jsObject" },
+                                        app: { ____accept: "jsObject" },
+                                        page: { ____accept: "jsObject" },
+                                        hashroute: { ____accept: "jsObject" }
+                                    }
+
+                                },
                                 d2r2ComponentsArray: {
                                     ____label: "Application-Defined d2r2 Components Array",
                                     ____types: "jsArray",

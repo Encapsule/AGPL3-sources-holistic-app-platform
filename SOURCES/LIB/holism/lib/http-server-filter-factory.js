@@ -74,7 +74,7 @@ var factoryResponse = arccore.filter.create({
         console.log("****************************************************************");
         console.log("****************************************************************");
         console.log(`>>>>> CREATE new @encapsule/holism v${packageMeta.version} ${packageMeta.codename} HTTP 1.1 server instance:`);
-        console.log(`>>>>> Configuring ${serverContext.holisticAppBuildManifest.app.name} v{serverContext.holisticAppBuildManifest.app.version}-${serverContext.holisticAppBuildManifest.app.codename} buildID "${serverContext.holisticAppBuildManifest.app.buildID}".`);
+        console.log(`>>>>> Configuring ${serverContext.holisticAppBuildManifest.app.name} v${serverContext.holisticAppBuildManifest.app.version}-${serverContext.holisticAppBuildManifest.app.codename} buildID "${serverContext.holisticAppBuildManifest.app.buildID}".`);
         console.log(`>>>>> Instance ID "${serverContext.instanceID}" for ${request_.appServerRuntimeEnvironment} environment created at ${serverContext.stats.created.toString()}.`);
 
         var inBreakScope = false;

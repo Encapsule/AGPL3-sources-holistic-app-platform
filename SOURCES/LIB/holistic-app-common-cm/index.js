@@ -18,6 +18,7 @@ module.exports = {
         name: "Holistic App Common Kernel",
         description: "Provides core kernel cell process models shared by the holistic app server and holistic app client application cell models.",
         subcells: [
+            require("./AppMetadata"),
             require("./ViewThemeProcessor")
         ]
     })

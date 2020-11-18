@@ -71,6 +71,39 @@ const controllerAction = new holarchy.ControllerAction({
 
                 actResponse = request_.context.act({
                     actorName,
+                    actorTaskDescription: "Activating derived AppMetadata process on behalf of the app client process.",
+                    actionRequest: {
+                        CellProcessor: {
+                            util: {
+                                writeActionResponseToPath: {
+                                    dataPath: "#.serviceProcesses.appMetadata",
+                                    actionRequest: {
+                                        CellProcessor: {
+                                            process: {
+                                                processCoordinates: { apmID: "srjZAO8JQ2StYj07u_rgGg" /* "Holistic App Common Kernel: App Metadata Process" */ },
+                                                activate: {
+                                                    processData: {
+                                                        construction: {
+                                                            ...kernelCellData.lifecycleResponses.query.result.actionResult.appMetadata
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    apmBindingPath: request_.context.apmBindingPath,  // this will be the holistic app client kernel process
+                });
+                if (actResponse.error) {
+                    errors.push(actResponse.error);
+                    break;
+                }
+
+                actResponse = request_.context.act({
+                    actorName,
                     actorTaskDescription: "Activating DOMLocationProcessor process on behalf of the app client kernel process.",
                     actionRequest: {
                         CellProcessor: {
@@ -89,7 +122,7 @@ const controllerAction = new holarchy.ControllerAction({
                             }
                         }
                     },
-                    apmBindingPath: request_.context.apmBindingPath
+                    apmBindingPath: request_.context.apmBindingPath // this will be the holistic app client kernel process
                 });
                 if (actResponse.error) {
                     errors.push(actResponse.error);
@@ -122,7 +155,7 @@ const controllerAction = new holarchy.ControllerAction({
                             }
                         }
                     },
-                    apmBindingPath: request_.context.apmBindingPath
+                    apmBindingPath: request_.context.apmBindingPath // this will be the holistic app client kernel process
                 });
                 if (actResponse.error) {
                     errors.push(actResponse.error);

@@ -33,6 +33,12 @@
                           "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it."
                         },
                         {
+                          "id": "srjZAO8JQ2StYj07u_rgGg",
+                          "vdid": "rKU-qHSiNz0JQenX2kutFg",
+                          "name": "Holistic App Common Kernel: App Metadata Process",
+                          "description": "Encapsulates query/read access to developer-specified holistic application static metadata digraph data for active cells in either server or client cellplanes."
+                        },
+                        {
                           "id": "zzvzLbm2RTyQN1lWFcjpVA",
                           "vdid": "DxngxWcSscYXnIUgZbZb7g",
                           "name": "Theme Processor Model",
@@ -216,6 +222,12 @@
                         "vdid": "9jOpGkKIURycWGDA5Nnxsg",
                         "name": "Abstract Frame Latch",
                         "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it."
+                      },
+                      "srjZAO8JQ2StYj07u_rgGg": {
+                        "id": "srjZAO8JQ2StYj07u_rgGg",
+                        "vdid": "rKU-qHSiNz0JQenX2kutFg",
+                        "name": "Holistic App Common Kernel: App Metadata Process",
+                        "description": "Encapsulates query/read access to developer-specified holistic application static metadata digraph data for active cells in either server or client cellplanes."
                       },
                       "zzvzLbm2RTyQN1lWFcjpVA": {
                         "id": "zzvzLbm2RTyQN1lWFcjpVA",

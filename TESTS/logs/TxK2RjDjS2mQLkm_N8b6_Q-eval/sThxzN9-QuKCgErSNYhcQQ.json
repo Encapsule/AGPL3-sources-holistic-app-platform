@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "F0Y-AqdEMk3CENp1FQ5YMg",
+                    "vdid": "v8x42m08ytWImR9P388nBA",
                     "name": "Holistic App Client Kernel",
                     "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                     "cmat": {
@@ -22,13 +22,13 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "F0Y-AqdEMk3CENp1FQ5YMg",
+                            "vdid": "v8x42m08ytWImR9P388nBA",
                             "name": "Holistic App Client Kernel",
                             "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                             "type": "CM",
                             "PPL45jw5RDWSMNsB97WIWg": {
                               "id": "PPL45jw5RDWSMNsB97WIWg",
-                              "vdid": "6RpFFoF4rHdU0h2WOzP72w",
+                              "vdid": "HuupZ4SFosNECu1QC07vjw",
                               "name": "Holistic Client App Kernel",
                               "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                               "type": "APM"
@@ -329,10 +329,24 @@
                             },
                             "74npOB-3S8GEgHwdtWwHrg": {
                               "id": "74npOB-3S8GEgHwdtWwHrg",
-                              "vdid": "PFYYNrDZDAu2vxWysdd63A",
+                              "vdid": "OSJP03PRv0Lv1M24p10o1g",
                               "name": "Holistic App Common Kernel",
                               "description": "Provides core kernel cell process models shared by the holistic app server and holistic app client application cell models.",
                               "type": "CM",
+                              "-mApjtHVTE2UpIANFJGaPQ": {
+                                "id": "-mApjtHVTE2UpIANFJGaPQ",
+                                "vdid": "2R8pXA5KHrfIzs6qZ5Iv7A",
+                                "name": "Holistic App Commont Kernel: App Metadata Model",
+                                "description": "Provides consistent access/query API on derived-application-specific static metadata for all cells in a holistic application.",
+                                "type": "CM",
+                                "srjZAO8JQ2StYj07u_rgGg": {
+                                  "id": "srjZAO8JQ2StYj07u_rgGg",
+                                  "vdid": "rKU-qHSiNz0JQenX2kutFg",
+                                  "name": "Holistic App Common Kernel: App Metadata Process",
+                                  "description": "Encapsulates query/read access to developer-specified holistic application static metadata digraph data for active cells in either server or client cellplanes.",
+                                  "type": "APM"
+                                }
+                              },
                               "ABn1MUgSQT2dy8Lri8xDbA": {
                                 "id": "ABn1MUgSQT2dy8Lri8xDbA",
                                 "vdid": "Uf2pKAi778PxXJdeY0NyQg",
@@ -385,11 +399,11 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 53,
-                      "edges": 100,
+                      "vertices": 55,
+                      "edges": 104,
                       "artifacts": {
-                        "cm": 13,
-                        "apm": 6,
+                        "cm": 14,
+                        "apm": 7,
                         "top": 13,
                         "act": 17
                       }
@@ -418,8 +432,14 @@
                           "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location."
                         },
                         {
+                          "id": "srjZAO8JQ2StYj07u_rgGg",
+                          "vdid": "rKU-qHSiNz0JQenX2kutFg",
+                          "name": "Holistic App Common Kernel: App Metadata Process",
+                          "description": "Encapsulates query/read access to developer-specified holistic application static metadata digraph data for active cells in either server or client cellplanes."
+                        },
+                        {
                           "id": "PPL45jw5RDWSMNsB97WIWg",
-                          "vdid": "6RpFFoF4rHdU0h2WOzP72w",
+                          "vdid": "HuupZ4SFosNECu1QC07vjw",
                           "name": "Holistic Client App Kernel",
                           "description": "This model manages, tracks, and controls the lifecycle of the client application."
                         },
@@ -629,13 +649,13 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "F0Y-AqdEMk3CENp1FQ5YMg",
+                          "vdid": "v8x42m08ytWImR9P388nBA",
                           "name": "Holistic App Client Kernel",
                           "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                           "type": "CM",
                           "PPL45jw5RDWSMNsB97WIWg": {
                             "id": "PPL45jw5RDWSMNsB97WIWg",
-                            "vdid": "6RpFFoF4rHdU0h2WOzP72w",
+                            "vdid": "HuupZ4SFosNECu1QC07vjw",
                             "name": "Holistic Client App Kernel",
                             "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                             "type": "APM"
@@ -936,10 +956,24 @@
                           },
                           "74npOB-3S8GEgHwdtWwHrg": {
                             "id": "74npOB-3S8GEgHwdtWwHrg",
-                            "vdid": "PFYYNrDZDAu2vxWysdd63A",
+                            "vdid": "OSJP03PRv0Lv1M24p10o1g",
                             "name": "Holistic App Common Kernel",
                             "description": "Provides core kernel cell process models shared by the holistic app server and holistic app client application cell models.",
                             "type": "CM",
+                            "-mApjtHVTE2UpIANFJGaPQ": {
+                              "id": "-mApjtHVTE2UpIANFJGaPQ",
+                              "vdid": "2R8pXA5KHrfIzs6qZ5Iv7A",
+                              "name": "Holistic App Commont Kernel: App Metadata Model",
+                              "description": "Provides consistent access/query API on derived-application-specific static metadata for all cells in a holistic application.",
+                              "type": "CM",
+                              "srjZAO8JQ2StYj07u_rgGg": {
+                                "id": "srjZAO8JQ2StYj07u_rgGg",
+                                "vdid": "rKU-qHSiNz0JQenX2kutFg",
+                                "name": "Holistic App Common Kernel: App Metadata Process",
+                                "description": "Encapsulates query/read access to developer-specified holistic application static metadata digraph data for active cells in either server or client cellplanes.",
+                                "type": "APM"
+                              }
+                            },
                             "ABn1MUgSQT2dy8Lri8xDbA": {
                               "id": "ABn1MUgSQT2dy8Lri8xDbA",
                               "vdid": "Uf2pKAi778PxXJdeY0NyQg",

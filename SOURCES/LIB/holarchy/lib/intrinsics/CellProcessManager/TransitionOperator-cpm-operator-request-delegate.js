@@ -1,4 +1,4 @@
-// TransitionOperator-cpm-operator-request-on.js
+// TransitionOperator-cpm-operator-request-delegate.js
 
 const TransitionOperator = require("../../../TransitionOperator");
 const ObservableControllerData = require("../../../lib/ObservableControllerData");
@@ -6,7 +6,7 @@ const cpmLib = require("./lib");
 
 const transitionOperator = new TransitionOperator({
     id: "DxL0zD_ERu-0kNGX2FvoGg",
-    name: "Cell Process Manager: Operator Request On Cell (opOn)",
+    name: "Cell Process Manager: Operator Request Delegate To Cell",
     description: "Generically re-routes the TransitionOperator request specified by operatorRequest to the active cell indicated by apmBindingPath + path, or path (iff path is fully-qualified).",
 
     operatorRequestSpec: {
