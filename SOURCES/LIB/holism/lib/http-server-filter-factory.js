@@ -26,6 +26,7 @@
 */
 //
 
+const process = require("process");
 const packageMeta = require("../package.json");
 
 const url = require("url");
@@ -73,9 +74,11 @@ var factoryResponse = arccore.filter.create({
         console.log("****************************************************************");
         console.log("****************************************************************");
         console.log("****************************************************************");
-        console.log(`>>>>> CREATE new @encapsule/holism v${packageMeta.version} ${packageMeta.codename} HTTP 1.1 server instance:`);
+        console.log("****************************************************************");
+        console.log("****************************************************************");
         console.log(`>>>>> Configuring ${serverContext.holisticAppBuildManifest.app.name} v${serverContext.holisticAppBuildManifest.app.version}-${serverContext.holisticAppBuildManifest.app.codename} buildID "${serverContext.holisticAppBuildManifest.app.buildID}".`);
-        console.log(`>>>>> Instance ID "${serverContext.instanceID}" for ${request_.appServerRuntimeEnvironment} environment created at ${serverContext.stats.created.toString()}.`);
+        console.log(`..... Creating new app server instance ID "${serverContext.instanceID}" configured to run in "${request_.appServerRuntimeEnvironment}" environment mode.`);
+        console.log(`..... Configuring @encapsule/holism v${packageMeta.version} ${packageMeta.codename} HTTP 1.1 server on Node.js v${process.versions.node} ...`);
 
         var inBreakScope = false;
         while (!inBreakScope) {
@@ -703,9 +706,11 @@ var factoryResponse = arccore.filter.create({
                         console.log("****************************************************************");
                         console.log("****************************************************************");
                         console.log("****************************************************************");
-                        console.log(`>>>>> START @encapsule/holism v${packageMeta.version} ${packageMeta.codename} HTTP 1.1 server instance at ${serverContext.stats.started.toString()}:`);
+                        console.log("****************************************************************");
+                        console.log("****************************************************************");
                         console.log(`>>>>> Launching ${serverContext.holisticAppBuildManifest.app.name} v${serverContext.holisticAppBuildManifest.app.version}-${serverContext.holisticAppBuildManifest.app.codename} buildID "${serverContext.holisticAppBuildManifest.app.buildID}"`);
-                        console.log(`>>>>> Instance ID "${serverContext.instanceID}" (${request_.appServerRuntimeEnvironment} environment) listening for incoming HTTP requests at URL localhost:${port_}...`);
+                        console.log(`..... App server process instance ID "${serverContext.instanceID}" started at ${serverContext.stats.started.toString()} in "${request_.appServerRuntimeEnvironment}" environment mode.`);
+                        console.log(`..... @encapsule/holism v${packageMeta.version} HTTP 1.1 server on Node.js v${process.versions.node} listening at http://localhost:${port_} ...`);
                     });
                 }
             };
