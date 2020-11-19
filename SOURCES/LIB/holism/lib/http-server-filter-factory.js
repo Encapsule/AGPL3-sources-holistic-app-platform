@@ -176,7 +176,7 @@ var factoryResponse = arccore.filter.create({
                             "<head>",
                             "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />",
                             "<meta charset=\"utf-8\" />",
-                            `<title>${appMetadata.name} - Error 500</title>`,
+                            `<title>${appMetadata.name} Internal Server Error</title>`,
                             "<style type='text/css'>",
                             "body { margin: 0em; padding: 1em; background-color: red }",
                             "#idTitle1 { font-family: Arial; font-size: 32pt; font-weight: bold; color: #FC0; padding-bottom: 0.1em; }",
@@ -188,9 +188,9 @@ var factoryResponse = arccore.filter.create({
                             "</head>",
                             "<body>",
                             "<div id='idContent'>",
-                            `<div id='idTitle1'>${appMetadata.name} App Server HTTP 500 Error</div>`,
+                            `<div id='idTitle1'>${appMetadata.name} Internal Server Error</div>`,
                             `<div id='idAppVersion'>${appMetadata.name} v${appMetadata.version}-${appMetadata.codename} build "${appMetadata.buildID}"</div>`,
-                            "<div id='idErrorHeader'>An unexpected error was reported by the app server runtime process that is preventing normal and expected processing of your request.</div>",
+                            `<div id='idErrorHeader'>An internal error in the ${appMetadata.name} application server process is preventing us from displaying the application view you requested.</div>`,
                             `<div id='idError'>${whatHappened_}</div>`,
                             "</div>",
                             "<div id='idFooter'>",
@@ -209,7 +209,7 @@ var factoryResponse = arccore.filter.create({
                             streams: { request: httpRequest_, response: httpResponse_ },
                             request_descriptor: requestDescriptor,
                             response_descriptor: {
-                                http: { code: 500, message: "Unhandled application error" },
+                                http: { code: 500, message: "Fatal app server process errorl server error" },
                                 content: {
                                     encoding: "utf8",
                                     type: "text/html"

@@ -364,8 +364,8 @@ const holarchy = require("@encapsule/holarchy");
                                         ____types: "jsObject",
                                         org: { ____accept: "jsObject" },
                                         app: { ____accept: "jsObject" },
-                                        page: { ____accept: "jsObject" },
-                                        hashroute: { ____accept: "jsObject" }
+                                        pages: { ____accept: "jsObject" },
+                                        hashroutes: { ____accept: "jsObject" }
                                     }
 
                                 },

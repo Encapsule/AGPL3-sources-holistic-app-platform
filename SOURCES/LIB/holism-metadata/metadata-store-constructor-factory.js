@@ -19,10 +19,10 @@ var factoryResponse = arccore.filter.create({
             ____types: "jsObject",
             metadata: {
                 ____types: "jsObject",
-                org_input_spec: { ____accept: "jsObject" },
-                site_input_spec: { ____accept: "jsObject" },
-                page_input_spec: { ____accept: "jsObject" },
-                hashroute_input_spec: { ____accept: "jsObject" }
+                org: { ____accept: "jsObject" },
+                app: { ____accept: "jsObject" },
+                page: { ____accept: "jsObject" },
+                hashroute: { ____accept: "jsObject" }
             }
         }
     },
@@ -52,7 +52,7 @@ var factoryResponse = arccore.filter.create({
                     digraph: { ____accept: "jsObject" },
                     vertex: { ____accept: "jsString" },
                     propertyData: {
-                        ...factoryRequest_.constraints.metadata.page_input_spec,
+                        ...factoryRequest_.constraints.metadata.page,
                         children: {
                             ____label: "Children View URIs",
                             ____description: "An orderred array of this page's subpage URI's.",
@@ -98,7 +98,7 @@ var factoryResponse = arccore.filter.create({
                     digraph: { ____accept: "jsObject" },
                     vertex: { ____accept: "jsString" },
                     propertyData: {
-                        ...factoryRequest.constraints.metadata.hashroute_input_spec,
+                        ...factoryRequest.constraints.metadata.hashroute,
                         children: {
                             ____label: "Children View URIs",
                             ____description: "An orderred array of this page's subpage URI's.",
@@ -143,14 +143,15 @@ var factoryResponse = arccore.filter.create({
                     ____label: "Holistic App Metadata Declaration",
                     ____description: "Application metadata declaration object from the developer of the derived holistic application.",
                     ____types: "jsObject",
-                    organization: factoryRequest.constraints.metadata.org_input_spec,
-                    website: factoryRequest.constraints.metadata.site_input_spec,
+                    org: factoryRequest.constraints.metadata.org,
+                    app: factoryRequest.constraints.metadata.app,
                     pages: {
                         ____label: "Page View Metadata Descriptor Map",
                         ____description: "A map of page view URI strings to page view descriptor objects. Note that all page view URI's must start with a leading frontslash '/' character.",
                         ____types: "jsObject",
                         ____asMap: true,
-                        view_uri: factoryRequest.constraints.metadata.page_input_spec
+                        ____defaultValue: {},
+                        pageURI: factoryRequest.constraints.metadata.page
                     },
                     hashroutes: {
                         ____label: "Hashroute View Metadata Descriptor Map",
@@ -158,7 +159,7 @@ var factoryResponse = arccore.filter.create({
                         ____types: "jsObject",
                         ____asMap: true,
                         ____defaultValue: {},
-                        hashroute_uri: factoryRequest.constraints.metadata.hashroute_input_spec
+                        hashrouteURI: factoryRequest.constraints.metadata.hashroute
                     }
                 },
 
@@ -189,9 +190,10 @@ var factoryResponse = arccore.filter.create({
                         }
 
                         var appMetadataDigraph = graphResponse.result;
-                        appMetadataDigraph.addVertex({ u: "__organization", p: viewDeclaration_.organization });
-                        appMetadataDigraph.addVertex({ u: "__website", p: viewDeclaration_.website });
-                        appMetadataDigraph.addVertex({ u: "__pageViewHierarchy" });
+                        appMetadataDigraph.addVertex({ u: "__org", p: viewDeclaration_.org });
+                        appMetadataDigraph.addVertex({ u: "__app", p: viewDeclaration_.app });
+                        appMetadataDigraph.addVertex({ u: "__pages" });
+                        appMetadataDigraph.addVertex({ u: "__hashroutes" });
 
                         for (var pageViewURI of pageViewURIs) {
                             if (pageViewURI.charAt(0) !== "/") {
@@ -202,7 +204,7 @@ var factoryResponse = arccore.filter.create({
                             var rs1 = (pageViewURI.length === 1)?[""]:pageViewURI.split("/");
 
                             var rs2 = [];
-                            var pageViewURILast = "__pageViewHierarchy";
+                            var pageViewURILast = "__pages";
                             // console.log(rs1.length + " '" + JSON.stringify(rs1) + "'");
                             rs1.forEach(function(namespace_) {
                                 rs2.push(namespace_);
@@ -212,7 +214,6 @@ var factoryResponse = arccore.filter.create({
                                 pageViewURILast = pageViewURICurrent;
                             });
                             var pageProperties = arccore.util.clone(viewDeclaration_.pages[pageViewURI]);
-
                             appMetadataDigraph.setVertexProperty({ u: pageViewURI, p: pageProperties });
 
                         } // end for

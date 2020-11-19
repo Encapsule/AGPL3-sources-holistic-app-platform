@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "v8x42m08ytWImR9P388nBA",
+                    "vdid": "R-RxSZFFVrkyUdSO-FVRaw",
                     "name": "Holistic App Client Kernel",
                     "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                     "cmat": {
@@ -22,7 +22,7 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "v8x42m08ytWImR9P388nBA",
+                            "vdid": "R-RxSZFFVrkyUdSO-FVRaw",
                             "name": "Holistic App Client Kernel",
                             "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                             "type": "CM",
@@ -329,22 +329,29 @@
                             },
                             "74npOB-3S8GEgHwdtWwHrg": {
                               "id": "74npOB-3S8GEgHwdtWwHrg",
-                              "vdid": "OSJP03PRv0Lv1M24p10o1g",
+                              "vdid": "DSqJRm7Q6kthhh5fV4KsAQ",
                               "name": "Holistic App Common Kernel",
                               "description": "Provides core kernel cell process models shared by the holistic app server and holistic app client application cell models.",
                               "type": "CM",
                               "-mApjtHVTE2UpIANFJGaPQ": {
                                 "id": "-mApjtHVTE2UpIANFJGaPQ",
-                                "vdid": "2R8pXA5KHrfIzs6qZ5Iv7A",
-                                "name": "Holistic App Commont Kernel: App Metadata Model",
+                                "vdid": "aRJwz0J4pn2YM40apGmfiA",
+                                "name": "Holistic App Common Kernel: App Metadata Model",
                                 "description": "Provides consistent access/query API on derived-application-specific static metadata for all cells in a holistic application.",
                                 "type": "CM",
                                 "srjZAO8JQ2StYj07u_rgGg": {
                                   "id": "srjZAO8JQ2StYj07u_rgGg",
-                                  "vdid": "rKU-qHSiNz0JQenX2kutFg",
+                                  "vdid": "VU214Mg6Xrb9lrbIoEbIhw",
                                   "name": "Holistic App Common Kernel: App Metadata Process",
                                   "description": "Encapsulates query/read access to developer-specified holistic application static metadata digraph data for active cells in either server or client cellplanes.",
                                   "type": "APM"
+                                },
+                                "TTvxZvWoSxybLJ1PNHIotA": {
+                                  "id": "TTvxZvWoSxybLJ1PNHIotA",
+                                  "vdid": "WHSfGZJhlqGxC3Kge-5BEg",
+                                  "name": "Holistic App Common Kernel: App Metadata Process Initialize",
+                                  "description": "Intializes the holistic app metadata singleton process.",
+                                  "type": "ACT"
                                 }
                               },
                               "ABn1MUgSQT2dy8Lri8xDbA": {
@@ -399,13 +406,13 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 55,
-                      "edges": 104,
+                      "vertices": 56,
+                      "edges": 106,
                       "artifacts": {
                         "cm": 14,
                         "apm": 7,
                         "top": 13,
-                        "act": 17
+                        "act": 18
                       }
                     }
                   },
@@ -433,7 +440,7 @@
                         },
                         {
                           "id": "srjZAO8JQ2StYj07u_rgGg",
-                          "vdid": "rKU-qHSiNz0JQenX2kutFg",
+                          "vdid": "VU214Mg6Xrb9lrbIoEbIhw",
                           "name": "Holistic App Common Kernel: App Metadata Process",
                           "description": "Encapsulates query/read access to developer-specified holistic application static metadata digraph data for active cells in either server or client cellplanes."
                         },
@@ -610,6 +617,12 @@
                           "description": "Forwards a holistic app client lifecycle signal to the derived app client service process."
                         },
                         {
+                          "id": "TTvxZvWoSxybLJ1PNHIotA",
+                          "vdid": "WHSfGZJhlqGxC3Kge-5BEg",
+                          "name": "Holistic App Common Kernel: App Metadata Process Initialize",
+                          "description": "Intializes the holistic app metadata singleton process."
+                        },
+                        {
                           "id": "_yxWfFLnTqqN-UxRdd7W5w",
                           "vdid": "3DsbArVA3LNYWuE7ucmIpQ",
                           "name": "OCD Boolean Flag Clear",
@@ -649,7 +662,7 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "v8x42m08ytWImR9P388nBA",
+                          "vdid": "R-RxSZFFVrkyUdSO-FVRaw",
                           "name": "Holistic App Client Kernel",
                           "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                           "type": "CM",
@@ -956,22 +969,29 @@
                           },
                           "74npOB-3S8GEgHwdtWwHrg": {
                             "id": "74npOB-3S8GEgHwdtWwHrg",
-                            "vdid": "OSJP03PRv0Lv1M24p10o1g",
+                            "vdid": "DSqJRm7Q6kthhh5fV4KsAQ",
                             "name": "Holistic App Common Kernel",
                             "description": "Provides core kernel cell process models shared by the holistic app server and holistic app client application cell models.",
                             "type": "CM",
                             "-mApjtHVTE2UpIANFJGaPQ": {
                               "id": "-mApjtHVTE2UpIANFJGaPQ",
-                              "vdid": "2R8pXA5KHrfIzs6qZ5Iv7A",
-                              "name": "Holistic App Commont Kernel: App Metadata Model",
+                              "vdid": "aRJwz0J4pn2YM40apGmfiA",
+                              "name": "Holistic App Common Kernel: App Metadata Model",
                               "description": "Provides consistent access/query API on derived-application-specific static metadata for all cells in a holistic application.",
                               "type": "CM",
                               "srjZAO8JQ2StYj07u_rgGg": {
                                 "id": "srjZAO8JQ2StYj07u_rgGg",
-                                "vdid": "rKU-qHSiNz0JQenX2kutFg",
+                                "vdid": "VU214Mg6Xrb9lrbIoEbIhw",
                                 "name": "Holistic App Common Kernel: App Metadata Process",
                                 "description": "Encapsulates query/read access to developer-specified holistic application static metadata digraph data for active cells in either server or client cellplanes.",
                                 "type": "APM"
+                              },
+                              "TTvxZvWoSxybLJ1PNHIotA": {
+                                "id": "TTvxZvWoSxybLJ1PNHIotA",
+                                "vdid": "WHSfGZJhlqGxC3Kge-5BEg",
+                                "name": "Holistic App Common Kernel: App Metadata Process Initialize",
+                                "description": "Intializes the holistic app metadata singleton process.",
+                                "type": "ACT"
                               }
                             },
                             "ABn1MUgSQT2dy8Lri8xDbA": {
