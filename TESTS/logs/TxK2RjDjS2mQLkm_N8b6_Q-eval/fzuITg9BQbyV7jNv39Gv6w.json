@@ -53,7 +53,7 @@
                         },
                         {
                           "id": "RlNHSKNBT32xejFqjsiZyg",
-                          "vdid": "u3cpDPVf5bMGJZZtNco5iQ",
+                          "vdid": "33IBI0GdIiqy2DkPKuJpQw",
                           "name": "Holistic App Client Display Adapter: Update Display Layout",
                           "description": "Performs a programmatic re-rendering of the display adapter's DIV target using d2r2 <ComponentRouter/>."
                         }

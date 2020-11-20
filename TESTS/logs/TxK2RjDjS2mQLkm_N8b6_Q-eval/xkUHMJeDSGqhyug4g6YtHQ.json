@@ -149,6 +149,12 @@
                           "description": "Intializes the holistic app metadata singleton process."
                         },
                         {
+                          "id": "8KWW5zkCTMKRihNXKX_Pdw",
+                          "vdid": "euC4AwqmvbqkmfzyQrgklA",
+                          "name": "Holistic App Common Kernel: Query App Metadata",
+                          "description": "Retrieves a copy of the derived application's application metadata."
+                        },
+                        {
                           "id": "_yxWfFLnTqqN-UxRdd7W5w",
                           "vdid": "3DsbArVA3LNYWuE7ucmIpQ",
                           "name": "OCD Boolean Flag Clear",
@@ -23774,19 +23780,20 @@
                     },
                     "actionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "GjOQ3pJXDdR445No3G52SA",
+                        "operationID": "MjxV7kaBN1ezTgGLVuuQkA",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                        "inputTypeVIID": "3ddrhQ-pzteuU8JCw01Hwg",
+                        "inputTypeVIID": "u8C6VWfgjYyis2uAXVsFaw",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "vDqTMc0c1J68qT4lxZmpXw",
+                        "outputTypeVIID": "k50YvKTGct4DCboo_DUcAQ",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "2FD0E2h6NVchu47tJg8UtA"
+                        "operationVDID": "Drj0E9m0NVf4r47tGy0UtA"
                       },
                       "supportedFilters": [
                         "[iyvk_9vhRn2qvrjOes5v7Q::Frame Latch: Write]",
                         "[aXju3wSBQnufe0r51Y04wg::Holarchy Core Util: Action Response Writer]",
                         "[TTvxZvWoSxybLJ1PNHIotA::Holistic App Common Kernel: App Metadata Process Initialize]",
+                        "[8KWW5zkCTMKRihNXKX_Pdw::Holistic App Common Kernel: Query App Metadata]",
                         "[_yxWfFLnTqqN-UxRdd7W5w::OCD Boolean Flag Clear]",
                         "[5rFEDGLYRSiZCeChMnkCHQ::OCD Boolean Flag Set]",
                         "[Ve_kEFkGSMSgOqUWu9Yo_w::OCD Read Namespace Indirect]",
@@ -23797,7 +23804,7 @@
                       ],
                       "requestSpace": {
                         "name": "Discriminator Decission Tree Model",
-                        "description": "Models the combined input filter specifications of Filter ID's: [iyvk_9vhRn2qvrjOes5v7Q, aXju3wSBQnufe0r51Y04wg, TTvxZvWoSxybLJ1PNHIotA, _yxWfFLnTqqN-UxRdd7W5w, 5rFEDGLYRSiZCeChMnkCHQ, Ve_kEFkGSMSgOqUWu9Yo_w, e2kGs2nLRwW7RtFDPi8REg, UK08qja3QiaHFGhl99fbmg, KX0V_aQ3RzG01tzBS24MGw, S1GqYjTtSQazSxkIL9vtpA].",
+                        "description": "Models the combined input filter specifications of Filter ID's: [iyvk_9vhRn2qvrjOes5v7Q, aXju3wSBQnufe0r51Y04wg, TTvxZvWoSxybLJ1PNHIotA, 8KWW5zkCTMKRihNXKX_Pdw, _yxWfFLnTqqN-UxRdd7W5w, 5rFEDGLYRSiZCeChMnkCHQ, Ve_kEFkGSMSgOqUWu9Yo_w, e2kGs2nLRwW7RtFDPi8REg, UK08qja3QiaHFGhl99fbmg, KX0V_aQ3RzG01tzBS24MGw, S1GqYjTtSQazSxkIL9vtpA].",
                         "vlist": [
                           {
                             "u": "request",
@@ -23805,6 +23812,7 @@
                               "color": "green",
                               "filters": [
                                 "5rFEDGLYRSiZCeChMnkCHQ",
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "KX0V_aQ3RzG01tzBS24MGw",
                                 "S1GqYjTtSQazSxkIL9vtpA",
                                 "TTvxZvWoSxybLJ1PNHIotA",
@@ -23817,6 +23825,7 @@
                               ],
                               "filters1": [
                                 "5rFEDGLYRSiZCeChMnkCHQ",
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "KX0V_aQ3RzG01tzBS24MGw",
                                 "S1GqYjTtSQazSxkIL9vtpA",
                                 "TTvxZvWoSxybLJ1PNHIotA",
@@ -23835,6 +23844,7 @@
                               "filterSpecPath": "request",
                               "filters": [
                                 "5rFEDGLYRSiZCeChMnkCHQ",
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "KX0V_aQ3RzG01tzBS24MGw",
                                 "S1GqYjTtSQazSxkIL9vtpA",
                                 "TTvxZvWoSxybLJ1PNHIotA",
@@ -23849,6 +23859,7 @@
                               "typeConstraint": "jsObject",
                               "filters1": [
                                 "5rFEDGLYRSiZCeChMnkCHQ",
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "KX0V_aQ3RzG01tzBS24MGw",
                                 "S1GqYjTtSQazSxkIL9vtpA",
                                 "TTvxZvWoSxybLJ1PNHIotA",
@@ -23867,6 +23878,7 @@
                               "filterSpecPath": "request.context",
                               "filters": [
                                 "5rFEDGLYRSiZCeChMnkCHQ",
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "KX0V_aQ3RzG01tzBS24MGw",
                                 "S1GqYjTtSQazSxkIL9vtpA",
                                 "TTvxZvWoSxybLJ1PNHIotA",
@@ -23888,6 +23900,7 @@
                               "filterSpecPath": "request.actionRequest",
                               "filters": [
                                 "5rFEDGLYRSiZCeChMnkCHQ",
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "KX0V_aQ3RzG01tzBS24MGw",
                                 "S1GqYjTtSQazSxkIL9vtpA",
                                 "TTvxZvWoSxybLJ1PNHIotA",
@@ -23902,6 +23915,7 @@
                               "typeConstraint": "jsObject",
                               "filters1": [
                                 "5rFEDGLYRSiZCeChMnkCHQ",
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "KX0V_aQ3RzG01tzBS24MGw",
                                 "S1GqYjTtSQazSxkIL9vtpA",
                                 "TTvxZvWoSxybLJ1PNHIotA",
@@ -23920,6 +23934,7 @@
                               "filterSpecPath": "request.context.apmBindingPath",
                               "filters": [
                                 "5rFEDGLYRSiZCeChMnkCHQ",
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "KX0V_aQ3RzG01tzBS24MGw",
                                 "S1GqYjTtSQazSxkIL9vtpA",
                                 "TTvxZvWoSxybLJ1PNHIotA",
@@ -23941,6 +23956,7 @@
                               "filterSpecPath": "request.context.ocdi",
                               "filters": [
                                 "5rFEDGLYRSiZCeChMnkCHQ",
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "KX0V_aQ3RzG01tzBS24MGw",
                                 "S1GqYjTtSQazSxkIL9vtpA",
                                 "TTvxZvWoSxybLJ1PNHIotA",
@@ -23962,6 +23978,7 @@
                               "filterSpecPath": "request.context.act",
                               "filters": [
                                 "5rFEDGLYRSiZCeChMnkCHQ",
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "KX0V_aQ3RzG01tzBS24MGw",
                                 "S1GqYjTtSQazSxkIL9vtpA",
                                 "TTvxZvWoSxybLJ1PNHIotA",
@@ -24158,6 +24175,7 @@
                             "p": {
                               "filterSpecPath": "request.actionRequest.holistic",
                               "filters": [
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "TTvxZvWoSxybLJ1PNHIotA",
                                 "UK08qja3QiaHFGhl99fbmg",
                                 "e2kGs2nLRwW7RtFDPi8REg"
@@ -24165,6 +24183,7 @@
                               "color": "green",
                               "typeConstraint": "jsObject",
                               "filters1": [
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "TTvxZvWoSxybLJ1PNHIotA",
                                 "UK08qja3QiaHFGhl99fbmg",
                                 "e2kGs2nLRwW7RtFDPi8REg"
@@ -24176,11 +24195,13 @@
                             "p": {
                               "filterSpecPath": "request.actionRequest.holistic.app",
                               "filters": [
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "TTvxZvWoSxybLJ1PNHIotA"
                               ],
-                              "color": "gold",
+                              "color": "green",
                               "typeConstraint": "jsObject",
                               "filters1": [
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "TTvxZvWoSxybLJ1PNHIotA"
                               ]
                             }
@@ -24190,11 +24211,13 @@
                             "p": {
                               "filterSpecPath": "request.actionRequest.holistic.app.metadata",
                               "filters": [
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "TTvxZvWoSxybLJ1PNHIotA"
                               ],
-                              "color": "gold",
+                              "color": "green",
                               "typeConstraint": "jsObject",
                               "filters1": [
+                                "8KWW5zkCTMKRihNXKX_Pdw",
                                 "TTvxZvWoSxybLJ1PNHIotA"
                               ]
                             }
@@ -24224,6 +24247,62 @@
                               "typeConstraint": "jsObject",
                               "filters1": [
                                 "TTvxZvWoSxybLJ1PNHIotA"
+                              ]
+                            }
+                          },
+                          {
+                            "u": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject).query(jsObject)",
+                            "p": {
+                              "filterSpecPath": "request.actionRequest.holistic.app.metadata.query",
+                              "filters": [
+                                "8KWW5zkCTMKRihNXKX_Pdw"
+                              ],
+                              "color": "gold",
+                              "typeConstraint": "jsObject",
+                              "filters1": [
+                                "8KWW5zkCTMKRihNXKX_Pdw"
+                              ]
+                            }
+                          },
+                          {
+                            "u": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject).query(jsObject).type(jsString)",
+                            "p": {
+                              "filterSpecPath": "request.actionRequest.holistic.app.metadata.query.type",
+                              "filters": [
+                                "8KWW5zkCTMKRihNXKX_Pdw"
+                              ],
+                              "color": "gold",
+                              "typeConstraint": "jsString",
+                              "filters1": [
+                                "8KWW5zkCTMKRihNXKX_Pdw"
+                              ]
+                            }
+                          },
+                          {
+                            "u": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject).query(jsObject).uri(jsNull)",
+                            "p": {
+                              "filterSpecPath": "request.actionRequest.holistic.app.metadata.query.uri",
+                              "filters": [
+                                "8KWW5zkCTMKRihNXKX_Pdw"
+                              ],
+                              "color": "gold",
+                              "typeConstraint": "jsNull",
+                              "filters1": [
+                                "8KWW5zkCTMKRihNXKX_Pdw"
+                              ]
+                            }
+                          },
+                          {
+                            "u": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject).query(jsObject).uri(jsString)",
+                            "p": {
+                              "filterSpecPath": "request.actionRequest.holistic.app.metadata.query.uri",
+                              "filters": [
+                                "8KWW5zkCTMKRihNXKX_Pdw"
+                              ],
+                              "color": "gold",
+                              "typeConstraint": "jsString",
+                              "filters1": [
+                                "8KWW5zkCTMKRihNXKX_Pdw"
                               ]
                             }
                           },
@@ -24581,8 +24660,32 @@
                           },
                           {
                             "e": {
+                              "u": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject)",
+                              "v": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject).query(jsObject)"
+                            }
+                          },
+                          {
+                            "e": {
                               "u": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject)._private(jsObject)",
                               "v": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject)._private(jsObject).initialize(jsObject)"
+                            }
+                          },
+                          {
+                            "e": {
+                              "u": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject).query(jsObject)",
+                              "v": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject).query(jsObject).type(jsString)"
+                            }
+                          },
+                          {
+                            "e": {
+                              "u": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject).query(jsObject)",
+                              "v": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject).query(jsObject).uri(jsNull)"
+                            }
+                          },
+                          {
+                            "e": {
+                              "u": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject).query(jsObject)",
+                              "v": "request(jsObject).actionRequest(jsObject).holistic(jsObject).app(jsObject).metadata(jsObject).query(jsObject).uri(jsString)"
                             }
                           },
                           {
@@ -24854,6 +24957,79 @@
                           "outputTypeVIID": "heMbLYIpid2i6AIIJvjOvg",
                           "outputTypeVDID": "dXUuwlxR5gXEr31QN2mCtQ",
                           "operationVDID": "be0GA4nevg_o8ifNGcDnsg"
+                        }
+                      },
+                      "8KWW5zkCTMKRihNXKX_Pdw": {
+                        "filterDescriptor": {
+                          "operationID": "8KWW5zkCTMKRihNXKX_Pdw",
+                          "operationName": "Holistic App Common Kernel: Query App Metadata",
+                          "operationDescription": "Retrieves a copy of the derived application's application metadata.",
+                          "inputFilterSpec": {
+                            "____label": "Holistic App Common Kernel: Query App Metadata Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "act": {
+                                "____label": "OPC.act Method",
+                                "____description": "A reference to ObservableProcessController.act method.",
+                                "____accept": "jsFunction"
+                              }
+                            },
+                            "actionRequest": {
+                              "____types": "jsObject",
+                              "holistic": {
+                                "____types": "jsObject",
+                                "app": {
+                                  "____types": "jsObject",
+                                  "metadata": {
+                                    "____types": "jsObject",
+                                    "query": {
+                                      "____types": "jsObject",
+                                      "type": {
+                                        "____accept": "jsString",
+                                        "____inValueSet": [
+                                          "org",
+                                          "app",
+                                          "page",
+                                          "hashroute",
+                                          "digraph"
+                                        ]
+                                      },
+                                      "uri": {
+                                        "____accept": [
+                                          "jsNull",
+                                          "jsString"
+                                        ],
+                                        "____defaultValue": null
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____label": "App Metadata Query Result",
+                            "____description": "App metadata query by type result descriptor object.",
+                            "____accept": "jsObject"
+                          },
+                          "inputTypeVIID": "okhQtzalSYKaCworYDd37Q",
+                          "inputTypeVDID": "QRVE_K60oP7eD6HcGFXsVA",
+                          "outputTypeVIID": "FJjPLnCgZlJzbkUcK8gUMg",
+                          "outputTypeVDID": "Ex8xboiJzsqDTl-e2Z5pfQ",
+                          "operationVDID": "HGwI3So9AGLLgDuz7jx_aQ"
                         }
                       },
                       "_yxWfFLnTqqN-UxRdd7W5w": {

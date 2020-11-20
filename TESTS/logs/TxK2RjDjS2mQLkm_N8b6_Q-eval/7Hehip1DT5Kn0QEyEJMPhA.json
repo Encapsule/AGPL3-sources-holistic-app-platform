@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "R-RxSZFFVrkyUdSO-FVRaw",
+                    "vdid": "DSXYNyad2uH4kpW-eYZ6rA",
                     "name": "Holistic App Client Kernel",
                     "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                     "cmat": {
@@ -22,7 +22,7 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "R-RxSZFFVrkyUdSO-FVRaw",
+                            "vdid": "DSXYNyad2uH4kpW-eYZ6rA",
                             "name": "Holistic App Client Kernel",
                             "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                             "type": "CM",
@@ -280,7 +280,7 @@
                             },
                             "UX7JquBhSZO0QyEk7u9-sw": {
                               "id": "UX7JquBhSZO0QyEk7u9-sw",
-                              "vdid": "xV9cYMvf1FbNBw6QBKduig",
+                              "vdid": "xV-SYMvfwlbNB1WQBKcEig",
                               "name": "Holistic App Client Kernel: d2r2/React Client Display Adaptor",
                               "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                               "type": "CM",
@@ -307,7 +307,7 @@
                               },
                               "RlNHSKNBT32xejFqjsiZyg": {
                                 "id": "RlNHSKNBT32xejFqjsiZyg",
-                                "vdid": "u3cpDPVf5bMGJZZtNco5iQ",
+                                "vdid": "33IBI0GdIiqy2DkPKuJpQw",
                                 "name": "Holistic App Client Display Adapter: Update Display Layout",
                                 "description": "Performs a programmatic re-rendering of the display adapter's DIV target using d2r2 <ComponentRouter/>.",
                                 "type": "ACT"
@@ -329,13 +329,13 @@
                             },
                             "74npOB-3S8GEgHwdtWwHrg": {
                               "id": "74npOB-3S8GEgHwdtWwHrg",
-                              "vdid": "DSqJRm7Q6kthhh5fV4KsAQ",
+                              "vdid": "eFX9cooPif8ueD00ymAvYg",
                               "name": "Holistic App Common Kernel",
                               "description": "Provides core kernel cell process models shared by the holistic app server and holistic app client application cell models.",
                               "type": "CM",
                               "-mApjtHVTE2UpIANFJGaPQ": {
                                 "id": "-mApjtHVTE2UpIANFJGaPQ",
-                                "vdid": "aRJwz0J4pn2YM40apGmfiA",
+                                "vdid": "1wJvVTV086u8Ar_ZMGSs0Q",
                                 "name": "Holistic App Common Kernel: App Metadata Model",
                                 "description": "Provides consistent access/query API on derived-application-specific static metadata for all cells in a holistic application.",
                                 "type": "CM",
@@ -351,6 +351,13 @@
                                   "vdid": "WHSfGZJhlqGxC3Kge-5BEg",
                                   "name": "Holistic App Common Kernel: App Metadata Process Initialize",
                                   "description": "Intializes the holistic app metadata singleton process.",
+                                  "type": "ACT"
+                                },
+                                "8KWW5zkCTMKRihNXKX_Pdw": {
+                                  "id": "8KWW5zkCTMKRihNXKX_Pdw",
+                                  "vdid": "euC4AwqmvbqkmfzyQrgklA",
+                                  "name": "Holistic App Common Kernel: Query App Metadata",
+                                  "description": "Retrieves a copy of the derived application's application metadata.",
                                   "type": "ACT"
                                 }
                               },
@@ -406,13 +413,13 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 56,
-                      "edges": 106,
+                      "vertices": 57,
+                      "edges": 108,
                       "artifacts": {
                         "cm": 14,
                         "apm": 7,
                         "top": 13,
-                        "act": 18
+                        "act": 19
                       }
                     }
                   },
@@ -582,7 +589,7 @@
                         },
                         {
                           "id": "RlNHSKNBT32xejFqjsiZyg",
-                          "vdid": "u3cpDPVf5bMGJZZtNco5iQ",
+                          "vdid": "33IBI0GdIiqy2DkPKuJpQw",
                           "name": "Holistic App Client Display Adapter: Update Display Layout",
                           "description": "Performs a programmatic re-rendering of the display adapter's DIV target using d2r2 <ComponentRouter/>."
                         },
@@ -621,6 +628,12 @@
                           "vdid": "WHSfGZJhlqGxC3Kge-5BEg",
                           "name": "Holistic App Common Kernel: App Metadata Process Initialize",
                           "description": "Intializes the holistic app metadata singleton process."
+                        },
+                        {
+                          "id": "8KWW5zkCTMKRihNXKX_Pdw",
+                          "vdid": "euC4AwqmvbqkmfzyQrgklA",
+                          "name": "Holistic App Common Kernel: Query App Metadata",
+                          "description": "Retrieves a copy of the derived application's application metadata."
                         },
                         {
                           "id": "_yxWfFLnTqqN-UxRdd7W5w",
@@ -662,7 +675,7 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "R-RxSZFFVrkyUdSO-FVRaw",
+                          "vdid": "DSXYNyad2uH4kpW-eYZ6rA",
                           "name": "Holistic App Client Kernel",
                           "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                           "type": "CM",
@@ -920,7 +933,7 @@
                           },
                           "UX7JquBhSZO0QyEk7u9-sw": {
                             "id": "UX7JquBhSZO0QyEk7u9-sw",
-                            "vdid": "xV9cYMvf1FbNBw6QBKduig",
+                            "vdid": "xV-SYMvfwlbNB1WQBKcEig",
                             "name": "Holistic App Client Kernel: d2r2/React Client Display Adaptor",
                             "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                             "type": "CM",
@@ -947,7 +960,7 @@
                             },
                             "RlNHSKNBT32xejFqjsiZyg": {
                               "id": "RlNHSKNBT32xejFqjsiZyg",
-                              "vdid": "u3cpDPVf5bMGJZZtNco5iQ",
+                              "vdid": "33IBI0GdIiqy2DkPKuJpQw",
                               "name": "Holistic App Client Display Adapter: Update Display Layout",
                               "description": "Performs a programmatic re-rendering of the display adapter's DIV target using d2r2 <ComponentRouter/>.",
                               "type": "ACT"
@@ -969,13 +982,13 @@
                           },
                           "74npOB-3S8GEgHwdtWwHrg": {
                             "id": "74npOB-3S8GEgHwdtWwHrg",
-                            "vdid": "DSqJRm7Q6kthhh5fV4KsAQ",
+                            "vdid": "eFX9cooPif8ueD00ymAvYg",
                             "name": "Holistic App Common Kernel",
                             "description": "Provides core kernel cell process models shared by the holistic app server and holistic app client application cell models.",
                             "type": "CM",
                             "-mApjtHVTE2UpIANFJGaPQ": {
                               "id": "-mApjtHVTE2UpIANFJGaPQ",
-                              "vdid": "aRJwz0J4pn2YM40apGmfiA",
+                              "vdid": "1wJvVTV086u8Ar_ZMGSs0Q",
                               "name": "Holistic App Common Kernel: App Metadata Model",
                               "description": "Provides consistent access/query API on derived-application-specific static metadata for all cells in a holistic application.",
                               "type": "CM",
@@ -991,6 +1004,13 @@
                                 "vdid": "WHSfGZJhlqGxC3Kge-5BEg",
                                 "name": "Holistic App Common Kernel: App Metadata Process Initialize",
                                 "description": "Intializes the holistic app metadata singleton process.",
+                                "type": "ACT"
+                              },
+                              "8KWW5zkCTMKRihNXKX_Pdw": {
+                                "id": "8KWW5zkCTMKRihNXKX_Pdw",
+                                "vdid": "euC4AwqmvbqkmfzyQrgklA",
+                                "name": "Holistic App Common Kernel: Query App Metadata",
+                                "description": "Retrieves a copy of the derived application's application metadata.",
                                 "type": "ACT"
                               }
                             },

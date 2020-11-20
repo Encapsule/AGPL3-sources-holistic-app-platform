@@ -27,14 +27,24 @@ const controllerAction = new holarchy.ControllerAction({
                                 ____defaultValue: {},
                                 apmBindingPath: {
                                     ____accept: [
-                                        "jsUndefined", // If not specified then the this action will use its request_.context.apmBindingPath
+                                        "jsUndefined", // If not specified then this action will use its request_.context.apmBindingPath
                                         "jsString" // The apmBindingPath of the cell process that owns the display process indicated by renderData
                                     ]
                                 }
                             },
                             renderData: {
+                                // DEPRECATED
                                 // The routable portion of this.props bound to a <ComponentRouter/> instance
-                                ____accept: "jsObject"
+                                ____accept: [
+                                    "jsUndefined", // Prefer to use thisProps that will be made mandatory in a short time.
+                                    "jsObject"
+                                ]
+                            },
+                            thisProps: {
+                                ____label: "Component Props",
+                                ____description: "If specified, this is assumed to be the entirety of the actor's d2r2 render request descriptor bound to the <1:N/> resolved by <ComponentRouter/>. Note that you cannot influence the values sent via thisProps.renderContext except via overrides allowed by this request.",
+                                ____accept: "jsObject",
+                                ____defaultValue: { renderData: { forceDisplayError: "You didn't specify any renderData!" } }
                             }
                         }
                     }
@@ -72,15 +82,19 @@ const controllerAction = new holarchy.ControllerAction({
                 break;
             }
 
-            const thisProps = {
+            let thisProps = {
+                ...messageBody.thisProps,
                 renderContext: {
-                    renderEnvironment: "client",
+                    // NOTE: serverRender Boolean flag is not set here; it is only ever set during initial server-side rendering and initial client-side display activation.
                     ComponentRouter: displayAdapterCellData.config.ComponentRouter,
                     act: request_.context.act,
                     apmBindingPath: messageBody.renderContext.apmBindingPath?messageBody.renderContext.apmBindingPath:request_.context.apmBindingPath
-                },
-                renderData: messageBody.renderData
+                }
             };
+
+            if (messageBody.renderData) {
+                thisProps.renderData = messageBody.renderData;
+            }
 
             let d2r2Component = React.createElement(displayAdapterCellData.config.ComponentRouter, thisProps);
             ReactDOM.render(d2r2Component, displayAdapterCellData.config.targetDOMElement);
