@@ -8022,27 +8022,12 @@
                               "summary": {
                                 "counts": {
                                   "bindings": 0,
-                                  "frames": 1,
+                                  "frames": 0,
                                   "errors": 0,
                                   "transitions": 0
                                 }
                               },
-                              "evalFrames": [
-                                {
-                                  "summary": {
-                                    "counts": {
-                                      "bindings": 0,
-                                      "transitions": 0,
-                                      "errors": 0
-                                    },
-                                    "reports": {
-                                      "transitions": [],
-                                      "errors": []
-                                    }
-                                  },
-                                  "bindings": {}
-                                }
-                              ]
+                              "evalFrames": []
                             }
                           }
                         }
@@ -8567,27 +8552,12 @@
                               "summary": {
                                 "counts": {
                                   "bindings": 0,
-                                  "frames": 1,
+                                  "frames": 0,
                                   "errors": 0,
                                   "transitions": 0
                                 }
                               },
-                              "evalFrames": [
-                                {
-                                  "summary": {
-                                    "counts": {
-                                      "bindings": 0,
-                                      "transitions": 0,
-                                      "errors": 0
-                                    },
-                                    "reports": {
-                                      "transitions": [],
-                                      "errors": []
-                                    }
-                                  },
-                                  "bindings": {}
-                                }
-                              ]
+                              "evalFrames": []
                             }
                           }
                         }
@@ -8810,27 +8780,12 @@
                               "summary": {
                                 "counts": {
                                   "bindings": 0,
-                                  "frames": 1,
+                                  "frames": 0,
                                   "errors": 0,
                                   "transitions": 0
                                 }
                               },
-                              "evalFrames": [
-                                {
-                                  "summary": {
-                                    "counts": {
-                                      "bindings": 0,
-                                      "transitions": 0,
-                                      "errors": 0
-                                    },
-                                    "reports": {
-                                      "transitions": [],
-                                      "errors": []
-                                    }
-                                  },
-                                  "bindings": {}
-                                }
-                              ]
+                              "evalFrames": []
                             }
                           }
                         }
@@ -9061,27 +9016,12 @@
                               "summary": {
                                 "counts": {
                                   "bindings": 0,
-                                  "frames": 1,
+                                  "frames": 0,
                                   "errors": 0,
                                   "transitions": 0
                                 }
                               },
-                              "evalFrames": [
-                                {
-                                  "summary": {
-                                    "counts": {
-                                      "bindings": 0,
-                                      "transitions": 0,
-                                      "errors": 0
-                                    },
-                                    "reports": {
-                                      "transitions": [],
-                                      "errors": []
-                                    }
-                                  },
-                                  "bindings": {}
-                                }
-                              ]
+                              "evalFrames": []
                             }
                           }
                         }

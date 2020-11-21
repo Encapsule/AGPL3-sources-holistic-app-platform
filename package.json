@@ -1,8 +1,8 @@
 {
     "name": "holistic-dev",
-    "version": "0.0.47",
-    "codename": "alexandrite",
-    "description": "Holistic app platform is a domain modeling and runtime environment for building distributed web applications from reusable software models defined in JSON and implemented in JavaScript.",
+    "version": "0.0.48",
+    "codename": "kyanite",
+    "description": "Full stack domain modeling and software factory runtime environment for building SaaS and PaaS products from reusable JavaScript plug-ins.",
     "author": "Encapsule",
     "contributors": [
         {

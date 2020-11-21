@@ -116,6 +116,7 @@ const factoryResponse = arccore.filter.create({
             } // if write filter doesn't exist
             const writeFilter = request_.ocdReference._private.accessFilters.write[fqPath];
             response = writeFilter.request(request_.data);
+            request_.ocdReference._private.dirty = true;
             break;
         } // end while
         if (errors.length) {
