@@ -1,6 +1,6 @@
 {
     "name": "holistic",
-    "description": "Full stack domain modeling and software factory runtime environment for building SaaS and PaaS products from reusable JavaScript plug-ins.",
+    "description": "A Node.js/HTML5 domain and process modeling system for building SaaS and PaaS dynamically from JSON data + remixable plug-ins written in JavaScript.",
     "version": "0.0.48",
     "codename": "kyanite",
     "author": "Encapsule",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "OQcIJpVERWqFAzPb9iRGSQ",
-    "buildSource": "c78af92dbb87e7f2b3012009de36c46ec7953403",
-    "buildTime": 1605938943,
-    "buildDateISO": "2020-11-21T06:09:03.000Z"
+    "buildID": "jISMTB8aT_-VfQWz1JD5DQ",
+    "buildSource": "f97b24377458d5c5408cd2be00ce5de24586a2d7",
+    "buildTime": 1605939613,
+    "buildDateISO": "2020-11-21T06:20:13.000Z"
 }

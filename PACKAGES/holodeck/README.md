@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 This package contains the holodeck test runner and test harness plug-in filter factory infrastructure. Holodeck functions like a medical imaging system for your code that bombards it with queries and captures the results to disk. Comparison of git diff's is often all that's required to verify the correct and expected behavior of updated app/service code tracked in this way.
 
 ```
-Package: @encapsule/holodeck v0.0.48 "kyanite" build ID "OQcIJpVERWqFAzPb9iRGSQ"
-Sources: Encapsule/holistic-master#c78af92dbb87e7f2b3012009de36c46ec7953403
-Created: 2020-11-21T06:09:03.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/holodeck v0.0.48 "kyanite" build ID "jISMTB8aT_-VfQWz1JD5DQ"
+Sources: Encapsule/holistic-master#f97b24377458d5c5408cd2be00ce5de24586a2d7
+Created: 2020-11-21T06:20:13.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview

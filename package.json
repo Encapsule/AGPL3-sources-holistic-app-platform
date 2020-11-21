@@ -2,7 +2,7 @@
     "name": "holistic-dev",
     "version": "0.0.48",
     "codename": "kyanite",
-    "description": "Full stack domain modeling and software factory runtime environment for building SaaS and PaaS products from reusable JavaScript plug-ins.",
+    "description": "A Node.js/HTML5 domain and process modeling system for building SaaS and PaaS dynamically from JSON data + remixable plug-ins written in JavaScript.",
     "author": "Encapsule",
     "contributors": [
         {
