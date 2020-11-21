@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "t33cY0SYTl2pAtM3FeY6hg",
-    "buildSource": "cc4be8df77470233f2c712439af99f07547d3817",
-    "buildTime": 1605903421,
-    "codename": "alexandrite",
+    "buildID": "OQcIJpVERWqFAzPb9iRGSQ",
+    "buildSource": "c78af92dbb87e7f2b3012009de36c46ec7953403",
+    "buildTime": 1605938943,
+    "codename": "kyanite",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -31,8 +31,8 @@
     "name": "@encapsule/holistic-app-client-cm",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.10",
-        "@encapsule/holarchy": "0.0.47",
-        "@encapsule/holarchy-cm": "0.0.47",
+        "@encapsule/holarchy": "0.0.48",
+        "@encapsule/holarchy-cm": "0.0.48",
         "react": "16.12.0",
         "react-dom": "16.12.0"
     },
@@ -40,5 +40,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.47"
+    "version": "0.0.48"
 }
