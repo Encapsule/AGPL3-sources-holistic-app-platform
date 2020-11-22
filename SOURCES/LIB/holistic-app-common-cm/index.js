@@ -13,15 +13,8 @@ module.exports = {
         source: packageMeta.buildSource
     },
 
-    cml: new holarchy.CellModel({
-        id: "74npOB-3S8GEgHwdtWwHrg",
-        name: "Holistic App Common Kernel",
-        description: "Provides core kernel cell process models shared by the holistic app server and holistic app client application cell models.",
-        subcells: [
-            require("./AppMetadata"),
-            require("./ViewThemeProcessor")
-        ]
-    })
+    // CellModel Library (cml)
+    cml: require("./HolisticAppCommonKernel")
 
 };
 
