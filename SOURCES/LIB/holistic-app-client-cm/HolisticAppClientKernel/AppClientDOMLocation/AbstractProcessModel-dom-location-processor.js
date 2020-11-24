@@ -17,13 +17,23 @@ const routerEventDescriptorSpec = {
 
 const apmClientHashRouteLocationProcessor = module.exports = {
 
-    id: "-1Ptaq_zTUa8Gfv_3ODtDg",
+    id: "OWLoNENjQHOKMTCEeXkq2g",
     name: "Holistic App Client Kernel: DOM Location Processor",
     description: "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
 
     ocdDataSpec: {
-        ____label: "Client Hash Route Location Processor",
+        ____label: "DOM Location Processor Cell",
         ____types: "jsObject",
+        ____defaultValue: {},
+
+        // v0.0.48-kyanite
+        derivedAppClientProcessCoordinates: {
+            ____label: "Derived App Client Runtime Process Coordinates",
+            ____description: "The cell process coordinates to be used to launch the derived app client cell process.",
+            ____types: "jsObject",
+            apmID: { ____accept: "jsString" },
+            instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
+        },
 
         private: {
             ____types: "jsObject",
@@ -79,34 +89,35 @@ const apmClientHashRouteLocationProcessor = module.exports = {
             transitions: [
                 {
                     transitionIf: { always: true },
-                    nextStep: "initialize"
+                    nextStep: "dom-location-initialize"
                 }
             ]
         },
 
-        initialize: {
+        "dom-location-initialize": {
             description: "Registering hashchange DOM event callback.",
             actions: {
-                enter: [ { holistic: { app: { client: { cm: { actions: { DOMLocationProcessor: { initialize: true } } } } } } } ],
-                exit : [ { holistic: { app: { client: { cm: { actions: { DOMLocationProcessor: { notifyEvent: { hashchange: true } } } } } } } } ]
+                exit: [ { holistic: { app: { client: { cm: { actions: { DOMLocationProcessor: { initialize: true } } } } } } } ],
+                // exit : [ { holistic: { app: { client: { cm: { actions: { DOMLocationProcessor: { notifyEvent: { hashchange: true } } } } } } } } ]
             },
-            transitions: [ { transitionIf: { always: true }, nextStep: "wait" } ]
+            transitions: [ { transitionIf: { always: true }, nextStep: "dom-location-wait-hashchange-event" } ]
         },
 
-        wait: {
+        "dom-location-wait-hashchange-event": {
             description: "Waiting for DOM hashchange event.",
             transitions: [
                 {
                     transitionIf: { holarchy: { cm: { operators: { ocd: { isBooleanFlagSet: { path: "#.private.updateObservers" } } } } } },
-                    nextStep: "update"
+                    nextStep: "dom-location-signal-update"
                 }
             ]
         },
 
-        update: {
+        "dom-location-signal-update": {
             description: "The observable browser location has been updated. Information about the current location, and who set it is available in this model's output namespace.",
-            transitions: [ { transitionIf: { always: true }, nextStep: "wait" } ],
-            actions: { exit: [ { holarchy: { cm: { actions: { ocd: { clearBooleanFlag: { path: "#.private.updateObservers" } } } } } } ] }
+            // v0.0.48-kyanite this is changing...
+            actions: { exit: [ { holarchy: { cm: { actions: { ocd: { clearBooleanFlag: { path: "#.private.updateObservers" } } } } } } ] },
+            transitions: [ { transitionIf: { always: true }, nextStep: "dom-location-wait-hashchange-event" } ]
         }
 
     }

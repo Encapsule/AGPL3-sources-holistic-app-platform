@@ -44,31 +44,33 @@ module.exports = new holarchy.ControllerAction({
             const endsWithHash = location.href.endsWith("#");
             const hashLength = location.hash?location.hash.length:0;
             const addHash = !(hashLength || endsWithHash);
+            let ignoreEvent = false;
 
             if (addHash) {
                 // Always display the hash # delimiter between the server href and client-only hashroute portions of the href string.
-                location.replace(`${location.href}#`);
+                const newLocation = `${location.href}#`;
+                console.log(`> DOMLocationProcessor is setting the replacing the DOM location with "${newLocation}".`);
+                location.replace(newLocation);
+                ignoreEvent = true;
             }
 
             window.addEventListener("hashchange", (event_) => {
 
                 event_.preventDefault();
 
-                // When we receive the hashchange event we simply read some information
-                // from the DOM (the message), and notify the DOM Location Processor
-                // model by calling OPC.act. Here, this function is the actor
-                // (in this case an actor external to OPC) that is affecting some
-                // change to the overall state of the system modeled by the OPC.
+                if (!ignoreEvent) {
 
-                const actResponse = request_.context.act({
-                    apmBindingPath: request_.context.apmBindingPath,
-                    actorName: "DOM hashchange Event Handler",
-                    actorTaskDescription: "Notifying the DOM Location Processor of hashchange/location update.",
-                    actionRequest: { holistic: { app: { client: { cm: { actions: { DOMLocationProcessor: { notifyEvent: { hashchange: true } } } } } } } }
-                }, false);
+                    // If this act request fails, the app client process will get notified via its error lifecycle action.
+                    request_.context.act({
+                        apmBindingPath: request_.context.apmBindingPath,
+                        actorName: "DOMLocationProcessor:hashchange Event Handler",
+                        actorTaskDescription: "Notifying the DOM Location Processor of hashchange/location update.",
+                        actionRequest: { holistic: { app: { client: { cm: { actions: { DOMLocationProcessor: { notifyEvent: { hashchange: true } } } } } } } }
+                    }, false);
 
-                if (actResponse.error) {
-                    throw new Error(actResponse.error);
+                } else {
+                    console.log("> DOMLocationProcessor is dropping the first hashchange event because we caused it by replacing the DOM location during initialization.");
+                    ignoreEvent = false; // this is one-shot flag that's set true iff addHash
                 }
 
             });

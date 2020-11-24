@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "qKiRmKLNonekeUraf-1yhQ",
+                    "vdid": "w6iRpwfNout3eUqSS-1y9Q",
                     "name": "Holistic App Client Kernel",
                     "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                     "cmat": {
@@ -22,13 +22,13 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "qKiRmKLNonekeUraf-1yhQ",
+                            "vdid": "w6iRpwfNout3eUqSS-1y9Q",
                             "name": "Holistic App Client Kernel",
                             "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                             "type": "CM",
                             "PPL45jw5RDWSMNsB97WIWg": {
                               "id": "PPL45jw5RDWSMNsB97WIWg",
-                              "vdid": "HE69gphFfOY271PPKEchAQ",
+                              "vdid": "MNWVee6IPf08FUM9PSG-Sw",
                               "name": "Holistic App Client Kernel Process",
                               "description": "This process manages, tracks, and controls the lifecycle of the derived app client process.",
                               "type": "APM"
@@ -70,13 +70,13 @@
                             },
                             "qzMWhMstQ4Ki06O75y5hMA": {
                               "id": "qzMWhMstQ4Ki06O75y5hMA",
-                              "vdid": "yaSCr3HH-9yMUtjGkI-TUA",
+                              "vdid": "PKSCjYDH-4RPUthvqI-TOQ",
                               "name": "DOM Location Processor",
                               "description": "Abstracts monitoring and setting the window.location and hashroute.",
                               "type": "CM",
-                              "-1Ptaq_zTUa8Gfv_3ODtDg": {
-                                "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                                "vdid": "rUyFIUkDsTq_--p1alJJdw",
+                              "OWLoNENjQHOKMTCEeXkq2g": {
+                                "id": "OWLoNENjQHOKMTCEeXkq2g",
+                                "vdid": "mhBPLli-U0qzbhiwdT9W-Q",
                                 "name": "Holistic App Client Kernel: DOM Location Processor",
                                 "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                                 "type": "APM"
@@ -435,7 +435,7 @@
                         },
                         {
                           "id": "PPL45jw5RDWSMNsB97WIWg",
-                          "vdid": "HE69gphFfOY271PPKEchAQ",
+                          "vdid": "MNWVee6IPf08FUM9PSG-Sw",
                           "name": "Holistic App Client Kernel Process",
                           "description": "This process manages, tracks, and controls the lifecycle of the derived app client process."
                         },
@@ -446,8 +446,8 @@
                           "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals."
                         },
                         {
-                          "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                          "vdid": "rUyFIUkDsTq_--p1alJJdw",
+                          "id": "OWLoNENjQHOKMTCEeXkq2g",
+                          "vdid": "mhBPLli-U0qzbhiwdT9W-Q",
                           "name": "Holistic App Client Kernel: DOM Location Processor",
                           "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location."
                         },
@@ -675,13 +675,13 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "qKiRmKLNonekeUraf-1yhQ",
+                          "vdid": "w6iRpwfNout3eUqSS-1y9Q",
                           "name": "Holistic App Client Kernel",
                           "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                           "type": "CM",
                           "PPL45jw5RDWSMNsB97WIWg": {
                             "id": "PPL45jw5RDWSMNsB97WIWg",
-                            "vdid": "HE69gphFfOY271PPKEchAQ",
+                            "vdid": "MNWVee6IPf08FUM9PSG-Sw",
                             "name": "Holistic App Client Kernel Process",
                             "description": "This process manages, tracks, and controls the lifecycle of the derived app client process.",
                             "type": "APM"
@@ -723,13 +723,13 @@
                           },
                           "qzMWhMstQ4Ki06O75y5hMA": {
                             "id": "qzMWhMstQ4Ki06O75y5hMA",
-                            "vdid": "yaSCr3HH-9yMUtjGkI-TUA",
+                            "vdid": "PKSCjYDH-4RPUthvqI-TOQ",
                             "name": "DOM Location Processor",
                             "description": "Abstracts monitoring and setting the window.location and hashroute.",
                             "type": "CM",
-                            "-1Ptaq_zTUa8Gfv_3ODtDg": {
-                              "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                              "vdid": "rUyFIUkDsTq_--p1alJJdw",
+                            "OWLoNENjQHOKMTCEeXkq2g": {
+                              "id": "OWLoNENjQHOKMTCEeXkq2g",
+                              "vdid": "mhBPLli-U0qzbhiwdT9W-Q",
                               "name": "Holistic App Client Kernel: DOM Location Processor",
                               "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                               "type": "APM"

@@ -100,6 +100,15 @@ const holisticAppCommon = require("@encapsule/holistic-app-common-cm");
                                 return { error: null };
                             }
                         },
+                        hashrouteFunction: {
+                            ____label: "Application Client Lifecycle Signal Action: Hashroute",
+                            ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.hashroute ControllerAction plug-in.",
+                            ____accept: "jsFunction",
+                            ____defaultValue: function(request_) {
+                                console.log(`${filterDeclaration.operationID}::${filterDeclaration.operationName}] WARNING: No holistic.app.client.lifecycle.hashroute signal action registered. USING DEFAULT HANDLER (does nothing).`);
+                                return { error: null };
+                            }
+                        },
                         errorFunction: {
                             ____label: "Application Client Lifecycle Signal Action: Error",
                             ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.error ControllerAction plug-in.",
@@ -310,7 +319,7 @@ const holisticAppCommon = require("@encapsule/holistic-app-common-cm");
                             // ----------------------------------------------------------------
                             // ControllerAction: holistic.app.client.lifecycle.query
                             {
-                                id: arccore.identifier.irut.fromReference(`{clientFactoryRequest_.cellModelID}::holistic.app.client.lifecycle.query`).result,
+                                id: arccore.identifier.irut.fromReference(`${clientFactoryRequest_.cellModelID}::holistic.app.client.lifecycle.query`).result,
                                 name: `${clientFactoryRequest_.name} App Client Lifecycle Action: Query`,
                                 description: `This action is dispatched by the Holistic App Client Kernel cell process to query the ${clientFactoryRequest_.name} derived app client process for its requirements and capabilities.`,
                                 actionRequestSpec: {
@@ -386,7 +395,7 @@ const holisticAppCommon = require("@encapsule/holistic-app-common-cm");
                             // ----------------------------------------------------------------
                             // ControllerAction: holistic.app.client.lifecycle.deserialize
                             {
-                                id: arccore.identifier.irut.fromReference(`{clientFactoryRequest_.cellModelID}::holistic.app.client.lifecycle.deserialize`).result,
+                                id: arccore.identifier.irut.fromReference(`${clientFactoryRequest_.cellModelID}::holistic.app.client.lifecycle.deserialize`).result,
                                 name: `${clientFactoryRequest_.name} App Client Lifecycle Action: Deserialize`,
                                 description: `This action is dispatched by the Holistic App Client Kernel cell process to give the ${clientFactoryRequest_.name} app client a copy of the document's bootROM data. And, to obtain from ${clientFactoryRequest_.name} app client an application-specific appBootROM object to be subsequently passed back to the config lifecycle action.`,
                                 actionRequestSpec: {
@@ -423,7 +432,7 @@ const holisticAppCommon = require("@encapsule/holistic-app-common-cm");
                             // ----------------------------------------------------------------
                             // ControllerAction: holistic.app.client.lifecycle.config
                             {
-                                id: arccore.identifier.irut.fromReference(`{clientFactoryRequest_.cellModelID}::holistic.app.client.lifecycle.config`).result,
+                                id: arccore.identifier.irut.fromReference(`${clientFactoryRequest_.cellModelID}::holistic.app.client.lifecycle.config`).result,
                                 name: `${clientFactoryRequest_.name} App Client Lifecycle Action: Config`,
                                 description: `This action is invoked by the Holistic App Client Kernel process to inform the ${clientFactoryRequest_.name} app client process to configure itself and perform final preparation before the kernel dispatches the start lifecycle action.`,
                                 actionRequestSpec: {
@@ -458,7 +467,7 @@ const holisticAppCommon = require("@encapsule/holistic-app-common-cm");
                             // ----------------------------------------------------------------
                             // ControllerAction: holistic.app.client.lifecycle.start
                             {
-                                id: arccore.identifier.irut.fromReference(`{clientFactoryRequest_.cellModelID}::holistic.app.client.lifecycle.start`).result,
+                                id: arccore.identifier.irut.fromReference(`${clientFactoryRequest_.cellModelID}::holistic.app.client.lifecycle.start`).result,
                                 name: `${clientFactoryRequest_.name} App Client Lifecycle Action: Start`,
                                 description: `This action is invoked by the Holistic App Client Kernel process to inform the ${clientFactoryRequest_.name} app client process that the app client bootstrap process has completed, all app client kernel services are configured and ready, and that the visible DOM display surface is interactive.`,
                                 actionRequestSpec: {
@@ -483,9 +492,38 @@ const holisticAppCommon = require("@encapsule/holistic-app-common-cm");
                                 bodyFunction: clientFactoryRequest_.appClientKernelIntegrations.lifecycleSignalActions.startFunction
                             },
                             // ----------------------------------------------------------------
+                            // ControllerAction: holistic.app.client.lifecycle.hashroute
+                            {
+                                id: arccore.identifier.irut.fromReference(`${clientFactoryRequest_.cellModelID}::holistic.app.client.lifecycle.hashroute`).result,
+                                name: `${clientFactoryRequest_.name} App Client Lifecycle Action: Hashroute`,
+                                description: `This action is invoked by the Holistic App Client Kernel process to inform the ${clientFactoryRequest_.name} app client process that the user has updated the browser tab's hashroute.`,
+                                actionRequestSpec: {
+                                    ____types: "jsObject",
+                                    holistic: {
+                                        ____types: "jsObject",
+                                        app: {
+                                            ____types: "jsObject",
+                                            client: {
+                                                ____types: "jsObject",
+                                                lifecycle: {
+                                                    ____types: "jsObject",
+                                                    hashroute: {
+                                                        ____accept: "jsObject"
+                                                        // TODO: This is information that will be sourced from the DOMLocationProcessor singleton cell process.
+                                                        // Need to add it to the filter spec so that developers can understand what they're being sent.
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                actionResultSpec: { ____opaque: true /*TODO*/ },
+                                bodyFunction: clientFactoryRequest_.appClientKernelIntegrations.lifecycleSignalActions.hashrouteFunction
+                            },
+                            // ----------------------------------------------------------------
                             // ControllerAction: holistic.app.client.lifecycle.error
                             {
-                                id: arccore.identifier.irut.fromReference(`{clientFactoryRequest_.cellModelID}::holistic.app.client.lifecycle.error`).result,
+                                id: arccore.identifier.irut.fromReference(`${clientFactoryRequest_.cellModelID}::holistic.app.client.lifecycle.error`).result,
                                 name: `${clientFactoryRequest_.name} App Client Lifecycle Action: Error`,
                                 description: `This action is invoked by the Holistic App Client Kernel process to inform the ${clientFactoryRequest_.name} app client process of the occurance of runtime cell plane evaluation errors.`,
                                 actionRequestSpec: {
