@@ -67,7 +67,7 @@ const controllerAction = new holarchy.ControllerAction({
 
             const actorName = `[${this.operationID}::${this.operationName}]`;
             const messageBody = request_.actionRequest.holistic.app.client.display.update;
-            console.log(`${actorName} attempting to activate the display process via ReactDOM.hydrate.`);
+            console.log(`${actorName} attempting add/remove active display processes via <ComponentRouter/>-guided ReactDOM.render.`);
 
             let hacdLibResponse = hacdLib.getStatus.request(request_.context);
             if (hacdLibResponse.error) {

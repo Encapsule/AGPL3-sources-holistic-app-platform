@@ -144,7 +144,7 @@ module.exports = {
                     transitionIf: {
                         and: [
                             { CellProcessor: { cell: { query: { inStep: { apmStep: "display-adapter-wait-initial-layout" } },  cellCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* "Holistic Client App Kernel: d2r2/React Client Display Adaptor" */ } } } },
-                            { CellProcessor: { cell: { query: { inStep: { apmStep: "dom-location-wait-hashchange-event" } }, cellCoordinates: { apmID: "OWLoNENjQHOKMTCEeXkq2g" /* "Holistic App Client Kernel: DOM Location Processor" */ } } } }
+                            { CellProcessor: { cell: { query: { inStep: { apmStep: "dom-location-wait-kernel-ready" } }, cellCoordinates: { apmID: "OWLoNENjQHOKMTCEeXkq2g" /* "Holistic App Client Kernel: DOM Location Processor" */ } } } }
                         ]
                     },
                     nextStep: "kernel-wait-browser-tab-resources-loaded"

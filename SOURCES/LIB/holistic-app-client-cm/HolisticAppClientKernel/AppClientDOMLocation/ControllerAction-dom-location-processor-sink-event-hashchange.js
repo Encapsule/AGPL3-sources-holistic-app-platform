@@ -106,7 +106,7 @@ module.exports = new holarchy.ControllerAction({
                             cell: {
                                 delegate: {
                                     cell: cellMemory.derivedAppClientProcessCoordinates,
-                                    actionRequest: { holistic: { app: { client: { lifecycle: { hashroute: routerEventDescriptor } } } } }
+                                    actionRequest: { holistic: { app: { client: { lifecycle: { hashroute: { routerEventDescriptor } } } } } }
                                 }
                             }
                         }

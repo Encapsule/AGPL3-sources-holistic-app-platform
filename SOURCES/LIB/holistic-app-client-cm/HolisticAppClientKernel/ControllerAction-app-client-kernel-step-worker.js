@@ -77,6 +77,10 @@ const controllerAction = new holarchy.ControllerAction({
             switch (messageBody.action) {
             case "noop":
                 break;
+
+                // ****************************************************************
+                // ****************************************************************
+
             case "activate-subprocesses":
 
                 // THIS IS WRONG
@@ -180,6 +184,9 @@ const controllerAction = new holarchy.ControllerAction({
                 // { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.serviceProcesses.clientViewProcessor", actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "Hsu-43zBRgqHItCPWPiBng" /* "Holistic App Client Kernel: Client View Processor" */ } } } } } } } },
                 break;
 
+                // ****************************************************************
+                // ****************************************************************
+
             case "activate-display-adapter":
                 actResponse = request_.context.act({
                     actorName,
@@ -209,6 +216,9 @@ const controllerAction = new holarchy.ControllerAction({
                 }
 
                 break;
+
+                // ****************************************************************
+                // ****************************************************************
 
             default:
                 errors.push(`Internal error: unhandled action value "${messageBody.action}".`);

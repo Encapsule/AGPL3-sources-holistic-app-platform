@@ -133,10 +133,7 @@ const controllerAction = new holarchy.ControllerAction({
                 // So, we need to be very defensive at this stage of the app client process boot in order to try to ensure that all the flagrant
                 // cases get caught and reported as error(s).
 
-                
-
-
-               actResponse = request_.context.act({
+                actResponse = request_.context.act({
                     actorName,
                     actorTaskDescription: "Delegating app client kernel deserialize lifecycle event to the derived app client process.",
                     actionRequest: {
