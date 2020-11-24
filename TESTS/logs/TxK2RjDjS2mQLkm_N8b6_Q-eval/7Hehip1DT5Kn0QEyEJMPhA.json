@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "DSXYNyad2uH4kpW-eYZ6rA",
+                    "vdid": "qKiRmKLNonekeUraf-1yhQ",
                     "name": "Holistic App Client Kernel",
                     "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                     "cmat": {
@@ -22,15 +22,15 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "DSXYNyad2uH4kpW-eYZ6rA",
+                            "vdid": "qKiRmKLNonekeUraf-1yhQ",
                             "name": "Holistic App Client Kernel",
                             "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                             "type": "CM",
                             "PPL45jw5RDWSMNsB97WIWg": {
                               "id": "PPL45jw5RDWSMNsB97WIWg",
-                              "vdid": "HuupZ4SFosNECu1QC07vjw",
-                              "name": "Holistic Client App Kernel",
-                              "description": "This model manages, tracks, and controls the lifecycle of the client application.",
+                              "vdid": "HE69gphFfOY271PPKEchAQ",
+                              "name": "Holistic App Client Kernel Process",
+                              "description": "This process manages, tracks, and controls the lifecycle of the derived app client process.",
                               "type": "APM"
                             },
                             "ZE1JY82CQ5uRlWQ-zgqz5g": {
@@ -434,6 +434,12 @@
                           "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it."
                         },
                         {
+                          "id": "PPL45jw5RDWSMNsB97WIWg",
+                          "vdid": "HE69gphFfOY271PPKEchAQ",
+                          "name": "Holistic App Client Kernel Process",
+                          "description": "This process manages, tracks, and controls the lifecycle of the derived app client process."
+                        },
+                        {
                           "id": "Hsu-43zBRgqHItCPWPiBng",
                           "vdid": "aFFKyNWIZQYCjpXkuE8FYw",
                           "name": "Holistic App Client Kernel: Client View Processor",
@@ -450,12 +456,6 @@
                           "vdid": "VU214Mg6Xrb9lrbIoEbIhw",
                           "name": "Holistic App Common Kernel: App Metadata Process",
                           "description": "Encapsulates query/read access to developer-specified holistic application static metadata digraph data for active cells in either server or client cellplanes."
-                        },
-                        {
-                          "id": "PPL45jw5RDWSMNsB97WIWg",
-                          "vdid": "HuupZ4SFosNECu1QC07vjw",
-                          "name": "Holistic Client App Kernel",
-                          "description": "This model manages, tracks, and controls the lifecycle of the client application."
                         },
                         {
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
@@ -675,15 +675,15 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "DSXYNyad2uH4kpW-eYZ6rA",
+                          "vdid": "qKiRmKLNonekeUraf-1yhQ",
                           "name": "Holistic App Client Kernel",
                           "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                           "type": "CM",
                           "PPL45jw5RDWSMNsB97WIWg": {
                             "id": "PPL45jw5RDWSMNsB97WIWg",
-                            "vdid": "HuupZ4SFosNECu1QC07vjw",
-                            "name": "Holistic Client App Kernel",
-                            "description": "This model manages, tracks, and controls the lifecycle of the client application.",
+                            "vdid": "HE69gphFfOY271PPKEchAQ",
+                            "name": "Holistic App Client Kernel Process",
+                            "description": "This process manages, tracks, and controls the lifecycle of the derived app client process.",
                             "type": "APM"
                           },
                           "ZE1JY82CQ5uRlWQ-zgqz5g": {
