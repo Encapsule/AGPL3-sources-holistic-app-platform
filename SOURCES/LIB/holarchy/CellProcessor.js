@@ -13,7 +13,9 @@
 
 const constructorFilter = require("./lib/filters/cp-method-constructor-filter");
 const actFilter = require("./lib/filters/cp-method-act-filter");
-const logger = require("./lib/util/holarchy-logger-filter");
+
+// TODO: use this or remove this (likely the later soon)
+// const logger = require("./lib/util/holarchy-logger-filter");
 
 module.exports = class CellProcessor {
 

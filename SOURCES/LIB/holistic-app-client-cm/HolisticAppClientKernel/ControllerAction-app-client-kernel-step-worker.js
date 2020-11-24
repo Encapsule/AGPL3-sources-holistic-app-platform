@@ -79,6 +79,7 @@ const controllerAction = new holarchy.ControllerAction({
                 break;
             case "activate-subprocesses":
 
+                // THIS IS WRONG
                 actResponse = request_.context.act({
                     actorName,
                     actorTaskDescription: "Activating derived AppMetadata process on behalf of the app client process.",

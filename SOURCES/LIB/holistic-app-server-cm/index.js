@@ -2,7 +2,7 @@
 
 const packageMeta = require("./package.json");
 
-const holarchyCM = require("@encapsule/holarchy-cm");
+const HolisticAppServerService = require("./HolisticAppServerService");
 
 module.exports = {
 
@@ -15,5 +15,7 @@ module.exports = {
         source: packageMeta.buildSource
     },
 
-    // WIP: We're not applying @encapsule/holarchy in the Node.js app server just yet.
+    // v0.0.48-kyanite
+    HolisticAppServerService // New ES6 class
+
 };
