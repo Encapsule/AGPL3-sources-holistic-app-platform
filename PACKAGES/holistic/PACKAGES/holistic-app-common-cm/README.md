@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 Exports the HolisticAppCommon CellModel library for use in derived HolisticAppServer and HolisticAppClient CellModels.
 
 ```
-Package: @encapsule/holistic-app-common-cm v0.0.48 "kyanite" build ID "Pa8BDm-RTNSrdgO05PB-RQ"
-Sources: Encapsule/holistic-master#1abb09b2823ef15c49dde504b15ca284998a0f2f
-Created: 2020-11-27T16:27:31.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/holistic-app-common-cm v0.0.48 "kyanite" build ID "q5Ks7UHVTtaZ6rrbtCrhiw"
+Sources: Encapsule/holistic-master#be7c7334d5d0e7b65bd70dde73e07afc3b9a7a37
+Created: 2020-11-28T21:11:58.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview
