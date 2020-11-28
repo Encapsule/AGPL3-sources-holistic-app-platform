@@ -26,7 +26,9 @@ const apmClientHashRouteLocationProcessor = module.exports = {
         ____types: "jsObject",
         ____defaultValue: {},
 
-        // v0.0.48-kyanite
+        // v0.0.48-kyanite - app client kernel needs to tell us where the derived app client cell process is located in the cellplane
+        // so that DOM Location Processor cell process can communicate with it via actions.
+
         derivedAppClientProcessCoordinates: {
             ____label: "Derived App Client Runtime Process Coordinates",
             ____description: "The cell process coordinates to be used to launch the derived app client cell process.",
@@ -52,6 +54,11 @@ const apmClientHashRouteLocationProcessor = module.exports = {
                 ____accept: "jsNumber",
                 ____defaultValue: 0
             },
+
+            // v0.0.48-kyanite
+            // TODO: We are currently maintaining an unbounded array of routerEventDescriptors.
+            // So, we need to study this a bit and understand if we need the history at all.
+            // If yes, how many entries max. Do we actions to allow the app to query and reset this info?
 
             locationHistory: {
                 ____label: "Location History Array",
@@ -89,21 +96,20 @@ const apmClientHashRouteLocationProcessor = module.exports = {
             transitions: [
                 {
                     transitionIf: { always: true },
-                    nextStep: "dom-location-initialize"
+                    nextStep: "dom-location-processor-initialize"
                 }
             ]
         },
 
-        "dom-location-initialize": {
+        "dom-location-processor-initialize": {
             description: "Registering hashchange DOM event callback.",
+            transitions: [ { transitionIf: { always: true }, nextStep: "dom-location-processor-wait-kernel-ready" } ],
             actions: {
-                exit: [ { holistic: { app: { client: { cm: { actions: { DOMLocationProcessor: { initialize: true } } } } } } } ],
-                // exit : [ { holistic: { app: { client: { cm: { actions: { DOMLocationProcessor: { notifyEvent: { hashchange: true } } } } } } } } ]
-            },
-            transitions: [ { transitionIf: { always: true }, nextStep: "dom-location-wait-kernel-ready" } ]
+                exit: [ { holistic: { app: { client: { domLocation: { _private: { initialize: true } } } } } } ]
+            }
         },
 
-        "dom-location-wait-kernel-ready": {
+        "dom-location-processor-wait-kernel-ready": {
             description: "Waiting on the kernel to reach its active state. After that point, we start actively communicating directly with the derived app client process.",
 
             transitions: [
@@ -116,17 +122,22 @@ const apmClientHashRouteLocationProcessor = module.exports = {
                             }
                         }
                     },
-                    nextStep: "dom-location-signal-initial-hashroute"
+                    nextStep: "dom-location-processor-signal-initial-hashroute"
                 }
             ]
         },
 
-        "dom-location-signal-initial-hashroute": {
+        "dom-location-processor-signal-initial-hashroute": {
             description: "Inform the app client process of the initial hashroute assignment inherited from the HTTP request URL. Note, that it is up to the app client process to decide what to do with this information specifically wrt to active cells etc.",
-            transitions: [ { transitionIf: { always: true }, nextStep: "dom-location-wait-hashchange-event" } ],
-            actions: { exit : [ { holistic: { app: { client: { cm: { actions: { DOMLocationProcessor: { notifyEvent: { hashchange: true } } } } } } } } ] }
+            transitions: [ { transitionIf: { always: true }, nextStep: "dom-location-processor-active" } ],
+            actions: { exit : [ { holistic: { app: { client: { domLocation: { _private: { notifyEvent: { hashchange: true } } } } } } } ] }
         },
 
+        "dom-location-processor-active": {
+            description: "The DOM Location Processor is active and waiting from action requests from the app. And, hashchange events caused by user interaction w/the browser."
+        },
+
+        /*
         "dom-location-wait-hashchange-event": {
             description: "Waiting for DOM hashchange event.",
             transitions: [
@@ -143,6 +154,7 @@ const apmClientHashRouteLocationProcessor = module.exports = {
             actions: { exit: [ { holarchy: { cm: { actions: { ocd: { clearBooleanFlag: { path: "#.private.updateObservers" } } } } } } ] },
             transitions: [ { transitionIf: { always: true }, nextStep: "dom-location-wait-hashchange-event" } ]
         }
+        */
 
     }
 
