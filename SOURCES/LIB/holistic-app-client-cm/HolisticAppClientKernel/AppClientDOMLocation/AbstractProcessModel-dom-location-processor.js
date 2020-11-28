@@ -10,7 +10,35 @@ const routerEventDescriptorSpec = {
             "app",   // Application actor set the current href value by calling a DOM Location Processor controller action.
         ]
     },
-    href: { ____accept: "jsString" /* copy of location.href */ },
+    hashrouteString: {
+        ____accept: "jsString"
+    }, // This is the string beginning with the # character as we specified in the user request. Or, was added by the app client kernel during boot.
+    hashrouteParse: {
+        ____types: "jsObject",
+        pathname: {
+            ____label: "Secondary Resource Request Pathname",
+            ____description: "Use this string as the primary key to query app metadata for hashroute descriptor.",
+            ____accept: "jsString"
+        },
+        path: {
+            ____label: "Secondary Resource Request Path",
+            ____description: "Same as above except that it includes any URL-encoded query params. In for debugging only but not really useful vs hashrouteQueryParse.",
+            ____accept: "jsString"
+        },
+        search: {
+            ____label: "Secondary Resource Reqeust Search Params String",
+            ____accept: [ "jsString", "jsNull" ]
+        },
+        query: {
+            ____label: "Secondary Resource Request Query Params String",
+            ____accept: [ "jsString", "jsNull" ]
+        }
+    },
+    hashrouteQueryParse: {
+        ____types: "jsObject",
+        ____asMap: true,
+        paramName: { ____accept: [ "jsString", "jsNull" /*e.g. #x?foo --> foo: null */ ] }
+    },
     routerEventNumber: { ____accept: "jsNumber" }
 };
 

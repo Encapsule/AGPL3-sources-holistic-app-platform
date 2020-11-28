@@ -1,6 +1,9 @@
 // ControllerAction-dom-client-event-sink-hashchange.js
 
 const holarchy = require("@encapsule/holarchy");
+const queryString = require("query-string");
+const url = require("url");
+
 
 module.exports = new holarchy.ControllerAction({
     id: "peTmTek_SB64-ofd_PSGjg",
@@ -72,11 +75,22 @@ module.exports = new holarchy.ControllerAction({
                 break;
             }
 
-            // TODO: We need URL / hashroute parsing here as 1st-class platform function.
+            const hrefParse = url.parse(location.href);
+
+            const hashrouteParseRaw = url.parse(hrefParse.hash.slice(1));
+
+            const hashrouteParse = {
+                pathname: `#${hashrouteParseRaw.pathname?hashrouteParseRaw.pathname:""}`,
+                path: `#${hashrouteParseRaw.path?hashrouteParseRaw.path:""}`,
+                search: hashrouteParseRaw.search,
+                query: hashrouteParseRaw.query
+            };
 
             const routerEventDescriptor = {
                 actor: ((cellMemory.private.routerEventCount === cellMemory.private.lastOutputEventIndex)?(cellMemory.private.routerEventCount?"user":"server"):"app"),
-                href: location.href, // capture the entire href serialization from the location object
+                hashrouteString: hrefParse.hash,
+                hashrouteParse,
+                hashrouteQueryParse: queryString.parse(hashrouteParse.query),
                 routerEventNumber: cellMemory.private.routerEventCount
             };
 

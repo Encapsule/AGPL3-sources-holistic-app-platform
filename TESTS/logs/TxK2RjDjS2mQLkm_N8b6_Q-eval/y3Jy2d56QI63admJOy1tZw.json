@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "qzMWhMstQ4Ki06O75y5hMA",
-                    "vdid": "xaSCja7H-4RqUthvGI-TOQ",
+                    "vdid": "J6SCjdbH-4QfUthviI-TOQ",
                     "name": "DOM Location Processor",
                     "description": "Abstracts monitoring and setting the window.location and hashroute.",
                     "cmat": {
@@ -22,13 +22,13 @@
                           "type": "INDEX",
                           "qzMWhMstQ4Ki06O75y5hMA": {
                             "id": "qzMWhMstQ4Ki06O75y5hMA",
-                            "vdid": "xaSCja7H-4RqUthvGI-TOQ",
+                            "vdid": "J6SCjdbH-4QfUthviI-TOQ",
                             "name": "DOM Location Processor",
                             "description": "Abstracts monitoring and setting the window.location and hashroute.",
                             "type": "CM",
                             "OWLoNENjQHOKMTCEeXkq2g": {
                               "id": "OWLoNENjQHOKMTCEeXkq2g",
-                              "vdid": "T2K-wMaJ7HYe-XZ0AXwoQg",
+                              "vdid": "RW6WNwD35keDHebdS88XHQ",
                               "name": "Holistic App Client Kernel: DOM Location Processor",
                               "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                               "type": "APM"
@@ -274,7 +274,7 @@
                         },
                         {
                           "id": "OWLoNENjQHOKMTCEeXkq2g",
-                          "vdid": "T2K-wMaJ7HYe-XZ0AXwoQg",
+                          "vdid": "RW6WNwD35keDHebdS88XHQ",
                           "name": "Holistic App Client Kernel: DOM Location Processor",
                           "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location."
                         }
@@ -412,13 +412,13 @@
                         "type": "INDEX",
                         "qzMWhMstQ4Ki06O75y5hMA": {
                           "id": "qzMWhMstQ4Ki06O75y5hMA",
-                          "vdid": "xaSCja7H-4RqUthvGI-TOQ",
+                          "vdid": "J6SCjdbH-4QfUthviI-TOQ",
                           "name": "DOM Location Processor",
                           "description": "Abstracts monitoring and setting the window.location and hashroute.",
                           "type": "CM",
                           "OWLoNENjQHOKMTCEeXkq2g": {
                             "id": "OWLoNENjQHOKMTCEeXkq2g",
-                            "vdid": "T2K-wMaJ7HYe-XZ0AXwoQg",
+                            "vdid": "RW6WNwD35keDHebdS88XHQ",
                             "name": "Holistic App Client Kernel: DOM Location Processor",
                             "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                             "type": "APM"
