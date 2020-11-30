@@ -12,7 +12,7 @@ const appMetadataCellModelFactoryInputSpec = require("./lib/iospecs/app-metadata
         operationName: "App Metadata CellModel Factory",
         operationDescription: "A filter that manufactures a CellModel that encapsulates runtime access to the derived application service's shared static metadata values.",
 
-        inputFilterSpec: appMetadataCellModelFactoryInputSpec, // this is in a separate module because it's included in holistic-app-common-cellmodel-factory-filter.js
+        inputFilterSpec: appMetadataCellModelFactoryInputSpec, // Separate module because the info is replicated in input filter specs at higher layers.
 
         outputFilterSpec: {
             ____label: "App Metadata CellModel Factory Result",
