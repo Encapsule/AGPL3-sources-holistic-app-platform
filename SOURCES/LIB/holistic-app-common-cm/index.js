@@ -1,10 +1,6 @@
 // @encapsule/holistic-app-common-cm/index.js
 
 const packageMeta = require("./package.json");
-const holarchy = require("@encapsule/holarchy");
-
-const HolisticAppCommonService = require("./HolisticAppCommonService");
-
 
 module.exports = {
     __meta: {
@@ -17,12 +13,12 @@ module.exports = {
     },
 
     // v0.0.48-kyanite
-    HolisticAppCommonService, // New ES6 class
+    HolisticAppNucleus: require("./HolisticAppNucleus"), // New ES6 class
 
-
-
+    // v0.0.48-kyanite this is being pulled inside the nucleus - nobody cares.
     appCommonKernelCellModelFactory: require("./holistic-app-common-cellmodel-factory-filter"),
 
+    // v0.0.48-kyanite this is being pulled inside the nucleus - nobody needs to have these details in their face.
     // CellModel Library (cml)
     cml: require("./HolisticAppCommonKernel")
 

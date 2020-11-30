@@ -1,8 +1,6 @@
-// HolisticAppClientService.js
+const constructorFilter = require("./lib/filters/HolisticAppServerService-method-constructor-filter");
 
-const constructorFilter = require("./lib/filters/HolisticAppClientService-method-constructor-filter");
-
-class HolisticAppClientService {
+class HolisticAppServer {
 
     constructor(request_) {
         let errors = [];
@@ -21,7 +19,7 @@ class HolisticAppClientService {
             break;
         }
         if (errors.length) {
-            errors.unshift(`HolisticAppClientService::constructor failed yielding a zombie instance.`);
+            errors.unshift(`HolisticAppServerService::constructor failed yielding a zombie instance.`);
             this._private.constructorError = errors.join(" ");
         }
     }
@@ -32,5 +30,5 @@ class HolisticAppClientService {
 
 }
 
-module.exports = HolisticAppClientService;
+module.exports = HolisticAppServer;
 

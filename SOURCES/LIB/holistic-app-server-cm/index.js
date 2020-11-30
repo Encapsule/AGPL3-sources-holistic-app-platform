@@ -2,8 +2,6 @@
 
 const packageMeta = require("./package.json");
 
-const HolisticAppServerService = require("./HolisticAppServerService");
-
 module.exports = {
 
     __meta: {
@@ -16,6 +14,6 @@ module.exports = {
     },
 
     // v0.0.48-kyanite
-    HolisticAppServerService // New ES6 class
+    HolisticAppServer: require("./HolisticAppServer") // New ES6 class
 
 };

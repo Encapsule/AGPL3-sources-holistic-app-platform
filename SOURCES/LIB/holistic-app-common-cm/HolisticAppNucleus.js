@@ -1,8 +1,17 @@
-// HolisticAppCommonService.js
+// HolisticAppNucleus.js
 
 const constructorFilter = require("./lib/filters/HolisticAppCommonService-method-constructor-filter");
 
-class HolisticAppCommonService {
+// This is a developer-facing API packaged as an ES6 class. The vast majority of the work is done by
+// the constructor filter that is responsible for validating, normalizing, and processing the developer-
+// specified constructor function inputs into what we call the "holistic cell nucleus".
+//
+// The "nucleus" is actually an immutable runtime database of usual-suspect artifacts (i.e. data,
+// filter specs, filters, actions, operators, apm's, and cell models) that is required by both
+// HolisticAppServer and HolisticAppClient ES6 class constructor functions.
+//
+
+class HolisticAppNucleus {
 
     constructor(request_) {
         let errors = [];
@@ -32,5 +41,5 @@ class HolisticAppCommonService {
 
 }
 
-module.exports = HolisticAppCommonService;
+module.exports = HolisticAppNucleus;
 
