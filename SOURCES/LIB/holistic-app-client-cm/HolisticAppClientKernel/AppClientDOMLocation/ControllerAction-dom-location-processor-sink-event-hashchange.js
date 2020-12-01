@@ -59,7 +59,7 @@ module.exports = new holarchy.ControllerAction({
 
             console.log(`> Current value of location.href is '${location.href}'`);
 
-            let ocdResponse = request_.context.ocdi.readNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#" });
+            let ocdResponse = request_.context.ocdi.readNamespace(request_.context.apmBindingPath);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
@@ -108,7 +108,7 @@ module.exports = new holarchy.ControllerAction({
             } // if notify observers
 
             // v0.0.48-kyanite -- So, here we update the cell's OCD memory based on the logic above.
-            ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#" }, cellMemory);
+            ocdResponse = request_.context.ocdi.writeNamespace(request_.context.apmBindingPath, cellMemory);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
@@ -125,7 +125,7 @@ module.exports = new holarchy.ControllerAction({
                             cell: {
                                 delegate: {
                                     cell: cellMemory.derivedAppClientProcessCoordinates,
-                                    actionRequest: { holistic: { app: { client: { lifecycle: { hashroute: { routerEventDescriptor } } } } } }
+                                    actionRequest: { holistic: { app: { client: { lifecycle: { hashroute: { ...routerEventDescriptor } } } } } }
                                 }
                             }
                         }
