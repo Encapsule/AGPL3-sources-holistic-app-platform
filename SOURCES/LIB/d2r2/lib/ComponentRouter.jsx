@@ -74,10 +74,10 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
                         </div>
                         <br/>
                         <div style={{ marginTop: "1em", marginBottom: "1em" }}>
-                        <div style={{ fontFamily: "monospace", whiteSpace: "pre", padding: "1em", backgroundColor: "rgba(255,255,255,0.4)", overflow: "auto" }}>{renderDataJSON}</div>
+                        <div style={{ fontFamily: "monospace", padding: "1em", backgroundColor: "rgba(255,255,255,0.4)", overflow: "auto" }}>{renderDataJSON}</div>
                         </div>
                         <div style={{ marginTop: "1em", marginBottom: "1em" }}>
-                        <div style={{ fontFamily: "monospace", whiteSpace: "pre", padding: "1em", backgroundColor: "rgba(255,255,255,0.4)", overflow: "auto" }}>{`response.error === "${errorMessage}"`}</div>
+                        <div style={{ fontFamily: "monospace", padding: "1em", backgroundColor: "rgba(255,255,255,0.4)", overflow: "auto" }}>{`response.error === "${errorMessage}"`}</div>
                         </div>
                         </div>);
 
