@@ -7,7 +7,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 // HolisticAppNucleus.js
-var constructorFilter = require("./lib/filters/HolisticAppNucleus-method-constructor-filter"); // This is a developer-facing API packaged as an ES6 class. The vast majority of the work is done by
+var constructorFilter = require("./lib/filters/HolisticAppCommon-method-constructor-filter"); // This is a developer-facing API packaged as an ES6 class. The vast majority of the work is done by
 // the constructor filter that is responsible for validating, normalizing, and processing the developer-
 // specified constructor function inputs into what we call the "holistic cell nucleus".
 //
@@ -17,9 +17,9 @@ var constructorFilter = require("./lib/filters/HolisticAppNucleus-method-constru
 //
 
 
-var HolisticAppNucleus = /*#__PURE__*/function () {
-  function HolisticAppNucleus(request_) {
-    _classCallCheck(this, HolisticAppNucleus);
+var HolisticAppCommon = /*#__PURE__*/function () {
+  function HolisticAppCommon(request_) {
+    _classCallCheck(this, HolisticAppCommon);
 
     var errors = [];
     var inBreakScope = false;
@@ -48,7 +48,7 @@ var HolisticAppNucleus = /*#__PURE__*/function () {
     }
   }
 
-  _createClass(HolisticAppNucleus, [{
+  _createClass(HolisticAppCommon, [{
     key: "isValid",
     value: function isValid() {
       return !this._private.constructorError;
@@ -60,7 +60,7 @@ var HolisticAppNucleus = /*#__PURE__*/function () {
     }
   }]);
 
-  return HolisticAppNucleus;
+  return HolisticAppCommon;
 }();
 
-module.exports = HolisticAppNucleus;
+module.exports = HolisticAppCommon;

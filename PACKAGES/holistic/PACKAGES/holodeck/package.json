@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "51qyVHJSRkCP9S8VYssQTQ",
-    "buildSource": "2da15554e1c83c3081884f24fca5b91190fcef16",
-    "buildTime": 1607264701,
-    "codename": "kyanite",
+    "buildID": "4qr50lZMQSOuN4I-JSVfcg",
+    "buildSource": "34f4b5ccada3570cd8d261e65a400a580f0e6a1c",
+    "buildTime": 1607315272,
+    "codename": "spectrolite",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -42,5 +42,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.48"
+    "version": "0.0.49"
 }

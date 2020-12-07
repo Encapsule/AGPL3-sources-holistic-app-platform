@@ -5,6 +5,9 @@ module.exports = {
   ____label: "HolisticAppNucleus::constructor Request Object",
   ____types: "jsObject",
   ____defaultValue: {},
+  // v0.0.49-spectrolite
+  // Can we simply replace app metadata with the build?
+  // I want to untangle this shit once and for now now that I'm in here tearing it up again.
   appBuildMetadata: {
     ____label: "Holistic App Build Metadata",
     ____description: "A reference to the app-build.json manifest created by the app Makefile.",

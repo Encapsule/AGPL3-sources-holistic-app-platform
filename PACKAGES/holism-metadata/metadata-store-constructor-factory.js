@@ -7,6 +7,9 @@ const arccore = require("@encapsule/arccore");
 // knowledge of how these filter specs are composed meaning we can leave it as it is and worry about
 // that in the layer that actually calls this factory filter.
 
+// v0.0.49-spectrolite
+// Okay - the above comment makes sense. This the layer above is going to be the HolonServiceCore::constructor filter (or one of its delegates)
+
 
 var factoryResponse = arccore.filter.create({
 

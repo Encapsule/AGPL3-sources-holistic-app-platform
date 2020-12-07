@@ -12,12 +12,13 @@ module.exports = {
     build: packageMeta.buildID,
     source: packageMeta.buildSource
   },
-  // v0.0.48-kyanite
-  HolisticAppNucleus: require("./HolisticAppNucleus"),
-  // New ES6 class
-  // v0.0.48-kyanite this is being pulled inside the nucleus - nobody cares.
-  appCommonKernelCellModelFactory: require("./holistic-app-common-cellmodel-factory-filter"),
-  // v0.0.48-kyanite this is being pulled inside the nucleus - nobody needs to have these details in their face.
+  // v0.0.49-spectrolite
+  HolisticAppCommon: require("./HolisticAppCommon"),
+  // ES6 class construction function export
+  // This is getting sucked inside HolisticAppCommon but leaving the export for now
+  // v0.0.49-spectrolite is this being even called or can be removed?
+  appCommonKernelCellModelFactory: require("./lib/holistic-app-common-cellmodel-factory-filter"),
+  // This is getting sucked inside HolisticAppCommon but leaving the export for now.
   // CellModel Library (cml)
-  cml: require("./HolisticAppCommonKernel")
+  cml: require("./lib/HolisticAppCommonKernel")
 };
