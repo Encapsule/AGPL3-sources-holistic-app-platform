@@ -2,7 +2,7 @@
 
 const arccore = require("@encapsule/arccore");
 const appMetadataBaseObjectSpecs = require("./lib/iospecs/app-metadata-base-object-specs");
-const appMetadataCellModelFactoryInputSpec = require("./lib/iospecs/app-metadata-cellmodel-factory-input-spec");
+
 
 (function() {
 
@@ -30,6 +30,9 @@ const appMetadataCellModelFactoryInputSpec = require("./lib/iospecs/app-metadata
 
             while (!inBreakScope) {
                 inBreakScope = true;
+
+                // v0.0.49-spectrolite
+                // This is a good idea expressed at the wrong layer. So, it's migrating and will be removed shortly.
 
                 // Synthesize a filter spec to validate the derived app's metadata values.
                 const derivedAppMetadataInputSpec = {

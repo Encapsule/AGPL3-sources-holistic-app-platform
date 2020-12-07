@@ -1,7 +1,7 @@
-// HolisticAppNucleus-method-constructor-filter-input-spec.js
+// HolisticAppCommon-method-constructor-filter-input-spec.js
 
 module.exports = {
-    ____label: "HolisticAppNucleus::constructor Request Object",
+    ____label: "HolisticAppCommon::constructor Request Object",
     ____types: "jsObject",
     ____defaultValue: {},
 
@@ -12,7 +12,6 @@ module.exports = {
         ____label: "Holistic App Build Metadata",
         ____description: "A reference to the app-build.json manifest created by the app Makefile.",
         ____accept: "jsObject", // TODO: schematize this slippery sucker once and for all and be done with it.
-        ____defaultValue: {} // TODO: remove this escape hatch - this is required a value
     },
     appMetadata: {
         ____label: "Application Metadata",
