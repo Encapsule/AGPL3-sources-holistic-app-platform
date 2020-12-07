@@ -5,13 +5,15 @@ module.exports = {
     ____types: "jsObject",
     ____defaultValue: {},
 
+    // v0.0.49-spectrolite
+    // Can we simply replace app metadata with the build?
+    // I want to untangle this shit once and for now now that I'm in here tearing it up again.
     appBuildMetadata: {
         ____label: "Holistic App Build Metadata",
         ____description: "A reference to the app-build.json manifest created by the app Makefile.",
         ____accept: "jsObject", // TODO: schematize this slippery sucker once and for all and be done with it.
         ____defaultValue: {} // TODO: remove this escape hatch - this is required a value
     },
-
     appMetadata: {
         ____label: "Application Metadata",
         ____description: "Holistic app platform defines four extensible application metadata categories. App-specific type definition extension + all of your static build-time app metadata values are passed in here.",

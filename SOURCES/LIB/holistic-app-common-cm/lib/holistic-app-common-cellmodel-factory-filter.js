@@ -3,6 +3,11 @@
 const arccore = require("@encapsule/arccore");
 const holarchy = require("@encapsule/holarchy");
 
+// v0.0.49-spectrolite
+// This does nothing yet (it's left over scribble from v0.0.48-kyanite)
+
+// TO WHAT END CHRIS? NOT EVEN SURE WHAT THIS MODULE IS SUPPOSED TO EVEN DO.
+
 // We use an anonymous function wrapper here to create a private closure space to work in while we're synthesizing the module.exports value.
 
 (function() {
@@ -18,7 +23,7 @@ const holarchy = require("@encapsule/holarchy");
         operationName: "Holistic App Common CellModel Factory",
         operationDescription: "A filter that manufactures a CellModel that encapsulates common platform behaviors shared by both the derived app server and derived app client services.",
 
-        inputFilterSpec: require("./lib/filters/iospecs/holistic-app-common-cellmodel-factory-input-spec"),
+        inputFilterSpec: require("./filters/iospecs/holistic-app-common-cellmodel-factory-input-spec"),
 
         outputFilterSpec: {
             ____label: "Holistic App Common CellModel",

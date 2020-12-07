@@ -1,8 +1,8 @@
 {
     "name": "holistic-dev",
-    "version": "0.0.48",
-    "codename": "kyanite",
-    "description": "A Node.js/HTML5 domain and process modeling system for building SaaS and PaaS dynamically from JSON data + remixable plug-ins written in JavaScript.",
+    "version": "0.0.49",
+    "codename": "spectrolite",
+    "description": "A domain and process modeling system for building Node.js/HTML5 SaaS and PaaS products dynamically from JSON data + remixable plug-ins written in JavaScript.",
     "author": "Encapsule",
     "contributors": [
         {
