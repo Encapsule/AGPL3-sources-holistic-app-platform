@@ -8,6 +8,11 @@ module.exports = {
     // v0.0.49-spectrolite
     // Can we simply replace app metadata with the build?
     // I want to untangle this shit once and for now now that I'm in here tearing it up again.
+    // Okay - so the current builds take the appBuild descriptor and splice it into a subnamespace
+    // of a very terse base app metadata spec. This means that we can eliminate I think both org and
+    // app metadata specs and values entirely from this API and make org and app non-extensible
+    // fixed-format data that's required developer input in holistic-app.json manifest used by appgen.
+    // (and subsequently by the Makefile it code-generates into the derived app service repo's root directory).
 
     appBuildMetadata: {
         ____label: "Holistic App Build Metadata",
