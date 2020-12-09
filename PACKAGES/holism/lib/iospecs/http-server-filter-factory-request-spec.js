@@ -25,6 +25,9 @@ module.exports = {
     ____description: "Information used to generate an @encapsule/holism application server (HTTP 1.1) instance.",
     ____types: "jsObject",
 
+    // v0.0.49-spectrolite
+    // Enough of this sort of BS... This code is going to die.
+
     // Here we effectively constrain the legal output of a derived holistic app's Makefile.
     holisticAppBuildManifest: {
         ____label: "Holistic App Build Manifest",

@@ -1,28 +1,33 @@
 "use strict";
 
-// HolisticAppNucleus-method-constructor-filter-input-spec.js
+// HolisticAppCommon-method-constructor-filter-input-spec.js
 module.exports = {
-  ____label: "HolisticAppNucleus::constructor Request Object",
+  ____label: "HolisticAppCommon::constructor Request Object",
   ____types: "jsObject",
   ____defaultValue: {},
   // v0.0.49-spectrolite
   // Can we simply replace app metadata with the build?
   // I want to untangle this shit once and for now now that I'm in here tearing it up again.
-  appBuildMetadata: {
+  // Okay - so the current builds take the appBuild descriptor and splice it into a subnamespace
+  // of a very terse base app metadata spec. This means that we can eliminate I think both org and
+  // app metadata specs and values entirely from this API and make org and app non-extensible
+  // fixed-format data that's required developer input in holistic-app.json manifest used by appgen.
+  // (and subsequently by the Makefile it code-generates into the derived app service repo's root directory).
+  appBuild: {
     ____label: "Holistic App Build Metadata",
     ____description: "A reference to the app-build.json manifest created by the app Makefile.",
-    ____accept: "jsObject",
-    // TODO: schematize this slippery sucker once and for all and be done with it.
-    ____defaultValue: {} // TODO: remove this escape hatch - this is required a value
+    ____accept: "jsObject" // TODO: schematize this slippery sucker once and for all and be done with it.
+    // Note that in HolisticAppServer::constructor filter we're taking a dependency right now on @holism server filter factory request's version of buildID
+    // This is probably wrong. So, don't copy the pattern here w/out thinking about it some more.
 
   },
   appMetadata: {
-    ____label: "Application Metadata",
+    ____label: "App Service Metadata",
     ____description: "Holistic app platform defines four extensible application metadata categories. App-specific type definition extension + all of your static build-time app metadata values are passed in here.",
     ____types: "jsObject",
     ____defaultValue: {},
     specs: {
-      ____label: "App Metadata Extension Props Specs",
+      ____label: "App Service Metadata Extensions Specs",
       ____description: "Optional filter specifications that add properties to holistic platform-defined base objects defined for each of the four metadata categories.",
       ____types: "jsObject",
       ____defaultValue: {},
@@ -55,14 +60,55 @@ module.exports = {
         ____defaultValue: {}
       }
     },
-    // ~.apppMetadata.filterSpecs
+    // ~.apppMetadata.specs
     values: {
-      ____label: "App Metadata Data Values",
+      ____label: "App Service Metadata Values",
       ____description: "App metadata runtime property values by holistic platform-defined metadata category.",
-      ____accept: "jsObject",
-      // TODO
-      ____defaultValue: {} // WIP.....
+      ____types: "jsObject",
+      ____defaultValue: {},
+      org: {
+        ____label: "App Service Org Metadata",
+        ____description: "Values that define attributes about publisher and presumed owner of the copyright on this specific app service.",
+        ____accept: "jsObject",
+        // We don't know the type before we stitch it together. So, the value filtering occurs inside the constructor function and not here at the API boundary. Same for the other values specified here.
+        ____defaultValue: {}
+      },
+      app: {
+        ____label: "App Service App Metadata",
+        ____description: "We may just replace this w/no input at all from the app developer here. Instead asking them to provide this information via holistic-app.json and picking it up from app-build.json",
+        ____accept: "jsObject",
+        // Filtered inside the constructor function.
+        ____defaultValue: {}
+      },
+      pages: {
+        ____label: "App Service Pages Metadata",
+        ____description: "Page views are defined as reserved GET:/URI routes implemented by the app server service's embedded HTTP 1.1 server that return Content-Encoding: utf-8 Content-Type: text/html response containing a serialized app client service process to be started in the browser tab.",
+        ____types: "jsObject",
+        ____asMap: true,
+        ____defaultValue: {},
+        pageURI: {
+          // e.g. "/", "/reports", "/login", ...
+          ____label: "Page URI App Metadata",
+          ____description: "Data used to determine details about which page views are supported by the app server process. And, to allow any specific initial configuration of the app client service to learn of alternate configurations of the app that may be available.",
+          ____accept: "jsObject" // Filtered inside the constructor function.
 
-    }
-  }
+        }
+      },
+      hashroutes: {
+        ____label: "App Service Hashroutes Metadata",
+        ____description: "Hashroutes are UTF-8 strings starting with the # character appened on the end of an app server HTTP request URL that we interpret as secondary resource request URI's to be serviced by the app client service once it has booted.",
+        ____types: "jsObject",
+        ____asMap: true,
+        ____defaultValue: {},
+        hashroutePathname: {
+          ____label: "Hashroute Pathname App Metadata",
+          ____description: "Data used to determine details about which page view and what specific behaviors the app client service should invoke in response to an initial or subsequent user/programmatic update the location.href's hashroute string (UTF-8 string beginning w/# appended at tail of location.href).",
+          ____accept: "jsObject" // Filtered inside the constructor function
+
+        }
+      }
+    } // ~.appMetadata.values
+
+  } // ~.appMetadata
+
 };

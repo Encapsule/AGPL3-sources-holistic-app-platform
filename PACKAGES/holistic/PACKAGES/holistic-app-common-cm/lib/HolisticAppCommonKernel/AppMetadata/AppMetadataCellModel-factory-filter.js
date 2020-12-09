@@ -11,8 +11,6 @@ var arccore = require("@encapsule/arccore");
 
 var appMetadataBaseObjectSpecs = require("./lib/iospecs/app-metadata-base-object-specs");
 
-var appMetadataCellModelFactoryInputSpec = require("./lib/iospecs/app-metadata-cellmodel-factory-input-spec");
-
 (function () {
   var filterDeclaration = {
     operationID: "3g72FUVrSUSNvFlTkAmwNw",
@@ -48,7 +46,9 @@ var appMetadataCellModelFactoryInputSpec = require("./lib/iospecs/app-metadata-c
       var inBreakScope = false;
 
       while (!inBreakScope) {
-        inBreakScope = true; // Synthesize a filter spec to validate the derived app's metadata values.
+        inBreakScope = true; // v0.0.49-spectrolite
+        // This is a good idea expressed at the wrong layer. So, it's migrating and will be removed shortly.
+        // Synthesize a filter spec to validate the derived app's metadata values.
 
         var derivedAppMetadataInputSpec = {
           ____types: "jsObject",

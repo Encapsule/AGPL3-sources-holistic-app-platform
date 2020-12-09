@@ -7,15 +7,25 @@ var factoryResponse = arccore.filter.create({
   operationID: "Jrc6uiRXS-aCNcQEDNcTug",
   operationName: "HolisticAppClientService::constructor Filter",
   operationDescription: "Validates/normalizes a HolisticAppClientService::constructor function request descriptor object. And, returns the new instance's private state data.",
-  inputFilterSpec: require("./iospecs/app-client-service-method-constructor-input-spec"),
-  outputFilterSpec: require("./iospecs/app-client-service-method-constructor-output-spec"),
+  inputFilterSpec: require("./iospecs/HolisticAppClient-method-constructor-filter-input-spec"),
+  outputFilterSpec: require("./iospecs/HolisticAppClient-method-constructor-filter-output-spec"),
   bodyFunction: function bodyFunction(request_) {
-    return {
-      error: null,
-      result: {
-        test: "fake result"
-      }
+    var response = {
+      error: null
     };
+    var errors = [];
+    var inBreakScope = false;
+
+    while (!inBreakScope) {
+      inBreakScope = true;
+      break;
+    }
+
+    if (errors.length) {
+      response.error = errors.join(" ");
+    }
+
+    return response;
   }
 });
 

@@ -7,7 +7,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 // HolisticAppClient.js
-var constructorFilter = require("./lib/filters/HolisticAppClientService-method-constructor-filter");
+var constructorFilter = require("./lib/filters/HolisticAppClient-method-constructor-filter");
 
 var HolisticAppClient = /*#__PURE__*/function () {
   function HolisticAppClient(request_) {

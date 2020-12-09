@@ -6,7 +6,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var constructorFilter = require("./lib/filters/HolisticAppServerService-method-constructor-filter");
+var constructorFilter = require("./lib/filters/HolisticAppServer-method-constructor-filter");
 
 var HolisticAppServer = /*#__PURE__*/function () {
   function HolisticAppServer(request_) {
@@ -34,7 +34,7 @@ var HolisticAppServer = /*#__PURE__*/function () {
     }
 
     if (errors.length) {
-      errors.unshift("HolisticAppServerService::constructor failed yielding a zombie instance.");
+      errors.unshift("HolisticAppServer::constructor failed yielding a zombie instance.");
       this._private.constructorError = errors.join(" ");
     }
   }

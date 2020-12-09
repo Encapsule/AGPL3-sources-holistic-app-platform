@@ -36,7 +36,9 @@ var HolisticAppCommon = /*#__PURE__*/function () {
       if (filterResponse.error) {
         errors.push(filterResponse.error);
         break;
-      }
+      } // TODO: Implement a recursive Object.freeze to increase confidence that _private data is not
+      // mutated (i.e. it is nonvolatile) for the entire lifespan of a derived app service.
+
 
       this._private = filterResponse.result;
       break;
