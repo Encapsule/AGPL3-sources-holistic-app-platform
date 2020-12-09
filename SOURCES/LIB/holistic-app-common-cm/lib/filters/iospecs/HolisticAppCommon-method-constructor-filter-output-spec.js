@@ -19,11 +19,30 @@ module.exports = {
         // Mostly, nobody should care. But, if you are readying through this code and trying to understand it then this information will help you
         // keep your bearing.
 
-        serviceCoreDefinition: {
+        appCommonDefinition: {
             ...require("./HolisticAppCommon-method-constructor-filter-input-spec"), // This is the constructor filter's input spec that we spread into the output spec and relabel.
             ____label: "Holistic Service Core Definition",
             ____description: "This is a frozen copy of the constructor request descriptor object that we keep for reference so that it is possible to deeply introspect a derived app service runtime."
+        },
+
+        appMetadata: {
+            ____label: "App Metadata",
+            ____description: "Information pertaining to build-time static app metadata used through the derived app service's processes.",
+            ____types: "jsObject",
+            values: {
+                ____types: "jsObject",
+                digraph: {
+                    ____label: "App Metadata Digraph",
+                    ____description: "Reference to a DirectedGraph class instance containing the derived app's metadata.",
+                    ____accept: "jsObject"
+                },
+            },
+            specs: {
+                ____accept: "jsObject" // TODO
+            }
         }
+
+
 
     }
 };

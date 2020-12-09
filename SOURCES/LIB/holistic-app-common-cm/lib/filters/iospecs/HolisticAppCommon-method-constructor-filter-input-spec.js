@@ -14,10 +14,12 @@ module.exports = {
     // fixed-format data that's required developer input in holistic-app.json manifest used by appgen.
     // (and subsequently by the Makefile it code-generates into the derived app service repo's root directory).
 
-    appBuildMetadata: {
+    appBuild: {
         ____label: "Holistic App Build Metadata",
         ____description: "A reference to the app-build.json manifest created by the app Makefile.",
         ____accept: "jsObject", // TODO: schematize this slippery sucker once and for all and be done with it.
+        // Note that in HolisticAppServer::constructor filter we're taking a dependency right now on @holism server filter factory request's version of buildID
+        // This is probably wrong. So, don't copy the pattern here w/out thinking about it some more.
     },
 
     appMetadata: {

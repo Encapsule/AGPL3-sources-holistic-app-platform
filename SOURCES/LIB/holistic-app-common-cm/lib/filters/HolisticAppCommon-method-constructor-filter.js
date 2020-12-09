@@ -22,7 +22,7 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
                 result: { // set the outer levels of the response.result up assuming we'll be successful splicing in the required values later in this bodyFunction
                     nonvolatile: { // Nothing in this namespace should ever be written to during the lifespan of a derived app service process.
                         // This is the validated/normalized value passed by the derived app to HolisticAppCommon constructor function.
-                        serviceCoreDefinition: request_ // Copy the filtered constructor request data immediately; this is an immutable reference copy to support deep introspection of a holistic app service runtime.
+                        appCommonDefinition: request_ // Copy the filtered constructor request data immediately; this is an immutable reference copy to support deep introspection of a holistic app service runtime.
                     }
                 }
             };
@@ -67,14 +67,7 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
                     id: "RRvaL94rQfm-fS0rxSOTxw", // id is required but of little significance we throw away the builder after we use it once here.
                     name: "App Metadata Digraph Builder Filter",
                     description: "A filter that accepts app-specific metadata values and produces a normalized holistic app metadata digraph model used to satisfy value and topological queries on app metadata.",
-                    constraints: {
-                        metadata: {
-                            org: derivedAppService_MetadataInputSpec.org,
-                            app: derivedAppService_MetadataInputSpec.app,
-                            page: derivedAppService_MetadataInputSpec.pages.pageURI,
-                            hashroute: derivedAppService_MetadataInputSpec.hashroutes.hashroutePathname
-                        }
-                    }
+                    constraints: { metadata: derivedAppService_MetadataOutputSpec }
                 });
                 if (digraphBuilderFactoryResponse.error) {
                     errors.push("An error occurred while constructing a filter to process your app metadata values and build your app service's metadata digraph.");
@@ -99,8 +92,12 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
 
                 const appMetadataDigraph = digraphBuilderResponse.result;
 
+                response.result.nonvolatile.appMetadata = {
+                    values: { digraph: appMetadataDigraph },
+                    specs: derivedAppService_MetadataOutputSpec
+                };
 
-                console.log(JSON.stringify(appMetadataDigraph, undefined, 4));
+                console.log(JSON.stringify(response, undefined, 4));
 
                 break;
             }
