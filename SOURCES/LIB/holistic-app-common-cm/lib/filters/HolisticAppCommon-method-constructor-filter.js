@@ -36,15 +36,29 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
 
                 // Synthesize a filter spec to validate the derived app service's metadata values.
                 const derivedAppService_MetadataInputSpec = {
+                    ____label: "App Service Metadata Input Values",
+                    ____description: "This is the format for the app metadata values required by by HolisticAppCommon::constructor function.",
                     ____types: "jsObject",
-                    org: { ...request_.appMetadata.specs.org, ...appMetadataBaseObjectSpecs.input.org },
-                    app: { ...request_.appMetadata.specs.app, ...appMetadataBaseObjectSpecs.input.app },
+                    // Going to kill this so don't bother w/label/description
+                    org: {
+                        ...request_.appMetadata.specs.org,
+                        ...appMetadataBaseObjectSpecs.input.org,
+                    },
+                    // Going to kill this so don't bother w/label/description
+                    app: {
+                        ...request_.appMetadata.specs.app,
+                        ...appMetadataBaseObjectSpecs.input.app
+                    },
                     pages: {
+                        ____label: "App Service Server Page Views Metadata Map",
+                        ____description: "A map of pageURI string keys to page metadata descriptor object.",
                         ____types: "jsObject",
                         ____asMap: true,
                         pageURI: { ...request_.appMetadata.specs.page, ...appMetadataBaseObjectSpecs.input.page }
                     },
                     hashroutes: {
+                        ____label: "App Service Client Page Views Metadata Map",
+                        ____description: "A map of hashroutePathname string keys to hashroute metadata descriptor object.",
                         ____types: "jsObject",
                         ____asMap: true,
                         hashroutePathname: { ...request_.appMetadata.specs.hashroute, ...appMetadataBaseObjectSpecs.input.hashroute }
@@ -53,11 +67,53 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
 
                 // Synthesize a filter spec to validate (or simply document) the metadata values returned by any app metadata query by bucket org/app/page/hashroute.
                 const derivedAppService_MetadataOutputSpec = {
+                    ____label: "App Service Metadata Query Results",
+                    ____description: "This is the format for the app metadata values returned by any query to the app metadata digraph.",
                     ____types: "jsObject",
-                    org: { ...derivedAppService_MetadataInputSpec.org, ...appMetadataBaseObjectSpecs.output.org },
-                    app: { ...derivedAppService_MetadataInputSpec.app, ...appMetadataBaseObjectSpecs.output.app },
-                    page: { ...derivedAppService_MetadataInputSpec.page, ...appMetadataBaseObjectSpecs.output.page },
-                    hashroute: { ...derivedAppService_MetadataInputSpec.hashroute, ...appMetadataBaseObjectSpecs.output.hashroute }
+                    org: {
+                        ...derivedAppService_MetadataInputSpec.org,
+                        ...appMetadataBaseObjectSpecs.output.org,
+                        ____label: "App Service Org Metadata Query Result",
+                        ____description: "This is an org metadata digraph query response.result value.",
+                        ____types: "jsObject",
+                        ____asMap: false
+                    },
+                    app: {
+                        ...derivedAppService_MetadataInputSpec.app,
+                        ...appMetadataBaseObjectSpecs.output.app,
+                        ____label: "App Service App Metadata Query Result",
+                        ____description: "This is a app metadata digraph query response.result value.",
+                        ____types: "jsObject",
+                        ____asMap: false
+                    },
+                    pages: {
+                        ____label: "App Service Pages Metadata Map Query Result",
+                        ____description: "This is a pages metadata digraph query response.result value.",
+                        ____types: "jsObject",
+                        ____asMap: true,
+                        pageURI: {
+                            ...derivedAppService_MetadataInputSpec.pages.pageURI,
+                            ...appMetadataBaseObjectSpecs.output.page,
+                            ____label: "App Service Page Metadata Query Result",
+                            ____description: "This is a page metadata digraph query response.result value.",
+                            ____types: "jsObject",
+                            ____asMap: false
+                        }
+                    },
+                    hashroutes: {
+                        ____label: "App Service Hashroutes Metadata Map Query Result",
+                        ____description: "This is a hashroutes metadata digraph query response.result value.",
+                        ____types: "jsObject",
+                        ____asMap: true,
+                        hashroutePathname: {
+                            ...derivedAppService_MetadataInputSpec.hashroutes.hashroutePathname,
+                            ...appMetadataBaseObjectSpecs.output.hashroute,
+                            ____label: "App Service Hashroute Metadata Query Result",
+                            ____description: "This is a hashroute metadata query response.result value.",
+                            ____types: "jsObject",
+                            ____asMap: false
+                        }
+                    }
                 };
 
                 // Construct a filter specialized on our metadata types that builds the app metadata digraph.
@@ -67,7 +123,8 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
                     id: "RRvaL94rQfm-fS0rxSOTxw", // id is required but of little significance we throw away the builder after we use it once here.
                     name: "App Metadata Digraph Builder Filter",
                     description: "A filter that accepts app-specific metadata values and produces a normalized holistic app metadata digraph model used to satisfy value and topological queries on app metadata.",
-                    constraints: { metadata: derivedAppService_MetadataOutputSpec }
+                    metadataInputSpec: derivedAppService_MetadataInputSpec,
+                    metadataOutputSpec: derivedAppService_MetadataOutputSpec
                 });
                 if (digraphBuilderFactoryResponse.error) {
                     errors.push("An error occurred while constructing a filter to process your app metadata values and build your app service's metadata digraph.");
