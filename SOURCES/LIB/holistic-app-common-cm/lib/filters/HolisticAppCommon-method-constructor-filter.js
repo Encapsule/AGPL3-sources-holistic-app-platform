@@ -47,7 +47,7 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
                     hashroutes: {
                         ____types: "jsObject",
                         ____asMap: true,
-                        hashrouteURI: { ...request_.appMetadata.specs.hashroute, ...appMetadataBaseObjectSpecs.input.hashroute }
+                        hashroutePathname: { ...request_.appMetadata.specs.hashroute, ...appMetadataBaseObjectSpecs.input.hashroute }
                     }
                 }; // derivedAppMetadataInputSpec
 
@@ -60,6 +60,47 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
                     hashroute: { ...derivedAppService_MetadataInputSpec.hashroute, ...appMetadataBaseObjectSpecs.output.hashroute }
                 };
 
+                // Construct a filter specialized on our metadata types that builds the app metadata digraph.
+
+                // Call into current @encapsule/holism-metadata package that basically just has this factory in it.
+                const digraphBuilderFactoryResponse = holismMetadataFactory.request({
+                    id: "RRvaL94rQfm-fS0rxSOTxw", // id is required but of little significance we throw away the builder after we use it once here.
+                    name: "App Metadata Digraph Builder Filter",
+                    description: "A filter that accepts app-specific metadata values and produces a normalized holistic app metadata digraph model used to satisfy value and topological queries on app metadata.",
+                    constraints: {
+                        metadata: {
+                            org: derivedAppService_MetadataInputSpec.org,
+                            app: derivedAppService_MetadataInputSpec.app,
+                            page: derivedAppService_MetadataInputSpec.pages.pageURI,
+                            hashroute: derivedAppService_MetadataInputSpec.hashroutes.hashroutePathname
+                        }
+                    }
+                });
+                if (digraphBuilderFactoryResponse.error) {
+                    errors.push("An error occurred while constructing a filter to process your app metadata values and build your app service's metadata digraph.");
+                    errors.push("Usually this indicates error(s) in app service metadata filter spec(s) provided to this constructor function.");
+                    errors.push(digraphBuilderFactoryResponse.error);
+                    break;
+                }
+                const digraphBuilder = digraphBuilderFactoryResponse.result;
+
+                // Use the digraphBuilder to filter the developer-supplied app metadata values and build the app metadata digraph.
+                const digraphBuilderResponse = digraphBuilder.request({
+                    org: request_.appMetadata.values.org,
+                    app: request_.appMetadata.values.app,
+                    pages: request_.appMetadata.values.pages,
+                    hashroutes: request_.appMetadata.values.hashroutes
+                });
+                if (digraphBuilderResponse.error) {
+                    errors.push("An error occured while processing the app metadata value(s) specified to this constructor function.");
+                    errors.push(digraphBuilderResponse.error);
+                    break;
+                }
+
+                const appMetadataDigraph = digraphBuilderResponse.result;
+
+
+                console.log(JSON.stringify(appMetadataDigraph, undefined, 4));
 
                 break;
             }
