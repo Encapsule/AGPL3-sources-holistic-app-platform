@@ -359,7 +359,7 @@ source_package_build_holistic_app_common_cm:
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLISTIC_APP_COMMON_CM)/ASSETS/
 
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISTIC_APP_COMMON_CM)/.gitignore
-	cp -Rp $(DIR_SOURCES_LIB_HOLISTIC_APP_SERVER_CM)/* $(DIR_BUILD_LIB_HOLISTIC_APP_COMMON_CM)/
+	cp -Rp $(DIR_SOURCES_LIB_HOLISTIC_APP_COMMON_CM)/* $(DIR_BUILD_LIB_HOLISTIC_APP_COMMON_CM)/
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_HOLISTIC_APP_COMMON_CM) --keep-file-extension --verbose $(DIR_SOURCES_LIB_HOLISTIC_APP_COMMON_CM)
 
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holistic-app-common-cm" > $(DIR_BUILD_LIB_HOLISTIC_APP_COMMON_CM)/package.json
