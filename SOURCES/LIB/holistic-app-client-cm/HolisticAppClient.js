@@ -1,6 +1,6 @@
 // HolisticAppClient.js
 
-const constructorFilter = require("./lib/filters/HolisticAppClientService-method-constructor-filter");
+const constructorFilter = require("./lib/filters/HolisticAppClient-method-constructor-filter");
 
 class HolisticAppClient {
 
