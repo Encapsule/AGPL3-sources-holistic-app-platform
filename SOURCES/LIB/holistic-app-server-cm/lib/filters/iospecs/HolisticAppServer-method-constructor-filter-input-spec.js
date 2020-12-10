@@ -42,14 +42,14 @@ module.exports = {
                 ____description: "Synchronous callback functions called during HolisticAppServer class instance construction to obtain configuration information.",
                 ____types: "jsObject",
                 ____defaultValue: {},
-                getMemCachedFilesConfigMap: {
-                    ____label: "Memory-Cached Files Config Map Accessor Function",
-                    ____description: "A function you supply that's dispatched to obtain your specific @encapsule/holism memory-cached file assets and their associated routing, headers, and options metadata.",
+                getMemoryFileRegistrationMap: {
+                    ____label: "Memory-Cached File Registration Map Accessor Function",
+                    ____description: "A callback function that's dispatched to obtain your app server's @encapsule/holism memory-cached registration map.",
                     ____accept: "jsFunction"
                 },
-                getServiceFilterConfigMap: {
-                    ____label: "Service Filter Plug-In Config Map Accessor Function",
-                    ____description: "A function you supply that's dispatched to obtain your specific @encapsule/holism service filter plug-in registrations and their associated routing, headers, and options metadata.",
+                getServiceFilterRegistrationMap: {
+                    ____label: "Service Filter Plug-In Registration Map Accessor Function",
+                    ____description: "A callback function that's dispatched to obtain your app server's @encapsule/holism service filter plug-in registration map.",
                     ____accept: "jsFunction"
                 },
 

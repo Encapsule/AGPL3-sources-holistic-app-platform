@@ -218,11 +218,11 @@ var factoryResponse = arccore.filter.create({
                             ____description: "Topological sort timestamp and derived weight information. Used to automate UX menu layout.",
                             ____types: "jsObject",
                             ____defaultValue: {},
-                            d: { ____accept: "jsNumber", ____defaultValue: -1 },
-                            i: { ____accept: "jsNumber", ____defaultValue: -1 },
-                            o: { ____accept: "jsNumber", ____defaultValue: -1 },
-                            p: { ____accept: "jsNumber", ____defaultValue: -1 },
-                            w: { ____accept: "jsNumber", ____defaultValue: -1 }
+                            d: { ____accept: "jsNumber", ____defaultValue: 0 },
+                            i: { ____accept: "jsNumber", ____defaultValue: 0 },
+                            o: { ____accept: "jsNumber", ____defaultValue: 0 },
+                            p: { ____accept: "jsNumber", ____defaultValue: 0 },
+                            w: { ____accept: "jsNumber", ____defaultValue: 0 }
                         }
                     }
                 },
@@ -265,11 +265,11 @@ var factoryResponse = arccore.filter.create({
                             ____description: "Topological sort timestamp and derived weight information. Used to automate UX menu layout.",
                             ____types: "jsObject",
                             ____defaultValue: {},
-                            d: { ____accept: "jsNumber", ____defaultValue: -1 },
-                            i: { ____accept: "jsNumber", ____defaultValue: -1 },
-                            o: { ____accept: "jsNumber", ____defaultValue: -1 },
-                            p: { ____accept: "jsNumber", ____defaultValue: -1 },
-                            w: { ____accept: "jsNumber", ____defaultValue: -1 }
+                            d: { ____accept: "jsNumber", ____defaultValue: 0 },
+                            i: { ____accept: "jsNumber", ____defaultValue: 0 },
+                            o: { ____accept: "jsNumber", ____defaultValue: 0 },
+                            p: { ____accept: "jsNumber", ____defaultValue: 0 },
+                            w: { ____accept: "jsNumber", ____defaultValue: 0 }
                         }
                     }
                 },

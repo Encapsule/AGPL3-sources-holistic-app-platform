@@ -21,16 +21,13 @@ class HolisticAppCommon {
             this._private = { constructorError: null };
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
+            // ?  this.appBuild = this.appBuild.bind(this);
             let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
                 break;
             }
-            // TODO: Implement a recursive Object.freeze to increase confidence that _private data is not
-            // mutated (i.e. it is nonvolatile) for the entire lifespan of a derived app service.
             this._private = filterResponse.result;
-
-
             break;
         }
         if (errors.length) {
@@ -42,6 +39,10 @@ class HolisticAppCommon {
     isValid() { return (!this._private.constructorError); }
 
     toJSON() { return (this.isValid()?this._private:this._private.constructorError); }
+
+    get appBuild() { return this.isValid()?this._private.nonvolatile.appCommonDefinition.appBuild:this.toJSON(); }
+    
+
 
 }
 
