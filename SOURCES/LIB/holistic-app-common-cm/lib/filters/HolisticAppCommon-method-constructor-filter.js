@@ -42,12 +42,12 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
                     ____types: "jsObject",
                     // Going to kill this so don't bother w/label/description
                     org: {
-                        ...request_.appMetadata.specs.org,
+                        ...request_.appTypes.appMetadata.orgExtSpec,
                         ...appMetadataBaseObjectSpecs.input.org,
                     },
                     // Going to kill this so don't bother w/label/description
                     app: {
-                        ...request_.appMetadata.specs.app,
+                        ...request_.appTypes.appMetadata.appExtSpec,
                         ...appMetadataBaseObjectSpecs.input.app
                     },
                     pages: {
@@ -55,14 +55,20 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
                         ____description: "A map of pageURI string keys to page metadata descriptor object.",
                         ____types: "jsObject",
                         ____asMap: true,
-                        pageURI: { ...request_.appMetadata.specs.page, ...appMetadataBaseObjectSpecs.input.page }
+                        pageURI: {
+                            ...request_.appTypes.appMetadata.pageExtSpec,
+                            ...appMetadataBaseObjectSpecs.input.page
+                        }
                     },
                     hashroutes: {
                         ____label: "App Service Client Page Views Metadata Map",
                         ____description: "A map of hashroutePathname string keys to hashroute metadata descriptor object.",
                         ____types: "jsObject",
                         ____asMap: true,
-                        hashroutePathname: { ...request_.appMetadata.specs.hashroute, ...appMetadataBaseObjectSpecs.input.hashroute }
+                        hashroutePathname: {
+                            ...request_.appTypes.appMetadata.hashrouteExtSpec,
+                            ...appMetadataBaseObjectSpecs.input.hashroute
+                        }
                     }
                 }; // derivedAppMetadataInputSpec
 
@@ -137,10 +143,10 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
 
                 // Use the digraphBuilder to filter the developer-supplied app metadata values and build the app metadata digraph.
                 const digraphBuilderResponse = digraphBuilder.request({
-                    org: request_.appMetadata.values.org,
-                    app: request_.appMetadata.values.app,
-                    pages: request_.appMetadata.values.pages,
-                    hashroutes: request_.appMetadata.values.hashroutes
+                    org: request_.appData.appMetadata.org,
+                    app: request_.appData.appMetadata.app,
+                    pages: request_.appData.appMetadata.pages,
+                    hashroutes: request_.appData.appMetadata.hashroutes
                 });
                 if (digraphBuilderResponse.error) {
                     errors.push("An error occured while processing the app metadata value(s) specified to this constructor function.");

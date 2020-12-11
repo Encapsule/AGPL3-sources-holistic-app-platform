@@ -2,62 +2,38 @@
 
 module.exports = {
     ____label: "HolisticAppCommon::constructor Request Object",
+    ____description: "This is the request format developers need to follow in order to construct a HolisticAppCommon class instance.",
     ____types: "jsObject",
     ____defaultValue: {},
 
-    // v0.0.49-spectrolite
-    // Can we simply replace app metadata with the build?
-    // I want to untangle this shit once and for now now that I'm in here tearing it up again.
-    // Okay - so the current builds take the appBuild descriptor and splice it into a subnamespace
-    // of a very terse base app metadata spec. This means that we can eliminate I think both org and
-    // app metadata specs and values entirely from this API and make org and app non-extensible
-    // fixed-format data that's required developer input in holistic-app.json manifest used by appgen.
-    // (and subsequently by the Makefile it code-generates into the derived app service repo's root directory).
-
-    appBuild: {
-        ____label: "Holistic App Build Metadata",
-        ____description: "A reference to the app-build.json manifest created by the app Makefile.",
-        ____accept: "jsObject", // TODO: schematize this slippery sucker once and for all and be done with it.
-        // Note that in HolisticAppServer::constructor filter we're taking a dependency right now on @holism server filter factory request's version of buildID
-        // This is probably wrong. So, don't copy the pattern here w/out thinking about it some more.
-    },
-
-    appMetadata: {
-        ____label: "App Service Metadata",
-        ____description: "Holistic app platform defines four extensible application metadata categories. App-specific type definition extension + all of your static build-time app metadata values are passed in here.",
+    appData: {
+        ____label: "App Service Common Build-Time Data Values",
+        ____description: "A manifest of values prepared by the app service's build process are are shared with app service server and app client service runtime processes when they are initialized.",
         ____types: "jsObject",
         ____defaultValue: {},
-        specs: {
-            ____label: "App Service Metadata Extensions Specs",
-            ____description: "Optional filter specifications that add properties to holistic platform-defined base objects defined for each of the four metadata categories.",
-            ____types: "jsObject",
-            ____defaultValue: {},
-            org: {
-                ____label: "Org Metadata Extension Props Spec",
-                ____description: "An optional filter spec that defines top-level properties to be added to organization metadata base spec to ensure platform + app-specific org metadata property values are available consistently throughout the app runtime.",
-                ____accept: "jsObject", // This is an arccore.filter specification
-                ____defaultValue: {} // no app-specific extension properties
-            },
-            app: {
-                ____label: "App Metadata Extension Props Spec",
-                ____description: "An optional filter spec that defines top-level properties to be added to app metadata base spec to ensure platform + app-specific app metadata property values are available consistently throughout the app runtime.",
-                ____accept: "jsObject", // This is an arccore.filter specification
-                ____defaultValue: {} // no app-specific extension properties
-            },
-            page: {
-                ____label: "Page Metadata Extension Props Spec",
-                ____description: "An optional filter spec that defines top-level properties to be added to page metadata base sepc to ensure platform + app-specific page metadata property values are available consistently throughout the app runtime.",
-                ____types: "jsObject",
-                ____defaultValue: {}
-            },
-            hashroute: {
-                ____label: "Hashroute Metadata Extension Props Spec",
-                ____description: "An optional filter spec that defined top-level properties to be added to hashroute metadata base spec to ensure platform + app-specific hashroute metadata property values are available consistently through the app runtime.",
-                ____types: "jsObject",
-                ____defaultValue: {},
-            }
-        }, // ~.apppMetadata.specs
-        values: {
+
+        // v0.0.49-spectrolite
+        // Can we simply replace app metadata with the build?
+        // I want to untangle this shit once and for now now that I'm in here tearing it up again.
+        // Okay - so the current builds take the appBuild descriptor and splice it into a subnamespace
+        // of a very terse base app metadata spec. This means that we can eliminate I think both org and
+        // app metadata specs and values entirely from this API and make org and app non-extensible
+        // fixed-format data that's required developer input in holistic-app.json manifest used by appgen.
+        // (and subsequently by the Makefile it code-generates into the derived app service repo's root directory).
+        appBuild: {
+            ____label: "Holistic App Build Metadata",
+            ____description: "A reference to the app-build.json manifest created by the app Makefile.",
+            ____accept: "jsObject", // TODO: schematize this slippery sucker once and for all and be done with it.
+            // Note that in HolisticAppServer::constructor filter we're taking a dependency right now on @holism server filter factory request's version of buildID
+            // This is probably wrong. So, don't copy the pattern here w/out thinking about it some more.
+            // DEFINITELY SCHEMATIZE THE appBuild structure right here. Everyone else (including appgen) can base off this.
+            // Then the hand-off between platform-generated Makefile (that produces app-build.json in the first place)
+            // and the platform-guided runtime process initialization that really can't ever break w/out driving me
+            // finally over the edge will be locked down in one place - finally.
+
+        }, // ~.appData.appBuild
+
+        appMetadata: {
             ____label: "App Service Metadata Values",
             ____description: "App metadata runtime property values by holistic platform-defined metadata category.",
             ____types: "jsObject",
@@ -68,7 +44,6 @@ module.exports = {
                 ____description: "Values that define attributes about publisher and presumed owner of the copyright on this specific app service.",
                 ____accept: "jsObject", // We don't know the type before we stitch it together. So, the value filtering occurs inside the constructor function and not here at the API boundary. Same for the other values specified here.
                 ____defaultValue: {},
-
             },
 
             app: {
@@ -103,9 +78,62 @@ module.exports = {
                     ____accept: "jsObject" // Filtered inside the constructor function
                 }
             }
+        }, // ~.appData.appMetadata
 
-        } // ~.appMetadata.values
+    }, // ~.appData
 
-    } // ~.appMetadata
+    appTypes: {
+
+        ____label: "Derived App Service Runtime Types",
+        ____description: "Developer-defined runtime type definitions, and extensions to holistic-platform-defined types for a small set of core application-layer objects for which the platform runtime provides runtime type filtering and/or generic orchestration services on behalf of the derived app service.",
+        ____types: "jsObject",
+        ____defaultValue: {},
+
+        appMetadata: {
+
+            ____label: "App Service Metadata Type Extension Specs",
+            ____description: "Holistic app platform defines four extensible application metadata categories. You are allowed to extend the platform-defined base app-layer object definitions associated with each bucket via optional filter spec definition provided here.",
+            ____types: "jsObject",
+            ____defaultValue: {},
+
+            orgExtSpec: {
+                ____label: "App Service Org Metadata Extension Props Spec",
+                ____description: "An optional filter spec that defines top-level properties to be added to organization metadata base spec to ensure platform + app-specific org metadata property values are available consistently throughout the app runtime.",
+                ____accept: "jsObject", // This is an arccore.filter specification
+                ____defaultValue: {} // no app-specific extension properties
+            },
+
+            appExtSpec: {
+                ____label: "App Service App Metadata Extension Props Spec",
+                ____description: "An optional filter spec that defines top-level properties to be added to app metadata base spec to ensure platform + app-specific app metadata property values are available consistently throughout the app runtime.",
+                ____accept: "jsObject", // This is an arccore.filter specification
+                ____defaultValue: {} // no app-specific extension properties
+            },
+
+            pageExtSpec: {
+                ____label: "App Service Page Metadata Extension Props Spec",
+                ____description: "An optional filter spec that defines top-level properties to be added to page metadata base sepc to ensure platform + app-specific page metadata property values are available consistently throughout the app runtime.",
+                ____types: "jsObject",
+                ____defaultValue: {}
+            },
+
+            hashrouteExtSpec: {
+                ____label: "App Service Hashroute Metadata Extension Props Spec",
+                ____description: "An optional filter spec that defined top-level properties to be added to hashroute metadata base spec to ensure platform + app-specific hashroute metadata property values are available consistently through the app runtime.",
+                ____types: "jsObject",
+                ____defaultValue: {},
+            }
+
+        }, // ~.appTypes.appMetadata
+
+        userLoginSession: {
+            ____label: "App Service User Login Session Type Specs",
+            ____description: "Holistic app platform provides runtime data filtering and orchestration of sensitive user login session information generically on behalf of your derived app service w/out dictacting at all how the derived app server process actually implements its authentication/authorization system(s).",
+            ____types: "jsObject",
+            ____defaultValue: {}
+
+        } // ~.userLoginSession
+
+    } // ~.appTypes
 
 };
