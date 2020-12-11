@@ -1,4 +1,7 @@
-// HolisticAppNucleus.js
+// HolisticAppCommon.js
+
+const path = require("path");
+console.log(`> "${path.resolve(__filename)}" module loading...`);
 
 const constructorFilter = require("./lib/filters/HolisticAppCommon-method-constructor-filter");
 

@@ -1,3 +1,8 @@
+// HolisticAppServer.js
+
+const path = require("path");
+console.log(`> "${path.resolve(__filename)}" module loading...`);
+
 const constructorFilter = require("./lib/filters/HolisticAppServer-method-constructor-filter");
 
 class HolisticAppServer {

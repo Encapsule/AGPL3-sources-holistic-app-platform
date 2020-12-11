@@ -15,7 +15,7 @@ const factoryResponse = arccore.filter.create({
     inputFilterSpec,
     outputFilterSpec,
     bodyFunction: function(request_) {
-        console.log(`[${this.operationID}::${this.operationName}]`);
+        console.log(`HolisticAppServer::constructor [${this.operationID}::${this.operationName}]`);
         let response = {
             error: null,
             result: {
