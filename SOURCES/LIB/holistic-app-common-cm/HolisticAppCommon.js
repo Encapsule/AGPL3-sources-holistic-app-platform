@@ -41,8 +41,6 @@ class HolisticAppCommon {
     toJSON() { return (this.isValid()?this._private:this._private.constructorError); }
 
     get appBuild() { return this.isValid()?this._private.nonvolatile.appCommonDefinition.appBuild:this.toJSON(); }
-    
-
 
 }
 

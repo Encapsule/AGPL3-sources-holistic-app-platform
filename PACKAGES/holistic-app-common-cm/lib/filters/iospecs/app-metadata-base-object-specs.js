@@ -1,5 +1,11 @@
 "use strict";
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 // app-metadata-base-object-specs.js
 // v0.0.49-spectrolite
 // We're going with this prior work from v0.0.48-kyanite. This is okay I think
@@ -9,6 +15,41 @@
 // for my sanity. It is also essential that I be able to add/remove items that are
 // needed by the platform and not have to edit any platform code or any derived app
 // code for non-breaking schema changes (e.g. add something new).
+var pageViewTopoSortProps = {
+  children: {
+    ____label: "Child Page Views",
+    ____description: "An ordered array of either pageURI or hashroutePathname string keys corresponding to this page view's direct child page views.",
+    ____types: "jsArray",
+    keyString: {
+      ____accept: "jsString"
+    }
+  },
+  ts: {
+    ____label: "Topological Sort Info",
+    ____description: "Information deduced via a directed graph topological sort on the page view tree defined by your page/hashroute metadata that's useful for building dynamic menus & page-view-level UI nav widgets.",
+    ____types: "jsObject",
+    d: {
+      ____label: "Depth",
+      ____accept: "jsNumber"
+    },
+    i: {
+      ____label: "In",
+      ____accept: "jsNumber"
+    },
+    o: {
+      ____label: "Out",
+      ____accept: "jsNumber"
+    },
+    p: {
+      ____label: "Pages",
+      ____accept: "jsNumber"
+    },
+    w: {
+      ____label: "Width",
+      ____accept: "jsNumber"
+    }
+  }
+};
 module.exports = {
   // platform base definitions for app-extensible static metadata types.
   // This is a descriptor object (i.e. object w/known prop names vs a map w/unknown prop names) containing filter specs.
@@ -176,15 +217,15 @@ module.exports = {
       ____description: "Information about this specific app service.",
       ____types: "jsObject"
     },
-    page: {
+    page: _objectSpread({
       ____label: "App Page Metadata Value",
       ____description: "Information about a specific HTML5 document (aka derived app client) synthesized by the derived app server in response to a request to https://xyzzy.com/<URI>.",
       ____types: "jsObject"
-    },
-    hashroute: {
+    }, pageViewTopoSortProps),
+    hashroute: _objectSpread({
       ____label: "App Hashroute Metadata Value",
       ____description: "Information about a specific dynamically-generated browser page view that may be displayed to the user by the derived app client service under various programmatically-determined conditions.",
       ____types: "jsObject"
-    }
+    }, pageViewTopoSortProps)
   }
 };

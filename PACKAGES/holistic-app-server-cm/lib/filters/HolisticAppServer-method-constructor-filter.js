@@ -25,9 +25,31 @@ var factoryResponse = arccore.filter.create({
   inputFilterSpec: inputFilterSpec,
   outputFilterSpec: outputFilterSpec,
   bodyFunction: function bodyFunction(request_) {
+    console.log("[".concat(this.operationID, "::").concat(this.operationName, "]"));
     var response = {
       error: null,
-      result: {}
+      result: {
+        appServiceCore: null,
+        // invalid value type will cause output filter error if not overwritten below
+        httpServerInstance: {
+          holismInstance: {
+            config: {
+              filters: {
+                getMemoryFileRegistrationMap: null,
+                // as above
+                getServiceFilterRegistrationMap: null // as above
+
+              },
+              data: {
+                memoryFileRegistrations: null,
+                // as above
+                serviceFilterRegistrations: null // as above
+
+              }
+            }
+          }
+        }
+      }
     };
     var errors = [];
     var inBreakScope = false;
@@ -46,6 +68,7 @@ var factoryResponse = arccore.filter.create({
       response.result.appServiceCore = appServiceCore; // Obtain build-time @encapsule/holism HTTP server config information from the derived app server.
       // These are function callbacks wrapped in filters to ensure correctness of response and to provide
       // developers with reference on format of the request value they are sent.
+      // Create a filter to box the developer's getMemoryFileRegistrationMap callback function.
 
       var _factoryResponse = arccore.filter.create({
         operationID: "tMYd-5e7Qm-iFV2TAufL6Q",
@@ -57,7 +80,8 @@ var factoryResponse = arccore.filter.create({
           // <== THIS IS WRONG: we want this format set in common and we'll pick it up from there
           deploymentEnvironment: _objectSpread({}, holism.filters.factories.server.filterDescriptor.inputFilterSpec.appServerRuntimeEnvironment)
         },
-        outputFilterSpec: _objectSpread({}, holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.files)
+        outputFilterSpec: _objectSpread({}, holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.files),
+        bodyFunction: request_.httpServerConfig.holismConfig.registrations.resources.getMemoryFileRegistrationMap
       });
 
       if (_factoryResponse.error) {
@@ -65,6 +89,8 @@ var factoryResponse = arccore.filter.create({
         errors.push(_factoryResponse.error);
         break;
       }
+
+      var getMemoryFileRegistrationMapFilter = response.result.httpServerInstance.holismInstance.config.filters.getMemoryFileRegistrationMap = _factoryResponse.result; // Create a filter to box the developer's getServiceFilterRegistrationMap callback function.
 
       _factoryResponse = arccore.filter.create({
         operationID: "0suEywsvTl200kgcEVBsLw",
@@ -76,7 +102,8 @@ var factoryResponse = arccore.filter.create({
           // <== THIS IS WRONG: we want this format set in common and we'll pick it up from there
           deploymentEnvironment: _objectSpread({}, holism.filters.factories.server.filterDescriptor.inputFilterSpec.appServerRuntimeEnvironment)
         },
-        outputFilterSpec: _objectSpread({}, holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.files)
+        outputFilterSpec: _objectSpread({}, holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.services),
+        bodyFunction: request_.httpServerConfig.holismConfig.registrations.resources.getServiceFilterRegistrationMap
       });
 
       if (_factoryResponse.error) {
@@ -85,12 +112,40 @@ var factoryResponse = arccore.filter.create({
         break;
       }
 
+      var getServiceFilterRegistrationMapFilter = response.result.httpServerInstance.holismInstance.config.filters.getServiceFilterRegistrationMap = _factoryResponse.result; // Get the derived app server's memory file registration map via our filter.
+
+      var callbackRequest = {
+        appBuild: response.result.appServiceCore.appBuild,
+        deploymentEnvironment: "development"
+      }; // TODO deploymentEnvironment
+
+      var filterResponse = getMemoryFileRegistrationMapFilter.request(callbackRequest);
+
+      if (filterResponse.error) {
+        errors.push("An error occurred while querying your app server for its memory file registration map:");
+        errors.push(filterResponse.error);
+        break;
+      }
+
+      var appServerMemoryFileRegistrationMap = response.result.httpServerInstance.holismInstance.config.data.memoryFileRegistrations = filterResponse.result; // Get the derived app server's service filter plug-in registration map.
+
+      filterResponse = getServiceFilterRegistrationMapFilter.request(callbackRequest);
+
+      if (filterResponse.error) {
+        errors.push("An error occured while querying your app server for its service filter plug-in registration map:");
+        errors.push(filterResponse.error);
+        break;
+      }
+
+      var appServerServiceFilterRegistrationMap = response.result.httpServerInstance.holismInstance.config.data.serviceFilterRegistrations = filterResponse.result;
       break;
     }
 
     if (errors.length) {
       response.error = errors.join(" ");
-    }
+    } // Wow... That's a lot of information ;-)
+    // console.log(JSON.stringify(response, undefined, 4));
+
 
     return response;
   }

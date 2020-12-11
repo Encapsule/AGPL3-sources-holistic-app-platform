@@ -17,6 +17,7 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
         outputFilterSpec: require("./iospecs/HolisticAppCommon-method-constructor-filter-output-spec"), // This is the _private instance state of a HolonCore class instance
 
         bodyFunction: function(request_) {
+            console.log(`[${this.operationID}::${this.operationName}]`);
             let response = {
                 error: null,
                 result: { // set the outer levels of the response.result up assuming we'll be successful splicing in the required values later in this bodyFunction
@@ -154,7 +155,7 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
                     specs: derivedAppService_MetadataOutputSpec
                 };
 
-                console.log(JSON.stringify(response, undefined, 4));
+                // console.log(JSON.stringify(response, undefined, 4));
 
                 break;
             }

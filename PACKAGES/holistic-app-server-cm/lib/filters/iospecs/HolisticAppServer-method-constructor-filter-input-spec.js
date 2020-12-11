@@ -1,5 +1,11 @@
 "use strict";
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 // app-server-method-constructor-input-spec.js
 var holism = require("@encapsule/holism");
 
@@ -14,43 +20,72 @@ module.exports = {
     ____accept: "jsObject"
   },
   httpServerConfig: {
-    ____label: "Holistic App Server Embedded HTTP Server Config",
+    ____label: "Embedded HTTP Server Config",
     ____description: "Information used to specialize a HolisticAppServer class instance's embedded HTTP request processor.",
     ____types: "jsObject",
     ____defaultValue: {},
     // Currently, we rely on our rather old and humble @encapsule/holism RTL to provide HTTP request processing services.
     // It doesn't totally suck as it is. But, it's difficult to follow as it's lots of async stream processing, a non-trivial
-    // visitor pattern integration API, obstruse service plug-in model etc. Anyway, someday we'll move it into CellProcessor,
-    // abstract the problem w/actions and operators, and then replace it a better external module (we can still maintain boundary
-    // filtering through actions). Or, decide that its worthwhile to turn holism into a CellModel and move all its snarl to APM's.
-    // There would be performance vs simplicity tradeoffs to consider when this time comes. Fastify is another possibility? We will see.
-    // Primary current use case relies heavily on our localhost:8080 interface for most day-to-day development where performance of
-    // the HTTP server is not an issue (it's fast actually). In the cloud the per-request overhead of our current HTTP server isn't
-    // really a factor (assertion) as most of the overall time taken to process a request is consumed by quering for session, performing
-    // authorization, and accessing storage layer resources.
-    holism: {
-      ____label: "Holism HTTP Server Extensions",
-      ____description: "Legacy @encapsule/holism HTTP server library extension API encapsulated enough so we maybe don't care it's not on the cellplane yet.",
+    // visitor pattern integration API, obstruse service plug-in model etc. Anyway, someday we'll move it into CellProcessor
+    // and clean it up substantially. But, for now we stuff most of the sharp edges behind this ES6 fascade to make it
+    // simpler for developers to customize their app server (less options === more better). And, simpler for me to maintain
+    // and evolve the backend infrastructure over time w/out impact or disruption on derived app's (how the HTTP requests
+    // are processed in detail is no longer fully exposed to derived apps. This is intentional. If you need further degrees
+    // of flexibility let me know; do not simply build new stuff to try to work-around the limitation(s). It is likely there's
+    // a plan for that on the roadmap for the app server...
+    holismConfig: {
+      ____label: "Holism HTTP Server Config",
+      ____description: "Initialization options, type and runtime behavior specializations for runtime-type filtered @encapsule/holism embedded HTTP 1.1 server instance.",
       ____types: "jsObject",
       ____defaultValue: {},
-      configIntegrations: {
-        ____label: "Holism HTTP Server Config Integrations",
-        ____description: "Synchronous callback functions called during HolisticAppServer class instance construction to obtain configuration information.",
+      options: _objectSpread({}, holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.options),
+      registrations: {
+        ____label: "Derived App Service Server Integration Registrations",
+        ____description: "Information used to specialize and customize the behavior of your derived app server service's embedded @encapsule/holism HTTP server.",
         ____types: "jsObject",
         ____defaultValue: {},
-        getMemCachedFilesConfigMap: {
-          ____label: "Memory-Cached Files Config Map Accessor Function",
-          ____description: "A function you supply that's dispatched to obtain your specific @encapsule/holism memory-cached file assets and their associated routing, headers, and options metadata.",
-          ____accept: "jsFunction"
+        resources: {
+          ____label: "Holism HTTP Server Config Integrations",
+          ____description: "Callback functions dispatched by HolisticAppServer constructor function to obtain configuration information from your derived app.",
+          ____types: "jsObject",
+          ____defaultValue: {},
+          // Where a resource is defined to be a URL-mapped file cached on the Node.js heap.
+          getMemoryFileRegistrationMap: {
+            ____label: "Memory-Cached File Registration Map Accessor Function",
+            ____description: "A synchronous callback function that is dispatched to obtain your app server's @encapsule/holism memory-cached registration map.",
+            ____accept: "jsFunction"
+          },
+          // Or, a service filter plug-in mapped to a URL.
+          getServiceFilterRegistrationMap: {
+            ____label: "Service Filter Plug-In Registration Map Accessor Function",
+            ____description: "A synchronous callback function that is dispatched to obtain your app server's @encapsule/holism service filter plug-in registration map.",
+            ____accept: "jsFunction"
+          }
+        } // ~.httpServerConfig.holism.registrations.resources
+
+      },
+      // ~.httpServerConfig.holism.registrations
+      lifecycle: {
+        ____label: "Holism HTTP Server Request Lifecycle Integrations",
+        ____description: "Callback functions dispatched by @encapsule/holism during HTTP request processing to obtain and customize information passed to all registered service filter plug-ins so that they can use the information to customize their HTTP response behavior(s).",
+        ____types: "jsObject",
+        ____defaultValue: {},
+        redirectPreprocessor: {
+          ____accept: ["jsNull", "jsFunction"],
+          ____defaultValue: null
         },
-        getServiceFilterConfigMap: {
-          ____label: "Service Filter Plug-In Config Map Accessor Function",
-          ____description: "A function you supply that's dispatched to obtain your specific @encapsule/holism service filter plug-in registrations and their associated routing, headers, and options metadata.",
-          ____accept: "jsFunction"
-        } // config: { ...holism.filters.factories.server.filterDescriptor.inputFilterSpec.config }
+        getUserIdentityAssertion: {
+          ____accept: ["jsNull", "jsFunction"],
+          ____defaultValue: null
+        },
+        getUserLoginSession: {
+          ____accept: ["jsNull", "jsFunction"],
+          ____defaultValue: null
+        }
+      } // ~.httpServerConfig.holism.requestLifecycle
 
-      } // ~.httpServerConfig.holism.configIntegrations
+    } // ~.httpServerConfig.holismConfig
 
-    }
-  }
+  } // ~.httpServerConfig
+
 };

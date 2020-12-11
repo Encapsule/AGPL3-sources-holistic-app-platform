@@ -30,15 +30,14 @@ var HolisticAppCommon = /*#__PURE__*/function () {
         constructorError: null
       };
       this.isValid = this.isValid.bind(this);
-      this.toJSON = this.toJSON.bind(this);
+      this.toJSON = this.toJSON.bind(this); // ?  this.appBuild = this.appBuild.bind(this);
+
       var filterResponse = constructorFilter.request(request_);
 
       if (filterResponse.error) {
         errors.push(filterResponse.error);
         break;
-      } // TODO: Implement a recursive Object.freeze to increase confidence that _private data is not
-      // mutated (i.e. it is nonvolatile) for the entire lifespan of a derived app service.
-
+      }
 
       this._private = filterResponse.result;
       break;
@@ -59,6 +58,11 @@ var HolisticAppCommon = /*#__PURE__*/function () {
     key: "toJSON",
     value: function toJSON() {
       return this.isValid() ? this._private : this._private.constructorError;
+    }
+  }, {
+    key: "appBuild",
+    get: function get() {
+      return this.isValid() ? this._private.nonvolatile.appCommonDefinition.appBuild : this.toJSON();
     }
   }]);
 

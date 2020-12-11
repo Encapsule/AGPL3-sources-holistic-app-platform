@@ -79,7 +79,7 @@ module.exports = {
                 ____label: "Maximum Allowed Input Characters",
                 ____description: "The maximum number of characters the server is allowed to read from a ServerRequest stream.",
                 ____accept: "jsNumber",
-                ____defaultValue: 0x40000 // 262,144-characters allowed for per-request client data bufferred by on("data", fn) by default. // TODO: I think this is actually a byte count and should be labeled as such as "character" is ambiguous w/out qualification.
+                ____defaultValue: 0x40000 // 262,144-characters allowed for per-request client data bufferred by on("data", fn) by default. // TODO: I think this is actually a byte count and should be labeled as such. "character" is ambiguous w/out qualification.
             },
             request_data_abuse_factor: {
                 ____label: "Reqeust Data Abuse Factor",

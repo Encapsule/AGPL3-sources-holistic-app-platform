@@ -15,9 +15,25 @@ const factoryResponse = arccore.filter.create({
     inputFilterSpec,
     outputFilterSpec,
     bodyFunction: function(request_) {
+        console.log(`[${this.operationID}::${this.operationName}]`);
         let response = {
             error: null,
             result: {
+                appServiceCore: null, // invalid value type will cause output filter error if not overwritten below
+                httpServerInstance: {
+                    holismInstance: {
+                        config: {
+                            filters: {
+                                getMemoryFileRegistrationMap: null, // as above
+                                getServiceFilterRegistrationMap: null, // as above
+                            },
+                            data: {
+                                memoryFileRegistrations: null, // as above
+                                serviceFilterRegistrations: null // as above
+                            }
+                        }
+                    }
+                }
             }
         };
         let errors = [];
@@ -50,14 +66,14 @@ const factoryResponse = arccore.filter.create({
                     deploymentEnvironment: { ...holism.filters.factories.server.filterDescriptor.inputFilterSpec.appServerRuntimeEnvironment }
                 },
                 outputFilterSpec: { ...holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.files },
-                bodyFunction: request_.httpServerConfig.holism.configIntegrations.getMemoryFileRegistrationMap
+                bodyFunction: request_.httpServerConfig.holismConfig.registrations.resources.getMemoryFileRegistrationMap
             });
             if (factoryResponse.error) {
                 errors.push("Cannot build a wrapper filter to retrieve your app server's memory-cached file configuration map due to error:");
                 errors.push(factoryResponse.error);
                 break;
             }
-            const getMemoryFileRegistrationMapFilter = factoryResponse.result;
+            const getMemoryFileRegistrationMapFilter = response.result.httpServerInstance.holismInstance.config.filters.getMemoryFileRegistrationMap = factoryResponse.result;
 
             // Create a filter to box the developer's getServiceFilterRegistrationMap callback function.
             factoryResponse = arccore.filter.create({
@@ -70,14 +86,14 @@ const factoryResponse = arccore.filter.create({
                     deploymentEnvironment: { ...holism.filters.factories.server.filterDescriptor.inputFilterSpec.appServerRuntimeEnvironment }
                 },
                 outputFilterSpec: { ...holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.services },
-                bodyFunction: request_.httpServerConfig.holism.configIntegrations.getServiceFilterRegistrationMap
+                bodyFunction: request_.httpServerConfig.holismConfig.registrations.resources.getServiceFilterRegistrationMap
             });
             if (factoryResponse.error) {
                 errors.push("Cannot build a wrapper filter to retrieve your app server's service filter configuration map due to error:");
                 errors.push(factoryResponse.error);
                 break;
             }
-            const getServiceFilterRegistrationMapFilter = factoryResponse.result;
+            const getServiceFilterRegistrationMapFilter = response.result.httpServerInstance.holismInstance.config.filters.getServiceFilterRegistrationMap = factoryResponse.result;
 
             // Get the derived app server's memory file registration map via our filter.
             const callbackRequest = {
@@ -91,7 +107,7 @@ const factoryResponse = arccore.filter.create({
                 errors.push(filterResponse.error);
                 break;
             }
-            const appServerMemoryFileRegistrationMap = filterResponse.result;
+            const appServerMemoryFileRegistrationMap = response.result.httpServerInstance.holismInstance.config.data.memoryFileRegistrations = filterResponse.result;
 
             // Get the derived app server's service filter plug-in registration map.
             filterResponse = getServiceFilterRegistrationMapFilter.request(callbackRequest);
@@ -100,14 +116,17 @@ const factoryResponse = arccore.filter.create({
                 errors.push(filterResponse.error);
                 break;
             }
-            const appServerServiceFilterRegistrations = filterResponse.result;
-
+            const appServerServiceFilterRegistrationMap = response.result.httpServerInstance.holismInstance.config.data.serviceFilterRegistrations = filterResponse.result;
 
             break;
         }
         if (errors.length) {
             response.error = errors.join(" ");
         }
+
+        // Wow... That's a lot of information ;-)
+        // console.log(JSON.stringify(response, undefined, 4));
+
         return response;
     }
 });
