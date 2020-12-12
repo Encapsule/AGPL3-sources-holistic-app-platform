@@ -24,7 +24,13 @@ class HolisticAppCommon {
             this._private = { constructorError: null };
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
-            // ?  this.appBuild = this.appBuild.bind(this);
+            this.getAppBuild = this.getAppBuild.bind(this);
+            this.getAppMetadataTypeSpecs = this.getAppMetadataTypeSpecs.bind(this);
+            this.getAppMetadataDigraph = this.getAppMetadataDigraph.bind(this);
+            this.getAppMetadataOrg = this.getAppMetadataOrg.bind(this);
+            this.getAppMetadataApp = this.getAppMetadataApp.bind(this);
+            this.getAppMetadataPage = this.getAppMetadataPage.bind(this);
+            this.getAppMetadataHashroute = this.getAppMetadataHashroute.bind(this);
             let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
@@ -43,7 +49,23 @@ class HolisticAppCommon {
 
     toJSON() { return (this.isValid()?this._private:this._private.constructorError); }
 
-    get appBuild() { return this.isValid()?this._private.nonvolatile.appCommonDefinition.appData.appBuild:this.toJSON(); }
+    getAppBuild() { return this.isValid()?this._private.nonvolatile.appCommonDefinition.appData.appBuild:this.toJSON(); }
+    getAppMetadataTypeSpecs() { return this.isValid()?this._private.nonvolatile.appMetadata.specs:this.toJSON(); }
+    getAppMetadataDigraph() { return this.isValid()?this._private.nonvolatile.appMetadata.values.digraph:this.toJSON(); }
+    getAppMetadataOrg() { return this.isValid()?this.getAppMetadataDigraph().getVertexProperty("__org"):this.toJSON(); }
+    getAppMetadataApp() { return this.isValid()?this.getAppMetadataDigraph().getVertexProperty("__app"):this.toJSON(); }
+    getAppMetadataPage(pageURI_) {
+        if (!this.isValid())
+            return this.toJSON();
+        const pageProp = this.getAppMetadataDigraph().getVertexProperty(pageURI_);
+        return (pageProp?pageProp:`No page metadata defined for pageURI "${pageURI_}".`);
+    }
+    getAppMetadataHashroute(hashroutePathname_) {
+        if (!this.isValid())
+            return this.toJSON();
+        const hashProp = this.getAppMetadataDigraph().getVertexProperty(hashroutePathname_);
+        return (hashProp?hashProp:`No hashroute metadata defined for hashroutePathname "${hashroutePath_}".`);
+    }
 
 }
 

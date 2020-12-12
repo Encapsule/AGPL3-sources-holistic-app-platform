@@ -19,7 +19,7 @@ const factoryResponse = arccore.filter.create({
         let response = {
             error: null,
             result: {
-                appServiceCore: null, // invalid value type will cause output filter error if not overwritten below
+                appServiceCore: null, // null is an invalid value type per output filter spec set to force an error if the value isn't set appropriately by bodyFunction
                 httpServerInstance: {
                     holismInstance: {
                         config: {
@@ -49,7 +49,7 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
             response.result.appServiceCore = appServiceCore;
-
+            const appBuild = appServiceCore.getAppBuild();
 
             // Obtain build-time @encapsule/holism HTTP server config information from the derived app server.
             // These are function callbacks wrapped in filters to ensure correctness of response and to provide
@@ -97,8 +97,8 @@ const factoryResponse = arccore.filter.create({
 
             // Get the derived app server's memory file registration map via our filter.
             const callbackRequest = {
-                appBuild: response.result.appServiceCore.appBuild,
-                deploymentEnvironment: "development"
+                appBuild,
+                deploymentEnvironment: "development" // <======== TODO
             }; // TODO deploymentEnvironment
 
             let filterResponse = getMemoryFileRegistrationMapFilter.request(callbackRequest);
@@ -117,6 +117,94 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
             const appServerServiceFilterRegistrationMap = response.result.httpServerInstance.holismInstance.config.data.serviceFilterRegistrations = filterResponse.result;
+
+            // Okay - so nothing has gone wrong so far!
+            // We should now have enough information to construct what the @encapsule/holism RTL calls "integration filters" that wrap a bunch of callback functions
+            // in filters that are subsequently dispatched at various phases of an HTTP request lifecycle in order to ask questions of and/or delegate behaviors
+            // to the derived app service (i.e. application-layer facilities, behaviors, features, etc. added to the app server via the available platform-defined
+            // extension points). We don't want to really play games w/@encapsule/holism right now so am pretty much just building a super-precise and generic
+            // implementation of what a developer might otherwise have to figure out how to do inside SOURCES/SERVER/server.js (which is quite a bit actually
+            // to stay in sync w/the app client work in particular).
+
+            const appMetadataTypeSpecs = appServiceCore.getAppMetadataTypeSpecs();
+
+
+            factoryResponse = holism.integrations.create({
+                filter_id_seed: "M4MFr-ZvS3eovgdTnNTrdg", // TODO: Confirm my assumption that this can be any static IRUT w/out violating any important invariant assumptions about the derived IRUTs...
+                name: `${appBuild.app.name} @encapsule/holism Lifecycle Integration Filters`,
+                description: "A set of filters leverages by the @encapsule/holism HTTP request processor to obtain information and/or delegate behaviors to the derived app server service process.",
+                version: `${appBuild.app.version}`,
+                // ----------------------------------------------------------------
+                appStateContext: { }, // This is an escape hatch mitigation for not having a HolisticAppServerKernel cell process to hold context.
+                // It's okay for now I think. But, it needs to be connected so that app-server-provided @encapsule/holism service filter plug-in registrations
+                // can follow whatever ad-hoc access protocol they desire to access the data/functions/objects ? carried in this namespace.
+                // ----------------------------------------------------------------
+                integrations: {
+                    preprocessor: {
+                        redirect: request_.httpServerConfig.holismConfig.lifecycle.redirectProcessor
+                    },
+                    metadata: {
+                        // This doesn't need to be all fancy like this. Metadata has grown beyond just the sphere of @encapsule/holism
+                        // and many of the patterns I devised when I wrote it initially don't make that much sense. Like the org and
+                        // app callbacks are utter nonsense we could cut. But, I would have to think about it.
+                        org: {
+                            get: {
+                                bodyFunction: function() {
+                                    return ({ error: null, result: appServiceCore.getAppMetadataOrg() });
+                                },
+                                outputFilterSpec: appMetadataTypeSpecs.org
+                            }
+                        },
+                        site: { // aka app metadata app (whatever)
+                            get: {
+                                bodyFunction: function() {
+                                    return ({ error: null, result: appServiceCore.getAppMetadataApp() });
+                                },
+                                outputFilterSpec: appMetadataTypeSpecs.app
+                            }
+                        },
+                        page: {
+                            get: {
+                                bodyFunction: function({ http_code, resource_uri }) {
+                                    const queryResult = appServiceCore.getAppMetadataPage(resource_uri);
+                                    if (queryResult instanceof String) {
+                                        return ({ error: queryResult });
+                                    }
+                                    return ({ error: null, result: queryResult });
+                                },
+                                outputFilterSpec: appMetadataTypeSpecs.pages.pageURI
+                            }
+                        },
+                        /*
+                        session: {
+                            get_identity: {
+                                bodyFunction
+                                outputFilterSpec
+                            },
+                            get_session: {
+                                bodyFunction
+                                response: {
+                                    result_spec
+                                    client_spec
+                                }
+                            }
+                        }
+                        */
+                    },
+                    /*
+                    render: {
+                        html: {
+                            bodyFunction
+                        }
+                    }
+                    */
+                }
+            });
+            if (factoryResponse.error) {
+                errors.push("Well... Things were going pretty well until we tried to wrap your app server lifecycle callback function registrations in filters >:/");
+                errors.push(factoryResponse.error);
+                break;
+            }
 
             break;
         }
