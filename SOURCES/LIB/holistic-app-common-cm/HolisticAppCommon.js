@@ -90,7 +90,7 @@ class HolisticAppCommon {
         return (hashProp?hashProp:`No hashroute metadata defined for hashroutePathname "${hashroutePath_}".`);
     }
     getClientUserLoginSessionSpec() {
-        return (this.isValid?this._private.nonvolatile.appCommonDefinition.appTypes.userLoginSession.untrusted.clientUserLoginSessionSpec:this.toJSON());
+        return (this.isValid()?this._private.nonvolatile.appCommonDefinition.appTypes.userLoginSession.untrusted.clientUserLoginSessionSpec:this.toJSON());
     }
 
 }

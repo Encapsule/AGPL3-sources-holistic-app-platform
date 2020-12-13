@@ -179,7 +179,7 @@ module.exports = {
                 ____types: "jsObject",
                 ____defaultValue: {},
 
-                clientUserLoginSession: {
+                clientUserLoginSessionSpec: {
                     ____label: "App Client User Login Session Descriptor",
                     ____description: "This is the app-defined format of a user login session as will be returned to the browser tab's app client service via its bootROM. This spec should be code-generated from your SOURCES/SERVER tree as a pre-build step. Or, simply maintained separately for security reasons.",
                     ____accept: "jsObject", // this is a filter spec

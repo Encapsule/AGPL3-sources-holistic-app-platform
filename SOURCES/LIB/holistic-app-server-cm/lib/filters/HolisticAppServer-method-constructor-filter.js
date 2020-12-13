@@ -130,6 +130,13 @@ const factoryResponse = arccore.filter.create({
 
             const appMetadataTypeSpecs = appServiceCore.getAppMetadataTypeSpecs();
 
+            // v0.0.49-spectrolite
+            // This is a very old abstraction (circa 2015?) Wiring this up here 5-years later I think it's pretty good insofar
+            // as this factory provides a succinct request API the distills the factory input requirements. What we do not need
+            // is to implement runtime synthesis of filters in @encapsule/holism (or any other RTL for that matter) now that we
+            // have CellProcessor in 2020. No time to make the swap over now (it's straight-forward but would take 1+ month to
+            // build a runtime service environment in CellProcessor atop Node.js similar to what we are about to unleash in the
+            // browser tab.
 
             factoryResponse = holism.integrations.create({
                 filter_id_seed: "M4MFr-ZvS3eovgdTnNTrdg", // TODO: Confirm my assumption that this can be any static IRUT w/out violating any important invariant assumptions about the derived IRUTs...
@@ -179,7 +186,7 @@ const factoryResponse = arccore.filter.create({
                         },
                         session: {
                             get_identity: {
-                                bodyFunction: request_.httpServerConfig.holismConfig.lifecycle.getUserIdendityAssertion,
+                                bodyFunction: request_.httpServerConfig.holismConfig.lifecycle.getUserIdentityAssertion,
                                 outputFilterSpec: request_.appTypes.userLoginSession.trusted.userIdentityAssertionDescriptorSpec
                             },
                             get_session: {
