@@ -1,5 +1,7 @@
 // HolisticAppServerService-method-constructor-filter.js
 
+const path = require("path");
+
 const arccore = require("@encapsule/arccore");
 const holism = require("@encapsule/holism");
 
@@ -138,6 +140,9 @@ const factoryResponse = arccore.filter.create({
             // build a runtime service environment in CellProcessor atop Node.js similar to what we are about to unleash in the
             // browser tab.
 
+            console.log(`> "${path.resolve(__filename)}" App server @encapsule/holism configuration accepted.`);
+            console.log(`> "${path.resolve(__filename)}" Synthesizing type-specialized encapsule/holism HTTP stream processing filters for ${appBuild.app.name} app server service...`);
+
             factoryResponse = holism.integrations.create({
                 filter_id_seed: "M4MFr-ZvS3eovgdTnNTrdg", // TODO: Confirm my assumption that this can be any static IRUT w/out violating any important invariant assumptions about the derived IRUTs...
                 name: `${appBuild.app.name} @encapsule/holism Lifecycle Integration Filters`,
@@ -206,10 +211,26 @@ const factoryResponse = arccore.filter.create({
                 }
             });
             if (factoryResponse.error) {
-                errors.push("Well... Things were going pretty well until we tried to wrap your app server lifecycle callback function registrations in filters >:/");
+                errors.push(`An error occurred during configuration of ${appBuild.app.name}'s @encapsule/holism HTTP request/response stream filters:`);
                 errors.push(factoryResponse.error);
                 break;
             }
+
+            const holismInstanceIntegrationsFilters = response.result.httpServerInstance.holismInstance.integrations = factoryResponse.result;
+
+            console.log(`> "${path.resolve(__filename)}" @encapsule/holism HTTP stream processor has been configured for ${appBuild.app.name} app server service.`);
+            console.log(`> "${path.resolve(__filename)}" Performing final dynamic assembly of ${appBuild.app.name} embedded @encapsule/holism HTTP request processor instance...`);
+
+
+            factoryResponse = holism.server.create({
+
+            });
+            if (factoryResponse.error) {
+                errors.push(`An error occurred in the final steps of initializing ${appBuild.app.name}'s embedded @encapsule/holism HTTP request processor:`);
+                errors.push(factoryResponse.error);
+                break;
+            }
+
 
             break;
         }

@@ -53,7 +53,9 @@ module.exports = {
                     serviceFilterRegistrations: holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.services
                 } // ~.httpServerInstance.holismInstance.config.data
 
-            }
+            },
+
+            integrations: holism.filters.factories.integrations.filterDescriptor.outputFilterSpec
 
         } // ~.httpServerInstance.holismInstance
 
