@@ -1,5 +1,7 @@
 // HolisticAppCommon-method-constructor-filter-input-spec.js
 
+
+
 module.exports = {
     ____label: "HolisticAppCommon::constructor Request Object",
     ____description: "This is the request format developers need to follow in order to construct a HolisticAppCommon class instance.",
@@ -7,8 +9,9 @@ module.exports = {
     ____defaultValue: {},
 
     appData: {
-        ____label: "App Service Common Build-Time Data Values",
-        ____description: "A manifest of values prepared by the app service's build process are are shared with app service server and app client service runtime processes when they are initialized.",
+
+        ____label: "Static Build-Time Data Values",
+        ____description: "A manifest of values set at development and/or app service build-time used to initialize core structures inside the service core instance.",
         ____types: "jsObject",
         ____defaultValue: {},
 
@@ -20,7 +23,9 @@ module.exports = {
         // app metadata specs and values entirely from this API and make org and app non-extensible
         // fixed-format data that's required developer input in holistic-app.json manifest used by appgen.
         // (and subsequently by the Makefile it code-generates into the derived app service repo's root directory).
+
         appBuild: {
+
             ____label: "Holistic App Build Metadata",
             ____description: "A reference to the app-build.json manifest created by the app Makefile.",
             ____accept: "jsObject", // TODO: schematize this slippery sucker once and for all and be done with it.
@@ -34,11 +39,14 @@ module.exports = {
         }, // ~.appData.appBuild
 
         appMetadata: {
+
             ____label: "App Service Metadata Values",
             ____description: "App metadata runtime property values by holistic platform-defined metadata category.",
             ____types: "jsObject",
             ____defaultValue: {},
 
+            // NO WAIT - it's okay to leave this as-is. Mostly nobody will use it?
+            // TODO: Deprecate this input and derive the information instead from appBuild
             org: {
                 ____label: "App Service Org Metadata",
                 ____description: "Values that define attributes about publisher and presumed owner of the copyright on this specific app service.",
@@ -46,6 +54,8 @@ module.exports = {
                 ____defaultValue: {},
             },
 
+            // NO WAIT - it's okay to leave this as-is. Mostly nobody will use it?
+            // TODO: Deprecate this input and derive the information instead from appBuild
             app: {
                 ____label: "App Service App Metadata",
                 ____description: "We may just replace this w/no input at all from the app developer here. Instead asking them to provide this information via holistic-app.json and picking it up from app-build.json",
@@ -53,6 +63,8 @@ module.exports = {
                 ____defaultValue: {}
             },
 
+            // TODO: There is now little reason why we cannot automatically synthesize the correct @encapsule/holism service filter registrations to provide customizable server-rendering behaviors based on app-specific extensions to page metadata picked up by app-specific @encapsule/holism service or gateway plug-in filters.
+            // NOTE: If we automate this someday, then it's a pre-build step that loads the app's HolisticAppCommon instance, reads some data, and generates the files into SOURCES for main build.
             pages: {
                 ____label: "App Service Pages Metadata",
                 ____description: "Page views are defined as reserved GET:/URI routes implemented by the app server service's embedded HTTP 1.1 server that return Content-Encoding: utf-8 Content-Type: text/html response containing a serialized app client service process to be started in the browser tab.",
@@ -96,32 +108,43 @@ module.exports = {
             ____types: "jsObject",
             ____defaultValue: {},
 
-            orgExtSpec: {
+            // I guess this is fine. If nobody uses it, then we'll remove it.
+            orgExt: {
                 ____label: "App Service Org Metadata Extension Props Spec",
                 ____description: "An optional filter spec that defines top-level properties to be added to organization metadata base spec to ensure platform + app-specific org metadata property values are available consistently throughout the app runtime.",
                 ____accept: "jsObject", // This is an arccore.filter specification
                 ____defaultValue: {} // no app-specific extension properties
             },
 
-            appExtSpec: {
+            // I guess this is fine. If nobody uses it, then we'll remove it.
+           appExt: {
                 ____label: "App Service App Metadata Extension Props Spec",
                 ____description: "An optional filter spec that defines top-level properties to be added to app metadata base spec to ensure platform + app-specific app metadata property values are available consistently throughout the app runtime.",
                 ____accept: "jsObject", // This is an arccore.filter specification
                 ____defaultValue: {} // no app-specific extension properties
             },
 
-            pageExtSpec: {
+            // IMPORTANT NOTE:
+            // Great care must be taken to never include app server details in the app client (which is treated as a known but ultimately untrusted process by app server's)
+            // The app client needs to understand the routes that the server is likely to respond to w/HTML5 documents (e.g. if a user clicked a menu or navigation link).
+            // We plan to automate the display of such navigation in the client using page metadata. Coincidentally, the pageURI's we use in page metadata correlate 1:1
+            // with pageURI used to register app server @encapsule/holism service filter plug-ins to actually generate these HTML5 document responses. But, note that they're
+            // INTENTIONALLY DECOUPLED such that it's possible to do whatever you want to ultimately w/backend routing completely independent of the what app client sees of
+            // the world by looking at shared untrusted metadata. So, do not add microcode for controlling login inside @encapsule/holism to page metadata! If you ever need
+            // this then what you should do is set up your own metadata registry in your SOURCES/SERVER tree and keep it there. Pleased read more notes on this topic below.
+
+            pageExt: {
                 ____label: "App Service Page Metadata Extension Props Spec",
                 ____description: "An optional filter spec that defines top-level properties to be added to page metadata base sepc to ensure platform + app-specific page metadata property values are available consistently throughout the app runtime.",
-                ____types: "jsObject",
-                ____defaultValue: {}
+                ____accept: "jsObject", // this is a filter spec
+                ____defaultValue: {} // no app-specific extension properties
             },
 
-            hashrouteExtSpec: {
+            hashrouteExt: {
                 ____label: "App Service Hashroute Metadata Extension Props Spec",
                 ____description: "An optional filter spec that defined top-level properties to be added to hashroute metadata base spec to ensure platform + app-specific hashroute metadata property values are available consistently through the app runtime.",
-                ____types: "jsObject",
-                ____defaultValue: {},
+                ____accept: "jsObject", // this is a filter spec
+                ____defaultValue: {}, // no app-specific extension properties
             }
 
         }, // ~.appTypes.appMetadata
@@ -129,11 +152,46 @@ module.exports = {
         userLoginSession: {
             ____label: "App Service User Login Session Type Specs",
             ____description: "Holistic app platform provides runtime data filtering and orchestration of sensitive user login session information generically on behalf of your derived app service w/out dictacting at all how the derived app server process actually implements its authentication/authorization system(s).",
-            ____types: "jsObject",
-            ____defaultValue: {}
+            ____types: "jsObject", // this is a filter spec
+            ____defaultValue: {},
 
-        } // ~.userLoginSession
+            // IMPORTANT:
+            // As above we cannot leak details about the data types used by the app server into the app client.
+            // In particular we need to guard against this happening accidentally by including sensitive code or
+            // data into the app client. Currently, we use webpack. But, later we might use something better.
+            // Regardless, the issue of keeping backend implementation away from the client is the same.
+            // There's a simple approach that fixes this issue safely and simply.
+            // It must be applied consistently for all such cases where SOURCES/CLIENT or SOURCES/COMMON
+            // derive in some manner from sources you are maintaining under SOURCES/SERVER. DO NOT import
+            // require these sources.
+            // Rather, add a pre-build step to synthesize the needed sources module(s) into the places
+            // that they are needed in SOURCES/CLIENT and SOURCES/COMMON such that webpack (or whatever)
+            // may blithely scan your SOURCES/COMMON and SOURCES/CLIENT build trees to assemble the final
+            // app client bundle file w/low risk of leaking critical details.
+            // There should only be a few cases like this I think? Anyway, likely one extensible
+            // pre-build step per-app is all that's needed to solve this problem acceptably.
+            // Meanwhile, use a little Node.js script and wire in a pre-build step. Or (horror)
+            // EXPLICITLY MAINTAIN PARALLEL SPECS (if your case count is low this is not hard and it's
+            // 100% clear what's going on).
+
+            untrusted: {
+                ____label: "Untrusted Client User Login Session Descriptor",
+                ____types: "jsObject",
+                ____defaultValue: {},
+
+                clientUserLoginSession: {
+                    ____label: "App Client User Login Session Descriptor",
+                    ____description: "This is the app-defined format of a user login session as will be returned to the browser tab's app client service via its bootROM. This spec should be code-generated from your SOURCES/SERVER tree as a pre-build step. Or, simply maintained separately for security reasons.",
+                    ____accept: "jsObject", // this is a filter spec
+                    ____defaultValue: { ____label: "HolisticAppCommon Default Client User Session Descriptor", ____accept: "jsObject", ____defaultValue: {} }
+
+                } // ~.appTypes.userLoginSession.untrusted.clientUserLoginSession
+
+            } // ~.appTypes.userLoginSession.untrusted
+
+        } // ~.appTypes.userLoginSession
 
     } // ~.appTypes
 
-};
+}; // ~
+

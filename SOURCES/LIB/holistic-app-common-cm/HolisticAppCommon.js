@@ -1,5 +1,27 @@
 // HolisticAppCommon.js
 
+/*(
+
+  PLEASE DO ONLY:
+
+  [ SOURCES/SERVER ] <=== import/require <==== [ SOURCES/COMMON ]          TRUSTED
+
+  ----- app service line of trust ------HTTPS----------PUBLIC INTERNET -----------
+
+  [ SOURCES/CLIENT ] <=== import/require <==== [ SOURCES/COMMON ]        UNTRUSTED
+
+  PLEASE DO NOT:
+
+  [ SOURCES/CLIENT ] <==== import/require <==== [ SOURCES/SERVER ]    BAD PRACTICE: You should not need to ever import/require client code on the server. Shared behavior and/or data needs to live in SOURCES/COMMON.
+  [ SOURCES/SERVER ] <==== import/require <==== [ SOURCES/CLIENT ]    POOR PRACTICE: Although there's really no trust issue here it's kind of lazy when you can keep everthing symetric w/pre-build steps in the few cases that you are likely to ever actually need.
+
+  [ SOURCES/COMMON ] <==== import/require <==== [ SOURCES/SERVER ]    BAD PRACTICE: import/require going in the wrong direction - you're just asking for trouble here. take the time to keep your pre-build up-to-date and synthesize sources across trust zones at build-time.
+  [ SOURCES/COMMON ] <==== import/require <==== [ SOURCES/CLIENT ]    BAD PRACTICE: import/require going in the wrong direction - code in COMMON is agnostic to Node.js vs Browser tab, and your client code is likely not. If it is, move it to common.
+
+)*/
+
+
+
 const path = require("path");
 console.log(`> "${path.resolve(__filename)}" module loading...`);
 
@@ -31,6 +53,7 @@ class HolisticAppCommon {
             this.getAppMetadataApp = this.getAppMetadataApp.bind(this);
             this.getAppMetadataPage = this.getAppMetadataPage.bind(this);
             this.getAppMetadataHashroute = this.getAppMetadataHashroute.bind(this);
+            this.getClientUserLoginSessionSpec = this.getClientUserLoginSessionSpec.bind(this);
             let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
@@ -65,6 +88,9 @@ class HolisticAppCommon {
             return this.toJSON();
         const hashProp = this.getAppMetadataDigraph().getVertexProperty(hashroutePathname_);
         return (hashProp?hashProp:`No hashroute metadata defined for hashroutePathname "${hashroutePath_}".`);
+    }
+    getClientUserLoginSessionSpec() {
+        return (this.isValid?this._private.nonvolatile.appCommonDefinition.appTypes.userLoginSession.untrusted.clientUserLoginSessionSpec:this.toJSON());
     }
 
 }

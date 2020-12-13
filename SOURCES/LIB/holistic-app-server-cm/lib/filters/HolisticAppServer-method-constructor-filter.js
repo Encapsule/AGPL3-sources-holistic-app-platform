@@ -8,6 +8,8 @@ const { HolisticAppCommon } = require("@encapsule/holistic-app-common-cm");
 const inputFilterSpec = require("./iospecs/HolisticAppServer-method-constructor-filter-input-spec");
 const outputFilterSpec =  require("./iospecs/HolisticAppServer-method-constructor-filter-output-spec");
 
+const renderHtmlFunction = require("../../models/holism-http-server/render-html");
+
 const factoryResponse = arccore.filter.create({
     operationID: "365COUTSRWCt2PLogVt51g",
     operationName: "HolisticAppServer::constructor Filter",
@@ -175,29 +177,25 @@ const factoryResponse = arccore.filter.create({
                                 outputFilterSpec: appMetadataTypeSpecs.pages.pageURI
                             }
                         },
-                        /*
                         session: {
                             get_identity: {
-                                bodyFunction
-                                outputFilterSpec
+                                bodyFunction: request_.httpServerConfig.holismConfig.lifecycle.getUserIdendityAssertion,
+                                outputFilterSpec: request_.appTypes.userLoginSession.trusted.userIdentityAssertionDescriptorSpec
                             },
                             get_session: {
-                                bodyFunction
+                                bodyFunction: request_.httpServerConfig.holismConfig.lifecycle.getUserLoginSession,
                                 response: {
-                                    result_spec
-                                    client_spec
+                                    result_spec: request_.appTypes.userLoginSession.trusted.userLoginSessionReplicaDataSpec,
+                                    client_spec: appServiceCore.getClientUserLoginSessionSpec()
                                 }
                             }
                         }
-                        */
                     },
-                    /*
                     render: {
                         html: {
-                            bodyFunction
+                            bodyFunction: renderHtmlFunction
                         }
                     }
-                    */
                 }
             });
             if (factoryResponse.error) {

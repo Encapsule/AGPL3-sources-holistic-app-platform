@@ -11,7 +11,45 @@ module.exports = {
     appServiceCore: { // naming at this level is in flux. resisting the urge to play w/names until this is service HTTP requests again.
         ____label: "Holistic App Common Definition",
         ____description: "A reference to a HolisticAppCommon class instance. Or, a descriptor object from which we can construct a new instance of class HolisticAppCommon.",
-        ____accept: "jsObject"
+        ____accept: "jsObject" // Reference to HolisticAppCore instance
+    },
+
+    appTypes: {
+
+        ____label: "Derived App Service Runtime Types",
+        ____description: "Developer-defined runtime type definitions, and extensions to holistic-platform-defined types for a small set of core application-layer objects for which the platform runtime provides runtime type filtering and/or generic orchestration services on behalf of the derived app service.",
+        ____types: "jsObject",
+        ____defaultValue: {},
+
+
+        userLoginSession: {
+
+            ____label: "App Service User Login Session Type Specs",
+            ____description: "Holistic app platform provides runtime data filtering and orchestration of sensitive user login session information generically on behalf of your derived app service w/out dictacting at all how the derived app server process actually implements its authentication/authorization system(s).",
+            ____types: "jsObject",
+            ____defaultValue: {},
+
+            trusted: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+
+                userIdentityAssertionDescriptorSpec: {
+                    ____label: "User Identity Assertion Descriptor Spec",
+                    ____description: "An assertion of a user's identity presented back to @encapsule/holism during HTTP request processing that contains a deserialized copy of the whatever information the app uses to represent such an assertion, e.g. a cookie.",
+                    ____accept: "jsObject",
+                    ____defaultValue: { ____label: "Default Non-Schematized (UNSAFE) User Identity Assertion Value", ____accept: "jsObject", ____defaultValue:{} }
+                },
+
+                userLoginSessionReplicaDataSpec: {
+                    ____label: "User Login Session Replica Descriptor Spec",
+                    ____description: "This is the format of the data that a registered @encapsule/holism service filter plug-in will receive when it is dispatched if the requester has attached a valid assertion of identity to the HTTP request (i.e. they are authenicated per application-specific and application-controlled code and constraints).",
+                    ____accept: "jsObject",
+                    ____defaultValue: { ____label: "Default Non-Schematized (UNSAFE) User Login Session Value", ____accept: "jsObject", ____defaultValue: {} }
+                }
+            }
+
+        } // ~.userLoginSession
+
     },
 
     httpServerConfig: {
