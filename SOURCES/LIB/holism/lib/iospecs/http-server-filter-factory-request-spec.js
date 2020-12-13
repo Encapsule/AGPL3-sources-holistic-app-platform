@@ -35,9 +35,6 @@ module.exports = {
         ____defaultValue: "development"
     },
 
-    // integrations input to server factory is the output of the integrations factory filter.
-    integrations: httpIntegrationFiltersFactoryResultSpec,
-
     config: {
         ____label: "Resource Declarations",
         ____description: "A declaration of resources made available to clients of this HTTP server.",
@@ -167,5 +164,9 @@ module.exports = {
                 }
             } // filter_identifier
         } // services
-    } // config
+    }, // config
+
+    // integrations input to server factory is the output of the integrations factory filter.
+    integrations: httpIntegrationFiltersFactoryResultSpec
+
 };

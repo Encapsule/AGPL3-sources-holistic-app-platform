@@ -216,14 +216,21 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
-            const holismInstanceIntegrationsFilters = response.result.httpServerInstance.holismInstance.integrations = factoryResponse.result;
+            const holismInstanceIntegrationFilters = response.result.httpServerInstance.holismInstance.integrations = factoryResponse.result;
 
             console.log(`> "${path.resolve(__filename)}" @encapsule/holism HTTP stream processor has been configured for ${appBuild.app.name} app server service.`);
             console.log(`> "${path.resolve(__filename)}" Performing final dynamic assembly of ${appBuild.app.name} embedded @encapsule/holism HTTP request processor instance...`);
 
 
             factoryResponse = holism.server.create({
-
+                holisticAppBuildManifest: appBuild,
+                appServerRuntimeEnvironment: "development", // TODO!
+                config: {
+                    options: {}, // TODO!
+                    files: appServerMemoryFileRegistrationMap,
+                    services: appServerServiceFilterRegistrationMap
+                },
+                integrations: holismInstanceIntegrationFilters
             });
             if (factoryResponse.error) {
                 errors.push(`An error occurred in the final steps of initializing ${appBuild.app.name}'s embedded @encapsule/holism HTTP request processor:`);
@@ -231,6 +238,12 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
+            // This is the specialized @encapsule/holism server filter instance. It's really actually hard
+            // to explain (too hard to explain) how/why @encapsule/holism. Leaving it mostly intact here
+            // for now. But, most of it is code we ultimately do not have to write anymore because of CellModel.
+            // Looking forward to moving everything backend into CellProcessor services. It should be a very liberating
+            // experience as most of the process kinks are being distilled w/a flame thrower in the app client now.
+            response.result.httpServerInstance.holismInstance.httpRequestProcessor = factoryResponse.result;
 
             break;
         }

@@ -1,9 +1,13 @@
 // HolisticAppServer.js
 
 const path = require("path");
+const process = require("process");
+
 console.log(`> "${path.resolve(__filename)}" module loading...`);
 
 const constructorFilter = require("./lib/filters/HolisticAppServer-method-constructor-filter");
+
+
 
 class HolisticAppServer {
 
@@ -15,6 +19,7 @@ class HolisticAppServer {
             this._private = { constructorError: null };
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
+            this.listen = this.listen.bind(this);
             let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
@@ -32,6 +37,15 @@ class HolisticAppServer {
     isValid() { return (!this._private.constructorError); }
 
     toJSON() { return (this.isValid()?this._private:this._private.constructorError); }
+
+    listen(port_) {
+        if (!this.isValid()) {
+            console.log("App server service is not prepared to listen! Sorry. Here is why:");
+            console.error(this.toJSON());
+            process.exitCode = 1; // Exit process w/error indicator set
+        }
+        this._private.httpServerInstance.holismInstance.httpRequestProcessor.listen(port_);
+    }
 
 }
 

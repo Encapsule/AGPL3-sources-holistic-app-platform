@@ -55,7 +55,9 @@ module.exports = {
 
             },
 
-            integrations: holism.filters.factories.integrations.filterDescriptor.outputFilterSpec
+            integrations: holism.filters.factories.integrations.filterDescriptor.outputFilterSpec,
+
+            httpRequestProcessor: holism.filters.factories.server.filterDescriptor.outputFilterSpec
 
         } // ~.httpServerInstance.holismInstance
 
