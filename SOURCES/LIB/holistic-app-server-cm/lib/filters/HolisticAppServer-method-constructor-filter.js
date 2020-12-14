@@ -70,7 +70,7 @@ const factoryResponse = arccore.filter.create({
                     deploymentEnvironment: { ...holism.filters.factories.server.filterDescriptor.inputFilterSpec.appServerRuntimeEnvironment }
                 },
                 outputFilterSpec: { ...holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.files },
-                bodyFunction: request_.httpServerConfig.holismConfig.registrations.resources.getMemoryFileRegistrationMap
+                bodyFunction: request_.appModels.httpRequestProcessor.holismConfig.registrations.resources.getMemoryFileRegistrationMap
             });
             if (factoryResponse.error) {
                 errors.push("Cannot build a wrapper filter to retrieve your app server's memory-cached file configuration map due to error:");
@@ -90,7 +90,7 @@ const factoryResponse = arccore.filter.create({
                     deploymentEnvironment: { ...holism.filters.factories.server.filterDescriptor.inputFilterSpec.appServerRuntimeEnvironment }
                 },
                 outputFilterSpec: { ...holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.services },
-                bodyFunction: request_.httpServerConfig.holismConfig.registrations.resources.getServiceFilterRegistrationMap
+                bodyFunction: request_.appModels.httpRequestProcessor.holismConfig.registrations.resources.getServiceFilterRegistrationMap
             });
             if (factoryResponse.error) {
                 errors.push("Cannot build a wrapper filter to retrieve your app server's service filter configuration map due to error:");
@@ -155,7 +155,7 @@ const factoryResponse = arccore.filter.create({
                 // ----------------------------------------------------------------
                 integrations: {
                     preprocessor: {
-                        redirect: request_.httpServerConfig.holismConfig.lifecycle.redirectProcessor
+                        redirect: request_.appModels.httpRequestProcessor.holismConfig.lifecycle.redirectProcessor
                     },
                     metadata: {
                         // This doesn't need to be all fancy like this. Metadata has grown beyond just the sphere of @encapsule/holism
@@ -191,11 +191,11 @@ const factoryResponse = arccore.filter.create({
                         },
                         session: {
                             get_identity: {
-                                bodyFunction: request_.httpServerConfig.holismConfig.lifecycle.getUserIdentityAssertion,
+                                bodyFunction: request_.appModels.httpRequestProcessor.holismConfig.lifecycle.getUserIdentityAssertion,
                                 outputFilterSpec: request_.appTypes.userLoginSession.trusted.userIdentityAssertionDescriptorSpec
                             },
                             get_session: {
-                                bodyFunction: request_.httpServerConfig.holismConfig.lifecycle.getUserLoginSession,
+                                bodyFunction: request_.appModels.httpRequestProcessor.holismConfig.lifecycle.getUserLoginSession,
                                 response: {
                                     result_spec: request_.appTypes.userLoginSession.trusted.userLoginSessionReplicaDataSpec,
                                     client_spec: appServiceCore.getClientUserLoginSessionSpec()
