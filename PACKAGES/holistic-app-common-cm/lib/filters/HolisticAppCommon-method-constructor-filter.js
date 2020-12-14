@@ -25,7 +25,7 @@ var appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-spe
     outputFilterSpec: require("./iospecs/HolisticAppCommon-method-constructor-filter-output-spec"),
     // This is the _private instance state of a HolonCore class instance
     bodyFunction: function bodyFunction(request_) {
-      console.log("[".concat(this.operationID, "::").concat(this.operationName, "]"));
+      console.log("HolisticAppCommon::constructor [".concat(this.operationID, "::").concat(this.operationName, "]"));
       var response = {
         error: null,
         result: {
@@ -51,22 +51,22 @@ var appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-spe
           ____description: "This is the format for the app metadata values required by by HolisticAppCommon::constructor function.",
           ____types: "jsObject",
           // Going to kill this so don't bother w/label/description
-          org: _objectSpread(_objectSpread({}, request_.appMetadata.specs.org), appMetadataBaseObjectSpecs.input.org),
+          org: _objectSpread(_objectSpread({}, request_.appTypes.appMetadata.orgExtSpec), appMetadataBaseObjectSpecs.input.org),
           // Going to kill this so don't bother w/label/description
-          app: _objectSpread(_objectSpread({}, request_.appMetadata.specs.app), appMetadataBaseObjectSpecs.input.app),
+          app: _objectSpread(_objectSpread({}, request_.appTypes.appMetadata.appExtSpec), appMetadataBaseObjectSpecs.input.app),
           pages: {
             ____label: "App Service Server Page Views Metadata Map",
             ____description: "A map of pageURI string keys to page metadata descriptor object.",
             ____types: "jsObject",
             ____asMap: true,
-            pageURI: _objectSpread(_objectSpread({}, request_.appMetadata.specs.page), appMetadataBaseObjectSpecs.input.page)
+            pageURI: _objectSpread(_objectSpread({}, request_.appTypes.appMetadata.pageExtSpec), appMetadataBaseObjectSpecs.input.page)
           },
           hashroutes: {
             ____label: "App Service Client Page Views Metadata Map",
             ____description: "A map of hashroutePathname string keys to hashroute metadata descriptor object.",
             ____types: "jsObject",
             ____asMap: true,
-            hashroutePathname: _objectSpread(_objectSpread({}, request_.appMetadata.specs.hashroute), appMetadataBaseObjectSpecs.input.hashroute)
+            hashroutePathname: _objectSpread(_objectSpread({}, request_.appTypes.appMetadata.hashrouteExtSpec), appMetadataBaseObjectSpecs.input.hashroute)
           }
         }; // derivedAppMetadataInputSpec
         // Synthesize a filter spec to validate (or simply document) the metadata values returned by any app metadata query by bucket org/app/page/hashroute.
@@ -133,10 +133,10 @@ var appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-spe
         var digraphBuilder = digraphBuilderFactoryResponse.result; // Use the digraphBuilder to filter the developer-supplied app metadata values and build the app metadata digraph.
 
         var digraphBuilderResponse = digraphBuilder.request({
-          org: request_.appMetadata.values.org,
-          app: request_.appMetadata.values.app,
-          pages: request_.appMetadata.values.pages,
-          hashroutes: request_.appMetadata.values.hashroutes
+          org: request_.appData.appMetadata.org,
+          app: request_.appData.appMetadata.app,
+          pages: request_.appData.appMetadata.pages,
+          hashroutes: request_.appData.appMetadata.hashroutes
         });
 
         if (digraphBuilderResponse.error) {

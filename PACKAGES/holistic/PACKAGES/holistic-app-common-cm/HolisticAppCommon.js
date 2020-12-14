@@ -6,7 +6,31 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-// HolisticAppNucleus.js
+// HolisticAppCommon.js
+
+/*(
+
+  PLEASE DO ONLY:
+
+  [ SOURCES/SERVER ] <=== import/require <==== [ SOURCES/COMMON ]          TRUSTED
+
+  ----- app service line of trust ------HTTPS----------PUBLIC INTERNET -----------
+
+  [ SOURCES/CLIENT ] <=== import/require <==== [ SOURCES/COMMON ]        UNTRUSTED
+
+  PLEASE DO NOT:
+
+  [ SOURCES/CLIENT ] <==== import/require <==== [ SOURCES/SERVER ]    BAD PRACTICE: You should not need to ever import/require client code on the server. Shared behavior and/or data needs to live in SOURCES/COMMON.
+  [ SOURCES/SERVER ] <==== import/require <==== [ SOURCES/CLIENT ]    POOR PRACTICE: Although there's really no trust issue here it's kind of lazy when you can keep everthing symetric w/pre-build steps in the few cases that you are likely to ever actually need.
+
+  [ SOURCES/COMMON ] <==== import/require <==== [ SOURCES/SERVER ]    BAD PRACTICE: import/require going in the wrong direction - you're just asking for trouble here. take the time to keep your pre-build up-to-date and synthesize sources across trust zones at build-time.
+  [ SOURCES/COMMON ] <==== import/require <==== [ SOURCES/CLIENT ]    BAD PRACTICE: import/require going in the wrong direction - code in COMMON is agnostic to Node.js vs Browser tab, and your client code is likely not. If it is, move it to common.
+
+)*/
+var path = require("path");
+
+console.log("> \"".concat(path.resolve(__filename), "\" module loading..."));
+
 var constructorFilter = require("./lib/filters/HolisticAppCommon-method-constructor-filter"); // This is a developer-facing API packaged as an ES6 class. The vast majority of the work is done by
 // the constructor filter that is responsible for validating, normalizing, and processing the developer-
 // specified constructor function inputs into what we call the "holistic cell nucleus".
@@ -30,8 +54,15 @@ var HolisticAppCommon = /*#__PURE__*/function () {
         constructorError: null
       };
       this.isValid = this.isValid.bind(this);
-      this.toJSON = this.toJSON.bind(this); // ?  this.appBuild = this.appBuild.bind(this);
-
+      this.toJSON = this.toJSON.bind(this);
+      this.getAppBuild = this.getAppBuild.bind(this);
+      this.getAppMetadataTypeSpecs = this.getAppMetadataTypeSpecs.bind(this);
+      this.getAppMetadataDigraph = this.getAppMetadataDigraph.bind(this);
+      this.getAppMetadataOrg = this.getAppMetadataOrg.bind(this);
+      this.getAppMetadataApp = this.getAppMetadataApp.bind(this);
+      this.getAppMetadataPage = this.getAppMetadataPage.bind(this);
+      this.getAppMetadataHashroute = this.getAppMetadataHashroute.bind(this);
+      this.getClientUserLoginSessionSpec = this.getClientUserLoginSessionSpec.bind(this);
       var filterResponse = constructorFilter.request(request_);
 
       if (filterResponse.error) {
@@ -60,9 +91,48 @@ var HolisticAppCommon = /*#__PURE__*/function () {
       return this.isValid() ? this._private : this._private.constructorError;
     }
   }, {
-    key: "appBuild",
-    get: function get() {
-      return this.isValid() ? this._private.nonvolatile.appCommonDefinition.appBuild : this.toJSON();
+    key: "getAppBuild",
+    value: function getAppBuild() {
+      return this.isValid() ? this._private.nonvolatile.appCommonDefinition.appData.appBuild : this.toJSON();
+    }
+  }, {
+    key: "getAppMetadataTypeSpecs",
+    value: function getAppMetadataTypeSpecs() {
+      return this.isValid() ? this._private.nonvolatile.appMetadata.specs : this.toJSON();
+    }
+  }, {
+    key: "getAppMetadataDigraph",
+    value: function getAppMetadataDigraph() {
+      return this.isValid() ? this._private.nonvolatile.appMetadata.values.digraph : this.toJSON();
+    }
+  }, {
+    key: "getAppMetadataOrg",
+    value: function getAppMetadataOrg() {
+      return this.isValid() ? this.getAppMetadataDigraph().getVertexProperty("__org") : this.toJSON();
+    }
+  }, {
+    key: "getAppMetadataApp",
+    value: function getAppMetadataApp() {
+      return this.isValid() ? this.getAppMetadataDigraph().getVertexProperty("__app") : this.toJSON();
+    }
+  }, {
+    key: "getAppMetadataPage",
+    value: function getAppMetadataPage(pageURI_) {
+      if (!this.isValid()) return this.toJSON();
+      var pageProp = this.getAppMetadataDigraph().getVertexProperty(pageURI_);
+      return pageProp ? pageProp : "No page metadata defined for pageURI \"".concat(pageURI_, "\".");
+    }
+  }, {
+    key: "getAppMetadataHashroute",
+    value: function getAppMetadataHashroute(hashroutePathname_) {
+      if (!this.isValid()) return this.toJSON();
+      var hashProp = this.getAppMetadataDigraph().getVertexProperty(hashroutePathname_);
+      return hashProp ? hashProp : "No hashroute metadata defined for hashroutePathname \"".concat(hashroutePath_, "\".");
+    }
+  }, {
+    key: "getClientUserLoginSessionSpec",
+    value: function getClientUserLoginSessionSpec() {
+      return this.isValid() ? this._private.nonvolatile.appCommonDefinition.appTypes.userLoginSession.untrusted.clientUserLoginSessionSpec : this.toJSON();
     }
   }]);
 

@@ -7,6 +7,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 // HolisticAppServerService-method-constructor-filter.js
+var path = require("path");
+
 var arccore = require("@encapsule/arccore");
 
 var holism = require("@encapsule/holism");
@@ -18,6 +20,8 @@ var inputFilterSpec = require("./iospecs/HolisticAppServer-method-constructor-fi
 
 var outputFilterSpec = require("./iospecs/HolisticAppServer-method-constructor-filter-output-spec");
 
+var renderHtmlFunction = require("../../models/holism-http-server/render-html");
+
 var factoryResponse = arccore.filter.create({
   operationID: "365COUTSRWCt2PLogVt51g",
   operationName: "HolisticAppServer::constructor Filter",
@@ -25,12 +29,12 @@ var factoryResponse = arccore.filter.create({
   inputFilterSpec: inputFilterSpec,
   outputFilterSpec: outputFilterSpec,
   bodyFunction: function bodyFunction(request_) {
-    console.log("[".concat(this.operationID, "::").concat(this.operationName, "]"));
+    console.log("HolisticAppServer::constructor [".concat(this.operationID, "::").concat(this.operationName, "]"));
     var response = {
       error: null,
       result: {
         appServiceCore: null,
-        // invalid value type will cause output filter error if not overwritten below
+        // null is an invalid value type per output filter spec set to force an error if the value isn't set appropriately by bodyFunction
         httpServerInstance: {
           holismInstance: {
             config: {
@@ -54,7 +58,7 @@ var factoryResponse = arccore.filter.create({
     var errors = [];
     var inBreakScope = false;
 
-    while (!inBreakScope) {
+    var _loop = function _loop() {
       inBreakScope = true; // Cache the HolisticAppCommon definition.
 
       var appServiceCore = request_.appServiceCore instanceof HolisticAppCommon ? request_.appServiceCore : new HolisticAppCommon(request_.appServiceCore);
@@ -62,15 +66,16 @@ var factoryResponse = arccore.filter.create({
       if (!appServiceCore.isValid()) {
         errors.push("Invalid appServiceCore value cannot be resolved to valid HolisticAppCommon class instance:");
         errors.push(response.result.appServiceCore.toJSON());
-        break;
+        return "break";
       }
 
-      response.result.appServiceCore = appServiceCore; // Obtain build-time @encapsule/holism HTTP server config information from the derived app server.
+      response.result.appServiceCore = appServiceCore;
+      var appBuild = appServiceCore.getAppBuild(); // Obtain build-time @encapsule/holism HTTP server config information from the derived app server.
       // These are function callbacks wrapped in filters to ensure correctness of response and to provide
       // developers with reference on format of the request value they are sent.
       // Create a filter to box the developer's getMemoryFileRegistrationMap callback function.
 
-      var _factoryResponse = arccore.filter.create({
+      var factoryResponse = arccore.filter.create({
         operationID: "tMYd-5e7Qm-iFV2TAufL6Q",
         operationName: "HolisticAppServer::constructor HTTP Mem-Cached Files Config Map Integration Filter",
         operationDescription: "Used to dispatch and validate the response.result of developer-defined getMemCachedFilesConfigMap function.",
@@ -84,15 +89,15 @@ var factoryResponse = arccore.filter.create({
         bodyFunction: request_.httpServerConfig.holismConfig.registrations.resources.getMemoryFileRegistrationMap
       });
 
-      if (_factoryResponse.error) {
+      if (factoryResponse.error) {
         errors.push("Cannot build a wrapper filter to retrieve your app server's memory-cached file configuration map due to error:");
-        errors.push(_factoryResponse.error);
-        break;
+        errors.push(factoryResponse.error);
+        return "break";
       }
 
-      var getMemoryFileRegistrationMapFilter = response.result.httpServerInstance.holismInstance.config.filters.getMemoryFileRegistrationMap = _factoryResponse.result; // Create a filter to box the developer's getServiceFilterRegistrationMap callback function.
+      var getMemoryFileRegistrationMapFilter = response.result.httpServerInstance.holismInstance.config.filters.getMemoryFileRegistrationMap = factoryResponse.result; // Create a filter to box the developer's getServiceFilterRegistrationMap callback function.
 
-      _factoryResponse = arccore.filter.create({
+      factoryResponse = arccore.filter.create({
         operationID: "0suEywsvTl200kgcEVBsLw",
         operationName: "HolisticAppServer::constructor HTTP Service Filter Config Map Integration Filter",
         operationDescription: "Used to dispatch and validate the response.result of developer-defined getServiceFilterConfigMap function.",
@@ -106,17 +111,18 @@ var factoryResponse = arccore.filter.create({
         bodyFunction: request_.httpServerConfig.holismConfig.registrations.resources.getServiceFilterRegistrationMap
       });
 
-      if (_factoryResponse.error) {
+      if (factoryResponse.error) {
         errors.push("Cannot build a wrapper filter to retrieve your app server's service filter configuration map due to error:");
-        errors.push(_factoryResponse.error);
-        break;
+        errors.push(factoryResponse.error);
+        return "break";
       }
 
-      var getServiceFilterRegistrationMapFilter = response.result.httpServerInstance.holismInstance.config.filters.getServiceFilterRegistrationMap = _factoryResponse.result; // Get the derived app server's memory file registration map via our filter.
+      var getServiceFilterRegistrationMapFilter = response.result.httpServerInstance.holismInstance.config.filters.getServiceFilterRegistrationMap = factoryResponse.result; // Get the derived app server's memory file registration map via our filter.
 
       var callbackRequest = {
-        appBuild: response.result.appServiceCore.appBuild,
-        deploymentEnvironment: "development"
+        appBuild: appBuild,
+        deploymentEnvironment: "development" // <======== TODO
+
       }; // TODO deploymentEnvironment
 
       var filterResponse = getMemoryFileRegistrationMapFilter.request(callbackRequest);
@@ -124,7 +130,7 @@ var factoryResponse = arccore.filter.create({
       if (filterResponse.error) {
         errors.push("An error occurred while querying your app server for its memory file registration map:");
         errors.push(filterResponse.error);
-        break;
+        return "break";
       }
 
       var appServerMemoryFileRegistrationMap = response.result.httpServerInstance.holismInstance.config.data.memoryFileRegistrations = filterResponse.result; // Get the derived app server's service filter plug-in registration map.
@@ -134,11 +140,154 @@ var factoryResponse = arccore.filter.create({
       if (filterResponse.error) {
         errors.push("An error occured while querying your app server for its service filter plug-in registration map:");
         errors.push(filterResponse.error);
-        break;
+        return "break";
       }
 
-      var appServerServiceFilterRegistrationMap = response.result.httpServerInstance.holismInstance.config.data.serviceFilterRegistrations = filterResponse.result;
-      break;
+      var appServerServiceFilterRegistrationMap = response.result.httpServerInstance.holismInstance.config.data.serviceFilterRegistrations = filterResponse.result; // Okay - so nothing has gone wrong so far!
+      // We should now have enough information to construct what the @encapsule/holism RTL calls "integration filters" that wrap a bunch of callback functions
+      // in filters that are subsequently dispatched at various phases of an HTTP request lifecycle in order to ask questions of and/or delegate behaviors
+      // to the derived app service (i.e. application-layer facilities, behaviors, features, etc. added to the app server via the available platform-defined
+      // extension points). We don't want to really play games w/@encapsule/holism right now so am pretty much just building a super-precise and generic
+      // implementation of what a developer might otherwise have to figure out how to do inside SOURCES/SERVER/server.js (which is quite a bit actually
+      // to stay in sync w/the app client work in particular).
+
+      var appMetadataTypeSpecs = appServiceCore.getAppMetadataTypeSpecs(); // v0.0.49-spectrolite
+      // This is a very old abstraction (circa 2015?) Wiring this up here 5-years later I think it's pretty good insofar
+      // as this factory provides a succinct request API the distills the factory input requirements. What we do not need
+      // is to implement runtime synthesis of filters in @encapsule/holism (or any other RTL for that matter) now that we
+      // have CellProcessor in 2020. No time to make the swap over now (it's straight-forward but would take 1+ month to
+      // build a runtime service environment in CellProcessor atop Node.js similar to what we are about to unleash in the
+      // browser tab.
+
+      console.log("> \"".concat(path.resolve(__filename), "\" App server @encapsule/holism configuration accepted."));
+      console.log("> \"".concat(path.resolve(__filename), "\" Synthesizing type-specialized encapsule/holism HTTP stream processing filters for ").concat(appBuild.app.name, " app server service..."));
+      factoryResponse = holism.integrations.create({
+        filter_id_seed: "M4MFr-ZvS3eovgdTnNTrdg",
+        // TODO: Confirm my assumption that this can be any static IRUT w/out violating any important invariant assumptions about the derived IRUTs...
+        name: "".concat(appBuild.app.name, " @encapsule/holism Lifecycle Integration Filters"),
+        description: "A set of filters leverages by the @encapsule/holism HTTP request processor to obtain information and/or delegate behaviors to the derived app server service process.",
+        version: "".concat(appBuild.app.version),
+        // ----------------------------------------------------------------
+        appStateContext: {},
+        // This is an escape hatch mitigation for not having a HolisticAppServerKernel cell process to hold context.
+        // It's okay for now I think. But, it needs to be connected so that app-server-provided @encapsule/holism service filter plug-in registrations
+        // can follow whatever ad-hoc access protocol they desire to access the data/functions/objects ? carried in this namespace.
+        // ----------------------------------------------------------------
+        integrations: {
+          preprocessor: {
+            redirect: request_.httpServerConfig.holismConfig.lifecycle.redirectProcessor
+          },
+          metadata: {
+            // This doesn't need to be all fancy like this. Metadata has grown beyond just the sphere of @encapsule/holism
+            // and many of the patterns I devised when I wrote it initially don't make that much sense. Like the org and
+            // app callbacks are utter nonsense we could cut. But, I would have to think about it.
+            org: {
+              get: {
+                bodyFunction: function bodyFunction() {
+                  return {
+                    error: null,
+                    result: appServiceCore.getAppMetadataOrg()
+                  };
+                },
+                outputFilterSpec: appMetadataTypeSpecs.org
+              }
+            },
+            site: {
+              // aka app metadata app (whatever)
+              get: {
+                bodyFunction: function bodyFunction() {
+                  return {
+                    error: null,
+                    result: appServiceCore.getAppMetadataApp()
+                  };
+                },
+                outputFilterSpec: appMetadataTypeSpecs.app
+              }
+            },
+            page: {
+              get: {
+                bodyFunction: function bodyFunction(_ref) {
+                  var http_code = _ref.http_code,
+                      resource_uri = _ref.resource_uri;
+                  var queryResult = appServiceCore.getAppMetadataPage(resource_uri);
+
+                  if (queryResult instanceof String) {
+                    return {
+                      error: queryResult
+                    };
+                  }
+
+                  return {
+                    error: null,
+                    result: queryResult
+                  };
+                },
+                outputFilterSpec: appMetadataTypeSpecs.pages.pageURI
+              }
+            },
+            session: {
+              get_identity: {
+                bodyFunction: request_.httpServerConfig.holismConfig.lifecycle.getUserIdentityAssertion,
+                outputFilterSpec: request_.appTypes.userLoginSession.trusted.userIdentityAssertionDescriptorSpec
+              },
+              get_session: {
+                bodyFunction: request_.httpServerConfig.holismConfig.lifecycle.getUserLoginSession,
+                response: {
+                  result_spec: request_.appTypes.userLoginSession.trusted.userLoginSessionReplicaDataSpec,
+                  client_spec: appServiceCore.getClientUserLoginSessionSpec()
+                }
+              }
+            }
+          },
+          render: {
+            html: {
+              bodyFunction: renderHtmlFunction
+            }
+          }
+        }
+      });
+
+      if (factoryResponse.error) {
+        errors.push("An error occurred during configuration of ".concat(appBuild.app.name, "'s @encapsule/holism HTTP request/response stream filters:"));
+        errors.push(factoryResponse.error);
+        return "break";
+      }
+
+      var holismInstanceIntegrationFilters = response.result.httpServerInstance.holismInstance.integrations = factoryResponse.result;
+      console.log("> \"".concat(path.resolve(__filename), "\" @encapsule/holism HTTP stream processor has been configured for ").concat(appBuild.app.name, " app server service."));
+      console.log("> \"".concat(path.resolve(__filename), "\" Performing final dynamic assembly of ").concat(appBuild.app.name, " embedded @encapsule/holism HTTP request processor instance..."));
+      factoryResponse = holism.server.create({
+        holisticAppBuildManifest: appBuild,
+        appServerRuntimeEnvironment: "development",
+        // TODO!
+        config: {
+          options: {},
+          // TODO!
+          files: appServerMemoryFileRegistrationMap,
+          services: appServerServiceFilterRegistrationMap
+        },
+        integrations: holismInstanceIntegrationFilters
+      });
+
+      if (factoryResponse.error) {
+        errors.push("An error occurred in the final steps of initializing ".concat(appBuild.app.name, "'s embedded @encapsule/holism HTTP request processor:"));
+        errors.push(factoryResponse.error);
+        return "break";
+      } // This is the specialized @encapsule/holism server filter instance. It's really actually hard
+      // to explain (too hard to explain) how/why @encapsule/holism. Leaving it mostly intact here
+      // for now. But, most of it is code we ultimately do not have to write anymore because of CellModel.
+      // Looking forward to moving everything backend into CellProcessor services. It should be a very liberating
+      // experience as most of the process kinks are being distilled w/a flame thrower in the app client now.
+
+
+      response.result.httpServerInstance.holismInstance.httpRequestProcessor = factoryResponse.result;
+      return "break";
+    };
+
+    while (!inBreakScope) {
+      var _ret = _loop();
+
+      if (_ret === "break") break;
     }
 
     if (errors.length) {

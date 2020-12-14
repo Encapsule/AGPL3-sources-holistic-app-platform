@@ -6,6 +6,13 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+// HolisticAppServer.js
+var path = require("path");
+
+var process = require("process");
+
+console.log("> \"".concat(path.resolve(__filename), "\" module loading..."));
+
 var constructorFilter = require("./lib/filters/HolisticAppServer-method-constructor-filter");
 
 var HolisticAppServer = /*#__PURE__*/function () {
@@ -22,6 +29,7 @@ var HolisticAppServer = /*#__PURE__*/function () {
       };
       this.isValid = this.isValid.bind(this);
       this.toJSON = this.toJSON.bind(this);
+      this.listen = this.listen.bind(this);
       var filterResponse = constructorFilter.request(request_);
 
       if (filterResponse.error) {
@@ -48,6 +56,17 @@ var HolisticAppServer = /*#__PURE__*/function () {
     key: "toJSON",
     value: function toJSON() {
       return this.isValid() ? this._private : this._private.constructorError;
+    }
+  }, {
+    key: "listen",
+    value: function listen(port_) {
+      if (!this.isValid()) {
+        console.log("App server service is not prepared to listen! Sorry. Here is why:");
+        console.error(this.toJSON());
+        process.exitCode = 1; // Exit process w/error indicator set
+      }
+
+      this._private.httpServerInstance.holismInstance.httpRequestProcessor.listen(port_);
     }
   }]);
 

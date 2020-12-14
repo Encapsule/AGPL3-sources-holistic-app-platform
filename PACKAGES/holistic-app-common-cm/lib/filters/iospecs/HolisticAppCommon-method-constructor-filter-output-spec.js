@@ -41,8 +41,33 @@ module.exports = {
         }
       },
       specs: {
-        ____accept: "jsObject" // TODO
+        ____label: "App Metadata Runtime Types",
+        ____description: "A descriptor objects containing the specialized filter specs for each of the holistic platform's pre-defined app metadata buckets.",
+        ____types: "jsObject",
+        org: {
+          ____label: "App Metadata Org Runtime Type Spec",
+          ____description: "The format of an app metadata organization descriptor object.",
+          ____accept: "jsObject" // This is a filter spec
 
+        },
+        app: {
+          ____label: "App Metadata App Runtime Type Spec",
+          ____description: "The format of an app metadata application descriptor object.",
+          ____accept: "jsObject" // This is a filter spec
+
+        },
+        pages: {
+          ____label: "App Metadata Page Map Runtime Type Spec",
+          ____description: "The format of a map (dictionary) of app metadata page descriptor objects.",
+          ____accept: "jsObject" // This is a filter spec
+
+        },
+        hashroutes: {
+          ____label: "App Metadata Hashroute Map Runtime Type Spec",
+          ____description: "The format of a map (dictionary) of app metadata hashroute descriptor objects.",
+          ____accept: "jsObject" // This is a filter spec
+
+        }
       }
     }
   }
