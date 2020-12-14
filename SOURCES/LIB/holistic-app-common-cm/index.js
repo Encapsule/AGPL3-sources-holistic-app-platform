@@ -21,7 +21,16 @@ module.exports = {
 
     // This is getting sucked inside HolisticAppCommon but leaving the export for now.
     // CellModel Library (cml)
-    cml: require("./lib/HolisticAppCommonKernel")
+    cml: require("./lib/HolisticAppCommonKernel"),
+
+    // These are @encapsule/arccore.filter specs exported by @encapsule/holistic-service-core RTL
+    // that are needed by @encapsule/holistic-node-service and @encapsule/holistic-btab-service RTL's
+    serviceTypes: {
+        HolisticServiceCore: {
+            constructor: require("./lib/filters/iospecs/HolisticAppCommon-method-constructor-filter-input-spec"),
+            _private: require("./lib/filters/iospecs/HolisticAppCommon-method-constructor-filter-output-spec")
+        }
+    }
 
 };
 

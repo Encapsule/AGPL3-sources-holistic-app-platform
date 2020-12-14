@@ -1,23 +1,24 @@
-// app-server-method-constructor-input-spec.js
+// TODO: app-server-method-constructor-input-spec.js
 
-const holism = require("@encapsule/holism");
+const holism = require("@encapsule/holism"); // holism helpfully exports all the information you need to splice together filter specs. But, it's TAF... No worries; it's now all encapsulated ;-)
+const serviceTypes = require("@encapsule/holistic-app-common-cm").serviceTypes;
 
 module.exports = {
 
-    ____label: "HolisticAppServer::constructor Request Object",
-    ____description: "A developer-defined descriptor object containing the information required to configure and initialize the derived app server service process.",
+    ____label: "HolisticNodeService::constructor Request Object",
+    ____description: "A developer-defined descriptor object containing the information required to configure and initialize a holistic app service running inside a Node.js OS process.",
     ____types: "jsObject",
 
-    appServiceCore: { // naming at this level is in flux. resisting the urge to play w/names until this is service HTTP requests again.
-        ____label: "Holistic App Common Definition",
-        ____description: "A reference to a HolisticAppCommon class instance. Or, a descriptor object from which we can construct a new instance of class HolisticAppCommon.",
+    appServiceCore: {
+        ____label: "Holistic Service Core Definition",
+        ____description: "A reference to your HolisticServiceCore class instance. Or, a descriptor object from which we can construct a new instance of HolisticServiceCore for use by your Node.js service.",
         ____accept: "jsObject" // Reference to HolisticAppCore instance
     },
 
     appTypes: {
 
-        ____label: "Derived App Service Runtime Types",
-        ____description: "Developer-defined runtime type definitions, and extensions to holistic-platform-defined types for a small set of core application-layer objects for which the platform runtime provides runtime type filtering and/or generic orchestration services on behalf of the derived app service.",
+        ____label: "Holistic Node.js Service Runtime Types",
+        ____description: "Developer-defined runtime type definitions, and extensions to holistic-platform-defined types for a small set of core application-layer objects for which the Node.js service kernel provides runtime type filtering and/or generic orchestration services on behalf of the derived app service.",
         ____types: "jsObject",
         ____defaultValue: {},
 
@@ -50,6 +51,14 @@ module.exports = {
 
         } // ~.userLoginSession
 
+    },
+
+    appModels: {
+        ...serviceTypes.appModels,
+        ____label: "Holistic Node.js Service Behavior Models",
+        ____description: "A collection of application-specific plug-in artifacts derived from @encapsule/holistic RTL's to register for use inside this holistic Node.js service instance.",
+        ____types: "jsObject",
+        ____defaultValue: {}
     },
 
     httpServerConfig: {
@@ -125,7 +134,31 @@ module.exports = {
                     ____defaultValue: null
                 }
 
-            } // ~.httpServerConfig.holism.requestLifecycle
+            }, // ~.httpServerConfig.holism.requestLifecycle
+
+            // v0.0.49-spectrolite
+            // This concept dates back to @encapsule/holism v1 in 2014.
+            // Today we would model this concept differently and say that the app service will
+            // define an action that the Node.js service's HTTP request processor can dispatch
+            // as it requires when incoming HTTP requests are received. And, it would be up to
+            // the application to maintain whatever context is required to support the implementation
+            // of their specific action implementation. But, I don't have time to write a Node.js
+            // service kernel right now. So, we deal with this pattern using the legacy implementation
+            // here. It's not really horrible. It's just very unclear. Whatever the app developer splices
+            // into appStateContext here will be passed by reference into their registered service filters.
+            // i.e. compared to an action that would likely read its memory to obtain the same information,
+            // here we push the details of where and how this object is built and what it means entirely
+            // on the app developer. And, we just then pass it around on their behalf so that service filter
+            // authors can just assume its part of their inbound request data and not worry about the
+            // origin of the data.
+
+            appStateContext: {
+                ____label: "@encapsule/holism Service Filter State Context",
+                ____description: "@encapsule/holism service filter plug-in \"context\" object is passed by @encapsule/holism to every service filter plug-in when it is dispatched. Developers may use this object to make app-specific backend subsystems (e.g. storage layer) consistently accessible to registered service filters.",
+                ____accept: "jsObject", // We dodge here a little. HolisticNodeService constructor will always initialize and add @encapsule/d2r2 <ComponentRouter/> instance to appStateContext. It's NBD but inconsistent. Later this just dissapears entirely as above.
+                ____defaultValue: { ComponentRouter: null /*constructed by HolisticNodeService constructor function*/ }
+
+            } // ~.httpServerConfig.holismConfig.appStateContext
 
         } // ~.httpServerConfig.holismConfig
 
