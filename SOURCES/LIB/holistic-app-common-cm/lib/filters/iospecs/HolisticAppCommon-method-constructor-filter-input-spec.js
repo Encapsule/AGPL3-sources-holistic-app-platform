@@ -222,7 +222,7 @@ module.exports = {
             ____description: "Appliction-layer-specific plug-ins that used to configure the derived service's display subsystem.",
             ____types: "jsObject",
             ____defaultValue: {},
-            d2r2: {
+            d2r2Components: {
                 ____label: "@encapsule/d2r2 React.Element Generator Filters",
                 ____description: "A collection of @encapsule/d2r2 component binding filters be be registered with the derived service's <ComponentRouter/> instance.",
                 ____types: "jsArray",
@@ -234,7 +234,7 @@ module.exports = {
                 } // ~.appModels.display.d2r2Component
             } // ~.appModels.display.d2r2
         }, // ~.appModels.display
-        cellsModels: {
+        cellModels: {
             ____label: "App Service Core Cells",
             ____description: "A collection of application-specific CellModel plug-ins that define the behaviors of a derived holistic app service instance.",
             ____types: "jsArray",

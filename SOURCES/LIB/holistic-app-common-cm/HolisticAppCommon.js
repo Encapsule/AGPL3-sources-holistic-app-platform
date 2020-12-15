@@ -54,6 +54,8 @@ class HolisticAppCommon {
             this.getAppMetadataPage = this.getAppMetadataPage.bind(this);
             this.getAppMetadataHashroute = this.getAppMetadataHashroute.bind(this);
             this.getClientUserLoginSessionSpec = this.getClientUserLoginSessionSpec.bind(this);
+            this.getDisplayComponents = this.getDisplayComponents.bind(this);
+            this.getCellModels = this.getCellModels.bind(this);
             let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
@@ -92,6 +94,13 @@ class HolisticAppCommon {
     getClientUserLoginSessionSpec() {
         return (this.isValid()?this._private.nonvolatile.appCommonDefinition.appTypes.userLoginSession.untrusted.clientUserLoginSessionSpec:this.toJSON());
     }
+    getDisplayComponents() { // returns array of @encapsule/d2r2 component wrapper filters for <ComponentRouter/>
+        // TODO
+    }
+    getCellModels() { // returns array of @encapsule/holarchy CellModel instances.
+        // TODO
+    }
+
 
 }
 

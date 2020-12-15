@@ -2,10 +2,16 @@
 
 const arccore = require("@encapsule/arccore");
 
-// TODO: Migrate
+// TODO: Migrate? Coming back here I think I made some modifications here and made it work. The issue is that its using an entire RTL package for a single module. But, really NBD.
 const holismMetadataFactory = require("@encapsule/holism-metadata");
 const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-specs"); // intrinsic properties of org, app, page, and hashroute metadata required by the platform
 
+const holisticAppModels = {
+    display: {
+        d2r2Components: require("@encapsule/d2r2-components").components
+    },
+    cellModels: [] // nothing yet but coming soon
+};
 
 (function() {
 
@@ -160,6 +166,21 @@ const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-s
                     values: { digraph: appMetadataDigraph },
                     specs: derivedAppService_MetadataOutputSpec
                 };
+
+                // Okay - now we need to go process the application-specific appModels passed in by the developer.
+                // These are combined w/core platform level appModel contributions that represent behaviors shared
+                // by all holistic app services (e.g. holistic Node.js service or holistic browser tab service).
+
+                const coreDisplayComponents = response.result.nonvolatile.coreDisplayComponents = [
+                    ...holisticAppModels.display.d2r2Components,
+                    ...request_.appModels.display.d2r2Components
+                ];
+
+                const coreCellModels = response.result.nonvolatile.coreCellModels = [
+                    ...holisticAppModels.cellModels,
+                    ...request_.appModels.cellModels
+                ];
+
 
                 // console.log(JSON.stringify(response, undefined, 4));
 

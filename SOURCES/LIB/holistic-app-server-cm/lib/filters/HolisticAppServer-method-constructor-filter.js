@@ -12,6 +12,13 @@ const outputFilterSpec =  require("./iospecs/HolisticAppServer-method-constructo
 
 const renderHtmlFunction = require("../../models/holism-http-server/render-html");
 
+const holisticAppModels = {
+    display: {
+        d2r2Components: []
+    },
+    cellModels: []
+}
+
 const factoryResponse = arccore.filter.create({
     operationID: "365COUTSRWCt2PLogVt51g",
     operationName: "HolisticAppServer::constructor Filter",
@@ -123,6 +130,7 @@ const factoryResponse = arccore.filter.create({
             const appServerServiceFilterRegistrationMap = response.result.httpServerInstance.holismInstance.config.data.serviceFilterRegistrations = filterResponse.result;
 
             // Okay - so nothing has gone wrong so far!
+
             // We should now have enough information to construct what the @encapsule/holism RTL calls "integration filters" that wrap a bunch of callback functions
             // in filters that are subsequently dispatched at various phases of an HTTP request lifecycle in order to ask questions of and/or delegate behaviors
             // to the derived app service (i.e. application-layer facilities, behaviors, features, etc. added to the app server via the available platform-defined
@@ -130,7 +138,14 @@ const factoryResponse = arccore.filter.create({
             // implementation of what a developer might otherwise have to figure out how to do inside SOURCES/SERVER/server.js (which is quite a bit actually
             // to stay in sync w/the app client work in particular).
 
-            const appMetadataTypeSpecs = appServiceCore.getAppMetadataTypeSpecs();
+            // But, before we call @encapsule/holism to splice together HTTP stream processing filters we need to construct
+            // the an @encapsule/d2r2 <ComponentRouter/> instance for use by the holistic Node.js service HTML5 document renderer.
+
+            const serviceDisplayComponents = [
+                ...holisticAppModels.display.d2r2Components,
+                ...request_.appModels.display.d2r2Components,
+                ...appServiceCore.getDisplayComponents()
+            ];
 
             // v0.0.49-spectrolite
             // This is a very old abstraction (circa 2015?) Wiring this up here 5-years later I think it's pretty good insofar
@@ -139,6 +154,8 @@ const factoryResponse = arccore.filter.create({
             // have CellProcessor in 2020. No time to make the swap over now (it's straight-forward but would take 1+ month to
             // build a runtime service environment in CellProcessor atop Node.js similar to what we are about to unleash in the
             // browser tab.
+
+            const appMetadataTypeSpecs = appServiceCore.getAppMetadataTypeSpecs();
 
             console.log(`> "${path.resolve(__filename)}" App server @encapsule/holism configuration accepted.`);
             console.log(`> "${path.resolve(__filename)}" Synthesizing type-specialized encapsule/holism HTTP stream processing filters for ${appBuild.app.name} app server service...`);
@@ -241,8 +258,8 @@ const factoryResponse = arccore.filter.create({
             // This is the specialized @encapsule/holism server filter instance. It's really actually hard
             // to explain (too hard to explain) how/why @encapsule/holism. Leaving it mostly intact here
             // for now. But, most of it is code we ultimately do not have to write anymore because of CellModel.
-            // Looking forward to moving everything backend into CellProcessor services. It should be a very liberating
-            // experience as most of the process kinks are being distilled w/a flame thrower in the app client now.
+            // Looking forward to moving everything backend into CellProcessor services. It should be straight foward;
+            // most of the process kinks are being distilled w/a flame thrower in the app client now.
             response.result.httpServerInstance.holismInstance.httpRequestProcessor = factoryResponse.result;
 
             break;
