@@ -95,9 +95,9 @@ module.exports = {
                             ____accept: "jsFunction"
                         }
 
-                    } // ~.httpServerConfig.holism.registrations.resources
+                    } // ~.appModels.httpRequestProcessor.holismConfig.registrations.resources
 
-                }, // ~.httpServerConfig.holism.registrations
+                }, // ~.appModels.httpRequestProcessor.holismConfig.registrations
 
                 lifecycle: {
                     ____label: "Holism HTTP Server Request Lifecycle Integrations",
@@ -120,7 +120,7 @@ module.exports = {
                         ____defaultValue: null
                     }
 
-                }, // ~.httpServerConfig.holism.requestLifecycle
+                }, // ~.appModels.httpRequestProcessor.holismConfig.lifecycle
 
                 // v0.0.49-spectrolite
                 // This concept dates back to @encapsule/holism v1 in 2014.
@@ -144,7 +144,7 @@ module.exports = {
                     ____accept: "jsObject", // We dodge here a little. HolisticNodeService constructor will always initialize and add @encapsule/d2r2 <ComponentRouter/> instance to appStateContext. It's NBD but inconsistent. Later this just dissapears entirely as above.
                     ____defaultValue: { ComponentRouter: null /*constructed by HolisticNodeService constructor function*/ }
 
-                } // ~.httpServerConfig.holismConfig.appStateContext
+                } // ~.appModels.httpRequestProcessor.holismConfig.appStateContext
 
             } // ~.httpServerConfig.holismConfig
 

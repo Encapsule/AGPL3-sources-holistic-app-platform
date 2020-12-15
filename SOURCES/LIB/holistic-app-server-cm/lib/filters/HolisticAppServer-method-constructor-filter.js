@@ -4,6 +4,7 @@ const path = require("path");
 
 const arccore = require("@encapsule/arccore");
 const holism = require("@encapsule/holism");
+const d2r2 = require("@encapsule/d2r2");
 
 const { HolisticAppCommon } = require("@encapsule/holistic-app-common-cm");
 
@@ -141,11 +142,19 @@ const factoryResponse = arccore.filter.create({
             // But, before we call @encapsule/holism to splice together HTTP stream processing filters we need to construct
             // the an @encapsule/d2r2 <ComponentRouter/> instance for use by the holistic Node.js service HTML5 document renderer.
 
-            const serviceDisplayComponents = [
-                ...holisticAppModels.display.d2r2Components,
-                ...request_.appModels.display.d2r2Components,
-                ...appServiceCore.getDisplayComponents()
-            ];
+            factoryResponse = d2r2.ComponentRouterFactory.request({
+                d2r2ComponentSets: [
+                    holisticAppModels.display.d2r2Components,
+                    request_.appModels.display.d2r2Components,
+                    appServiceCore.getDisplayComponents()
+                ]
+            });
+            if (factoryResponse.error) {
+                errors.push(`An error occurred attempting to initialize @encapsule/d2r2 <ComponentRouter/> instance for use in the ${appBuild.app.name} Node.js service:`);
+                errors.push(factoryResponse.error);
+            }
+
+            const ComponentRouter = factoryResponse.result;
 
             // v0.0.49-spectrolite
             // This is a very old abstraction (circa 2015?) Wiring this up here 5-years later I think it's pretty good insofar
@@ -162,13 +171,14 @@ const factoryResponse = arccore.filter.create({
 
             factoryResponse = holism.integrations.create({
                 filter_id_seed: "M4MFr-ZvS3eovgdTnNTrdg", // TODO: Confirm my assumption that this can be any static IRUT w/out violating any important invariant assumptions about the derived IRUTs...
-                name: `${appBuild.app.name} @encapsule/holism Lifecycle Integration Filters`,
+                name: `${appBuild.app.name} @encapsule/holism HTTP Request Processor Lifecycle Integration Filters`,
                 description: "A set of filters leverages by the @encapsule/holism HTTP request processor to obtain information and/or delegate behaviors to the derived app server service process.",
                 version: `${appBuild.app.version}`,
                 // ----------------------------------------------------------------
-                appStateContext: { }, // This is an escape hatch mitigation for not having a HolisticAppServerKernel cell process to hold context.
-                // It's okay for now I think. But, it needs to be connected so that app-server-provided @encapsule/holism service filter plug-in registrations
-                // can follow whatever ad-hoc access protocol they desire to access the data/functions/objects ? carried in this namespace.
+                appStateContext: {
+                    ...request_.appModels.httpRequestProcessor.holismConfig.appStateContext,
+                    ComponentRouter
+                },
                 // ----------------------------------------------------------------
                 integrations: {
                     preprocessor: {
