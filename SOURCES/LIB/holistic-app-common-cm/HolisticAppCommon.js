@@ -95,10 +95,10 @@ class HolisticAppCommon {
         return (this.isValid()?this._private.nonvolatile.appCommonDefinition.appTypes.userLoginSession.untrusted.clientUserLoginSessionSpec:this.toJSON());
     }
     getDisplayComponents() { // returns array of @encapsule/d2r2 component wrapper filters for <ComponentRouter/>
-        // TODO
+        return (this.isValid()?this._private.nonvolatile.coreDisplayComponents:this.toJSON());
     }
     getCellModels() { // returns array of @encapsule/holarchy CellModel instances.
-        // TODO
+        return (this.isValid()?this._private.nonvolatile.coreCellModels:this.toJSON());
     }
 
 

@@ -26,7 +26,7 @@ module.exports = {
     },
 
     appModels: {
-        ...serviceTypes.appModels,
+        ...serviceTypes.HolisticServiceCore.constructor.appModels,
         ____label: "Holistic Browser Tab Service Behavior Models",
         ____description: "A collection of application-specific plug-in artifacts derived from @encapsule/holistic RTL's to register for use inside this holistic browser tab service instance.",
         ____types: "jsObject",

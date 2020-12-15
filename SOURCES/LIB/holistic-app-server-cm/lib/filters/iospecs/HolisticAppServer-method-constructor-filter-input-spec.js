@@ -44,7 +44,7 @@ module.exports = {
         } // ~.userLoginSession
     },
     appModels: {
-        ...serviceTypes.appModels,
+        ...serviceTypes.HolisticServiceCore.constructor.appModels,
         ____label: "Holistic Node.js Service Behavior Models",
         ____description: "A collection of application-specific plug-in artifacts derived from @encapsule/holistic RTL's to register for use inside this holistic Node.js service instance.",
         ____types: "jsObject",
