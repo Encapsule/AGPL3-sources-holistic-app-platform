@@ -18,6 +18,11 @@ const factoryResponse = arccore.filter.create({
 
             const appBuild = request_.appServiceCore.getAppBuild();
 
+            response.result = {
+                serviceModel: null,
+                serviceRuntime: null
+            };
+
             // TODO: We need some stable ID's. I think these should come from appServiceCore? Yea - let's not fuck around...
             // The issue is that ultimately these keys underpin invariant assumptions we want to make about the location
             // of various cells in Node.js service cellplane and tab service cellplane... More about this when there's more time...
@@ -27,9 +32,9 @@ const factoryResponse = arccore.filter.create({
 
             const tabServiceCellModelID = arccore.identifier.irut.fromReference(`HolisticTabService.CellModel_1sJqGmKgTPGvPnmce3mlHg_${appBuild.app.name}`).result; // whatever really so long as it's stable. Here the generated IRUT is stable on appBuild.app.name which is likely okay for most people (defined by developer in holistic-app.json manifest).
             const tabServiceAPMID = arccore.identifier.irut.fromReference(`HolisticTabService.APM_V8HWzGZPQRGXDCEtTpZAMg_${appBuild.app.name}`).result; // as above
+            const tabServiceCellProcessorID = arccore.identifier.irut.fromReference(`HolisticTabService.CellProcessor_1CBI_pNOSoyZDXK4iX77PA_${appBuild.app.name}`).result; // as above
 
-
-            const appClientCellModel = new holarchy.CellModel({ // CellModel declaration description object.
+            const tabServiceCellModel = new holarchy.CellModel({ // CellModel declaration description object.
 
                 id: tabServiceCellModelID,
                 name: `${appBuild.app.name} Tab Service Model (synthesized)`,
@@ -512,15 +517,49 @@ const factoryResponse = arccore.filter.create({
 
                 ]
 
-            });
+            }); // new CellModel
 
-            if (!appClientCellModel.isValid()) {
-                errors.push(appClientCellModel.toJSON());
+            if (!tabServiceCellModel.isValid()) {
+                errors.push(`Unable to construct a tab service model for ${appBuild.app.name} due to error:`);
+                errors.push(tabServiceCellModel.toJSON());
                 break;
             }
 
-            response.result = appClientCellModel;
+            response.result.serviceModel = tabServiceCellModel;
 
+            // And, finally... Load the service cell model into a new CellProcessor instance
+            // and let the cell process manager initialize.
+
+            const tabServiceRuntime = new holarchy.CellProcessor({
+                id: tabServiceCellProcessorID,
+                name: appBuild.app.name,
+                description: `${appBuild.app.name} Tab Service Runtime`,
+                cellmodel: tabServiceCellModel
+            });
+
+            if (!tabServiceRuntime.isValid()) {
+                errors.push(`An error occurred trying to load the specialized tab service CellModel for ${appBuild.app.build} into a CellProcessor runtime host:`);
+                errors.push(tabServiceRuntime.toJSON());
+                break;
+            }
+
+            response.result.serviceRuntime = tabServiceRuntime;
+
+            /*
+            // START THE APP CLIENT CELL PROCESS
+            stopwatch.mark("... calling CellProcessor.act to create Holistic App Client Kernel process.");
+            clientBootstrapPhaseMessage = "vp5_client_bootstrap_start_client_app_kernel";
+            let actResponse;
+            actResponse = window.vpcp.act({
+                actorName: "Viewpath5 App Client Bootstrap",
+                actorTaskDescription: "Attempt to activate the Viewpath5 app client process.",
+                actionRequest: { holistic: { app: { client: { boot: {} } } } }
+            });
+            if (actResponse.error) {
+                error = { phase: clientBootstrapPhaseMessage, message: actResponse.error  };
+                break;
+            }
+            */
 
             break;
         }

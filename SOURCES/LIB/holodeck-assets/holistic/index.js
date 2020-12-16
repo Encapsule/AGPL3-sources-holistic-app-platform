@@ -10,7 +10,7 @@ const holarchyPackageVectorSets = require("./holarchy-package-tests/vector-sets"
 
 const holarchyCMPackageVectorSets = require("./holarchy-cm-package-tests/vector-sets");
 
-const holisticAppClientCMVectorSets = require("./holistic-app-client-cm-package-tests/vector-sets");
+// const holisticAppClientCMVectorSets = require("./holistic-app-client-cm-package-tests/vector-sets"); // TODO: v0.0.49-spectrolite disabled for now
 const holisticAppServerCMVectorSets = require("./holistic-app-server-cm-package-tests/vector-sets");
 const holisticAppCommonCMVectorSets = require("./holistic-app-common-cm-package-tests/vector-sets");
 
@@ -71,7 +71,7 @@ const factoryResponse = arccore.filter.create({
                     ...holodeckPackageVectorSets,
                     ...holarchyPackageVectorSets,
                     ...holarchyCMPackageVectorSets,
-                    ...holisticAppClientCMVectorSets,
+                    // ...holisticAppClientCMVectorSets, // TODO: Re-examine and decide what to do when v0.0.49-spectrolite refactoring activity settles
                     ...holisticAppServerCMVectorSets,
                     ...holisticAppCommonCMVectorSets
                 ]

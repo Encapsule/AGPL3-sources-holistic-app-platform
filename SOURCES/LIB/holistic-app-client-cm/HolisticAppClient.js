@@ -12,6 +12,7 @@ class HolisticAppClient {
             this._private = { constructorError: null };
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
+            this.boot = this.boot.bind(this);
             let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
@@ -29,6 +30,17 @@ class HolisticAppClient {
     isValid() { return (!this._private.constructorError); }
 
     toJSON() { return (this.isValid()?this._private:this._private.constructorError); }
+
+    boot() {
+        if (!this.isValid()) {
+            return this.toJSON();
+        }
+        return this._private.serviceRuntime.act({
+            actorName: "Browser Tab Host",
+            actorTaskDescription: "Browser is attempting to boot the tab service.",
+            actionRequest: { holistic: { app: { client: { boot: {} } } } }
+        });
+    }
 
 }
 

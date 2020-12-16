@@ -1,3 +1,5 @@
+// v0.0.49-spectrolite
+
 // vector-set-d2r2-react-processor.js
 
 const holarchy = require("@encapsule/holarchy");
