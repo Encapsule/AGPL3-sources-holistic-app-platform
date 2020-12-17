@@ -2,6 +2,9 @@
 
 const arccore = require("@encapsule/arccore");
 const holarchy = require("@encapsule/holarchy");
+const d2r2 = require("@encapsule/d2r2");
+
+const tabServiceCellModelFactory = require("../../HolisticAppClientKernel");
 
 const factoryResponse = arccore.filter.create({
     operationID: "Jrc6uiRXS-aCNcQEDNcTug",
@@ -34,6 +37,39 @@ const factoryResponse = arccore.filter.create({
             const tabServiceAPMID = arccore.identifier.irut.fromReference(`HolisticTabService.APM_V8HWzGZPQRGXDCEtTpZAMg_${appBuild.app.name}`).result; // as above
             const tabServiceCellProcessorID = arccore.identifier.irut.fromReference(`HolisticTabService.CellProcessor_1CBI_pNOSoyZDXK4iX77PA_${appBuild.app.name}`).result; // as above
 
+            // v0.0.49-spectrolite
+
+            // Let's build us a specialized instance of React.Component <ComponentRouter/> (or think of it as <AnyComponent {...this.props} renderData={ /* the data you specify here determines which of N registered React.Component is bound to filtered this.props values via React.createElement API).
+            // As this is likely to be a frequent source of developer-facing error messages, we'll front-load this task here.
+            let factoryResponse = d2r2.ComponentRouterFactory.request({
+                d2r2ComponentSets: [
+                    request_.appServiceCore.getDisplayComponents(),
+                    request_.appModels.display.d2r2Components
+                ]
+            });
+            if (factoryResponse.error) {
+                errors.push(`Unable to construct an @encapsule/d2r2 <ComponentRouter/> for use by ${appBuild.app.name} tab service due to error:`);
+                errors.push(factoryResponse.error);
+                break;
+            }
+            const ComponentRouter = factoryResponse.result;
+
+            // Now, let's build a specialized tab service kernel CellModel for this app service.
+            factoryResponse = tabServiceCellModelFactory.request({
+                appServiceCore: request_.appServiceCore,
+                display: {
+                    d2r2ComponentRouter: ComponentRouter
+                }
+            });
+            if (factoryResponse.error) {
+                errors.push(`Unable to synthesize a tab service kernel CellModel for use by ${appBuild.app.name} tab service due to error:`);
+                errors.push(factoryResponse.error);
+                break;
+            }
+
+            const tabServiceKernelCellModel = factoryResponse.result;
+
+            // Now, let's go build the final tab service CellModel that represents all the platform and app-specific behaviors required by the tab service runtime.
             const tabServiceCellModel = new holarchy.CellModel({ // CellModel declaration description object.
 
                 id: tabServiceCellModelID,
@@ -45,7 +81,7 @@ const factoryResponse = arccore.filter.create({
                     description: `Synthesized HolisticTabService runtime AbstractProcessModel for app service '${appBuild.app.name}'.`,
                     ocdDataSpec: {
                         ____label: `${appBuild.app.name} Tab Service Process Memory`,
-                        ____description: `The ObservableControllerData filter spec for APM ID '${tabServiceAPMID}' (${appBuild.app.name} tab service process) that defines the cell process runtime storage data format.`,
+                        ____description: `The ObservableControllerData filter spec for APM ID '${tabServiceAPMID}' (${appBuild.app.name} synthesized tab service CellModel) that defines APM's cell memory data format.`,
                         ____types: "jsObject",
                         ____defaultValue: {},
                         kernelProxy: { ____types: "jsObject", ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ } },
@@ -84,7 +120,7 @@ const factoryResponse = arccore.filter.create({
                 }, // apm
 
                 // TODO: We have work to do before we do this definition synthesis in order to pre-process the registration set.
-                subcells: [ ...request_.appModels.cellModels, require("../../HolisticAppClientKernel") ],
+                subcells: [ ...request_.appModels.cellModels, tabServiceKernelCellModel ],
 
                 actions: [
                     // ----------------------------------------------------------------
@@ -520,7 +556,7 @@ const factoryResponse = arccore.filter.create({
             }); // new CellModel
 
             if (!tabServiceCellModel.isValid()) {
-                errors.push(`Unable to construct a tab service model for ${appBuild.app.name} due to error:`);
+                errors.push(`Unable to synthesize the ${appBuild.app.name} tab service's main @encapsule/holarchy CellModel due to error:`);
                 errors.push(tabServiceCellModel.toJSON());
                 break;
             }
@@ -538,7 +574,7 @@ const factoryResponse = arccore.filter.create({
             });
 
             if (!tabServiceRuntime.isValid()) {
-                errors.push(`An error occurred trying to load the specialized tab service CellModel for ${appBuild.app.build} into a CellProcessor runtime host:`);
+                errors.push(`Unable to initialize the ${appBuild.app.name} tab service's @encapsule/holarchy CellProcessor runtime host due to error:`);
                 errors.push(tabServiceRuntime.toJSON());
                 break;
             }
@@ -546,6 +582,7 @@ const factoryResponse = arccore.filter.create({
             response.result.serviceRuntime = tabServiceRuntime;
 
             /*
+              /// NO NO ---- NOT HERE. This happens upstairs in HolisticTabService.boot() method.
             // START THE APP CLIENT CELL PROCESS
             stopwatch.mark("... calling CellProcessor.act to create Holistic App Client Kernel process.");
             clientBootstrapPhaseMessage = "vp5_client_bootstrap_start_client_app_kernel";

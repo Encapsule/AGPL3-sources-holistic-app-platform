@@ -21,6 +21,9 @@ module.exports = {
         ____types: "jsObject",
         ____defaultValue: {},
 
+        // ----------------------------------------------------------------
+        // BEGIN: required activation data
+
         bootROMElementID: { ____types: "jsString", ____defaultValue: "idClientBootROM" },
 
         derivedAppClientProcessCoordinates: {
@@ -30,6 +33,33 @@ module.exports = {
             apmID: { ____accept: "jsString" },
             instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
         },
+
+        /* BAD IDEA (WRONG LEVEL PLACEMENT)
+        specializations: {
+            ____label: "Tab Service Kernel Specializations",
+            ____description: "Once the tab service kernel process has completed its internal initializations, it deletes the specialization object as whomever needed specialization has at that point been specialized.",
+            ____types: [ "jsObject" ],
+            appServiceCore: {
+                ____label: "Holistic Service Core Specializations",
+                ____description: "A reference to a HolisticServiceCore class instance set by the tab service kernel's boot action.",
+                ____accept: "jsObject" // This is a valid HolisticServiceCore class instance
+            },
+            display: {
+                ____label: "Holistic Service Display Specializations",
+                ____description: "Information set by the tab service kernel's boot action used to specialize the behavior of the sevice's display.",
+                ____types: "jsObject",
+                d2r2ComponentRouter: {
+                    ____label: "@encapsule/d2r2 <ComponentRouter/>",
+                    ____description: "A reference to an @encapsule/d2r2 <ComponentRouter/> React.Component that may be used like any other React.Component (w/calling conventions over this.props). But, that resolves to 1:N registered components available in this service instance based on the format of the data you send via this.props.",
+                    ____accept: "jsObject" // This is a valid <ComponentRouter/> instance configured for use in the tab service
+                }
+            }
+        },
+        BAD IDEA THIS IS THE WRONG PLACE TO PUT THIS */
+
+        // END: required activation data
+        // ----------------------------------------------------------------
+
 
         serviceProcesses: {
             ____types: "jsObject",
@@ -66,6 +96,7 @@ module.exports = {
 
         bootROMData: { ____accept: [ "jsUndefined", "jsObject" ] },
 
+        // v0.0.49-spectrolite confirm the details here. Do we need this. What's this again?
         // We propogate the error through the app client kernel on the way to the app and take note
         // in our notification path of our own __apmiStep value if/when that occurs.
         bootstrapFailureStep: {
