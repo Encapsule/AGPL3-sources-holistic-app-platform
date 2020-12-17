@@ -38,8 +38,10 @@ const holisticAppModels = {
             while (!inBreakScope) {
                 inBreakScope = true;
 
+                // v0.0.49-spectrolite
                 // @encapsule/holism-metadata exports a factory filter that is unaware of how the filter specs it is passed are generated.
-                // We take care of that detail here in HolisticAppCommon class constructor filter.
+                // We take care of that detail here in HolisticAppCommon class constructor filter. Previously, this sort of thing was done
+                // all over the place in different ways.
 
                 // Synthesize a filter spec to validate the derived app service's metadata values.
                 const derivedAppService_MetadataInputSpec = {
