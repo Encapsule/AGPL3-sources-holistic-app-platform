@@ -56,20 +56,20 @@ const apm = new holarchy.AbstractProcessModel({
         uninitialized: {
             description: "Default process start step.",
             transitions: [
-                { transitionIf: { always: true }, nextStep: "display-adapter-wait-initial-layout" }
+                { transitionIf: { always: true }, nextStep: "display-adapter-load-config" }
             ]
         },
 
         "display-adapter-load-config": {
             description: "d2r2/React display adapter cell is loading construction config into its cell memory.",
-            transitions: [
-                { transitionIf: { always: true }, nextStep: "display-adapter-wait-initial-layout" }
-            ],
             actions: {
                 exit: [
                     { holistic: { app: { client: { display: { _private: { loadConfig: { } } } } } } }
                 ]
-            }
+            },
+            transitions: [
+                { transitionIf: { always: true }, nextStep: "display-adapter-wait-initial-layout" }
+            ]
         },
 
         "display-adapter-wait-initial-layout": {
@@ -99,7 +99,7 @@ const apm = new holarchy.AbstractProcessModel({
         },
 
         "display-adapter-service-ready": {
-            description: "d2r2/React Client Display Adapter has been initialized, configured, and ready to accept layout update requests."
+            description: "d2r2/React Client Display Adapter has been initialized, configured, and ready to accept layout update requests from the tab service's app process runtime."
         }
 
     } // steps

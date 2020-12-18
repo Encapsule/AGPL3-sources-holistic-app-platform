@@ -1,6 +1,7 @@
 
 const arccore = require("@encapsule/arccore");
 const holarchy = require("@encapsule/holarchy");
+const displayAdapterFactory = require("./AppClientDisplayAdapter"); // TODO - these names suck; clean them up
 
 // v0.0.49-spectrolite
 
@@ -12,24 +13,30 @@ const holarchy = require("@encapsule/holarchy");
         operationDescription: "Factory filter leveraged by the HolisticTabService class constructor filter to synthesize a specialized holistic tab service kernel CellModel.",
         inputFilterSpec: {
             ____types: "jsObject",
-            appServiceCore: {
-                ____label: "Holistic Service Core Specializations",
-                ____description: "A reference to a HolisticServiceCore class instance set by the tab service kernel's boot action.",
-                ____accept: "jsObject" // This is a valid HolisticServiceCore class instance
+            appBuild: {
+                ____accept: "jsObject"
             },
-            display: {
-                ____label: "Holistic Service Display Specializations",
-                ____description: "Information set by the tab service kernel's boot action used to specialize the behavior of the sevice's display.",
+            appModels: {
                 ____types: "jsObject",
-                d2r2ComponentRouter: {
-                    ____label: "@encapsule/d2r2 <ComponentRouter/>",
-                    ____description: "A reference to a previously-constructed @encapsule/d2r2 <ComponentRouter/> React.Component instance.",
-                    ____accept: "jsFunction" // This is a valid <ComponentRouter/> instance (i.e. a React.Component that we're passing by reference to its constructor function)
+                display: {
+                    ____label: "Holistic Tab Service Display Adapter Specializations",
+                    ____types: "jsObject",
+                    targetDOMElementID: {
+                        ____accept: "jsString" // This is the platform's selected DOM element id string value used by the caller to obtain targetDOMElement from the DOM.
+                    },
+                    d2r2Components: {
+                        ____label: "Holistic Tab Service Display Adapter d2r2 Components",
+                        ____description: "This is derived app service's d2r2 component set. The display adapter merges platform-provided d2r2 components prior to creating <ComponentRouter/>.",
+                        ____types: "jsArray",
+                        d2r2Component: {
+                            ____accept: "jsObject" // This is an @encapsule/d2r2 component element generator filter object
+                        }
+                    }
                 }
             }
         },
         outputFilterSpec: {
-            ____accept: "jsObject" // This an @encapsule/holarcy CellModel that encapsulates a specialized holistic tab service kernel cell
+           ____accept: "jsObject" // This an @encapsule/holarcy CellModel that encapsulates a specialized holistic tab service kernel cell
         },
         bodyFunction: function(request_) {
             let response = { error: null };
@@ -38,11 +45,21 @@ const holarchy = require("@encapsule/holarchy");
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                const appBuild = request_.appServiceCore.getAppBuild();
+                const appBuild = request_.appBuild;
+
+                // Synthesize the tab service display adapter CellModel.
+                let factoryRequest = displayAdapterFactory.request(request_);
+                if (factoryRequest.error) {
+                    errors.push(`Cannot synthesize a display adapter CellModel for use by the ${appBuild.app.name} tab service runtime due to error:`);
+                    errors.push(factoryRequest.error);
+                    break;
+                }
+
+                const displayAdapterCellModel = factoryRequest.result;
 
                 const cellModel = new holarchy.CellModel({
                     id: "JatYSE8JQj6GxT8AOsbssQ",
-                    name: "Holistic App Service Kernel Model",
+                    name: "Holistic Tab Service Kernel Model",
                     description: "Holistic tab service kernel cell manages the overall lifecycle of a tab service and provide base-level services to other cells that implement app-specific features, logic, etc.",
                     apm: require("./AbstractProcessModel-app-client-kernel"),
                     actions: [
@@ -54,24 +71,21 @@ const holarchy = require("@encapsule/holarchy");
                     ],
                     subcells: [
                         // v0.0.49-spectrolite --- AppClientDOMLocation is fine w/out any changes I think
-                        require("./AppClientDOMLocation"), // Manages the application's interface between the DOM href and hashrouter locations and the state of the cellular runtime process.
-
-                        // v0.0.49-spectrolite --- Okay need to pull this one out to synthesize
-                        // This cell here needs to be passed a pre-constructed <ComponentRouter/> that it can just use to satisfy incoming d2r2 requests (or not based on the request data). This will not occur during service construction instead of a runtime as part of the kernel's process evaluation.
-                        require("./AppClientDisplayAdapter"), // Encapsules low level details of rendering HTML5 view via @encapsule/d2r2 and Facebook React on behalf of AppClientView.
+                        displayAdapterCellModel, // Manages the boundary between the app service implementation process(es) and the app service display process.
+                        require("./AppClientDOMLocation"), // Manages the boundary between the app service runtime process and the DOM's location.
 
                         // v0.0.49-spectrolite this is very old. Remove it and replace w/similarly named modern concept (PageView and PageViewController to be synthesized in here I think).
                         // TRY DISABLING THIS
-                        require("./AppClientView"), // Provides high-level orchestration for lifespan of application-specific subview processes (a concept we haven't discussed yet).
+                        // require("./AppClientView"), // Provides high-level orchestration for lifespan of application-specific subview processes (a concept we haven't discussed yet).
 
                         // v0.0.49-spectrolite pretty suspicious there's anything all that good in here either
                         // TRY DISABLING THIS
-                        require("@encapsule/holarchy-cm").cml, // Low-level shared CellModel library used by @encapsule/holistic RTL's.
+                        // require("@encapsule/holarchy-cm").cml, // Low-level shared CellModel library used by @encapsule/holistic RTL's.
                     ]
                 });
 
                 if (!cellModel.isValid()) {
-                    errors.push(`We were unable to synthesize a specialized tab service kernel CellModel for ${appBuild.app.name} due to error:`);
+                    errors.push(`Unable to synthesize a specialized tab service kernel CellModel for ${appBuild.app.name} due to error:`);
                     errors.push(cellModel.toJSON());
                     break;
                 }

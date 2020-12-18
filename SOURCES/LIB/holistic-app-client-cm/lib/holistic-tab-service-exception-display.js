@@ -91,8 +91,7 @@ const arccore = require("@encapsule/arccore");
             console.warn(request_.headerText);
             console.error(`TAB SERVICE FATAL EXCEPTION: ${request_.errorText}`);
 
-            // TODO: Change this ID to 'idHolisticTabService'
-            const targetDomElement = document.getElementById("idAppClientUserInterfaceDisplay");
+            const targetDomElement = document.getElementById("idTabServiceDisplayProcess");
             if (targetDomElement === null) {
                 throw new Error("Internal error: document.getElementById('idAppClientUserInterfaceDisplay') returned null value.");
             }

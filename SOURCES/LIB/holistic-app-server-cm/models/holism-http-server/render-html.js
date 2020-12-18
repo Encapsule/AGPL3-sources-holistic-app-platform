@@ -3,6 +3,20 @@
 const React = require("react");
 const ReactDOMServer = require("react-dom/server");
 
+// v0.0.49-spectrolite
+// There are mission-critical details of how the holistic Node.js service kernel abstraction
+// dynamically synthesizes the holistic tab service process within the context of an
+// HTTP request and then serializes it out to an HTML5 document that boots the tab service kernel
+// when it is loaded in the browser that require that we affect the actual final HTML5 document
+// rendering in holistic platform code.
+
+// TODO: Make this sufficiently extensible so that developers do not complain. Without breaking
+// any invariant assumptions we might want to be able to make inside tab service about what's in
+// the document and where/how to find it.
+
+// TODO: Being lazy and not bothering to pick up the targetDOMElementID from HolisticServiceCore instance yet.
+// Just assuming the developer takes the default and plugging in the value here seems okay for short-term.
+
 function renderHtmlDocument(request_) {
 
     var response = { error: null, result: null };
@@ -30,7 +44,7 @@ function renderHtmlDocument(request_) {
                         serverRender: true, // We inject this into renderContext on the server. And, perform initial client rehydration w/the flag set accordingly. And, then remove it and perform a full render during client boot. This allows an app's loading page view to switch states before the app is initialized.
                         ComponentRouter: request_.appStateContext.ComponentRouter,
                         act: function(displayActRequest_) { throw new Error("We do not expect this.props.renderContext.act function to be called by any d2r2-managed React component that is rendered by the app server process."); },
-                        apmBindingPath: "~" // FOR NOW...
+                        apmBindingPath: "~" // FOR NOW... v0.0.49-spectrolite is fine - tab service kernel takes over during boot.
                     }
                 }
             );
@@ -104,7 +118,7 @@ function renderHtmlDocument(request_) {
     <meta name="msapplication-TileImage", content="/images/ms-icon-144x144.png" />
   </head>
   <body>
-    <div id="idAppClientUserInterfaceDisplay">${htmlContent}</div>
+    <div id="idTabServiceDisplayProcess">${htmlContent}</div>
     <script type="text/javascript" src="/javascript/client-app-bundle-${appAgentMetadata.buildID}.js"></script>
     <script id="idClientBootROM" type="text/plain">${bootROM}</script>
   </body>

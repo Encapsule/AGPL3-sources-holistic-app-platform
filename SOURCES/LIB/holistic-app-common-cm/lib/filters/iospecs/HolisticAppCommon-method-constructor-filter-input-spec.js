@@ -156,6 +156,26 @@ module.exports = {
 
         }, // ~.appData.appBuild
 
+        appConfig: {
+            ____label: "Service Synthesis Config Options",
+            ____description: "Shared config options for derived HolisticXService class instances.",
+            ____types: "jsObject",
+            ____defaultValue: {},
+
+            display: {
+                ____label: "Display Synthesis Config Options",
+                ____description: "Display adapter CellModel synthesis options to be applied consistently during HolisticXService class instance construction.",
+                ____types: "jsObject",
+                ____defaultValue: {},
+                targetDOMElementID: {
+                    ____label: "Service Display Adapter DOM Target Element ID",
+                    ____description: "The id attribute value used to render <html><body><div id={targetDOMElementID}>{service display adapter rendered content}</div></body></html>.",
+                    ____accept: "jsString",
+                    ____defaultValue: "idTabServiceDisplayProcess"
+                }
+            }
+        }, // ~.appData.appConfig
+
         appMetadata: {
 
             ____label: "App Service Metadata Values",
@@ -209,6 +229,7 @@ module.exports = {
                 }
             }
         }, // ~.appData.appMetadata
+
 
     }, // ~.appData
 

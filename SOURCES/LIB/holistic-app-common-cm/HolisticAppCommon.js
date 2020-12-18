@@ -56,6 +56,7 @@ class HolisticAppCommon {
             this.getClientUserLoginSessionSpec = this.getClientUserLoginSessionSpec.bind(this);
             this.getDisplayComponents = this.getDisplayComponents.bind(this);
             this.getCellModels = this.getCellModels.bind(this);
+            this.getTargetDOMElementID = this.getTargetDOMElementID.bind(this);
             let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
@@ -90,7 +91,9 @@ class HolisticAppCommon {
     getCellModels() { // returns array of @encapsule/holarchy CellModel instances.
         return (this.isValid()?this._private.nonvolatile.coreCellModels:this.toJSON());
     }
-
+    getTargetDOMElementID() {
+        return (this.isValid()?this._private.nonvolatile.appCommonDefinition.appData.appConfig.display.targetDOMElementID:this.toJSON());
+    }
 
 }
 

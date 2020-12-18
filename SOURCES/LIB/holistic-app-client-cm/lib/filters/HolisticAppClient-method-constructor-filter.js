@@ -39,26 +39,18 @@ const factoryResponse = arccore.filter.create({
 
             // v0.0.49-spectrolite
 
-            // Let's build us a specialized instance of React.Component <ComponentRouter/> (or think of it as <AnyComponent {...this.props} renderData={ /* the data you specify here determines which of N registered React.Component is bound to filtered this.props values via React.createElement API).
-            // As this is likely to be a frequent source of developer-facing error messages, we'll front-load this task here.
-            let factoryResponse = d2r2.ComponentRouterFactory.request({
-                d2r2ComponentSets: [
-                    request_.appServiceCore.getDisplayComponents(),
-                    request_.appModels.display.d2r2Components
-                ]
-            });
-            if (factoryResponse.error) {
-                errors.push(`Unable to construct an @encapsule/d2r2 <ComponentRouter/> for use by ${appBuild.app.name} tab service due to error:`);
-                errors.push(factoryResponse.error);
-                break;
-            }
-            const ComponentRouter = factoryResponse.result;
 
             // Now, let's build a specialized tab service kernel CellModel for this app service.
-            factoryResponse = tabServiceCellModelFactory.request({
-                appServiceCore: request_.appServiceCore,
-                display: {
-                    d2r2ComponentRouter: ComponentRouter
+            let factoryResponse = tabServiceCellModelFactory.request({
+                appBuild,
+                appModels: {
+                    display: {
+                        targetDOMElementID: request_.appServiceCore.getTargetDOMElementID(),
+                        d2r2Components: [
+                            ...request_.appServiceCore.getDisplayComponents(), // All d2r2 components registered for use in all derived holistic app service contexts (this is app-specific + holistic shared d2r2 components). Note, holistic does not currently contribute any Node.js specific d2r2 components. But, it's an implementation detail now.
+                            ...request_.appModels.display.d2r2Components // All d2r2 components registered for use by the app service in the context of the Node.js service runtime
+                        ]
+                    }
                 }
             });
             if (factoryResponse.error) {
