@@ -25,28 +25,14 @@ const apm = new holarchy.AbstractProcessModel({
         ____types: "jsObject",
         toJSON: { ____types: "jsFunction", ____defaultValue: function() { return { tempState: true }; } },
 
-        construction: {
-            ____types: "jsObject",
-            idTargetDOMElement: {
-                ____label: "d2r2 Display Adapter Target DOM Element Identifier",
-                ____description: "A identifier string to be used to locate a DIV in the HTML5 document that the d2r2/React display adapter process should use for rendering.",
-                ____accept: "jsString",
-                ____defaultValue: "idAppClientUserInterfaceDisplay"
-            },
-            d2r2Components: {
-                ____label: "d2r2/React Components Array",
-                ____description: "An array of d2r2/React component binding filters the the derived app client process needs registered in the d2r2 request space.",
-                ____types: "jsArray",
-                ____defaultValue: [],
-                d2r2Component: { ____accept: "jsObject" }
-            }
-        },
-
         config: {
             ____types: [
                 "jsUndefined", // Initially undefined upon process activation.
-                "jsObject" // Set by step worker in display-adapter-initialize process step enter action.
+                "jsObject" // Set holistic.app.client.display._private.loadConfig action
             ],
+            targetDOMElementID: {
+                ____accept: "jsString"
+            },
             targetDOMElement: {
                 ____label: "d2r2 Target DOM Element",
                 ____description: "A reference to the DOM element to be be managed by the d2r2/React Client Display Adapter (obtained with document.getElementById).",
@@ -70,34 +56,20 @@ const apm = new holarchy.AbstractProcessModel({
         uninitialized: {
             description: "Default process start step.",
             transitions: [
-                { transitionIf: { always: true }, nextStep: "display-adapter-initialize" }
+                { transitionIf: { always: true }, nextStep: "display-adapter-wait-initial-layout" }
             ]
         },
 
-        "display-adapter-initialize": {
-            description: "Display adapter process is initializing.",
-            actions: {
-                enter: [
-                    {
-                        holistic: {
-                            app: {
-                                client: {
-                                    display: {
-                                        _private: {
-                                            stepWorker: {
-                                                action: "initialize-display-adapter"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
+        "display-adapter-load-config": {
+            description: "d2r2/React display adapter cell is loading construction config into its cell memory.",
             transitions: [
                 { transitionIf: { always: true }, nextStep: "display-adapter-wait-initial-layout" }
-            ]
+            ],
+            actions: {
+                exit: [
+                    { holistic: { app: { client: { display: { _private: { loadConfig: { } } } } } } }
+                ]
+            }
         },
 
         "display-adapter-wait-initial-layout": {
