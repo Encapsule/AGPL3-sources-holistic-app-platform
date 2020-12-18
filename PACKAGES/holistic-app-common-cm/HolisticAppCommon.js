@@ -63,6 +63,9 @@ var HolisticAppCommon = /*#__PURE__*/function () {
       this.getAppMetadataPage = this.getAppMetadataPage.bind(this);
       this.getAppMetadataHashroute = this.getAppMetadataHashroute.bind(this);
       this.getClientUserLoginSessionSpec = this.getClientUserLoginSessionSpec.bind(this);
+      this.getDisplayComponents = this.getDisplayComponents.bind(this);
+      this.getCellModels = this.getCellModels.bind(this);
+      this.getTargetDOMElementID = this.getTargetDOMElementID.bind(this);
       var filterResponse = constructorFilter.request(request_);
 
       if (filterResponse.error) {
@@ -103,36 +106,49 @@ var HolisticAppCommon = /*#__PURE__*/function () {
   }, {
     key: "getAppMetadataDigraph",
     value: function getAppMetadataDigraph() {
-      return this.isValid() ? this._private.nonvolatile.appMetadata.values.digraph : this.toJSON();
+      return this.isValid() ? this._private.nonvolatile.appMetadata.accessors.getAppMetadataDigraph() : this.toJSON();
     }
   }, {
     key: "getAppMetadataOrg",
     value: function getAppMetadataOrg() {
-      return this.isValid() ? this.getAppMetadataDigraph().getVertexProperty("__org") : this.toJSON();
+      return this.isValid() ? this._private.nonvolatile.appMetadata.accessors.getAppMetadataOrg() : this.toJSON();
     }
   }, {
     key: "getAppMetadataApp",
     value: function getAppMetadataApp() {
-      return this.isValid() ? this.getAppMetadataDigraph().getVertexProperty("__app") : this.toJSON();
+      return this.isValid() ? this._private.nonvolatile.appMetadata.accessors.getAppMetadataApp() : this.toJSON();
     }
   }, {
     key: "getAppMetadataPage",
     value: function getAppMetadataPage(pageURI_) {
-      if (!this.isValid()) return this.toJSON();
-      var pageProp = this.getAppMetadataDigraph().getVertexProperty(pageURI_);
-      return pageProp ? pageProp : "No page metadata defined for pageURI \"".concat(pageURI_, "\".");
+      return this.isValid() ? this._private.nonvolatile.appMetadata.accessors.getAppMetadataPage(pageURI_) : this.toJSON();
     }
   }, {
     key: "getAppMetadataHashroute",
     value: function getAppMetadataHashroute(hashroutePathname_) {
-      if (!this.isValid()) return this.toJSON();
-      var hashProp = this.getAppMetadataDigraph().getVertexProperty(hashroutePathname_);
-      return hashProp ? hashProp : "No hashroute metadata defined for hashroutePathname \"".concat(hashroutePath_, "\".");
+      return this.isValid() ? this._private.nonvolatile.appMetadata.acessors.getAppMetadataHashroute(hashroutePathname_) : this.toJSON();
     }
   }, {
     key: "getClientUserLoginSessionSpec",
     value: function getClientUserLoginSessionSpec() {
       return this.isValid() ? this._private.nonvolatile.appCommonDefinition.appTypes.userLoginSession.untrusted.clientUserLoginSessionSpec : this.toJSON();
+    }
+  }, {
+    key: "getDisplayComponents",
+    value: function getDisplayComponents() {
+      // returns array of @encapsule/d2r2 component wrapper filters for <ComponentRouter/>
+      return this.isValid() ? this._private.nonvolatile.coreDisplayComponents : this.toJSON();
+    }
+  }, {
+    key: "getCellModels",
+    value: function getCellModels() {
+      // returns array of @encapsule/holarchy CellModel instances.
+      return this.isValid() ? this._private.nonvolatile.coreCellModels : this.toJSON();
+    }
+  }, {
+    key: "getTargetDOMElementID",
+    value: function getTargetDOMElementID() {
+      return this.isValid() ? this._private.nonvolatile.appCommonDefinition.appData.appConfig.display.targetDOMElementID : this.toJSON();
     }
   }]);
 

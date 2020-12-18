@@ -1,5 +1,17 @@
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -7,18 +19,22 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 // HolisticAppCommon-method-constructor-filter.js
-var arccore = require("@encapsule/arccore"); // TODO: Migrate
-
+var arccore = require("@encapsule/arccore");
 
 var holismMetadataFactory = require("@encapsule/holism-metadata");
 
 var appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-specs"); // intrinsic properties of org, app, page, and hashroute metadata required by the platform
 
 
+var Holistic_d2r2Components = require("@encapsule/d2r2-components").components;
+
+var ServiceCore_KernelCellModelFactory = require("../HolisticAppCommonKernel"); // TODO: rename the module follow it down through the sources and fix the labels. 
+
+
 (function () {
   var factoryResponse = arccore.filter.create({
     operationID: "P9-aWxR5Ts6AhYSQ7Ymgbg",
-    operationName: "HolisticAppCommon::constructor Filter",
+    operationName: "HolisticServiceCore::constructor Filter",
     operationDescription: "Validates/normalizes a HolisticAppCommon::constructor function request object and returns the new instance's private state data.",
     inputFilterSpec: require("./iospecs/HolisticAppCommon-method-constructor-filter-input-spec"),
     // This is what you need to pass to new @encapsule/holon-core/HolonCore
@@ -41,19 +57,25 @@ var appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-spe
       var errors = [];
       var inBreakScope = false;
 
-      while (!inBreakScope) {
-        inBreakScope = true; // @encapsule/holism-metadata exports a factory filter that is unaware of how the filter specs it is passed are generated.
-        // We take care of that detail here in HolisticAppCommon class constructor filter.
+      var _loop = function _loop() {
+        inBreakScope = true; // v0.0.49-spectrolite
+        // @encapsule/holism-metadata exports a factory filter that is unaware of how the filter specs it is passed are generated.
+        // We take care of that detail here in HolisticAppCommon class constructor filter. Previously, this sort of thing was done
+        // all over the place in different ways.
+        // First things first...
+
+        var appBuild = request_.appData.appBuild; // Use this!
         // Synthesize a filter spec to validate the derived app service's metadata values.
 
         var derivedAppService_MetadataInputSpec = {
           ____label: "App Service Metadata Input Values",
           ____description: "This is the format for the app metadata values required by by HolisticAppCommon::constructor function.",
           ____types: "jsObject",
-          // Going to kill this so don't bother w/label/description
+          // TODO: Now that this is migrated to the correct place. Add ____label/____description from appBuild metadata
           org: _objectSpread(_objectSpread({}, request_.appTypes.appMetadata.orgExtSpec), appMetadataBaseObjectSpecs.input.org),
-          // Going to kill this so don't bother w/label/description
+          // TODO: Now that this is migrated to the correct place. Add ____label/____description from appBuild metadata
           app: _objectSpread(_objectSpread({}, request_.appTypes.appMetadata.appExtSpec), appMetadataBaseObjectSpecs.input.app),
+          // TODO: Now that this is migrated to the correct place. Add ____label/____description from appBuild metadata
           pages: {
             ____label: "App Service Server Page Views Metadata Map",
             ____description: "A map of pageURI string keys to page metadata descriptor object.",
@@ -61,6 +83,7 @@ var appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-spe
             ____asMap: true,
             pageURI: _objectSpread(_objectSpread({}, request_.appTypes.appMetadata.pageExtSpec), appMetadataBaseObjectSpecs.input.page)
           },
+          // TODO: Now that this is migrated to the correct place. Add ____label/____description from appBuild metadata
           hashroutes: {
             ____label: "App Service Client Page Views Metadata Map",
             ____description: "A map of hashroutePathname string keys to hashroute metadata descriptor object.",
@@ -127,7 +150,7 @@ var appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-spe
           errors.push("An error occurred while constructing a filter to process your app metadata values and build your app service's metadata digraph.");
           errors.push("Usually this indicates error(s) in app service metadata filter spec(s) provided to this constructor function.");
           errors.push(digraphBuilderFactoryResponse.error);
-          break;
+          return "break";
         }
 
         var digraphBuilder = digraphBuilderFactoryResponse.result; // Use the digraphBuilder to filter the developer-supplied app metadata values and build the app metadata digraph.
@@ -142,7 +165,7 @@ var appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-spe
         if (digraphBuilderResponse.error) {
           errors.push("An error occured while processing the app metadata value(s) specified to this constructor function.");
           errors.push(digraphBuilderResponse.error);
-          break;
+          return "break";
         }
 
         var appMetadataDigraph = digraphBuilderResponse.result;
@@ -151,9 +174,74 @@ var appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-spe
             digraph: appMetadataDigraph
           },
           specs: derivedAppService_MetadataOutputSpec
-        }; // console.log(JSON.stringify(response, undefined, 4));
+        }; // v0.0.49-spectrolite
+        // This is a small little accomodation made here to hide differences between HolisticNodeService
+        // and HolisticTabService implementations the derive from @encapsule/holism driving most of the
+        // action in current builds of based on HolisticNodeService. While in current builds CellProcessor
+        // is in charge of everything in a HolisticTabService. This means the layering of concerns here is
+        // rather rididulous (for now). e.g. everything above ideal moves to AppMetadata CellModel.
+        // But, for now lets just avoid code duplication and suck it up on the one-time wiring
+        // required to hide this shit.
 
-        break;
+        var metadataValueAccessors = response.result.nonvolatile.appMetadata.accessors = {
+          getAppMetadataDigraph: function getAppMetadataDigraph() {
+            return appMetadataDigraph;
+          },
+          getAppMetadataOrg: function getAppMetadataOrg() {
+            return appMetadataDigraph.getVertexProperty("__org");
+          },
+          getAppMetadataApp: function getAppMetadataApp() {
+            return appMetadataDigraph.getVertexProperty("__app");
+          },
+          getAppMetadataPage: function getAppMetadataPage(pageURI_) {
+            return appMetadataDigraph.getVertexProperty(pageURI_);
+          },
+          getAppMetadataHashroute: function getAppMetadataHashroute(hashroutePathname_) {
+            return appMetadataDigraph.getVertexProperty(hashroutePathname_);
+          }
+        }; // Okay - now we need to go process the application-specific appModels passed in by the developer.
+        // These are combined w/core platform level appModel contributions that represent behaviors shared
+        // by all holistic app services (e.g. holistic Node.js service or holistic browser tab service).
+
+        var coreDisplayComponents = response.result.nonvolatile.coreDisplayComponents = [].concat(_toConsumableArray(request_.appModels.display.d2r2Components), _toConsumableArray(Holistic_d2r2Components)); // Note that we do not instantiate an @encapsule/d2r2 <ComponentRouter/> instance here
+        // because a HolisticServiceCore instance only contains a partial specification of the complete
+        // set of d2r2 components that need to be registered by a specific holistic service runtime.
+        // i.e. we just cache them and hand the set off to HolisticXService constructor function via
+        // HolisticServiceCore class instance reference.
+        // Okay - Now we need to go synthesize some number (we don't care) of CellModel's to do
+        // some stuff that all services need done that's rather complex to automate unless you're
+        // ridiculously disciplined. So we do that here instead.
+
+        var cmFactoryResponse = ServiceCore_KernelCellModelFactory.request({
+          appBuild: appBuild,
+          appTypes: {
+            metadata: {
+              specs: {}
+            }
+          },
+          appModels: {
+            metadata: {
+              accessors: metadataValueAccessors
+            }
+          }
+        });
+
+        if (cmFactoryResponse.error) {
+          errors.push("Unable to synthesize the ".concat(appBuild.app.name, " service core kernel CellModel due to error:"));
+          errors.push(cmFactoryResponse.error);
+          return "break";
+        }
+
+        var serviceCoreKernelCellModel = cmFactoryResponse.result;
+        var coreCellModels = response.result.nonvolatile.coreCellModels = [serviceCoreKernelCellModel].concat(_toConsumableArray(request_.appModels.cellModels)); // console.log(JSON.stringify(response, undefined, 4));
+
+        return "break";
+      };
+
+      while (!inBreakScope) {
+        var _ret = _loop();
+
+        if (_ret === "break") break;
       }
 
       if (errors.length) {

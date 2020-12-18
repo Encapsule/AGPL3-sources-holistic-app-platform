@@ -26,7 +26,7 @@ module.exports = {
     appCommonDefinition: _objectSpread(_objectSpread({}, require("./HolisticAppCommon-method-constructor-filter-input-spec")), {}, {
       // This is the constructor filter's input spec that we spread into the output spec and relabel.
       ____label: "Holistic Service Core Definition",
-      ____description: "This is a frozen copy of the constructor request descriptor object that we keep for reference so that it is possible to deeply introspect a derived app service runtime."
+      ____description: "This is a of the normalized constructor request descriptor object that we keep for reference so that it is possible to deeply introspect a derived app service runtime."
     }),
     appMetadata: {
       ____label: "App Metadata",
@@ -68,6 +68,48 @@ module.exports = {
           ____accept: "jsObject" // This is a filter spec
 
         }
+      },
+      accessors: {
+        ____label: "App Metadata Accessor Functions",
+        ____description: "Low-level functions that implement the core app metadata query API. This function is exposed by getX methods on HolisticCoreService for use by HolisticNodeService. And, by AppMetadata CellModel that is used currently only in HolisticTabService (because we have no CellProcessor in HolisticNodeService right now).",
+        ____types: "jsObject",
+        getAppMetadataDigraph: {
+          ____accept: "jsFunction"
+        },
+        getAppMetadataOrg: {
+          ____accept: "jsFunction"
+        },
+        getAppMetadataApp: {
+          ____accept: "jsFunction"
+        },
+        getAppMetadataPage: {
+          ____accept: "jsFunction"
+        },
+        getAppMetadataHashroute: {
+          ____accept: "jsFunction"
+        }
+      }
+    },
+    coreDisplayComponents: {
+      ____label: "Core Display d2r2 Component Registrations",
+      ____description: "An array of @encapsule/d2r2 React.component wrapper filters (used to generated React.Element bound to filtered data) to be used in either HolisticNodeService or HolisticTabService.",
+      ____types: "jsArray",
+      d2r2Component: {
+        ____label: "@encapsule/d2r2 Component Filter",
+        ____description: "An @encapsule/arccore.filter that wraps a specific React.Component providing a means to create a specific React.Element bound to validated/normalized (i.e. filtered) this.props data.",
+        ____accept: "jsObject" // This is a filter reference produced by calling a factory filter exported by @encapsule/d2r2
+
+      }
+    },
+    coreCellModels: {
+      ____label: "Core CellModel Registrations",
+      ____description: "An array of @encapsule/holarchy CellModel instances that extend the behaviors of either HolisticNodeService or HolisticTabService.",
+      ____types: "jsArray",
+      cellModel: {
+        ____label: "CellModel Registration",
+        ____description: "A reference to an @encapsule/holarchy CellModel instance the represents some behavior or feature to be used in HolisticNodeService or HolisticTabService.",
+        ____accept: "jsObject" // This is a CellModel class instance reference
+
       }
     }
   }

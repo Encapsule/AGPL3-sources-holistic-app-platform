@@ -13,6 +13,8 @@ var arccore = require("@encapsule/arccore");
 
 var holism = require("@encapsule/holism");
 
+var d2r2 = require("@encapsule/d2r2");
+
 var _require = require("@encapsule/holistic-app-common-cm"),
     HolisticAppCommon = _require.HolisticAppCommon;
 
@@ -22,6 +24,12 @@ var outputFilterSpec = require("./iospecs/HolisticAppServer-method-constructor-f
 
 var renderHtmlFunction = require("../../models/holism-http-server/render-html");
 
+var holisticAppModels = {
+  display: {
+    d2r2Components: []
+  },
+  cellModels: []
+};
 var factoryResponse = arccore.filter.create({
   operationID: "365COUTSRWCt2PLogVt51g",
   operationName: "HolisticAppServer::constructor Filter",
@@ -86,7 +94,7 @@ var factoryResponse = arccore.filter.create({
           deploymentEnvironment: _objectSpread({}, holism.filters.factories.server.filterDescriptor.inputFilterSpec.appServerRuntimeEnvironment)
         },
         outputFilterSpec: _objectSpread({}, holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.files),
-        bodyFunction: request_.httpServerConfig.holismConfig.registrations.resources.getMemoryFileRegistrationMap
+        bodyFunction: request_.appModels.httpRequestProcessor.holismConfig.registrations.resources.getMemoryFileRegistrationMap
       });
 
       if (factoryResponse.error) {
@@ -108,7 +116,7 @@ var factoryResponse = arccore.filter.create({
           deploymentEnvironment: _objectSpread({}, holism.filters.factories.server.filterDescriptor.inputFilterSpec.appServerRuntimeEnvironment)
         },
         outputFilterSpec: _objectSpread({}, holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.services),
-        bodyFunction: request_.httpServerConfig.holismConfig.registrations.resources.getServiceFilterRegistrationMap
+        bodyFunction: request_.appModels.httpRequestProcessor.holismConfig.registrations.resources.getServiceFilterRegistrationMap
       });
 
       if (factoryResponse.error) {
@@ -150,8 +158,19 @@ var factoryResponse = arccore.filter.create({
       // extension points). We don't want to really play games w/@encapsule/holism right now so am pretty much just building a super-precise and generic
       // implementation of what a developer might otherwise have to figure out how to do inside SOURCES/SERVER/server.js (which is quite a bit actually
       // to stay in sync w/the app client work in particular).
+      // But, before we call @encapsule/holism to splice together HTTP stream processing filters we need to construct
+      // the an @encapsule/d2r2 <ComponentRouter/> instance for use by the holistic Node.js service HTML5 document renderer.
 
-      var appMetadataTypeSpecs = appServiceCore.getAppMetadataTypeSpecs(); // v0.0.49-spectrolite
+      factoryResponse = d2r2.ComponentRouterFactory.request({
+        d2r2ComponentSets: [holisticAppModels.display.d2r2Components, request_.appModels.display.d2r2Components, appServiceCore.getDisplayComponents()]
+      });
+
+      if (factoryResponse.error) {
+        errors.push("An error occurred attempting to initialize @encapsule/d2r2 <ComponentRouter/> instance for use in the ".concat(appBuild.app.name, " Node.js service:"));
+        errors.push(factoryResponse.error);
+      }
+
+      var ComponentRouter = factoryResponse.result; // v0.0.49-spectrolite
       // This is a very old abstraction (circa 2015?) Wiring this up here 5-years later I think it's pretty good insofar
       // as this factory provides a succinct request API the distills the factory input requirements. What we do not need
       // is to implement runtime synthesis of filters in @encapsule/holism (or any other RTL for that matter) now that we
@@ -159,23 +178,23 @@ var factoryResponse = arccore.filter.create({
       // build a runtime service environment in CellProcessor atop Node.js similar to what we are about to unleash in the
       // browser tab.
 
+      var appMetadataTypeSpecs = appServiceCore.getAppMetadataTypeSpecs();
       console.log("> \"".concat(path.resolve(__filename), "\" App server @encapsule/holism configuration accepted."));
       console.log("> \"".concat(path.resolve(__filename), "\" Synthesizing type-specialized encapsule/holism HTTP stream processing filters for ").concat(appBuild.app.name, " app server service..."));
       factoryResponse = holism.integrations.create({
         filter_id_seed: "M4MFr-ZvS3eovgdTnNTrdg",
         // TODO: Confirm my assumption that this can be any static IRUT w/out violating any important invariant assumptions about the derived IRUTs...
-        name: "".concat(appBuild.app.name, " @encapsule/holism Lifecycle Integration Filters"),
+        name: "".concat(appBuild.app.name, " @encapsule/holism HTTP Request Processor Lifecycle Integration Filters"),
         description: "A set of filters leverages by the @encapsule/holism HTTP request processor to obtain information and/or delegate behaviors to the derived app server service process.",
         version: "".concat(appBuild.app.version),
         // ----------------------------------------------------------------
-        appStateContext: {},
-        // This is an escape hatch mitigation for not having a HolisticAppServerKernel cell process to hold context.
-        // It's okay for now I think. But, it needs to be connected so that app-server-provided @encapsule/holism service filter plug-in registrations
-        // can follow whatever ad-hoc access protocol they desire to access the data/functions/objects ? carried in this namespace.
+        appStateContext: _objectSpread(_objectSpread({}, request_.appModels.httpRequestProcessor.holismConfig.appStateContext), {}, {
+          ComponentRouter: ComponentRouter
+        }),
         // ----------------------------------------------------------------
         integrations: {
           preprocessor: {
-            redirect: request_.httpServerConfig.holismConfig.lifecycle.redirectProcessor
+            redirect: request_.appModels.httpRequestProcessor.holismConfig.lifecycle.redirectProcessor
           },
           metadata: {
             // This doesn't need to be all fancy like this. Metadata has grown beyond just the sphere of @encapsule/holism
@@ -227,11 +246,11 @@ var factoryResponse = arccore.filter.create({
             },
             session: {
               get_identity: {
-                bodyFunction: request_.httpServerConfig.holismConfig.lifecycle.getUserIdentityAssertion,
+                bodyFunction: request_.appModels.httpRequestProcessor.holismConfig.lifecycle.getUserIdentityAssertion,
                 outputFilterSpec: request_.appTypes.userLoginSession.trusted.userIdentityAssertionDescriptorSpec
               },
               get_session: {
-                bodyFunction: request_.httpServerConfig.holismConfig.lifecycle.getUserLoginSession,
+                bodyFunction: request_.appModels.httpRequestProcessor.holismConfig.lifecycle.getUserLoginSession,
                 response: {
                   result_spec: request_.appTypes.userLoginSession.trusted.userLoginSessionReplicaDataSpec,
                   client_spec: appServiceCore.getClientUserLoginSessionSpec()
@@ -276,8 +295,8 @@ var factoryResponse = arccore.filter.create({
       } // This is the specialized @encapsule/holism server filter instance. It's really actually hard
       // to explain (too hard to explain) how/why @encapsule/holism. Leaving it mostly intact here
       // for now. But, most of it is code we ultimately do not have to write anymore because of CellModel.
-      // Looking forward to moving everything backend into CellProcessor services. It should be a very liberating
-      // experience as most of the process kinks are being distilled w/a flame thrower in the app client now.
+      // Looking forward to moving everything backend into CellProcessor services. It should be straight foward;
+      // most of the process kinks are being distilled w/a flame thrower in the app client now.
 
 
       response.result.httpServerInstance.holismInstance.httpRequestProcessor = factoryResponse.result;
