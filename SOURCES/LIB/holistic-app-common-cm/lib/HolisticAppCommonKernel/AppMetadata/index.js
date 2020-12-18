@@ -112,7 +112,7 @@ const holarchy = require("@encapsule/holarchy");
                                         response.result = metadataAccessors.getAppMetadataHashroute(messageBody.uri);
                                         break;
                                     case "digraph":
-                                        response.result = metadataAccessors.getAppMetadataDigrph();
+                                        response.result = metadataAccessors.getAppMetadataDigraph();
                                         break;
                                     default:
                                         errors.push(`Internal error: Unhandled query.type value "${messageBody.type}".`);
