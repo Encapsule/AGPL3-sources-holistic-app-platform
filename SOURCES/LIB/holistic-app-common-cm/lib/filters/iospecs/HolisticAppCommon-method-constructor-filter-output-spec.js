@@ -61,6 +61,16 @@ module.exports = {
                     ____description: "The format of a map (dictionary) of app metadata hashroute descriptor objects.",
                     ____accept: "jsObject" // This is a filter spec
                 }
+            },
+            accessors: {
+                ____label: "App Metadata Accessor Functions",
+                ____description: "Low-level functions that implement the core app metadata query API. This function is exposed by getX methods on HolisticCoreService for use by HolisticNodeService. And, by AppMetadata CellModel that is used currently only in HolisticTabService (because we have no CellProcessor in HolisticNodeService right now).",
+                ____types: "jsObject",
+                getAppMetadataDigraph: { ____accept: "jsFunction" },
+                getAppMetadataOrg: { ____accept: "jsFunction" },
+                getAppMetadataApp: { ____accept: "jsFunction" },
+                getAppMetadataPage: { ____accept: "jsFunction" },
+                getAppMetadataHashroute: { ____accept: "jsFunction" }
             }
         },
 

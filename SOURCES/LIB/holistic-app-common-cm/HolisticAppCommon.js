@@ -76,21 +76,11 @@ class HolisticAppCommon {
 
     getAppBuild() { return this.isValid()?this._private.nonvolatile.appCommonDefinition.appData.appBuild:this.toJSON(); }
     getAppMetadataTypeSpecs() { return this.isValid()?this._private.nonvolatile.appMetadata.specs:this.toJSON(); }
-    getAppMetadataDigraph() { return this.isValid()?this._private.nonvolatile.appMetadata.values.digraph:this.toJSON(); }
-    getAppMetadataOrg() { return this.isValid()?this.getAppMetadataDigraph().getVertexProperty("__org"):this.toJSON(); }
-    getAppMetadataApp() { return this.isValid()?this.getAppMetadataDigraph().getVertexProperty("__app"):this.toJSON(); }
-    getAppMetadataPage(pageURI_) {
-        if (!this.isValid())
-            return this.toJSON();
-        const pageProp = this.getAppMetadataDigraph().getVertexProperty(pageURI_);
-        return (pageProp?pageProp:`No page metadata defined for pageURI "${pageURI_}".`);
-    }
-    getAppMetadataHashroute(hashroutePathname_) {
-        if (!this.isValid())
-            return this.toJSON();
-        const hashProp = this.getAppMetadataDigraph().getVertexProperty(hashroutePathname_);
-        return (hashProp?hashProp:`No hashroute metadata defined for hashroutePathname "${hashroutePath_}".`);
-    }
+    getAppMetadataDigraph() { return this.isValid()?this._private.nonvolatile.appMetadata.accessors.getAppMetadataDigraph():this.toJSON(); }
+    getAppMetadataOrg() { return this.isValid()?this._private.nonvolatile.appMetadata.accessors.getAppMetadataOrg():this.toJSON(); }
+    getAppMetadataApp() { return this.isValid()?this._private.nonvolatile.appMetadata.accessors.getAppMetadataApp():this.toJSON(); }
+    getAppMetadataPage(pageURI_) { return this.isValid()?this._private.nonvolatile.appMetadata.accessors.getAppMetadataPage(pageURI_):this.toJSON(); }
+    getAppMetadataHashroute(hashroutePathname_) { return this.isValid()?this._private.nonvolatile.appMetadata.acessors.getAppMetadataHashroute(hashroutePathname_):this.toJSON(); }
     getClientUserLoginSessionSpec() {
         return (this.isValid()?this._private.nonvolatile.appCommonDefinition.appTypes.userLoginSession.untrusted.clientUserLoginSessionSpec:this.toJSON());
     }

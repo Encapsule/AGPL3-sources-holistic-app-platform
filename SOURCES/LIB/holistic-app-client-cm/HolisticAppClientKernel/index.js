@@ -66,13 +66,10 @@ const holarchy = require("@encapsule/holarchy");
                         // v0.0.49-spectrolite pretty suspicious there's anything all that good in here either
                         // TRY DISABLING THIS
                         require("@encapsule/holarchy-cm").cml, // Low-level shared CellModel library used by @encapsule/holistic RTL's.
-
-                        // v0.0.49-spectrolite disabled (needed? - YEA I THINK NO IT'S NOT)
-                        require("@encapsule/holistic-app-common-cm").cml // Shared holistic app server/client kernel CellModel library? What is even in here at this point?
                     ]
                 });
 
-                if (!cellModel.isValid) {
+                if (!cellModel.isValid()) {
                     errors.push(`We were unable to synthesize a specialized tab service kernel CellModel for ${appBuild.app.name} due to error:`);
                     errors.push(cellModel.toJSON());
                     break;

@@ -1,0 +1,19 @@
+/*
+  O       o O       o O       o
+  | O   o | | O   o | | O   o |
+  | | O | | | | O | | | | O | |
+  | o   O | | o   O | | o   O |
+  o       O o       O o       O
+*/
+
+// @encapsule/holistic platform RTL package @encapsule/X
+// Copyright (C) 2000-2020 Christopher D. Russell
+// Published for free and public use under MIT License by Encapsule Project, Seattle WA USA
+// @encapsule/holistic platform disitution package is available for public download here:
+// git@github.com:Encapsule/holistic.git https://github.com/Encapsule/holistic
+// #release-stable: Use the default #release-stable branch distribution package for production services.
+// #release-stable-backports: Use the #release-stable-backports branch to upgrade production services w/tested bugfixes and security patches.
+// #release-test: Use the #release-test branch only to test your software models with the latest build of vNext holistic platform.
+// Please follow @Encapsule Project on Twitter for news and release updates.
+// See you on the cellplane :)
+//

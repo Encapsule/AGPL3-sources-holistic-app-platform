@@ -1,23 +1,16 @@
 // HolisticAppCommon-method-constructor-filter.js
 
 const arccore = require("@encapsule/arccore");
-
-// TODO: Migrate? Coming back here I think I made some modifications here and made it work. The issue is that its using an entire RTL package for a single module. But, really NBD.
 const holismMetadataFactory = require("@encapsule/holism-metadata");
 const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-specs"); // intrinsic properties of org, app, page, and hashroute metadata required by the platform
-
-const holisticAppModels = {
-    display: {
-        d2r2Components: require("@encapsule/d2r2-components").components
-    },
-    cellModels: [] // nothing yet but coming soon
-};
+const Holistic_d2r2Components = require("@encapsule/d2r2-components").components
+const ServiceCore_KernelCellModelFactory = require("../HolisticAppCommonKernel"); // TODO: rename the module follow it down through the sources and fix the labels. 
 
 (function() {
 
     const factoryResponse = arccore.filter.create({
         operationID: "P9-aWxR5Ts6AhYSQ7Ymgbg",
-        operationName: "HolisticAppCommon::constructor Filter",
+        operationName: "HolisticServiceCore::constructor Filter",
         operationDescription: "Validates/normalizes a HolisticAppCommon::constructor function request object and returns the new instance's private state data.",
         inputFilterSpec: require("./iospecs/HolisticAppCommon-method-constructor-filter-input-spec"),   // This is what you need to pass to new @encapsule/holon-core/HolonCore
         outputFilterSpec: require("./iospecs/HolisticAppCommon-method-constructor-filter-output-spec"), // This is the _private instance state of a HolonCore class instance
@@ -43,21 +36,25 @@ const holisticAppModels = {
                 // We take care of that detail here in HolisticAppCommon class constructor filter. Previously, this sort of thing was done
                 // all over the place in different ways.
 
+                // First things first...
+                const appBuild = request_.appData.appBuild; // Use this!
+
                 // Synthesize a filter spec to validate the derived app service's metadata values.
                 const derivedAppService_MetadataInputSpec = {
                     ____label: "App Service Metadata Input Values",
                     ____description: "This is the format for the app metadata values required by by HolisticAppCommon::constructor function.",
                     ____types: "jsObject",
-                    // Going to kill this so don't bother w/label/description
+                    // TODO: Now that this is migrated to the correct place. Add ____label/____description from appBuild metadata
                     org: {
                         ...request_.appTypes.appMetadata.orgExtSpec,
                         ...appMetadataBaseObjectSpecs.input.org,
                     },
-                    // Going to kill this so don't bother w/label/description
+                    // TODO: Now that this is migrated to the correct place. Add ____label/____description from appBuild metadata
                     app: {
                         ...request_.appTypes.appMetadata.appExtSpec,
                         ...appMetadataBaseObjectSpecs.input.app
                     },
+                    // TODO: Now that this is migrated to the correct place. Add ____label/____description from appBuild metadata
                     pages: {
                         ____label: "App Service Server Page Views Metadata Map",
                         ____description: "A map of pageURI string keys to page metadata descriptor object.",
@@ -68,6 +65,7 @@ const holisticAppModels = {
                             ...appMetadataBaseObjectSpecs.input.page
                         }
                     },
+                    // TODO: Now that this is migrated to the correct place. Add ____label/____description from appBuild metadata
                     hashroutes: {
                         ____label: "App Service Client Page Views Metadata Map",
                         ____description: "A map of hashroutePathname string keys to hashroute metadata descriptor object.",
@@ -169,20 +167,68 @@ const holisticAppModels = {
                     specs: derivedAppService_MetadataOutputSpec
                 };
 
+                // v0.0.49-spectrolite
+                // This is a small little accomodation made here to hide differences between HolisticNodeService
+                // and HolisticTabService implementations the derive from @encapsule/holism driving most of the
+                // action in current builds of based on HolisticNodeService. While in current builds CellProcessor
+                // is in charge of everything in a HolisticTabService. This means the layering of concerns here is
+                // rather rididulous (for now). e.g. everything above ideal moves to AppMetadata CellModel.
+                // But, for now lets just avoid code duplication and suck it up on the one-time wiring
+                // required to hide this shit.
+
+                const metadataValueAccessors = response.result.nonvolatile.appMetadata.accessors = {
+                    getAppMetadataDigraph: function() { return appMetadataDigraph; },
+                    getAppMetadataOrg: function() { return appMetadataDigraph.getVertexProperty("__org"); },
+                    getAppMetadataApp: function() { return appMetadataDigraph.getVertexProperty("__app"); },
+                    getAppMetadataPage: function(pageURI_) { return appMetadataDigraph.getVertexProperty(pageURI_); },
+                    getAppMetadataHashroute: function(hashroutePathname_) { return appMetadataDigraph.getVertexProperty(hashroutePathname_); }
+                }
+
                 // Okay - now we need to go process the application-specific appModels passed in by the developer.
                 // These are combined w/core platform level appModel contributions that represent behaviors shared
                 // by all holistic app services (e.g. holistic Node.js service or holistic browser tab service).
 
                 const coreDisplayComponents = response.result.nonvolatile.coreDisplayComponents = [
-                    ...holisticAppModels.display.d2r2Components,
-                    ...request_.appModels.display.d2r2Components
+                    ...request_.appModels.display.d2r2Components,
+                    ...Holistic_d2r2Components
                 ];
+
+                // Note that we do not instantiate an @encapsule/d2r2 <ComponentRouter/> instance here
+                // because a HolisticServiceCore instance only contains a partial specification of the complete
+                // set of d2r2 components that need to be registered by a specific holistic service runtime.
+                // i.e. we just cache them and hand the set off to HolisticXService constructor function via
+                // HolisticServiceCore class instance reference.
+
+                // Okay - Now we need to go synthesize some number (we don't care) of CellModel's to do
+                // some stuff that all services need done that's rather complex to automate unless you're
+                // ridiculously disciplined. So we do that here instead.
+
+                let cmFactoryResponse = ServiceCore_KernelCellModelFactory.request({
+                    appBuild,
+                    appTypes: {
+                        metadata: {
+                            specs: {
+                            }
+                        }
+                    },
+                    appModels: {
+                        metadata: {
+                            accessors: metadataValueAccessors
+                        }
+                    }
+                });
+                if (cmFactoryResponse.error) {
+                    errors.push(`Unable to synthesize the ${appBuild.app.name} service core kernel CellModel due to error:`);
+                    errors.push(cmFactoryResponse.error);
+                    break;
+                }
+
+                const serviceCoreKernelCellModel = cmFactoryResponse.result;
 
                 const coreCellModels = response.result.nonvolatile.coreCellModels = [
-                    ...holisticAppModels.cellModels,
+                    serviceCoreKernelCellModel,
                     ...request_.appModels.cellModels
                 ];
-
 
                 // console.log(JSON.stringify(response, undefined, 4));
 

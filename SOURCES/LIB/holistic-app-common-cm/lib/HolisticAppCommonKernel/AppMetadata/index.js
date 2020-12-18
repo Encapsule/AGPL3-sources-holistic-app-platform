@@ -10,8 +10,27 @@ const holarchy = require("@encapsule/holarchy");
         operationDescription: "Filter used to synthesize a specialized app metadata CellModel.",
         inputFilterSpec: {
             ____types: "jsObject",
-            appServiceCore: {
-                ____accept: "jsObject" // This is a HolisticServiceCore class instance
+            appBuild: {
+                // Because lazy
+                ____accept: "jsObject" // TODO make this explicit should be explicit
+            },
+            appTypes: {
+                ____types: "jsObject",
+                metadata: {
+                    ____types: "jsObject",
+                    specs: {
+                        ____accept: "jsObject" // TODO make this explicit shoud be explicit
+                    }
+                }
+            },
+            appModels: {
+                ____types: "jsObject",
+                metadata: {
+                    ____types: "jsObject",
+                    accessors: {
+                        ____accept: "jsObject"
+                    }
+                }
             }
         },
         outputFilterSpec: {
@@ -24,8 +43,9 @@ const holarchy = require("@encapsule/holarchy");
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                let appServiceCore = request_.appServiceCore;
-                let appBuild = appServiceCore.getAppBuild();
+                const appBuild = request_.appBuild;
+                const metadataTypes = request_.appTypes.metadata.specs;
+                const metadataAccessors = request_.appModels.metadata.accessors;
 
                 const cellModel = new holarchy.CellModel({
                     id: "-mApjtHVTE2UpIANFJGaPQ",
@@ -80,19 +100,19 @@ const holarchy = require("@encapsule/holarchy");
                                     const messageBody = request_.actionRequest.holistic.app.metadata.query;
                                     switch (messageBody.type) {
                                     case "org":
-                                        response.result = appServiceCore.getAppMetadataOrg();
+                                        response.result = metadataAccessors.getAppMetadataOrg();
                                         break;
                                     case "app":
-                                        response.result = appServiceCore.getAppMetadataApp();
+                                        response.result = metadataAccessors.getAppMetadataApp();
                                         break;
                                     case "page":
-                                        response.result = appServiceCore.getAppMetadataPage(messageBody.uri);
+                                        response.result = metadataAccessors.getAppMetadataPage(messageBody.uri);
                                         break;
                                     case "hashroute":
-                                        response.result = appServiceCore.getAppMetadataHashroute(messageBody.uri);
+                                        response.result = metadataAccessors.getAppMetadataHashroute(messageBody.uri);
                                         break;
                                     case "digraph":
-                                        response.result = appServiceCore.getAppMetadataDigraph();
+                                        response.result = metadataAccessors.getAppMetadataDigrph();
                                         break;
                                     default:
                                         errors.push(`Internal error: Unhandled query.type value "${messageBody.type}".`);
@@ -112,16 +132,23 @@ const holarchy = require("@encapsule/holarchy");
                         } // ControllerAction holistic.app.metadata.query
                     ]
                 });
-
                 if (!cellModel.isValid()) {
                     throw new Error(cellModel.toJSON());
                 }
-
-                module.exports = cellModel;
-
+                response.result = cellModel;
+                break;
+            } // inBreakScope
+            if (errors.length) {
+                response.error = errors.join(" ");
             }
-        }
-    })
+            return response;
+        } // bodyFunctoin
+    }); // arccore.filter.create
+    if (factoryResponse.error) {
+        throw new Error(factoryResponse.error);
+    }
+
+    module.exports = factoryResponse.result;
 
 })();
 

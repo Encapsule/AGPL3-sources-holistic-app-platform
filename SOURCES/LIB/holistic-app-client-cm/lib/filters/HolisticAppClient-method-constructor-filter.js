@@ -120,7 +120,11 @@ const factoryResponse = arccore.filter.create({
                 }, // apm
 
                 // TODO: We have work to do before we do this definition synthesis in order to pre-process the registration set.
-                subcells: [ ...request_.appModels.cellModels, tabServiceKernelCellModel ],
+                subcells: [
+                    ...request_.appServiceCore.getCellModels(), // All the CellModels aggregated by our HolisticServiceCore instance.
+                    ...request_.appModels.cellModels, // All the CellModels registered by the developer via HolisticTabService::constructor request.
+                    tabServiceKernelCellModel // The synthesized tab service kernel CellModel.
+                ],
 
                 actions: [
                     // ----------------------------------------------------------------
