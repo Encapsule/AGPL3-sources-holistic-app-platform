@@ -11,7 +11,7 @@ const { HolisticAppCommon } = require("@encapsule/holistic-app-common-cm");
 const inputFilterSpec = require("./iospecs/HolisticAppServer-method-constructor-filter-input-spec");
 const outputFilterSpec =  require("./iospecs/HolisticAppServer-method-constructor-filter-output-spec");
 
-const renderHtmlFunction = require("../../models/holism-http-server/render-html");
+const renderHtmlFunction = require("../holism-http-server/render-html");
 
 const holisticAppModels = {
     display: {

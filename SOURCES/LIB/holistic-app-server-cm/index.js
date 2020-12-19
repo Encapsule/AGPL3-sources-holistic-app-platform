@@ -14,6 +14,8 @@ module.exports = {
     },
 
     // v0.0.48-kyanite
-    HolisticAppServer: require("./HolisticAppServer") // New ES6 class
+    HolisticAppServer: require("./HolisticAppServer"), // New ES6 class
+
+    HolisticNodeService: require("./HolisticAppServer") // ALIAS -- will soon be rename RTL package and the class to match
 
 };

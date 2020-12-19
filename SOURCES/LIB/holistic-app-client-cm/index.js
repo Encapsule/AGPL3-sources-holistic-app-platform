@@ -20,10 +20,6 @@ module.exports = {
     // App-level service logic may (e.g.) call this function upon receipt of 'error' lifecycle action request from the tab service kernel.
     displayTabServiceException: require("./lib/holistic-tab-service-exception-display")
 
-    // DEPRECATED
-    // appClientCellModelFactory: require("./holistic-app-client-cellmodel-factory-filter"),
-    // cml: require("./HolisticAppClientKernel")
-
 };
 
 
