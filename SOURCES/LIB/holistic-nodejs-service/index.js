@@ -13,9 +13,7 @@ module.exports = {
         source: packageMeta.buildSource
     },
 
-    // v0.0.48-kyanite
-    HolisticAppServer: require("./HolisticAppServer"), // New ES6 class
-
-    HolisticNodeService: require("./HolisticAppServer") // ALIAS -- will soon be rename RTL package and the class to match
+    // v0.0.49-spectrolite
+    HolisticNodeService: require("./HolisticAppServer"), // New ES6 class
 
 };

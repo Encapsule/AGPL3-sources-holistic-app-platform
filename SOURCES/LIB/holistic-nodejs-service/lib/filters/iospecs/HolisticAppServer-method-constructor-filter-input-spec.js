@@ -1,7 +1,7 @@
 // TODO: app-server-method-constructor-input-spec.js
 
 const holism = require("@encapsule/holism"); // holism helpfully exports all the information you need to splice together filter specs. But, it's TAF... No worries; it's now all encapsulated ;-)
-const serviceTypes = require("@encapsule/holistic-app-common-cm").serviceTypes;
+const serviceTypes = require("@encapsule/holistic-service-core").serviceTypes;
 
 module.exports = {
 

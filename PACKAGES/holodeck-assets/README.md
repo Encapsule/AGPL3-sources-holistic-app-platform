@@ -8,14 +8,14 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 
 ## &#x25F0; Runtime library: @encapsule/holodeck-assets
 
-> [**RTL index**](../../README.md#holistic-platform-runtime "Jump back to the RTL index..."): [d2r2](../d2r2/README.md#encapsule-project "Jump to d2r2 README...") &bull; [d2r2-components](../d2r2-components/README.md#encapsule-project "Jump to d2r2-components README...") &bull; [holarchy](../holarchy/README.md#encapsule-project "Jump to holarchy README...") &bull; [holarchy-cm](../holarchy-cm/README.md#encapsule-project "Jump to holarchy-cm README...") &bull; [holism](../holism/README.md#encapsule-project "Jump to holism README...") &bull; [holism-metadata](../holism-metadata/README.md#encapsule-project "Jump to holism-metadata README...") &bull; [holism-services](../holism-services/README.md#encapsule-project "Jump to holism-services README...") &bull; [holistic-app-client-cm](../holistic-app-client-cm/README.md#encapsule-project "Jump to holistic-app-client-cm README...") &bull; [holistic-app-common-cm](../holistic-app-common-cm/README.md#encapsule-project "Jump to holistic-app-common-cm README...") &bull; [holistic-app-server-cm](../holistic-app-server-cm/README.md#encapsule-project "Jump to holistic-app-server-cm README...") &bull; [holodeck](../holodeck/README.md#encapsule-project "Jump to holodeck README...") &bull; &#x25F0; **holodeck-assets** &bull; [hrequest](../hrequest/README.md#encapsule-project "Jump to hrequest README...")
+> [**RTL index**](../../README.md#holistic-platform-runtime "Jump back to the RTL index..."): [d2r2](../d2r2/README.md#encapsule-project "Jump to d2r2 README...") &bull; [d2r2-components](../d2r2-components/README.md#encapsule-project "Jump to d2r2-components README...") &bull; [holarchy](../holarchy/README.md#encapsule-project "Jump to holarchy README...") &bull; [holarchy-cm](../holarchy-cm/README.md#encapsule-project "Jump to holarchy-cm README...") &bull; [holism](../holism/README.md#encapsule-project "Jump to holism README...") &bull; [holism-metadata](../holism-metadata/README.md#encapsule-project "Jump to holism-metadata README...") &bull; [holism-services](../holism-services/README.md#encapsule-project "Jump to holism-services README...") &bull; [holistic-html5-service](../holistic-html5-service/README.md#encapsule-project "Jump to holistic-html5-service README...") &bull; [holistic-nodejs-service](../holistic-nodejs-service/README.md#encapsule-project "Jump to holistic-nodejs-service README...") &bull; [holistic-service-core](../holistic-service-core/README.md#encapsule-project "Jump to holistic-service-core README...") &bull; [holodeck](../holodeck/README.md#encapsule-project "Jump to holodeck README...") &bull; &#x25F0; **holodeck-assets** &bull; [hrequest](../hrequest/README.md#encapsule-project "Jump to hrequest README...")
 
 This package contains re-usable test runners, harnesses, and vectors for use in conjunction with @encapsule/holodeck test infrastructure package.
 
 ```
-Package: @encapsule/holodeck-assets v0.0.49 "spectrolite" build ID "b69HhkefQEGEBhellWhyww"
-Sources: Encapsule/holistic-master#db5d77d10fe376800ca8b93b7af4e75142fcb72a
-Created: 2020-12-19T15:28:52.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/holodeck-assets v0.0.49 "spectrolite" build ID "VoVlQnEeRReB7jLtzaPCzg"
+Sources: Encapsule/holistic-master#12ca5da90efc513122b913f88fdfab69be27d8de
+Created: 2020-12-19T18:44:22.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview

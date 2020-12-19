@@ -1,6 +1,6 @@
 // TODO: app-client-method-constructor-input-spec.js
 
-const serviceTypes = require("@encapsule/holistic-app-common-cm").serviceTypes;
+const serviceTypes = require("@encapsule/holistic-service-core").serviceTypes;
 
 module.exports = {
 

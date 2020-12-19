@@ -2,7 +2,7 @@
 
 const constructorFilter = require("./lib/filters/HolisticAppClient-method-constructor-filter");
 
-class HolisticAppClient {
+class HolisticHTML5Service {
 
     constructor(request_) {
         let errors = [];
@@ -44,5 +44,5 @@ class HolisticAppClient {
 
 }
 
-module.exports = HolisticAppClient;
+module.exports = HolisticHTML5Service;
 

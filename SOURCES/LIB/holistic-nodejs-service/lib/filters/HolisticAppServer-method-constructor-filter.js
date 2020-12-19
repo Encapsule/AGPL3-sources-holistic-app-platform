@@ -6,7 +6,7 @@ const arccore = require("@encapsule/arccore");
 const holism = require("@encapsule/holism");
 const d2r2 = require("@encapsule/d2r2");
 
-const { HolisticAppCommon } = require("@encapsule/holistic-app-common-cm");
+const { HolisticServiceCore } = require("@encapsule/holistic-service-core");
 
 const inputFilterSpec = require("./iospecs/HolisticAppServer-method-constructor-filter-input-spec");
 const outputFilterSpec =  require("./iospecs/HolisticAppServer-method-constructor-filter-output-spec");
@@ -53,8 +53,8 @@ const factoryResponse = arccore.filter.create({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            // Cache the HolisticAppCommon definition.
-            const appServiceCore = (request_.appServiceCore instanceof HolisticAppCommon)?request_.appServiceCore:new HolisticAppCommon(request_.appServiceCore);
+            // Cache the HolisticServiceCore definition.
+            const appServiceCore = (request_.appServiceCore instanceof HolisticServiceCore)?request_.appServiceCore:new HolisticServiceCore(request_.appServiceCore);
             if (!appServiceCore.isValid()) {
                 errors.push("Invalid appServiceCore value cannot be resolved to valid HolisticAppCommon class instance:");
                 errors.push(response.result.appServiceCore.toJSON());
