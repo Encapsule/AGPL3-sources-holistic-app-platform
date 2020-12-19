@@ -22,7 +22,7 @@ var inputFilterSpec = require("./iospecs/HolisticAppServer-method-constructor-fi
 
 var outputFilterSpec = require("./iospecs/HolisticAppServer-method-constructor-filter-output-spec");
 
-var renderHtmlFunction = require("../../models/holism-http-server/render-html");
+var renderHtmlFunction = require("../holism-http-server/render-html");
 
 var holisticAppModels = {
   display: {

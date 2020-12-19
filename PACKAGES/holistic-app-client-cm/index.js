@@ -20,8 +20,5 @@ module.exports = {
   HolisticTabService: require("./HolisticAppClient"),
   // AN ALIAS - I plan to rename the class and the RTL package as well.
   // App-level service logic may (e.g.) call this function upon receipt of 'error' lifecycle action request from the tab service kernel.
-  displayTabServiceException: require("./lib/holistic-tab-service-exception-display") // DEPRECATED
-  // appClientCellModelFactory: require("./holistic-app-client-cellmodel-factory-filter"),
-  // cml: require("./HolisticAppClientKernel")
-
+  displayTabServiceException: require("./lib/holistic-tab-service-exception-display")
 };
