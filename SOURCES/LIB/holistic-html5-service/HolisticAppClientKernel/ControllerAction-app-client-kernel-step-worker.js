@@ -39,6 +39,8 @@ const controllerAction = new holarchy.ControllerAction({
                                         "noop",
                                         "activate-subprocesses",
                                         "activate-display-adapter",
+                                        "start-display-adapter", // After which the derived HTML5 service logic is actor who updates the display adapter
+                                        "relinquish-display-adapter",
                                     ],
                                     ____defaultValue: "noop"
                                 }
@@ -219,6 +221,35 @@ const controllerAction = new holarchy.ControllerAction({
 
                 // ****************************************************************
                 // ****************************************************************
+
+            case "start-display-adapter":
+                actResponse = request_.context.act({
+                    actorName,
+                    actorTaskDescription: "Sending final kernel boot update to the display adapater and relinquishing responsibility for further updates to derived HTML5 app service logic.",
+                    actionRequest: { holistic: { app: { client: { display: { update: { thisProps: { renderData: { Viewpath5: { pageview: { loadingApp: { appStarted: true } } } } } } } } } } },
+                    apmBindingPath: request_.context.apmBindingPath // this will be the holistic app client kernel process
+                });
+                if (actResponse.error) {
+                    errors.push(actResponse.error);
+                    break;
+                }
+                setTimeout(function() {
+                    request_.context.act({
+                        actorName,
+                        actorTaskDescription: "Relinquishing display adapter to derived HTML5 service logic.",
+                        actionRequest: { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "relinquish-display-adapter" } } } } } } },
+                        apmBindingPath: request_.context.apmBindingPath
+                    });
+                });
+                break;
+
+            case "relinquish-display-adapter":
+                let ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.displayReady" }, true );
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+                break;
 
             default:
                 errors.push(`Internal error: unhandled action value "${messageBody.action}".`);

@@ -34,32 +34,8 @@ module.exports = {
             instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
         },
 
-        /* BAD IDEA (WRONG LEVEL PLACEMENT)
-        specializations: {
-            ____label: "Tab Service Kernel Specializations",
-            ____description: "Once the tab service kernel process has completed its internal initializations, it deletes the specialization object as whomever needed specialization has at that point been specialized.",
-            ____types: [ "jsObject" ],
-            appServiceCore: {
-                ____label: "Holistic Service Core Specializations",
-                ____description: "A reference to a HolisticServiceCore class instance set by the tab service kernel's boot action.",
-                ____accept: "jsObject" // This is a valid HolisticServiceCore class instance
-            },
-            display: {
-                ____label: "Holistic Service Display Specializations",
-                ____description: "Information set by the tab service kernel's boot action used to specialize the behavior of the sevice's display.",
-                ____types: "jsObject",
-                d2r2ComponentRouter: {
-                    ____label: "@encapsule/d2r2 <ComponentRouter/>",
-                    ____description: "A reference to an @encapsule/d2r2 <ComponentRouter/> React.Component that may be used like any other React.Component (w/calling conventions over this.props). But, that resolves to 1:N registered components available in this service instance based on the format of the data you send via this.props.",
-                    ____accept: "jsObject" // This is a valid <ComponentRouter/> instance configured for use in the tab service
-                }
-            }
-        },
-        BAD IDEA THIS IS THE WRONG PLACE TO PUT THIS */
-
         // END: required activation data
         // ----------------------------------------------------------------
-
 
         serviceProcesses: {
             ____types: "jsObject",
@@ -92,6 +68,13 @@ module.exports = {
             ____description: "A count of milliseconds reported by the browser in the window.onload event. This is the time from initial URL request to requested HTML5 document + all its referenced resources loaded and available to the app client.",
             ____accept: "jsNumber",
             ____defaultValue: -1
+        },
+
+        displayReady: {
+            ____label: "Display Adapter Ready",
+            ____description: "A flag set by the kernel process to indicate that it is done interacting directly with the display adapter process. And, has passed responsibility for further display update(s) to the derived HTML5 app service.",
+            ____accept: "jsBoolean",
+            ____defaultValue: false
         },
 
         bootROMData: { ____accept: [ "jsUndefined", "jsObject" ] },
@@ -212,7 +195,17 @@ module.exports = {
                 ]
             },
             transitions: [
-                { transitionIf: { always: true }, nextStep: "kernel-signal-lifecycle-start" }
+                { transitionIf: { always: true }, nextStep: "kernel-start-display-adapter" }
+            ]
+        },
+
+        "kernel-start-display-adapter": {
+            description: "Updating the current page view display to show the welcome message to the user. And, make any final preparations needed before handing control of the display adapter over to the derived HTML5 service logic.",
+            actions: {
+                enter: [ { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "start-display-adapter" } } } } } } } ]
+            },
+            transitions: [
+                { transitionIf: { holarchy: { cm: { operators: { ocd: { isBooleanFlagSet: { path: "#.displayReady" } } } } } },  nextStep: "kernel-signal-lifecycle-start" }
             ]
         },
 

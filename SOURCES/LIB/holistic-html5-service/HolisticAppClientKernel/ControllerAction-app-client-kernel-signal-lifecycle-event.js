@@ -83,6 +83,12 @@ const controllerAction = new holarchy.ControllerAction({
                     errors.push(actResponse.error);
                     break;
                 }
+
+                if (actResponse.error) {
+                    errors.push(actResponse.error);
+                    break;
+                }
+
                 response.result = actResponse.result.actionResult;
                 break;
 
@@ -297,6 +303,7 @@ const controllerAction = new holarchy.ControllerAction({
 
                 // ----------------------------------------------------------------
             case "start":
+
                 actResponse = request_.context.act({
                     actorName,
                     actorTaskDescription: "Delegating app client kernel query lifecycle event to the derived app client process.",
@@ -313,7 +320,9 @@ const controllerAction = new holarchy.ControllerAction({
                     errors.push(actResponse.error);
                     break;
                 }
+
                 response.result = actResponse.result.actionResult;
+
                 break;
 
                 // ----------------------------------------------------------------
