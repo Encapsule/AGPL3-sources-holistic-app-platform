@@ -76,7 +76,7 @@ const apm = new holarchy.AbstractProcessModel({
             transitions: [ { transitionIf: { always: true }, nextStep: "viewpath-page-view-perform-initial-display-update" } ],
             actions: {
                 exit: [
-                    { viewpath: { ViewpathPageView: { _private: { stepWorker: { action: "process-hashroute-query-map-values" } } } } }
+                    { holistic: { service: { view: { page: { _private: { stepWorker: { action: "process-hashroute-query-map-values" } } } } } } }
                 ]
             }
         },
@@ -85,7 +85,7 @@ const apm = new holarchy.AbstractProcessModel({
             description: "Performing the initial post page view cell activation display update via the app client display adapter.",
             actions: {
                 exit: [
-                    { viewpath: { ViewpathPageView: { _private: { stepWorker: { action: "perform-initial-display-update" } } } } }
+                    { holistic: { service: { view: { page: { _private: { stepWorker: { action: "perform-initial-display-update" } } } } } } }
                 ]
             },
             transitions: [
@@ -131,8 +131,8 @@ const apm = new holarchy.AbstractProcessModel({
             ],
             actions: {
                 exit: [
-                    { viewpath: { ViewpathPageView: { _private: { stepWorker: { action: "process-hashroute-query-map-values" } } } } },
-                    { viewpath: { ViewpathPageView: { _private: { stepWorker: { action: "perform-display-update" } } } } }
+                    { holistic: { service: { view: { page: { _private: { stepWorker: { action: "process-hashroute-query-map-values" } } } } } } },
+                    { holistic: { service: { view: { page: { _private: { stepWorker: { action: "perform-display-update" } } } } } } }
                 ]
             }
         },

@@ -10,18 +10,24 @@ const action = new holarchy.ControllerAction({
     description: "Tell a PageView process that the URL-encoded query parameter values parsed from the browser's current location.href string have been updated.",
     actionRequestSpec: {
         ____types: "jsObject",
-        viewpath: {
+        holistic: {
             ____types: "jsObject",
-            ViewpathPageView: {
+            service: {
                 ____types: "jsObject",
-                updateQuery: {
+                view: {
                     ____types: "jsObject",
-                    hashrouteQueryParse: {
+                    _private: {
                         ____types: "jsObject",
-                        ____asMap: true,
-                        propName: { ____accept: [ "jsNull", "jsString" ] }
-                    },
-                    routerEventNumber: { ____accept: "jsNumber" }
+                        updateQuery: {
+                            ____types: "jsObject",
+                            hashrouteQueryParse: {
+                                ____types: "jsObject",
+                                ____asMap: true,
+                                propName: { ____accept: [ "jsNull", "jsString" ] }
+                            },
+                            routerEventNumber: { ____accept: "jsNumber" }
+                        }
+                    }
                 }
             }
         }
@@ -42,7 +48,7 @@ const action = new holarchy.ControllerAction({
                 break;
             };
             let cellStatus = libResponse.result;
-            const messageBody = request_.actionRequest.viewpath.ViewpathPageView.updateQuery;
+            const messageBody = request_.actionRequest.holistic.server.view._private.updateQuery;
             cellStatus.cellMemory.routerEventNumber = messageBody.routerEventNumber;
             cellStatus.cellMemory.hashrouteQueryParse = messageBody.hashrouteQueryParse;
             let ocdResponse = request_.context.ocdi.writeNamespace(request_.context.apmBindingPath, cellStatus.cellMemory);

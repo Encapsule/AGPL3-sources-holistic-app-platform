@@ -1,41 +1,47 @@
-// ControllerAction-viewpath-page-view-controller-udpate.js
+
 
 const holarchy = require("@encapsule/holarchy");
 
 (function() {
-    // Note that this action binds to the Viewpath Page View Controller cell process (always a singleton) wherever it resides in the cellplane.
+    // Note that this action binds to the Page View Controller cell process (always a singleton) wherever it resides in the cellplane.
     // We do not know where it is initially. So, we query CellProcessor and cache the response result for reuse (because it never changes).
     let cachedPageViewControllerProcessQuery = null;
     let cachedAppMetadata = { org: null, app: null, hashroutes: {} };
     const action = new holarchy.ControllerAction({
         id: "-Qq4BFlUQIWysNMe6z_ucw",
-        name: "Viewpath Page View Controller Update",
-        description: "Tell the ViewpathPageViewController process to udpate the active ViewpathPageView process and hand responsibility for calling app client display update off to the new ViewpathPageView process.",
+        name: "PageViewController Update",
+        description: "Tell the PageViewController process to udpate the active PageView process and hand responsibility for calling app client display update off to the new PageView process.",
         actionRequestSpec: {
             ____types: "jsObject",
-            viewpath: {
+            holistic: {
                 ____types: "jsObject",
-                pageViewController: {
+                service: {
                     ____types: "jsObject",
-                    update: {
+                    view: {
                         ____types: "jsObject",
-                        hashroutePathname: {
-                            ____accept: "jsString" // corresponds to routerEventDescriptor.hashrouteParse.pathname which is also the string key format to access hashroute app metadata
-                        },
-                        hashrouteQueryParse: {
+                        controller: {
                             ____types: "jsObject",
-                            ____asMap: true,
-                            paramName: {
-                                ____label: "Unparsed Param Value",
-                                ____accept: [ "jsNull", "jsString" ]
-                            }
-                        },
-                        routerEventNumber: {
-                            ____label: "DOMLocationProcessor Router Event Number",
-                            ____description: "The last routerEventDescriptor.routerEventNumber received via our update action. This count is stored to allow this process to quickly determine if hashrouteQueryParse has been updated by ViewpathPageViewController while this ViewpathPageView is active.",
-                            ____accept: "jsNumber"
-                        }
+                            update: {
+                                ____types: "jsObject",
+                                hashroutePathname: {
+                                    ____accept: "jsString" // corresponds to routerEventDescriptor.hashrouteParse.pathname which is also the string key format to access hashroute app metadata
+                                },
+                                hashrouteQueryParse: {
+                                    ____types: "jsObject",
+                                    ____asMap: true,
+                                    paramName: {
+                                        ____label: "Unparsed Param Value",
+                                        ____accept: [ "jsNull", "jsString" ]
+                                    }
+                                },
+                                routerEventNumber: {
+                                    ____label: "DOMLocationProcessor Router Event Number",
+                                    ____description: "The last routerEventDescriptor.routerEventNumber received via our update action. This count is stored to allow this process to quickly determine if hashrouteQueryParse has been updated by PageViewController while this derived app service is active.",
+                                    ____accept: "jsNumber"
+                                }
 
+                            }
+                        }
                     }
                 }
             }
@@ -54,7 +60,7 @@ const holarchy = require("@encapsule/holarchy");
 
                 const actorName = `[${this.operationID}::${this.operationName}]`;
 
-                // Cache miss? Where is the Viewpath Page View Controller cell process in the cellplane?
+                // Cache miss? Where is the PageViewController cell process in the cellplane?
                 if (!cachedPageViewControllerProcessQuery) {
                     let actResponse = request_.context.act({
                         actorName,
@@ -77,7 +83,7 @@ const holarchy = require("@encapsule/holarchy");
                 }
                 const pageViewControllerMemory = ocdResponse.result;
 
-                const messageBody = request_.actionRequest.viewpath.pageViewController.update;
+                const messageBody = request_.actionRequest.holistic.service.view.controller.update;
 
                 // Use the pageViewPathname string that derives from the hashroute to query the app metadata process for corresponding hashroute metadata.
 

@@ -9,23 +9,29 @@ const action = new holarchy.ControllerAction({
     description: "Performs actions on behalf of the ViewpathPageView cell's APM.",
     actionRequestSpec: {
         ____types: "jsObject",
-        viewpath: {
+        holistic: {
             ____types: "jsObject",
-            ViewpathPageView: {
+            service: {
                 ____types: "jsObject",
-                _private: {
+                view: {
                     ____types: "jsObject",
-                    stepWorker: {
+                    page: {
                         ____types: "jsObject",
-                        action: {
-                            ____accept: "jsString",
-                            ____inValueSet: [
-                                "noop", // do nothing,
-                                "perform-initialization", // ?
-                                "perform-initial-display-update",
-                                "process-hashroute-query-map-values",
-                                "perform-display-update"
-                            ]
+                        _private: {
+                            ____types: "jsObject",
+                            stepWorker: {
+                                ____types: "jsObject",
+                                action: {
+                                    ____accept: "jsString",
+                                    ____inValueSet: [
+                                        "noop", // do nothing,
+                                        "perform-initialization", // ?
+                                        "perform-initial-display-update",
+                                        "process-hashroute-query-map-values",
+                                        "perform-display-update"
+                                    ]
+                                }
+                            }
                         }
                     }
                 }
@@ -49,7 +55,7 @@ const action = new holarchy.ControllerAction({
                 break;
             }
             let cellStatus = libResponse.result;
-            const messageBody = request_.actionRequest.viewpath.ViewpathPageView._private.stepWorker;
+            const messageBody = request_.actionRequest.holistic.service.view.page._private.stepWorker;
             const actorName = `[${this.operationID}::${this.operationName}`;
 
             let actResponse;
