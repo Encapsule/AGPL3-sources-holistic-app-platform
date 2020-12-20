@@ -233,14 +233,18 @@ const controllerAction = new holarchy.ControllerAction({
                     errors.push(actResponse.error);
                     break;
                 }
+                const st = new Date().getTime();
+                console.log("******************** DELAY TIMER STARTED ********************" + new Date().getTime() );
                 setTimeout(function() {
+                    const et = new Date().getTime();
+                    console.log("******************** DELAY TIMER FIRED ******************** ellaped " + (et-st) + "ms" );
                     request_.context.act({
                         actorName,
                         actorTaskDescription: "Relinquishing display adapter to derived HTML5 service logic.",
                         actionRequest: { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "relinquish-display-adapter" } } } } } } },
                         apmBindingPath: request_.context.apmBindingPath
                     });
-                });
+                }, 500 );
                 break;
 
             case "relinquish-display-adapter":

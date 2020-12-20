@@ -4,7 +4,7 @@ const arccore = require("@encapsule/arccore");
 const holarchy = require("@encapsule/holarchy");
 const d2r2 = require("@encapsule/d2r2");
 
-const tabServiceCellModelFactory = require("../../HolisticAppClientKernel");
+const tabServiceCellModelFactory = require("../../HolisticHTML5Service_Kernel");
 
 const factoryResponse = arccore.filter.create({
     operationID: "Jrc6uiRXS-aCNcQEDNcTug",

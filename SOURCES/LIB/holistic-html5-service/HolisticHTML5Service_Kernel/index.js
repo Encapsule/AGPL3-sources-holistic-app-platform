@@ -1,7 +1,7 @@
 
 const arccore = require("@encapsule/arccore");
 const holarchy = require("@encapsule/holarchy");
-const displayAdapterFactory = require("./AppClientDisplayAdapter"); // TODO - these names suck; clean them up
+const displayAdapterFactory = require("../HolisticHTML5Service_DisplayAdapter");
 
 // v0.0.49-spectrolite
 
@@ -72,15 +72,7 @@ const displayAdapterFactory = require("./AppClientDisplayAdapter"); // TODO - th
                     subcells: [
                         // v0.0.49-spectrolite --- AppClientDOMLocation is fine w/out any changes I think
                         displayAdapterCellModel, // Manages the boundary between the app service implementation process(es) and the app service display process.
-                        require("./AppClientDOMLocation"), // Manages the boundary between the app service runtime process and the DOM's location.
-
-                        // v0.0.49-spectrolite this is very old. Remove it and replace w/similarly named modern concept (PageView and PageViewController to be synthesized in here I think).
-                        // TRY DISABLING THIS
-                        // require("./AppClientView"), // Provides high-level orchestration for lifespan of application-specific subview processes (a concept we haven't discussed yet).
-
-                        // v0.0.49-spectrolite pretty suspicious there's anything all that good in here either
-                        // TRY DISABLING THIS
-                        // require("@encapsule/holarchy-cm").cml, // Low-level shared CellModel library used by @encapsule/holistic RTL's.
+                        require("../HolisticHTML5Service_DOMLocation"), // Manages the boundary between the app service runtime process and the DOM's location.
                     ]
                 });
 

@@ -1,4 +1,4 @@
-// HolisticAppClient.js
+// HolisticHTML5Service.js
 
 const constructorFilter = require("./lib/filters/HolisticAppClient-method-constructor-filter");
 
