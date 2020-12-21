@@ -1,15 +1,13 @@
-// HolisticAppServer.js
+// HolisticNodeService.js
 
 const path = require("path");
 const process = require("process");
 
 console.log(`> "${path.resolve(__filename)}" module loading...`);
 
-const constructorFilter = require("./lib/filters/HolisticAppServer-method-constructor-filter");
+const constructorFilter = require("./lib/filters/HolisticNodeService-method-constructor-filter");
 
-
-
-class HolisticAppServer {
+class HolisticNodeService {
 
     constructor(request_) {
         let errors = [];
@@ -49,5 +47,5 @@ class HolisticAppServer {
 
 }
 
-module.exports = HolisticAppServer;
+module.exports = HolisticNodeService;
 
