@@ -15,9 +15,7 @@ const cellModel = new holarchy.CellModel({
         require("./ControllerAction-write-theme-settings")
     ],
 
-    subcells: [
-        require("@encapsule/holarchy-cm").cml
-    ]
+    subcells: []
 });
 
 if (!cellModel.isValid()) {
