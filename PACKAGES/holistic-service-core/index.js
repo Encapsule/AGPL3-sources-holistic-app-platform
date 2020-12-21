@@ -29,17 +29,13 @@ module.exports = {
     build: packageMeta.buildID,
     source: packageMeta.buildSource
   },
-  // v0.0.49-spectrolite
-  HolisticAppCommon: require("./HolisticAppCommon"),
-  // ES6 class construction function export
-  HolisticServiceCore: require("./HolisticAppCommon"),
-  // PREFERRED ALIAS - I plan to rename the class definition and the module name and the RTL package shortly.
+  HolisticServiceCore: require("./HolisticServiceCore"),
   // These are @encapsule/arccore.filter specs exported by @encapsule/holistic-service-core RTL
   // that are needed by @encapsule/holistic-node-service and @encapsule/holistic-btab-service RTL's
   serviceTypes: {
     HolisticServiceCore: {
-      constructor: require("./lib/filters/iospecs/HolisticAppCommon-method-constructor-filter-input-spec"),
-      _private: require("./lib/filters/iospecs/HolisticAppCommon-method-constructor-filter-output-spec")
+      constructor: require("./lib/filters/iospecs/HolisticServiceCore-method-constructor-filter-input-spec"),
+      _private: require("./lib/filters/iospecs/HolisticServiceCore-method-constructor-filter-output-spec")
     }
   }
 };

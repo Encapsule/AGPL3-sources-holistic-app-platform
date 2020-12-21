@@ -19,7 +19,7 @@ var holarchy = require("@encapsule/holarchy");
 
 var d2r2 = require("@encapsule/d2r2");
 
-var tabServiceCellModelFactory = require("../../HolisticAppClientKernel");
+var tabServiceCellModelFactory = require("../../HolisticHTML5Service_Kernel");
 
 var factoryResponse = arccore.filter.create({
   operationID: "Jrc6uiRXS-aCNcQEDNcTug",
