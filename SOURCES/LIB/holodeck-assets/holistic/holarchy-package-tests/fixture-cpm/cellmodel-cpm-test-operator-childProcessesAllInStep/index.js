@@ -1,7 +1,6 @@
 // cellmodel-cpm-test-operator-childProcessesAllInStep/index.js
 
 const holarchy = require("@encapsule/holarchy");
-const holarchyCML = require("@encapsule/holarchy-cm").cml;
 
 const cellModel = new holarchy.CellModel({
     id: "OfLkkeNgQDm3xLb7TJqNRg",

@@ -7,7 +7,7 @@ module.exports = new holarchy.CellModel({
     description: "A collection of low-level building blocks.",
     subcells: [
         // DO NOT USE THIS UNLESS YOU TALK TO ME PLEASE.
-        require("./HolarchyBaseMemoryMailboxFlag")
+        // require("./HolarchyBaseMemoryMailboxFlag")
     ]
 });
 

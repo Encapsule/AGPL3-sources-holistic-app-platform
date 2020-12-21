@@ -8,9 +8,10 @@ const holodeckPackageVectorSets = require("./holodeck-package-tests/vector-sets"
 const holarchyPackageHarnesses = require("../holarchy/harnesses");
 const holarchyPackageVectorSets = require("./holarchy-package-tests/vector-sets");
 
-const holarchyCMPackageVectorSets = require("./holarchy-cm-package-tests/vector-sets");
+// const holarchyCMPackageVectorSets = require("./holarchy-cm-package-tests/vector-sets"); // TODO: v0.0.49-spectrolite @encapsule/holarchy-cm package no longer exports CellModels for use in runtime services.
 
 // const holisticAppClientCMVectorSets = require("./holistic-app-client-cm-package-tests/vector-sets"); // TODO: v0.0.49-spectrolite disabled for now
+
 const holisticAppServerCMVectorSets = require("./holistic-app-server-cm-package-tests/vector-sets");
 const holisticAppCommonCMVectorSets = require("./holistic-app-common-cm-package-tests/vector-sets");
 
@@ -70,7 +71,7 @@ const factoryResponse = arccore.filter.create({
                 testRequestSets: [
                     ...holodeckPackageVectorSets,
                     ...holarchyPackageVectorSets,
-                    ...holarchyCMPackageVectorSets,
+                    // ...holarchyCMPackageVectorSets,  // TODO: Clean this up; @encapsule/holarchy-cm module no longer contains any CellModel exports and is slated for demolition, or rename/repurpose as "Common Module" (-cm) to export CellModel to be used at build, and runtime Node.js module boot-time; not in core runtime services.
                     // ...holisticAppClientCMVectorSets, // TODO: Re-examine and decide what to do when v0.0.49-spectrolite refactoring activity settles
                     ...holisticAppServerCMVectorSets,
                     ...holisticAppCommonCMVectorSets

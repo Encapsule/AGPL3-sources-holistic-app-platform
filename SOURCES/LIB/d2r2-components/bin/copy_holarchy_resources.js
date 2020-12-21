@@ -13,7 +13,7 @@ const path = require("path");
 
 const packageMeta = require("../package.json");
 
-const packageResourcesDirPath = path.resolve(path.join(__dirname, "../resources"));
+const packageResourcesDirPath = path.resolve(path.join(__dirname, "../ASSETS"));
 
 function syncExec(request_) {
     // request_ = { command: string, cwd: string,  }

@@ -1,7 +1,7 @@
 
 const arccore = require("@encapsule/arccore");
 const holarchy = require("@encapsule/holarchy");
-const ServiceCore_AppMetadataCellModelFactory = require("./AppMetadata");
+const ServiceCore_AppMetadataCellModelFactory = require("../HolisticServiceCore_Metadata");
 
 (function() {
 
@@ -67,8 +67,8 @@ const ServiceCore_AppMetadataCellModelFactory = require("./AppMetadata");
                     description: "Provides core kernel cell process models shared by the holistic app server and holistic app client application cell models.",
                     subcells: [
                         AppMetadataCellModel,
-                        require("./DisplayThemeProcessor"),
-                        require("./PageViewController")
+                        require("../HolisticServiceCore_StylesThemeProcessor"),
+                        require("../HolisticServiceCore_PageViewController")
                     ]
                 });
                 if (!cellModel.isValid()) {

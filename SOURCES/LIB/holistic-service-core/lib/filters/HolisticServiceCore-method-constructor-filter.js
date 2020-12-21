@@ -1,10 +1,10 @@
-// HolisticAppCommon-method-constructor-filter.js
+// HolisticServiceCore-method-constructor-filter.js
 
 const arccore = require("@encapsule/arccore");
 const holismMetadataFactory = require("@encapsule/holism-metadata");
 const appMetadataBaseObjectSpecs = require("./iospecs/app-metadata-base-object-specs"); // intrinsic properties of org, app, page, and hashroute metadata required by the platform
 const Holistic_d2r2Components = require("@encapsule/d2r2-components").components
-const ServiceCore_KernelCellModelFactory = require("../HolisticAppCommonKernel"); // TODO: rename the module follow it down through the sources and fix the labels. 
+const ServiceCore_KernelCellModelFactory = require("../../HolisticServiceCore_Kernel");
 
 (function() {
 
@@ -12,8 +12,8 @@ const ServiceCore_KernelCellModelFactory = require("../HolisticAppCommonKernel")
         operationID: "P9-aWxR5Ts6AhYSQ7Ymgbg",
         operationName: "HolisticServiceCore::constructor Filter",
         operationDescription: "Validates/normalizes a HolisticAppCommon::constructor function request object and returns the new instance's private state data.",
-        inputFilterSpec: require("./iospecs/HolisticAppCommon-method-constructor-filter-input-spec"),   // This is what you need to pass to new @encapsule/holon-core/HolonCore
-        outputFilterSpec: require("./iospecs/HolisticAppCommon-method-constructor-filter-output-spec"), // This is the _private instance state of a HolonCore class instance
+        inputFilterSpec: require("./iospecs/HolisticServiceCore-method-constructor-filter-input-spec"), 
+        outputFilterSpec: require("./iospecs/HolisticServiceCore-method-constructor-filter-output-spec"),
 
         bodyFunction: function(request_) {
             console.log(`HolisticAppCommon::constructor [${this.operationID}::${this.operationName}]`);

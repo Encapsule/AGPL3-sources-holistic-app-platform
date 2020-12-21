@@ -20,7 +20,7 @@ module.exports = {
         // keep your bearing.
 
         appCommonDefinition: {
-            ...require("./HolisticAppCommon-method-constructor-filter-input-spec"), // This is the constructor filter's input spec that we spread into the output spec and relabel.
+            ...require("./HolisticServiceCore-method-constructor-filter-input-spec"), // This is the constructor filter's input spec that we spread into the output spec and relabel.
             ____label: "Holistic Service Core Definition",
             ____description: "This is a of the normalized constructor request descriptor object that we keep for reference so that it is possible to deeply introspect a derived app service runtime."
         },

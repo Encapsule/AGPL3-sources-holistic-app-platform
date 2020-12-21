@@ -1,5 +1,4 @@
 
-
 const holarchy = require("@encapsule/holarchy");
 
 const cellModel = new holarchy.CellModel({
@@ -11,7 +10,7 @@ const cellModel = new holarchy.CellModel({
         require("./ControllerAction-page-view-controller-udpate")
     ],
     subcells: [
-        require("../PageView")
+        require("../HolisticServiceCore_PageView")
     ]
 });
 
