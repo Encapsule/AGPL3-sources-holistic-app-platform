@@ -85,47 +85,52 @@ function renderHtmlDocument(request_) {
             // ================================================================
 
             // Synthesize the actual HTML5 document to be returned to the client via HTTP.
-            const htmlDocument = `<!DOCTYPE html>
-<html lang="en">
-  <!-- @viewpath/${appAgentMetadata.name} v${appAgentMetadata.version}-${appAgentMetadata.codename} buildID "${appAgentMetadata.buildID}" [${request_.appServiceContext.metadataContext.server.environment}] -->
-  <!-- Copyright (C) ${appAgentMetadata.copyright.year} ${appAgentMetadata.copyright.holder} -->
-  <head>
+
+            let htmlDocumentLines = [];
+            htmlDocumentLines.push(
+`<!DOCTYPE html>
+  <html lang="en">
+  <!-- @viewpath/${appAgentMetadata.name} v${appAgentMetadata.version}-${appAgentMetadata.codename} buildID "${appAgentMetadata.buildID}" [${request_.appServiceContext.metadataContext.server.environment}] Copyright (C) ${appAgentMetadata.copyright.year} ${appAgentMetadata.copyright.holder} -->
+`);
+            if (request_.appServiceRequest.renderOptions.documentPrologueComments) {
+                htmlDocumentLines.push(request_.appServiceRequest.renderOptions.documentPrologueComments);
+            }
+
+            htmlDocumentLines.push(
+`  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <title>${appRuntimeMetadata.page.title}</title>
     <meta name="description" content="${appRuntimeMetadata.page.description}" />
-    <link rel='stylesheet' href="/css/spinners.css">
     <link rel='stylesheet' href="/css/viewpath5-${appAgentMetadata.buildID}.css">
     <link href="https://fonts.googleapis.com/css?family=Play|Montserrat:300,400,600,700|Share+Tech+Mono|Nunito:300,400,600,700|Roboto:300,400,600,700" rel="stylesheet">
-    <link rel="apple-touch-icon", sizes='57x57' href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon", sizes="60x60", href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon", sizes="72x72", href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon", sizes="76x76", href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon", sizes="114x114", href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon", sizes="120x120", href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon", sizes="144x144", href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon", sizes="152x152", href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon", sizes="180x180", href="/apple-icon-180x180.png">
-    <link rel="icon", type="image/png", sizes="192x192", href="/android-chrome-192x192.png">
-    <link rel="icon", type="image/png", sizes="32x32", href="/favicon-32x32.png">
-    <link rel="icon", type="image/png", sizes="32x32", href="/favicon-48x48.png">
-    <link rel="icon", type="image/png", sizes="96x96", href="/favicon-96x96.png">
-    <link rel="icon", type="image/png", sizes="16x16", href="/favicon-16x16.png">
-    <link rel="shortcut icon", type="image/svg+xml", href="/images/favicon.svg">
-    <link rel="mask-icon" href="/images/favicon.svg" color="#ffffff">
-    <link rel="manifest", href="/manifest.json">
-    <meta name="msapplication-TileColor", content="#ffffff" />
-    <meta name="msapplication-TileImage", content="/images/ms-icon-144x144.png" />
-  </head>
+    <link rel='stylesheet' href="/css/spinners.css">
+`);
+
+            if (request_.appServiceRequest.renderOptions.documentHeadSectionLinksMeta) {
+                htmlDocumentLines.push(request_.appServiceRequest.renderOptions.documentHeadSectionLinksMeta);
+            }
+
+            htmlDocumentLines.push(
+`  </head>
   <body>
     <div id="idTabServiceDisplayProcess">${htmlContent}</div>
     <script type="text/javascript" src="/javascript/client-app-bundle-${appAgentMetadata.buildID}.js"></script>
     <script id="idClientBootROM" type="text/plain">${bootROM}</script>
   </body>
+`);
+
+            if (request_.appServiceRequest.renderOptions.documentEpilogueComments) {
+                htmlDocumentLines.push(request_.appServiceRequest.renderOptions.documentEpilogueComments);
+            }
+
+            htmlDocumentLines.push(
+`  <!-- Powered by ${appAgentMetadata.platform.name}. GET:/agent for version details. -->
 </html>
-`;
+`);
+
             // Send the string back to @encapsule/holism.
-            response.result = htmlDocument;
+            response.result = htmlDocumentLines.join("");
         } catch (exception_) {
             errors.push(`Unexpected exception while attempting to synthesize HTML5 document: ${exception_.stack}`);
         }

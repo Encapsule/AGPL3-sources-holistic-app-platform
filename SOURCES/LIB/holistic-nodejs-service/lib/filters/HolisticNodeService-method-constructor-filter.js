@@ -232,7 +232,8 @@ const factoryResponse = arccore.filter.create({
                     },
                     render: {
                         html: {
-                            bodyFunction: renderHtmlFunction
+                            bodyFunction: renderHtmlFunction,
+                            renderOptions: request_.appModels.httpRequestProcessor.holismConfig.lifecycle.renderHTML5Options
                         }
                     }
                 }

@@ -2,7 +2,7 @@
 
 // We cherry pick a few namespaces from the input spec and splice them into the output spec
 // for cases where the constructor filter retains a copy of the input request in this._private.
-const inputFilterSpec = require("./HolisticAppServer-method-constructor-filter-input-spec");
+const inputFilterSpec = require("./HolisticNodeService-method-constructor-filter-input-spec");
 
 // Similarly, we cherry pick a few namespaces from filters descriptors exported by the @encapsule/holism RTL.
 const holism = require("@encapsule/holism");
