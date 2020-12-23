@@ -124,10 +124,12 @@ function renderHtmlDocument(request_) {
                 htmlDocumentLines.push(request_.appServiceRequest.renderOptions.documentEpilogueComments);
             }
 
+            /*
             htmlDocumentLines.push(
 `  <!-- Powered by ${appAgentMetadata.platform.name}. GET:/agent for version details. -->
 </html>
 `);
+*/
 
             // Send the string back to @encapsule/holism.
             response.result = htmlDocumentLines.join("");

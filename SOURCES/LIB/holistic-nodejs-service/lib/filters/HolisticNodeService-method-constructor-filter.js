@@ -1,4 +1,12 @@
-// HolisticAppServerService-method-constructor-filter.js
+// HolisticNodeService-method-constructor-filter.js
+
+// v0.0.49-spectrolite
+// Absolutely no question that @encapsule/holism HTTP server is EOL at this point.
+// It cannot carry the weight it needs to w/out sucking time needlessly.
+// We now a much more advanced means of expressing this same logic as a CellModel.
+// But, there's no time to do this work now unfortunately as it would likely take
+// several weeks of focussed effort to pull it off cleanly and build a nice kernel
+// layer for HolisticNodeService similar to what we've built for HolisticHTML5Service.
 
 const path = require("path");
 
@@ -110,7 +118,7 @@ const factoryResponse = arccore.filter.create({
             // Get the derived app server's memory file registration map via our filter.
             const callbackRequest = {
                 appBuild,
-                deploymentEnvironment: "development" // <======== TODO
+                deploymentEnvironment: "development" // <======== TODO THIS IS BLOCKING P1 AT THIS POINT TO FURTHER INTEGRATIONS W/DERIVED APP
             }; // TODO deploymentEnvironment
 
             let filterResponse = getMemoryFileRegistrationMapFilter.request(callbackRequest);
@@ -186,8 +194,9 @@ const factoryResponse = arccore.filter.create({
                     },
                     metadata: {
                         // This doesn't need to be all fancy like this. Metadata has grown beyond just the sphere of @encapsule/holism
-                        // and many of the patterns I devised when I wrote it initially don't make that much sense. Like the org and
+                        // and many of the patterns I devised when I wrote it initially don't make that much sense anymore. Like the org and
                         // app callbacks are utter nonsense we could cut. But, I would have to think about it.
+
                         org: {
                             get: {
                                 bodyFunction: function() {
@@ -218,11 +227,11 @@ const factoryResponse = arccore.filter.create({
                         },
                         session: {
                             get_identity: {
-                                bodyFunction: request_.appModels.httpRequestProcessor.holismConfig.lifecycle.getUserIdentityAssertion,
+                                bodyFunction: request_.appModels.httpRequestProcessor.holismConfig.lifecycle.getUserIdentityAssertion?request_.appModels.httpRequestProcessor.holismConfig.lifecycle.getUserIdentityAssertion:function() { return {error:null, result: undefined }; },
                                 outputFilterSpec: request_.appTypes.userLoginSession.trusted.userIdentityAssertionDescriptorSpec
                             },
                             get_session: {
-                                bodyFunction: request_.appModels.httpRequestProcessor.holismConfig.lifecycle.getUserLoginSession,
+                                bodyFunction: request_.appModels.httpRequestProcessor.holismConfig.lifecycle.getUserLoginSession?request_.appModels.httpRequestProcessor.holismConfig.lifecycle.getUserLoginSession:(function(request_) { setTimeout(function() { request_.result_handler(); },1); return { error: null }; }),
                                 response: {
                                     result_spec: request_.appTypes.userLoginSession.trusted.userLoginSessionReplicaDataSpec,
                                     client_spec: appServiceCore.getClientUserLoginSessionSpec()
