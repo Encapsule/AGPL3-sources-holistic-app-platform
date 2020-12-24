@@ -1,6 +1,7 @@
 
 const arccore = require("@encapsule/arccore");
 const holarchy = require("@encapsule/holarchy");
+const kernelAPMFactory = require("./AbstractProcessModel-app-client-kernel");
 const displayAdapterFactory = require("../HolisticHTML5Service_DisplayAdapter");
 
 // v0.0.49-spectrolite
@@ -9,8 +10,8 @@ const displayAdapterFactory = require("../HolisticHTML5Service_DisplayAdapter");
 
     const factoryResponse = arccore.filter.create({
         operationID: "yYgnnofMQHCjacBRCYNhzQ",
-        operationName: "Holistic Tab Service Kernel CellModel Factory",
-        operationDescription: "Factory filter leveraged by the HolisticTabService class constructor filter to synthesize a specialized holistic tab service kernel CellModel.",
+        operationName: "HolisticHTML5Service_Kernel CellModel Factory",
+        operationDescription: "Factory filter leveraged by the HolisticHTMLService class constructor filter to synthesize a specialized holistic HolisticHTML5Service_Kernel CellModel.",
         inputFilterSpec: {
             ____types: "jsObject",
             appBuild: {
@@ -48,20 +49,30 @@ const displayAdapterFactory = require("../HolisticHTML5Service_DisplayAdapter");
                 const appBuild = request_.appBuild;
 
                 // Synthesize the tab service display adapter CellModel.
-                let factoryRequest = displayAdapterFactory.request(request_);
-                if (factoryRequest.error) {
-                    errors.push(`Cannot synthesize a display adapter CellModel for use by the ${appBuild.app.name} tab service runtime due to error:`);
-                    errors.push(factoryRequest.error);
+                let factoryResponse = displayAdapterFactory.request(request_);
+                if (factoryResponse.error) {
+                    errors.push(`Cannot synthesize a display adapter CellModel for use by the ${appBuild.app.name} HTML5 service kernel due to error:`);
+                    errors.push(factoryResponse.error);
                     break;
                 }
 
-                const displayAdapterCellModel = factoryRequest.result;
+                const displayAdapterCellModel = factoryResponse.result;
+
+                // Synthesize the service kernel's APM.
+                factoryResponse = kernelAPMFactory.request({ appTypes: { bootROMSpec: { ____accept: "jsObject", ____defaultValue: {} } } });
+                if (factoryResponse.error) {
+                    errors.push(`Cannot synthesize service kernel AbstractProcessModel for use by the ${appBuild.app.name} HTML5 service kernel due to error:`);
+                    errors.push(factoryResponse.error);
+                    break;
+                }
+
+                const serviceKernelAPM = factoryResponse.result;
 
                 const cellModel = new holarchy.CellModel({
                     id: "JatYSE8JQj6GxT8AOsbssQ",
                     name: "Holistic Tab Service Kernel Model",
                     description: "Holistic tab service kernel cell manages the overall lifecycle of a tab service and provide base-level services to other cells that implement app-specific features, logic, etc.",
-                    apm: require("./AbstractProcessModel-app-client-kernel"),
+                    apm: serviceKernelAPM,
                     actions: [
                         require("./ControllerAction-app-client-kernel-cell-plane-error"),
                         require("./ControllerAction-app-client-kernel-hook-events"),
