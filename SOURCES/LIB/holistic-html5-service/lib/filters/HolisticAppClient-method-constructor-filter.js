@@ -4,7 +4,7 @@ const arccore = require("@encapsule/arccore");
 const holarchy = require("@encapsule/holarchy");
 const d2r2 = require("@encapsule/d2r2");
 
-const tabServiceCellModelFactory = require("../../HolisticHTML5Service_Kernel");
+const html5ServiceCellModelFactory = require("../../HolisticHTML5Service_Kernel");
 
 const factoryResponse = arccore.filter.create({
     operationID: "Jrc6uiRXS-aCNcQEDNcTug",
@@ -28,20 +28,20 @@ const factoryResponse = arccore.filter.create({
 
             // TODO: We need some stable ID's. I think these should come from appServiceCore? Yea - let's not fuck around...
             // The issue is that ultimately these keys underpin invariant assumptions we want to make about the location
-            // of various cells in Node.js service cellplane and tab service cellplane... More about this when there's more time...
+            // of various cells in Node.js service cellplane and HTML5 service cellplane... More about this when there's more time...
             // TODO: Yea - 2nd thought the way I want to do it will take an hour that doesn't need to be done now
-            // in order to get the current tab service infrastructure dialed back online w/the re-integrated
+            // in order to get the current HTML5 service infrastructure dialed back online w/the re-integrated
             // v0.0.49-spectrolite Node.js service infrastructure.
 
-            const tabServiceCellModelID = arccore.identifier.irut.fromReference(`HolisticTabService.CellModel_1sJqGmKgTPGvPnmce3mlHg_${appBuild.app.name}`).result; // whatever really so long as it's stable. Here the generated IRUT is stable on appBuild.app.name which is likely okay for most people (defined by developer in holistic-app.json manifest).
-            const tabServiceAPMID = arccore.identifier.irut.fromReference(`HolisticTabService.APM_V8HWzGZPQRGXDCEtTpZAMg_${appBuild.app.name}`).result; // as above
-            const tabServiceCellProcessorID = arccore.identifier.irut.fromReference(`HolisticTabService.CellProcessor_1CBI_pNOSoyZDXK4iX77PA_${appBuild.app.name}`).result; // as above
+            const html5ServiceCellModelID = arccore.identifier.irut.fromReference(`HolisticHTML5Service.CellModel_1sJqGmKgTPGvPnmce3mlHg_${appBuild.app.name}`).result; // whatever really so long as it's stable. Here the generated IRUT is stable on appBuild.app.name which is likely okay for most people (defined by developer in holistic-app.json manifest).
+            const html5ServiceAPMID = arccore.identifier.irut.fromReference(`HolisticHTML5Service.APM_V8HWzGZPQRGXDCEtTpZAMg_${appBuild.app.name}`).result; // as above
+            const html5ServiceCellProcessorID = arccore.identifier.irut.fromReference(`HolisticHTML5Service.CellProcessor_1CBI_pNOSoyZDXK4iX77PA_${appBuild.app.name}`).result; // as above
 
             // v0.0.49-spectrolite
 
 
-            // Now, let's build a specialized tab service kernel CellModel for this app service.
-            let factoryResponse = tabServiceCellModelFactory.request({
+            // Now, let's build a specialized HTML5 service kernel CellModel for this app service.
+            let factoryResponse = html5ServiceCellModelFactory.request({
                 appBuild,
                 appModels: {
                     display: {
@@ -54,26 +54,26 @@ const factoryResponse = arccore.filter.create({
                 }
             });
             if (factoryResponse.error) {
-                errors.push(`Unable to synthesize a tab service kernel CellModel for use by ${appBuild.app.name} tab service due to error:`);
+                errors.push(`Unable to synthesize a HTML5 service kernel CellModel for use by ${appBuild.app.name} HTML5 service due to error:`);
                 errors.push(factoryResponse.error);
                 break;
             }
 
-            const tabServiceKernelCellModel = factoryResponse.result;
+            const html5ServiceKernelCellModel = factoryResponse.result;
 
-            // Now, let's go build the final tab service CellModel that represents all the platform and app-specific behaviors required by the tab service runtime.
-            const tabServiceCellModel = new holarchy.CellModel({ // CellModel declaration description object.
+            // Now, let's go build the final HTML5 service CellModel that represents all the platform and app-specific behaviors required by the HTML5 service runtime.
+            const html5ServiceCellModel = new holarchy.CellModel({ // CellModel declaration description object.
 
-                id: tabServiceCellModelID,
-                name: `${appBuild.app.name} Tab Service Model (synthesized)`,
-                description: `Synthesized HolisticTabService runtime CellModel specialized for app service '${appBuild.app.name}'.`,
+                id: html5ServiceCellModelID,
+                name: `${appBuild.app.name} HTML5 Service Model (synthesized)`,
+                description: `Synthesized HolisticHTML5Service runtime CellModel specialized for app service '${appBuild.app.name}'.`,
                 apm: { // AbstractProcessModel declaration descriptor object
-                    id: tabServiceAPMID,
-                    name: `${appBuild.app.name} Tab Service Process (synthesized)`,
-                    description: `Synthesized HolisticTabService runtime AbstractProcessModel for app service '${appBuild.app.name}'.`,
+                    id: html5ServiceAPMID,
+                    name: `${appBuild.app.name} HTML5 Service Process (synthesized)`,
+                    description: `Synthesized HolisticHTML5Service runtime AbstractProcessModel for app service '${appBuild.app.name}'.`,
                     ocdDataSpec: {
-                        ____label: `${appBuild.app.name} Tab Service Process Memory`,
-                        ____description: `The ObservableControllerData filter spec for APM ID '${tabServiceAPMID}' (${appBuild.app.name} synthesized tab service CellModel) that defines APM's cell memory data format.`,
+                        ____label: `${appBuild.app.name} HTML5 Service Process Memory`,
+                        ____description: `The ObservableControllerData filter spec for APM ID '${html5ServiceAPMID}' (${appBuild.app.name} synthesized HTML5 service CellModel) that defines APM's cell memory data format.`,
                         ____types: "jsObject",
                         ____defaultValue: {},
                         kernelProxy: { ____types: "jsObject", ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ } },
@@ -114,8 +114,8 @@ const factoryResponse = arccore.filter.create({
                 // TODO: We have work to do before we do this definition synthesis in order to pre-process the registration set.
                 subcells: [
                     ...request_.appServiceCore.getCellModels(), // All the CellModels aggregated by our HolisticServiceCore instance.
-                    ...request_.appModels.cellModels, // All the CellModels registered by the developer via HolisticTabService::constructor request.
-                    tabServiceKernelCellModel // The synthesized tab service kernel CellModel.
+                    ...request_.appModels.cellModels, // All the CellModels registered by the developer via HolisticHTML5Service::constructor request.
+                    html5ServiceKernelCellModel // The synthesized HTML5 service kernel CellModel.
                 ],
 
                 actions: [
@@ -123,9 +123,9 @@ const factoryResponse = arccore.filter.create({
                     // ControllerAction: holistic.app.client.boot
 
                     {
-                        id: arccore.identifier.irut.fromReference(`${tabServiceCellModelID}::holistic.app.client.start`).result,
-                        name: `${appBuild.app.name} Tab Service Boot Action`,
-                        description: `This action is called by HolisticTabService.start method (typically in SOURCES/CLIENT/client.js) to boot the tab service's re-activation sequence and bring it out of its suspended state as an lifeless HTML5 document.`,
+                        id: arccore.identifier.irut.fromReference(`${html5ServiceCellModelID}::holistic.app.client.start`).result,
+                        name: `${appBuild.app.name} HTML5 Service Boot Action`,
+                        description: `This action is called by HolisticHTML5Service.start method (typically in SOURCES/CLIENT/client.js) to boot the HTML5 service's re-activation sequence and bring it out of its suspended state as an lifeless HTML5 document.`,
                         actionRequestSpec: {
                             ____types: "jsObject",
                             holistic: {
@@ -160,7 +160,7 @@ const factoryResponse = arccore.filter.create({
                                                 processCoordinates: { apmID: "PPL45jw5RDWSMNsB97WIWg" /* Holistic App Client Kernel */ },
                                                 activate: {
                                                     processData: {
-                                                        derivedAppClientProcessCoordinates: { apmID: tabServiceAPMID }
+                                                        derivedAppClientProcessCoordinates: { apmID: html5ServiceAPMID }
                                                     }
                                                 },
                                             }
@@ -181,11 +181,11 @@ const factoryResponse = arccore.filter.create({
                                         CellProcessor: {
                                             process: {
                                                 processCoordinates: {
-                                                    apmID: tabServiceAPMID // X tab service APM ID (synthesized)
+                                                    apmID: html5ServiceAPMID // X HTML5 service APM ID (synthesized)
                                                 },
                                                 activate: {
                                                     processData: {
-                                                        appClientRuntime: undefined // v0.0.49-spectrolite --- take the default here for now and let tabService APM sort it out in its OCD spec.
+                                                        appClientRuntime: undefined // v0.0.49-spectrolite --- take the default here for now and let html5Service APM sort it out in its OCD spec.
                                                     }
                                                 },
                                             }
@@ -210,9 +210,9 @@ const factoryResponse = arccore.filter.create({
                     // ----------------------------------------------------------------
                     // ControllerAction: holistic.app.client.lifecycle.init
                     {
-                        id: arccore.identifier.irut.fromReference(`${tabServiceCellModelID}::holistic.app.client.lifecycle.init`).result,
+                        id: arccore.identifier.irut.fromReference(`${html5ServiceCellModelID}::holistic.app.client.lifecycle.init`).result,
                         name: `${appBuild.app.name} App Client Lifecycle Action: Init`,
-                        description: `This action is dispatched by the tab service kernel to inform ${appBuild.app.name} service logic that it is time to configure/initialize any library and/or runtime code that is **EXTERNAL** to the tab service instance. It's unclear anybody actually needs this. If not, then it will get removed.`,
+                        description: `This action is dispatched by the HTML5 service kernel to inform ${appBuild.app.name} service logic that it is time to configure/initialize any library and/or runtime code that is **EXTERNAL** to the HTML5 service instance. It's unclear anybody actually needs this. If not, then it will get removed.`,
                         actionRequestSpec: {
                             ____types: "jsObject",
                             holistic: {
@@ -232,14 +232,14 @@ const factoryResponse = arccore.filter.create({
                             }
                         },
                         actionResultSpec: { ____accept: "jsUndefined" }, // The app client kernel does not care what the app client runtime does inside of its lifecycle init action.
-                        bodyFunction: request_.appModels.tabServiceConfig.lifecycle.initFunction
+                        bodyFunction: request_.appModels.html5ServiceConfig.lifecycle.initFunction
                     },
                     // ----------------------------------------------------------------
                     // ControllerAction: holistic.app.client.lifecycle.query
                     {
-                        id: arccore.identifier.irut.fromReference(`${tabServiceCellModelID}::holistic.app.client.lifecycle.query`).result,
+                        id: arccore.identifier.irut.fromReference(`${html5ServiceCellModelID}::holistic.app.client.lifecycle.query`).result,
                         name: `${appBuild.app.name} App Client Lifecycle Action: Query`,
-                        description: `This action is dispatched by the tab service kernel to query ${appBuild.app.name} service logic for runtime config and init options known only once the tab service boot process starts.`,
+                        description: `This action is dispatched by the HTML5 service kernel to query ${appBuild.app.name} service logic for runtime config and init options known only once the HTML5 service boot process starts.`,
                         actionRequestSpec: {
                             ____types: "jsObject",
                             holistic: {
@@ -261,66 +261,16 @@ const factoryResponse = arccore.filter.create({
                         actionResultSpec: {
                             ____label: "Holistic App Client Runtime Query Result",
                             ____types: "jsObject",
-                            ____defaultValue: {},
-                            // NOPE: in v0.0.49-spectrolite these are not handled at tab service boot because metadata is cooked now in HolisticServiceCore for everyone at all layers.
-                            // And, we now explicitly manage d2r2 components as input "appModels" and now derive the d2r2 component set from a merge of multiple app service and platform service sources.
-                            // This here was a foolish mistake that violates a lot of my own rules. Getting it the hell out of here now is overdue.
-                            /*
-                            appMetadata: {
-                                ____label: "Application Common Metadata",
-                                ____description: "The schema (via filter specs) and static values for derived-application-specific metadata that is presumed to be created by hand. Or, synthesized via some manual or automated build process to be used to answer app metadata queries from active cells.",
-                                ____types: "jsObject",
-                                constraints: {
-                                    ____label: "Application Common Metadata Contraints",
-                                    ____types: "jsObject",
-                                    org: {
-                                        ____label: "Organization Metadata Spec",
-                                        ____description: "A filter spec that constrains the data stored about the organization publishing this application/site/service.",
-                                        ____accept: "jsObject"
-                                    },
-                                    app: {
-                                        ____label: "Application Metadata Spec",
-                                        ____description: "A filter spec that constrains the data stored about this specific application/site/service.",
-                                        ____accept: "jsObject"
-                                    },
-                                    page: {
-                                        ____label: "Page Metadata Spec",
-                                        ____description: "A filter spec that constrains the data stored about a specific server synthesized page view (i.e. a serialized HTML5 app client process produced by a GET:/X service request that responded w/Content-Encoding: utf Content-Type: text/html).",
-                                        ____accept: "jsObject"
-                                    },
-                                    hashroute: {
-                                        ____label: "Hashroute Metadata Spec",
-                                        ____description: "A filter spec that constrains the data stored about a specific client-side hashroute. This information can be used for a variety of different purposes.",
-                                        ____accept: "jsObject"
-                                    }
-                                },
-                                values: {
-                                    ____label: "Application Common Metadata Values",
-                                    ____description: "Application-specific metadata values to be used to build the holistic app metadata digraph that services app metadata queries from active cells in the app client cellplane.",
-                                    ____types: "jsObject",
-                                    org: { ____accept: "jsObject" },
-                                    app: { ____accept: "jsObject" },
-                                    pages: { ____accept: "jsObject" },
-                                    hashroutes: { ____accept: "jsObject" }
-                                }
-
-                            },
-                            d2r2ComponentsArray: {
-                                ____label: "Application-Defined d2r2 Components Array",
-                                ____types: "jsArray",
-                                ____defaultValue: [],
-                                d2r2Component: { ____accept: "jsObject" }
-                            }
-                            */
+                            ____defaultValue: {}, // v0.0.49-spectrolite - we have not actually defined any kernel/app service protocol here so just ignore for now. TODO: Good that we put this here. Bad, that it's in the developer API unused. Should be removed from dev-facing API and possibly removed entirely?
                         },
-                        bodyFunction: request_.appModels.tabServiceConfig.lifecycle.queryFunction
+                        bodyFunction: request_.appModels.html5ServiceConfig.lifecycle.queryFunction
                     },
                     // ----------------------------------------------------------------
                     // ControllerAction: holistic.app.client.lifecycle.deserialize
                     {
-                        id: arccore.identifier.irut.fromReference(`${tabServiceCellModelID}::holistic.app.client.lifecycle.deserialize`).result,
+                        id: arccore.identifier.irut.fromReference(`${html5ServiceCellModelID}::holistic.app.client.lifecycle.deserialize`).result,
                         name: `${appBuild.app.name} App Client Lifecycle Action: Deserialize`,
-                        description: `This action is dispatched by the tab service kernel to give the ${appBuild.app.name} service logic a chance to deserialize app-specific portions of the tab service's bootROM data.`,
+                        description: `This action is dispatched by the HTML5 service kernel to give the ${appBuild.app.name} service logic a chance to deserialize app-specific portions of the HTML5 service's bootROM data.`,
                         actionRequestSpec: {
                             ____types: "jsObject",
                             holistic: {
@@ -350,14 +300,14 @@ const factoryResponse = arccore.filter.create({
                                 ____defaultValue: {}
                             }
                         },
-                        bodyFunction: request_.appModels.tabServiceConfig.lifecycle.deserializeFunction
+                        bodyFunction: request_.appModels.html5ServiceConfig.lifecycle.deserializeFunction
                     },
                     // ----------------------------------------------------------------
                     // ControllerAction: holistic.app.client.lifecycle.config
                     {
-                        id: arccore.identifier.irut.fromReference(`${tabServiceCellModelID}::holistic.app.client.lifecycle.config`).result,
+                        id: arccore.identifier.irut.fromReference(`${html5ServiceCellModelID}::holistic.app.client.lifecycle.config`).result,
                         name: `${appBuild.app.name} App Client Lifecycle Action: Config`,
-                        description: `This action is invoked by the tab service kernel to inform ${appBuild.app.name} service logic to configure itself and perform its final preparation(s) (if any) in advance of receipt of lifecycle 'start' action.`,
+                        description: `This action is invoked by the HTML5 service kernel to inform ${appBuild.app.name} service logic to configure itself and perform its final preparation(s) (if any) in advance of receipt of lifecycle 'start' action.`,
                         actionRequestSpec: {
                             ____types: "jsObject",
                             holistic: {
@@ -385,14 +335,14 @@ const factoryResponse = arccore.filter.create({
                             }
                         },
                         actionResultSpec: { ____accept: "jsUndefined" /*currently we take nothing back*/},
-                        bodyFunction: request_.appModels.tabServiceConfig.lifecycle.configFunction
+                        bodyFunction: request_.appModels.html5ServiceConfig.lifecycle.configFunction
                     },
                     // ----------------------------------------------------------------
                     // ControllerAction: holistic.app.client.lifecycle.start
                     {
-                        id: arccore.identifier.irut.fromReference(`${tabServiceCellModelID}::holistic.app.client.lifecycle.start`).result,
+                        id: arccore.identifier.irut.fromReference(`${html5ServiceCellModelID}::holistic.app.client.lifecycle.start`).result,
                         name: `${appBuild.app.name} App Client Lifecycle Action: Start`,
-                        description: `This action is invoked by the tab service kernel to inform ${appBuild.app.name} service logic that the kernel has completed its boot process and is yielding control of the tab service to {$appBuild.app.name} service logic.`,
+                        description: `This action is invoked by the HTML5 service kernel to inform ${appBuild.app.name} service logic that the kernel has completed its boot process and is yielding control of the HTML5 service to {$appBuild.app.name} service logic.`,
                         actionRequestSpec: {
                             ____types: "jsObject",
                             holistic: {
@@ -412,14 +362,14 @@ const factoryResponse = arccore.filter.create({
                             }
                         },
                         actionResultSpec: { ____opaque: true /*TODO*/ },
-                        bodyFunction: request_.appModels.tabServiceConfig.lifecycle.startFunction
+                        bodyFunction: request_.appModels.html5ServiceConfig.lifecycle.startFunction
                     },
                     // ----------------------------------------------------------------
                     // ControllerAction: holistic.app.client.lifecycle.hashroute
                     {
-                        id: arccore.identifier.irut.fromReference(`${tabServiceCellModelID}::holistic.app.client.lifecycle.hashroute`).result,
+                        id: arccore.identifier.irut.fromReference(`${html5ServiceCellModelID}::holistic.app.client.lifecycle.hashroute`).result,
                         name: `${appBuild.app.name} App Client Lifecycle Action: Hashroute`,
-                        description: `This action is invoked by the tab service kernel to inform ${appBuild.app.name} service logic that a hash change event has been fired by the DOM indicating a user modification (via their browser e.g. forward/back/manual/bookmark/link) or programmatic (via window.replace/window.location=) update of current tab service routing info.`,
+                        description: `This action is invoked by the HTML5 service kernel to inform ${appBuild.app.name} service logic that a hash change event has been fired by the DOM indicating a user modification (via their browser e.g. forward/back/manual/bookmark/link) or programmatic (via window.replace/window.location=) update of current HTML5 service routing info.`,
                         actionRequestSpec: {
                             ____types: "jsObject",
                             holistic: {
@@ -489,14 +439,14 @@ const factoryResponse = arccore.filter.create({
                             }
                         },
                         actionResultSpec: { ____opaque: true /*TODO*/ },
-                        bodyFunction: request_.appModels.tabServiceConfig.lifecycle.hashrouteFunction
+                        bodyFunction: request_.appModels.html5ServiceConfig.lifecycle.hashrouteFunction
                     },
                     // ----------------------------------------------------------------
                     // ControllerAction: holistic.app.client.lifecycle.error
                     {
-                        id: arccore.identifier.irut.fromReference(`${tabServiceCellModelID}::holistic.app.client.lifecycle.error`).result,
+                        id: arccore.identifier.irut.fromReference(`${html5ServiceCellModelID}::holistic.app.client.lifecycle.error`).result,
                         name: `${appBuild.app.name} App Client Lifecycle Action: Error`,
-                        description: `This action is invoked by the tab service kernel to inform ${appBuild.app.name} service logic that one or more unrecoverable runtime cellplane evaluation faults (errors) have occurred.`,
+                        description: `This action is invoked by the HTML5 service kernel to inform ${appBuild.app.name} service logic that one or more unrecoverable runtime cellplane evaluation faults (errors) have occurred.`,
                         actionRequestSpec: {
                             ____types: "jsObject",
                             holistic: {
@@ -544,55 +494,38 @@ const factoryResponse = arccore.filter.create({
                             ____accept: "jsString",
                             ____defaultValue: "okay"
                         },
-                        bodyFunction: request_.appModels.tabServiceConfig.lifecycle.errorFunction
+                        bodyFunction: request_.appModels.html5ServiceConfig.lifecycle.errorFunction
                     }
 
                 ]
 
             }); // new CellModel
 
-            if (!tabServiceCellModel.isValid()) {
-                errors.push(`Unable to synthesize the ${appBuild.app.name} tab service's main @encapsule/holarchy CellModel due to error:`);
-                errors.push(tabServiceCellModel.toJSON());
+            if (!html5ServiceCellModel.isValid()) {
+                errors.push(`Unable to synthesize the ${appBuild.app.name} HTML5 service's main @encapsule/holarchy CellModel due to error:`);
+                errors.push(html5ServiceCellModel.toJSON());
                 break;
             }
 
-            response.result.serviceModel = tabServiceCellModel;
+            response.result.serviceModel = html5ServiceCellModel;
 
             // And, finally... Load the service cell model into a new CellProcessor instance
             // and let the cell process manager initialize.
 
-            const tabServiceRuntime = new holarchy.CellProcessor({
-                id: tabServiceCellProcessorID,
+            const html5ServiceRuntime = new holarchy.CellProcessor({
+                id: html5ServiceCellProcessorID,
                 name: appBuild.app.name,
-                description: `${appBuild.app.name} Tab Service Runtime`,
-                cellmodel: tabServiceCellModel
+                description: `${appBuild.app.name} HTML5 Service Runtime`,
+                cellmodel: html5ServiceCellModel
             });
 
-            if (!tabServiceRuntime.isValid()) {
-                errors.push(`Unable to initialize the ${appBuild.app.name} tab service's @encapsule/holarchy CellProcessor runtime host due to error:`);
-                errors.push(tabServiceRuntime.toJSON());
+            if (!html5ServiceRuntime.isValid()) {
+                errors.push(`Unable to initialize the ${appBuild.app.name} HTML5 service's @encapsule/holarchy CellProcessor runtime host due to error:`);
+                errors.push(html5ServiceRuntime.toJSON());
                 break;
             }
 
-            response.result.serviceRuntime = tabServiceRuntime;
-
-            /*
-              /// NO NO ---- NOT HERE. This happens upstairs in HolisticTabService.boot() method.
-            // START THE APP CLIENT CELL PROCESS
-            stopwatch.mark("... calling CellProcessor.act to create Holistic App Client Kernel process.");
-            clientBootstrapPhaseMessage = "vp5_client_bootstrap_start_client_app_kernel";
-            let actResponse;
-            actResponse = window.vpcp.act({
-                actorName: "Viewpath5 App Client Bootstrap",
-                actorTaskDescription: "Attempt to activate the Viewpath5 app client process.",
-                actionRequest: { holistic: { app: { client: { boot: {} } } } }
-            });
-            if (actResponse.error) {
-                error = { phase: clientBootstrapPhaseMessage, message: actResponse.error  };
-                break;
-            }
-            */
+            response.result.serviceRuntime = html5ServiceRuntime;
 
             break;
         }

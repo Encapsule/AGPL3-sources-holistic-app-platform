@@ -94,6 +94,12 @@ module.exports = {
                 ____description: "A reference to an @encapsule/holarchy CellModel instance the represents some behavior or feature to be used in HolisticNodeService or HolisticTabService.",
                 ____accept: "jsObject" // This is a CellModel class instance reference
             }
+        },
+
+        serviceBootROMSpec: {
+            ____label: "Service BootROM Spec",
+            ____description: "The type-specialized filter specification used to ensure the format of values serialized by HolisticNodeService into a new HolisticHTML5Service's bootROM (base64-encoded JSON serialized into HTML5 documents synthesized by HolisticNodeService).",
+            ____accept: "jsObject"
         }
 
     }
