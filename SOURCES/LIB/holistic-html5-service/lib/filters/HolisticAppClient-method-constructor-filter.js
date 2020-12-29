@@ -43,6 +43,9 @@ const factoryResponse = arccore.filter.create({
             // Now, let's build a specialized HTML5 service kernel CellModel for this app service.
             let factoryResponse = html5ServiceCellModelFactory.request({
                 appBuild,
+                appTypes: {
+                    bootROMSpec: request_.appServiceCore.getServiceBootROMSpec()
+                },
                 appModels: {
                     display: {
                         targetDOMElementID: request_.appServiceCore.getTargetDOMElementID(),

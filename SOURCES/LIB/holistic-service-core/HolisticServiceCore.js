@@ -57,7 +57,7 @@ class HolisticServiceCore {
             this.getDisplayComponents = this.getDisplayComponents.bind(this);
             this.getCellModels = this.getCellModels.bind(this);
             this.getTargetDOMElementID = this.getTargetDOMElementID.bind(this);
-            this.getServiceBootROMSpec = this.getServiceBootROMSpec(this);
+            this.getServiceBootROMSpec = this.getServiceBootROMSpec.bind(this);
             let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
@@ -96,7 +96,7 @@ class HolisticServiceCore {
         return (this.isValid()?this._private.nonvolatile.appCommonDefinition.appData.appConfig.display.targetDOMElementID:this.toJSON());
     }
     getServiceBootROMSpec() {
-        return false;
+        return (this.isValid()?this._private.nonvolatile.serviceBootROMSpec:this.toJSON());
     }
 
 }

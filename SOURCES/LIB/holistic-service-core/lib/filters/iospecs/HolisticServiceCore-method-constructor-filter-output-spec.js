@@ -102,7 +102,7 @@ module.exports = {
             ____accept: "jsObject"
         }
 
-    }
+    } // ~.nonvolatile (We may enforce this w/recursive Object.freeze later). We presume this data invariant for lifespan of a holistic service. Do not change it.
 };
 
 

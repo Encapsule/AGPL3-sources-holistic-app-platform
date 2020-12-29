@@ -35,7 +35,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
             appTypes: {
                 ____types: "jsObject",
                 bootROMSpec: {
-                    ____accept: "jsObject" // This is pre-synthesized filter spec for the bootROM (base64-encoded JSON serialized into HTML5 document by HolisticNodeService instance) deserialized by HolisticHTML5Service_Kernel process upon activation/boot
+                    ____accept: "jsObject" // This is pre-synthesized filter spec for the bootROM data (base64-encoded JSON serialized into HTML5 document by HolisticNodeService instance) serialzed by HolisticNodeService and deserialized by HolisticHTML5Service_Kernel process upon activation/boot.
                 }
             }
         },
@@ -116,7 +116,10 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                             ____defaultValue: false
                         },
 
-                        bootROMData: request_.appTypes.bootROMSpec,
+                        bootROMData: {
+                            ...request_.appTypes.bootROMSpec,
+                            ____types: [ "jsUndefined" , "jsObject" ] // This is set by the HolisticHTML5Service kernel process during boot once the window.onload even has fired and we know the data can be safely deserialized and validated/normalized.
+                        },
 
                         // v0.0.49-spectrolite confirm the details here. Do we need this. What's this again?
                         // We propogate the error through the app client kernel on the way to the app and take note
@@ -209,23 +212,34 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                             description: "Waiting for the browser to finish load/parse of the current HTML5 document so that we can safely presume all the resources that it references are accessible.",
                             transitions: [
                                 // TODO: update this signature; it's an intrinsic part of @encapsule/holarchy so should live in CellProcessor request space.
-                                { transitionIf: { holarchy: { cm: { operators: { ocd: { isBooleanFlagSet: { path: "#.windowLoaded" } } } } } },  nextStep: "kernel-signal-lifecycle-deserialize" }
+                                { transitionIf: { holarchy: { cm: { operators: { ocd: { isBooleanFlagSet: { path: "#.windowLoaded" } } } } } },  nextStep: "kernel-deserialize-bootROM" }
+                            ]
+                        },
+
+                        "kernel-deserialize-bootROM": {
+                            description: "Analyzing the contents of the HTML5 service's bootROM contents to determine which of several possible boot strategies to pursue from this step in the kernel boot process forward.",
+                            actions: {
+                                exit: [
+                                    { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "deserialize-bootROM-data" } } } } } } }
+                                ]
+                            },
+                            transitions: [
+                                { transitionIf: { always: true }, nextStep: "kernel-signal-lifecycle-deserialize" }
                             ]
                         },
 
                         /*
-                          "kernel-load-analyze-bootROM": {
-                          description: "Analyzing the contents of the HTML5 service's bootROM contents to determine which of several possible boot strategies to pursue from this step in the kernel boot process forward.",
+                        "kernel-analyze-bootROM": {
+                            "Analyzing the results of bootROM deserialization.",
+                            transitions: [
+                                {
+                                    transitionIf: { holarchy: { cm: { operators: { ocd: { compare: { values: { a: { path: "#.bootROMData" } } } } } } } }
+                                }
 
-                          transitions: [
-
-                          {
-                          transitionIf: { holarchy: { cm: { operators: { ocd: { compare: { values: { a: { path: "#.bootROMData. } } } } } } }
-
-                          ]
-
-                          },
+                            ]
+                        }
                         */
+
 
                         "kernel-signal-lifecycle-deserialize": {
                             description: "Informing the derived holistic app client process that it is time to deserialize derived-application-specific init data written into the now loaded and ready HTML5 document by the holistic app server.",

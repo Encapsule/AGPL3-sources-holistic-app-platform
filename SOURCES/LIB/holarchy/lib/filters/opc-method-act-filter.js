@@ -64,6 +64,11 @@ const factoryResponse = arccore.filter.create({
                     actorTaskDescription: request_.actorTaskDescription
                 });
 
+                if (initialActorStackDepth === 1) {
+                    console.log("================================================================");
+                    console.log("> EXTERNAL ACTION REQUEST RECEIVED...");
+                }
+
                 // Log the start of the action.
                 logger.request({
                     opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
@@ -184,7 +189,8 @@ const factoryResponse = arccore.filter.create({
 
                     });
 
-
+                    console.log("> EXTERNAL ACTION REQUEST PROCESSED.");
+                    console.log("================================================================");
 
                     if (evaluateResponse.error) {
                         errors.push("Unable to evaluate OPC state after executing controller action due to error:");
