@@ -101,30 +101,30 @@ try {
     console.log("> Registered mock for @encapsule/d2r2-components");
     mockery.registerMock("@encapsule/d2r2-components", local_d2r2Components);
 
-
+    // As of v0.0.49-spectrolite this RTL package exports nothing. I have plans for it later. But for now it's just an empty placeholder.
     console.log("> Loading repo-local copy of @encapsule/holarchy-cm");
     const local_holarchyCM = require("../PACKAGES/holarchy-cm");
 
     console.log("> Registering mock for @encapsule/holarchy-cm");
     mockery.registerMock("@encapsule/holarchy-cm", local_holarchyCM);
 
-    console.log("> Loading repo-local copy of @encapsule/holistic-app-common-cm");
-    const local_holisticAppCommonCM = require("../PACKAGES/holistic-app-common-cm");
+    console.log("> Loading repo-local copy of @encapsule/holistic-service-core");
+    const local_holisticServiceCore = require("../PACKAGES/holistic-service-core");
 
-    console.log("> Registering mock for @encapsule/holistic-app-common-cm");
-    mockery.registerMock("@encapsule/holistic-app-common-cm", local_holisticAppCommonCM);
+    console.log("> Registering mock for @encapsule/holistic-service-core");
+    mockery.registerMock("@encapsule/holistic-service-core", local_holisticServiceCore);
 
-    console.log("> Loading repo-local copy of @encapsule/holistic-app-client-cm");
-    const local_holisticAppClientCM = require("../PACKAGES/holistic-app-client-cm");
+    console.log("> Loading repo-local copy of @encapsule/holistic-html5-service");
+    const local_holisticHTML5Service = require("../PACKAGES/holistic-html5-service");
 
-    console.log("> Registering mock for @encapsule/holistic-app-client-cm");
-    mockery.registerMock("@encapsule/holistic-app-client-cm", local_holisticAppClientCM);
+    console.log("> Registering mock for @encapsule/holistic-html5-service");
+    mockery.registerMock("@encapsule/holistic-html5-service", local_holisticHTML5Service);
 
-    console.log("> Loading repo-local copy of @encapsule/holistic-app-server-cm");
-    const local_holisticAppServerCM = require("../PACKAGES/holistic-app-server-cm");
+    console.log("> Loading repo-local copy of @encapsule/holistic-nodejs-service");
+    const local_holisticNodeService = require("../PACKAGES/holistic-nodejs-service");
 
-    console.log("> Registering mock for @encapsule/holistic-app-server-cm");
-    mockery.registerMock("@encapsule/holistic-app-server-cm", local_holisticAppServerCM);
+    console.log("> Registering mock for @encapsule/holistic-nodejs-service");
+    mockery.registerMock("@encapsule/holistic-nodejs-service", local_holisticNodeService);
 
     console.log("> Loading repo-local copy of @encapsule/holodeck-assets");
     const local_holodeckAssets = require("../PACKAGES/holodeck-assets");

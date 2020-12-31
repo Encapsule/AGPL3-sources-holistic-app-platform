@@ -8,10 +8,10 @@ const html5ServiceCellModelFactory = require("../../HolisticHTML5Service_Kernel"
 
 const factoryResponse = arccore.filter.create({
     operationID: "Jrc6uiRXS-aCNcQEDNcTug",
-    operationName: "HolisticAppClientService::constructor Filter",
-    operationDescription: "Validates/normalizes a HolisticAppClientService::constructor function request descriptor object. And, returns the new instance's private state data.",
-    inputFilterSpec: require("./iospecs/HolisticAppClient-method-constructor-filter-input-spec"),
-    outputFilterSpec: require("./iospecs/HolisticAppClient-method-constructor-filter-output-spec"),
+    operationName: "HolisticHTML5Service::constructor Filter",
+    operationDescription: "Validates/normalizes a HolisticHTML5Service::constructor function request descriptor object. And, returns the new instance's private state data.",
+    inputFilterSpec:  require("./iospecs/HolisticHTML5Service-method-constructor-filter-input-spec"),
+    outputFilterSpec: require("./iospecs/HolisticHTML5Service-method-constructor-filter-output-spec"),
     bodyFunction: function(request_) {
         let response = { error: null };
         let errors = [];
