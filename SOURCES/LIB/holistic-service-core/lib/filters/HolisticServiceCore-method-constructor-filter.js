@@ -207,6 +207,7 @@ const appServiceBootROMSpecFactory = require("./iospecs/app-service-boot-rom-spe
                     appTypes: {
                         metadata: {
                             specs: {
+                                // TODO: v0.0.49-spectrolite why is this sitting dangling here unspecified? Follow this down. No quarter for metadata bugs anywhere...
                             }
                         }
                     },
@@ -234,9 +235,13 @@ const appServiceBootROMSpecFactory = require("./iospecs/app-service-boot-rom-spe
                 // - HolisticHTML5Service: ... is initially activated inside a HolisticNodeService instance service filter context and subsequently serialized to HTML5 doc where it is deserialized by the HolisticHTML5Service kernel process during standard boot and service initialization sequence.
 
                 const bootROMSynthResponse = appServiceBootROMSpecFactory.request({
-                    httpResponseDispositionSpec: { ____accept: "jsObject" },
-                    pageMetadataOverrideFieldsSpec: { ____accept: "jsObject" },
-                    serverAgentSpec: { ____accept: "jsObject" },
+                    httpResponseDispositionSpec: {
+                        ____types: "jsObject",
+                        code: { ____accept: "jsNumber" },
+                        message: { ____accept: "jsString" }
+                    },
+                    pageMetadataOverrideFieldsSpec: { ____accept: "jsObject" }, // TODO 
+                    serverAgentSpec: { ____accept: "jsObject" }, // TODO 
                     userLoginSessionDataSpec: response.result.nonvolatile.appCommonDefinition.appTypes.userLoginSession.untrusted.clientUserLoginSessionSpec
                 });
 

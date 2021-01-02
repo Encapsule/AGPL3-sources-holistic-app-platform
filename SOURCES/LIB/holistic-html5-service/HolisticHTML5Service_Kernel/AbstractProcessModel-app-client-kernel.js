@@ -217,62 +217,36 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                         },
 
                         "kernel-deserialize-bootROM": {
-                            description: "Analyzing the contents of the HTML5 service's bootROM contents to determine which of several possible boot strategies to pursue from this step in the kernel boot process forward.",
+                            description: "The bootROM data serialized to this HTML5 document by HolisticNodeService has been deserialized by HolisticHTML5Service.",
                             actions: {
-                                exit: [
+                                enter: [
                                     { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "deserialize-bootROM-data" } } } } } } }
                                 ]
                             },
                             transitions: [
-                                { transitionIf: { always: true }, nextStep: "kernel-signal-lifecycle-deserialize" }
+                                { transitionIf: { always: true }, nextStep: "kernel-complete-subprocess-initializations" }
                             ]
                         },
 
-                        /*
-                        "kernel-analyze-bootROM": {
-                            "Analyzing the results of bootROM deserialization.",
-                            transitions: [
-                                {
-                                    transitionIf: { holarchy: { cm: { operators: { ocd: { compare: { values: { a: { path: "#.bootROMData" } } } } } } } }
-                                }
-
-                            ]
-                        }
-                        */
-
-
-                        "kernel-signal-lifecycle-deserialize": {
-                            description: "Informing the derived holistic app client process that it is time to deserialize derived-application-specific init data written into the now loaded and ready HTML5 document by the holistic app server.",
+                        "kernel-complete-subprocess-initializations": {
+                            description: "Completing subprocess initializations using information obtained from the deserialized bootROM.",
                             actions: {
                                 enter: [
+                                    // Rehydrate the display process in whatever state it was left in immediately prior to being serialized to an HTML5 document.
+                                    { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "activate-display-adapter" } } } } } } },
                                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.deserialize", actionRequest: { holistic:{ app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "deserialize" } } } } } } } } } } },
-                                    { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "activate-display-adapter" } } } } } } }
-                                ]
-                            },
-                            transitions: [
-                                { transitionIf: { always: true }, nextStep: "kernel-signal-lifecycle-config" }
-                            ]
-                        },
-
-                        "kernel-signal-lifecycle-config": {
-                            description: "Informing the derived holistic app client process that it is time to perform its final configuration steps before the client application is started.",
-                            actions: {
-                                enter: [
                                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.config", actionRequest: { holistic: { app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "config" } } } } } } } } } } }
                                 ]
                             },
                             transitions: [
-                                { transitionIf: { always: true }, nextStep: "kernel-start-display-adapter" }
-                            ]
-                        },
-
-                        "kernel-start-display-adapter": {
-                            description: "Updating the current page view display to show the welcome message to the user. And, make any final preparations needed before handing control of the display adapter over to the derived HTML5 service logic.",
-                            actions: {
-                                enter: [ { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "start-display-adapter" } } } } } } } ]
-                            },
-                            transitions: [
-                                { transitionIf: { holarchy: { cm: { operators: { ocd: { isBooleanFlagSet: { path: "#.displayReady" } } } } } },  nextStep: "kernel-signal-lifecycle-start" }
+                                {
+                                    transitionIf: { holarchy: { cm: { operators: { ocd: { compare: { values: { operator: "===", a: { path: "#.bootROMData.initialDisplayData.httpResponseDisposition.code" }, b: { value: 200 } } } } } } } },
+                                    nextStep: "kernel-signal-lifecycle-start"
+                                },
+                                {
+                                    transitionIf: { always: true },
+                                    nextStep: "kernel-service-offline-standby"
+                                }
                             ]
                         },
 
@@ -289,7 +263,12 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                         },
 
                         "kernel-service-ready": {
-                            description: "The holistic app client kernel process will now stop evaluating in the cell plane and will continue as an active cell servicing runtime requests from the derived app client service process (and its delegates).",
+                            description: "The HolisticHTML5Service kernel process will now stop evaluating in the cell plane and will continue as an active cell servicing runtime requests from the derived app client service process (and its delegates).",
+                        },
+
+                        "kernel-service-offline-standby": {
+                            description: "The HolisticHTML5Service kernel process is offline due to an error synthesizing a specialized service configuration to execute in this browser tab instance."
+                            // For now just sit here and do nothing more on a server error.
                         }
 
                     } // steps
