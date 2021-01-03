@@ -71,7 +71,7 @@ function renderHtmlDocument(request_) {
                     httpResponseDisposition: request_.appServiceContext.httpContext.httpResponse.disposition,
                     pageMetadata: request_.appServiceContext.metadataContext.common.page
                 },
-                loginSessionData: request_.appServiceRequest.loginSessionData,
+                userLoginSessionData: request_.appServiceRequest.userLoginSessionData,
                 serverAgent: request_.appServiceContext.metadataContext.server.agent,
             });
 
@@ -123,13 +123,6 @@ function renderHtmlDocument(request_) {
             if (request_.appServiceRequest.renderOptions.documentEpilogueComments) {
                 htmlDocumentLines.push(request_.appServiceRequest.renderOptions.documentEpilogueComments);
             }
-
-            /*
-            htmlDocumentLines.push(
-`  <!-- Powered by ${appAgentMetadata.platform.name}. GET:/agent for version details. -->
-</html>
-`);
-*/
 
             // Send the string back to @encapsule/holism.
             response.result = htmlDocumentLines.join("");
