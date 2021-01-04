@@ -6,7 +6,7 @@
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
-        "year": 2020
+        "year": 2021
     },
     "contributors": [
         {
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "FyCTM0vDQLWoBDAW68GfCQ",
-    "buildSource": "a120282d42bdcf464cb4fffe6b88345b93f2bbd9",
-    "buildTime": 1609374007,
-    "buildDateISO": "2020-12-31T00:20:07.000Z"
+    "buildID": "vFmzS-RlRT6sSOo9q-3yuw",
+    "buildSource": "3b528a417faf9c94600e7c6202ccd690f201f247",
+    "buildTime": 1609747772,
+    "buildDateISO": "2021-01-04T08:09:32.000Z"
 }
