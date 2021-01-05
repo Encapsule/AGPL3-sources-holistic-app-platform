@@ -69,7 +69,22 @@ module.exports = {
                 ____types: "jsObject",
                 ____defaultValue: {},
 
-                options: { ...holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.options },
+                deploymentEnvironmentFlag: {
+                    ____label: "HolisticNodeService Deployment Mode Flag",
+                    ____description: "A flag set by the derived application's backend Node.js service bootstrap SOURCES/SERVER/server.js using whatever protocol it chooses. This flag is constrained to be one of four predefined string values that is passed on to registered @encapsule/holism service filter plug-ins as an _informational_ cue.",
+                    ____accept: "jsString",
+                    ____inValueSet: [
+                        "development", // App server process is listening on http://localhost:<listening_port> and presumed to be communicating directly with the application's cloud-deployed storage implementation executing in the test environment.
+                        "test",        // App server process is deployed on a cloud provider and is available at some URL that the @encapsule/holism app server itself doesn't care about. By convention, the test environment is used for experimentation and feature testing.
+                        "staging",     // App server process is deployed on a cloud provider and is available at some URL that the @encapsule/holism app server itself doesn't care about. By convention, the staging environment is a non-public internal build of the derived app used to vet new features before public release to production environment.
+                        "production"   // App server process is deployed on a cloud provider and is available at some URL that the @encapsule/holism app server itself doesn't care about. By convention, the production environment is mapped to a publicly accessible domain and is what users see as the derived "application" - just a URL.
+                    ],
+                    ____defaultValue: "development"
+                },
+
+                options: {
+                    ...holism.filters.factories.server.filterDescriptor.inputFilterSpec.config.options,
+                },
 
                 registrations: {
                     ____label: "Derived App Service Server Integration Registrations",

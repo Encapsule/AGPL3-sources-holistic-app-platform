@@ -118,8 +118,8 @@ const factoryResponse = arccore.filter.create({
             // Get the derived app server's memory file registration map via our filter.
             const callbackRequest = {
                 appBuild,
-                deploymentEnvironment: "development" // <======== TODO THIS IS BLOCKING P1 AT THIS POINT TO FURTHER INTEGRATIONS W/DERIVED APP
-            }; // TODO deploymentEnvironment
+                deploymentEnvironment: request_.appModels.httpRequestProcessor.holismConfig.deploymentEnvironmentFlag
+            };
 
             let filterResponse = getMemoryFileRegistrationMapFilter.request(callbackRequest);
             if (filterResponse.error) {
@@ -261,7 +261,7 @@ const factoryResponse = arccore.filter.create({
 
             factoryResponse = holism.server.create({
                 holisticAppBuildManifest: appBuild,
-                appServerRuntimeEnvironment: "development", // TODO!
+                appServerRuntimeEnvironment:  request_.appModels.httpRequestProcessor.holismConfig.deploymentEnvironmentFlag,
                 config: {
                     options: {}, // TODO!
                     files: appServerMemoryFileRegistrationMap,
