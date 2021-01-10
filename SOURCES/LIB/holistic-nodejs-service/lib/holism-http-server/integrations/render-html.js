@@ -114,15 +114,16 @@ function renderHtmlDocument(request_) {
             htmlDocumentLines.push(
 `  </head>
   <body>
-    <div id="idTabServiceDisplayProcess">${htmlContent}</div>
+    <div id="idHolisticHTML5ServiceDisplay">${htmlContent}</div>
     <script type="text/javascript" src="/javascript/client-app-bundle-${appAgentMetadata.buildID}.js"></script>
     <script id="idClientBootROM" type="text/plain">${bootROM}</script>
-  </body>
 `);
 
             if (request_.appServiceRequest.renderOptions.documentEpilogueComments) {
                 htmlDocumentLines.push(request_.appServiceRequest.renderOptions.documentEpilogueComments);
             }
+
+            htmlDocumentLines.push("</body>\n");
 
             // Send the string back to @encapsule/holism.
             response.result = htmlDocumentLines.join("");
