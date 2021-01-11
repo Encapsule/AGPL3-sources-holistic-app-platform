@@ -91,9 +91,9 @@ const arccore = require("@encapsule/arccore");
             console.warn(request_.headerText);
             console.error(`TAB SERVICE FATAL EXCEPTION: ${request_.errorText}`);
 
-            const targetDomElement = document.getElementById("idHolisticHTML5ServiceDisplay");
+            const targetDomElement = document.getElementById("idServiceDisplay");
             if (targetDomElement === null) {
-                throw new Error("Internal error: document.getElementById('idAppClientUserInterfaceDisplay') returned null value.");
+                throw new Error("Internal error: document.getElementById('idServiceDisplay') returned null value.");
             }
 
             // targetDomElement.innerHTML = "";
