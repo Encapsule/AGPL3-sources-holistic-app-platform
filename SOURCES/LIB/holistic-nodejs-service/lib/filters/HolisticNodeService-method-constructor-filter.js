@@ -9,6 +9,7 @@
 // layer for HolisticNodeService similar to what we've built for HolisticHTML5Service.
 
 const path = require("path");
+const process = require("process");
 
 const arccore = require("@encapsule/arccore");
 const holism = require("@encapsule/holism");
@@ -152,10 +153,18 @@ const factoryResponse = arccore.filter.create({
                 ...appServerMemoryFileRegistrationMap,
                 ...holisticPlatformMemoryFileRegistrationMap
             };
+
             let memoryFileRegistrationMapOutput = {}; // Populated in the following loop. This is what gets passed to @encapsule/holism
 
+            // We need the relative path to the actual ASSET resource file.
+
+            const cwd = process.cwd();
+            const dirname = __dirname;
+
+            const relativeAssetPath = path.relative(cwd, path.resolve(request_.appModels.httpRequestProcessor.holismConfig.serverModuleDirname, ".."));
+
             for (let filename_ in memoryFileRegistrationMapInput) {
-                var resourceFilepath = path.resolve(path.join(request_.appModels.httpRequestProcessor.holismConfig.serverModuleDirname, "..", filename_));
+                var resourceFilepath = path.join(relativeAssetPath, filename_);
                 memoryFileRegistrationMapOutput[resourceFilepath] = memoryFileRegistrationMapInput[filename_];
             }
 

@@ -4,6 +4,8 @@ const arccore = require("@encapsule/arccore");
 const holarchy = require("@encapsule/holarchy");
 const d2r2 = require("@encapsule/d2r2");
 
+const { HolisticServiceCore } = require("@encapsule/holistic-service-core");
+
 const html5ServiceCellModelFactory = require("../../HolisticHTML5Service_Kernel");
 
 const factoryResponse = arccore.filter.create({
@@ -19,7 +21,9 @@ const factoryResponse = arccore.filter.create({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const appBuild = request_.appServiceCore.getAppBuild();
+            const appServiceCore = (request_.appServiceCore instanceof HolisticServiceCore)?request_.appServiceCore:new HolisticServiceCore(request_.appServiceCore);
+
+            const appBuild = appServiceCore.getAppBuild();
 
             response.result = {
                 serviceModel: null,
@@ -44,13 +48,13 @@ const factoryResponse = arccore.filter.create({
             let factoryResponse = html5ServiceCellModelFactory.request({
                 appBuild,
                 appTypes: {
-                    bootROMSpec: request_.appServiceCore.getServiceBootROMSpec()
+                    bootROMSpec: appServiceCore.getServiceBootROMSpec()
                 },
                 appModels: {
                     display: {
-                        targetDOMElementID: request_.appServiceCore.getTargetDOMElementID(),
+                        targetDOMElementID: appServiceCore.getTargetDOMElementID(),
                         d2r2Components: [
-                            ...request_.appServiceCore.getDisplayComponents(), // All d2r2 components registered for use in all derived holistic app service contexts (this is app-specific + holistic shared d2r2 components). Note, holistic does not currently contribute any Node.js specific d2r2 components. But, it's an implementation detail now.
+                            ...appServiceCore.getDisplayComponents(), // All d2r2 components registered for use in all derived holistic app service contexts (this is app-specific + holistic shared d2r2 components). Note, holistic does not currently contribute any Node.js specific d2r2 components. But, it's an implementation detail now.
                             ...request_.appModels.display.d2r2Components // All d2r2 components registered for use by the app service in the context of the Node.js service runtime
                         ]
                     }
@@ -116,7 +120,7 @@ const factoryResponse = arccore.filter.create({
 
                 // TODO: We have work to do before we do this definition synthesis in order to pre-process the registration set.
                 subcells: [
-                    ...request_.appServiceCore.getCellModels(), // All the CellModels aggregated by our HolisticServiceCore instance.
+                    ...appServiceCore.getCellModels(), // All the CellModels aggregated by our HolisticServiceCore instance.
                     ...request_.appModels.cellModels, // All the CellModels registered by the developer via HolisticHTML5Service::constructor request.
                     html5ServiceKernelCellModel // The synthesized HTML5 service kernel CellModel.
                 ],
