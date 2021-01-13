@@ -161,7 +161,7 @@ const factoryResponse = arccore.filter.create({
             const cwd = process.cwd();
             const dirname = __dirname;
 
-            const relativeAssetPath = path.relative(cwd, path.resolve(request_.appModels.httpRequestProcessor.holismConfig.serverModuleDirname, ".."));
+            const relativeAssetPath = path.relative(cwd, path.resolve(path.join(cwd, "BUILD/runtime-phase3")));
 
             for (let filename_ in memoryFileRegistrationMapInput) {
                 var resourceFilepath = path.join(relativeAssetPath, filename_);
