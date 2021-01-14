@@ -102,8 +102,7 @@ function renderHtmlDocument(request_) {
     <meta charset="utf-8" />
     <title>${appRuntimeMetadata.page.title}</title>
     <meta name="description" content="${appRuntimeMetadata.page.description}" />
-    <link rel='stylesheet' href="/css/viewpath5-${appAgentMetadata.buildID}.css">
-    <link href="https://fonts.googleapis.com/css?family=Play|Montserrat:300,400,600,700|Share+Tech+Mono|Nunito:300,400,600,700|Roboto:300,400,600,700" rel="stylesheet">
+    <link rel='stylesheet' href="/css/holistic-html5-service-fonts.css">
     <link rel='stylesheet' href="/css/spinners.css">
 `);
 

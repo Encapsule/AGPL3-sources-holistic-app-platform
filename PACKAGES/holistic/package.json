@@ -6,10 +6,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "DVURnq5RRpq6i_80XjzOHg",
-    "buildSource": "6d19185ce32be38ac71ae2f8b74eab8a190f7cd3",
-    "buildTime": 1610508978,
-    "codename": "spectrolite",
+    "buildID": "sD22qOwNQ72FW30Jw2UNYQ",
+    "buildSource": "9689111a3cbb53b40daa4cc1796c7843c5ea4f48",
+    "buildTime": 1610630315,
+    "codename": "crystallite",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -40,5 +40,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.49"
+    "version": "0.0.50"
 }

@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A domain and process modeling system for building Node.js/HTML5 SaaS and PaaS products dynamically from JSON data + remixable plug-ins written in JavaScript.",
-    "version": "0.0.49",
-    "codename": "spectrolite",
+    "version": "0.0.50",
+    "codename": "crystallite",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "DVURnq5RRpq6i_80XjzOHg",
-    "buildSource": "6d19185ce32be38ac71ae2f8b74eab8a190f7cd3",
-    "buildTime": 1610508978,
-    "buildDateISO": "2021-01-13T03:36:18.000Z"
+    "buildID": "sD22qOwNQ72FW30Jw2UNYQ",
+    "buildSource": "9689111a3cbb53b40daa4cc1796c7843c5ea4f48",
+    "buildTime": 1610630315,
+    "buildDateISO": "2021-01-14T13:18:35.000Z"
 }

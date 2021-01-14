@@ -8,6 +8,8 @@ const d2r2Components = [
     // Just tearing this old stuff out so we can rebuild it correctly w/holistic RTL's and new
     // stack...
 
+    require("./HolisticHTML5Service_Loader.jsx"),
+
     require("./HolisticPageView.jsx"),
     require("./HolismHttpServerErrorPageView.jsx"),
     require("./RUXBase_PageContent_HttpServerError.jsx"),
