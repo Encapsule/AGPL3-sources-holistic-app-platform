@@ -11,39 +11,38 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
     renderDataBindingSpec: {
         ____types: "jsObject",
         HolisticPageView: {
-            ____label: "RUXBase_Page HTML View Render Request",
-            ____description: "HTML render request format for <RUXBase_Page/> React component.",
-            ____types: "jsObject", // the caller must literally specify this subnamespace
+            ____label: "HolisticPageView Render Request Message",
+            ____description: "@encapsule/d2r2 renderData request format used to dynamically bind a <HolisticPageView/> React element.",
+            ____types: "jsObject", // Caller must explicitly specify the HolisticPageView namespace...
 
             pageHeaderEP: {
                 ____label: "Page Header Extension Point (EP)",
                 ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
-                ____accept: "jsObject",
-                ____defaultValue: { ApplicationPageHeader: {} }
+                ____accept: [ "jsNull", "jsObject" ],
+                ____defaultValue: { AppServiceDisplayExtenstion_PageHeader: {} }
             },
 
             pageContentEP: {
                 ____label: "Page Content Extension Point (EP)",
                 ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
                 ____accept: "jsArray",
-                ____defaultValue: [ { ApplicationPageMissingContent: {} } ]
+                ____defaultValue: []
             },
 
             pageFooterEP: {
                 ____label: "Page Footer Extension Point (EP)",
                 ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
-                ____accept: "jsObject",
-                ____defaultValue: { ApplicationPageFooter: {} }
+                ____accept: [ "jsNull", "jsObject" ],
+                ____defaultValue: { AppServiceDisplayExtension_PageFooter: {} }
             },
 
             pageDebugEP: {
                 ____label: "Page Debug Extenion Point (EP)",
                 ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
                 ____accept: "jsArray",
-                ____defaultValue: [
-                    { HolisticDebugReactComponentProps: {} }
-                ]
+                ____defaultValue: []
             }
+
         }, // HolisticPageView
         styles: {
             ____label: "Styles",
@@ -60,35 +59,53 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
                 padding: {
                     ____accept: "jsString",
                     ____defaultValue: "0px"
-                }, // padding
-                backgroundColor: {
-                    ____accept: "jsString",
-                    ____defaultValue: "white"
-                }
+                } // padding
             }, // container
         }
     }, // Renderdatabindingspec
     reactComponent: class HolisticPageView extends React.Component {
         render() {
-            let self = this;
-            const ComponentRouter = this.props.renderContext.ComponentRouter;
-            const renderData = this.props.renderData;
-            const renderMessage = renderData.HolisticPageView;
 
-            let index = 0;
-            function makeKey() { return ("HolisticPageView" + index++); }
-            let content = [];
+            try {
 
-            content.push(<ComponentRouter key={makeKey()} {...this.props} renderData={renderMessage.pageHeaderEP} />);
-            renderMessage.pageContentEP.forEach(function(contentRenderData_) {
-                content.push(<ComponentRouter key={makeKey()} {...self.props} renderData={contentRenderData_} />);
-            });
-            content.push(<ComponentRouter key={makeKey()} {...this.props} renderData={renderMessage.pageFooterEP}/>);
-            renderMessage.pageDebugEP.forEach(function(contentRenderData_) {
-                content.push(<ComponentRouter key={makeKey()} {...self.props} renderData={contentRenderData_} />);
-            });
+                let self = this;
+                const ComponentRouter = this.props.renderContext.ComponentRouter;
+                const renderData = this.props.renderData;
+                const renderMessage = renderData.HolisticPageView;
 
-            return (<div>{content}</div>);
+                let index = 0;
+                function makeKey() { return ("HolisticPageView" + index++); }
+                let content = [];
+
+                // Optionally inject custom page header element.
+                if (renderMessage.pageHeaderEP) {
+                    content.push(<ComponentRouter key={makeKey()} {...self.props} renderData={renderMessage.pageHeaderEP} />);
+                }
+
+                // Inject the page view's content element(s).
+                if (renderMessage.pageContentEP.length) {
+                    renderMessage.pageContentEP.forEach(function(contentRenderData_) {
+                        content.push(<ComponentRouter key={makeKey()} {...self.props} renderData={contentRenderData_} />);
+                    });
+                } else {
+                    content.push(<div key={makeKey()}>No page view content elements were specified. Nothing to display...</div>);
+                }
+
+                // Optionally inject custom page footer element.
+                if (renderMessage.pageFooterEP) {
+                    content.push(<ComponentRouter key={makeKey()} {...self.props} renderData={renderMessage.pageFooterEP}/>);
+                }
+
+                // Optionally inject developer tooling element(s).
+                renderMessage.pageDebugEP.forEach(function(contentRenderData_) {
+                    content.push(<ComponentRouter key={makeKey()} {...self.props} renderData={contentRenderData_} />);
+                });
+
+                return (<div>{content}</div>);
+
+            } catch (exception_) {
+                return (<div>An unhandled exception occurred inside HolisticPageView::render method: {exception_.message}</div>);
+            }
 
         }
     }

@@ -24,7 +24,7 @@
             data: {
                 ____label: "HTTP Error Response Result Data",
                 ____description: "A descriptor object routable via @encapsule/d2r2 that indicates that the HTTP request failed with error.",
-                "ESCW71rwTz24meWiZpJb4A": {
+                HolisticNodeService_HTTPErrorResponse: {
                     ...httpResponseErrorRequestSpec.error_descriptor.data,
                     http: {
                         ...httpResponseErrorRequestSpec.error_descriptor.http

@@ -29,6 +29,7 @@ TOOL_GEN_PACKAGE_NAMES_MANIFEST=$(DIR_PLATFORM)/export-platform-packages-json.js
 TOOL_GEN_PACKAGE_MANIFEST=$(DIR_PLATFORM)/generate-package-manifest.js
 TOOL_GEN_PACKAGE_LICENSE=$(DIR_PLATFORM)/generate-package-license.js
 TOOL_GEN_PACKAGE_README=$(DIR_PLATFORM)/generate-package-readme.js
+TOOL_GEN_HOLISM_SPECS=$(DIR_PLATFORM)/generate-holism-http-common-specs.js
 TOOL_GEN_FILTER_README=$(DIR_TOOLBIN)/arc_doc_filter
 
 $(info TOOL_GEN_REPO_BUILDTAG is $(TOOL_GEN_REPO_BUILDTAG))
@@ -445,6 +446,10 @@ source_package_build_d2r2_components:
 
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_D2R2_COMPONENTS)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_D2R2_COMPONENTS)/* $(DIR_BUILD_LIB_D2R2_COMPONENTS)/
+
+	mkdir -p $(DIR_BUILD_LIB_D2R2_COMPONENTS)/iospecs
+	$(TOOL_GEN_HOLISM_SPECS) 
+
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_D2R2_COMPONENTS) --keep-file-extension --verbose $(DIR_SOURCES_LIB_D2R2_COMPONENTS)
 
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/d2r2-components" > $(DIR_BUILD_LIB_D2R2_COMPONENTS)/package.json
