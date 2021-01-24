@@ -79,10 +79,35 @@ class HolisticServiceCore {
     getAppBuild() { return this.isValid()?this._private.nonvolatile.appCommonDefinition.appData.appBuild:this.toJSON(); }
     getAppMetadataTypeSpecs() { return this.isValid()?this._private.nonvolatile.appMetadata.specs:this.toJSON(); }
     getAppMetadataDigraph() { return this.isValid()?this._private.nonvolatile.appMetadata.accessors.getAppMetadataDigraph():this.toJSON(); }
+
     getAppMetadataOrg() { return this.isValid()?this._private.nonvolatile.appMetadata.accessors.getAppMetadataOrg():this.toJSON(); }
+
     getAppMetadataApp() { return this.isValid()?this._private.nonvolatile.appMetadata.accessors.getAppMetadataApp():this.toJSON(); }
-    getAppMetadataPage(pageURI_) { return this.isValid()?this._private.nonvolatile.appMetadata.accessors.getAppMetadataPage(pageURI_):this.toJSON(); }
-    getAppMetadataHashroute(hashroutePathname_) { return this.isValid()?this._private.nonvolatile.appMetadata.acessors.getAppMetadataHashroute(hashroutePathname_):this.toJSON(); }
+
+    // Returns filter response object.
+    getAppMetadataPage(pageURI_) {
+        if (!this.isValid()) {
+            return { error: this.toJSON() };
+        }
+        const pageMetadataValue = this._private.nonvolatile.appMetadata.accessors.getAppMetadataPage(pageURI_);
+        if (!pageMetadataValue) {
+            return { error: `No page metadata found for URI "${pageURI_}".` };
+        }
+        return { error: null, result: pageMetadataValue };
+    }
+
+    // Returns filter response object.
+    getAppMetadataHashroute(hashroutePathname_) {
+        if (!this.isValid()) {
+            return { error: this.toJSON() };
+        }
+        const hashrouteMetadataValue = this._private.nonvolatile.appMetadata.acessors.getAppMetadataHashroute(hashroutePathname_);
+        if (!hashrouteMetadataValue) {
+            return { error: `No hashroute metadata found for URI "${hashroutePathname_}".` };
+        }
+        return { error: null, result: hashrouteMetadataValue };
+    }
+
     getClientUserLoginSessionSpec() {
         return (this.isValid()?this._private.nonvolatile.appCommonDefinition.appTypes.userLoginSession.untrusted.clientUserLoginSessionSpec:this.toJSON());
     }

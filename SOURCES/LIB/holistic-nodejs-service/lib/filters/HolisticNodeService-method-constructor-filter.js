@@ -254,12 +254,19 @@ const factoryResponse = arccore.filter.create({
                         },
                         page: {
                             get: {
-                                bodyFunction: function({ http_code, resource_uri }) {
-                                    const queryResult = appServiceCore.getAppMetadataPage(resource_uri);
-                                    if (queryResult instanceof String) {
-                                        return ({ error: queryResult });
+                                bodyFunction: function({ http_code, http_message, resource_uri }) {
+                                    let result;
+                                    if (http_code !== 200) {
+                                        return {
+                                            error: null,
+                                            result: {
+                                                title: http_message,
+                                                name: `Error ${http_code}`,
+                                                description: `HTTP request failed with error code ${http_code}: ${http_message}.`
+                                            }
+                                        };
                                     }
-                                    return ({ error: null, result: queryResult });
+                                    return appServiceCore.getAppMetadataPage(resource_uri); // returns a filter response
                                 },
                                 outputFilterSpec: appMetadataTypeSpecs.pages.pageURI
                             }

@@ -10,11 +10,23 @@ const routerEventDescriptorSpec = {
             "app",   // Application actor set the current href value by calling a DOM Location Processor controller action.
         ]
     },
+
+    hrefParse: {
+        ____accept: "jsObject"
+    },
     hashrouteString: {
-        ____accept: "jsString"
+        ____accept: [
+            "jsNull", // there is no hashroute fragment present in location.href.
+            "jsString" // the unparsed hashroute fragment obtained from location.href by DOM Location processor.
+        ],
+        ____defaultValue: null // no hashroute component present by default
     }, // This is the string beginning with the # character as we specified in the user request. Or, was added by the app client kernel during boot.
     hashrouteParse: {
-        ____types: "jsObject",
+        ____types: [
+            "jsNull", // there is no hashroute fragment present in location.href
+            "jsObject", // the parsed hashroute fragment obtained from hashrouteString by DOM Location processor.
+        ],
+        ____defaultValue: null,
         pathname: {
             ____label: "Secondary Resource Request Pathname",
             ____description: "Use this string as the primary key to query app metadata for hashroute descriptor.",
@@ -35,7 +47,11 @@ const routerEventDescriptorSpec = {
         }
     },
     hashrouteQueryParse: {
-        ____types: "jsObject",
+        ____types: [
+            "jsNull", // no hashroute fragment in location.href parsed -> no query pararms
+            "jsObject"
+        ],
+        ____defaultValue: null,
         ____asMap: true,
         paramName: { ____accept: [ "jsString", "jsNull" /*e.g. #x?foo --> foo: null */ ] }
     },
@@ -54,8 +70,8 @@ const apmClientHashRouteLocationProcessor = module.exports = {
         ____types: "jsObject",
         ____defaultValue: {},
 
-        // v0.0.48-kyanite - app client kernel needs to tell us where the derived app client cell process is located in the cellplane
-        // so that DOM Location Processor cell process can communicate with it via actions.
+        // v0.0.48-kyanite - HolisticHTML5Service kernel needs to tell us where the derived app service cell process is located in the cellplane
+        // so that DOM Location Processor cell process may relay information to it directly via its actions lifecycle actions.
 
         derivedAppClientProcessCoordinates: {
             ____label: "Derived App Client Runtime Process Coordinates",
@@ -96,6 +112,7 @@ const apmClientHashRouteLocationProcessor = module.exports = {
                 routerEventDescriptor: routerEventDescriptorSpec
             },
 
+            // v0.0.50-crystallite --- What's this now? I don't think I think this anymore.
             updateObservers: {
                 ____label: "Update Observers Flag",
                 ____description: "A Boolean flag set by DOM Location Processor actions to indicate to the DOM Location Processor model that it should transition to update step.",
@@ -133,6 +150,8 @@ const apmClientHashRouteLocationProcessor = module.exports = {
             description: "Registering hashchange DOM event callback.",
             transitions: [ { transitionIf: { always: true }, nextStep: "dom-location-processor-wait-kernel-ready" } ],
             actions: {
+                // This hooks the "hashchange" event via window.addEventListener DOM API.
+                // When the event fires, the event handler forwards to holistic.app.client.domLocation._private.notifyEvent.hashchange.event action.
                 exit: [ { holistic: { app: { client: { domLocation: { _private: { initialize: true } } } } } } ]
             }
         },
@@ -158,7 +177,7 @@ const apmClientHashRouteLocationProcessor = module.exports = {
         "dom-location-processor-signal-initial-hashroute": {
             description: "Inform the app client process of the initial hashroute assignment inherited from the HTTP request URL. Note, that it is up to the app client process to decide what to do with this information specifically wrt to active cells etc.",
             transitions: [ { transitionIf: { always: true }, nextStep: "dom-location-processor-active" } ],
-            actions: { exit : [ { holistic: { app: { client: { domLocation: { _private: { notifyEvent: { hashchange: true } } } } } } } ] }
+            actions: { exit : [ { holistic: { app: { client: { domLocation: { _private: { notifyEvent: { hashchange: { event: "intial hashroute synthetic event trigggered by DOM Location Processor APM" } } } } } } } } ] }
         },
 
         "dom-location-processor-active": {
