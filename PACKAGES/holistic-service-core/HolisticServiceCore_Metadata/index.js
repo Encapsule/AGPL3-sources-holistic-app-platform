@@ -107,6 +107,7 @@ var holarchy = require("@encapsule/holarchy");
 
               while (!inBreakScope) {
                 inBreakScope = true;
+                var metadataResponse = void 0;
                 var messageBody = request_.actionRequest.holistic.app.metadata.query;
 
                 switch (messageBody.type) {
@@ -120,10 +121,20 @@ var holarchy = require("@encapsule/holarchy");
 
                   case "page":
                     response.result = metadataAccessors.getAppMetadataPage(messageBody.uri);
+
+                    if (!response.result) {
+                      errors.push("No page metadata available for URI \"".concat(messageBody.uri, "\"."));
+                    }
+
                     break;
 
                   case "hashroute":
                     response.result = metadataAccessors.getAppMetadataHashroute(messageBody.uri);
+
+                    if (!response.result) {
+                      errors.push("No page metadata available for URI \"".concat(messageBody.uri, "\"."));
+                    }
+
                     break;
 
                   case "digraph":

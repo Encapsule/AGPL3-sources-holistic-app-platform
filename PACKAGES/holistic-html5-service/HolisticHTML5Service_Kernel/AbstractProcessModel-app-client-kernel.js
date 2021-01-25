@@ -170,6 +170,7 @@ var _require = require("@encapsule/holarchy"),
                 nextStep: "kernel-signal-lifecycle-init"
               }]
             },
+            // v0.0.50-crystallite --- do we actually need this? If not, remove support. We can add it back later as needed?
             "kernel-signal-lifecycle-init": {
               description: "Informing the derived holistic app client process that it is time initialize any private external subsystems that it requires and manages external to this CellProcessor instance.",
               actions: {
@@ -205,6 +206,7 @@ var _require = require("@encapsule/holarchy"),
                 nextStep: "kernel-signal-lifecycle-query"
               }]
             },
+            // v0.0.50-crystallite --- do we actually need this? If not, remove support. We can add it back later as needed?
             "kernel-signal-lifecycle-query": {
               description: "Querying the derived holistic app client process for its runtime requirements and capabilities.",
               actions: {
@@ -290,7 +292,7 @@ var _require = require("@encapsule/holarchy"),
                       cell: {
                         query: {
                           inStep: {
-                            apmStep: "dom-location-processor-wait-kernel-ready"
+                            apmStep: "dom-location-wait-kernel-config"
                           }
                         },
                         cellCoordinates: {
@@ -307,7 +309,7 @@ var _require = require("@encapsule/holarchy"),
             },
             "kernel-wait-browser-tab-resources-loaded": {
               description: "Waiting for the browser to finish load/parse of the current HTML5 document so that we can safely presume all the resources that it references are accessible.",
-              transitions: [// TODO: update this signature; it's an intrinsic part of @encapsule/holarchy so should live in CellProcessor request space.
+              transitions: [// TODO: update this action request signature
               {
                 transitionIf: {
                   holarchy: {
@@ -369,7 +371,8 @@ var _require = require("@encapsule/holarchy"),
                       }
                     }
                   }
-                }, {
+                }, // v0.0.50-crystallite --- do we actually need this? If not, remove support. We can add it back later as needed?
+                {
                   CellProcessor: {
                     util: {
                       writeActionResponseToPath: {

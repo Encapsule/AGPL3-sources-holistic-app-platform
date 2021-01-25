@@ -89,6 +89,8 @@ var controllerAction = new holarchy.ControllerAction({
 
         case "activate-subprocesses":
           // THIS IS WRONG (v0.0.49-spectrolite - Not sure this is still wrong but have not yet confirmed the full matrix of possibilities wrt metadata code paths yet)
+          // v0.0.50-crystallite --- it seems that we need to predictate metadata responses inside the HTML5 service based on HTTP disposition? If so we may either
+          // want to defer activation, or provide additional config after deserialization occurs in the kernel process?
           actResponse = request_.context.act({
             actorName: actorName,
             actorTaskDescription: "Activating derived AppMetadata process on behalf of the app client process.",
@@ -137,15 +139,15 @@ var controllerAction = new holarchy.ControllerAction({
                     actionRequest: {
                       CellProcessor: {
                         process: {
-                          activate: {
-                            processData: {
-                              derivedAppClientProcessCoordinates: kernelCellData.derivedAppClientProcessCoordinates
-                            }
-                          },
                           processCoordinates: {
                             apmID: "OWLoNENjQHOKMTCEeXkq2g"
                             /* "Holistic App Client Kernel: DOM Location Processor" */
 
+                          },
+                          activate: {
+                            processData: {
+                              derivedAppClientProcessCoordinates: kernelCellData.derivedAppClientProcessCoordinates
+                            }
                           }
                         }
                       }
@@ -197,6 +199,27 @@ var controllerAction = new holarchy.ControllerAction({
             },
             apmBindingPath: request_.context.apmBindingPath // this will be the holistic app client kernel process
 
+          });
+
+          if (actResponse.error) {
+            errors.push(actResponse.error);
+            break;
+          }
+
+          actResponse = request_.context.act({
+            actorName: actorName,
+            actorTaskDescription: "Attempting to activate the PageViewController cell process singleton.",
+            actionRequest: {
+              CellProcessor: {
+                process: {
+                  activate: {},
+                  processCoordinates: {
+                    apmID: "AZaqZtWRSdmHOA6EbTr9HQ"
+                  } // PageViewController cell singleton instance
+
+                }
+              }
+            }
           });
 
           if (actResponse.error) {

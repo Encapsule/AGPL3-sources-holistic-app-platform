@@ -31,6 +31,7 @@ var factoryResponse = arccore.filter.create({
   inputFilterSpec: require("./iospecs/HolisticHTML5Service-method-constructor-filter-input-spec"),
   outputFilterSpec: require("./iospecs/HolisticHTML5Service-method-constructor-filter-output-spec"),
   bodyFunction: function bodyFunction(request_) {
+    console.log("HolisticHTML5Service::constructor [".concat(this.operationID, "::").concat(this.operationName, "]"));
     var response = {
       error: null
     };
@@ -471,15 +472,19 @@ var factoryResponse = arccore.filter.create({
                         "app" // ? Not sure
                         ]
                       },
+                      hrefParse: {
+                        ____accept: "jsObject" // TODO - note that this is a common schema to be deduced from the urlParse library implementation and shared as needed in platform code
+
+                      },
                       hashrouteString: {
                         ____label: "Hashroute String",
                         ____description: "The unparsed hashroute string extracted from the current location.href value. Note that there are no official parsing rules for hashroute strings. We impose some predictable guiderails.",
-                        ____accept: "jsString"
+                        ____accept: ["jsNull", "jsString"]
                       },
                       hashrouteParse: {
                         ____label: "Hashroute Parse Descriptor",
                         ____description: "The hashroute string parsed into a descriptor that includes unparsed search and query subproperties.",
-                        ____types: "jsObject",
+                        ____types: ["jsNull", "jsObject"],
                         pathname: {
                           ____label: "Hashroute Pathname",
                           ____description: "The hashroute pathname should be used as the a stable primary key for querying app metadata; it does not include any URL-encoded query parameter information.",
@@ -501,8 +506,9 @@ var factoryResponse = arccore.filter.create({
                       },
                       hashrouteQueryParse: {
                         ____label: "Hashroute Query Parse Descriptor",
-                        ____accept: "jsObject" // TODO
-
+                        ____accept: ["jsNull", "jsObject"
+                        /*TODO*/
+                        ]
                       },
                       routerEventNumber: {
                         ____accept: "jsNumber"
