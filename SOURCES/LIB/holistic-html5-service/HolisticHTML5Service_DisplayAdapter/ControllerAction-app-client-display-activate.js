@@ -84,13 +84,13 @@ const controllerAction = new holarchy.ControllerAction({
             // their full lifecycle (whereas they are not mounted ever in the context of the app server process).
             let d2r2Component = React.createElement(displayAdapterCellData.config.ComponentRouter, thisProps);
             ReactDOM.hydrate(d2r2Component, displayAdapterCellData.config.targetDOMElement);
-            console.log("> App server display process has been re-activated from deserialized bootDOM data.");
+            console.log("> App server display process has been re-activated from deserialized bootDOM data via React.hydrate API.");
 
             // Re-render flipping the renderEnvironment flag to "client". Typically, this is used by the rendering d2r2 Component to trigger some sort of loading/spinner transition.
             delete thisProps.renderContext.serverRender;
             d2r2Component = React.createElement(displayAdapterCellData.config.ComponentRouter, thisProps);
             ReactDOM.render(d2r2Component, displayAdapterCellData.config.targetDOMElement);
-            console.log("> App client process has taken control of the client display adaptor. User input and DOM event processing is now live...");
+            console.log("> App server display process has been replaced w/client display process from deserialized bootROM data via React.render API.");
 
             displayAdapterCellData.displayUpdateCount += 1;
             const ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: displayAdapterStatus.displayAdapterProcess.apmBindingPath, dataPath: "#.displayUpdateCount" }, displayAdapterCellData.displayUpdateCount);

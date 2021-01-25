@@ -87,8 +87,10 @@ const controllerAction = new holarchy.ControllerAction({
             case "activate-subprocesses":
 
                 // THIS IS WRONG (v0.0.49-spectrolite - Not sure this is still wrong but have not yet confirmed the full matrix of possibilities wrt metadata code paths yet)
+
                 // v0.0.50-crystallite --- it seems that we need to predictate metadata responses inside the HTML5 service based on HTTP disposition? If so we may either
                 // want to defer activation, or provide additional config after deserialization occurs in the kernel process?
+
                 actResponse = request_.context.act({
                     actorName,
                     actorTaskDescription: "Activating derived AppMetadata process on behalf of the app client process.",
@@ -97,20 +99,7 @@ const controllerAction = new holarchy.ControllerAction({
                             util: {
                                 writeActionResponseToPath: {
                                     dataPath: "#.serviceProcesses.appMetadata",
-                                    actionRequest: {
-                                        CellProcessor: {
-                                            process: {
-                                                processCoordinates: { apmID: "srjZAO8JQ2StYj07u_rgGg" /* "Holistic App Common Kernel: App Metadata Process" */ },
-                                                activate: {
-                                                    processData: {
-                                                        construction: {
-                                                            ...kernelCellData.lifecycleResponses.query.result.actionResult.appMetadata
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
+                                    actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "srjZAO8JQ2StYj07u_rgGg" /* "Holistic App Common Kernel: App Metadata Process" */ } } } }
                                 }
                             }
                         }
@@ -164,20 +153,7 @@ const controllerAction = new holarchy.ControllerAction({
                             util: {
                                 writeActionResponseToPath: {
                                     dataPath: "#.serviceProcesses.d2r2DisplayAdapter",
-                                    actionRequest: {
-                                        CellProcessor: {
-                                            process: {
-                                                activate: {
-                                                    processData: {
-                                                        construction: {
-                                                            d2r2Components: kernelCellData.lifecycleResponses.query.result.actionResult.d2r2ComponentsArray
-                                                        }
-                                                    }
-                                                },
-                                                processCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* "Holistic Client App Kernel: d2r2/React Client Display Adaptor" */ }
-                                            }
-                                        }
-                                    }
+                                    actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* "Holistic Client App Kernel: d2r2/React Client Display Adaptor" */ } } } }
                                 }
                             }
                         }
@@ -293,49 +269,6 @@ const controllerAction = new holarchy.ControllerAction({
                 });
                 if (actResponse.error) {
                     errors.push(actResponse.error);
-                    break;
-                }
-
-                break;
-
-                // ****************************************************************
-                // ****************************************************************
-
-                // TODO: Leave for now but this is probably really not the sort of thing we want
-                // to get into at this low-level. how an app pre-renders content and what the
-                // boot experience is should be 100% customizable w/reasonable defaults. This
-                // solution isn't really ... never mind i think i already cut it out.
-
-
-            case "start-display-adapter":
-                actResponse = request_.context.act({
-                    actorName,
-                    actorTaskDescription: "Sending final kernel boot update to the display adapater and relinquishing responsibility for further updates to derived HTML5 app service logic.",
-                    actionRequest: { holistic: { app: { client: { display: { update: { thisProps: { renderData: { Viewpath5: { pageview: { loadingApp: { appStarted: true } } } } } } } } } } },
-                    apmBindingPath: request_.context.apmBindingPath // this will be the holistic app client kernel process
-                });
-                if (actResponse.error) {
-                    errors.push(actResponse.error);
-                    break;
-                }
-                const st = new Date().getTime();
-                console.log("******************** DELAY TIMER STARTED ********************" + new Date().getTime() );
-                setTimeout(function() {
-                    const et = new Date().getTime();
-                    console.log("******************** DELAY TIMER FIRED ******************** ellaped " + (et-st) + "ms" );
-                    request_.context.act({
-                        actorName,
-                        actorTaskDescription: "Relinquishing display adapter to derived HTML5 service logic.",
-                        actionRequest: { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "relinquish-display-adapter" } } } } } } },
-                        apmBindingPath: request_.context.apmBindingPath
-                    });
-                }, 500 );
-                break;
-
-            case "relinquish-display-adapter":
-                ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.displayReady" }, true );
-                if (ocdResponse.error) {
-                    errors.push(ocdResponse.error);
                     break;
                 }
                 break;

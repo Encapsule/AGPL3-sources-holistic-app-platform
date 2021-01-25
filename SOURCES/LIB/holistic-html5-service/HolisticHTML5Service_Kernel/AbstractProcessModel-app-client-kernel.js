@@ -88,10 +88,6 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                         lifecycleResponses: {
                             ____types: "jsObject",
                             ____defaultValue: {},
-                            init: optionalFilterResponseSpec,
-                            query: optionalFilterResponseSpec,
-                            deserialize: optionalFilterResponseSpec,
-                            config: optionalFilterResponseSpec,
                             start: optionalFilterResponseSpec,
                         },
 
@@ -136,7 +132,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
 
                     steps: {
 
-                        uninitialized: {
+                        "uninitialized": {
                             description: "Default starting process step.",
                             transitions: [
                                 { transitionIf: { always: true }, nextStep: "kernel-boot-start" }
@@ -149,32 +145,6 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                                 exit: [
                                     // These are dispatched while the cell is in process step "kernel-start-services" iff transition === true
                                     { holistic: { app: { client: { kernel: { _private: { hookDOMEvents: {} } } } } } },
-                                ]
-                            },
-                            transitions: [
-                                { transitionIf: { always: true }, nextStep: "kernel-signal-lifecycle-init" }
-                            ]
-                        },
-
-                        // v0.0.50-crystallite --- do we actually need this? If not, remove support. We can add it back later as needed?
-                        "kernel-signal-lifecycle-init": {
-                            description: "Informing the derived holistic app client process that it is time initialize any private external subsystems that it requires and manages external to this CellProcessor instance.",
-                            actions: {
-                                exit: [
-                                    { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.init", actionRequest: { holistic: { app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "init" } } } } } } } } } } }
-                                ]
-                            },
-                            transitions: [
-                                { transitionIf: { always: true }, nextStep: "kernel-signal-lifecycle-query" }
-                            ]
-                        },
-
-                        // v0.0.50-crystallite --- do we actually need this? If not, remove support. We can add it back later as needed?
-                        "kernel-signal-lifecycle-query": {
-                            description: "Querying the derived holistic app client process for its runtime requirements and capabilities.",
-                            actions: {
-                                exit: [
-                                    { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.query", actionRequest: { holistic: { app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "query" } } } } } } } } } } }
                                 ]
                             },
                             transitions: [
@@ -200,6 +170,8 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                                 {
                                     transitionIf: {
                                         and: [
+                                            // TODO: ensure that we wait on everything we activated in stepWorker activate-subprocesses action.
+
                                             { CellProcessor: { cell: { query: { inStep: { apmStep: "display-adapter-wait-initial-layout" } },  cellCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* "Holistic Client App Kernel: d2r2/React Client Display Adaptor" */ } } } },
                                             { CellProcessor: { cell: { query: { inStep: { apmStep: "dom-location-wait-kernel-config" } }, cellCoordinates: { apmID: "OWLoNENjQHOKMTCEeXkq2g" /* "Holistic App Client Kernel: DOM Location Processor" */ } } } }
                                         ]
@@ -234,14 +206,23 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                             actions: {
                                 enter: [
                                     // Rehydrate the display process in whatever state it was left in immediately prior to being serialized to an HTML5 document.
+                                    // Then render the same data w/modified context indicating that we're now live inside the HTML5 service kernel (i.e. act is connected).
                                     { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "activate-display-adapter" } } } } } } },
-
-                                    // v0.0.50-crystallite --- do we actually need this? If not, remove support. We can add it back later as needed?
-
-                                    { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.deserialize", actionRequest: { holistic:{ app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "deserialize" } } } } } } } } } } },
-                                    { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.config", actionRequest: { holistic: { app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "config" } } } } } } } } } } }
                                 ]
                             },
+                            transitions: [
+                                // We want to wait here for subprocesses to reach their quiescent states.
+                                {
+                                    transitionIf: {
+                                        and: [
+                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "display-adapter-service-ready" } }, cellCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /*display adpater*/ } } } }
+                                        ]
+                                    },
+                                    nextStep: "kernel-signal-lifecycle-start"
+                                }
+                            ]
+
+                            /*
                             transitions: [
                                 {
                                     transitionIf: { holarchy: { cm: { operators: { ocd: { compare: { values: { operator: "===", a: { path: "#.bootROMData.initialDisplayData.httpResponseDisposition.code" }, b: { value: 200 } } } } } } } },
@@ -252,6 +233,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                                     nextStep: "kernel-service-offline-standby"
                                 }
                             ]
+                            */
                         },
 
                         "kernel-signal-lifecycle-start": {
