@@ -234,6 +234,7 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
                 console.log("| | O | | | | O | | | | O | |");
                 console.log("| o   O | | o   O | | o   O |");
                 console.log("o       O o       O o       O");
+                console.log("\n\n");
             } else {
                 console.log("> CellProcessor instance initialization FAILED.");
                 console.log("> All subsequent calls to methods on this instance will return an response.error.");

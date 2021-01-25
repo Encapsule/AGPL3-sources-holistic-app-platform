@@ -138,23 +138,40 @@ const apmClientHashRouteLocationProcessor = module.exports = {
 
         uninitialized: {
             description: "Default starting process step.",
+            transitions: [ { transitionIf: { always: true }, nextStep: "dom-location-initialize" } ]
+        },
+
+        "dom-location-initialize": {
+            description: "Performs first post-activation cell initialization on exit from this process step.",
+            actions: {
+                exit: [
+                    // Parses the initial location.href and writes the initial routerEventDescriptor object to the cell's private locationHistory array.
+                    { holistic: { app: { client: { domLocation: { _private: { initialize: true } } } } } }
+                ]
+            },
             transitions: [
-                {
-                    transitionIf: { always: true },
-                    nextStep: "dom-location-processor-initialize"
-                }
+                { transitionIf: { always: true }, nextStep: "dom-location-wait-kernel-config" }
             ]
         },
 
-        "dom-location-processor-initialize": {
+        "dom-location-wait-kernel-config": {
+            description: "Blocks and waits for the HTML5 kernel process to provide additional configuration information needed to determine runtime policy of this cell.",
+
+        },
+
+        /*
+        "dom-location-initialize": {
             description: "Registering hashchange DOM event callback.",
             transitions: [ { transitionIf: { always: true }, nextStep: "dom-location-processor-wait-kernel-ready" } ],
             actions: {
-                // This hooks the "hashchange" event via window.addEventListener DOM API.
-                // When the event fires, the event handler forwards to holistic.app.client.domLocation._private.notifyEvent.hashchange.event action.
+
+                // Analyze and parse the current location.href into normalized base URI pathname. And, if present the current hashroute fragment.
+                // Take no other action wrt hooking the DOM hashchange event at this point; we do not yet know the HTTP response disposition
+                // returned by HolisticNodeService instance...
                 exit: [ { holistic: { app: { client: { domLocation: { _private: { initialize: true } } } } } } ]
             }
         },
+        */
 
         "dom-location-processor-wait-kernel-ready": {
             description: "Waiting on the kernel to reach its active state. After that point, we start actively communicating directly with the derived app client process.",

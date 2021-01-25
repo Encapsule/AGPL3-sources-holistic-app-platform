@@ -156,6 +156,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                             ]
                         },
 
+                        // v0.0.50-crystallite --- do we actually need this? If not, remove support. We can add it back later as needed?
                         "kernel-signal-lifecycle-init": {
                             description: "Informing the derived holistic app client process that it is time initialize any private external subsystems that it requires and manages external to this CellProcessor instance.",
                             actions: {
@@ -168,6 +169,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                             ]
                         },
 
+                        // v0.0.50-crystallite --- do we actually need this? If not, remove support. We can add it back later as needed?
                         "kernel-signal-lifecycle-query": {
                             description: "Querying the derived holistic app client process for its runtime requirements and capabilities.",
                             actions: {
@@ -179,7 +181,6 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                                 { transitionIf: { always: true }, nextStep: "kernel-activate-subprocesses" }
                             ]
                         },
-
 
                         "kernel-activate-subprocesses": {
                             description: "Activating cell subprocesses required by the derived app client service.",
@@ -200,7 +201,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                                     transitionIf: {
                                         and: [
                                             { CellProcessor: { cell: { query: { inStep: { apmStep: "display-adapter-wait-initial-layout" } },  cellCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* "Holistic Client App Kernel: d2r2/React Client Display Adaptor" */ } } } },
-                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "dom-location-processor-wait-kernel-ready" } }, cellCoordinates: { apmID: "OWLoNENjQHOKMTCEeXkq2g" /* "Holistic App Client Kernel: DOM Location Processor" */ } } } }
+                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "dom-location-wait-kernel-config" } }, cellCoordinates: { apmID: "OWLoNENjQHOKMTCEeXkq2g" /* "Holistic App Client Kernel: DOM Location Processor" */ } } } }
                                         ]
                                     },
                                     nextStep: "kernel-wait-browser-tab-resources-loaded"
@@ -211,7 +212,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                         "kernel-wait-browser-tab-resources-loaded": {
                             description: "Waiting for the browser to finish load/parse of the current HTML5 document so that we can safely presume all the resources that it references are accessible.",
                             transitions: [
-                                // TODO: update this signature; it's an intrinsic part of @encapsule/holarchy so should live in CellProcessor request space.
+                                // TODO: update this action request signature
                                 { transitionIf: { holarchy: { cm: { operators: { ocd: { isBooleanFlagSet: { path: "#.windowLoaded" } } } } } },  nextStep: "kernel-deserialize-bootROM" }
                             ]
                         },
@@ -234,6 +235,9 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                                 enter: [
                                     // Rehydrate the display process in whatever state it was left in immediately prior to being serialized to an HTML5 document.
                                     { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "activate-display-adapter" } } } } } } },
+
+                                    // v0.0.50-crystallite --- do we actually need this? If not, remove support. We can add it back later as needed?
+
                                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.deserialize", actionRequest: { holistic:{ app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "deserialize" } } } } } } } } } } },
                                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.config", actionRequest: { holistic: { app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "config" } } } } } } } } } } }
                                 ]

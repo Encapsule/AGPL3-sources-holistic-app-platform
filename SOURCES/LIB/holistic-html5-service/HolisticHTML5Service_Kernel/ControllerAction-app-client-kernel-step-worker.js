@@ -87,6 +87,8 @@ const controllerAction = new holarchy.ControllerAction({
             case "activate-subprocesses":
 
                 // THIS IS WRONG (v0.0.49-spectrolite - Not sure this is still wrong but have not yet confirmed the full matrix of possibilities wrt metadata code paths yet)
+                // v0.0.50-crystallite --- it seems that we need to predictate metadata responses inside the HTML5 service based on HTTP disposition? If so we may either
+                // want to defer activation, or provide additional config after deserialization occurs in the kernel process?
                 actResponse = request_.context.act({
                     actorName,
                     actorTaskDescription: "Activating derived AppMetadata process on behalf of the app client process.",
@@ -186,6 +188,26 @@ const controllerAction = new holarchy.ControllerAction({
                     errors.push(actResponse.error);
                     break;
                 }
+
+                actResponse = request_.context.act({
+                    actorName,
+                    actorTaskDescription: "Attempting to activate the PageViewController cell process singleton.",
+                    actionRequest: {
+                        CellProcessor: {
+                            process: {
+                                activate: {},
+                                processCoordinates: { apmID: "AZaqZtWRSdmHOA6EbTr9HQ"  } // PageViewController cell singleton instance
+                            }
+                        }
+                    }
+                });
+
+                if (actResponse.error) {
+                    errors.push(actResponse.error);
+                    break;
+                }
+
+
                 // TODO: Let's leave this out for now until the basic stuff is working end-to-end and requirements are less abstract.
                 // { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.serviceProcesses.clientViewProcessor", actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "Hsu-43zBRgqHItCPWPiBng" /* "Holistic App Client Kernel: Client View Processor" */ } } } } } } } },
                 break;

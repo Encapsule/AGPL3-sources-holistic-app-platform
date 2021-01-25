@@ -64,6 +64,15 @@ const factoryResponse = arccore.filter.create({
                     actorTaskDescription: request_.actorTaskDescription
                 });
 
+                if (initialActorStackDepth === 0) {
+                    console.log("\nEXTERNAL ACTOR -->");
+                    console.log("O       o O       o O       o");
+                    console.log("| O   o | | O   o | | O   o |");
+                    console.log("| | O | | | | O | | | | O | |");
+                    console.log("| o   O | | o   O | | o   O |");
+                    console.log("o       O o       O o       O");
+                }
+
                 // Log the start of the action.
                 logger.request({
                     opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
