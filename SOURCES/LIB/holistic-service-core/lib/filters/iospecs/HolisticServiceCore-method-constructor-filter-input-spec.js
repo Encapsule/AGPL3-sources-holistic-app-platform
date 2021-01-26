@@ -1,12 +1,6 @@
 // HolisticAppCommon-method-constructor-filter-input-spec.js
 
-//// TODO: Rename before release
-// v--- My best ideas so far...
-/*
-  HolisticServiceCore
-  HolisticNodeService
-  HolisticBTabService
-*/
+const appMetadataBaseObjectSpecs = require("./app-metadata-base-object-specs");
 
 module.exports = {
     ____label: "HolisticServiceCore::constructor Request Object",
@@ -143,17 +137,7 @@ module.exports = {
         // (and subsequently by the Makefile it code-generates into the derived app service repo's root directory).
 
         appBuild: {
-
-            ____label: "Holistic App Build Metadata",
-            ____description: "A reference to the app-build.json manifest created by the app Makefile.",
-            ____accept: "jsObject", // TODO: schematize this slippery sucker once and for all and be done with it.
-            // Note that in HolisticAppServer::constructor filter we're taking a dependency right now on @holism server filter factory request's version of buildID
-            // This is probably wrong. So, don't copy the pattern here w/out thinking about it some more.
-            // DEFINITELY SCHEMATIZE THE appBuild structure right here. Everyone else (including appgen) can base off this.
-            // Then the hand-off between platform-generated Makefile (that produces app-build.json in the first place)
-            // and the platform-guided runtime process initialization that really can't ever break w/out driving me
-            // finally over the edge will be locked down in one place - finally.
-
+            ...appMetadataBaseObjectSpecs.input.app.build
         }, // ~.appData.appBuild
 
         appConfig: {
