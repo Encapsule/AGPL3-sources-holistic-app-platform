@@ -26,6 +26,8 @@ const factoryResponse = arccore.filter.create({
 
             const appBuild = appServiceCore.getAppBuild();
 
+            const serviceBootROMSpec = appServiceCore.getServiceBootROMSpec();
+
             response.result = {
                 serviceModel: null,
                 serviceRuntime: null
@@ -49,7 +51,7 @@ const factoryResponse = arccore.filter.create({
             let factoryResponse = html5ServiceCellModelFactory.request({
                 appBuild,
                 appTypes: {
-                    bootROMSpec: appServiceCore.getServiceBootROMSpec()
+                    bootROMSpec: serviceBootROMSpec
                 },
                 appModels: {
                     display: {
@@ -232,7 +234,7 @@ const factoryResponse = arccore.filter.create({
                                         lifecycle: {
                                             ____types: "jsObject",
                                             start: {
-                                                ____accept: "jsObject"
+                                                ____accept: "jsObject",
                                             }
                                         }
                                     }

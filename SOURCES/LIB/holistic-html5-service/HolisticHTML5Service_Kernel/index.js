@@ -84,7 +84,6 @@ const displayAdapterFactory = require("../HolisticHTML5Service_DisplayAdapter");
                         require("./ControllerAction-app-client-kernel-hook-events"),
                         require("./ControllerAction-app-client-kernel-notify-event"),
                         require("./ControllerAction-app-client-kernel-step-worker"),
-                        require("./ControllerAction-app-client-kernel-signal-lifecycle-event")
                     ],
                     subcells: [
                         // v0.0.49-spectrolite --- AppClientDOMLocation is fine w/out any changes I think

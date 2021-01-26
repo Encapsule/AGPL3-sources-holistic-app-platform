@@ -240,7 +240,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                             description: "Informing the derived holistic app client process that it is time to start the show!",
                             actions: {
                                 enter: [
-                                    { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.start", actionRequest: { holistic: { app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "start" } } } } } } } } } } }
+                                    { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.start", actionRequest: { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "signal-lifecycle-start" } } } } } } } } } } }
                                 ]
                             },
                             transitions: [

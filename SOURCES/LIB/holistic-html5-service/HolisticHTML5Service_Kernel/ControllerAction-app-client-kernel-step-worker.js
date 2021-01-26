@@ -40,8 +40,7 @@ const controllerAction = new holarchy.ControllerAction({
                                         "activate-subprocesses",
                                         "deserialize-bootROM-data",
                                         "activate-display-adapter",
-                                        "start-display-adapter", // After which the derived HTML5 service logic is actor who updates the display adapter
-                                        "relinquish-display-adapter",
+                                        "signal-lifecycle-start",
                                     ],
                                     ____defaultValue: "noop"
                                 }
@@ -265,13 +264,47 @@ const controllerAction = new holarchy.ControllerAction({
                             }
                         }
                     },
-                    apmBindingPath: request_.context.apmBindingPath // this will be the holistic app client kernel process
+                    apmBindingPath: request_.context.apmBindingPath // will be the holistic HTML5 service kernel process
                 });
                 if (actResponse.error) {
                     errors.push(actResponse.error);
                     break;
                 }
                 break;
+
+                // ****************************************************************
+                // ****************************************************************
+            case "signal-lifecycle-start":
+
+                actResponse = request_.context.act({
+                    actorName,
+                    actorTaskDescription: "Dispatching the derived HTML5 service's start lifecycle action to inform it that kernel boot has completed.",
+                    actionRequest: {
+                        CellProcessor: {
+                            cell: {
+                                delegate: {
+                                    actionRequest: {
+                                        holistic: {
+                                            app: {
+                                                client: {
+                                                    lifecycle: {
+                                                        start: {
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                cellCoordinates: kernelCellData.derivedAppClientProcessCoordinates
+                            }
+                        }
+                    },
+                    apmBindingPath: request_.context.apmBindingPath // will be the holistic HTML5 service kernel process
+                });
+
+                break;
+
 
             default:
                 errors.push(`Internal error: unhandled action value "${messageBody.action}".`);
