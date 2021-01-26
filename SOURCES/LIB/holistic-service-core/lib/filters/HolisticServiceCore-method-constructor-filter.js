@@ -198,6 +198,30 @@ const appServiceBootROMSpecFactory = require("./iospecs/app-service-boot-rom-spe
                 // i.e. we just cache them and hand the set off to HolisticXService constructor function via
                 // HolisticServiceCore class instance reference.
 
+
+                // Synthesize the service bootROM filter specification that is needed by:
+                // - HolisticNodeService: used to serialize initial runtime context, boot-time microcode instruction, and options into the tail of a serialized HolisticHTML5Service (aka HTML5 doc synthesized by HolisticNodeService) for use by the HolisticHTML5Service kernel boot process.
+                // - HolisticHTML5Service: ... is initially activated inside a HolisticNodeService instance service filter context and subsequently serialized to HTML5 doc where it is deserialized by the HolisticHTML5Service kernel process during standard boot and service initialization sequence.
+
+                const bootROMSynthResponse = appServiceBootROMSpecFactory.request({
+                    httpResponseDispositionSpec: {
+                        ____types: "jsObject",
+                        code: { ____accept: "jsNumber" },
+                        message: { ____accept: "jsString" }
+                    },
+                    pageMetadataOverrideFieldsSpec: { ____accept: "jsObject" }, // TODO 
+                    serverAgentSpec: { ____accept: "jsObject" }, // TODO 
+                    userLoginSessionDataSpec: response.result.nonvolatile.appCommonDefinition.appTypes.userLoginSession.untrusted.clientUserLoginSessionSpec
+                });
+
+                if (bootROMSynthResponse.error) {
+                    errors.push(`Unable to synthesize the ${appBuild.app.name} service core kernel CellModel due to error:`);
+                    errors.push(bootROMSynthResponse.error);
+                    break;
+                }
+
+                response.result.nonvolatile.serviceBootROMSpec = bootROMSynthResponse.result;
+
                 // Okay - Now we need to go synthesize some number (we don't care) of CellModel's to do
                 // some stuff that all services need done that's rather complex to automate unless you're
                 // ridiculously disciplined. So we do that here instead.
@@ -230,30 +254,7 @@ const appServiceBootROMSpecFactory = require("./iospecs/app-service-boot-rom-spe
                     ...request_.appModels.cellModels
                 ];
 
-                // Synthesize the service bootROM filter specification that is needed by:
-                // - HolisticNodeService: used to serialize initial runtime context, boot-time microcode instruction, and options into the tail of a serialized HolisticHTML5Service (aka HTML5 doc synthesized by HolisticNodeService) for use by the HolisticHTML5Service kernel boot process.
-                // - HolisticHTML5Service: ... is initially activated inside a HolisticNodeService instance service filter context and subsequently serialized to HTML5 doc where it is deserialized by the HolisticHTML5Service kernel process during standard boot and service initialization sequence.
-
-                const bootROMSynthResponse = appServiceBootROMSpecFactory.request({
-                    httpResponseDispositionSpec: {
-                        ____types: "jsObject",
-                        code: { ____accept: "jsNumber" },
-                        message: { ____accept: "jsString" }
-                    },
-                    pageMetadataOverrideFieldsSpec: { ____accept: "jsObject" }, // TODO 
-                    serverAgentSpec: { ____accept: "jsObject" }, // TODO 
-                    userLoginSessionDataSpec: response.result.nonvolatile.appCommonDefinition.appTypes.userLoginSession.untrusted.clientUserLoginSessionSpec
-                });
-
-                if (bootROMSynthResponse.error) {
-                    errors.push(`Unable to synthesize the ${appBuild.app.name} service core kernel CellModel due to error:`);
-                    errors.push(bootROMSynthResponse.error);
-                    break;
-                }
-
-                response.result.nonvolatile.serviceBootROMSpec = bootROMSynthResponse.result;
-
-                // console.log(JSON.stringify(response, undefined, 4));
+               // console.log(JSON.stringify(response, undefined, 4));
 
                 break;
             }
