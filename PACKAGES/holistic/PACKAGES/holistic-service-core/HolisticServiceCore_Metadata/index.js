@@ -59,8 +59,16 @@ var holarchy = require("@encapsule/holarchy");
           apm: {
             id: "srjZAO8JQ2StYj07u_rgGg",
             name: "".concat(appBuild.app.name, " Service Core App Metadata Process"),
-            description: "Isn't really a process. Rather, it's an action to query metadata from any active cell consistently." // TODO: Look into removing this entirely. It will cause breaks in I don't want to deal with right now in tab service kernel. And, it's harmless to activate it and let it have a { __apmiStep: uninitialzed } value in OCD.
-
+            description: "Isn't really a process. Rather, it's an action to query metadata from any active cell consistently.",
+            // TODO: Look into removing this entirely. It will cause breaks in I don't want to deal with right now in tab service kernel. And, it's harmless to activate it and let it have a { __apmiStep: uninitialzed } value in OCD.
+            ocdDataSpec: {
+              ____types: "jsObject",
+              ____defaultValue: {},
+              pageMetadataOverride: {
+                ____types: ["jsNull", "jsObject"],
+                ____defaultValue: null
+              }
+            }
           },
           actions: [{
             id: "8KWW5zkCTMKRihNXKX_Pdw",
