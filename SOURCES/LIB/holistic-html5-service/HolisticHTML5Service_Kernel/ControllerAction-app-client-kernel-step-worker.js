@@ -39,7 +39,7 @@ const controllerAction = new holarchy.ControllerAction({
                                         "noop",
                                         "activate-subprocesses",
                                         "deserialize-bootROM-data",
-                                        "activate-display-adapter",
+                                        "config-subprocesses",
                                         "signal-lifecycle-start",
                                     ],
                                     ____defaultValue: "noop"
@@ -85,14 +85,9 @@ const controllerAction = new holarchy.ControllerAction({
 
             case "activate-subprocesses":
 
-                // THIS IS WRONG (v0.0.49-spectrolite - Not sure this is still wrong but have not yet confirmed the full matrix of possibilities wrt metadata code paths yet)
-
-                // v0.0.50-crystallite --- it seems that we need to predictate metadata responses inside the HTML5 service based on HTTP disposition? If so we may either
-                // want to defer activation, or provide additional config after deserialization occurs in the kernel process?
-
                 actResponse = request_.context.act({
                     actorName,
-                    actorTaskDescription: "Activating derived AppMetadata process on behalf of the app client process.",
+                    actorTaskDescription: "Activating app-specialized HolisticServiceCore_Metadata process on behalf of HolisticHTML5Service_Kernel process.",
                     actionRequest: {
                         CellProcessor: {
                             util: {
@@ -112,7 +107,7 @@ const controllerAction = new holarchy.ControllerAction({
 
                 actResponse = request_.context.act({
                     actorName,
-                    actorTaskDescription: "Activating DOMLocationProcessor process on behalf of the app client kernel process.",
+                    actorTaskDescription: "Activating app-specialized HolisticHTML5Service_DOMLocation process on behalf of HolisticHTML5Service_Kernel process.",
                     actionRequest: {
                         CellProcessor: {
                             util: {
@@ -141,12 +136,9 @@ const controllerAction = new holarchy.ControllerAction({
                     break;
                 }
 
-                // v0.0.49-spectrolite
-                // Have another look at this because we don't initialize the display adapter with cell process activation data anymore!
-
                 actResponse = request_.context.act({
                     actorName,
-                    actorTaskDescription: "Activating d2r2DisplayAdapter process on behalf of the app client kernel process.",
+                    actorTaskDescription: "Activating app-specialized HolisticHTML5Service_DisplayAdapter process on behalf of HolisticHTML5Service_Kernel process.",
                     actionRequest: {
                         CellProcessor: {
                             util: {
@@ -226,7 +218,33 @@ const controllerAction = new holarchy.ControllerAction({
                 // ****************************************************************
                 // ****************************************************************
 
-            case "activate-display-adapter":
+            case "config-subprocesses":
+
+                actResponse = request_.context.act({
+                    actorName,
+                    actorTaskDescription: "Sending configuration data to the HolisticServiceCore_Metadata cell process to let it know if HTML5 document serialized by HolisticNodeService was rendered w/non-200 HTTP response disposition.",
+                    actionRequest: {
+                        holistic: {
+                            app: {
+                                metadata: {
+                                    _private: {
+                                        config: {
+                                            pageMetadataOverride: {
+                                                httpResponseDisposition: kernelCellData.bootROMData.initialDisplayData.httpResponseDisposition,
+                                                errorPageMetadata: kernelCellData.bootROMData.initialDisplayData.pageMetadata
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    apmBindingPath: kernelCellData.serviceProcesses.appMetadata.result.actionResult.apmBindingPath
+                });
+                if (actResponse.error) {
+                    errors.push(actResponse.error);
+                    break;
+                }
 
                 // At this point the actual contents of the DOM visible to the user as the HolisticHTML5Service is booting
                 // was rendered by HolisticNodeService in response to an HTTP GET request for an HTML5 document. If the HTTP
@@ -264,7 +282,7 @@ const controllerAction = new holarchy.ControllerAction({
                             }
                         }
                     },
-                    apmBindingPath: request_.context.apmBindingPath // will be the holistic HTML5 service kernel process
+                    apmBindingPath: request_.context.apmBindingPath // HolisticHTML5Service_Kernel process
                 });
                 if (actResponse.error) {
                     errors.push(actResponse.error);
