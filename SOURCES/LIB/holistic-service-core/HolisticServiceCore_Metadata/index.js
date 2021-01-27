@@ -19,7 +19,13 @@ const holarchy = require("@encapsule/holarchy");
                 metadata: {
                     ____types: "jsObject",
                     specs: {
-                        ____accept: "jsObject" // TODO make this explicit shoud be explicit
+                        ____accept: "jsObject" // TODO: lock this down? It's technically fine as we're passing through a filter spec as an opaque descriptor object here. No need to actually re-filter it.
+                    }
+                },
+                bootROM: {
+                    ____types: "jsObject",
+                    spec: {
+                        ____accept: "jsObject"  // TODO: lock this down? Same rationale for leaving it as-is as above.
                     }
                 }
             },
@@ -60,9 +66,11 @@ const holarchy = require("@encapsule/holarchy");
                         ocdDataSpec: {
                             ____types: "jsObject",
                             ____defaultValue: {},
-                            pageMetadataOverride: {
+                            pageMetadataOverride: { // We're not doing anything with this seemingly as of v0.0.50-crystallite? What was this for? Not found in this module as expected.
                                 ____types: [ "jsNull", "jsObject" ],
-                                ____defaultValue: null
+                                ____defaultValue: null,
+                                httpResponseDisposition: request_.appTypes.bootROM.spec.initialDisplayData.httpResponseDisposition,
+                                errorPageMetadata: request_.appTypes.bootROM.spec.initialDisplayData.pageMetadata
                             }
                         }
 

@@ -25,5 +25,12 @@
         JSON.stringify(httpResponseErrorResultSpec.error_descriptor.data, undefined, 4)
     );
 
+    const httpServerAgentDescriptorSpec = require("../../BUILD/LIB/holism/lib/iospecs/http-server-agent-result-spec");
+    fs.writeFileSync(
+        path.resolve(path.join(__dirname, "../../SOURCES/LIB/holistic-service-core/lib/filters/iospecs/http-server-agent-result-spec.json")),
+        JSON.stringify(httpServerAgentDescriptorSpec, undefined, 4)
+    );
+
+
 })();
 
