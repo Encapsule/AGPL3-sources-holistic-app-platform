@@ -53,33 +53,92 @@ const holarchy = require("@encapsule/holarchy");
                 const metadataTypes = request_.appTypes.metadata.specs;
                 const metadataAccessors = request_.appModels.metadata.accessors;
 
+                const pageMetadataOverrideSpec = {
+                    ____types: [ "jsNull", "jsObject" ],
+                    ____defaultValue: null,
+                    httpResponseDisposition: request_.appTypes.bootROM.spec.initialDisplayData.httpResponseDisposition,
+                    errorPageMetadata: request_.appTypes.bootROM.spec.initialDisplayData.pageMetadata
+                };
+
+
                 const cellModel = new holarchy.CellModel({
                     id: "-mApjtHVTE2UpIANFJGaPQ",
-                    name: `${appBuild.app.name} Service Core App Metadata Model`,
+                    name: `${appBuild.app.name} HolisticServiceCore_Metadata Model`,
                     description: `Provides a standard way for any cell to access app-defined static metadata values consistently across ${appBuild.app.name} HolisticNodeService and HolisticTabService instances.`,
                     apm: {
                         id: "srjZAO8JQ2StYj07u_rgGg",
-                        name: `${appBuild.app.name} Service Core App Metadata Process`,
+                        name: `${appBuild.app.name} HolisticServiceCore_Metadata Process`,
                         description: "Isn't really a process. Rather, it's an action to query metadata from any active cell consistently.",
                         // TODO: Look into removing this entirely. It will cause breaks in I don't want to deal with right now in tab service kernel. And, it's harmless to activate it and let it have a { __apmiStep: uninitialzed } value in OCD.
 
                         ocdDataSpec: {
                             ____types: "jsObject",
                             ____defaultValue: {},
-                            pageMetadataOverride: { // We're not doing anything with this seemingly as of v0.0.50-crystallite? What was this for? Not found in this module as expected.
-                                ____types: [ "jsNull", "jsObject" ],
-                                ____defaultValue: null,
-                                httpResponseDisposition: request_.appTypes.bootROM.spec.initialDisplayData.httpResponseDisposition,
-                                errorPageMetadata: request_.appTypes.bootROM.spec.initialDisplayData.pageMetadata
-                            }
+                            pageMetadataOverride: pageMetadataOverrideSpec
                         }
 
                     },
                     actions: [
                         {
+                            id: "maQuXnptRbill0zhL56-WA",
+                            name: "HolisticServiceCore_Metadata Config",
+                            description: "Configures the HolisticServiceCore_Metadata process w/post bootROM serialization data prior to calling the derived serice's start lifecycle action.",
+                            actionRequestSpec: {
+                                ____types: "jsObject",
+                                holistic: {
+                                    ____types: "jsObject",
+                                    app: {
+                                        ____types: "jsObject",
+                                        metadata: {
+                                            ____types: "jsObject",
+                                            _private: {
+                                                ____types: "jsObject",
+                                                config: {
+                                                    ____types: "jsObject",
+                                                    pageMetadataOverride: pageMetadataOverrideSpec
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            actionResultSpec: { ____accept: "jsUndefined" }, // no result
+                            bodyFunction: function(request_) {
+                                let response = { error: null };
+                                let errors = [];
+                                let inBreakScope = false;
+                                while (!inBreakScope) {
+                                    inBreakScope = true;
+                                    const messageBody = request_.actionRequest.holistic.app.metadata._private.config;
+                                    let ocdResponse = request_.context.ocdi.getNamespaceSpec(request_.context.apmBindingPath);
+                                    if (ocdResponse.error) {
+                                        errors.push(ocdResponse.error);
+                                        break;
+                                    }
+                                    const apmBindingPathSpec = ocdResponse.result;
+                                    if (!apmBindingPathSpec.____appdsl || !apmBindingPathSpec.____appdsl.apm || (apmBindingPathSpec.____appdsl.apm !== "srjZAO8JQ2StYj07u_rgGg")) {
+                                        errors.push(`Invalid apmBindingPath="${request_.context.apmBindingPath}" does not resolve to an active HolisticServiceCore_Metadata cell as expected.`);
+                                        break;
+                                    }
+                                    ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.pageMetadataOverride" }, messageBody.pageMetadataOverride);
+                                    if (ocdResponse.error) {
+                                        errors.push(ocdResponse.error);
+                                        break;
+                                    }
+                                    break;
+                                }
+                                if (errors.length) {
+                                    response.error = errors.join(" ");
+                                }
+                                return response;
+                            }
+                        },
+
+
+                        {
                             id: "8KWW5zkCTMKRihNXKX_Pdw",
-                            name: "Holistic App Common Kernel: Query App Metadata",
-                            description: "Retrieves a copy of the derived application's application metadata.",
+                            name: "HolisticServiceCore_Metadata Query",
+                            description: "Retrieves a copy of the service's org, app, page, or hashroute metadata.",
                             actionRequestSpec: {
                                 ____types: "jsObject",
                                 holistic: {
