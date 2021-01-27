@@ -222,7 +222,7 @@ const controllerAction = new holarchy.ControllerAction({
 
                 actResponse = request_.context.act({
                     actorName,
-                    actorTaskDescription: "Sending configuration data to the HolisticServiceCore_Metadata cell process to let it know if HTML5 document serialized by HolisticNodeService was rendered w/non-200 HTTP response disposition.",
+                    actorTaskDescription: "Sending configuration data to the HolisticServiceCore_Metadata cell process to let it know if HTML5 document serialized by HolisticNodeService was rendered w/non-200 HTTP response code.",
                     actionRequest: {
                         holistic: {
                             app: {
@@ -240,6 +240,31 @@ const controllerAction = new holarchy.ControllerAction({
                         }
                     },
                     apmBindingPath: kernelCellData.serviceProcesses.appMetadata.result.actionResult.apmBindingPath
+                });
+                if (actResponse.error) {
+                    errors.push(actResponse.error);
+                    break;
+                }
+
+                actResponse = request_.context.act({
+                    actorName,
+                    actorTaskDescription: "Sending configuration data to the HolistcHTML5Service_DOMLocation cell process to let it know if the HTML5 document serialized by HolisticNodeService was rendered w/non-200 HTPP response code.",
+                    actionRequest: {
+                        holistic: {
+                            app: {
+                                client: {
+                                    domLocation: {
+                                        _private: {
+                                            configure: {
+                                                httpResponseCode: kernelCellData.bootROMData.initialDisplayData.httpResponseDisposition.code
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    apmBindingPath: kernelCellData.serviceProcesses.domLocationProcessor.result.actionResult.apmBindingPath
                 });
                 if (actResponse.error) {
                     errors.push(actResponse.error);

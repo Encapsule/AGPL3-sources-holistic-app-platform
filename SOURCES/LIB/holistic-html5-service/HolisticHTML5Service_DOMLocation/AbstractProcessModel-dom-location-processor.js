@@ -10,7 +10,6 @@ const routerEventDescriptorSpec = {
             "app",   // Application actor set the current href value by calling a DOM Location Processor controller action.
         ]
     },
-
     hrefParse: {
         ____accept: "jsObject"
     },
@@ -79,6 +78,13 @@ const apmClientHashRouteLocationProcessor = module.exports = {
             ____types: "jsObject",
             apmID: { ____accept: "jsString" },
             instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
+        },
+
+        httpResponseCode: {
+            ____label: "HolisticNodeService HTTP Response Code",
+            ____description: "Value returned to HolisticHTML5Service_Kernel by HolisticNodeService instance indicating pass/fail of HTML5 document request. Used to determine how to initialize the DOMLocation process for use by the derived HTML5 service logic.",
+            ____accept: "jsNumber",
+            ____defaultValue: -1 // Not a valid HTTP error code. Used to indicate that the process has not yet been configured by the HolisticHTML5Service_Kernel process.
         },
 
         private: {

@@ -257,12 +257,13 @@ const factoryResponse = arccore.filter.create({
                                 bodyFunction: function({ http_code, http_message, resource_uri }) {
                                     let result;
                                     if (http_code !== 200) {
+                                        const appMetadata = appServiceCore.getAppMetadataApp();
                                         return {
                                             error: null,
                                             result: {
-                                                title: http_message,
-                                                name: `Error ${http_code}`,
-                                                description: `HTTP request failed with error code ${http_code}: ${http_message}.`
+                                                title: `${appMetadata.name} - HTTP Error ${http_code}`,
+                                                name: `${appMetadata.name} HTTP Error ${http_code}`,
+                                                description: `${appMetadata.name} could not process your HTTP request and failed with code ${http_code} - ${http_message}.`
                                             }
                                         };
                                     }

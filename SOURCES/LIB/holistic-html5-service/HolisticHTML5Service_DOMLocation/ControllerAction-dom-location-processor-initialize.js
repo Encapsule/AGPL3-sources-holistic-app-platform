@@ -1,4 +1,4 @@
-// ControllerAction-init-dom-client-hash-router.js
+// ControllerAction-dom-location-processor-initialize.js
 
 const holarchy = require("@encapsule/holarchy");
 const queryString = require("query-string");

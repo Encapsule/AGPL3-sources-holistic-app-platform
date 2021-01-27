@@ -8,6 +8,7 @@ module.exports = new holarchy.CellModel({
     apm: require("./AbstractProcessModel-dom-location-processor"),
     actions: [
         require("./ControllerAction-dom-location-processor-initialize"),
+        require("./ControllerAction-dom-location-processor-configure"),
         require("./ControllerAction-dom-location-processor-sink-event-hashchange")
     ],
     subcells: []
