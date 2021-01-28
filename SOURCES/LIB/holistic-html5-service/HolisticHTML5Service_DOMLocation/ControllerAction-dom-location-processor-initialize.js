@@ -4,12 +4,14 @@ const holarchy = require("@encapsule/holarchy");
 const queryString = require("query-string");
 const url = require("url");
 
+const dlpLib = require("./lib");
+
 (function() {
 
     const action = new holarchy.ControllerAction({
 
         id: "TlGPCf7uSf2cZMGZCcU85A",
-        name: "HOlisticHTML5Service_DOMLocation Initialize",
+        name: "HolisticHTML5Service_DOMLocation Initialize",
         description: "Adds a listener to the brower's 'hashchange' event and redirects subsequent event callbacks to the ControllerAction peTmTek_SB64-ofd_PSGj.",
         actionRequestSpec: {
             ____types: "jsObject",
@@ -42,61 +44,28 @@ const url = require("url");
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                console.log(`> HolisticHTML5Service_DOMLocation::initialize parsing current location.href="${location.href}"...`);
-
-                let ocdResponse = request_.context.ocdi.getNamespaceSpec(request_.context.apmBindingPath);
-                if (ocdResponse.error) {
-                    errors.push(ocdResponse.error);
+                let libResponse = dlpLib.getStatus.request(request_.context);
+                if (libResponse.error) {
+                    errors.push(libResponse.error);
                     break;
                 }
+                const { cellMemory, cellProcess } = libResponse.result;
 
-                const apmBindingPathSpec = ocdResponse.result;
-
-                if (!apmBindingPathSpec.____appdsl || !apmBindingPathSpec.____appdsl.apm || (apmBindingPathSpec.____appdsl.apm !==  "OWLoNENjQHOKMTCEeXkq2g")) {
-                    errors.push(`Invalid apmBindingPath="${request_.context.apmBindingPath}" does not resolve to an active HolisticHTML5Service_DOMLocation cell as expected.`);
-                    break;
-                }
-
-                // Retrieve the current (defaulted) value of the cell's OCD memory.
-                ocdResponse = request_.context.ocdi.readNamespace(request_.context.apmBindingPath);
-                if (ocdResponse.error) {
-                    errors.push(ocdResponse.error);
-                    break;
-                }
-                const cellMemory = ocdResponse.result;
-
-                let actResponse = request_.context.act({
-                    actorName: "HolisticHTML5Service_DOMLocation Initialize",
-                    actorTaskDescription: "Attempting to parse the initial window.location.href value.",
-                    actionRequest: {
-                        holistic: {
-                            app: {
-                                client: {
-                                    domLocation: {
-                                        _private: {
-                                            parseLocation: {
-                                                href: window.location.href,
-                                                routerEventNumber: 0,
-                                                actor: "server"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                libResponse = dlpLib.parseLocation.request({
+                    actor: "server",
+                    href: window.location.href,
+                    routerEventNumber: 0,
                 });
-                if (actResponse.error) {
-                    errors.push(actResponse.error);
+                if (libResponse.error) {
+                    errors.push(libResponse.error);
                     break;
                 }
-
-                const routerEventDescriptor = actResponse.result.actionResult;
+                const routerEventDescriptor = libResponse.result;
 
                 cellMemory.private.locationHistory.push(routerEventDescriptor);
                 cellMemory.private.routerEventCount++;
 
-                ocdResponse = request_.context.ocdi.writeNamespace(request_.context.apmBindingPath, cellMemory);
+                let ocdResponse = request_.context.ocdi.writeNamespace(cellProcess.apmBindingPath, cellMemory);
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
