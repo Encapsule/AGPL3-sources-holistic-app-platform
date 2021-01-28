@@ -31,58 +31,29 @@ const apmClientHashRouteLocationProcessor = module.exports = {
             ____defaultValue: -1 // Not a valid HTTP error code. Used to indicate that the process has not yet been configured by the HolisticHTML5Service_Kernel process.
         },
 
-        private: {
-            ____types: "jsObject",
-            ____defaultValue: {},
-
-            routerEventCount: {
-                ____label: "Router Event Count",
-                ____description: "A count of the total number of observed changes of the DOM location object induced by all actors.",
-                ____accept: "jsNumber",
-                ____defaultValue: 0
-            },
-
-            lastOutputEventIndex: {
-                ____label: "Last Output Index",
-                ____description: "A count of the total number of routerEventDescriptor objects written to the model's output.",
-                ____accept: "jsNumber",
-                ____defaultValue: 0
-            },
-
-            // v0.0.48-kyanite
-            // TODO: We are currently maintaining an unbounded array of routerEventDescriptors.
-            // So, we need to study this a bit and understand if we need the history at all.
-            // If yes, how many entries max. Do we actions to allow the app to query and reset this info?
-
-            locationHistory: {
-                ____label: "Location History Array",
-                ____description: "Array written by the sink hashchange event action for every observed change in location.",
-                ____types: "jsArray",
-                ____defaultValue: [],
-                routerEventDescriptor: routerEventDescriptorSpec
-            },
-
-            // v0.0.50-crystallite --- What's this now? I don't think I think this anymore.
-            updateObservers: {
-                ____label: "Update Observers Flag",
-                ____description: "A Boolean flag set by DOM Location Processor actions to indicate to the DOM Location Processor model that it should transition to update step.",
-                ____accept: "jsBoolean",
-                ____defaultValue: false
-            }
-
+        routerEventCount: {
+            ____label: "Router Event Count",
+            ____description: "A count of the total number of observed changes of the DOM location object induced by all actors.",
+            ____accept: "jsNumber",
+            ____defaultValue: 0
         },
 
-        outputs: {
-            ____types: "jsObject",
-            ____defaultValue: {},
-            currentRoute: {
-                ...routerEventDescriptorSpec,
-                ____types: [ "jsNull", "jsObject" ],
-                ____defaultValue: null
-            }
+        lastOutputEventIndex: {
+            ____label: "Last Output Index",
+            ____description: "A count of the total number of routerEventDescriptor objects written to the model's output.",
+            ____accept: "jsNumber",
+            ____defaultValue: 0
+        },
+
+        locationHistory: {
+            ____label: "Location History Array",
+            ____description: "Array written by the sink hashchange event action for every observed change in location.",
+            ____types: "jsArray",
+            ____defaultValue: [],
+            routerEventDescriptor: routerEventDescriptorSpec
         }
 
-    },
+    }, // ~.ocdDataSpec
 
     steps: {
 

@@ -53,7 +53,7 @@ const dlpLib = require("./lib");
                 switch (cellMemory.httpResponseCode) {
                 case 200:
                     // The HTML5 document synthesized by HolisticNodeService is a correctly serialized HolisticHTML5Service instance.
-                    const serverRouterEvent = cellMemory.private.locationHistory[0];
+                    const serverRouterEvent = cellMemory.locationHistory[0];
                     if (!serverRouterEvent.hashrouteString) {
                         const hrefReplace = `${serverRouterEvent.hrefParse.href}#`;
                         // We have a correctly serialized HolisticHTML5Service instance. But, no hashroute specified in the original server router event descriptor.
@@ -62,7 +62,7 @@ const dlpLib = require("./lib");
                             errors.push(libResponse.error);
                             break;
                         }
-                        cellMemory.private.locationHistory[0] = libResponse.result;
+                        cellMemory.locationHistory[0] = libResponse.result;
                         window.location.replace(hrefReplace);
                     }
                     setTimeout(() => {

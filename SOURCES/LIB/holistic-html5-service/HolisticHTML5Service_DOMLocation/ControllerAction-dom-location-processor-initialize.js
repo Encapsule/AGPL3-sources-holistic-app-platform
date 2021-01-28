@@ -62,39 +62,14 @@ const dlpLib = require("./lib");
                 }
                 const routerEventDescriptor = libResponse.result;
 
-                cellMemory.private.locationHistory.push(routerEventDescriptor);
-                cellMemory.private.routerEventCount++;
+                cellMemory.locationHistory.push(routerEventDescriptor);
 
                 let ocdResponse = request_.context.ocdi.writeNamespace(cellProcess.apmBindingPath, cellMemory);
+
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
                 }
-
-                /* experiment
-
-
-                const hashLength = !location.hash?0:location.hash.length;
-                const hasHashRoute = (hashLength || location.href.endsWith("#"));
-
-
-                   if (!hasHashRoute) {
-                   location.replace("#");
-                   }
-
-
-                window.addEventListener("hashchange", (event_) => {
-                    // If this act request fails, the app client process will get notified via its error lifecycle action.
-                    request_.context.act({
-                        apmBindingPath: request_.context.apmBindingPath,
-                        actorName: "DOMLocationProcessor:hashchange Event Handler",
-                        actorTaskDescription: "Notifying the DOM Location Processor of hashchange/location update.",
-                        actionRequest: { holistic: { app: { client: { domLocation: { _private: { notifyEvent: { hashchange: { event: event_ } } } } } } } }
-                    }, false);
-                    event_.preventDefault();
-                });
-
-                */
 
                 /* ----------------------------------------------------------------
                    v0.0.48-kyanite
@@ -110,6 +85,7 @@ const dlpLib = require("./lib");
                    event_.returnValue = "";
                    }, false);
 
+                   ^^^ SAVE THIS
                    ---------------------------------------------------------------- */
 
                 break;
