@@ -9,6 +9,7 @@ module.exports = new holarchy.CellModel({
     actions: [
         require("./ControllerAction-dom-location-processor-initialize"),
         require("./ControllerAction-dom-location-processor-configure"),
+        require("./ControllerAction-dom-location-processor-parse"),
         require("./ControllerAction-dom-location-processor-sink-event-hashchange")
     ],
     subcells: []

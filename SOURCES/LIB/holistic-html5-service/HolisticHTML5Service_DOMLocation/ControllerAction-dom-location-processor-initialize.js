@@ -9,7 +9,7 @@ const url = require("url");
     const action = new holarchy.ControllerAction({
 
         id: "TlGPCf7uSf2cZMGZCcU85A",
-        name: "DOM Client Location Proccessor: Initialize",
+        name: "HOlisticHTML5Service_DOMLocation Initialize",
         description: "Adds a listener to the brower's 'hashchange' event and redirects subsequent event callbacks to the ControllerAction peTmTek_SB64-ofd_PSGj.",
         actionRequestSpec: {
             ____types: "jsObject",
@@ -24,8 +24,7 @@ const url = require("url");
                             _private: {
                                 ____types: "jsObject",
                                 initialize: {
-                                    ____accept: "jsBoolean",
-                                    ____inValueSet: [ true ]
+                                    ____accept: "jsObject",
                                 }
                             }
                         }
@@ -45,50 +44,54 @@ const url = require("url");
 
                 console.log(`> HolisticHTML5Service_DOMLocation::initialize parsing current location.href="${location.href}"...`);
 
+                let ocdResponse = request_.context.ocdi.getNamespaceSpec(request_.context.apmBindingPath);
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+
+                const apmBindingPathSpec = ocdResponse.result;
+
+                if (!apmBindingPathSpec.____appdsl || !apmBindingPathSpec.____appdsl.apm || (apmBindingPathSpec.____appdsl.apm !==  "OWLoNENjQHOKMTCEeXkq2g")) {
+                    errors.push(`Invalid apmBindingPath="${request_.context.apmBindingPath}" does not resolve to an active HolisticHTML5Service_DOMLocation cell as expected.`);
+                    break;
+                }
+
                 // Retrieve the current (defaulted) value of the cell's OCD memory.
-                let ocdResponse = request_.context.ocdi.readNamespace(request_.context.apmBindingPath);
+                ocdResponse = request_.context.ocdi.readNamespace(request_.context.apmBindingPath);
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
                 }
                 const cellMemory = ocdResponse.result;
-                console.log(JSON.stringify(cellMemory));
 
-                // Parse the current location.href.
-                const hrefParse = url.parse(location.href);
+                let actResponse = request_.context.act({
+                    actorName: "HolisticHTML5Service_DOMLocation Initialize",
+                    actorTaskDescription: "Attempting to parse the initial window.location.href value.",
+                    actionRequest: {
+                        holistic: {
+                            app: {
+                                client: {
+                                    domLocation: {
+                                        _private: {
+                                            parseLocation: {
+                                                href: window.location.href,
+                                                routerEventNumber: 0,
+                                                actor: "server"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                if (actResponse.error) {
+                    errors.push(actResponse.error);
+                    break;
+                }
 
-                // Assume we do not have a hashroute fragment in location.href string...
-                let hashrouteParse = null;
-
-                // ... but, if we actually do then parse it per holistic app platform-defined rules:
-                if (hrefParse.hash) {
-                    /*
-                      Hashroute fragment string component of a URL (i.e. the string that begins w/#) is
-                      explicitly defined in HTTP 1.1 spec as an opaque UTF-8 string. This means that we
-                      can do with this string whatever we want. But, that's a lot of possibilities.
-                      And, in the interest of making life a little simpler to understand, we implement
-                      a set of parsing conventions for the hashroute fragment here that reuses and
-                      re-applies most of HTTP 1.1 spec parsing conventions for base URL to the hashroute
-                      fragment string.
-                    */
-                    const hashrouteParseRaw = url.parse(hrefParse.hash.slice(1)); // Drop the # character to make url.parse believe it's parsing a standard server URI pathname.
-                    hashrouteParse = {
-                        pathname: `#${hashrouteParseRaw.pathname?hashrouteParseRaw.pathname:""}`,
-                        path: `#${hashrouteParseRaw.path?hashrouteParseRaw.path:""}`,
-                        search: hashrouteParseRaw.search,
-                        query: hashrouteParseRaw.query
-                    };
-
-                } // if (hrefParse.hash) -> parse the hashroute fragment
-
-                const routerEventDescriptor = {
-                    actor: "server", // always because this is the initial parse and we have not hooked any events or taken any action(s) based on location.href at this point.
-                    hrefParse: hrefParse,
-                    hashrouteString: hrefParse.hash?hrefParse.hash:null,
-                    hashrouteParse,
-                    hashrouteQueryParse: hashrouteParse?(queryString.parse(hashrouteParse.query)):null,
-                    routerEventNumber: cellMemory.private.routerEventCount
-                };
+                const routerEventDescriptor = actResponse.result.actionResult;
 
                 cellMemory.private.locationHistory.push(routerEventDescriptor);
                 cellMemory.private.routerEventCount++;

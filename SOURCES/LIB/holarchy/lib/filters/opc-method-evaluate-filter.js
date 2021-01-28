@@ -690,7 +690,7 @@ const factoryResponse = arccore.filter.create({
             case 1:
                 logger.request({
                     logLevel: "info",
-                    opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
+                    opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames - 1, actorStack: opcRef._private.opcActorStack },
                     subsystem: "opc", method: "evaluate", phase: "body",
                     message: "Prior action(s) altered CellProcessor memory state. But, no active cells seem currently interested.",
                 });
@@ -698,7 +698,7 @@ const factoryResponse = arccore.filter.create({
             default:
                 logger.request({
                     logLevel: "info",
-                    opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
+                    opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames - 1, actorStack: opcRef._private.opcActorStack },
                     subsystem: "opc", method: "evaluate", phase: "body",
                     message: `Prior action(s) altered CellProcessor memory state resulting in a cascade of ${result.summary.counts.bindings} active cell evaluations over ${result.summary.counts.frames} frames.`
                 });
@@ -728,10 +728,10 @@ const factoryResponse = arccore.filter.create({
         logger.request({
             errorLevel: response.error?"error":"info",
             opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
-                   evalCount: opcRef._private.evalCount, frameCount: result.summary.counts.frames,
+                   evalCount: opcRef._private.evalCount, frameCount: result.summary.counts.frames - 1,
                    actorStack: opcRef._private.opcActorStack },
             subsystem: "opc", method: "evaluate", phase: "epilogue",
-            message: `COMPLETE OPC system state update #${result.evalNumber}. Completed ${result.summary.counts.frames} eval frame(s) in ${result.summary.evalStopwatch.totalMilliseconds} ms.`
+            message: `COMPLETE OPC system state update #${result.evalNumber}. Completed ${result.summary.counts.frames} eval frame${result.summary.counts.frames?"s":""} in ${result.summary.evalStopwatch.totalMilliseconds} ms.`
         });
 
         response.result = result;

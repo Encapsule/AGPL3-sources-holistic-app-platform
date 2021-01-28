@@ -17,7 +17,7 @@ const appServiceBootROMSpecFactory = require("./iospecs/app-service-boot-rom-spe
         outputFilterSpec: require("./iospecs/HolisticServiceCore-method-constructor-filter-output-spec"),
 
         bodyFunction: function(request_) {
-            console.log(`HolisticAppCommon::constructor [${this.operationID}::${this.operationName}]`);
+            console.log(`HolisticServiceCore::constructor [${this.operationID}::${this.operationName}]`);
             let response = {
                 error: null,
                 result: { // set the outer levels of the response.result up assuming we'll be successful splicing in the required values later in this bodyFunction
