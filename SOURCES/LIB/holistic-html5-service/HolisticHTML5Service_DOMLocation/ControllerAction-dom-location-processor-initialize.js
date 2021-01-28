@@ -83,7 +83,7 @@ const dlpLib = require("./lib");
                    window.addEventListener("beforeunload", (event_) => {
                    event_.preventDefault();
                    event_.returnValue = "";
-                   }, false);
+                   }, false); // <- This last parameter is deprecated as a Boolean. It's not an options object per MDN docs.
 
                    ^^^ SAVE THIS
                    ---------------------------------------------------------------- */

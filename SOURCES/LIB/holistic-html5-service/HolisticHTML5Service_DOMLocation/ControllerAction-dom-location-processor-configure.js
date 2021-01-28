@@ -66,6 +66,7 @@ const dlpLib = require("./lib");
                         window.location.replace(hrefReplace);
                     }
                     setTimeout(() => {
+                        console.log("> HolisticHTML5Service_DOMLocation configure action hashchange event configured act on HolisticHTML5Service_DOMLocation cell via action request.");
                         window.addEventListener("hashchange", (event_) => {
                             request_.context.act({
                                 apmBindingPath: request_.context.apmBindingPath,
@@ -80,6 +81,7 @@ const dlpLib = require("./lib");
                 default:
                     // TODO Move this into an even registration action for clarity.
                     setTimeout(() => {
+                        console.log("> HolisticHTML5Service_DOMLocation configure action hashchange event configured reload the HTML5 document from HolisticNodeService on any change to window.location.href.");
                         window.addEventListener("hashchange", (event_) => {
                             window.location.reload();
                             event_.preventDefault();
