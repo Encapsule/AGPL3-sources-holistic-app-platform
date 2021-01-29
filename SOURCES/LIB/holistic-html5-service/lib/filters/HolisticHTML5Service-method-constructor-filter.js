@@ -82,19 +82,20 @@ const factoryResponse = arccore.filter.create({
                     name: `${appBuild.app.name} HTML5 Service Process (synthesized)`,
                     description: `Synthesized HolisticHTML5Service runtime AbstractProcessModel for app service '${appBuild.app.name}'.`,
                     ocdDataSpec: {
-                        ____label: `${appBuild.app.name} HTML5 Service Process Memory`,
-                        ____description: `The ObservableControllerData filter spec for APM ID '${html5ServiceAPMID}' (${appBuild.app.name} synthesized HTML5 service CellModel) that defines APM's cell memory data format.`,
-                        ____types: "jsObject",
-                        ____defaultValue: {}
-
-                        // WE ARE GOING TO MAKE THIS EXTENSIBLE...
-
+                        ...request_.appModels.html5ServiceCell.apmDeclaration.ocdDataSpec,
+                        activationMode: {
+                            ____label: `${appBuild.app.name} Process Activation Mode`,
+                            ____description: `A flag that indicates the activation mode of ${appBuild.app.name} derived service process.`,
+                            ____accept: "jsString",
+                            ____inValueSet: [
+                                "app-service-start",
+                                "app-service-error"
+                            ]
+                        }
                     }, // ocdDataSpec
 
                     steps: {
-                        uninitialized: {
-                            description: "Default APM starting step.",
-                        },
+                        // Order matters here.
 
                         "app-service-start": {
                             description: "The derived app service process has been activated and is now interactive."
@@ -102,6 +103,27 @@ const factoryResponse = arccore.filter.create({
 
                         "app-service-error": {
                             description: "The dervied app service process has been activated but did not start correctly. And, is not interactive."
+                        },
+
+                        ...request_.appModels.html5ServiceCell.apmDeclaration.steps,
+
+                        "uninitialized": {
+                            description: "Default APM starting step.",
+                            transitions: [ { transitionIf: { always: true}, nextStep: "app-service-boot" } ]
+                        },
+
+                        "app-service-boot": {
+                            description: `${appBuild.app.name} process is booting.`,
+                            transitions: [
+                                {
+                                    nextStep: "app-service-start",
+                                    transitionIf: { holarchy: { cm: { operators: { ocd: { compare: { values: { a: { value: "app-service-start" }, b: { path: "#.activationMode" }, operator: "===" } } } } } } }
+                                },
+                                {
+                                    nextStep: "app-service-error",
+                                    transitionIf: { always: true }
+                                }
+                            ]
                         }
 
                     }
@@ -111,10 +133,12 @@ const factoryResponse = arccore.filter.create({
                 subcells: [
                     ...appServiceCore.getCellModels(), // All the CellModels aggregated by our HolisticServiceCore instance.
                     ...request_.appModels.cellModels, // All the CellModels registered by the developer via HolisticHTML5Service::constructor request.
-                    html5ServiceKernelCellModel // The synthesized HTML5 service kernel CellModel.
+                    html5ServiceKernelCellModel, // The synthesized HTML5 service kernel CellModel.
+                    ...request_.appModels.html5ServiceCell.subcells
                 ],
 
                 actions: [
+                    ...request_.appModels.html5ServiceCell.actions,
                     // ----------------------------------------------------------------
                     // ControllerAction: holistic.app.client.boot
 
@@ -284,7 +308,7 @@ const factoryResponse = arccore.filter.create({
                             }
                         },
                         actionResultSpec: { ____opaque: true /*TODO*/ },
-                        bodyFunction: request_.appModels.html5ServiceConfig.lifecycle.hashrouteFunction
+                        bodyFunction: request_.appModels.html5ServiceCell.lifecycle.hashrouteFunction
                     },
                     // ----------------------------------------------------------------
                     // ControllerAction: holistic.app.client.lifecycle.error
@@ -339,9 +363,13 @@ const factoryResponse = arccore.filter.create({
                             ____accept: "jsString",
                             ____defaultValue: "okay"
                         },
-                        bodyFunction: request_.appModels.html5ServiceConfig.lifecycle.errorFunction
+                        bodyFunction: request_.appModels.html5ServiceCell.lifecycle.errorFunction
                     }
 
+                ],
+
+                operators: [
+                    ...request_.appModels.html5ServiceCell.operators
                 ]
 
             }); // new CellModel

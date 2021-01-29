@@ -1,5 +1,9 @@
 // TODO: app-client-method-constructor-input-spec.js
 
+const holarchy = require("@encapsule/holarchy");
+const apmConstructorRequestSpec = holarchy.appTypes.AbstractProcessModel.constructorRequest;
+const cmConstructorRequestSpec = holarchy.appTypes.CellModel.constructorRequest;
+
 const serviceTypes = require("@encapsule/holistic-service-core").serviceTypes;
 
 module.exports = {
@@ -30,11 +34,23 @@ module.exports = {
         ____description: "A collection of application-specific plug-in artifacts derived from @encapsule/holistic RTL's to register for use inside this holistic browser tab service instance.",
         ____types: "jsObject",
         ____defaultValue: {},
-        html5ServiceConfig: {
-            ____label: "HolisticHTML5Service Config",
+        html5ServiceCell: {
+            ____label: "HolisticHTML5Service App CellModel Declaration",
             ____description: "Intialization options, type and runtime behavior specializations to be applied to the generic Holistic Tab Service kernel (synthesized CellModel specialized for your specific derived tab service).",
             ____types: "jsObject",
             ____defaultValue: {},
+            apmDeclaration: {
+                ____label: "HolisticHTML5Service App CellModel APM Declaratoin",
+                ____description: "Information provided by a developer to specialize the top level HolisticHTML5Service App CellModel synthesized for the derived service.",
+                ____types: "jsObject",
+                ____defaultValue: {},
+                ocdDataSpec: apmConstructorRequestSpec.ocdDataSpec,
+                steps: apmConstructorRequestSpec.steps
+            },
+            operators: cmConstructorRequestSpec.operators,
+            actions: cmConstructorRequestSpec.actions,
+            subcells: cmConstructorRequestSpec.subcells,
+
             lifecycle: {
                 ____label: "HTML5 Service Lifecycle Actions",
                 ____description: "Holistic tab service kernel cell signals to the derived app service via \"lifecycle\" actions. The request and response.result format of these effectively synchronous arccore.filter-style body functions is pre-defined by holistic platform. App developers may accept default values. Or, override these values w/custom handlers.",

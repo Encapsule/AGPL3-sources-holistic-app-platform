@@ -333,7 +333,7 @@ const controllerAction = new holarchy.ControllerAction({
                                                 processCoordinates: cellMemory.derivedAppClientProcessCoordinates,
                                                 activate: {
                                                     processData: {
-                                                        __apmiStep: (cellMemory.bootROMData.initialDisplayData.httpResponseDisposition.code === 200)?"app-service-start":"app-service-error"
+                                                        activationMode: (cellMemory.bootROMData.initialDisplayData.httpResponseDisposition.code === 200)?"app-service-start":"app-service-error"
                                                     }
                                                 }
                                             }

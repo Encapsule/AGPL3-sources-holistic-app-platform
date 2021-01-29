@@ -143,6 +143,15 @@ module.exports = {
     // environment mechanism and the contents of HolarchyCore itself without
     // using CellProcessor.
 
-    HolarchyCore: require("./lib/intrinsics/HolarchyCore")
+    HolarchyCore: require("./lib/intrinsics/HolarchyCore"),
+
+    appTypes: {
+        AbstractProcessModel: {
+            constructorRequest: require("./lib/filters/iospecs/apm-method-constructor-input-spec")
+        },
+        CellModel: {
+            constructorRequest: require("./lib/filters/iospecs/cm-method-constructor-input-spec")
+        }
+    }
 
 };
