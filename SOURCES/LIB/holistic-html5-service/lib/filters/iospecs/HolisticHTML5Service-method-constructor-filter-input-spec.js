@@ -40,51 +40,6 @@ module.exports = {
                 ____description: "Holistic tab service kernel cell signals to the derived app service via \"lifecycle\" actions. The request and response.result format of these effectively synchronous arccore.filter-style body functions is pre-defined by holistic platform. App developers may accept default values. Or, override these values w/custom handlers.",
                 ____types: "jsObject",
                 ____defaultValue: {},
-                initFunction: {
-                    ____label: "Application Client Lifecyle Signal Action: Initialize",
-                    ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.init ControllerAction plug-in.",
-                    ____accept: "jsFunction",
-                    ____defaultValue: function(request_) {
-                        console.log("WARNING: No holistic.app.client.lifecycle.init signal action was registered. USING DEFAULT HANDLER (does nothing).");
-                        return { error: null };
-                    }
-                },
-                queryFunction: {
-                    ____label: "Application Client Lifecycle Signal Action: Query",
-                    ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.query ControllerAction plug-in.",
-                    ____accept: "jsFunction",
-                    ____defaultValue: function(request_) {
-                        console.log("WARNING: No holistic.app.client.lifecycle.query signal action was registered. USING DEFAULT HANDLER (does nothing).");
-                        return { error: null };
-                    }
-                },
-                deserializeFunction: {
-                    ____label: "Application Client Lifecycle Signal Action: Deserialize",
-                    ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.deserialize ControllerAction plug-in.",
-                    ____accept: "jsFunction",
-                    ____defaultValue: function(request_) {
-                        console.log("WARNING: No holistic.app.client.lifecycle.deserialize signal action was registered. USING DEFAULT HANDLER (does nothing).");
-                        return { error: null };
-                    }
-                },
-                configFunction: {
-                    ____label: "Application Client Lifecycle Signal Action: Config",
-                    ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.config ControllerAction plug-in.",
-                    ____accept: "jsFunction",
-                    ____defaultValue: function(request_) {
-                        console.log("WARNING: No holistic.app.client.lifecycle.config signal action was registered. USING DEFAULT HANDLER (does nothing).");
-                        return { error: null };
-                    }
-                },
-                startFunction: {
-                    ____label: "Application Client Lifecycle Signal Action: Start",
-                    ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.start ControllerAction plug-in.",
-                    ____accept: "jsFunction",
-                    ____defaultValue: function(request_) {
-                        console.log("WARNING: No holistic.app.client.lifecycle.start signal action registered. USING DEFAULT HANDLER (does nothing).");
-                        return { error: null };
-                    }
-                },
                 hashrouteFunction: {
                     ____label: "Application Client Lifecycle Signal Action: Hashroute",
                     ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.hashroute ControllerAction plug-in.",

@@ -205,36 +205,8 @@ const factoryResponse = arccore.filter.create({
                         }
                     },
 
-
                     // ----------------------------------------------------------------
-                    // ControllerAction: holistic.app.client.lifecycle.start
-                    {
-                        id: arccore.identifier.irut.fromReference(`${html5ServiceCellModelID}::holistic.app.client.lifecycle.start`).result,
-                        name: `${appBuild.app.name} App Client Lifecycle Action: Start`,
-                        description: `This action is invoked by the HTML5 service kernel to inform ${appBuild.app.name} service logic that the kernel has completed its boot process and is yielding control of the HTML5 service to {$appBuild.app.name} service logic.`,
-                        actionRequestSpec: {
-                            ____types: "jsObject",
-                            holistic: {
-                                ____types: "jsObject",
-                                app: {
-                                    ____types: "jsObject",
-                                    client: {
-                                        ____types: "jsObject",
-                                        lifecycle: {
-                                            ____types: "jsObject",
-                                            start: {
-                                                ____accept: "jsObject",
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        actionResultSpec: { ____opaque: true /*TODO*/ },
-                        bodyFunction: request_.appModels.html5ServiceConfig.lifecycle.startFunction
-                    },
-
-                    // ----------------------------------------------------------------
+                    // I THINK WE WILL DEPRECATE THIS TOO!!!!
                     // ControllerAction: holistic.app.client.lifecycle.hashroute
                     {
                         id: arccore.identifier.irut.fromReference(`${html5ServiceCellModelID}::holistic.app.client.lifecycle.hashroute`).result,
