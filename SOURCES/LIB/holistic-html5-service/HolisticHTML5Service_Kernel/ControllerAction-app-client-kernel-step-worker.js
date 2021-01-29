@@ -40,7 +40,7 @@ const controllerAction = new holarchy.ControllerAction({
                                         "activate-subprocesses",
                                         "deserialize-bootROM-data",
                                         "config-subprocesses",
-                                        "signal-lifecycle-start",
+                                        "activate-service-process",
                                     ],
                                     ____defaultValue: "noop"
                                 }
@@ -73,7 +73,7 @@ const controllerAction = new holarchy.ControllerAction({
                 break;
             }
             const hackDescriptor = hackLibResponse.result;
-            const kernelCellData = hackDescriptor.cellMemory;
+            const cellMemory = hackDescriptor.cellMemory;
             let actResponse, ocdResponse;
 
             switch (messageBody.action) {
@@ -119,7 +119,7 @@ const controllerAction = new holarchy.ControllerAction({
                                                 processCoordinates: { apmID: "OWLoNENjQHOKMTCEeXkq2g" /* "Holistic App Client Kernel: DOM Location Processor" */ },
                                                 activate: {
                                                     processData: {
-                                                        derivedAppClientProcessCoordinates: kernelCellData.derivedAppClientProcessCoordinates
+                                                        derivedAppClientProcessCoordinates: cellMemory.derivedAppClientProcessCoordinates
                                                     }
                                                 }
                                             }
@@ -158,15 +158,18 @@ const controllerAction = new holarchy.ControllerAction({
 
                 actResponse = request_.context.act({
                     actorName,
-                    actorTaskDescription: "Attempting to activate the PageViewController cell process singleton.",
+                    actorTaskDescription: "ACtivating the HolisticHTML5Service_PageViewController process on behalf of HolisticHTML5Service_Kernel process.",
                     actionRequest: {
                         CellProcessor: {
-                            process: {
-                                activate: {},
-                                processCoordinates: { apmID: "AZaqZtWRSdmHOA6EbTr9HQ"  } // PageViewController cell singleton instance
+                            util: {
+                                writeActionResponseToPath: {
+                                    dataPath: "#.serviceProcesses.pageViewController",
+                                    actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "AZaqZtWRSdmHOA6EbTr9HQ"  } /* PageViewController cell singleton instance */ } } }
+                                }
                             }
                         }
-                    }
+                    },
+                    apmBindingPath: request_.context.apmBindingPath // this will be the holistic app client kernel process
                 });
 
                 if (actResponse.error) {
@@ -174,9 +177,6 @@ const controllerAction = new holarchy.ControllerAction({
                     break;
                 }
 
-
-                // TODO: Let's leave this out for now until the basic stuff is working end-to-end and requirements are less abstract.
-                // { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.serviceProcesses.clientViewProcessor", actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "Hsu-43zBRgqHItCPWPiBng" /* "Holistic App Client Kernel: Client View Processor" */ } } } } } } } },
                 break;
 
                 // ****************************************************************
@@ -184,7 +184,7 @@ const controllerAction = new holarchy.ControllerAction({
 
             case "deserialize-bootROM-data":
                 try {
-                    const bootROMElement = document.getElementById(kernelCellData.bootROMElementID);
+                    const bootROMElement = document.getElementById(cellMemory.bootROMElementID);
                     if (bootROMElement === null) {
                         errors.push(`Unexpected error in HolisticHTML5Service_Kernel process: Cannot locate DOM element '${kernelCelLData.bootROMElementID}' expected to contain the kernel's bootROM data.`);
                         break;
@@ -230,8 +230,8 @@ const controllerAction = new holarchy.ControllerAction({
                                     _private: {
                                         config: {
                                             pageMetadataOverride: {
-                                                httpResponseDisposition: kernelCellData.bootROMData.initialDisplayData.httpResponseDisposition,
-                                                errorPageMetadata: kernelCellData.bootROMData.initialDisplayData.pageMetadata
+                                                httpResponseDisposition: cellMemory.bootROMData.initialDisplayData.httpResponseDisposition,
+                                                errorPageMetadata: cellMemory.bootROMData.initialDisplayData.pageMetadata
                                             }
                                         }
                                     }
@@ -239,7 +239,7 @@ const controllerAction = new holarchy.ControllerAction({
                             }
                         }
                     },
-                    apmBindingPath: kernelCellData.serviceProcesses.appMetadata.result.actionResult.apmBindingPath
+                    apmBindingPath: cellMemory.serviceProcesses.appMetadata.result.actionResult.apmBindingPath
                 });
                 if (actResponse.error) {
                     errors.push(actResponse.error);
@@ -256,7 +256,7 @@ const controllerAction = new holarchy.ControllerAction({
                                     domLocation: {
                                         _private: {
                                             configure: {
-                                                httpResponseCode: kernelCellData.bootROMData.initialDisplayData.httpResponseDisposition.code
+                                                httpResponseCode: cellMemory.bootROMData.initialDisplayData.httpResponseDisposition.code
                                             }
                                         }
                                     }
@@ -264,7 +264,7 @@ const controllerAction = new holarchy.ControllerAction({
                             }
                         }
                     },
-                    apmBindingPath: kernelCellData.serviceProcesses.domLocationProcessor.result.actionResult.apmBindingPath
+                    apmBindingPath: cellMemory.serviceProcesses.domLocationProcessor.result.actionResult.apmBindingPath
                 });
                 if (actResponse.error) {
                     errors.push(actResponse.error);
@@ -298,7 +298,7 @@ const controllerAction = new holarchy.ControllerAction({
                                         _private: {
                                             activate: {
                                                 displayLayoutRequest: {
-                                                    renderData: kernelCellData.bootROMData.initialDisplayData.renderData
+                                                    renderData: cellMemory.bootROMData.initialDisplayData.renderData
                                                 }
                                             }
                                         }
@@ -317,34 +317,38 @@ const controllerAction = new holarchy.ControllerAction({
 
                 // ****************************************************************
                 // ****************************************************************
-            case "signal-lifecycle-start":
+            case "activate-service-process":
 
                 actResponse = request_.context.act({
                     actorName,
-                    actorTaskDescription: "Dispatching the derived HTML5 service's start lifecycle action to inform it that kernel boot has completed.",
+                    actorTaskDescription: "Attempting to activate the derived HTML5 service cell process...",
                     actionRequest: {
                         CellProcessor: {
-                            cell: {
-                                delegate: {
+                            util: {
+                                writeActionResponseToPath: {
+                                    dataPath: "#.serviceProcesses.appServiceProcess",
                                     actionRequest: {
-                                        holistic: {
-                                            app: {
-                                                client: {
-                                                    lifecycle: {
-                                                        start: {
-                                                        }
+                                        CellProcessor: {
+                                            process: {
+                                                processCoordinates: cellMemory.derivedAppClientProcessCoordinates,
+                                                activate: {
+                                                    processData: {
+                                                        __apmiStep: (cellMemory.bootROMData.initialDisplayData.httpResponseDisposition.code === 200)?"app-service-start":"app-service-error"
                                                     }
                                                 }
                                             }
                                         }
                                     }
-                                },
-                                cellCoordinates: kernelCellData.derivedAppClientProcessCoordinates
+                                }
                             }
                         }
                     },
                     apmBindingPath: request_.context.apmBindingPath // will be the holistic HTML5 service kernel process
                 });
+                if (actResponse.error) {
+                    errors.push(actResponse.error);
+                    break;
+                }
 
                 break;
 

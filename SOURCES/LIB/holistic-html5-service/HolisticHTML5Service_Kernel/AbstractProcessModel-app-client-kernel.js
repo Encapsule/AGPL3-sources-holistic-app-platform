@@ -81,8 +81,9 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                             ____defaultValue: {},
                             domLocationProcessor: optionalFilterResponseSpec,
                             d2r2DisplayAdapter: optionalFilterResponseSpec,
-                            clientViewProcessor: optionalFilterResponseSpec,
+                            pageViewController: optionalFilterResponseSpec,
                             appMetadata: optionalFilterResponseSpec,
+                            appServiceProcess: optionalFilterResponseSpec,
                         },
 
                         lifecycleResponses: {
@@ -142,7 +143,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                         "kernel-boot-start": {
                             description: "Holistic app client kernel process services startup.",
                             actions: {
-                                exit: [
+                                enter: [
                                     // These are dispatched while the cell is in process step "kernel-start-services" iff transition === true
                                     { holistic: { app: { client: { kernel: { _private: { hookDOMEvents: {} } } } } } },
                                 ]
@@ -155,7 +156,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                         "kernel-activate-subprocesses": {
                             description: "Activating cell subprocesses required by the derived app client service.",
                             actions: {
-                                exit: [
+                                enter: [
                                     // Activate cell processes:
                                     // HolisticServiceCore_Metadata
                                     // HolisticServiceCore_PageViewController
@@ -177,8 +178,9 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                                         and: [
                                             // TODO: ensure that we wait on everything we activated in stepWorker activate-subprocesses action.
 
-                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "display-adapter-wait-initial-layout" } },  cellCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* "Holistic Client App Kernel: d2r2/React Client Display Adaptor" */ } } } },
-                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "dom-location-wait-kernel-config" } }, cellCoordinates: { apmID: "OWLoNENjQHOKMTCEeXkq2g" /* "Holistic App Client Kernel: DOM Location Processor" */ } } } }
+                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "metadata-wait-kernel-config" } }, cellCoordinates: { apmID: "srjZAO8JQ2StYj07u_rgGg" /* HolisticServiceCore_Metadata Process */ } } } },
+                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "dom-location-wait-kernel-config" } }, cellCoordinates: { apmID: "OWLoNENjQHOKMTCEeXkq2g" /* HolisticHTMLService_DOMLocation */ } } } },
+                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "display-adapter-wait-kernel-config" } },  cellCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* HolisticHTML5Service_DisplayAdapter */ } } } }
                                         ]
                                     },
                                     nextStep: "kernel-wait-browser-tab-resources-loaded"
@@ -197,7 +199,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                         "kernel-deserialize-bootROM": {
                             description: "The bootROM data serialized to this HTML5 document by HolisticNodeService has been deserialized by HolisticHTML5Service.",
                             actions: {
-                                exit: [
+                                enter: [
                                     { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "deserialize-bootROM-data" } } } } } } }
                                 ]
                             },
@@ -209,7 +211,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                         "kernel-config-subprocesses": {
                             description: "Completing subprocess initializations using information obtained from the deserialized bootROM.",
                             actions: {
-                                exit: [
+                                enter: [
                                     // Rehydrate the display process in whatever state it was left in immediately prior to being serialized to an HTML5 document.
                                     // Then render the same data w/modified context indicating that we're now live inside the HTML5 service kernel (i.e. act is connected).
                                     { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "config-subprocesses" } } } } } } },
@@ -224,38 +226,32 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                                 {
                                     transitionIf: {
                                         and: [
-                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "display-adapter-service-ready" } }, cellCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /*display adpater*/ } } } }
+                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "metadata-ready" } }, cellCoordinates: { apmID: "srjZAO8JQ2StYj07u_rgGg" /* HolisticServiceCore_Metadata Process */  } } } },
+                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "pageview-controller-ready" } }, cellCoordinates: { apmID: "AZaqZtWRSdmHOA6EbTr9HQ" /* HolisticServiceCore_PageViewController */ } } } },
+                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "dom-location-ready" } }, cellCoordinates: { apmID: "OWLoNENjQHOKMTCEeXkq2g" /* HolisticHTMLService_DOMLocation */ } } } },
+                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "display-adapter-ready" } }, cellCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /*display adpater*/ } } } }
                                         ]
                                     },
-                                    nextStep: "kernel-signal-lifecycle-start"
+                                    nextStep: "kernel-boot-complete"
                                 }
                             ]
                         },
 
                         "kernel-boot-complete": {
                             description: "The HolisticHTML5Service_Kernel process has completed its boot process and is now passing control over to the derived service.",
-                            transitions: [ { transitionIf: { always: true }, nextStep: "kernel-signal-lifecycle-start" } ]
+                            transitions: [ { transitionIf: { always: true }, nextStep: "kernel-activate-service-process" } ]
                         },
 
-                        "kernel-signal-lifecycle-start": {
-                            description: "Informing the derived holistic app client process that it is time to start the show!",
+                        "kernel-activate-service-process": {
+                            description: "Attempting to activate the derived HTML5 service process that developers understand as the root cell process of their browser tab application...",
                             actions: {
-                                enter: [
-                                    { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.start", actionRequest: { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "signal-lifecycle-start" } } } } } } } } } } }
-                                ]
+                                enter: [ { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "activate-service-process" } } } } } } } ]
                             },
-                            transitions: [
-                                { transitionIf: { always: true }, nextStep: "kernel-service-ready" }
-                            ]
+                            transitions: [ { transitionIf: { always: true }, nextStep: "kernel-service-ready" } ]
                         },
 
                         "kernel-service-ready": {
                             description: "The HolisticHTML5Service_Kernel process has completed its boot sequence and the derived app service process has been started."
-                        },
-
-                        "kernel-service-offline-standby": {
-                            description: "The HolisticHTML5Service kernel process is offline due to an error synthesizing a specialized service configuration to execute in this browser tab instance."
-                            // For now just sit here and do nothing more on a server error.
                         }
 
                     } // steps

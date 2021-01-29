@@ -32,10 +32,10 @@ const apm = new holarchy.AbstractProcessModel({
 
         uninitialized: {
             description: "Default process starting step.",
-            transitions: [ { transitionIf: { always: true }, nextStep: "pageview-controller-active" } ]
+            transitions: [ { transitionIf: { always: true }, nextStep: "pageview-controller-ready" } ]
         },
 
-        "pageview-controller-active": {
+        "pageview-controller-ready": {
             description: "Waiting for the HTML5 service logic to set the page view."
         }
 

@@ -56,23 +56,28 @@ const apm = new holarchy.AbstractProcessModel({
         uninitialized: {
             description: "Default process start step.",
             transitions: [
-                { transitionIf: { always: true }, nextStep: "display-adapter-load-config" }
+                { transitionIf: { always: true }, nextStep: "display-adapter-initialize" }
             ]
         },
 
-        "display-adapter-load-config": {
-            description: "d2r2/React display adapter cell is loading construction config into its cell memory.",
+        "display-adapter-initialize": {
+            description: "HolisticHTML5Service_DisplayAdapter process is initializing.",
             actions: {
-                exit: [
+                enter: [
                     { holistic: { app: { client: { display: { _private: { loadConfig: { } } } } } } }
                 ]
             },
             transitions: [
-                { transitionIf: { always: true }, nextStep: "display-adapter-wait-initial-layout" }
+                { transitionIf: { always: true }, nextStep: "display-adapter-wait-kernel-config" }
             ]
         },
 
-        "display-adapter-wait-initial-layout": {
+        "display-adpater-initialized": {
+            description: "HolisticHTML5Service_DisplayAdapter process is initialized.",
+            transitions: [ { transitionIf: { always: true}, nextStep: "display-adapter-wait-kernel-config" } ]
+        },
+
+        "display-adapter-wait-kernel-config": {
             description: "d2r2/React Client Display Adapter is waiting for the app client kernel to set the display's initial layout.",
             transitions: [
                 {
@@ -93,12 +98,17 @@ const apm = new holarchy.AbstractProcessModel({
                             }
                         }
                     },
-                    nextStep: "display-adapter-service-ready"
+                    nextStep: "display-adapter-configured"
                 }
             ]
         },
 
-        "display-adapter-service-ready": {
+        "display-adapter-configured": {
+            description: "The HolisticHTML5Service_DisplayAdapter process has been configured.",
+            transitions: [ { transitionIf: { always: true }, nextStep: "display-adapter-ready" } ]
+        },
+
+        "display-adapter-ready": {
             description: "d2r2/React Client Display Adapter has been initialized, configured, and ready to accept layout update requests from the tab service's app process runtime."
         }
 

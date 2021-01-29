@@ -85,37 +85,23 @@ const factoryResponse = arccore.filter.create({
                         ____label: `${appBuild.app.name} HTML5 Service Process Memory`,
                         ____description: `The ObservableControllerData filter spec for APM ID '${html5ServiceAPMID}' (${appBuild.app.name} synthesized HTML5 service CellModel) that defines APM's cell memory data format.`,
                         ____types: "jsObject",
-                        ____defaultValue: {},
-                        kernelProxy: { ____types: "jsObject", ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ } },
-                        locationProxy: {  ____types: "jsObject", ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ } },
-                        displayProxy: {  ____types: "jsObject", ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ } }
+                        ____defaultValue: {}
+
+                        // WE ARE GOING TO MAKE THIS EXTENSIBLE...
+
                     }, // ocdDataSpec
 
                     steps: {
                         uninitialized: {
                             description: "Default APM starting step.",
-                            transitions: [ { transitionIf: { always: true }, nextStep: "app-client-wait-kernel-config" } ]
                         },
-                        "app-client-wait-kernel-config": {
-                            description: "Derived app client process has been started by the app client kernel. Waiting for the kernel to finish configuring...",
-                            transitions: [
-                                {
-                                    transitionIf: {
-                                        CellProcessor: {
-                                            proxy: {
-                                                proxyCoordinates: "#.kernelProxy",
-                                                connect: {
-                                                    statusIs: "connected"
-                                                }
-                                            }
-                                        }
-                                    },
-                                    nextStep: "app-client-active"
-                                }
-                            ]
+
+                        "app-service-start": {
+                            description: "The derived app service process has been activated and is now interactive."
                         },
-                        "app-client-active": {
-                            description: "The derived app client process has been activated and is now interactive.",
+
+                        "app-service-error": {
+                            description: "The dervied app service process has been activated but did not start correctly. And, is not interactive."
                         }
 
                     }
@@ -145,7 +131,7 @@ const factoryResponse = arccore.filter.create({
                                     client: {
                                         ____types: "jsObject",
                                         boot: {
-                                            ____types: "jsObject" // TODO? Options?
+                                            ____types: "jsObject"
                                         }
                                     }
                                 }
@@ -184,6 +170,7 @@ const factoryResponse = arccore.filter.create({
                                 }
                                 const appClientKernelActivateResult = actResponse.result;
 
+                                /*
                                 actResponse = controllerActionRequest_.context.act({
                                     actorName,
                                     actorTaskDescription: `Attempting to launch derived application '${appBuild.app.name}' process.`,
@@ -207,6 +194,8 @@ const factoryResponse = arccore.filter.create({
                                     errors.push(actResponse.error);
                                     break;
                                 }
+                                */
+
                                 break;
                             }
                             if (errors.length) {
