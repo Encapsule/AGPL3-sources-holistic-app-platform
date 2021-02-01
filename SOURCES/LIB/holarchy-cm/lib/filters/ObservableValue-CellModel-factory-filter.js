@@ -16,7 +16,7 @@ const holarchy = require("@encapsule/holarchy");
             ____types: "jsObject",
             cellID: { ____accept: "jsString" }, // must be a unique IRUT
             apmID: { ____accept: "jsString" }, // must be a unique IRUT
-            valueTypeName: { ____accept: "jsString" },
+            valueTypeLabel: { ____accept: "jsString" },
             valueTypeDescription: { ____accept: "jsString" },
             valueTypeSpec: {
                 ____label: "Value Data Specification",
@@ -50,12 +50,57 @@ const holarchy = require("@encapsule/holarchy");
 
                 const cellModelDeclaration = {
                     id: request_.cellID,
-                    name: `${request_.valueTypeName} ObservableValue CellModel`,
-                    description: `ObservableValue CellModel specialization for ${request_.valueTypeName} - ${request_.valueTypeDescription}`,
+                    name: `${request_.valueTypeLabel} ObservableValue Model`,
+                    description: `ObservableValue specialization for value type "${request_.valueTypeLabel}".`,
                     apm: {
                         id: request_.apmID,
-                        name: `${request_.valueTypeName} Observable Value AbstractProcessModel`,
-                        description: `ObservableValue AbstractProcessModel specialization for ${request_.valueTypeName} - ${request_.valueTypeDescription}`,
+                        name: `${request_.valueTypeLabel} ObservableValue Process`,
+                        description: `ObservableValue specialization for type "${request_.valueTypeLabel}". Value description "${request_.valueTypeDescription}"`,
+                        ocdDataSpec: {
+                            ____types: "jsObject",
+                            ____defaultValue: {},
+                            value: { ...request_.valueTypeSpec },
+                            revision: { ____types: "jsNumber", ____defaultValue: -1 }
+                        },
+                        steps: {
+
+                            "uninitialized": {
+                                description: "Default starting process step.",
+                                transitions: [
+                                    { transitionIf: { always: true }, nextStep: "observable-value-initialize" }
+                                ]
+                            },
+
+                            "observable-value-initialize": {
+                                description: "ObservableValue is initializing.",
+                                transitions: [
+                                    {
+                                        transitionIf: { holarchy: { cm: { operators: { ocd: { compare: { values: { a: { value: -1 }, operator: "<", b: { path: "#.revision" } } } } } } } },
+                                        nextStep: "observable-value-set"
+                                    },
+                                    { transitionIf: { always: true }, nextStep: "observable-value-reset" }
+                                ]
+                            },
+
+                            "observable-value-reset": {
+                                description: "ObservableValue has not yet been written and is in reset process step.",
+                                // We can eliminate this transition by always setting __apmiStep = observable-value-set during write action.
+                                /*
+                                transitions: [
+                                    {
+                                        transitionIf: { holarchy: { cm: { operators: { ocd: { compare: { values: { a: { value: -1 }, operator: "<", b: { path: "#.revision" } } } } } } } },
+                                        nextStep: "observable-value-set"
+                                    }
+                                ]
+                                */
+                            },
+
+                            "observable-value-set": {
+                                description: "ObservableValue is ready and processing write action(s)."
+                            }
+
+
+                        }
                     },
                     actions: [
                     ],

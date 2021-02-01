@@ -16,8 +16,8 @@ const holarchy = require("@encapsule/holarchy");
             ____types: "jsObject",
             cellID: { ____accept: "jsString" }, // must be a unique IRUT
             apmID: { ____accept: "jsString" }, // must be a unique IRUT
-            valueTypename: { ____accept: "jsString" },
-            valueTypedescription: { ____accept: "jsString" },
+            valueTypeLabel: { ____accept: "jsString" },
+            valueTypeDescription: { ____accept: "jsString" },
             valueTypeSpec: {
                 ____label: "Value Data Specification",
                 ____description: "An @encapsule/arccore.filter specification for the value type to be made observable.",
@@ -50,12 +50,12 @@ const holarchy = require("@encapsule/holarchy");
 
                 const cellModelDeclaration = {
                     id: request_.cellID,
-                    name: `${request_.valueTypeName} ValueObserver CellModel`,
-                    description: `ValueObserver CellModel specialization for ${request_.valueTypeName} - ${request_.valueTypeDescription}`,
+                    name: `${request_.valueTypeLabel} ValueObserver Model`,
+                    description: `ValueObserver specialization for value type "${request_.valueTypeLabel}".`,
                     apm: {
                         id: request_.apmID,
-                        name: `${request_.valueTypeName} ValueObserver AbstractProcessModel`,
-                        description: `ValueObserver AbstractProcessModel specialization for ${request_.valueTypeName} - ${request_.valueTypeDescription}`,
+                        name: `${request_.valueTypeLabel} ValueObserver AbstractProcessModel`,
+                        description: `ValueObserver specialization for type "${request_.valueTypeLabel}". Value description "${request_.valueTypeDescription}"`,
                     },
                     actions: [
                     ],
