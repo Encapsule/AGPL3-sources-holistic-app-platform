@@ -16,14 +16,11 @@ module.exports = {
         source: packageMeta.buildSource
     },
 
-    // v0.0.49-spectrolite
-    // THIS RTL MODULE HAS BEEN TEMPORARILY DEPRECATED
-    // The CellModel named "FrameLatch" is no longer being used.
-    // If you are performing low-level, bare-metal testing of ObservableProcessController
-    // and need to pickup intrinsic artifacts typically only registered in OPC
-    // when contained w/in a CellProcessor instance, then use the 'HolarchyCommon'
-    // CellModel export from the @encapsule/holarchy RTL. I believe this primarily
-    // impacts only holistic platform internal test suites and is not of any
-    // major concern to anyone at this point.
+    factories: {
+
+        makeObservableValueCellModel: require("./lib/filters/ObservableValue-CellModel-factory-filter"),
+        makeValueObserverCellModel: require("./lib/filters/ValueObserver-CellModel-factory-filter")
+
+    }
 
 };
