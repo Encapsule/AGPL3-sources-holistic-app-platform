@@ -27,7 +27,7 @@
     const routerEventDescriptor_ValueObserverCMID = arccore.identifier.irut.fromReference("HolisticHTML5Service_DOMLocation.ValueObserver.CellModel.routerEventDescriptor").result;
     const routerEventDescriptor_ValueObserverAPMID = arccore.identifier.irut.fromReference("HolisticHTML5Service_DOMLocation.ValueObserver.AbstractProcessModel.routerEventDescriptor").result;
 
-    factoryResponse = holarchyCM.factories.makeValueObserverCellModel.request({
+    factoryResponse = holarchyCM.factories.makeValueObserverWorkerCellModel.request({
         cellID: routerEventDescriptor_ValueObserverCMID,
         apmID: routerEventDescriptor_ValueObserverAPMID,
         valueTypeLabel: routerEventDescriptorSpec.____label,
@@ -39,12 +39,12 @@
         throw new Error(factoryResponse.error);
     }
 
-    const valueObserverCellModel = factoryResponse.result;
+    const valueObserverWorkerCellModel = factoryResponse.result;
 
     module.exports = {
         cellmodels: [
             observableValueCellModel,
-            valueObserverCellModel
+            valueObserverWorkerCellModel
         ]
     };
 

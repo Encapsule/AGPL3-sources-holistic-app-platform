@@ -50,6 +50,13 @@ const lib = require("./lib");
                     break;
                 }
 
+                const cellMemorySpec = {
+                    ____types: "jsObject",
+                    ____defaultValue: {},
+                    value: { ...factoryRequest_.valueTypeSpec },
+                    revision: { ____types: "jsNumber", ____defaultValue: -1 },
+                };
+
                 const cellModelDeclaration = {
                     id: factoryRequest_.cellID,
                     name: `${factoryRequest_.valueTypeLabel} ObservableValue Model`,
@@ -58,12 +65,7 @@ const lib = require("./lib");
                         id: factoryRequest_.apmID,
                         name: `${factoryRequest_.valueTypeLabel} ObservableValue Process`,
                         description: `ObservableValue specialization for type "${factoryRequest_.valueTypeLabel}". Value description "${factoryRequest_.valueTypeDescription}"`,
-                        ocdDataSpec: {
-                            ____types: "jsObject",
-                            ____defaultValue: {},
-                            value: { ...factoryRequest_.valueTypeSpec },
-                            revision: { ____types: "jsNumber", ____defaultValue: -1 },
-                        },
+                        ocdDataSpec: cellMemorySpec,
                         steps: {
 
                             "uninitialized": {
@@ -98,8 +100,9 @@ const lib = require("./lib");
                     actions: [
 
                         // ----------------------------------------------------------------
+                        // holarchy.cm.actions.ObservableValue.reset
                         {
-                            id: arccore.identifier.irut.fromReference(`${factoryRequest_.cellID}.action.reset`).result,
+                            id: arccore.identifier.irut.fromReference(`${factoryRequest_.cellID}.ControllerAction.reset`).result,
                             name: `${factoryRequest_.valueTypeLabel} ObservableValue Reset`,
                             description: `Resets the ${factoryRequest_.valueTypeLabel} ObservableValue cell process.`,
                             actionRequestSpec: {
@@ -151,8 +154,9 @@ const lib = require("./lib");
                         }, // action: holarchy.cm.actions.ObservableValue.reset
 
                         // ----------------------------------------------------------------
+                        // holarchy.cm.actions.ObservableValue.write
                         {
-                            id: arccore.identifier.irut.fromReference(`${factoryRequest_.cellID}.action.write`).result,
+                            id: arccore.identifier.irut.fromReference(`${factoryRequest_.cellID}.ControllerAction.write`).result,
                             name: `${factoryRequest_.valueTypeLabel} ObservableValue Write`,
                             description: `Writes a new value to a ${factoryRequest_.valueTypeLabel} ObservableValue cell process.`,
                             actionRequestSpec: {
@@ -206,7 +210,37 @@ const lib = require("./lib");
                                 }
                                 return response;
                             } // bodyFunction
-                        } // action holarcy.cm.actions.ObservableValue.write.value
+                        }, // action holarcy.cm.actions.ObservableValue.write.value
+
+                        // ----------------------------------------------------------------
+                        // holarchy.cm.actions.ObservableValue.read
+                        {
+                            id: arccore.identifier.irut.fromReference(`${factoryRequest_.cellID}.ControllerAction.read`).result,
+                            name: `${factoryRequest_.valueTypeLabel} ObservableValue Read`,
+                            description: `Reads the current value from a ${factoryRequest_.valueTypeLabel} ObservableValue cell.`,
+                            actionRequestSpec: {
+                                ____types: "jsObject",
+                                holarchy: {
+                                    ____types: "jsObject",
+                                    cm: {
+                                        ____types: "jsObject",
+                                        actions: {
+                                            ____types: "jsObject",
+                                            ObservableValue: {
+                                                ____types: "jsObject",
+                                                read:{
+                                                    ____types: "jsObject",
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            actionResultSpec: { ...cellMemorySpec },
+                            bodyFunction: function(actionRequest_) {
+                                return {error: "Not yet implemented." };
+                            }
+                        }
 
                     ],
                     operators: [
