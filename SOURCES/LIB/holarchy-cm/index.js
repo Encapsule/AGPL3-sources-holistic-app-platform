@@ -18,8 +18,8 @@ module.exports = {
 
     factories: {
 
-        makeObservableValueCellModel: require("./lib/filters/ObservableValue-CellModel-factory-filter"),
-        makeValueObserverCellModel: require("./lib/filters/ValueObserver-CellModel-factory-filter")
+        makeObservableValueCellModel: require("./HolarchyCommon_ObservableValue/cellmodel-factory-filter"),
+        makeValueObserverCellModel:   require("./HolarchyCommon_ValueObserver/cellmodel-factory-filter")
 
     }
 
