@@ -39,7 +39,7 @@ const factoryResponse = d2r2.ComponentFactory.request({
 
                 let content = [];
                 let flexContent = [];
-                const statusMessage = (this.props.renderContext.serverRender?"D O W N L O A D I N G":(!messageBody.appStarted?"S T A R T I N G":"W E L C O M E !"));
+                const statusMessage = (this.props.renderContext.serverRender?"L O A D I N G":(!messageBody.appStarted?"S T A R T I N G":"W E L C O M E !"));
 
                 // let cssAnimationClass = (this.props.renderContext.serverRender?"spinner-dual":(!messageBody.appStarted?"spinner-triple":"spinner-fast"));
 

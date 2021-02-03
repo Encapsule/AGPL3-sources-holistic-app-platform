@@ -7,7 +7,7 @@
 */
 
 // @encapsule/holarchy - the keystone of holistic app platform
-// Copyright (C) 2020 Christopher D. Russell for Encapsule Project
+// Copyright (C) 2021 Christopher D. Russell for Encapsule Project
 
 const arccore = require("@encapsule/arccore");
 const SimpleStopwatch = require("../util/SimpleStopwatch");
