@@ -1,20 +1,24 @@
-// ValueObserverWorker-CellModel-factory-filter.js
+// CellModel-constructor-request-generator-filter
+// A filter that uses information passed via its request in-parameter
+// to synthesize an @encapsule/holarchy CellModel constructor request
+// descriptor that is returned via response.result.
+
 
 const arccore = require("@encapsule/arccore");
 const holarchy = require("@encapsule/holarchy");
 
-const ValueObserverCellModel = require("../HolarchyCommon_ValueObserver");
+const ObservableValueProxyCellModel = require("../ObservableValueProxyCellModel");
 
 (function() {
 
     const filterDeclaration  = {
         operationID: "subr4UgeSl27Z-rzp2ryog",
-        operationName: "ValueObserverWorker CellModel Factory",
-        operationDescription: "A filter that manufactures a ValueObserverWorker CellModel class instance that is specialized to a specific value type.",
+        operationName: "ObservableValueProxy CellModel Factory",
+        operationDescription: "A filter that manufactures an ObservableValueProxy CellModel class instance that is specialized to a specific value type.",
 
         inputFilterSpec: {
-            ____label: "ValueObserverWorker CellModel Factory Request",
-            ____description: "Descriptor object sent to ValueObserverWorker CellModel factory with instructions about how to specialize the desired CellModel instance.",
+            ____label: "Observable Value Proxy Generator Request",
+            ____description: "Specialization options for the ObservableValueProxy CellModel class instance to be generated.",
             ____types: "jsObject",
             cellID: { ____accept: "jsString" }, // must be a unique IRUT
             apmID: { ____accept: "jsString" }, // must be a unique IRUT
@@ -95,7 +99,7 @@ const ValueObserverCellModel = require("../HolarchyCommon_ValueObserver");
                     operators: [
                     ],
                     subcells: [
-                        ValueObserverCellModel
+                        ObservableValueProxyCellModel
                     ]
                 };
 

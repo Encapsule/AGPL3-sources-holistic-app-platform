@@ -16,11 +16,31 @@ module.exports = {
         source: packageMeta.buildSource
     },
 
+
+    // ObservableValueCellModel_T is an exported class that extends @encapsule/holarchy CellModel class.
+    // It models an observable value mailbox specialized for a specific message value type via a filter spec.
+    ObservableValueCellModel_T: require("./ObservableValueCellModel_T"),
+
+    // ObservableValueProxy is an exported CellModel class that represents a dynamically-established connection
+    // between an activated ObservableValueProxy cell instance and one of any available specializations of
+    // ObservableValueCellModel_T.
+
+    ObservableValueProxy: require("./ObservableValueProxyCellModel"),
+
+    // ObservableValueProxyWorkerCellModel_T is an exported class that extends @encapsule/holarchy CellModel class.
+    // It models a cell process that knows how to dynamically connect and and subsequently communicate with a specific
+    // activated cell instance of a specific specialization of ObservableValueCellModel_T. ObservableValueProxyWorkerCellModel_T
+    // cells are activated themselves as an implementation detail of ObservableValueProxy.
+
+    ObservableValueProxyWorkerCellModel_T: require("./ObservableValueProxyWorkerCellModel_T"),
+
     factories: {
 
-        makeObservableValueCellModel: require("./HolarchyCommon_ObservableValue/cellmodel-factory-filter"),
-        makeValueObserverWorkerCellModel:   require("./HolarchyCommon_ValueObserverWorker/cellmodel-factory-filter")
+        // update. TODO: deprecate?
+        makeObservableValueCellModel: require("./ObservableValueCellModel_T/CellModel-constructor-request-generator-filter"),
 
+        // updated. TODO: deprecate?
+        makeValueObserverWorkerCellModel:   require("./ObservableValueProxyWorkerCellModel_T/CellModel-constructor-request-generator-filter"),
     }
 
 };

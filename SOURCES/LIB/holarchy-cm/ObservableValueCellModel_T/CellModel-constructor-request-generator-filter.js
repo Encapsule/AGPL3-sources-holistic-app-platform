@@ -3,13 +3,13 @@
 const arccore = require("@encapsule/arccore");
 const holarchy = require("@encapsule/holarchy");
 
-const lib = require("./lib");
+const cellLib = require("./celllib");
 
 (function() {
 
     const filterDeclaration  = {
         operationID: "pubMU3fRR7GItLYLDT4ePw",
-        operationName: "ObservableValue CellModel Factory",
+        operationName: "ObservableValueCellModel_T Factory",
         operationDescription: "A filter that manufactures an ObservableValue CellModel class instance that is specialized to a specific value type.",
 
         inputFilterSpec: {
@@ -28,7 +28,7 @@ const lib = require("./lib");
         },
 
         outputFilterSpec: {
-            ____accept: "jsObject" // This is an @encapsule/holarchy CellModel class instance.
+            ____accept: "jsObject" // This is an @encapsule/holarchy CellModel declaration descriptor object.
         },
 
         bodyFunction: function(factoryRequest_) {
@@ -133,12 +133,12 @@ const lib = require("./lib");
                                 let inBreakScope = false;
                                 while (!inBreakScope) {
                                     inBreakScope = true;
-                                    let libResponse = lib.getStatus({ ...actionRequest_.context, apmID: factoryRequest_.apmID });
-                                    if (libResponse.error) {
-                                        errors.push(libResponse.error);
+                                    let cellLibResponse = cellLib.getStatus({ ...actionRequest_.context, apmID: factoryRequest_.apmID });
+                                    if (cellLibResponse.error) {
+                                        errors.push(cellLibResponse.error);
                                         break;
                                     }
-                                    // const { cellMemory, cellProcess } = libResponse.result;
+                                    // const { cellMemory, cellProcess } = cellLibResponse.result;
                                     let ocdResponse = actionRequest_.context.ocdi.writeNamespace(apmBindingPath, {});
                                     if (ocdResponse.error) {
                                         errors.push(ocdResponse.error);
@@ -188,12 +188,12 @@ const lib = require("./lib");
                                 let inBreakScope = false;
                                 while (!inBreakScope) {
                                     inBreakScope = true;
-                                    let libResponse = lib.getStatus({ ...actionRequest_.context, apmID: factoryRequest_.apmID });
-                                    if (libResponse.error) {
-                                        errors.push(libResponse.error);
+                                    let cellLibResponse = cellLib.getStatus({ ...actionRequest_.context, apmID: factoryRequest_.apmID });
+                                    if (cellLibResponse.error) {
+                                        errors.push(cellLibResponse.error);
                                         break;
                                     }
-                                    const { cellMemory, cellProcess } = libResponse.result;
+                                    const { cellMemory, cellProcess } = cellLibResponse.result;
                                     const messageBody = actionRequest_.actionRequest.holarchy.cm.actions.ObservableValue.write;
                                     cellMemory.__apmiStep = "observable-value-ready",
                                     cellMemory.value = messageBody.value;
@@ -249,13 +249,7 @@ const lib = require("./lib");
                     ]
                 };
 
-                const cellModel = new holarchy.CellModel(cellModelDeclaration);
-                if (!cellModel.isValid()) {
-                    errors.push(cellModel.toJSON());
-                    break;
-                }
-
-                response.result = cellModel;
+                response.result = cellModelDeclaration;
 
                 break;
             }
