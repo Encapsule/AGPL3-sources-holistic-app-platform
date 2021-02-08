@@ -4,20 +4,20 @@
 // descriptor that is returned via response.result.
 
 
-const arccore = require("@encapsule/arccore");
-const holarchy = require("@encapsule/holarchy");
-
-const ObservableValueProxyCellModel = require("../ObservableValueProxyCellModel");
+const ObservableValueProxy = require("../ObservableValueProxy");
 
 (function() {
 
+    const arccore = require("@encapsule/arccore");
+    const holarchy = require("@encapsule/holarchy");
+
     const filterDeclaration  = {
         operationID: "subr4UgeSl27Z-rzp2ryog",
-        operationName: "ObservableValueProxy CellModel Factory",
+        operationName: "ObservableValueProxyWorker CellModel Factory",
         operationDescription: "A filter that manufactures an ObservableValueProxy CellModel class instance that is specialized to a specific value type.",
 
         inputFilterSpec: {
-            ____label: "Observable Value Proxy Generator Request",
+            ____label: "ObservableValueProxyWorker_T::constructor Request",
             ____description: "Specialization options for the ObservableValueProxy CellModel class instance to be generated.",
             ____types: "jsObject",
             cellID: { ____accept: "jsString" }, // must be a unique IRUT
@@ -32,7 +32,7 @@ const ObservableValueProxyCellModel = require("../ObservableValueProxyCellModel"
         },
 
         outputFilterSpec: {
-            ____accept: "jsObject" // This is an @encapsule/holarchy CellModel class instance.
+            ____accept: "jsObject" // This is an @encapsule/holarchy CellModel declaration descriptor object.
         },
 
         bodyFunction: function(request_) {
@@ -99,7 +99,7 @@ const ObservableValueProxyCellModel = require("../ObservableValueProxyCellModel"
                     operators: [
                     ],
                     subcells: [
-                        ObservableValueProxyCellModel
+                        ObservableValueProxy
                     ]
                 };
 

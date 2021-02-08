@@ -17,6 +17,7 @@
 
 const packageMeta = require("./package.json");
 
+const CellModelArtifactSpace = require("./CellModelArtifactSpace");
 const CellModel = require("./CellModel");
 const CellProcessor = require("./CellProcessor");
 const CellProcessPlane = require("./CellProcessPlane");
@@ -42,6 +43,15 @@ module.exports = {
     // ================================================================
     // DEVELOPER API
     // ================================================================
+
+    /*
+      CellModelArtifactSpace (CMAS) is an ES6 class instantiated with operator
+      new that represents a continuous mapping between a CellModel human-readable
+      "artifact label" value and that CellModel artifact's IRUT string id value
+      within the specific labeled "artifact space" specified via the class
+      constructor request.
+    */
+    CellModelArtifactSpace,
 
     /*
       CellModel (CM) is an ES6 class instantiated with operator
@@ -87,13 +97,6 @@ module.exports = {
       cellular process(es) defined by SoftwareCellModel class instances.
     */
     CellProcessor,
-
-    /*
-      CellProcessPlane is an ES6 class instantiated with operator new
-      that is used to derive CellModel and AbstractProcessModel ID IRUT's
-      from dot-delimited, developer-defined string constants.
-    */
-    CellProcessPlane,
 
     // ================================================================
     // IMPLEMENTATION

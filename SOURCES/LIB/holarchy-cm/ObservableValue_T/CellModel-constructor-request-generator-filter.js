@@ -9,7 +9,7 @@ const cellLib = require("./celllib");
 
     const filterDeclaration  = {
         operationID: "pubMU3fRR7GItLYLDT4ePw",
-        operationName: "ObservableValueCellModel_T Factory",
+        operationName: "ObservableValue_T Factory",
         operationDescription: "A filter that manufactures an ObservableValue CellModel class instance that is specialized to a specific value type.",
 
         inputFilterSpec: {
