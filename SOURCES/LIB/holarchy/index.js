@@ -20,7 +20,6 @@ const packageMeta = require("./package.json");
 const CellModelArtifactSpace = require("./CellModelArtifactSpace");
 const CellModel = require("./CellModel");
 const CellProcessor = require("./CellProcessor");
-const CellProcessPlane = require("./CellProcessPlane");
 const AbstractProcessModel = require("./AbstractProcessModel");
 const TransitionOperator = require("./TransitionOperator");
 const ControllerAction = require("./ControllerAction");

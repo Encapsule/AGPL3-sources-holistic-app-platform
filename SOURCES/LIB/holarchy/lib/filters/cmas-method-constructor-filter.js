@@ -4,32 +4,36 @@
 
     const arccore = require("@encapsule/arccore");
 
+    const cmasConstructorRequestSpec = {
+        ____label: "CellModelArtifactSpace::constructor Request",
+        ____description: "Descriptor object passed into the CellModelArtifactSpace class constructor function.",
+        ____types: "jsObject",
+        ____defaultValue: {},
+        spaceLabel: {
+            ____label: "Artifact Space Label",
+            ____description: "A unique string label used to identify the specific CellModel artifact space to use to resolve CellModel artifact label queries.",
+            ____accept: "jsString",
+            ____defaultValue: "@encapsule/holarchy"
+        }
+    };
+
     const factoryResponse1 = arccore.filter.create({
 
         operationID: "kNjJehTFRz2WhRHkuL9kWA",
         operationName: "CellModelArtifactSpace::constructor",
         operationDescription: "CellModelArtifactSpace::constructor function request input filter.",
 
-        inputFilterSpec: {
-            ____label: "HolarchyArtifactSpaceMapper::constructor Request",
-            ____description: "Descriptor object passed into the CellModelArtifactSpace class constructor function.",
-            ____types: "jsObject",
-            ____defaultValue: {},
-            spaceLabel: {
-                ____label: "Artifact Space Label",
-                ____description: "A unique string label used to identify the specific CellModel artifact space to use to resolve CellModel artifact label queries.",
-                ____accept: "jsString",
-                ____defaultValue: "default"
-            }
-        },
-
+        inputFilterSpec: cmasConstructorRequestSpec,
         outputSpec: {
             ____types: "jsObject",
             artifactSpaceLabel: {
                 ____accept: "jsString"
             },
-            artifactSpaceLabelQueryFilter: {
-                ____accept: "jsObject" // This will be an @encapsule/arccore.filter object
+            mapLabelsMethodFilter: {
+                ____accept: "jsObject" // This will be an @encapsule/arccore.filter object.
+            },
+            makeSubspaceInstanceMethodFilter: {
+                ____accept: "jsObject" // This will be an @encapsule/arccore.filter object.
             }
         },
 
@@ -44,13 +48,13 @@
 
                 const { spaceLabel } = constructorRequest_;
 
-                const artifactSpaceLabel = `@encapsule/holarchy.CellModelArtifactSpace.${spaceLabel}`;
+                const artifactSpaceLabel = `${spaceLabel}`;
 
                 const factoryResponse2 = arccore.filter.create({
 
-                    operationID: arccore.identifier.irut.fromReference(`CellModelArtifactSpace::mapLabels<${artifactSpaceLabel}>`).result,
+                    operationID: arccore.identifier.irut.fromReference(`CellModelArtifactSpace<${artifactSpaceLabel}>::mapLabels`).result,
                     operationName: `CellModelArtifactSpace::mapLabels<${artifactSpaceLabel}>`,
-                    operationDescription: `A request filter that accepts a set of artifact label strings to map to CellModel artifact IRUT strings within the scope of a CellModelArtifactSpace<${artifactSpaceLabel}> class instance.`,
+                    operationDescription: `A filter that implements the CellModelArtifactSpace<${artifactSpaceLabel}>::mapLabels class method.`,
 
                     inputFilterSpec: {
                         ____label: `CellModelArtifactSpace::mapLabels<${artifactSpaceLabel}> Request`,
@@ -60,7 +64,8 @@
                         CM: { ____accept: [ "jsUndefined", "jsString" ] },
                         APM: { ____accept: [ "jsUndefined", "jsString" ] },
                         ACT: { ____accept: [ "jsUndefined", "jsString" ] },
-                        TOP: { ____accept: [ "jsUndefined", "jsString" ] }
+                        TOP: { ____accept: [ "jsUndefined", "jsString" ] },
+                        OTHER: { ____accept: [ "jsUndefined", "jsString" ] }
                     },
 
                     outputFilterSpec: {
@@ -73,8 +78,10 @@
                         ACT: { ____accept: [ "jsUndefined", "jsString" ] },
                         ACTID: { ____accept: [ "jsUndefined", "jsString" ] },
                         TOP: { ____accept: [ "jsUndefined", "jsString" ] },
-                        TOPID: { ____accept: [ "jsUndefined", "jsString" ] }
-                    },
+                        TOPID: { ____accept: [ "jsUndefined", "jsString" ] },
+                        OTHER: { ____accept: [ "jsUndefined", "jsString" ] },
+                        OTHERID: { ____accept: [ "jsUndefined", "jsString" ] }
+               },
 
                     bodyFunction: function(mapLabelsRequest_) {
                         return ({
@@ -84,7 +91,8 @@
                                 CMID:  mapLabelsRequest_.CM?arccore.identifier.irut.fromReference(`${artifactSpaceLabel}.CellModel.${mapLabelsRequest_.CM}`).result:undefined,
                                 APMID: mapLabelsRequest_.APM?arccore.identifier.irut.fromReference(`${artifactSpaceLabel}.AbstractProcessModel.${mapLabelsRequest_.APM}`).result:undefined,
                                 ACTID: mapLabelsRequest_.ACT?arccore.identifier.irut.fromReference(`${artifactSpaceLabel}.ControllerAction.${mapLabelsRequest_.ACT}`).result:undefined,
-                                TOPID: mapLabelsRequest_.TOP?arccore.identifier.irut.fromReference(`${artifactSpaceLabel}.TransitionOperator.${mapLabelsRequest_.TOP}`).result:undefined
+                                TOPID: mapLabelsRequest_.TOP?arccore.identifier.irut.fromReference(`${artifactSpaceLabel}.TransitionOperator.${mapLabelsRequest_.TOP}`).result:undefined,
+                                OTHERID: mapLabelsRequest_.OTHER?arccore.identifier.irut.fromReference(`${artifactSpaceLabel}.OtherAsset.${mapLabelsRequest_.OTHER}`).result:undefined
                             }
                         });
                     }
@@ -95,10 +103,45 @@
                     break;
                 }
 
+                const mapLabelsMethodFilter = factoryResponse2.result;
+
+                factoryResponse2 = arccore.filter.create({
+                    operationID: arccore.identifier.irut.fromReference(`CellModelArtifactSpace<${artifactSpaceLabel}>::makeSubspaceInstance`).result,
+                    operationName: `CellModelArtifactSpace<${artifactSpaceLabel}>::makeSubspaceInstance`,
+                    operationDescription: `A filter that implements the CellModelArtifactSpace<${artifactSpaceLabel}>::makeSubspaceInstance class method.`,
+
+                    inputFilterSpec: cmasConstructorRequestSpec,
+                    outputFilterSpec:cmasConstructorRequestSpec,
+                    bodyFunction(request_) {
+                        let response = { error: null };
+                        let errors = [];
+                        let inBreakScope = false;
+                        while (!inBreakScope) {
+                            inBreakScope = true;
+                            response.result = { spaceLabel: `${artifactSpaceLabel}.${request_.spaceLabel}` };
+                            break;
+                        }
+                        if (errors.length) {
+                            response.error = errors.join(" ");
+                        }
+                        return response;
+                    }
+
+                });
+
+                if (factoryResponse2.error) {
+                    errors.push(factoryReponse2.error);
+                    break;
+                }
+
+                const makeSubspaceInstanceMethodFilter = factoryResponse2.result;
+
                 response.result = {
                     artifactSpaceLabel,
-                    artifactSpaceMapperFilter: factoryResponse2.result
+                    mapLabelsMethodFilter,
+                    makeSubspaceInstanceMethodFilter
                 };
+
                 break;
             }
 
