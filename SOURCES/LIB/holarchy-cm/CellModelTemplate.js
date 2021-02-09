@@ -13,6 +13,7 @@
             this._private = !filterResponse.error?filterResponse.result:{ constructorError: filterResponse.error };
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
+            this.synthesizeCellModel = this.synthesizeCellModel.bind(this);
         }
 
         isValid() {
@@ -22,6 +23,11 @@
         toJSON() {
             return (this.isValid()?this._private:this._private.constructorError);
         }
+
+        synthesizeCellModel(request_) {
+            return (this.isValid()?this._private.synthesizeCellModelMethodFilter.request(request_):{ error: this.toJSON() });
+        }
+
 
     }
 

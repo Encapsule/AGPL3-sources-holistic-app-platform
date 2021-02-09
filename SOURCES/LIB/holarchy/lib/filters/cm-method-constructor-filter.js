@@ -24,7 +24,11 @@ const factoryResponse = arccore.filter.create({
     operationName: "CellModel::constructor Filter",
     operationDescription: "Filters request descriptor passed to CellModel::constructor function.",
 
-    inputFilterSpec,
+    inputFilterSpec: {
+        ...inputFilterSpec,
+        CellModel: { ____accept: "jsFunction" }, // We build CM class instances
+        CellModelInstance: { ____opaque: true }, // Reference to the calling CM instance's this.
+    },
     outputFilterSpec,
 
     bodyFunction: (request_) => {
