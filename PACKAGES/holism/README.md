@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 This package contains an experimental HTTP 1.1 application server and REST framework derived from the Node.js HTTP API's and the @encapsule/arccore filter RTL. This provides developers with a simple mechanism to define and re-use backend operations as plug-in service filters hosted by the holism server RTL. The package is intended for use in derived applications and services.
 
 ```
-Package: @encapsule/holism v0.0.50 "crystallite" build ID "83x2YL2YSA-lW5TMgXAljw"
-Sources: Encapsule/holistic-master#81a4bd8c83bec106844f785d5a6becadfd58abe6
-Created: 2021-02-03T17:02:37.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/holism v0.0.50 "crystallite" build ID "1FYsmIoFSGa0ky4IFkRXHg"
+Sources: Encapsule/holistic-master#055805b3cd7fd08fad0f884f7c3adc275bead567
+Created: 2021-02-09T22:33:34.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview

@@ -1,20 +1,23 @@
 "use strict";
 
-// ValueObserverWorker-CellModel-factory-filter.js
-var arccore = require("@encapsule/arccore");
-
-var holarchy = require("@encapsule/holarchy");
-
-var ValueObserverCellModel = require("../HolarchyCommon_ValueObserver");
+// CellModel-constructor-request-generator-filter
+// A filter that uses information passed via its request in-parameter
+// to synthesize an @encapsule/holarchy CellModel constructor request
+// descriptor that is returned via response.result.
+var ObservableValueProxy = require("../ObservableValueProxy");
 
 (function () {
+  var arccore = require("@encapsule/arccore");
+
+  var holarchy = require("@encapsule/holarchy");
+
   var filterDeclaration = {
     operationID: "subr4UgeSl27Z-rzp2ryog",
-    operationName: "ValueObserverWorker CellModel Factory",
-    operationDescription: "A filter that manufactures a ValueObserverWorker CellModel class instance that is specialized to a specific value type.",
+    operationName: "ObservableValueProxyWorker CellModel Factory",
+    operationDescription: "A filter that manufactures an ObservableValueProxy CellModel class instance that is specialized to a specific value type.",
     inputFilterSpec: {
-      ____label: "ValueObserverWorker CellModel Factory Request",
-      ____description: "Descriptor object sent to ValueObserverWorker CellModel factory with instructions about how to specialize the desired CellModel instance.",
+      ____label: "ObservableValueProxyWorker_T::constructor Request",
+      ____description: "Specialization options for the ObservableValueProxy CellModel class instance to be generated.",
       ____types: "jsObject",
       cellID: {
         ____accept: "jsString"
@@ -38,7 +41,7 @@ var ValueObserverCellModel = require("../HolarchyCommon_ValueObserver");
       }
     },
     outputFilterSpec: {
-      ____accept: "jsObject" // This is an @encapsule/holarchy CellModel class instance.
+      ____accept: "jsObject" // This is an @encapsule/holarchy CellModel declaration descriptor object.
 
     },
     bodyFunction: function bodyFunction(request_) {
@@ -109,7 +112,7 @@ var ValueObserverCellModel = require("../HolarchyCommon_ValueObserver");
           },
           actions: [],
           operators: [],
-          subcells: [ValueObserverCellModel]
+          subcells: [ObservableValueProxy]
         };
         var valueObserverWorkerCellModel = new holarchy.CellModel(valueObserverWorkerCellModelDeclaration);
 
