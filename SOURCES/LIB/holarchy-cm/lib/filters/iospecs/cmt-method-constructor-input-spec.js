@@ -5,21 +5,27 @@ module.exports = {
     ____description: "Request object value passed to CellModelTemplate::constructor function.",
     ____types: "jsObject",
 
-    cmasScope: {
-        ____label: "CellModel Artifact Space",
-        ____description: "Instances of this CellModelTemplate class will synthesize CellModel(s) in the CellModelArtifactScope specified by cmasScope.",
-        // e.g. To create a CellModelTemplate class instance that synthesizes CellModel(s) into CellModelArtifactSpace({
+    cmasBaseScope: {
+        ____label: "CellModelTemplate Instance Base Artifact Space",
+        ____description: "The CellModelArtifactSpace that an instance of this CellModelTemplate should subspace when synthesizing CellModel instances.",
+        // Typically, the cmas reference will be @encapsule/holistic RTL package, or derived app service scope CellModelArtifactSpace instance.
         ____accept: "jsObject", // Either a CellModelAddressSpace::constructor request object. Or, a CellModelAddressSpace class instance.
     },
 
-    synthesizeMethodRequestSpec: {
-        ____label: "CellModelTemplate::synthesizeCellModel Request Spec",
+    templateLabel: {
+        ____label: "CellModelTemplate Instance Label",
+        ____description: "A unique and stable label (no spaces, legal JavaScript variable name token) that refers to the family of CellModel that may be synthesized by calling the constructed CellModelTemplate instance's synthesizeCellModel method.",
+        ____accept: "jsString" // Note that the CellModelTemplate instance's base CellModelArtifactSpace class constructor will be called with cmasScope.makeSubspaceInstance({ spaceLabel: templateLabel })
+    },
+
+    generateCellModelFilterInputSpec: {
+        ____label: "CellModelTemplate::synthesizeCellModel Generator Input Spec",
         ____description: "An @encapsule/arccore.filter inputFilterSpec that defines the request format for CellModelTemplate::synthesizeCellModel method.",
         ____accept: "jsObject" // This will be an @encapsule/arccore.filter spec object.
     },
 
-    synthesizeMethodBodyFunction: {
-        ____label: "CellModelTemplate::synthesizeCellModel Method bodyFunction",
+    generateCellModelFilterBodyFunction: {
+        ____label: "CellModelTemplate::synthesizeCellModel Generator bodyFunction",
         ____description: "An @encapsule/arccore.filter bodyFunction that implements some transformation from the request descriptor pass to CellModelTemplate::synthesizeCellModel to CellModel::constructor request descriptor.",
         ____accept: "jsFunction"
     }

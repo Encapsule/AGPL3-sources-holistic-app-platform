@@ -15,37 +15,89 @@
             // WIP
             ____types: "jsObject",
             spaceLabel: { ____accept: "jsString" },
-            synthesizeCellModelMethodFilter: { ____accept: "jsObject" } // This will be an @encapsule/arccore.filter object.
+            cellModelGeneratorFilter: { ____accept: "jsObject" } // This will be an @encapsule/arccore.filter object.
         },
-        bodyFunction: function(request_) {
+        bodyFunction: function(templateConstructorRequest_) {
             let response = { error: null };
             let errors = [];
             let inBreakScope = false;
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                const spaceLabel = (request_.cmasScope instanceof holarchy.CellModelArtifactSpace)?request_.cmasScope.getArtifactSpaceLabel():request_.cmasScope.spaceLabel;
+                let cmasBaseScope = (templateConstructorRequest_.cmasBaseScope instanceof holarchy.CellModelArtifactSpace)?
+                    templateConstructorRequest_.cmasBaseScope:
+                    (new holarchy.CellModelArtifactSpace(templateConstructorRequest_.cmasBaseScope));
 
+                if (!cmasBaseScope.isValid()) {
+                    errors.push(cmasBaseScope.toJSON());
+                    break;
+                }
+
+                const cmasInstanceScope = cmasBaseScope.makeSubspaceInstance({ spaceLabel: templateConstructorRequest_.templateLabel });
+
+                if (!cmasInstanceScope.isValid()) {
+                    errors.push(cmasInstanceScope.toJSON());
+                    break;
+                }
+
+                const templateLabel = `CellModelTemplate<${templateConstructorRequest_.templateLabel}>`;
+                const cellModelTemplateSynthMethodLabel = `${templateLabel}::synthesizeCellModel`;
+                const cellModelGeneratorFilterLabel = `${templateLabel}::cellModelGeneratorFilter`;
 
                 let factoryResponse2 = arccore.filter.create({
-                    operationID: cmasHolarchyCMPackage.mapLabels({ OTHER: "CellModelTemplate::synthesizeCellModel Filter" }).result.OTHERID,
-                    operationName: "CellModelTemplate::synthesizeCellModel Filter",
-                    operationDescription: "Processes the request value passed to CellModelTemplate::synthesizeCellModel method.",
+                    operationID: cmasHolarchyCMPackage.mapLabels({ OTHER: cellModelGeneratorFilterLabel }).result.OTHERID,
+                    operationName: cellModelGeneratorFilterLabel,
+                    operationDescription: `Processes the request value passed from ${cellModelTemplateSynthMethodLabel} method.`,
                     inputFilterSpec: {
-                        ____label: "CellModelTemplate::synthesizeCellModel Request",
+                        ____label: `${cellModelGeneratorFilterLabel} Request`,
                         ____description: "A request descriptor object specifying the CellModelTemplate-instance-specific specializations to be used to synthesize a new CellModel.",
                         ____types: "jsObject",
 
+                        cmtInstance: {
+                            ____label: `${templateLabel} Instance Reference`,
+                            ____accept: "jsObject" // This will be a pointer to CellModelTemplate::synthesizeCellModel method's this
+                        },
+
+                        cellModelLabel: {
+                            ____label: `${templateLabel} Instance Label`,
+                            ____description: "A unique and stable label (no spaces, legal JavaScript variable name token) that refers to specialization of of CellModel to be synthesized via this call to CellModelTemplate::synthesizeCellModel method.",
+                            ____accept: "jsString" // Note that cellModelLabel is used to call CellModelTemplate.mapLabels method (inherited from CellModelArtifactSpace) and is used e.g. as the value passed { CM: cellModelLabel, APM: cellModelLabel ... }
+                        },
+
+                        generatorRequest: {
+                            ...templateConstructorRequest_.generateCellModelFilterInputSpec,
+                            ____label: `${templateLabel} Generator Request`,
+                            ____description: `Specific instructions to ${cellModelGeneratorFilterLabel} about how to build a new CellModel instance.`
+                        }
                     },
                     outputFilterSpec: {
                         ...holarchy.appTypes.CellModel.constructorRequest,
                         ____label: "CellModelTemplate::synthesizeCellModel Result",
                         ____description: "A @encapsule/holarchy CellModel::constructor request descriptor object synthesized by this filter."
                     },
-                    bodyFunction: function(request_) {
-
-                        return { error: null, result: {} };
-
+                    bodyFunction: function(generateCellModelRequest_) {
+                        let response = { error: null };
+                        let errors = [];
+                        let inBreakScope = false;
+                        while (!inBreakScope) {
+                            inBreakScope = true;
+                            try {
+                                let innerResponse = templateConstructorRequest_.generateCellModelFilterBodyFunction(generateCellModelRequest_);
+                                if (innerResponse.error) {
+                                    errors.push(innerResponse.error);
+                                    break;
+                                }
+                                response.result = innerResponse.result;
+                            } catch (exception_) {
+                                errors.push(exception_.message);
+                                break;
+                            }
+                            break;
+                        }
+                        if (errors.length) {
+                            response.error = errors.join(" ");
+                        }
+                        return response;
                     }
                 });
 
@@ -54,9 +106,12 @@
                     break;
                 }
 
-                const synthesizeCellModelMethodFilter = factoryResponse2.result;
+                const cellModelGeneratorFilter = factoryResponse2.result;
 
-                response.result = { spaceLabel, synthesizeCellModelMethodFilter };
+                response.result = {
+                    spaceLabel: cmasInstanceScope.getArtifactSpaceLabel(),
+                    cellModelGeneratorFilter
+                };
 
                 break;
             }

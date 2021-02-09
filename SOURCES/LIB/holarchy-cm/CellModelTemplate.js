@@ -10,7 +10,7 @@
         constructor(request_) {
             const filterResponse = constructorFilter.request(request_);
             super(filterResponse.result);
-            this._private = !filterResponse.error?filterResponse.result:{ constructorError: filterResponse.error };
+            this._private = !filterResponse.error?{ ...this._private, ...filterResponse.result }:{ constructorError: filterResponse.error };
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
             this.synthesizeCellModel = this.synthesizeCellModel.bind(this);
@@ -25,7 +25,7 @@
         }
 
         synthesizeCellModel(request_) {
-            return (this.isValid()?this._private.synthesizeCellModelMethodFilter.request(request_):{ error: this.toJSON() });
+            return (this.isValid()?this._private.cellModelGeneratorFilter.request({ cmtInstance: this, ...request_ }):{ error: this.toJSON() });
         }
 
 
