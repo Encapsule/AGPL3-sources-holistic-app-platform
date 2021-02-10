@@ -5,11 +5,11 @@ module.exports = {
     ____description: "Request object value passed to CellModelTemplate::constructor function.",
     ____types: "jsObject",
 
-    cmasBaseScope: {
-        ____label: "CellModelTemplate Instance Base Artifact Space",
-        ____description: "The CellModelArtifactSpace that an instance of this CellModelTemplate should subspace when synthesizing CellModel instances.",
+    cmasScope: {
+        ____label: "CellModelArtifactSpace Scope",
+        ____description: "The CellModelArtifactSpace instance that models the CellModel artifact space that an instance of this CellModelTemplate should subspace when synthesizing CellModel instances via its CellModelTemplate::synthesizeCellModel method.",
         // Typically, the cmas reference will be @encapsule/holistic RTL package, or derived app service scope CellModelArtifactSpace instance.
-        ____accept: "jsObject", // Either a CellModelAddressSpace::constructor request object. Or, a CellModelAddressSpace class instance.
+        ____accept: "jsObject", // Either a CellModelAddressSpace class instance or CellModelAddressSpace::constructor request object.
     },
 
     templateLabel: {
@@ -18,16 +18,22 @@ module.exports = {
         ____accept: "jsString" // Note that the CellModelTemplate instance's base CellModelArtifactSpace class constructor will be called with cmasScope.makeSubspaceInstance({ spaceLabel: templateLabel })
     },
 
-    generateCellModelFilterInputSpec: {
-        ____label: "CellModelTemplate::synthesizeCellModel Generator Input Spec",
-        ____description: "An @encapsule/arccore.filter inputFilterSpec that defines the request format for CellModelTemplate::synthesizeCellModel method.",
-        ____accept: "jsObject" // This will be an @encapsule/arccore.filter spec object.
-    },
+    cellModelGenerator: {
+        ____label: "CellModel Generator",
+        ____description: "CellModelTemplate::synthesizeCellModel method calls the CellModelTemplate class instance's cellModelGenerator filter to synthesize a unique specialization of CellModel. These values specialize the behavior of the CellModel generator filter for the specific family of CellModel identified by templateLabel value.",
+        ____types: "jsObject",
 
-    generateCellModelFilterBodyFunction: {
-        ____label: "CellModelTemplate::synthesizeCellModel Generator bodyFunction",
-        ____description: "An @encapsule/arccore.filter bodyFunction that implements some transformation from the request descriptor pass to CellModelTemplate::synthesizeCellModel to CellModel::constructor request descriptor.",
-        ____accept: "jsFunction"
+        synthesizeMethodRequestSpec: {
+            ____label: "CellModelTemplate::synthesizeCellModel Request Spec",
+            ____description: "A developer-defined format of a request object passed to CellModelTemplate::synthesizeCellModel method.",
+            ____accept: "jsObject" // This will be an @encapsule/arccore.filter spec object.
+        },
+
+        generatorFilterBodyFunction: {
+            ____label: "CellModelTemplate::synthesizeCellModel Generator bodyFunction",
+            ____description: "A developer-defined @encapsule/arccore.filter style bodyFunction that implements a transformation from CellModelAddressSpace + synthesizeMethodRequest to specialized CellModel artifact instance.",
+            ____accept: "jsFunction"
+        }
     }
 
 };

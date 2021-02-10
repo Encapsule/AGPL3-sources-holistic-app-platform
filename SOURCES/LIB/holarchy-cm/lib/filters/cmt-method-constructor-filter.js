@@ -24,16 +24,16 @@
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                let cmasBaseScope = (templateConstructorRequest_.cmasBaseScope instanceof holarchy.CellModelArtifactSpace)?
-                    templateConstructorRequest_.cmasBaseScope:
-                    (new holarchy.CellModelArtifactSpace(templateConstructorRequest_.cmasBaseScope));
+                let cmasTemplateScope = (templateConstructorRequest_.cmasTemplateScope instanceof holarchy.CellModelArtifactSpace)?
+                    templateConstructorRequest_.cmasTemplateScope:
+                    (new holarchy.CellModelArtifactSpace(templateConstructorRequest_.cmasTemplateScope));
 
-                if (!cmasBaseScope.isValid()) {
-                    errors.push(cmasBaseScope.toJSON());
+                if (!cmasTemplateScope.isValid()) {
+                    errors.push(cmasTemplateScope.toJSON());
                     break;
                 }
 
-                const cmasInstanceScope = cmasBaseScope.makeSubspaceInstance({ spaceLabel: templateConstructorRequest_.templateLabel });
+                const cmasInstanceScope = cmasTemplateScope.makeSubspaceInstance({ spaceLabel: templateConstructorRequest_.templateLabel });
 
                 if (!cmasInstanceScope.isValid()) {
                     errors.push(cmasInstanceScope.toJSON());
@@ -43,6 +43,8 @@
                 const templateLabel = `CellModelTemplate<${templateConstructorRequest_.templateLabel}>`;
                 const cellModelTemplateSynthMethodLabel = `${templateLabel}::synthesizeCellModel`;
                 const cellModelGeneratorFilterLabel = `${templateLabel}::cellModelGeneratorFilter`;
+
+                // Construct the specialized CellModel generator filter instance.
 
                 let factoryResponse2 = arccore.filter.create({
                     operationID: cmasHolarchyCMPackage.mapLabels({ OTHER: cellModelGeneratorFilterLabel }).result.OTHERID,
@@ -64,8 +66,8 @@
                             ____accept: "jsString" // Note that cellModelLabel is used to call CellModelTemplate.mapLabels method (inherited from CellModelArtifactSpace) and is used e.g. as the value passed { CM: cellModelLabel, APM: cellModelLabel ... }
                         },
 
-                        generatorRequest: {
-                            ...templateConstructorRequest_.generateCellModelFilterInputSpec,
+                        synthesizeRequest: {
+                            ...templateConstructorRequest_.cellModelGenerator.synthesizeMethodRequestSpec,
                             ____label: `${templateLabel} Generator Request`,
                             ____description: `Specific instructions to ${cellModelGeneratorFilterLabel} about how to build a new CellModel instance.`
                         }
@@ -82,7 +84,7 @@
                         while (!inBreakScope) {
                             inBreakScope = true;
                             try {
-                                let innerResponse = templateConstructorRequest_.generateCellModelFilterBodyFunction(generateCellModelRequest_);
+                                let innerResponse = templateConstructorRequest_.cellModelGenerator.generatorFilterBodyFunction(generateCellModelRequest_);
                                 if (innerResponse.error) {
                                     errors.push(innerResponse.error);
                                     break;
