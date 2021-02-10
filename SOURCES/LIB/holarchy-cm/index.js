@@ -20,6 +20,9 @@ module.exports = {
 
     cmasHolarchyCMPackage: require("./cmasHolarchyCMPackage"),
 
+    cmtObservableValue: require("./ObservableValue_T/cmtObservableValue"),
+
+
     // ObservableValueCellModel_T is an exported class that extends @encapsule/holarchy CellModel class.
     // It models an observable value mailbox specialized for a specific message value type via a filter spec.
     ObservableValue_T: require("./ObservableValue_T"),
