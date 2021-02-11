@@ -2,8 +2,8 @@
 
 (function() {
 
-    const CellModelTemplate = require("../CellModelTemplate");
-    const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
+    const CellModelTemplate = require("../../CellModelTemplate");
+    const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
 
     const templateLabel = "ObservableValueProxyWorker";
 

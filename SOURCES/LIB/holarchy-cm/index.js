@@ -25,9 +25,6 @@ module.exports = {
     // CellModelTemplate class instance for synthesizing value-type-specialized ObservableValue CellModel.
     cmtObservableValue: require("./ObservableValue_T"),
 
-    // CellModelTemplate class instance for synthesizing value-type-specialized ObservableValueProxyWorker CellModel.
-    cmtObservableValueProxyWorker: require("./ObservableValueProxyWorker_T"),
-
     ObservableValueProxy: require("./ObservableValueProxy"),
 
 };
