@@ -30,12 +30,12 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 // CellModelTemplate.js
 (function () {
-  var holarchy = require("@encapsule/holarchy");
+  var CellModelArtifactSpace = require("./CellModelArtifactSpace");
 
   var constructorFilter = require("./lib/filters/cmt-method-constructor-filter");
 
-  var CellModelTemplate = /*#__PURE__*/function (_holarchy$CellModelAr) {
-    _inherits(CellModelTemplate, _holarchy$CellModelAr);
+  var CellModelTemplate = /*#__PURE__*/function (_CellModelArtifactSpa) {
+    _inherits(CellModelTemplate, _CellModelArtifactSpa);
 
     var _super = _createSuper(CellModelTemplate);
 
@@ -68,16 +68,16 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     }, {
       key: "synthesizeCellModel",
       value: function synthesizeCellModel(request_) {
-        return this.isValid() ? this._private.cellModelGeneratorFilter.request(_objectSpread({
+        return this.isValid() ? this._private.cellModelGeneratorFilter.request(_objectSpread(_objectSpread({}, request_), {}, {
           cmtInstance: this
-        }, request_)) : {
+        })) : {
           error: this.toJSON()
         };
       }
     }]);
 
     return CellModelTemplate;
-  }(holarchy.CellModelArtifactSpace);
+  }(CellModelArtifactSpace);
 
   module.exports = CellModelTemplate;
 })();

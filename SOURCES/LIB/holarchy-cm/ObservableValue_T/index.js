@@ -2,16 +2,17 @@
 
 (function() {
 
-    const CellModelTemplate = require("../CellModelTemplate");
+    const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
 
     const cmtObservableValueProxyWorker = require("./ObservableValueProxyWorker_T");
+    const observableValueProxyCellModel = require("../ObservableValueProxy");
 
     const templateLabel = "ObservableValue";
 
-    const cellLib = require("./celllib");
+    const cellLib = require("./lib");
 
-    const cmtObservableValue = new CellModelTemplate({
+    const cmtObservableValue = new holarchy.CellModelTemplate({
         cmasScope: cmasHolarchyCMPackage,
         templateLabel,
         cellModelGenerator: {
@@ -97,6 +98,7 @@
                         }, // ~.apm
 
                         subcells: [
+                            observableValueProxyCellModel,
                             observableValueProxyWorkerCellModel
                         ]
 

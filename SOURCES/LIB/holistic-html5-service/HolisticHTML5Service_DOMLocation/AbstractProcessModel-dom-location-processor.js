@@ -1,7 +1,7 @@
 // AbstractProcessModel-client-hash-route-location-processor.js
 
 const arccore = require("@encapsule/arccore");
-
+const holarchyCM = require("@encapsule/holarchy-cm");
 const routerEventDescriptorSpec = require("./lib/iospecs/router-event-descriptor-spec");
 
 const apmClientHashRouteLocationProcessor = module.exports = {
@@ -48,7 +48,7 @@ const apmClientHashRouteLocationProcessor = module.exports = {
             domLocation: {
                 ____types: "jsObject",
                 ____defaultValue: {},
-                ____appdsl: { apm: arccore.identifier.irut.fromReference("HolisticHTML5Service_DOMLocation.ObservableValue.AbstractProcessModel.routerEventDescriptor").result }
+                ____appdsl: { apm: holarchyCM.cmtObservableValue.mapLabels({ APM: "RouterEventDescriptor" }).result.APMID }
             }
         }
 

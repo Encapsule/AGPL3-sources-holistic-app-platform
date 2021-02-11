@@ -3,11 +3,13 @@
 (function() {
 
     const arccore = require("@encapsule/arccore");
-    const holarchy = require("@encapsule/holarchy");
-    const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
+    const CellModelArtifactSpace = require("../../CellModelArtifactSpace");
+    const CellModelConstructorInputSpec = require("./iospecs/cm-method-constructor-input-spec");
+
+    const cmasHolarchyPackage = require("../../cmasHolarchyPackage");
 
     const factoryResponse = arccore.filter.create({
-        operationID: cmasHolarchyCMPackage.mapLabels({ OTHER: "CellModelTemplate::constructor Filter" }).result.OTHERID,
+        operationID: cmasHolarchyPackage.mapLabels({ OTHER: "CellModelTemplate::constructor Filter" }).result.OTHERID,
         operationName: "CellModelTemplate::constructor Filter",
         operationDescription: "Processes the request value passed to CellModelTemplate::constructor function.",
         inputFilterSpec: require("./iospecs/cmt-method-constructor-input-spec"),
@@ -24,9 +26,9 @@
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                let cmasTemplateScope = (templateConstructorRequest_.cmasTemplateScope instanceof holarchy.CellModelArtifactSpace)?
+                let cmasTemplateScope = (templateConstructorRequest_.cmasTemplateScope instanceof CellModelArtifactSpace)?
                     templateConstructorRequest_.cmasTemplateScope:
-                    (new holarchy.CellModelArtifactSpace(templateConstructorRequest_.cmasTemplateScope));
+                    (new CellModelArtifactSpace(templateConstructorRequest_.cmasTemplateScope));
 
                 if (!cmasTemplateScope.isValid()) {
                     errors.push(cmasTemplateScope.toJSON());
@@ -47,7 +49,7 @@
                 // Construct the specialized CellModel generator filter instance.
 
                 let factoryResponse2 = arccore.filter.create({
-                    operationID: cmasHolarchyCMPackage.mapLabels({ OTHER: cellModelGeneratorFilterLabel }).result.OTHERID,
+                    operationID: cmasHolarchyPackage.mapLabels({ OTHER: cellModelGeneratorFilterLabel }).result.OTHERID,
                     operationName: cellModelGeneratorFilterLabel,
                     operationDescription: `Processes the request value passed from ${cellModelTemplateSynthMethodLabel} method.`,
                     inputFilterSpec: {
@@ -73,7 +75,7 @@
                         }
                     },
                     outputFilterSpec: {
-                        ...holarchy.appTypes.CellModel.constructorRequest,
+                        ...CellModelConstructorInputSpec,
                         ____label: "CellModelTemplate::synthesizeCellModel Result",
                         ____description: "A @encapsule/holarchy CellModel::constructor request descriptor object synthesized by this filter."
                     },

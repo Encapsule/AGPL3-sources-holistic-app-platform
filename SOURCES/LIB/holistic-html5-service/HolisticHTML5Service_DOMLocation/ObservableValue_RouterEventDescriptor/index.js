@@ -18,13 +18,7 @@
         throw new Error(synthResponse.error);
     }
 
-    const ObservableValue_RouterEventDescriptor = synthResponse.result;
-
-    module.exports = {
-        cellmodels: [
-            ObservableValue_RouterEventDescriptor,
-        ]
-    };
+    module.exports = synthResponse.result
 
 })();
 

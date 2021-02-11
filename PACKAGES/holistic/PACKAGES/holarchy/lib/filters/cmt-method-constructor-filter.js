@@ -10,12 +10,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 (function () {
   var arccore = require("@encapsule/arccore");
 
-  var holarchy = require("@encapsule/holarchy");
+  var CellModelArtifactSpace = require("../../CellModelArtifactSpace");
 
-  var cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
+  var CellModelConstructorInputSpec = require("./iospecs/cm-method-constructor-input-spec");
+
+  var cmasHolarchyPackage = require("../../cmasHolarchyPackage");
 
   var factoryResponse = arccore.filter.create({
-    operationID: cmasHolarchyCMPackage.mapLabels({
+    operationID: cmasHolarchyPackage.mapLabels({
       OTHER: "CellModelTemplate::constructor Filter"
     }).result.OTHERID,
     operationName: "CellModelTemplate::constructor Filter",
@@ -41,14 +43,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       while (!inBreakScope) {
         inBreakScope = true;
-        var cmasBaseScope = templateConstructorRequest_.cmasBaseScope instanceof holarchy.CellModelArtifactSpace ? templateConstructorRequest_.cmasBaseScope : new holarchy.CellModelArtifactSpace(templateConstructorRequest_.cmasBaseScope);
+        var cmasTemplateScope = templateConstructorRequest_.cmasTemplateScope instanceof CellModelArtifactSpace ? templateConstructorRequest_.cmasTemplateScope : new CellModelArtifactSpace(templateConstructorRequest_.cmasTemplateScope);
 
-        if (!cmasBaseScope.isValid()) {
-          errors.push(cmasBaseScope.toJSON());
+        if (!cmasTemplateScope.isValid()) {
+          errors.push(cmasTemplateScope.toJSON());
           break;
         }
 
-        var cmasInstanceScope = cmasBaseScope.makeSubspaceInstance({
+        var cmasInstanceScope = cmasTemplateScope.makeSubspaceInstance({
           spaceLabel: templateConstructorRequest_.templateLabel
         });
 
@@ -59,9 +61,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         var templateLabel = "CellModelTemplate<".concat(templateConstructorRequest_.templateLabel, ">");
         var cellModelTemplateSynthMethodLabel = "".concat(templateLabel, "::synthesizeCellModel");
-        var cellModelGeneratorFilterLabel = "".concat(templateLabel, "::cellModelGeneratorFilter");
+        var cellModelGeneratorFilterLabel = "".concat(templateLabel, "::cellModelGeneratorFilter"); // Construct the specialized CellModel generator filter instance.
+
         var factoryResponse2 = arccore.filter.create({
-          operationID: cmasHolarchyCMPackage.mapLabels({
+          operationID: cmasHolarchyPackage.mapLabels({
             OTHER: cellModelGeneratorFilterLabel
           }).result.OTHERID,
           operationName: cellModelGeneratorFilterLabel,
@@ -71,6 +74,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             ____description: "A request descriptor object specifying the CellModelTemplate-instance-specific specializations to be used to synthesize a new CellModel.",
             ____types: "jsObject",
             cmtInstance: {
+              // This is spliced in by CellModelTemplate::constructor
               ____label: "".concat(templateLabel, " Instance Reference"),
               ____accept: "jsObject" // This will be a pointer to CellModelTemplate::synthesizeCellModel method's this
 
@@ -81,12 +85,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               ____accept: "jsString" // Note that cellModelLabel is used to call CellModelTemplate.mapLabels method (inherited from CellModelArtifactSpace) and is used e.g. as the value passed { CM: cellModelLabel, APM: cellModelLabel ... }
 
             },
-            generatorRequest: _objectSpread(_objectSpread({}, templateConstructorRequest_.generateCellModelFilterInputSpec), {}, {
+            synthesizeRequest: _objectSpread(_objectSpread({}, templateConstructorRequest_.cellModelGenerator.synthesizeMethodRequestSpec), {}, {
               ____label: "".concat(templateLabel, " Generator Request"),
               ____description: "Specific instructions to ".concat(cellModelGeneratorFilterLabel, " about how to build a new CellModel instance.")
             })
           },
-          outputFilterSpec: _objectSpread(_objectSpread({}, holarchy.appTypes.CellModel.constructorRequest), {}, {
+          outputFilterSpec: _objectSpread(_objectSpread({}, CellModelConstructorInputSpec), {}, {
             ____label: "CellModelTemplate::synthesizeCellModel Result",
             ____description: "A @encapsule/holarchy CellModel::constructor request descriptor object synthesized by this filter."
           }),
@@ -101,7 +105,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               inBreakScope = true;
 
               try {
-                var innerResponse = templateConstructorRequest_.generateCellModelFilterBodyFunction(generateCellModelRequest_);
+                var innerResponse = templateConstructorRequest_.cellModelGenerator.generatorFilterBodyFunction(generateCellModelRequest_);
 
                 if (innerResponse.error) {
                   errors.push(innerResponse.error);

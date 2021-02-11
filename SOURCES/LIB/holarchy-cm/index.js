@@ -16,8 +16,6 @@ module.exports = {
         source: packageMeta.buildSource
     },
 
-    CellModelTemplate: require("./CellModelTemplate"),
-
 
     // CellModelArtifactSpace class instance specialized for @encapsule/holarchy-cm package.
     cmasHolarchyCMPackage: require("./cmasHolarchyCMPackage"),

@@ -45,16 +45,22 @@ module.exports = {
     build: packageMeta.buildID,
     source: packageMeta.buildSource
   },
+  // CellModelArtifactSpace class instance specialized for @encapsule/holarchy package.
+  cmasHolarchyPackage: require("./cmasHolarchyPackage"),
   // ================================================================
   // DEVELOPER API
   // ================================================================
 
   /*
     CellModelArtifactSpace (CMAS) is an ES6 class instantiated with operator
-    new that represents a continuous mapping between a CellModel human-readable
-    "artifact label" value and that CellModel artifact's IRUT string id value
-    within the specific labeled "artifact space" specified via the class
-    constructor request.
+    new that represents a unique mapping between a CellModel "artifact label" value
+    (a human-readable string) and a set of unique CellModel artifact IRUT ID's
+    within that artifact space. Quite a lot more needs to be written about the
+    theory and intended use of this facility; it's a fairly deep rabbit hole...
+    For now understand that the facility is used primarily to ensure that
+    CellModel instances synthesized via CellModelTemplate class instances
+    that may be later resolved by querying the appropriate CellModelArtifactSpace
+    instance w/a so-called CellModel label string in order to obtain IRUT ID's.
   */
   CellModelArtifactSpace: CellModelArtifactSpace,
 
@@ -67,6 +73,11 @@ module.exports = {
     transitions and their associated enter and exit action(s).
   */
   CellModel: CellModel,
+
+  /*
+    TODO:
+   */
+  CellModelTemplate: require("./CellModelTemplate"),
 
   /*
     AbstractProcessModel (APM) is an ES6 class instantiated with

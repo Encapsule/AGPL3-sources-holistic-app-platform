@@ -2,12 +2,12 @@
 
 (function() {
 
-    const CellModelTemplate = require("../../CellModelTemplate");
+    const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
 
     const templateLabel = "ObservableValueProxyWorker";
 
-    const cmtObservableValueProxyWorker = new CellModelTemplate({
+    const cmtObservableValueProxyWorker = new holarchy.CellModelTemplate({
         cmasScope: cmasHolarchyCMPackage,
         templateLabel,
         cellModelGenerator: {

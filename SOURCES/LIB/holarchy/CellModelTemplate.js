@@ -2,10 +2,10 @@
 
 (function() {
 
-    const holarchy = require("@encapsule/holarchy");
+    const CellModelArtifactSpace = require("./CellModelArtifactSpace");
     const constructorFilter = require("./lib/filters/cmt-method-constructor-filter");
 
-    class CellModelTemplate extends holarchy.CellModelArtifactSpace {
+    class CellModelTemplate extends CellModelArtifactSpace {
 
         constructor(request_) {
             const filterResponse = constructorFilter.request(request_);
