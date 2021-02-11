@@ -55,7 +55,7 @@
                         ____description: "A request descriptor object specifying the CellModelTemplate-instance-specific specializations to be used to synthesize a new CellModel.",
                         ____types: "jsObject",
 
-                        cmtInstance: {
+                        cmtInstance: { // This is spliced in by CellModelTemplate::constructor
                             ____label: `${templateLabel} Instance Reference`,
                             ____accept: "jsObject" // This will be a pointer to CellModelTemplate::synthesizeCellModel method's this
                         },
