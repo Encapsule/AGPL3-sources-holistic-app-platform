@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "EQVg8n1RTkmlYnkS2tKv8g",
-    "buildSource": "eb020efdc8cdf4745b694c3799f9234b5c618ac3",
-    "buildTime": 1613061853,
-    "codename": "crystallite",
+    "buildID": "C4Wxui2yQw-J659hEOUqDQ",
+    "buildSource": "409d9eb2a449c0dbb07ec24f228826afccc34e50",
+    "buildTime": 1613152810,
+    "codename": "ametrine",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -42,5 +42,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.50"
+    "version": "0.0.51"
 }
