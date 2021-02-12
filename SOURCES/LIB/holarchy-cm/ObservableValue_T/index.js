@@ -5,6 +5,7 @@
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
 
+    const observableValueBaseCellModel = require("./ObservableValueBase");
     const cmtObservableValueProxyWorker = require("./ObservableValueProxyWorker_T");
     const observableValueProxyCellModel = require("../ObservableValueProxy");
 
@@ -78,7 +79,7 @@
                                     description: "ObservableValue is initializing.",
                                     transitions: [
                                         {
-                                            transitionIf: { holarchy: { cm: { operators: { ocd: { compare: { values: { a: { value: -1 }, operator: "<", b: { path: "#.revision" } } } } } } } },
+                                            transitionIf: { holarchy: { cm: { operators: { ocd: { compare: { values: { a: { path: "#.revision" } , operator: ">", b: { value: -1 } } } } } } } },
                                             nextStep: "observable-value-ready"
                                         },
                                         { transitionIf: { always: true }, nextStep: "observable-value-reset" }
@@ -86,11 +87,11 @@
                                 },
 
                                 "observable-value-reset": {
-                                    description: "ObservableValue has not yet been written and is in reset process step.",
+                                    description: "ObservableValue has not yet been written and is in reset process step."
                                 },
 
                                 "observable-value-ready": {
-                                    description: "ObservableValue is ready and processing write action(s)."
+                                    description: "ObservableValue has been written and can be read and/or observed for subsequent update(s) by a value producing cell process."
                                 }
 
                             } // ~.apm.steps
@@ -98,6 +99,7 @@
                         }, // ~.apm
 
                         subcells: [
+                            observableValueBaseCellModel,
                             observableValueProxyCellModel,
                             observableValueProxyWorkerCellModel
                         ]

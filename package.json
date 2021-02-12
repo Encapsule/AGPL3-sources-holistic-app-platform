@@ -1,7 +1,7 @@
 {
     "name": "holistic-dev",
-    "version": "0.0.50",
-    "codename": "crystallite",
+    "version": "0.0.51",
+    "codename": "ametrine",
     "description": "A domain and process modeling system for building Node.js/HTML5 SaaS and PaaS products dynamically from JSON data + remixable plug-ins written in JavaScript.",
     "author": "Encapsule",
     "contributors": [
