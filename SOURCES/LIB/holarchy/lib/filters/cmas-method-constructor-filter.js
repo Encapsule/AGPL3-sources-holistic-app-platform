@@ -118,7 +118,7 @@
                         let inBreakScope = false;
                         while (!inBreakScope) {
                             inBreakScope = true;
-                            response.result = { spaceLabel: `${artifactSpaceLabel}.${request_.spaceLabel}` };
+                            response.result = { spaceLabel: `${artifactSpaceLabel}${request_.spaceLabel}` }; // TODO: Consider if we should maintain artifactSpaceLabel as an array (so we can keep track of the implicit token order induced by calls to makeSubspaceInstance).
                             break;
                         }
                         if (errors.length) {
