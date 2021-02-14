@@ -5,9 +5,9 @@
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
 
-    const observableValueBaseCellModel = require("./ObservableValueBase");
+    const cmObservableValueBase = require("./ObservableValueBase");
+    const cmObservableValueProxyHelper = require("../ObservableValueProxy");
     const cmtObservableValueProxyWorker = require("./ObservableValueProxyWorker_T");
-    const observableValueProxyCellModel = require("../ObservableValueProxy");
 
     const templateLabel = "ObservableValue";
 
@@ -41,7 +41,7 @@
                         break;
                     }
 
-                    const observableValueProxyWorkerCellModel = synthesizeResponse.result;
+                    const cmObservableValueProxyWorker = synthesizeResponse.result;
 
                     // Now synthesize the requested ObservableValue specialization.
 
@@ -99,9 +99,9 @@
                         }, // ~.apm
 
                         subcells: [
-                            observableValueBaseCellModel,
-                            observableValueProxyCellModel,
-                            observableValueProxyWorkerCellModel
+                            cmObservableValueBase, // Generic behaviors of ObservableValue_T
+                            cmObservableValueProxyWorker, // Type-specialized ObservableValueProxyWorker_T-generated CellModel used to observe the ObservableValue family CellModel we're generating via a cell process proxy.
+                            cmObservableValueProxyHelper, // Generic helper for reading a value from any ObservableValue family member (an active cell whose definition was synthesized here).
                         ]
 
                     }; // result (CellModel declaration)
