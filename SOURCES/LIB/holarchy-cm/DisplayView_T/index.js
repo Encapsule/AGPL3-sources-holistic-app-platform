@@ -33,9 +33,12 @@
 
                 displayElement: {
                     ____label: "Display Element Specializations",
-                    ___accept: "jsObject"
-                    // TODO
-
+                    ____types: "jsObject",
+                    ____defaultValue: {},
+                    observableValueSpec: {
+                        ____accept: "jsObject",
+                        ____defaultValue: { ____types: "jsObject", ____label: "Default Specialization" }
+                    }
                 }
             }
         },
@@ -45,6 +48,16 @@
             let inBreakScope = false;
             while (!inBreakScope) {
                 inBreakScope = true;
+
+                const cellModelLabel = `${templateName}<${generatorRequest_.cellModelLabel}>`;
+
+                const cmSynthResponse = cmtObservableValue.synthesizeCellModel({ cellModelLabel, synthesizeRequest: { valueTypeDescription: `Specialization for ${cellModelLabel}`, valueTypeSpec: generatorRequest_.sythesizeRequest.displayElement.observableValueSpec }});
+                if (cmSynthResponse.error) {
+                    errors.push(cmSynthResponse.error);
+                    break;
+                }
+
+                const cmDisplayViewOutputObservableValue = cmSynthResponse.result;
 
                 const cellMemorySpec = {
 
@@ -60,7 +73,7 @@
                         displayView: {
                             ____label: `${generatorRequest_.cellModelLabel} Display View Output`,
                             ____types: "jsObject",
-                            ____appdsl: { apm: cmtObservableValue.mapLabels({ APM: `${templateName}<${generatorRequest_.cellModelLabel}>` }).result.APMID }
+                            ____appdsl: { apm: cmDisplayViewOutputObservableValue.getCMConfig({ type: "APM" }).result[0].getID() }
                         }
 
                     },
@@ -83,11 +96,9 @@
 
                     }
 
-                }
+                };
 
-
-
-
+                // TODO: will fail in OFSP because we're not setting response.result to valid CellModel declaration yet...
 
 
                 break;

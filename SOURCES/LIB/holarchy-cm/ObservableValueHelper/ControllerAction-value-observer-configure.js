@@ -1,11 +1,18 @@
-// ControllerAction-value-observer-configure.js
-
-const arccore = require("@encapsule/arccore");
-const holarchy = require("@encapsule/holarchy");
+// ControllerAction-ObservableValueHelper-configure.js
 
 
 
 (function() {
+
+    const holarchy = require("@encapsule/holarchy");
+    const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
+
+    const cmLabel = require("./cm-label-string");
+    const cmasResponse = cmasHolarchyCMPackage.makeSubspaceInstance({ spaceLabel: cmLabel });
+    if (cmasResponse.error) {
+        throw new Error(cmasResponse.error);
+    }
+    const cmasObservableValueHelper = new holarchy.CellModelArtifactSpace(cmasResponse.result);
 
     const lib = require("./lib");
 
@@ -14,9 +21,9 @@ const holarchy = require("@encapsule/holarchy");
     delete configurationDataSpec.____defaultValue;
 
     const action = new holarchy.ControllerAction({
-        id: arccore.identifier.irut.fromReference("@encapsule/holarchy-cm.ValueObserver.ControllerAction.configure").result,
-        name: "ValueObserver Configure",
-        description: "ValueObserver configure action write configuration data into the cell instance indicated by apmBindingPath.",
+        id: cmasObservableValueHelper.mapLabels({ ACT: "configure" }).result.ACTID,
+        name: `${cmLabel} Configure`,
+        description: `Allows an actor to configure / reconfigure the ${cmLabel} cell process.`,
         actionRequestSpec: {
             ____types: "jsObject",
             holarchy: {

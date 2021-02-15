@@ -1,13 +1,13 @@
-// ObservableValueProxyWorker_T/index.js
+// ObservableValueWorker_T/index.js
 
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
 
-    const templateLabel = "ObservableValueProxyWorker";
+    const templateLabel = "ObservableValueWorker";
 
-    const cmtObservableValueProxyWorker = new holarchy.CellModelTemplate({
+    const cmtObservableValueWorker = new holarchy.CellModelTemplate({
         cmasScope: cmasHolarchyCMPackage,
         templateLabel,
         cellModelGenerator: {
@@ -71,7 +71,6 @@
                         operators: [
                         ],
                         subcells: [
-                            // ObservableValueProxy
                         ]
                     };
 
@@ -85,11 +84,11 @@
         } // ~.cellModelGenerator
     });
 
-    if(!cmtObservableValueProxyWorker.isValid()) {
-        throw new Error(cmtObservableValueProxyWorker.toJSON());
+    if(!cmtObservableValueWorker.isValid()) {
+        throw new Error(cmtObservableValueWorker.toJSON());
     }
 
-    module.exports = cmtObservableValueProxyWorker;
+    module.exports = cmtObservableValueWorker;
 
 })();
 

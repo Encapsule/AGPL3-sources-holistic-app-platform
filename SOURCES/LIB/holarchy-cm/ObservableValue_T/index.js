@@ -6,8 +6,8 @@
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
 
     const cmObservableValueBase = require("./ObservableValueBase");
-    const cmObservableValueProxyHelper = require("../ObservableValueProxy");
-    const cmtObservableValueProxyWorker = require("./ObservableValueProxyWorker_T");
+    const cmObservableValueHelper = require("../ObservableValueHelper");
+    const cmtObservableValueWorker = require("./ObservableValueWorker_T");
 
     const templateLabel = "ObservableValue";
 
@@ -34,14 +34,14 @@
                 while (!inBreakScope) {
                     inBreakScope = true;
 
-                    // First, synthesize a specialized ObservableValueProxyWorker CellModel specialization.
-                    let synthesizeResponse = cmtObservableValueProxyWorker.synthesizeCellModel(request_); // Same request signature w/different CellModel generator.
+                    // First, synthesize a specialized ObservableValueWorker CellModel specialization.
+                    let synthesizeResponse = cmtObservableValueWorker.synthesizeCellModel(request_); // Same request signature w/different CellModel generator.
                     if (synthesizeResponse.error) {
                         errors.push(synthesizeResponse.error);
                         break;
                     }
 
-                    const cmObservableValueProxyWorker = synthesizeResponse.result;
+                    const cmObservableValueWorker = synthesizeResponse.result;
 
                     // Now synthesize the requested ObservableValue specialization.
 
@@ -100,8 +100,8 @@
 
                         subcells: [
                             cmObservableValueBase, // Generic behaviors of ObservableValue_T
-                            cmObservableValueProxyWorker, // Type-specialized ObservableValueProxyWorker_T-generated CellModel used to observe the ObservableValue family CellModel we're generating via a cell process proxy.
-                            cmObservableValueProxyHelper, // Generic helper for reading a value from any ObservableValue family member (an active cell whose definition was synthesized here).
+                            cmObservableValueWorker, // Type-specialized ObservableValueWorker_T-generated CellModel used to observe the ObservableValue family CellModel we're generating via a cell process proxy.
+                            cmObservableValueHelper, // Generic helper for reading a value from any ObservableValue family member (an active cell whose definition was synthesized here).
                         ]
 
                     }; // result (CellModel declaration)

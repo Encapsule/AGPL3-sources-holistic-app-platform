@@ -1,17 +1,18 @@
 // AbstractProcessModel-value-observer.js
 
-const arccore = require("@encapsule/arccore");
-const holarchy = require("@encapsule/holarchy");
 
 (function() {
 
-    const apmID = arccore.identifier.irut.fromReference("@encapsule/holarchy-cm.ValueObserver.AbstractProcessModel").result;
+    const holarchy = require("@encapsule/holarchy");
+    const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
+
+    const cmLabel = require("./cm-label-string");
 
     const apm = new holarchy.AbstractProcessModel({
 
-        id: apmID,
-        name: "ValueObserver Process",
-        description: "A strongly-typed runtime intra-cell communication signal input.",
+        id:  cmasHolarchyCMPackage.mapLabels({ APM: cmLabel }).result.APMID,
+        name: cmLabel,
+        description: "Provides a generic means of linking to and subsequently reading from an active ObservableValue family member cell owned by another cell process.",
 
         ocdDataSpec: {
             ____types: "jsObject",

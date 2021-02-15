@@ -1,16 +1,24 @@
-// ControllerAction-value-observer-step-worker.js
+// ControllerAction-ObservableValueHelper-step-worker.js
 
-const arccore = require("@encapsule/arccore");
-const holarchy = require("@encapsule/holarchy");
 
 (function() {
+
+    const holarchy = require("@encapsule/holarchy");
+    const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
+
+    const cmLabel = require("./cm-label-string");
+    const cmasResponse = cmasHolarchyCMPackage.makeSubspaceInstance({ spaceLabel: cmLabel });
+    if (cmasResponse.error) {
+        throw new Error(cmasResponse.error);
+    }
+    const cmasObservableValueHelper = new holarchy.CellModelArtifactSpace(cmasResponse.result);
 
     const lib = require("./lib");
 
     const action = new holarchy.ControllerAction({
-        id: arccore.identifier.irut.fromReference("@encapsule/holarchy-cm.ValueObserver.ControllerAction.stepWorker").result,
-        name: "ValueObserver Step Worker",
-        description: "ValueObserver Step Worker action.",
+        id: cmasObservableValueHelper.mapLabels({ ACT: "stepWorker" }).result.ACTID,
+        name: `${cmLabel} Step Worker`,
+        description: `Private evaluation implementation action of ${cmLabel}.`,
         actionRequestSpec: {
             ____types: "jsObject",
             holarchy: {
