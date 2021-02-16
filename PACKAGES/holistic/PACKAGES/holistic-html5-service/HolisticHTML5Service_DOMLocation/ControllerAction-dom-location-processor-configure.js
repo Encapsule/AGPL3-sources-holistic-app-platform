@@ -46,31 +46,42 @@ var dlpLib = require("./lib");
 
       while (!inBreakScope) {
         inBreakScope = true;
-        var messageBody = request_.actionRequest.holistic.app.client.domLocation._private.configure;
-        var libResponse = dlpLib.getStatus.request(request_.context);
+        var messageBody = request_.actionRequest.holistic.app.client.domLocation._private.configure; // Save the HTTP response code forwarded by HolistcHTML5Service_Kernel cell process.
+        // Currently, this is the only observable indication of how the DOMLocation cell has configured its event listener.
 
-        if (libResponse.error) {
-          errors.push(libResponse.error);
+        var ocdResponse = request_.context.ocdi.writeNamespace({
+          apmBindingPath: request_.context.apmBindingPath,
+          dataPath: "#.httpResponseCode"
+        }, messageBody.httpResponseCode);
+
+        if (ocdResponse.error) {
+          errors.push(ocdResponse.error);
           break;
         }
 
-        var _libResponse$result = libResponse.result,
-            cellMemory = _libResponse$result.cellMemory,
-            cellProcess = _libResponse$result.cellProcess;
-        cellMemory.httpResponseCode = messageBody.httpResponseCode;
-
-        switch (cellMemory.httpResponseCode) {
+        switch (messageBody.httpResponseCode) {
           case 200:
             // The HTML5 document synthesized by HolisticNodeService is a correctly serialized HolisticHTML5Service instance.
-            var serverRouterEvent = cellMemory.locationHistory[0];
+            // Parse the initial window.location.href string that the HolisticNodeService responded to.
+            var libResponse = dlpLib.parseLocation.request({
+              actor: "server",
+              href: window.location.href
+            });
 
-            if (!serverRouterEvent.hashrouteString) {
-              var hrefReplace = "".concat(serverRouterEvent.hrefParse.href, "#"); // We have a correctly serialized HolisticHTML5Service instance. But, no hashroute specified in the original server router event descriptor.
+            if (libResponse.error) {
+              errors.push(libResponse.error);
+              break;
+            }
+
+            var routerEventDescriptor = libResponse.result; // If there is no hash string currently, replace add one, reparse, and call window.location.replace to inform the DOM (and update the displayed URL).
+
+            if (!routerEventDescriptor.hashrouteString) {
+              var hrefReplace = "".concat(routerEventDescriptor.hrefParse.href, "#");
+              window.location.replace(hrefReplace); // We have a correctly serialized HolisticHTML5Service instance. But, no hashroute specified in the original server router event descriptor.
 
               libResponse = dlpLib.parseLocation.request({
                 actor: "app",
-                href: hrefReplace,
-                routerEventNumber: 0
+                href: hrefReplace
               });
 
               if (libResponse.error) {
@@ -78,8 +89,33 @@ var dlpLib = require("./lib");
                 break;
               }
 
-              cellMemory.locationHistory[0] = libResponse.result;
-              window.location.replace(hrefReplace);
+              routerEventDescriptor = libResponse.result;
+            } // Write our output ObservableValue w/the initial route parse descriptor.
+
+
+            var actResponse = request_.context.act({
+              actorName: "DOMLocationProcessor",
+              actorTaskDescription: "Write the initial router event descriptor to our ObservableValue output mailbox.",
+              actionRequest: {
+                holarchy: {
+                  common: {
+                    ObservableValue: {
+                      writeValue: {
+                        value: routerEventDescriptor,
+                        path: "#.outputs.domLocation" // Relative to apmBindingPath
+
+                      }
+                    }
+                  }
+                }
+              },
+              apmBindingPath: request_.context.apmBindingPath // Our binding path
+
+            });
+
+            if (actResponse.error) {
+              errors.push(actResponse.error);
+              break;
             }
 
             setTimeout(function () {
@@ -109,7 +145,8 @@ var dlpLib = require("./lib");
                 });
                 event_.preventDefault();
               });
-            }, 0);
+            }, 0); // execute immediately after unwinding the current synchronous call stack (i.e. next JS clock tick).
+
             break;
 
           default:
@@ -120,22 +157,13 @@ var dlpLib = require("./lib");
                 window.location.reload();
                 event_.preventDefault();
               });
-            }, 0); // next tick.
+            }, 0); // execute immediately after unwinding the current synchronous call stack (i.e. next JS clock tick).
 
             break;
         } // switch
 
 
-        if (errors.length) {
-          break;
-        }
-
-        var ocdResponse = request_.context.ocdi.writeNamespace(cellProcess.apmBindingPath, cellMemory);
-
-        if (ocdResponse.error) {
-          errors.push(ocdResponse.error);
-          break;
-        }
+        break;
       }
 
       if (errors.length) {

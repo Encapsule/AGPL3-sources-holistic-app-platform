@@ -10,3 +10,8 @@ node_modules/*
 \#*
 
 *.log
+
+
+# KDE Plasma desktop
+.directory
+
