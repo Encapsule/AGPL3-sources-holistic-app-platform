@@ -26,7 +26,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   var lib = require("./lib");
 
-  var apmValueObserver = require("./AbstractProcessModel-value-observer");
+  var apmValueObserver = require("./AbstractProcessModel-ObservableValueHelper");
 
   var configurationDataSpec = _objectSpread({}, apmValueObserver._private.declaration.ocdDataSpec.configuration);
 

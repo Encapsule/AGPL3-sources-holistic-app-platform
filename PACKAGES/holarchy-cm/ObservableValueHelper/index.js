@@ -14,8 +14,8 @@
     }).result.CMID,
     name: cmLabel,
     description: "Provides a generic means of linking to and subsequently reading from an active ObservableValue family member cell owned by another cell process.",
-    apm: require("./AbstractProcessModel-value-observer"),
-    actions: [require("./ControllerAction-value-observer-configure"), require("./ControllerAction-value-observer-step-worker")]
+    apm: require("./AbstractProcessModel-ObservableValueHelper"),
+    actions: [require("./ControllerAction-ObservableValueHelper-configure"), require("./ControllerAction-ObservableValueHelper-step-worker")]
   });
 
   if (!cellmodel.isValid()) {
