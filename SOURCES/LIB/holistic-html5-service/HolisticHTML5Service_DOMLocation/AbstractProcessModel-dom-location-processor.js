@@ -2,6 +2,7 @@
 
 const arccore = require("@encapsule/arccore");
 const holarchyCM = require("@encapsule/holarchy-cm");
+
 const routerEventDescriptorSpec = require("./lib/iospecs/router-event-descriptor-spec");
 
 const apmClientHashRouteLocationProcessor = module.exports = {
@@ -33,15 +34,7 @@ const apmClientHashRouteLocationProcessor = module.exports = {
             ____defaultValue: -1 // Not a valid HTTP error code. Used to indicate that the process has not yet been configured by the HolisticHTML5Service_Kernel process.
         },
 
-        locationHistory: {
-            ____label: "Location History Array",
-            ____description: "Array written by the sink hashchange event action for every observed change in location.",
-            ____types: "jsArray",
-            ____defaultValue: [],
-            routerEventDescriptor: routerEventDescriptorSpec
-        },
-
-        observableValues: {
+        outputs: {
             ____label: "Observable Values",
             ____types: "jsObject",
             ____defaultValue: {},
@@ -58,20 +51,7 @@ const apmClientHashRouteLocationProcessor = module.exports = {
 
         uninitialized: {
             description: "Default starting process step.",
-            transitions: [ { transitionIf: { always: true }, nextStep: "dom-location-initialize" } ]
-        },
-
-        "dom-location-initialize": {
-            description: "Performs first post-activation cell initialization on exit from this process step.",
-            actions: {
-                exit: [
-                    // Parses the initial location.href and writes the initial routerEventDescriptor object to the cell's private locationHistory array.
-                    { holistic: { app: { client: { domLocation: { _private: { initialize: {} } } } } } }
-                ]
-            },
-            transitions: [
-                { transitionIf: { always: true }, nextStep: "dom-location-wait-kernel-config" }
-            ]
+            transitions: [ { transitionIf: { always: true }, nextStep: "dom-location-wait-kernel-config" } ]
         },
 
         "dom-location-wait-kernel-config": {

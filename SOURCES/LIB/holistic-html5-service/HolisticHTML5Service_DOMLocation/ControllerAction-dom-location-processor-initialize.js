@@ -44,6 +44,8 @@ const dlpLib = require("./lib");
             while (!inBreakScope) {
                 inBreakScope = true;
 
+                /* I THINK WE DO NOT EVEN NEED INIT
+
                 let libResponse = dlpLib.getStatus.request(request_.context);
                 if (libResponse.error) {
                     errors.push(libResponse.error);
@@ -62,14 +64,25 @@ const dlpLib = require("./lib");
                 }
                 const routerEventDescriptor = libResponse.result;
 
-                cellMemory.locationHistory.push(routerEventDescriptor);
+                let actResponse = request_.context.act({
+                    actorName: "DOMLocationProcessor",
+                    actionTaskDescription: "Write the new router event descriptor to our ObservableValue output mailbox.",
+                    actionRequest: {
+                        holarchy: {
+                            common: {
+                                ObservableValue: {
+                                    writeValue: {
+                                        value: routerEventDescriptor,
+                                        path: "#.outputs.domLocation" // Relative to apmBindingPath
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    apmBindingPath: request_.context.apmBindingPath // Our binding path
+                });
 
-                let ocdResponse = request_.context.ocdi.writeNamespace(cellProcess.apmBindingPath, cellMemory);
-
-                if (ocdResponse.error) {
-                    errors.push(ocdResponse.error);
-                    break;
-                }
+                */
 
                 /* ----------------------------------------------------------------
                    v0.0.48-kyanite

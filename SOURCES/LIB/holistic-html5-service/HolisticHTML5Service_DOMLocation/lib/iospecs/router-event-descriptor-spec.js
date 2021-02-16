@@ -55,7 +55,6 @@ module.exports = {
         ____defaultValue: null,
         ____asMap: true,
         paramName: { ____accept: [ "jsString", "jsNull" /*e.g. #x?foo --> foo: null */ ] }
-    },
-    routerEventNumber: { ____accept: "jsNumber" }
+    }
 };
 

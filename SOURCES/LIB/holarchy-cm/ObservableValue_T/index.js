@@ -11,8 +11,6 @@
 
     const templateLabel = "ObservableValue";
 
-    const cellLib = require("./lib");
-
     const cmtObservableValue = new holarchy.CellModelTemplate({
         cmasScope: cmasHolarchyCMPackage,
         templateLabel,
@@ -71,18 +69,15 @@
                                 "uninitialized": {
                                     description: "Default starting process step.",
                                     transitions: [
-                                        { transitionIf: { always: true }, nextStep: "observable-value-initialize" }
-                                    ]
-                                },
-
-                                "observable-value-initialize": {
-                                    description: "ObservableValue is initializing.",
-                                    transitions: [
                                         {
+                                            // If the cell was activated with its memory initialized, skip to observable-value-ready process step.
                                             transitionIf: { holarchy: { cm: { operators: { ocd: { compare: { values: { a: { path: "#.revision" } , operator: ">", b: { value: -1 } } } } } } } },
                                             nextStep: "observable-value-ready"
                                         },
-                                        { transitionIf: { always: true }, nextStep: "observable-value-reset" }
+                                        {
+                                            transitionIf: { always: true },
+                                            nextStep: "observable-value-reset"
+                                        }
                                     ]
                                 },
 

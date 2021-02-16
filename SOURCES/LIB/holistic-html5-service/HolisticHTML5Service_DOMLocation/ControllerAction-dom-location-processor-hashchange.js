@@ -46,22 +46,56 @@ module.exports = new holarchy.ControllerAction({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            let libResponse = dlpLib.getStatus.request(request_.context);
-            if (libResponse.error) {
-                errors.push(libResponse.error);
-                break;
-            }
-            const { cellMemory, cellProcess } = libResponse.result;
-
-            libResponse = dlpLib.parseLocation.request({ actor: "user", href: window.location.href, routerEventNumber: cellMemory.locationHistory.length + 1});
+            let libResponse = dlpLib.parseLocation.request({ actor: "user", href: window.location.href });
             if (libResponse.error) {
                 errors.push(libResponse.error);
                 break;
             };
             const routerEventDescriptor = libResponse.result;
 
-            cellMemory.locationHistory.push(routerEventDescriptor);
+            // v0.0.51-ametrine
+            // Write the newly parsed window.location.href string to our observable value output.
 
+            let actResponse = request_.context.act({
+                actorName: "DOMLocationProcessor",
+                actionTaskDescription: "Write the new router event descriptor to our ObservableValue output mailbox.",
+                actionRequest: {
+                    holarchy: {
+                        common: {
+                            ObservableValue: {
+                                writeValue: {
+                                    value: routerEventDescriptor,
+                                    path: "#.outputs.domLocation" // Relative to apmBindingPath
+                                }
+                            }
+                        }
+                    }
+                },
+                apmBindingPath: request_.context.apmBindingPath // Our binding path
+            });
+
+            if (actResponse.error) {
+                errors.push(actResponse.error);
+                break;
+            }
+
+            // ================================================================
+            // v0.0.51-ametrine
+            // In v0.0.50-crystallite holistic and before we have relied on so-called "lifecycle" actions to communicate
+            // events such as hashchange via a "push" actor model. Specifically, here we "push" the event to the derived app's
+            // synthesized service cell process via an action request. Generally, "push" actors are fairly simple to rationalize
+            // and implement. But, their use must be very very carefully scoped to where this pattern is appropriate. And, this
+            // is not such a case. Rather, what we desire is for DOMLocation processor present an encapsulation of the truth of
+            // the matter (specifically here the currently-displayed DOM location, hashroute parsing details blah blah).
+            // We do not want to know who cares about it, when they care about it, how to tell them, or any of that here however.
+            // But, to "push" you need to know this information. And, unlike in this simple case it's very often true that
+            // "who cares" is not one cell but rather many. So, push does not scale all that well as a compositional metaphor.
+            // At least not at the level of abstraction where push is implemented with a delegated action request as is the
+            // case here.
+
+            /* v0.0.51-ametrine DISABLE THE PUSH
+
+            // LEGACY
             let actResponse = request_.context.act({
                 actorName: "DOMLocationProcessor",
                 actionTaskDescription: "Informing the app client service of udpate to the current hashroute location data.",
@@ -81,6 +115,10 @@ module.exports = new holarchy.ControllerAction({
                 errors.push(actResponse.error);
                 break;
             }
+
+
+            *** DISABLE THE PUSH! */
+            // ================================================================
 
             break;
 

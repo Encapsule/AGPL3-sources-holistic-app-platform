@@ -24,8 +24,7 @@ const routerEventDescriptorSpec = require("./iospecs/router-event-descriptor-spe
                     "app" // no idea
                 ]
             },
-            href: { ____accept: "jsString" },
-            routerEventNumber: { ____accept: "jsNumber" }, // to assign to result routerEventNumber
+            href: { ____accept: "jsString" }
         },
 
         outputFilterSpec: { ...routerEventDescriptorSpec },
@@ -70,7 +69,6 @@ const routerEventDescriptorSpec = require("./iospecs/router-event-descriptor-spe
                     hashrouteString: hrefParse.hash?hrefParse.hash:null,
                     hashrouteParse,
                     hashrouteQueryParse: hashrouteParse?(queryString.parse(hashrouteParse.query)):null,
-                    routerEventNumber: request_.routerEventNumber
                 };
 
                 break;
