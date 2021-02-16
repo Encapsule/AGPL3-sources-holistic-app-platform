@@ -113,7 +113,7 @@
 
        } // ~.cellModelGenerator
 
-   });
+    });
 
     if (!cmtObservableValue.isValid()) {
         throw new Error(cmtObservableValue.toJSON());
