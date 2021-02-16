@@ -54,6 +54,32 @@ module.exports = class CellProcessor {
         return (!this.isValid()?this.toJSON():(this.toJSON().opc.toJSON().ocdi.toJSON()));
     }
 
+    get mem() {
+        if (!this.isValid()) {
+            return this.toJSON();
+        }
+        console.log(`CellProcessor<[${this._private.cm.getID()}::${this._private.cm.getVDID()}::${this._private.cm.getName()}]> cellplane memory data:`);
+        return this._private.opc._private.ocdi._private.storeData;
+    }
+
+    get spec() {
+        if (!this.isValid()) {
+            return this.toJSON();
+        }
+        console.log(`CellProcessor<[${this._private.cm.getID()}::${this._private.cm.getVDID()}::${this._private.cm.getName()}]> cellplane memory specification:`);
+        return this._private.opc._private.ocdi._private.storeDataSpec;
+    }
+
+    get cells() {
+        if (!this.isValid()) {
+            return this.toJSON();
+        }
+        console.log(`CellProcessor<[${this._private.cm.getID()}::${this._private.cm.getVDID()}::${this._private.cm.getName()}]> cellplane cell map:`);
+        return this._private.opc._private.opmiSpecPaths.reduce(function(cellMap_, opciCellBinding_) { cellMap_[opciCellBinding_.specPath] = opciCellBinding_.opmiRef; return cellMap_; }, {});
+    }
+
+
+
     get processes() {
         if (!this.isValid()) {
             return this.toJSON();
