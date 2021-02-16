@@ -1,7 +1,5 @@
 // ControllerAction-ObservableValueHelper-configure.js
 
-
-
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
@@ -16,7 +14,7 @@
 
     const lib = require("./lib");
 
-    const apmValueObserver = require("./AbstractProcessModel-value-observer");
+    const apmValueObserver = require("./AbstractProcessModel-ObservableValueHelper");
     const configurationDataSpec = { ...apmValueObserver._private.declaration.ocdDataSpec.configuration };
     delete configurationDataSpec.____defaultValue;
 
