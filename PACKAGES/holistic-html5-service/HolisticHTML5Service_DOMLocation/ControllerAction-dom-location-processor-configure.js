@@ -1,14 +1,21 @@
 "use strict";
 
 // ControllerAction-dom-location-processor-configure.js
-var holarchy = require("@encapsule/holarchy");
-
-var dlpLib = require("./lib");
-
 (function () {
+  var holarchy = require("@encapsule/holarchy");
+
+  var cmasHolisticHTML5ServicePackage = require("../cmasHolisticHTML5ServicePackage");
+
+  var dlpLib = require("./lib");
+
+  var cmLabel = require("./cm-label");
+
+  var actLabel = "".concat(cmLabel, "::configure");
   var action = new holarchy.ControllerAction({
-    id: "9s71Ju3pTBmYwCe_Mzfkuw",
-    name: "HolisticHTML5Service_DOMLocation Configure",
+    id: cmasHolisticHTML5ServicePackage.mapLabels({
+      ACT: actLabel
+    }).result.ACTID,
+    name: actLabel,
     description: "Used to set the runtime configuration of the process during service boot.",
     actionRequestSpec: {
       ____types: "jsObject",
@@ -94,7 +101,7 @@ var dlpLib = require("./lib");
 
 
             var actResponse = request_.context.act({
-              actorName: "DOMLocationProcessor",
+              actorName: actLabel,
               actorTaskDescription: "Write the initial router event descriptor to our ObservableValue output mailbox.",
               actionRequest: {
                 holarchy: {
@@ -123,7 +130,7 @@ var dlpLib = require("./lib");
               window.addEventListener("hashchange", function (event_) {
                 request_.context.act({
                   apmBindingPath: request_.context.apmBindingPath,
-                  actorName: "DOMLocationProcessor:hashchange Event Handler",
+                  actorName: "".concat(actLabel, "::hashchange Event Handler"),
                   actorTaskDescription: "Notifying the DOM Location Processor of hashchange/location update.",
                   actionRequest: {
                     holistic: {

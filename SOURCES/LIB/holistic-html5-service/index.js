@@ -13,6 +13,8 @@ module.exports = {
         source: packageMeta.buildSource
     },
 
+    cmasHolisticHTML5ServicePackage: require("./cmasHolisticHTML5ServicePackage"),
+
     // v0.0.48-spectrolite
     HolisticHTML5Service: require("./HolisticHTML5Service"), // New ES6 class
 

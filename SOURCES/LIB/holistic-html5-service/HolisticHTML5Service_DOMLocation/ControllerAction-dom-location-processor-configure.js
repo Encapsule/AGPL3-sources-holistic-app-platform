@@ -1,14 +1,18 @@
 // ControllerAction-dom-location-processor-configure.js
 
-const holarchy = require("@encapsule/holarchy");
-
-const dlpLib = require("./lib");
 
 ( function() {
 
+    const holarchy = require("@encapsule/holarchy");
+    const cmasHolisticHTML5ServicePackage = require("../cmasHolisticHTML5ServicePackage");
+    const dlpLib = require("./lib");
+
+    const cmLabel = require("./cm-label");
+    const actLabel = `${cmLabel}::configure`;
+
     const action = new holarchy.ControllerAction({
-        id: "9s71Ju3pTBmYwCe_Mzfkuw",
-        name: "HolisticHTML5Service_DOMLocation Configure",
+        id: cmasHolisticHTML5ServicePackage.mapLabels({ ACT: actLabel }).result.ACTID,
+        name: actLabel,
         description: "Used to set the runtime configuration of the process during service boot.",
         actionRequestSpec: {
             ____types: "jsObject",
@@ -80,7 +84,7 @@ const dlpLib = require("./lib");
 
                     // Write our output ObservableValue w/the initial route parse descriptor.
                     let actResponse = request_.context.act({
-                        actorName: "DOMLocationProcessor",
+                        actorName: actLabel,
                         actorTaskDescription: "Write the initial router event descriptor to our ObservableValue output mailbox.",
                         actionRequest: {
                             holarchy: {
@@ -107,7 +111,7 @@ const dlpLib = require("./lib");
                         window.addEventListener("hashchange", (event_) => {
                             request_.context.act({
                                 apmBindingPath: request_.context.apmBindingPath,
-                                actorName: "DOMLocationProcessor:hashchange Event Handler",
+                                actorName: `${actLabel}::hashchange Event Handler`,
                                 actorTaskDescription: "Notifying the DOM Location Processor of hashchange/location update.",
                                 actionRequest: { holistic: { app: { client: { domLocation: { _private: { notifyEvent: { hashchange: { event: event_ } } } } } } } }
                             });

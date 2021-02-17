@@ -1,10 +1,11 @@
 // AbstractProcessModel-app-client-kernel-declaration.js
 
-const arccore = require("@encapsule/arccore");
-const { AbstractProcessModel } = require("@encapsule/holarchy");
 
 (function() {
 
+    const arccore = require("@encapsule/arccore");
+    const { AbstractProcessModel } = require("@encapsule/holarchy");
+    const cmasHolisticHTML5ServicePackage = require("../cmasHolisticHTML5ServicePackage");
 
     // v0.0.49-spectrolite
     // Should we specialize these for the different uses? There are some nuanced
@@ -179,7 +180,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                                             // TODO: ensure that we wait on everything we activated in stepWorker activate-subprocesses action.
 
                                             { CellProcessor: { cell: { query: { inStep: { apmStep: "metadata-wait-kernel-config" } }, cellCoordinates: { apmID: "srjZAO8JQ2StYj07u_rgGg" /* HolisticServiceCore_Metadata Process */ } } } },
-                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "dom-location-wait-kernel-config" } }, cellCoordinates: { apmID: "OWLoNENjQHOKMTCEeXkq2g" /* HolisticHTMLService_DOMLocation */ } } } },
+                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "dom-location-wait-kernel-config" } }, cellCoordinates: { apmID: cmasHolisticHTML5ServicePackage.mapLabels({ APM: "HolisticHTML5Service_DOMLocation" }).result.APMID } } } },
                                             { CellProcessor: { cell: { query: { inStep: { apmStep: "display-adapter-wait-kernel-config" } },  cellCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* HolisticHTML5Service_DisplayAdapter */ } } } }
                                         ]
                                     },
@@ -228,7 +229,7 @@ const { AbstractProcessModel } = require("@encapsule/holarchy");
                                         and: [
                                             { CellProcessor: { cell: { query: { inStep: { apmStep: "metadata-ready" } }, cellCoordinates: { apmID: "srjZAO8JQ2StYj07u_rgGg" /* HolisticServiceCore_Metadata Process */  } } } },
                                             { CellProcessor: { cell: { query: { inStep: { apmStep: "pageview-controller-ready" } }, cellCoordinates: { apmID: "AZaqZtWRSdmHOA6EbTr9HQ" /* HolisticServiceCore_PageViewController */ } } } },
-                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "dom-location-ready" } }, cellCoordinates: { apmID: "OWLoNENjQHOKMTCEeXkq2g" /* HolisticHTMLService_DOMLocation */ } } } },
+                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "dom-location-ready" } }, cellCoordinates: { apmID: cmasHolisticHTML5ServicePackage.mapLabels({ APM: "HolisticHTML5Service_DOMLocation" }).result.APMID } } } },
                                             { CellProcessor: { cell: { query: { inStep: { apmStep: "display-adapter-ready" } }, cellCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /*display adpater*/ } } } }
                                         ]
                                     },

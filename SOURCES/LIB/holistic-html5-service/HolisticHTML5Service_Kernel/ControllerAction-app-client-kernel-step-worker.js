@@ -1,6 +1,7 @@
 // ControllerAction-app-client-kernel-step-worker.js
 
 const holarchy = require("@encapsule/holarchy");
+const cmasHolisticHTML5ServicePackage = require("../cmasHolisticHTML5ServicePackage");
 const hackLib = require("./lib");
 
 // This action is never expected to be called by an external actor.
@@ -116,8 +117,9 @@ const controllerAction = new holarchy.ControllerAction({
                                     actionRequest: {
                                         CellProcessor: {
                                             process: {
-                                                processCoordinates: { apmID: "OWLoNENjQHOKMTCEeXkq2g" /* "Holistic App Client Kernel: DOM Location Processor" */ },
+                                                processCoordinates: { apmID: cmasHolisticHTML5ServicePackage.mapLabels({ APM: "HolisticHTML5Service_DOMLocation" }).result.APMID  },
                                                 activate: {
+                                                    // v0.0.51-ametrine --- TODO: remove the derivedAppClientProcessCoordinates -- not needed w/ObservableValue
                                                     processData: {
                                                         derivedAppClientProcessCoordinates: cellMemory.derivedAppClientProcessCoordinates
                                                     }

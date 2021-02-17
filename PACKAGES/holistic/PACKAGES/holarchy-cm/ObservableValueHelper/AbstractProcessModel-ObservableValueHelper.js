@@ -21,11 +21,14 @@
         ____types: "jsObject",
         ____defaultValue: {},
         observableValue: {
+          ____label: "".concat(cmLabel, " ObservableValue Configuration"),
           ____types: ["jsNull", "jsObject"],
           ____defaultValue: null,
           // initial reset value
           // TODO: Export this from @encapule/holarchy or make it easily available. This was copy/paste from CPM activate action request...
           processCoordinates: {
+            ____label: "".concat(cmLabel, " ObservableValue Cell Owner Process"),
+            ____description: "The cell process coordinates of the cell that is or contains the ObservableValue family cell you wish to connect this ObservableValueWorker cell to.",
             ____types: ["jsString", // because it might be a cellProcessPath or cellProcessID
             "jsObject" // because it might be a raw coordinates apmID, instanceName descriptor
             ],
@@ -36,9 +39,15 @@
               ____accept: "jsString",
               ____defaultValue: "singleton"
             }
-          } // ~.ocdDataSpec.configuration.valueObserver.processCoordinates
-          // ? Do I also need a relative #.X.Y dataPath here?
+          },
+          // ~.ocdDataSpec.configuration.observableValue.processCoordinates
+          path: {
+            ____label: "".concat(cmLabel, " ObservableValue Cell Path"),
+            ____description: "The the OCD path of the target ObservableValue cell relative to owner process coordinates.",
+            ____accept: "jsString",
+            ____defaultValue: "#" // Almost never correct as ObservableValue CellModel family members are typically used as helper cells and rarely as cell processes.
 
+          }
         } // ~.ocdDataSpec.configuration.valueObserver
 
       },
