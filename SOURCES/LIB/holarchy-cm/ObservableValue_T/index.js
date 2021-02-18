@@ -15,7 +15,7 @@
         cmasScope: cmasHolarchyCMPackage,
         templateLabel,
         cellModelGenerator: {
-            synthesizeMethodRequestSpec: {
+            specializationDataSpec: {
                 ____label: `${templateLabel}<X> Specialization Request`,
                 ____types: "jsObject",
                 valueTypeDescription: { ____accept: "jsString" },
@@ -46,7 +46,7 @@
                     const cellMemorySpec = {
                         ____types: "jsObject",
                         ____defaultValue: {},
-                        value: { ...request_.synthesizeRequest.valueTypeSpec },
+                        value: { ...request_.specializationData.valueTypeSpec },
                         revision: { ____types: "jsNumber", ____defaultValue: -1 },
                     };
 

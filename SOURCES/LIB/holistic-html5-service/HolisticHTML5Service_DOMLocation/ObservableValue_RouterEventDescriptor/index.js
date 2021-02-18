@@ -8,7 +8,7 @@
 
     let synthResponse = holarchyCM.cmtObservableValue.synthesizeCellModel({
         cellModelLabel: "RouterEventDescriptor",
-        synthesizeRequest: {
+        specializationData: {
             valueTypeDescription: "A router event descriptor produced by HolisticHTML5Service_DOMLocation cell process.",
             valueTypeSpec: routerEventDescriptorSpec
         }

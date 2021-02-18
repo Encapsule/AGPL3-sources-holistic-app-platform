@@ -66,9 +66,9 @@
                             ____accept: "jsString" // Note that cellModelLabel is used to call CellModelTemplate.mapLabels method (inherited from CellModelArtifactSpace) and is used e.g. as the value passed { CM: cellModelLabel, APM: cellModelLabel ... }
                         },
 
-                        synthesizeRequest: {
-                            ...constructorRequest_.cellModelGenerator.synthesizeMethodRequestSpec,
-                            ____label: `${templateLabel} Generator Request`,
+                        specializationData: {
+                            ...constructorRequest_.cellModelGenerator.specializationDataSpec,
+                            ____label: `${templateLabel} Instance Specialization & Config Data`,
                             ____description: `Specific instructions to ${cellModelGeneratorFilterLabel} about how to build a new CellModel instance.`
                         }
                     },

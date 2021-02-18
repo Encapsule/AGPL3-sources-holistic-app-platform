@@ -50,6 +50,8 @@
 
                 const artifactSpaceLabel = `${spaceLabel}`;
 
+                // Create a filter that implements the mapLabels method.
+
                 const factoryResponse2 = arccore.filter.create({
 
                     operationID: arccore.identifier.irut.fromReference(`CellModelArtifactSpace<${artifactSpaceLabel}>::mapLabels`).result,
@@ -105,6 +107,8 @@
 
                 const mapLabelsMethodFilter = factoryResponse2.result;
 
+                // Create a filter that implements the makeSubspaceInstance method.
+
                 factoryResponse2 = arccore.filter.create({
                     operationID: arccore.identifier.irut.fromReference(`CellModelArtifactSpace<${artifactSpaceLabel}>::makeSubspaceInstance`).result,
                     operationName: `CellModelArtifactSpace<${artifactSpaceLabel}>::makeSubspaceInstance`,
@@ -118,7 +122,8 @@
                         let inBreakScope = false;
                         while (!inBreakScope) {
                             inBreakScope = true;
-                            response.result = { spaceLabel: `${artifactSpaceLabel}${request_.spaceLabel}` }; // TODO: Consider if we should maintain artifactSpaceLabel as an array (so we can keep track of the implicit token order induced by calls to makeSubspaceInstance).
+                            // Here a "subspace" is an artifact space "boundary". U+2202 (stylized d) is used here to demarcate the boundary.
+                            response.result = { spaceLabel: `${artifactSpaceLabel}∂${request_.spaceLabel}` };
                             break;
                         }
                         if (errors.length) {

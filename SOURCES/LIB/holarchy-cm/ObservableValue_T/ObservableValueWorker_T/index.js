@@ -11,7 +11,7 @@
         cmasScope: cmasHolarchyCMPackage,
         templateLabel,
         cellModelGenerator: {
-            synthesizeMethodRequestSpec: {
+            specializationDataSpec: {
                 ____label: `${templateLabel}<X> Specialization Request`,
                 ____types: "jsObject",
                 valueTypeDescription: { ____accept: "jsString" },
@@ -27,7 +27,6 @@
                 let inBreakScope = false;
                 while (!inBreakScope) {
                     inBreakScope = true;
-
 
                     response.result =  {
                         id: request_.cmtInstance.mapLabels({ CM: request_.cellModelLabel }).result.CMID,
