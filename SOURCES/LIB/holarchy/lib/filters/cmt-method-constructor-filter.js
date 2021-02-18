@@ -19,30 +19,28 @@
             spaceLabel: { ____accept: "jsString" },
             cellModelGeneratorFilter: { ____accept: "jsObject" } // This will be an @encapsule/arccore.filter object.
         },
-        bodyFunction: function(templateConstructorRequest_) {
+        bodyFunction: function(constructorRequest_) {
             let response = { error: null };
             let errors = [];
             let inBreakScope = false;
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                let cmasTemplateScope = (templateConstructorRequest_.cmasTemplateScope instanceof CellModelArtifactSpace)?
-                    templateConstructorRequest_.cmasTemplateScope:
-                    (new CellModelArtifactSpace(templateConstructorRequest_.cmasTemplateScope));
+                let cmasTemplateScope = (constructorRequest_.cmasScope instanceof CellModelArtifactSpace)?constructorRequest_.cmasScope:(new CellModelArtifactSpace(constructorRequest_.cmasScope));
 
                 if (!cmasTemplateScope.isValid()) {
                     errors.push(cmasTemplateScope.toJSON());
                     break;
                 }
 
-                const cmasInstanceScope = cmasTemplateScope.makeSubspaceInstance({ spaceLabel: templateConstructorRequest_.templateLabel });
+                const cmasInstanceScope = cmasTemplateScope.makeSubspaceInstance({ spaceLabel: constructorRequest_.templateLabel });
 
                 if (!cmasInstanceScope.isValid()) {
                     errors.push(cmasInstanceScope.toJSON());
                     break;
                 }
 
-                const templateLabel = `CellModelTemplate<${templateConstructorRequest_.templateLabel}>`;
+                const templateLabel = `CellModelTemplate<${constructorRequest_.templateLabel}>`;
                 const cellModelTemplateSynthMethodLabel = `${templateLabel}::synthesizeCellModel`;
                 const cellModelGeneratorFilterLabel = `${templateLabel}::cellModelGeneratorFilter`;
 
@@ -68,9 +66,9 @@
                             ____accept: "jsString" // Note that cellModelLabel is used to call CellModelTemplate.mapLabels method (inherited from CellModelArtifactSpace) and is used e.g. as the value passed { CM: cellModelLabel, APM: cellModelLabel ... }
                         },
 
-                        synthesizeRequest: {
-                            ...templateConstructorRequest_.cellModelGenerator.synthesizeMethodRequestSpec,
-                            ____label: `${templateLabel} Generator Request`,
+                        specializationData: {
+                            ...constructorRequest_.cellModelGenerator.specializationDataSpec,
+                            ____label: `${templateLabel} Instance Specialization & Config Data`,
                             ____description: `Specific instructions to ${cellModelGeneratorFilterLabel} about how to build a new CellModel instance.`
                         }
                     },
@@ -86,7 +84,7 @@
                         while (!inBreakScope) {
                             inBreakScope = true;
                             try {
-                                let innerResponse = templateConstructorRequest_.cellModelGenerator.generatorFilterBodyFunction(generateCellModelRequest_);
+                                let innerResponse = constructorRequest_.cellModelGenerator.generatorFilterBodyFunction(generateCellModelRequest_);
                                 if (innerResponse.error) {
                                     errors.push(innerResponse.error);
                                     break;
