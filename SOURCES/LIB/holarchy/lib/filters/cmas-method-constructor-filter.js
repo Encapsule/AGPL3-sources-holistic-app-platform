@@ -130,7 +130,7 @@
                 });
 
                 if (factoryResponse2.error) {
-                    errors.push(factoryReponse2.error);
+                    errors.push(factoryResponse2.error);
                     break;
                 }
 
