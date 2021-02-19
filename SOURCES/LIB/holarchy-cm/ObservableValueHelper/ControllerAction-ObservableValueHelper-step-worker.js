@@ -61,6 +61,18 @@
 
                 const messageBody = actionRequest_.actionRequest.holarchy.common.actions.ObservableValueHelper._private.stepWorker;
 
+                let actResponse = actionRequest_.context.act({
+                    actorName: "ObservableValueHelper",
+                    actorTaskDescription: "Attempting CPM cell query...",
+                    actionRequest: { CellProcessor: { cell: { query: {}, cellCoordinates: actionRequest_.context.apmBindingPath } } },
+                    apmBindingPath: actionRequest_.context.apmBindingPath
+                });
+
+                if (actResponse.error) {
+                    console.log(actResponse.error);
+                }
+
+
                 let libResponse = lib.getStatus.request(actionRequest_.context);
                 if (libResponse.error) {
                     errors.push(libResponse.error);
