@@ -17,6 +17,10 @@
         actions: [
             require("./ControllerAction-ObservableValueHelper-configure"),
             require("./ControllerAction-ObservableValueHelper-step-worker")
+        ],
+
+        subcells: [
+            require("./ObservableValueWorker")
         ]
 
     });
