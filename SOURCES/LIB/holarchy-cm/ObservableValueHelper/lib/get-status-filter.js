@@ -1,14 +1,17 @@
 
-const arccore = require("@encapsule/arccore");
 
-const apmID = arccore.identifier.irut.fromReference("@encapsule/holarchy-cm.ValueObserver.AbstractProcessModel").result;
 
 (function() {
 
+    const arccore = require("@encapsule/arccore");
+    const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
+
+    const apmID = cmasHolarchyCMPackage.mapLabels({ APM: "ObservableValueHelper" }).result.APMID;
+
     const factoryResponse = arccore.filter.create({
-        operationID:     "eKkJzE6USxqKPCmR3xmDdQ",
-        operationName: "ValueObserver Get Status",
-        operationDescription: "Retrieves cell memory and process info for the ValueObserver cell.",
+        operationID: "eKkJzE6USxqKPCmR3xmDdQ",
+        operationName: "ObservableValueHelper Get Status",
+        operationDescription: "Retrieves cell memory and process info for the ObservableValueHelper cell.",
         inputFilterSpec: {
             ____types: "jsObject",
             ocdi: { ____accept: "jsObject" },
@@ -17,8 +20,7 @@ const apmID = arccore.identifier.irut.fromReference("@encapsule/holarchy-cm.Valu
         },
         outputFilterSpec: {
             ____types: "jsObject",
-            cellMemory: { ____accept: "jsObject" },
-            cellProcess: { ____accept: "jsObject" }
+            cellMemory: { ____accept: "jsObject" }
         },
         bodyFunction: function(request_) {
             let response = { error: null };
@@ -27,7 +29,7 @@ const apmID = arccore.identifier.irut.fromReference("@encapsule/holarchy-cm.Valu
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                let ocdResponse = request_.context.ocdi.getNamespaceSpec(request_.apmBindingPath);
+                let ocdResponse = request_.ocdi.getNamespaceSpec(request_.apmBindingPath);
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
@@ -40,23 +42,12 @@ const apmID = arccore.identifier.irut.fromReference("@encapsule/holarchy-cm.Valu
                     break;
                 }
 
-                let actResponse = request_.act({
-                    actorName: "ValueObserver Get Status",
-                    actorTaskDescription: "Query cell process manager for cell process info...",
-                    actionRequest: { CellProcessor: { cell: { query: {}, cellCoordinates: request_.apmBindingPath } } }
-                });
-
-                if (actResponse.error) {
-                    errors.push(actResponse.error);
-                    break;
-                }
-
                 ocdResponse = request_.ocdi.readNamespace(request_.apmBindingPath);
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
                 }
-                response.result = { cellMemory: ocdResponse.result, cellProcess: actResponse.result.actionResult };
+                response.result = { cellMemory: ocdResponse.result };
 
                 break;
             }

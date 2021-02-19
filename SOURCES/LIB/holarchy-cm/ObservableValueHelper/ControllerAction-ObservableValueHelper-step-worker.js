@@ -23,11 +23,11 @@
             ____types: "jsObject",
             holarchy: {
                 ____types: "jsObject",
-                cm: {
+                common: {
                     ____types: "jsObject",
                     actions: {
                         ____types: "jsObject",
-                        ValueObserver: {
+                        ObservableValueHelper: {
                             ____types: "jsObject",
                             _private: {
                                 ____types: "jsObject",
@@ -35,7 +35,10 @@
                                     ____types: "jsObject",
                                     action: {
                                         ____accept: "jsString",
-                                        ____inValueSet: [ "noop" ]
+                                        ____inValueSet: [
+                                            "noop",
+                                            "apply-configuration"
+                                        ]
                                     }
                                 }
                             }
@@ -49,7 +52,53 @@
             ____defaultValue: "okay"
         },
         bodyFunction: function(actionRequest_) {
-            return { error: null };
+
+            let response = { error: null };
+            let errors = [];
+            let inBreakScope = false;
+            while (!inBreakScope) {
+                inBreakScope = true;
+
+                const messageBody = actionRequest_.actionRequest.holarchy.common.actions.ObservableValueHelper._private.stepWorker;
+
+                let libResponse = lib.getStatus.request(actionRequest_.context);
+                if (libResponse.error) {
+                    errors.push(libResponse.error);
+                    break;
+                }
+
+                let { cellMemory } = libResponse.result;
+
+                console.log(`> Dispatching ObservableValueHelper::stepWorker action ${messageBody.action}...`);
+
+
+
+                switch (messageBody.action) {
+
+                case "noop":
+                    break;
+
+                case "apply-configuration":
+                    break;
+
+
+                default:
+                    errors.push(`Internal error - unhandled switch case "${messageBody.action}".`);
+                    break;
+                }
+
+                if (errors.length) {
+                    break;
+                }
+
+
+                break;
+            }
+            if (errors.length) {
+                response.error = errors.join(" ");
+            }
+            return response;
+
         }
     });
     if (!action.isValid()) {

@@ -27,7 +27,7 @@
                     ____types: [ "jsNull", "jsObject", ],
                     ____defaultValue: null, // initial reset value
 
-                    // TODO: Export this from @encapule/holarchy or make it easily available. This was copy/paste from CPM activate action request...
+                    // This derives from CPM activate action request.
                     processCoordinates: {
                         ____label: `${cmLabel} ObservableValue Cell Owner Process`,
                         ____description: "The cell process coordinates of the cell that is or contains the ObservableValue family cell you wish to connect this ObservableValueWorker cell to.",
@@ -39,14 +39,13 @@
                             ____accept: "jsString"
                         },
                         instanceName: {
-                            ____accept: "jsString",
-                            ____defaultValue: "singleton"
+                            ____accept: "jsString", // WE REQUIRE YOU TO PASS THROUGH AN INSTANCE NAME HERE. HOW YOU FIGURE OUT WHAT IT SHOULD BE IS ANOTHER MATTER (under consideration currently).
                         }
                     }, // ~.ocdDataSpec.configuration.observableValue.processCoordinates
 
                     path: {
                         ____label: `${cmLabel} ObservableValue Cell Path`,
-                        ____description: "The the OCD path of the target ObservableValue cell relative to owner process coordinates.",
+                        ____description: "The the OCD path of the target ObservableValue cell relative to ~.configuration.observableValue.processCoordinates.",
                         ____accept: "jsString",
                         ____defaultValue: "#" // Almost never correct as ObservableValue CellModel family members are typically used as helper cells and rarely as cell processes.
                     }
@@ -72,23 +71,23 @@
             "uninitialized": {
                 description: "Default starting process step",
                 transitions: [
-                    { transitionIf: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.configuration.observableValue" } } } } } }, nextStep: "value-observer-configure" },
-                    { transitionIf: { always: true }, nextStep: "value-observer-wait-configuration" }
+                    { transitionIf: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.configuration.observableValue" } } } } } }, nextStep: "observable-value-helper-apply-configuration" },
+                    { transitionIf: { always: true }, nextStep: "observable-value-helper-wait-configuration" }
                 ]
             },
 
-            "value-observer-wait-configuration": {
-                description: "The ValueObserver cell is waiting for configuration data..."
+            "observable-value-helper-wait-configuration": {
+                description: "The ObservableValueHelper cell is waiting for link configuration data to be written to this cell's memory via its configure action..."
             },
 
-            "value-observer-configure": {
+            "observable-value-helper-apply-configuration": {
                 description: "The ValueObserver cell is waiting for configuration data...",
-                transitions: [ { transitionIf: { always: true }, nextStep: "value-observer-wait-configured" } ],
-                actions: { exit: [ { holarchy: { cm: { actions: { ValueObserver: { _private: { stepWorker: { action: "noop" } } } } } } } ] }
+                actions: { exit: [ { holarchy: { common: { actions: { ObservableValueHelper: { _private: { stepWorker: { action: "apply-configuration" } } } } } } } ] },
+                transitions: [ { transitionIf: { always: true }, nextStep: "observable-value-helper-wait-linked" } ],
             },
 
-            "value-observer-wait-configured": {
-                description: "The ValueObserver cell is waiting for the configuration process to complete..."
+            "observable-value-helper-wait-linked": {
+                description: "The ValueObserver cell is waiting for the configuration process to complete and the link to the configured ObservableValue cell has been activated and is ready for service..."
             }
 
 
