@@ -6,7 +6,7 @@
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
 
-    const cmLabel = require("./cm-label-string");
+    const cmLabel = require("./cell-label");
 
     const cellmodel = new holarchy.CellModel({
         id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel }).result.CMID,

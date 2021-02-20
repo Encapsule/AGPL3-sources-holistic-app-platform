@@ -1,5 +1,4 @@
-
-
+// ObservableValueHelper/ObservableValueWorker/lib/get-status-filter.js
 
 (function() {
 
@@ -7,17 +6,17 @@
     const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
     const cmLabel = require("../cell-label");
     const filterLabel = `${cmLabel}::getStatus`;
-    const apmID = cmasHolarchyCMPackage.mapLabels({ APM: "ObservableValueHelper" }).result.APMID;
+    const apmID = cmasHolarchyCMPackage.mapLabels({ APM: cmLabel }).result.APMID;
     const filterID = cmasHolarchyCMPackage.mapLabels({ OTHER: filterLabel }).result.OTHERID;
 
     const factoryResponse = arccore.filter.create({
         operationID: filterID,
         operationName: filterLabel,
-        operationDescription: "Retrieves cell memory and process info for the ObservableValueHelper cell.",
+        operationDescription: `Verifies that the caller is asking about an ${cmLabel} cell and returns its cell memory data.`,
         inputFilterSpec: {
             ____types: "jsObject",
-            ocdi: { ____accept: "jsObject" },
             act: { ____accept: "jsFunction" },
+            ocdi: { ____accept: "jsObject" },
             apmBindingPath: { ____accept: "jsString" }
         },
         outputFilterSpec: {
@@ -25,6 +24,7 @@
             cellMemory: { ____accept: "jsObject" }
         },
         bodyFunction: function(request_) {
+
             let response = { error: null };
             let errors = [];
             let inBreakScope = false;
@@ -60,7 +60,6 @@
             return response;
         }
     });
-
     if (factoryResponse.error) {
         throw new Error(factoryResponse.error);
     }
@@ -68,3 +67,4 @@
     module.exports = factoryResponse.result;
 
 })();
+

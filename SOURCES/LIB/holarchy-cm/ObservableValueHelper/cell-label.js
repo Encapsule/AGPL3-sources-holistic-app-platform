@@ -1,4 +1,4 @@
-// cm-label-string.js
+// cell-label.js
 
 module.exports = "ObservableValueHelper";
 

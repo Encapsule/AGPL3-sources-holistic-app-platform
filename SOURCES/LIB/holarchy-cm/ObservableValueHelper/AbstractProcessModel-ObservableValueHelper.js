@@ -6,7 +6,7 @@
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
 
-    const cmLabel = require("./cm-label-string");
+    const cmLabel = require("./cell-label");
 
     const apm = new holarchy.AbstractProcessModel({
 
@@ -58,7 +58,7 @@
                 ____types: "jsObject",
                 ____defaultValue: {},
 
-                valueObserverProcess: {
+                observableValueWorker: {
                     ____accept: [ "jsNull", "jsObject" ], // TODO
                     ____defaultValue: null
                 }

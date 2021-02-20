@@ -5,7 +5,7 @@
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
 
-    const cmLabel = require("./cm-label-string");
+    const cmLabel = require("./cell-label");
     const cmasResponse = cmasHolarchyCMPackage.makeSubspaceInstance({ spaceLabel: cmLabel });
     if (cmasResponse.error) {
         throw new Error(cmasResponse.error);

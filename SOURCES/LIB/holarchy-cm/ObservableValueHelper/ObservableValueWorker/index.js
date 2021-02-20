@@ -5,7 +5,7 @@
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
 
-    const cmLabel = require("./cellmodel-label");
+    const cmLabel = require("./cell-label");
 
 
     const cellModel = new holarchy.CellModel({
