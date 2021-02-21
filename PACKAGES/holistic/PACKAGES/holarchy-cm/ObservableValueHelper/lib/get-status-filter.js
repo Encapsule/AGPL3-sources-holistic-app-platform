@@ -5,12 +5,18 @@
 
   var cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
 
+  var cmLabel = require("../cell-label");
+
+  var filterLabel = "".concat(cmLabel, "::getStatus");
   var apmID = cmasHolarchyCMPackage.mapLabels({
     APM: "ObservableValueHelper"
   }).result.APMID;
+  var filterID = cmasHolarchyCMPackage.mapLabels({
+    OTHER: filterLabel
+  }).result.OTHERID;
   var factoryResponse = arccore.filter.create({
-    operationID: "eKkJzE6USxqKPCmR3xmDdQ",
-    operationName: "ObservableValueHelper Get Status",
+    operationID: filterID,
+    operationName: filterLabel,
     operationDescription: "Retrieves cell memory and process info for the ObservableValueHelper cell.",
     inputFilterSpec: {
       ____types: "jsObject",
@@ -49,7 +55,7 @@
         var apmBindingPathSpec = ocdResponse.result;
 
         if (!apmBindingPathSpec.____appdsl || !apmBindingPathSpec.____appdsl.apm || apmBindingPathSpec.____appdsl.apm !== apmID) {
-          errors.push("Invalid apmBindingPath=\"".concat(request_.apmBindingPath, "\" does not resolve to a ValueObserver cell!"));
+          errors.push("Invalid apmBindingPath=\"".concat(request_.apmBindingPath, "\" does not resolve to an ").concat(cmLabel, " cell!"));
           break;
         }
 
