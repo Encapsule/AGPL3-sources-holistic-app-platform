@@ -23,7 +23,7 @@
                     ____description: "Data used to track which ObservableValueHelper cell instance this cell is working on behalf of.",
                     ____types: "jsObject",
                     apmBindingPath: {
-                        ____label: "Cell Path",
+                        ____label: "ObservableValueHelper Cell Path",
                         ____accept: "jsString"
                     }
                 }

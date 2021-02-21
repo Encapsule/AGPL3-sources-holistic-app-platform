@@ -16,6 +16,7 @@
         apm: require("./AbstractProcessModel-ObservableValueWorker"),
 
         actions: [
+            require("./ControllerAction-ObservableValueWorker-step-worker")
         ],
 
         operators: [

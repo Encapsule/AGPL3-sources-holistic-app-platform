@@ -50,7 +50,7 @@
                         ____defaultValue: "#" // Almost never correct as ObservableValue CellModel family members are typically used as helper cells and rarely as cell processes.
                     }
 
-                }, // ~.ocdDataSpec.configuration.valueObserver
+                }, // ~.ocdDataSpec.configuration.observableValue
 
             }, // ~.ocdDataSpec.configuration
 

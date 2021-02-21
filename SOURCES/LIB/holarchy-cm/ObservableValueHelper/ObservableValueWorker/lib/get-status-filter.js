@@ -3,7 +3,7 @@
 (function() {
 
     const arccore = require("@encapsule/arccore");
-    const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
+    const cmasHolarchyCMPackage = require("../../../cmasHolarchyCMPackage");
     const cmLabel = require("../cell-label");
     const filterLabel = `${cmLabel}::getStatus`;
     const apmID = cmasHolarchyCMPackage.mapLabels({ APM: cmLabel }).result.APMID;

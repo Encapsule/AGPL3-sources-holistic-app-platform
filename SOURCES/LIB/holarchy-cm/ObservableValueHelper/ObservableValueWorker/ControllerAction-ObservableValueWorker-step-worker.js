@@ -1,24 +1,23 @@
-// ControllerAction-ObservableValueHelper-step-worker.js
-
+// ObservableValueHelper/ObservableValueWorker/ControllerAction-ObservableValueWorker-step-worker.js
 
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
-    const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
+    const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
 
     const cmLabel = require("./cell-label");
     const cmasResponse = cmasHolarchyCMPackage.makeSubspaceInstance({ spaceLabel: cmLabel });
     if (cmasResponse.error) {
         throw new Error(cmasResponse.error);
     }
-    const cmasObservableValueHelper = new holarchy.CellModelArtifactSpace(cmasResponse.result);
+    const cmasObservableValueWorker = new holarchy.CellModelArtifactSpace(cmasResponse.result);
 
     const actionName = `${cmLabel}::stepWorker`;
 
     const lib = require("./lib");
 
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueHelper.mapLabels({ ACT: "stepWorker" }).result.ACTID,
+        id: cmasObservableValueWorker.mapLabels({ APM: "stepWorker" }).result.APMID,
         name: actionName,
         description: `Private evaluation implementation action of ${cmLabel}.`,
         actionRequestSpec: {
@@ -29,7 +28,7 @@
                     ____types: "jsObject",
                     actions: {
                         ____types: "jsObject",
-                        ObservableValueHelper: {
+                        ObservableValueWorker: {
                             ____types: "jsObject",
                             _private: {
                                 ____types: "jsObject",
@@ -49,7 +48,6 @@
                 }
             }
         },
-
         actionResultSpec: {
             ____accept: "jsString",
             ____defaultValue: "okay"
@@ -63,7 +61,7 @@
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                const messageBody = actionRequest_.actionRequest.holarchy.common.actions.ObservableValueHelper._private.stepWorker;
+                const messageBody = actionRequest_.actionRequest.holarchy.common.actions.ObservableValueWorker._private.stepWorker;
 
                 let libResponse = lib.getStatus.request(actionRequest_.context);
                 if (libResponse.error) {
@@ -83,6 +81,31 @@
                     break;
 
                 case "apply-configuration":
+
+                    // Read the configuration data from our parent ObservableValueHelper cell (who activated us).
+                    ocdResponse = actionRequest_.context.ocdi.readNamespace({ apmBindingPath: cellMemory.configuration.observableValueHelper.apmBindingPath, dataPath: "#.configuration.observableValue" });
+                    if (ocdResponse.error) {
+                        errors.push(ocdResponse.error);
+                        break;
+                    }
+
+                    const observableValueConfig = ocdResponse.result;
+
+                    // Attempt to connect our CellProcessProxy helper cell to the cell process specified by ObservableValueHelper's config data.
+
+                    actResponse = actionRequest_.context.act({
+                        actorName: actionName,
+                        actorTaskDescription: "Attempting to connect proxy helper to the cell process that owns the ObservableValue family member cell we're attempting to link to.",
+                        actionRequest: { CellProcessor: { proxy: { proxyCoordinates: "#.observableValueProxy", connect: { processCoordinates: observableValueConfig.processCoordinates } } } },
+                        apmBindingPath: actionRequest_.context.apmBindingPath
+                    });
+
+                    if (actResponse.error) {
+                        errors.push(actResponse.error);
+                        break;
+                    }
+
+                    /*
 
                     actResponse = actionRequest_.context.act({
                         actorName: actionName,
@@ -118,6 +141,8 @@
                         break;
                     }
 
+                    */
+
                     break;
 
 
@@ -139,10 +164,17 @@
             return response;
 
         }
+
+
+
     });
+
+
     if (!action.isValid()) {
         throw new Error(action.toJSON());
     }
+
     module.exports = action;
+
 })();
 
