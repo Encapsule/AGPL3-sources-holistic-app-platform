@@ -3,17 +3,9 @@
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
-    const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
-
+    const cmasObservableValueHelper = require("./cmasObservableValueHelper");
     const cmLabel = require("./cell-label");
-    const cmasResponse = cmasHolarchyCMPackage.makeSubspaceInstance({ spaceLabel: cmLabel });
-    if (cmasResponse.error) {
-        throw new Error(cmasResponse.error);
-    }
-    const cmasObservableValueHelper = new holarchy.CellModelArtifactSpace(cmasResponse.result);
-
     const lib = require("./lib");
-
     const apmObservableValueHelper = require("./AbstractProcessModel-ObservableValueHelper");
 
     const configurationSpec = { ...apmObservableValueHelper._private.declaration.ocdDataSpec.configuration, ____defaultValue: undefined, observableValue: { ...apmObservableValueHelper._private.declaration.ocdDataSpec.configuration.observableValue, ____defaultValue: undefined } };
