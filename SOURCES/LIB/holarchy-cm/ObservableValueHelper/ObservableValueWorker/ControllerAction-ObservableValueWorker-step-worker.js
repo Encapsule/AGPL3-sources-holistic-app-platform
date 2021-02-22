@@ -3,17 +3,12 @@
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
+
     const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
+    const cmasObservableValueWorker = require("./cmasObservableValueWorker");
 
     const cmLabel = require("./cell-label");
-    const cmasResponse = cmasHolarchyCMPackage.makeSubspaceInstance({ spaceLabel: cmLabel });
-    if (cmasResponse.error) {
-        throw new Error(cmasResponse.error);
-    }
-    const cmasObservableValueWorker = new holarchy.CellModelArtifactSpace(cmasResponse.result);
-
     const actionName = `${cmLabel}::stepWorker`;
-
     const lib = require("./lib");
 
     const action = new holarchy.ControllerAction({
