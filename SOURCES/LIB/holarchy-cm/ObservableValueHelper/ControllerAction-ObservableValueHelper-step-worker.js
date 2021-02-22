@@ -5,16 +5,9 @@
 
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
-
+    const cmasObservableValueHelper = require("./cmasObservableValueHelper");
     const cmLabel = require("./cell-label");
-    const cmasResponse = cmasHolarchyCMPackage.makeSubspaceInstance({ spaceLabel: cmLabel });
-    if (cmasResponse.error) {
-        throw new Error(cmasResponse.error);
-    }
-    const cmasObservableValueHelper = new holarchy.CellModelArtifactSpace(cmasResponse.result);
-
-    const actionName = `${cmLabel}::stepWorker`;
-
+    const actionName = `${cmLabel} Private Step Worker`;
     const lib = require("./lib");
 
     const action = new holarchy.ControllerAction({
@@ -112,7 +105,7 @@
                         break;
                     }
 
-                    ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: "#._private.observableValueWorker" });
+                    ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: "#.link.observableValueWorkerProcess" }, actResponse.result.actionResult );
                     if (ocdResponse.error) {
                         errors.push(ocdResponse.error);
                         break;

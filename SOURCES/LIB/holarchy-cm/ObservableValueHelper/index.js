@@ -1,11 +1,9 @@
 // ObservableValueHelper/index.js
 
-
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
-
     const cmLabel = require("./cell-label");
 
     const cellmodel = new holarchy.CellModel({
@@ -13,16 +11,21 @@
         name: cmLabel,
         description: "Provides a generic means of linking to and subsequently reading from an active ObservableValue family member cell owned by another cell process.",
         apm: require("./AbstractProcessModel-ObservableValueHelper"),
-
         actions: [
             require("./ControllerAction-ObservableValueHelper-configure"),
-            require("./ControllerAction-ObservableValueHelper-step-worker")
+            require("./ControllerAction-ObservableValueHelper-read"),
+            require("./ControllerAction-ObservableValueHelper-reset"),
+            require("./ControllerAction-ObservableValueHelper-step-worker"),
         ],
-
+        operators: [
+            require("./TransitionOperator-ObservableValueHelper-provider-is-active"),
+            require("./TransitionOperator-ObservableValueHelper-value-has-updated"),
+            require("./TransitionOperator-ObservableValueHelper-value-is-active"),
+            require("./TransitionOperator-ObservableValueHelper-value-is-available"),
+        ],
         subcells: [
             require("./ObservableValueWorker")
         ]
-
     });
 
     if (!cellmodel.isValid()) {
