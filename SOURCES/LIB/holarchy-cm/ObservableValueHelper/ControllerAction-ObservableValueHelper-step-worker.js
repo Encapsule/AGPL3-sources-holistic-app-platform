@@ -85,12 +85,13 @@
                                 process: {
                                     processCoordinates: {
                                         apmID: cmasHolarchyCMPackage.mapLabels({ APM: "ObservableValueWorker" }).result.APMID,
-                                        instanceName: actionRequest_.context.apmBindingPath // We know this is unique within the neighborhood of cells that may occupy our CellProcessor's cellplane. So this guarantees that the ObversableValueWorker instance is unique and dedicated to serving this ObservableValueHelper cell.
+                                        instanceName: actionRequest_.context.apmBindingPath // We know this is unique within the neighborhood of cells that may occupy our CellProcessor's cellplane and we want 1:1 mapping
                                     },
                                     activate: {
                                         processData: {
                                             configuration: {
                                                 observableValueHelper: {
+                                                    // We write our apmBindingPath (i.e. the ObservableValueHelper) into the memory of the newly-activated ObservableValueWorker cell.
                                                     apmBindingPath: actionRequest_.context.apmBindingPath
                                                 }
                                             }
@@ -98,14 +99,15 @@
                                     }
                                 }
                             }
-                        }
+                        },
+                        apmBindingPath: actionRequest_.context.apmBindingPath
                     });
                     if (actResponse.error) {
                         errors.push(actResponse.error);
                         break;
                     }
 
-                    ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: "#.link.observableValueWorkerProcess" }, actResponse.result.actionResult );
+                    ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: "#.observableValueWorkerProcess" }, actResponse.result.actionResult );
                     if (ocdResponse.error) {
                         errors.push(ocdResponse.error);
                         break;

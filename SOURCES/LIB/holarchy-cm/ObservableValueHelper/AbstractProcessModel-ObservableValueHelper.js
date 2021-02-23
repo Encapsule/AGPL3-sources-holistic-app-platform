@@ -18,6 +18,7 @@
             ____types: "jsObject",
             ____defaultValue: {},
 
+            // Data provided when the cell is activated. Or, via a config action request after it is activated.
             configuration: {
                 ____types: "jsObject",
                 ____defaultValue: {},
@@ -54,28 +55,11 @@
 
             }, // ~.ocdDataSpec.configuration
 
-            link: {
-                ____types: "jsObject",
-                ____defaultValue: {},
-
-                observableValueWorkerProcess: {
-                    ____types: [ "jsNull", "jsObject" ],
-                    ____defaultValue: null,
-                    apmBindingPath: { ____accept: "jsString" }
-                },
-
-                observableValueProviderProcess: {
-                    ____types: [ "jsNull", "jsObject" ],
-                    ____defaultValue: null,
-                    apmBindingPath: { ____accept: "jsString" }
-                },
-
-                observableValueCell: {
-                    ____types: [ "jsNull", "jsObject" ],
-                    ____defaultValue: null,
-                    apmBindingPath: { ____accept: "jsString" }
-                }
-
+            // Value written by our step worker action when the configuration is applied.
+            observableValueWorkerProcess: {
+                ____types: [ "jsNull", "jsObject" ],
+                ____defaultValue: null,
+                apmBindingPath: { ____accept: "jsString" }
             }
 
         }, // ~.apm.ocdDataSpec
@@ -84,32 +68,31 @@
             "uninitialized": {
                 description: "Default starting process step",
                 transitions: [
-                    { transitionIf: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.configuration.observableValue" } } } } } }, nextStep: "observable-value-helper-apply-configuration" },
-                    { transitionIf: { always: true }, nextStep: "observable-value-helper-wait-configuration" }
+                    { transitionIf: { always: true }, nextStep: "observable-value-helper-reset" }
                 ]
             },
 
-            "observable-value-helper-wait-configuration": {
-                description: "The ObservableValueHelper cell is waiting for link configuration data to be written to this cell's memory via its configure action..."
+            "observable-value-helper-reset": {
+                description: "The ObservableValueHelper cell is in its reset process step waiting for configuration data to be written to this cell's memory via its configure action...",
+                transitions: [ { transitionIf: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.configuration.observableValue" } } } } } }, nextStep: "observable-value-helper-apply-configuration" } ]
             },
 
             "observable-value-helper-apply-configuration": {
-                description: "The ObservableValueHelper cell is waiting for configuration data...",
+                description: "The ObservableValueHelper cell is applying the supplied configuration data...",
                 actions: { exit: [ { holarchy: { common: { actions: { ObservableValueHelper: { _private: { stepWorker: { action: "apply-configuration" } } } } } } } ] },
-                transitions: [ { transitionIf: { always: true }, nextStep: "observable-value-helper-wait-linked" } ],
+                transitions: [ { transitionIf: { always: true }, nextStep: "observable-value-helper-wait-worker-proxy-connected" } ],
             },
 
-            "observable-value-helper-wait-linked": {
-                description: "The ObervableValueHelper cell is waiting for the configuration process to complete and the link to the configured ObservableValue cell has been activated and is ready for service...",
-                // TODO: WE need a TransitionOperator here on ObservableValueHelper CellModel for monitor various status of the ObservableValueWorker, the provider cell process its connected to. And, and ObservableValue cell of course...
-
-
+            "observable-value-helper-wait-worker-proxy-connected": {
+                description: "The ObservableValueHelper cell is waiting for its ObservableValueWorker cell process to complete its configuration and become ready.",
+                transitions: [
+                    { transitionIf: { CellProcessor: { cell: { query: { childProcessesAllInStep: { apmStep: "observable-value-worker-proxy-connected" } } } } }, nextStep: "observable-value-helper-linked" }
+                ]
             },
 
             "observable-value-helper-linked": {
-                description: "The ObservableValueHelper cell has established a link to the observableValue cellplane coordinates specified."
+                description: "The ObervableValueHelper has applied its configuration and no error has occurred. This means that the provider cell process is active.",
             }
-
 
         } // ~.apm.steps
 

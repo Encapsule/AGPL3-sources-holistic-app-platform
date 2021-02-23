@@ -15,7 +15,6 @@
         operationDescription: `Verifies that the caller is asking about an ${cmLabel} cell and returns its cell memory data.`,
         inputFilterSpec: {
             ____types: "jsObject",
-            act: { ____accept: "jsFunction" },
             ocdi: { ____accept: "jsObject" },
             apmBindingPath: { ____accept: "jsString" }
         },

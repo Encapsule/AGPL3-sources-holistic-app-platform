@@ -104,50 +104,24 @@
 
                     // Okay - so the CellProcessProxy connected w/out error. That's good.
 
-                    
+                    const proxyConnectInfo = actResponse.result.actionResult;
 
-
-
-                    /*
-
-                    actResponse = actionRequest_.context.act({
-                        actorName: actionName,
-                        actorTaskDescription: "Activating an ObservableValueWorker cell to maintain the link.",
-                        actionRequest: {
-                            CellProcessor: {
-                                process: {
-                                    processCoordinates: {
-                                        apmID: cmasHolarchyCMPackage.mapLabels({ APM: "ObservableValueWorker" }).result.APMID,
-                                        instanceName: actionRequest_.context.apmBindingPath // We know this is unique within the neighborhood of cells that may occupy our CellProcessor's cellplane. So this guarantees that the ObversableValueWorker instance is unique and dedicated to serving this ObservableValueHelper cell.
-                                    },
-                                    activate: {
-                                        processData: {
-                                            configuration: {
-                                                observableValueHelper: {
-                                                    apmBindingPath: actionRequest_.context.apmBindingPath
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    });
-                    if (actResponse.error) {
-                        errors.push(actResponse.error);
-                        break;
-                    }
-
-                    ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: "#._private.observableValueWorker" });
+                    // We need the apmBindingPath of the actual target ObservableValue cell now.
+                    ocdResponse = holarchy.ObservableControllerData.dataPathResolve({ apmBindingPath: proxyConnectInfo.connected.apmBindingPath, dataPath: observableValueConfig.path });
                     if (ocdResponse.error) {
                         errors.push(ocdResponse.error);
                         break;
                     }
 
-                    */
+                    const ovCellPath = ocdResponse.result;
+
+                    ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: "#.ovCell" }, { apmBindingPath: ovCellPath });
+                    if (ocdResponse.error) {
+                        errors.push(ocdResponse.error);
+                        break;
+                    }
 
                     break;
-
 
                 default:
                     errors.push(`Internal error - unhandled switch case "${messageBody.action}".`);

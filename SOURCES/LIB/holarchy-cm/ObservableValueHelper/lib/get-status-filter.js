@@ -17,7 +17,6 @@
         inputFilterSpec: {
             ____types: "jsObject",
             ocdi: { ____accept: "jsObject" },
-            act: { ____accept: "jsFunction" },
             apmBindingPath: { ____accept: "jsString" }
         },
         outputFilterSpec: {

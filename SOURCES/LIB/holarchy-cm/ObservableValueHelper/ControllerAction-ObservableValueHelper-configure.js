@@ -75,7 +75,7 @@
                     break;
                 }
 
-                ocdResponse = actionRequest_.context.ocdi.writeNamespace(ovhBindingPath, { ...cellMemory, __apmiStep: "observable-value-helper-apply-configuration", configuration: messageBody.configuration });
+                ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: ovhBindingPath, dataPath: "#.configuration" }, messageBody.configuration);
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
