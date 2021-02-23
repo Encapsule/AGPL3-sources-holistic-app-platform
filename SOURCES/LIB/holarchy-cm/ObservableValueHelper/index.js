@@ -18,7 +18,7 @@
             require("./ControllerAction-ObservableValueHelper-step-worker"),
         ],
         operators: [
-            require("./TransitionOperator-ObservableValueHelper-provider-is-active"),
+            require("./TransitionOperator-ObservableValueHelper-is-linked"),
             require("./TransitionOperator-ObservableValueHelper-value-has-updated"),
             require("./TransitionOperator-ObservableValueHelper-value-is-active"),
             require("./TransitionOperator-ObservableValueHelper-value-is-available"),
