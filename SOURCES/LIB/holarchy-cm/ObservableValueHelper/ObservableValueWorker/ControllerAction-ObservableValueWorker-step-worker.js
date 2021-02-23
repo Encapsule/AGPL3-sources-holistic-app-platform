@@ -94,11 +94,14 @@
                     });
 
                     if (actResponse.error) {
-                        // v0.0.52-tourmaline --- Report transport error on attempt to proxy to an unknown cell process coordinate.
-                        // If we cannot establish a cell process proxy connection to it, then there's no possibility that we'll be
-                        // able to access the ObservableValue cell on behalf of any other cell here.
-                        errors.push(`Link request failed: ${cmLabel} cell instance "${actionRequest_.context.apmBindingPath}" failed to connect cell process proxy to the cell process expected to provide some ObservableValue due to error:`);
-                        errors.push(actResponse.error);
+                        ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: "#.ovcpProviderProxyError" }, actResponse.error);
+                        if (ocdResponse.error) {
+                            // Now actually report a transport error because this is FUBAR.
+                            errors.push("Internal error: Attempting to connect cell process proxy to requested provided coordinates failed w/error. And, our attempt to write the error to our cell memory failed!");
+                            errors.push(actResponse.error);
+                            errors.push(ocdResponse.error);
+                        }
+                        // No matter what we're done here.
                         break;
                     }
 

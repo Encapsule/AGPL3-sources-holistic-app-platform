@@ -86,12 +86,17 @@
             "observable-value-helper-wait-worker-proxy-connected": {
                 description: "The ObservableValueHelper cell is waiting for its ObservableValueWorker cell process to complete its configuration and become ready.",
                 transitions: [
-                    { transitionIf: { CellProcessor: { cell: { query: { childProcessesAllInStep: { apmStep: "observable-value-worker-proxy-connected" } } } } }, nextStep: "observable-value-helper-linked" }
+                    { transitionIf: { CellProcessor: { cell: { query: { childProcessesAllInStep: { apmStep: "observable-value-worker-proxy-connected" } } } } }, nextStep: "observable-value-helper-linked" },
+                    { transitionIf: { CellProcessor: { cell: { query: { childProcessesAllInStep: { apmStep: "observable-value-worker-proxy-disconnected" } } } } }, nextStep: "observable-value-helper-link-error" }
                 ]
             },
 
             "observable-value-helper-linked": {
-                description: "The ObervableValueHelper has applied its configuration and no error has occurred. This means that the provider cell process is active.",
+                description: "The ObervableValueHelper has applied its configuration and no error has occurred. This indicates that the proxy link to the provider cell process is has been established."
+            },
+
+            "observable-value-helper-link-error": {
+                description: "The ObservableValueHelper has applied its configuration but an error occurred. This indicates that the proxy link to the provider cell process could not be established."
             }
 
         } // ~.apm.steps

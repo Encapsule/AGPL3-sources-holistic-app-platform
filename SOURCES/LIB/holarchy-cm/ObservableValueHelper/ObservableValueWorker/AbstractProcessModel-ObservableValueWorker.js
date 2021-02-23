@@ -90,11 +90,18 @@
 
             "observable-value-worker-wait-proxy-connected": {
                 description: "The ObservableValueWorker process is waiting for the applied configuration to be accepted.",
-                transitions: [ { transitionIf: { CellProcessor: { proxy: { proxyCoordinates: "#.ovcpProviderProxy", connect: { statusIs: "connected" } } } }, nextStep: "observable-value-worker-proxy-connected" } ]
+                transitions: [
+                    { transitionIf: { CellProcessor: { proxy: { proxyCoordinates: "#.ovcpProviderProxy", connect: { statusIs: "connected" } } } }, nextStep: "observable-value-worker-proxy-connected" },
+                    { transitionIf: { always: true }, nextStep: "observable-value-worker-proxy-disconnected" } // We know this because we know we asked to connect and it is not connected.
+                ]
             },
 
             "observable-value-worker-proxy-connected": {
                 description: "The ObservableValueWorker process has successfully connected its cell process proxy helper cell to the target ObservableValue's provider cell process.",
+            },
+
+            "observable-value-worker-proxy-disconnected": {
+                description: "The ObservableValueWorker process could not connect its cell process proxy to the cell process that is supposed to be providing the target ObservableValue cell."
             }
 
         }
