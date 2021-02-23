@@ -30,7 +30,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       ACT: "configure"
     }).result.ACTID,
     name: "".concat(cmLabel, " Configure"),
-    description: "Allows an actor to configure / reconfigure the ".concat(cmLabel, " cell process."),
+    description: "Allows an actor to configure a ".concat(cmLabel, " cell instance."),
     actionRequestSpec: {
       ____types: "jsObject",
       holarchy: {
@@ -45,7 +45,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 ____label: "ObservableValueHelper Link Request",
                 ____description: "This action links an ObservableValueHelper cell instance to an ObservableValue family cell using information specified in this request.",
                 ____types: "jsObject",
-                helperPath: {
+                path: {
                   ____label: "Helper Path",
                   ____description: "The relative path of the ObservableValueHelper cell to configure relative to actionRequest.context.apmBindingPath that is presumed to be a cell process that owns the ObservableValue family cell of interest.",
                   ____accept: "jsString",
@@ -75,7 +75,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var messageBody = actionRequest_.actionRequest.holarchy.common.actions.ValueObserverHelper.configure;
         var ocdResponse = holarcy.ObservableControllerData.dataPathResolve({
           apmBindingPath: actionRequest_.context.apmBindingPath,
-          dataPath: messageBody.helperPath
+          dataPath: messageBody.path
         });
 
         if (ocdResponse.error) {
