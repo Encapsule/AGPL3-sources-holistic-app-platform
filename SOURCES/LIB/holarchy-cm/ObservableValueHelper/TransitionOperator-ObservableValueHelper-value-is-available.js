@@ -23,7 +23,10 @@
                         ObservableValueHelper: {
                             ____types: "jsObject",
                             valueIsAvailable: {
-                                ____types: "jsObject"
+                                ____types: "jsObject",
+                                path: {
+                                    ____accept: "jsString"
+                                }
                             }
                         }
                     }
@@ -31,7 +34,74 @@
             }
         },
         bodyFunction: function(operatorRequest_) {
-            return { error: null, result: false };
+            let response = { error: null };
+            let errors = [];
+            let inBreakScope = false;
+            while (!inBreakScope) {
+                inBreakScope = true;
+
+                // TODO: This is a useful pattern. We should make it generically re-usable somehow. But, not today ;-)
+
+                const messageBody = operatorRequest_.operatorRequest.holarchy.common.operators.ObservableValueHelper.valueIsAvailable;
+
+                let suboperatorRequest = {
+                    ...operatorRequest_,
+                    operatorRequest: { holarchy: { common: { operators: { ObservableValueHelper: { isLinked: { path: messageBody.path } } } } } }
+                };
+
+                let operatorResponse = operatorRequest_.context.transitionDispatcher.request(suboperatorRequest);
+                if (operatorResponse.error) {
+                    errors.push(operatorResponse.error);
+                    break;
+                }
+                let operatorFilter = operatorResponse.result;
+                operatorResponse = operatorFilter.request(suboperatorRequest);
+                if (operatorResponse.error) {
+                    errors.push(operatorResponse.error);
+                    break;
+                }
+
+                if (!operatorResponse.result) {
+                    response.result = false;
+                    break;
+                }
+
+                let ocdResponse = operatorRequest_.context.ocdi.readNamespace({ apmBindingPath: operatorRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.observableValueWorkerProcess.apmBindingPath` });
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+                const ovwProcessCoordinates = ocdResponse.result;
+
+                suboperatorRequest = {
+                    context: {
+                        ...operatorRequest_.context,
+                        apmBindingPath: ovwProcessCoordinates
+                    },
+                    operatorRequest: { holarchy: { common: { operators: { ObservableValueWorker: { _private: { valueIsAvailable: { } } } } } } }
+                };
+
+                operatorResponse = operatorRequest_.context.transitionDispatcher.request(suboperatorRequest);
+                if (operatorResponse.error) {
+                    errors.push(operatorResponse.error);
+                    break;
+                }
+                operatorFilter = operatorResponse.result;
+
+                operatorResponse = operatorFilter.request(suboperatorRequest);
+                if (operatorResponse.error) {
+                    errors.push(operatorResponse.error);
+                    break;
+                }
+
+                response.result = operatorResponse.result;
+
+                break;
+            }
+            if (errors.length) {
+                response.error = errors.join(" ");
+            }
+            return response;
         }
 
     });
