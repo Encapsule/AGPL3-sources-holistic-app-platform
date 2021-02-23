@@ -1,4 +1,4 @@
-// ControllerAction-ObservableValueHelper-configure.js
+// ControllerAction-ObservableValueHelper-get-link-error.js
 
 (function() {
 
@@ -11,9 +11,9 @@
     const configurationSpec = { ...apmObservableValueHelper._private.declaration.ocdDataSpec.configuration, ____defaultValue: undefined, observableValue: { ...apmObservableValueHelper._private.declaration.ocdDataSpec.configuration.observableValue, ____defaultValue: undefined } };
 
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueHelper.mapLabels({ ACT: "configure" }).result.ACTID,
-        name: `${cmLabel} Configure`,
-        description: `Allows an actor to configure a ${cmLabel} cell instance.`,
+        id: cmasObservableValueHelper.mapLabels({ ACT: "getLinkError" }).result.ACTID,
+        name: `${cmLabel} Get Link Error`,
+        description: "Retrieves link error message string if the process is in the observable-value-helper-link-error step. Or, null.",
         actionRequestSpec: {
             ____types: "jsObject",
             holarchy: {
@@ -24,17 +24,11 @@
                         ____types: "jsObject",
                         ObservableValueHelper: {
                             ____types: "jsObject",
-                            configure: {
-                                ____label: "ObservableValueHelper Link Request",
-                                ____description: "This action links an ObservableValueHelper cell instance to an ObservableValue family cell using information specified in this request.",
+                            getLinkError: {
                                 ____types: "jsObject",
                                 path: {
-                                    ____label: "Helper Path",
-                                    ____description: "The relative path of the ObservableValueHelper cell to configure relative to actionRequest.context.apmBindingPath that is presumed to be a cell process that owns the ObservableValue family cell of interest.",
-                                    ____accept: "jsString",
-                                    ____defaultValue: "#" // only ever correct if the ObservableValue family cell you want to connect to is to be used as a cell process (atypical) and not as a cell helper (typical).
-                                },
-                                configuration: { ...configurationSpec }
+                                    ____accept: "jsString"
+                                }
                             }
                         }
                     }
@@ -42,8 +36,7 @@
             }
         },
         actionResultSpec: {
-            ____accept: "jsString",
-            ____defaultValue: "okay"
+            ____accept: [ "jsNull", "jsString" ]
         },
         bodyFunction: function(actionRequest_) {
             let response = { error: null };
@@ -52,9 +45,9 @@
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                const messageBody = actionRequest_.actionRequest.holarchy.common.actions.ValueObserverHelper.configure;
+                const messageBody = actionRequest_.actionRequest.holarchy.common.actions.ObservableValueHelper.getLinkError;
 
-                let ocdResponse = holarcy.ObservableControllerData.dataPathResolve({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: messageBody.path });
+                let ocdResponse = holarchy.ObservableControllerData.dataPathResolve({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: messageBody.path });
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
@@ -70,16 +63,18 @@
 
                 const { cellMemory } = libResponse.result;
 
-                if (cellMemory.__apmiStep !== "observable-value-helper-wait-configuration") {
-                    errors.push(`Sorry. The ObservableValueHelper cell at "${ovhBindingPath}" is currently in process step "${cellMemory.__apmiStep}" and cannot be configure/re-configured by calling this action at this time.`);
+                if (cellMemory.__apmiStep !== "observable-value-helper-link-error") {
+                    response.result = null;
                     break;
                 }
 
-                ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: ovhBindingPath, dataPath: "#.configuration" }, messageBody.configuration);
+                ocdResponse = actionRequest_.context.ocdi.readNamespace({ apmBindingPath: cellMemory.observableValueWorkerProcess.apmBindingPath, dataPath: "#.ovcpProviderProxyError" });
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
                 }
+
+                response.result = ocdResponse.result;
 
                 break;
             }
