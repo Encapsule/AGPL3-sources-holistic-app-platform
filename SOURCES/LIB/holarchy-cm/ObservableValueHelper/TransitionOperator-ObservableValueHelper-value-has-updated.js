@@ -23,7 +23,10 @@
                         ObservableValueHelper: {
                             ____types: "jsObject",
                             valueHasUpdated: {
-                                ____types: "jsObject"
+                                ____types: "jsObject",
+                                path: {
+                                    ____accept: "jsString"
+                                }
                             }
                         }
                     }
