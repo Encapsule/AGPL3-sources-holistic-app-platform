@@ -3,17 +3,16 @@
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
-    const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
-    const cellModelLabel = require("./cell-label");
-
-    const actionName = `${cellModelLabel}.action.resetValue`;
+    const cmasObservableValueBase = require("./cmasObservableValueBase");
+    const cmLabel = require("./cell-label");
+    const actionName = `${cmLabel} Reset Value`;
 
     const action = new holarchy.ControllerAction({
-        id: cmasHolarchyCMPackage.mapLabels({ ACT: actionName }).result.ACTID,
+        id: cmasObservableValueBase.mapLabels({ ACT: actionName }).result.ACTID,
         name: actionName,
         description: "Resets any active ObervableValue cell deleting its value and reseting its revision back to -1 (reset).",
         actionRequestSpec: {
-            ____label: "ObservableValue Read Action Request",
+            ____label: "ObservableValue Reset Value Request",
             ____types: "jsObject",
             holarchy: {
                 ____types: "jsObject",

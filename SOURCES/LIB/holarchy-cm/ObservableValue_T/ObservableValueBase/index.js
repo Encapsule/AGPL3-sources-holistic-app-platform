@@ -4,13 +4,13 @@
 
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
-    const cellModelLabel = require("./cell-label");
+    const cmLabel = require("./cell-label");
 
     const cellModel = new holarchy.CellModel({
 
-        id: cmasHolarchyCMPackage.mapLabels({ CM: cellModelLabel }).result.CMID,
-        name: cellModelLabel,
-        description: "Provides generic (i.e. value-type-agnostic) behaviors for CellModelTemplate specialization ObservableValue_T.",
+        id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel }).result.CMID,
+        name: cmLabel,
+        description: `Provides generic (i.e. value-type-agnostic) action and operator behaviors for CellModel synthesized via ObservableValue_T::synthesizeCellModel method.`,
 
         // apm:  <- No AbstractProcessModel defined here (i.e. this cell is not activatable via CellProcessor).
 

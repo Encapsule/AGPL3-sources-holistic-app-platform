@@ -1,13 +1,12 @@
 // ObservableValue_T/ObservableValueBase/ControllerAction-ObservableValueBase-write-value.js
 
     const holarchy = require("@encapsule/holarchy");
-    const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
-    const cellModelLabel = require("./cell-label");
-
-    const actionName = `${cellModelLabel}.action.writeValue`;
+    const cmasObservableValueBase = require("./cmasObservableValueBase");
+    const cmLabel = require("./cell-label");
+    const actionName = `${cmLabel} Write Value`;
 
     const action = new holarchy.ControllerAction({
-        id: cmasHolarchyCMPackage.mapLabels({ ACT: actionName }).result.ACTID,
+        id: cmasObservableValueBase.mapLabels({ ACT: actionName }).result.ACTID,
         name: actionName,
         description: "Writes a new value to any active cell of the family ObservableValue_T replacing the cell's current value and incrementing its revision count.",
         actionRequestSpec: {

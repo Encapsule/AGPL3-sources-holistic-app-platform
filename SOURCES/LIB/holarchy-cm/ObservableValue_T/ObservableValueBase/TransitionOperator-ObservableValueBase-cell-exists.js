@@ -1,19 +1,18 @@
-// ObservableValue_T/ObservableValueBase/TransitionOperator-ObservableValueBase-ready.js
+// ObservableValue_T/ObservableValueBase/TransitionOperator-ObservableValueBase-value-has-updated.js
 
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
     const cmasObservableValueBase = require("./cmasObservableValueBase");
     const cmLabel = require("./cell-label");
-    const operatorName = `${cmLabel} Value Is Available`;
-
+    const operatorName = `${cmLabel} Cell Exists`;
 
     const operator = new holarchy.TransitionOperator({
         id: cmasObservableValueBase.mapLabels({ TOP: operatorName }).result.TOPID,
         name: operatorName,
-        description: "Returns Boolean true iff the ObservableValue cell process is in step 'observable-value-ready' (i.e. the ObservableValue cell value has been written since reset).",
+        description: "Returns Boolean true iff the ObservableValue cell exists in the cellplane at the specified path / coordinates.",
         operatorRequestSpec: {
-            ____label: "ObservableValue Value Has Updated Operator Request",
+            ____label: "ObservableValue Cell Exists Request",
             ____types: "jsObject",
             holarchy: {
                 ____types: "jsObject",
@@ -21,8 +20,12 @@
                     ____types: "jsObject",
                     ObservableValue: {
                         ____types: "jsObject",
-                        valueIsAvailable: {
-                            ____types: "jsObject"
+                        cellExists: {
+                            ____types: "jsObject",
+                            path: {
+                                ____accept: "jsString",
+                                ____defaultValue: "#"
+                            }
                         }
                     }
                 }
