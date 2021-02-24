@@ -15,7 +15,24 @@
 
     module.exports = function({ appBuild, deploymentEnvironment }) {
 
-        const cacheControlOverride = `immutable, public, max-age=${45/*days*/ * 24/*hours/day*/ * 60/*mins/hour*/ * 60/*secs/min*/}`; // infinite-cache
+        // v0.0.52-tourmaline
+        // I have updated most of the memory file resources here to return "forever" Cache-Control header.
+        // Currently, the @encapsule/holism RTL is too stupid to understand this and also is calculating and
+        // sending the ETag header along w/the "forever" Cache-Control header. This is okay I think; the
+        // browser will ignore the ETag. But, really it's a logical contradiction to assert "cache this forever"
+        // and then provide an ETag value the semantics of which are "if you check and we say okay, then read
+        // what you have cached". In all liklihood this will not get fixed until @encapsule/holism is converted
+        // into a collection of CellModel and we go through the whole matrix of things that it should and
+        // definitely should not be doing again.
+
+        const responseHeaders = {
+            cache: {
+                forever: {
+                    "Cache-Control": `immutable, public, max-age=${45/*days*/ * 24/*hours/day*/ * 60/*mins/hour*/ * 60/*secs/min*/}`
+                }
+            }
+        };
+
         const clientAppBundleURI = `/javascript/client-app-bundle-${appBuild.app.buildID}.js`;
         const clientAppBundleMapURI = `/javascript/client-app-bundle-${appBuild.app.buildID}.js.map`;
 
@@ -31,10 +48,7 @@
                 response_properties: {
                     contentEncoding: "utf8",
                     contentType: "application/javascript",
-                    responseHeaders: {
-                        "ETag": "live-long-and-propser",
-                        "Cache-Control": cacheControlOverride
-                    }
+                    responseHeaders: responseHeaders.cache.forever
                 }
             },
 
@@ -46,6 +60,7 @@
                 response_properties: {
                     contentEncoding: "utf8",
                     contentType: "text/css",
+                    responseHeaders: responseHeaders.cache.forever
                 }
             },
 
@@ -58,6 +73,7 @@
                 response_properties: {
                     contentEncoding: "utf8",
                     contentType: "text/css",
+                    responseHeaders: responseHeaders.cache.forever
                 }
             },
 
@@ -66,6 +82,7 @@
                 response_properties: {
                     contentEncoding: "utf8",
                     contentType: "text/css",
+                    responseHeaders: responseHeaders.cache.forever
                 }
             },
 
@@ -75,67 +92,67 @@
 
             'ASSETS/fonts/SKK6Nusyv8QPNMtI4j9J2wsYbbCjybiHxArTLjt7FRU.woff2': {
                 request_bindings: { method: 'GET', uris: [ '/fonts/SKK6Nusyv8QPNMtI4j9J2wsYbbCjybiHxArTLjt7FRU.woff2' ] },
-                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2' }
+                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2', responseHeaders: responseHeaders.cache.forever }
             },
 
             'ASSETS/fonts/gFXtEMCp1m_YzxsBpKl68gsYbbCjybiHxArTLjt7FRU.woff2': {
                 request_bindings: { method: 'GET', uris: [ '/fonts/gFXtEMCp1m_YzxsBpKl68gsYbbCjybiHxArTLjt7FRU.woff2' ] },
-                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2' }
+                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2', responseHeaders: responseHeaders.cache.forever }
             },
 
             'ASSETS/fonts/zhcz-_WihjSQC0oHJ9TCYAzyDMXhdD8sAj6OAJTFsBI.woff2': {
                 request_bindings: { method: 'GET', uris: [ '/fonts/zhcz-_WihjSQC0oHJ9TCYAzyDMXhdD8sAj6OAJTFsBI.woff2' ] },
-                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2' }
+                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2', responseHeaders: responseHeaders.cache.forever }
             },
 
             'ASSETS/fonts/DbmoEiLFv2l2THgnoltNxn-_kf6ByYO6CLYdB4HQE-Y.woff2': {
                 request_bindings: { method: 'GET', uris: [ '/fonts/DbmoEiLFv2l2THgnoltNxn-_kf6ByYO6CLYdB4HQE-Y.woff2' ] },
-                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2' }
+                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2', responseHeaders: responseHeaders.cache.forever }
             },
 
             'ASSETS/fonts/Ja-W2r1mUFvMx9Mn05mLi3-_kf6ByYO6CLYdB4HQE-Y.woff2': {
                 request_bindings: { method: 'GET', uris: [ '/fonts/Ja-W2r1mUFvMx9Mn05mLi3-_kf6ByYO6CLYdB4HQE-Y.woff2' ] },
-                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2' }
+                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2', responseHeaders: responseHeaders.cache.forever }
             },
 
             'ASSETS/fonts/6TbRXKWJjpj6V2v_WyRbMevvDin1pK8aKteLpeZ5c0A.woff2': {
                 request_bindings: { method: 'GET', uris: [ '/fonts/6TbRXKWJjpj6V2v_WyRbMevvDin1pK8aKteLpeZ5c0A.woff2' ] },
-                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2' }
+                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2', responseHeaders: responseHeaders.cache.forever }
             },
 
             'ASSETS/fonts/pRwQShtu0DpIJxaghUjyThTbgVql8nDJpwnrE27mub0.woff2': {
                 request_bindings: { method: 'GET', uris: [ '/fonts/pRwQShtu0DpIJxaghUjyThTbgVql8nDJpwnrE27mub0.woff2' ] },
-                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2' }
+                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2', responseHeaders: responseHeaders.cache.forever }
             },
 
             'ASSETS/fonts/vag-4zh7veZxuXQd3EqJ8RTbgVql8nDJpwnrE27mub0.woff2': {
                 request_bindings: { method: 'GET', uris: [ '/fonts/vag-4zh7veZxuXQd3EqJ8RTbgVql8nDJpwnrE27mub0.woff2' ] },
-                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2' }
+                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2', responseHeaders: responseHeaders.cache.forever }
             },
 
             'ASSETS/fonts/kEQ0PMpkuDY-ekJA13N_lxTbgVql8nDJpwnrE27mub0.woff2': {
                 request_bindings: { method: 'GET', uris: [ '/fonts/kEQ0PMpkuDY-ekJA13N_lxTbgVql8nDJpwnrE27mub0.woff2' ] },
-                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2' }
+                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2', responseHeaders: responseHeaders.cache.forever }
             },
 
             'ASSETS/fonts/V7J2dBs3_g80-KE4D0R0whTbgVql8nDJpwnrE27mub0.woff2': {
                 request_bindings: { method: 'GET', uris: [ '/fonts/V7J2dBs3_g80-KE4D0R0whTbgVql8nDJpwnrE27mub0.woff2' ] },
-                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2' }
+                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2', responseHeaders: responseHeaders.cache.forever }
             },
 
             'ASSETS/fonts/7FOHgXzNXtomMvoUz-Mv4xTbgVql8nDJpwnrE27mub0.woff2': {
                 request_bindings: { method: 'GET', uris: [ '/fonts/7FOHgXzNXtomMvoUz-Mv4xTbgVql8nDJpwnrE27mub0.woff2' ] },
-                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2' }
+                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2', responseHeaders: responseHeaders.cache.forever }
             },
 
             'ASSETS/fonts/ldG7L03dPLLtYDea50KtQfesZW2xOQ-xsNqO47m55DA.woff2': {
                 request_bindings: { method: 'GET', uris: [ '/fonts/ldG7L03dPLLtYDea50KtQfesZW2xOQ-xsNqO47m55DA.woff2' ] },
-                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2' }
+                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2', responseHeaders: responseHeaders.cache.forever }
             },
 
             'ASSETS/fonts/RQxK-3RA0Lnf3gnnnNrAsVlgUn8GogvcKKzoM9Dh-4E.woff2': {
                 request_bindings: { method: 'GET', uris: [ '/fonts/RQxK-3RA0Lnf3gnnnNrAsVlgUn8GogvcKKzoM9Dh-4E.woff2' ] },
-                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2' }
+                response_properties: { contentEncoding: 'binary', contentType: 'application/font-woff2', responseHeaders: responseHeaders.cache.forever }
             },
 
 

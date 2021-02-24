@@ -52,9 +52,9 @@
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                const messageBody = actionRequest_.actionRequest.holarchy.common.actions.ValueObserverHelper.configure;
+                const messageBody = actionRequest_.actionRequest.holarchy.common.actions.ObservableValueHelper.configure;
 
-                let ocdResponse = holarcy.ObservableControllerData.dataPathResolve({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: messageBody.path });
+                let ocdResponse = holarchy.ObservableControllerData.dataPathResolve({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: messageBody.path });
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
@@ -70,8 +70,8 @@
 
                 const { cellMemory } = libResponse.result;
 
-                if (cellMemory.__apmiStep !== "observable-value-helper-wait-configuration") {
-                    errors.push(`Sorry. The ObservableValueHelper cell at "${ovhBindingPath}" is currently in process step "${cellMemory.__apmiStep}" and cannot be configure/re-configured by calling this action at this time.`);
+                if (cellMemory.__apmiStep !== "observable-value-helper-reset") {
+                    errors.push(`Sorry. The ObservableValueHelper cell at "${ovhBindingPath}" is currently in process step "${cellMemory.__apmiStep}" and cannot be configure/re-configured by calling this action until its reset action is called.`);
                     break;
                 }
 
