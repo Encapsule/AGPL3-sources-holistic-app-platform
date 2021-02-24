@@ -42,7 +42,7 @@
 
                 // TODO: This is a useful pattern. We should make it generically re-usable somehow. But, not today ;-)
 
-                const messageBody = operatorRequest_.operatorRequest.holarchy.common.operators.ObservableValueHelper.valueIsAvailable;
+                const messageBody = operatorRequest_.operatorRequest.holarchy.common.operators.ObservableValueHelper.valueHasUpdated;
 
                 let suboperatorRequest = {
                     ...operatorRequest_,

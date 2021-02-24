@@ -24,16 +24,14 @@
                             ____types: "jsObject",
                             valueHasUpdated: {
                                 ____types: "jsObject",
-                                since: {
-                                    ____types: "jsObject",
-                                    revision: {
-                                        ____label: "ObservableValue Observer Revision",
-                                        ____description: "The last revision of this ObservableValue cell's value that was read by the requesting observer cell.",
-                                        ____types: [
-                                            "jsNumber", // The observer is specifying the value revision they last read by its literal value
-                                            "jsString", // The observer is specifying the full path of the OCD namespace _they_ own and maintain which contains the value revision they last read (we read this value and use it as the comparison basis)
-                                        ]
-                                    }
+                                path: {
+                                    ____accept: "jsString",
+                                    ____defaultValue: "#"
+                                },
+                                lastReadRevision: {
+                                    ____label: "ObservableValue Observer Revision",
+                                    ____description: "The last revision of this ObservableValue cell's value that was read by the requesting observer cell.",
+                                    ____accept: "jsNumber"
                                 }
                             }
                         }
@@ -43,7 +41,7 @@
         },
 
         bodyFunction: function(operatorRequest_) {
-            return { error: null, result: false }; // TODO
+            return { error: null, result: true }; // TODO
         }
 
     });

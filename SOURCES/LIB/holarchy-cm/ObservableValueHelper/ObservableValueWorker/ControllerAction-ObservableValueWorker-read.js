@@ -41,8 +41,16 @@
             }
         },
         actionResultSpec: {
-            ____accept: "jsString",
-            ____defaultValue: "okay"
+            ____label: `${actionName} Result`,
+            ____types: "jsObject",
+            value: {
+                ____label: "Value",
+                ____opaque: true // We do not know and we do not care at this level if this valid or what it even means.
+            },
+            revision: {
+                ____label: "Revision",
+                ____accept: "jsNumber"
+            }
         },
         bodyFunction: function(actionRequest_) {
             return { error: null }; // TODO

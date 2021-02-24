@@ -24,7 +24,11 @@
                         ObservableValue: {
                             ____types: "jsObject",
                             valueIsAvailable: {
-                                ____types: "jsObject"
+                                ____types: "jsObject",
+                                path: {
+                                    ____accept: "jsString",
+                                    ____defaultValue: "#"
+                                }
                             }
                         }
                     }
@@ -33,7 +37,7 @@
         },
 
         bodyFunction: function(operatorRequest_) {
-            return { error: null, result: false }; // TODO
+            return { error: null, result: true }; // TODO
         }
 
     });

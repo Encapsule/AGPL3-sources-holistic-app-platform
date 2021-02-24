@@ -36,8 +36,21 @@
         },
 
         bodyFunction: function(operatorRequest_) {
-            // We should land here w/the apmBindingPath pointing at the provider cell process that holds the target ObservableValue cell of interest (path).
-            return { error: null, result: false }; // TODO
+            let response = { error: null };
+            let errors = [];
+            let inBreakScope = false;
+            while (!inBreakScope) {
+                inBreakScope = true;
+                // This is really very straight forward at this level of abstraction (forget about how this action request got here; that's rather obstruse...)
+                const messageBody = operatorRequest_.operatorRequest.holarchy.common.operators.ObservableValue.cellExists;
+                let ocdResponse = operatorRequest_.context.ocdi.readNamespace({ apmBindingPath: operatorRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.__apmiStep` });
+                response.result = (ocdResponse.error?false:true);
+                break;
+            }
+            if (errors.length) {
+                response.error = errors.join(" ");
+            }
+            return response;
         }
 
     });
