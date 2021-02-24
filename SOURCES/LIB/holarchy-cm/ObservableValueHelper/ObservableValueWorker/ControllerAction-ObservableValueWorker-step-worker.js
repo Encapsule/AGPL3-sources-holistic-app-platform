@@ -109,6 +109,10 @@
 
                     const proxyConnectInfo = actResponse.result.actionResult;
 
+                    // We will need the relative OCD path beginning in # here in the context of the ObservableValueWorker
+                    // that indicates where inside of the provider cell process the target ObservableValue cell resides in
+                    // the cellplane.
+
                     // We need the apmBindingPath of the actual target ObservableValue cell now.
                     ocdResponse = holarchy.ObservableControllerData.dataPathResolve({ apmBindingPath: proxyConnectInfo.connected.apmBindingPath, dataPath: observableValueConfig.path });
                     if (ocdResponse.error) {
@@ -118,7 +122,7 @@
 
                     const ovCellPath = ocdResponse.result;
 
-                    ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: "#.ovCell" }, { apmBindingPath: ovCellPath });
+                    ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: "#.ovCell" }, { path: observableValueConfig.path, apmBindingPath: ovCellPath });
                     if (ocdResponse.error) {
                         errors.push(ocdResponse.error);
                         break;

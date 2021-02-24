@@ -13,17 +13,20 @@
         description: "Performs work on behalf of a single ObservableValueHelper cell.",
 
         ocdDataSpec: {
+            ____label: `${cmLabel} Cell Memory`,
             ____types: "jsObject",
             ____defaultValue: {},
 
             configuration: {
+                ____label: `${cmLabel} Config Data`,
+                ____description: "Configuration data must be provided by ObservableValueHelper cell instance when it activates an ObservableValueWorker cell process instance.",
                 ____types: "jsObject",
                 observableValueHelper: {
                     ____label: "ObservableValueHelper Instance",
                     ____description: "Data used to track which ObservableValueHelper cell instance this cell is working on behalf of.",
                     ____types: "jsObject",
                     apmBindingPath: {
-                        ____label: "ObservableValueHelper Cell Path",
+                        ____label: "ObservableValueHelper Cell Binding Path",
                         ____accept: "jsString"
                     }
                 }
@@ -43,9 +46,11 @@
             // from there.
 
             ovcpProviderProxy: {
+                ____label: "ObservableValue Provider Cell Process Provider Proxy",
+                ____description: "An embedded @encapsule/holarchy CellProcessProxy process that leverages CellProcessManager's shared cell process facilities.",
                 ____types: "jsObject",
                 ____defaultValue: {},
-                ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" } // CPP
+                ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" } // @encapsule/holarchy CellProcessProxy TODO: put this in a CMAS! No more magic IRUTs (except at runtime).
             },
 
             // If we fail to connect the ocvpProviderProxy this is likely because we got handed bogus provider cell process coordinates.
@@ -53,6 +58,8 @@
             // to ovcpProviderProxyError namespace.
 
             ovcpProviderProxyError: {
+                ____label: "ObservableValue Provider Cell Process Prover Proxy Error",
+                ____description: "Set during cell process config iff the ovcpProviderProxy cannot be connected to the specified provider cell process.",
                 ____accept: [ "jsNull", "jsString" ],
                 ____defaultValue: null
             },
@@ -64,10 +71,26 @@
             // that is later required to answer these questions (via actions and operators).
 
             ovCell: {
+                ____label: "ObservableValue Cell Coordinates",
+                ____description: "Where the actual type-specialized ObservableValue cell that we want to link to is located in the cellplane.",
                 ____types: [ "jsNull", "jsObject" ],
                 ____defaultValue: null,
-                apmBindingPath: { ____accept: "jsString" },
+
+                path: {
+                    ____label: "ObservableValue Cell Path",
+                    ____description: "A relative OCD path (starts w/#) that indicates the cellplane coordinate of the ObservableValue cell relative to the provider cell process coordinates.",
+                    ____accept: "jsString"
+                },
+
+                apmBindingPath: {
+                    ____label: "ObservableValue Cell Binding Path",
+                    ____description: "The full OCD path (starts w/~) that indicates the absolute cellplane coordinates of the ObservableValue cell.",
+                    ____accept: "jsString"
+                },
+
                 lastReadRevision: {
+                    ____label: "ObservableValue Cell Revision Reference",
+                    ____description: "When asked the question valueHasUpdated our answer is always based on a comparison of our reference revision number, and the ObservableValue cell's actual current revision number. If they're equal, then the answer is false (generally).",
                     ____accept: "jsNumber",
                     ____defaultValue: -2 // Indicates we do not know if ovCell exists or not (because we haven't checked). Or we have, and it doesn't.
                 }
