@@ -72,8 +72,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       while (!inBreakScope) {
         inBreakScope = true;
-        var messageBody = actionRequest_.actionRequest.holarchy.common.actions.ValueObserverHelper.configure;
-        var ocdResponse = holarcy.ObservableControllerData.dataPathResolve({
+        var messageBody = actionRequest_.actionRequest.holarchy.common.actions.ObservableValueHelper.configure;
+        var ocdResponse = holarchy.ObservableControllerData.dataPathResolve({
           apmBindingPath: actionRequest_.context.apmBindingPath,
           dataPath: messageBody.path
         });
@@ -95,8 +95,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         var cellMemory = libResponse.result.cellMemory;
 
-        if (cellMemory.__apmiStep !== "observable-value-helper-wait-configuration") {
-          errors.push("Sorry. The ObservableValueHelper cell at \"".concat(ovhBindingPath, "\" is currently in process step \"").concat(cellMemory.__apmiStep, "\" and cannot be configure/re-configured by calling this action at this time."));
+        if (cellMemory.__apmiStep !== "observable-value-helper-reset") {
+          errors.push("Sorry. The ObservableValueHelper cell at \"".concat(ovhBindingPath, "\" is currently in process step \"").concat(cellMemory.__apmiStep, "\" and cannot be configure/re-configured by calling this action until its reset action is called."));
           break;
         }
 
