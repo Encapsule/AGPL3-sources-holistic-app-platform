@@ -19,10 +19,13 @@
                 ____types: "jsObject",
                 common: {
                     ____types: "jsObject",
-                    ObservableValue: {
+                    operators: {
                         ____types: "jsObject",
-                        valueIsAvailable: {
-                            ____types: "jsObject"
+                        ObservableValue: {
+                            ____types: "jsObject",
+                            valueIsAvailable: {
+                                ____types: "jsObject"
+                            }
                         }
                     }
                 }

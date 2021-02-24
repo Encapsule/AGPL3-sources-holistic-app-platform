@@ -18,6 +18,7 @@
                 ____types: "jsObject",
                 common: {
                     ____types: "jsObject",
+                    // TODO : actions namespace for consistency
                     ObservableValue: {
                         ____types: "jsObject",
                         readValue: {

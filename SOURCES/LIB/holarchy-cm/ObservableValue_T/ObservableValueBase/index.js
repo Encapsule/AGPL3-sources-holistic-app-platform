@@ -21,6 +21,7 @@
         ],
 
         operators: [
+            require("./TransitionOperator-ObservableValueBase-cell-exists"),
             require("./TransitionOperator-ObservableValueBase-value-has-updated"),
             require("./TransitionOperator-ObservableValueBase-value-is-available")
         ]

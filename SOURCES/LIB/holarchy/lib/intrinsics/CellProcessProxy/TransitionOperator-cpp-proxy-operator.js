@@ -48,7 +48,7 @@ const action = new TransitionOperator({
             break;
         }
         if (errors.length) {
-            repsonse.error = errors.join(" ");
+            response.error = errors.join(" ");
         }
         return response;
     }

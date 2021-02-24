@@ -18,13 +18,16 @@
                 ____types: "jsObject",
                 common: {
                     ____types: "jsObject",
-                    ObservableValue: {
+                    operators: {
                         ____types: "jsObject",
-                        cellExists: {
+                        ObservableValue: {
                             ____types: "jsObject",
-                            path: {
-                                ____accept: "jsString",
-                                ____defaultValue: "#"
+                            cellExists: {
+                                ____types: "jsObject",
+                                path: {
+                                    ____accept: "jsString",
+                                    ____defaultValue: "#"
+                                }
                             }
                         }
                     }
@@ -33,6 +36,7 @@
         },
 
         bodyFunction: function(operatorRequest_) {
+            // We should land here w/the apmBindingPath pointing at the provider cell process that holds the target ObservableValue cell of interest (path).
             return { error: null, result: false }; // TODO
         }
 
