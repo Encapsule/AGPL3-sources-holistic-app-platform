@@ -72,7 +72,7 @@
                                                             common: {
                                                                 operators: {
                                                                     ObservableValue: {
-                                                                        cellExists: {
+                                                                        valueIsActive: {
                                                                             path: ovPath
                                                                         }
                                                                     }

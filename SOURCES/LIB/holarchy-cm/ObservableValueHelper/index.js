@@ -14,7 +14,7 @@
         actions: [
             require("./ControllerAction-ObservableValueHelper-configure"),
             require("./ControllerAction-ObservableValueHelper-get-link-error"),
-            require("./ControllerAction-ObservableValueHelper-read"),
+            require("./ControllerAction-ObservableValueHelper-read-value"),
             require("./ControllerAction-ObservableValueHelper-reset"),
             require("./ControllerAction-ObservableValueHelper-step-worker"),
         ],

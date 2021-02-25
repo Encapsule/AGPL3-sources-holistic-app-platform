@@ -8512,10 +8512,8 @@
                                                 "error": null,
                                                 "result": {
                                                   "actionResult": {
-                                                    "actionResult": {
-                                                      "backAtYou": "Hello. Message was received.",
-                                                      "yourMessage": "Hello, other cell process that I have established a proxy connection to! How are are you doing?"
-                                                    }
+                                                    "backAtYou": "Hello. Message was received.",
+                                                    "yourMessage": "Hello, other cell process that I have established a proxy connection to! How are are you doing?"
                                                   }
                                                 }
                                               }
@@ -9644,10 +9642,8 @@
                                                 "error": null,
                                                 "result": {
                                                   "actionResult": {
-                                                    "actionResult": {
-                                                      "backAtYou": "Hello. Message was received.",
-                                                      "yourMessage": "Hello, other cell process that I have established a proxy connection to! How are are you doing?"
-                                                    }
+                                                    "backAtYou": "Hello. Message was received.",
+                                                    "yourMessage": "Hello, other cell process that I have established a proxy connection to! How are are you doing?"
                                                   }
                                                 }
                                               }

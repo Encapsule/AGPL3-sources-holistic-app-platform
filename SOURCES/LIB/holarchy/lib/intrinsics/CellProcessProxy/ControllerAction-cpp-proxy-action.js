@@ -46,7 +46,7 @@ const action = new ControllerAction({
                 errors.push(proxyResponse.error);
                 break;
             }
-            response.result = proxyResponse.result;
+            response.result = proxyResponse.result.actionResult;
             break;
         }
         if (errors.length) {
