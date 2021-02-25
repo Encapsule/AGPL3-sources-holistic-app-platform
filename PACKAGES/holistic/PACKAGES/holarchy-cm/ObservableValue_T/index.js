@@ -47,7 +47,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           var cellMemorySpec = {
             ____types: "jsObject",
             ____defaultValue: {},
-            value: _objectSpread({}, request_.specializationData.valueTypeSpec),
+            mailbox: {
+              ____types: ["jsUndefined", "jsObject"],
+              // Because we want mailbox to be default constructable w/out any reliance whatsoever on valueTypeSpec.
+              value: _objectSpread({}, request_.specializationData.valueTypeSpec)
+            },
             revision: {
               ____types: "jsNumber",
               ____defaultValue: -1

@@ -3,7 +3,7 @@
 module.exports = {
     ____label: "HolisticHTML5Service_DOMLocation Router Event Descriptor",
     ____description: "Updated whenever the current window.location.href value changes.",
-    ____types: [ "jsUndefined", "jsObject" ],
+    ____types: [ "jsObject" ],
     actor: {
         ____accept: "jsString",
         ____inValueSet: [

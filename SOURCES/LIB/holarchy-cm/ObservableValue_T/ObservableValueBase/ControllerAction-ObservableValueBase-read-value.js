@@ -90,7 +90,7 @@
 
                 const ovCellMemory = ocdResponse.result;
 
-                response.result = { value: ovCellMemory.mailbox.value, revision: ovCellMemory.revision };
+                response.result = { value: (ovCellMemory.mailbox?ovCellMemory.mailbox.value:undefined) , revision: ovCellMemory.revision };
 
                 break;
             }
