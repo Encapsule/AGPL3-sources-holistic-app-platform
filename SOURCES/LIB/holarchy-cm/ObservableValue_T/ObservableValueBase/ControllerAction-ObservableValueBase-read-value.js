@@ -47,28 +47,50 @@
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                let ocdResponse = actionRequest_.context.ocdi.readNamespace(actionRequest_.context.apmBindingPath);
+                const messageBody = actionRequest_.actionRequest.holarchy.common.actions.ObservableValue.readValue;
 
+                // Ensure the existence of the "provider cell" (the cell that is either itself the ObservableValue
+                // or that manages that ObservableValue cell's lifespan as an implementation detail of its model).
+
+                let ocdResponse = actionRequest_.context.ocdi.readNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: "#.__apmiStep" });
                 if (ocdResponse.error) {
-                    errors.push(`Unable to read ObservableValue at apmBindingPath="${actionRequest_.context.apmBindingPath}" due to error: ${ocdResponse.error}`);
-                    errors.push("Typically, this error indicates that the actor who created the action request did not specify apmBindingPath correctly.");
+
+                    // Okay - for whatever reason the provider cell process this action was directed at via its apmBindingPath
+                    // doesn't currently exist (because it was deactivated for some reason(s) unknown to us. This means that
+                    // no matter what there's no ObservableValue that can be read because by definition the ObservableValue
+                    // we want to read is managed by the provider cell. So, if it doesn't exist then neither
+                    // does the ObservableValue.
+
+                    // revision === -3 ----> Provider cell is not active. So, the ObservableValue cell process cannot be active (!LINKED).
+                    // revision === -2 ----> Provider cell active, but the ObservableValue cell process is not active (!ACTIVE)
+                    // revision === -1 ----> Provider cell active, ObservableValue cell active but never written (!AVAILABLE)
+                    // revision >=  0  ----> Provider cell active, ObservableValue cell active, value written once or more (UPDATE)
+
+                    response.result = { revision: -3 };
                     break;
                 }
 
-                const observableValueCellMemory = ocdResponse.result;
+                ocdResponse = actionRequest_.context.ocdi.readNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.__apmiStep` });
+                if (ocdResponse.error) {
 
-                if (!observableValueCellMemory.__apmiStep) {
-                    errors.push(`Unable to read ObservableValue cell at apmBindingPath="${actionRequest_.context.apmBindingPath}" due to error: The specified apmBindingPath does not resolve to an active cell.`);
-                    errors.push("Typically, this error indicates that the actor who created the action request did not specify apmBindingPath correctly.");
+                    // Okay - for whatever reason the ObservableCell process is not active.
+                    response.result = { revision: -2 };
+                    break;
+
+                }
+
+                // Now we know the ObservableValue cell process is active (available).
+                // So, we can just read it and return the mailbox data to the caller.
+
+                ocdResponse = actionRequest_.context.ocdi.readNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: messageBody.path });
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
                     break;
                 }
 
-                if (!observableValueCellMemory.__apmiStep !== "observable-value-ready") {
-                    errors.push(`Unable to read ObservableValue cell at apmBindingPath="${actionRequest_.context.apmBindingPath}" because the ObservableValue cell process has not yet had a value written to it.`);
-                    break;
-                }
+                const ovCellMemory = ocdResponse.result;
 
-                response.result = observableValueCellMemory; // Note that anything included in response.result that is not also declared in actionResultSpec will be clipped out of what the caller sees returned via actionResponse.result.actionResult.
+                response.result = ovCellMemory;
 
                 break;
             }

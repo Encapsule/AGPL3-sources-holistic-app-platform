@@ -119,7 +119,8 @@
                     break;
                 }
 
-                response.result = actResponse.result.actionResult;
+                // FIX FOR THIS SHOULD BE IN CPP PROXY ACTION
+                response.result = actResponse.result.actionResult.actionResult; // TODO: Look into this. I believe that CPP proxy action should act like CPM delegate ;-)
 
                 break;
             }
