@@ -18,14 +18,16 @@
                 ____types: "jsObject",
                 common: {
                     ____types: "jsObject",
-                    // TODO : actions namespace for consistency
-                    ObservableValue: {
+                    actions: {
                         ____types: "jsObject",
-                        readValue: {
+                        ObservableValue: {
                             ____types: "jsObject",
-                            path: {
-                                ____accept: "jsString",
-                                ____defaultValue: "#"
+                            readValue: {
+                                ____types: "jsObject",
+                                path: {
+                                    ____accept: "jsString",
+                                    ____defaultValue: "#"
+                                }
                             }
                         }
                     }
@@ -41,7 +43,7 @@
         bodyFunction: function(actionRequest_) {
             let response = { error: null };
             let errors = [];
-            let inBreakScope = true;
+            let inBreakScope = false;
             while (!inBreakScope) {
                 inBreakScope = true;
 

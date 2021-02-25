@@ -39,6 +39,7 @@
             let inBreakScope = false;
             while (!inBreakScope) {
                 inBreakScope = true;
+
                 let ocdResponse = operatorRequest_.context.ocdi.readNamespace({ apmBindingPath: operatorRequest_.context.apmBindingPath, dataPath: "#.__apmiStep"});
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);

@@ -53,7 +53,80 @@
             }
         },
         bodyFunction: function(actionRequest_) {
-            return { error: null }; // TODO
+            let response = { error: null };
+            let errors = [];
+            let inBreakScope = false;
+            while (!inBreakScope) {
+                inBreakScope = true;
+
+                let ocdResponse = actionRequest_.context.ocdi.readNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: "#.__apmiStep"});
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+                const apmiStep = ocdResponse.result;
+                if (apmiStep !== "observable-value-worker-proxy-connected") {
+                    response.result = { revision: -3 /* not linked */ };
+                    break;
+                }
+                ocdResponse = actionRequest_.context.ocdi.readNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: "#.ovCell"});
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+
+                const { path, lastReadRevision } = ocdResponse.result;
+
+                // Now, actually query the ObservableValue cell for its current value mailbox descriptor.
+                const actResponse = actionRequest_.context.act({
+                    actorName: actionName,
+                    actorTaskDescription: "Delegating the ObservableValue read request to the target ObservableValue cell...",
+                    actionRequest: { // <- start CellProcessor delegate request
+                        CellProcessor: {
+                            cell: {
+                                cellCoordinates: "#.ovcpProviderProxy",
+                                delegate: {
+                                    actionRequest: { // <- start CellProcessProxy action request
+                                        holarchy: {
+                                            CellProcessProxy: {
+                                                proxy: {
+                                                    actionRequest: { // <- start the request to send to the cell process the proxy is connected to, the provider cell process...
+                                                        holarchy: {
+                                                            common: {
+                                                                actions: {
+                                                                    ObservableValue: {
+                                                                        readValue: {
+                                                                            path
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    apmBindingPath: actionRequest_.context.apmBindingPath
+                });
+
+                if (actResponse.error) {
+                    errors.push(actResponse.error);
+                    break;
+                }
+
+                response.result = actResponse.result.actionResult;
+
+                break;
+            }
+            if (errors.length) {
+                response.error = errors.join(" ");
+            }
+            return response;
         }
     });
 
