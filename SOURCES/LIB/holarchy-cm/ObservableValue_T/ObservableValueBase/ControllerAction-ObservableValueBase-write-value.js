@@ -59,8 +59,10 @@
                 let newRevision = ocdResponse.result + 1;
                 const newCellMemory = {
                     __apmiStep: "observable-value-ready",
+                    mailbox: {
+                        value: messageBody.value
+                    },
                     revision: newRevision,
-                    value: messageBody.value
                 };
                 ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: messageBody.path }, newCellMemory);
                 if (ocdResponse.error) {

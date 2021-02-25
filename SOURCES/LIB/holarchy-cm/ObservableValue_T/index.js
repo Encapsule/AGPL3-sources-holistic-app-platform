@@ -36,7 +36,11 @@
                     const cellMemorySpec = {
                         ____types: "jsObject",
                         ____defaultValue: {},
-                        value: { ...request_.specializationData.valueTypeSpec },
+                        mailbox: {
+                            ____types: "jsObject",
+                            ____defaultValue: {}, // And, so we will make this default activatable in order. And mailbox.value will be undefined if not written. As expected.
+                            value: { ...request_.specializationData.valueTypeSpec },
+                        },
                         revision: { ____types: "jsNumber", ____defaultValue: -1 },
                     };
 
