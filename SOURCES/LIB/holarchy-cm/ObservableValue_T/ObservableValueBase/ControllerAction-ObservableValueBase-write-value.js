@@ -48,38 +48,33 @@
             let inBreakScope = false;
             while (!inBreakScope) {
                 inBreakScope = true;
-
+                console.log(`[${this.operationID}::${this.operationName}] called on provider cell "${actionRequest_.context.apmBindingPath}"`);
                 const messageBody = actionRequest_.actionRequest.holarchy.common.ObservableValue.writeValue;
-
                 let ocdResponse = actionRequest_.context.ocdi.readNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.revision` });
                 if (ocdResponse.error) {
                     errors.push("Cannot read the current ObservableValue revision number from cell memory!");
                     errors.push(ocdResponse.error);
                     break;
                 }
-
                 let newRevision = ocdResponse.result + 1;
-
                 const newCellMemory = {
                     __apmiStep: "observable-value-ready",
                     revision: newRevision,
                     value: messageBody.value
                 };
-
                 ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: messageBody.path }, newCellMemory);
                 if (ocdResponse.error) {
                     errors.push("Cannot write the new ObservableValue value to cell memory!");
                     errors.push(ocdResponse.error);
                     break;
                 }
-
                 response.result = newCellMemory;
-
                 break;
             }
             if (errors.length) {
                 response.error = errors.join(" ");
             }
+            console.log(`> Value write ${response.error?"FAILURE":"SUCCESS"}.`);
             return response;
         }
     });

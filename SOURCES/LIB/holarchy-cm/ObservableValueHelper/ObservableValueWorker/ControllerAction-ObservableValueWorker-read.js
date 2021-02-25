@@ -122,6 +122,13 @@
                 // FIX FOR THIS SHOULD BE IN CPP PROXY ACTION
                 response.result = actResponse.result.actionResult.actionResult; // TODO: Look into this. I believe that CPP proxy action should act like CPM delegate ;-)
 
+                // Update the ObservableValueWorker cell's lastReadRevision value.
+                ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: "#.ovCell.lastReadRevision" }, response.result.revision);
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+
                 break;
             }
             if (errors.length) {

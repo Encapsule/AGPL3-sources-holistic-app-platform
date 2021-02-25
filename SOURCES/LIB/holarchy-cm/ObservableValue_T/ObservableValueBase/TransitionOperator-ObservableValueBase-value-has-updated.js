@@ -31,7 +31,8 @@
                                 lastReadRevision: {
                                     ____label: "ObservableValue Observer Revision",
                                     ____description: "The last revision of this ObservableValue cell's value that was read by the requesting observer cell.",
-                                    ____accept: "jsNumber"
+                                    ____accept: "jsNumber",
+                                    ____defaultValue: -1
                                 }
                             }
                         }
@@ -41,7 +42,34 @@
         },
 
         bodyFunction: function(operatorRequest_) {
-            return { error: null, result: true }; // TODO
+            let response = { error: null };
+            let errors = [];
+            let inBreakScope = false;
+            while (!inBreakScope) {
+                inBreakScope = true;
+                console.log(`[${this.operationID}::${this.operationName}] called on provider cell "${operatorRequest_.context.apmBindingPath}"`);
+                const messageBody = operatorRequest_.operatorRequest.holarchy.common.operators.ObservableValue.valueHasUpdated;
+                // Attempt to read the ObservableValue's current revision number.
+                // Note that failure here indicates that the ObservableValue is not active (and that possibly the provider cell process itself is not active).
+                let ocdResponse = operatorRequest_.context.ocdi.readNamespace({ apmBindingPath: operatorRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.revision` });
+                if (ocdResponse.error) {
+                    // Either the provider cell process or the ObservableValue cell process is not active. So, the answer is false --- the ObservableValue is not available.
+                    response.result = false;
+                    break;
+                }
+                const currentRevision = ocdResponse.result;
+                if (currentRevision < 0) {
+                    response.result = false;
+                    break;
+                }
+                response.result = (currentRevision !== messageBody.lastReadRevision);
+                console.log(`> Answer is ${response.result} --- value cell ${response.result?"UPDATED":"not updated"} since last read.`);
+                break;
+            }
+            if (errors.length) {
+                response.error = errors.join(" ");
+            }
+            return response;
         }
 
     });

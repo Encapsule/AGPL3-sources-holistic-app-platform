@@ -22,6 +22,7 @@
                         ____types: "jsObject",
                         ObservableValue: {
                             ____types: "jsObject",
+                            // TODO: Should be renamed to valueIsActive for consistency w/ObservableValueWorker naming I think.
                             cellExists: {
                                 ____types: "jsObject",
                                 path: {
@@ -41,11 +42,13 @@
             let inBreakScope = false;
             while (!inBreakScope) {
                 inBreakScope = true;
-                // This is really very straight forward at this level of abstraction (forget about how this action request got here; that's rather obstruse...)
+                console.log(`[${this.operationID}::${this.operationName}] called on provider cell "${operatorRequest_.context.apmBindingPath}"`);
                 const messageBody = operatorRequest_.operatorRequest.holarchy.common.operators.ObservableValue.cellExists;
-                let ocdResponse = operatorRequest_.context.ocdi.readNamespace({ apmBindingPath: operatorRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.__apmiStep` });
+                // If we cannot read the ObservableValue cell's revision number, then it does not exist.
+                let ocdResponse = operatorRequest_.context.ocdi.readNamespace({ apmBindingPath: operatorRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.revision` });
                 response.result = (ocdResponse.error?false:true);
-                break;
+                console.log(`> Answer is ${response.result} --- value cell is ${response.result?"ACTIVE":"inactive"}.`);
+                 break;
             }
             if (errors.length) {
                 response.error = errors.join(" ");

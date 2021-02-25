@@ -37,7 +37,31 @@
         },
 
         bodyFunction: function(operatorRequest_) {
-            return { error: null, result: true }; // TODO
+            let response = { error: null };
+            let errors = [];
+            let inBreakScope = false;
+            while (!inBreakScope) {
+                inBreakScope = true;
+                console.log(`[${this.operationID}::${this.operationName}] called on provider cell "${operatorRequest_.context.apmBindingPath}"`);
+                const messageBody = operatorRequest_.operatorRequest.holarchy.common.operators.ObservableValue.valueIsAvailable;
+                // If we cannot read the ObservableValue cell's revision number, then it does not exist.
+                let ocdResponse = operatorRequest_.context.ocdi.readNamespace({ apmBindingPath: operatorRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.revision` });
+                if (ocdResponse.error) {
+                    // Either the provider cell process or the ObservableValue cell process is not active.
+                    // So, the answer is false --- the ObservableValue is not available.
+                    response.result = false;
+                    break;
+                }
+                const currentRevision = ocdResponse.result;
+                // The ObservableValue is "available" if it has been written once or more times since since activation / reset.
+                response.result = (currentRevision > -1);
+                console.log(`> Answer is ${response.result} --- value cell is ${response.result?"AVAILABLE":"UNAVAILABLE"}.`);
+                break;
+            }
+            if (errors.length) {
+                response.error = errors.join(" ");
+            }
+            return response;
         }
 
     });
