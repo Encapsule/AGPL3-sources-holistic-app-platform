@@ -18,25 +18,53 @@
                 ____types: "jsObject",
                 common: {
                     ____types: "jsObject",
-                    ObservableValue: {
+                    actions: {
                         ____types: "jsObject",
-                        resetValue: {
-                            ____types: "jsObject"
+                        ObservableValue: {
+                            ____types: "jsObject",
+                            resetValue: {
+                                ____types: "jsObject",
+                                path: {
+                                    ____accept: "jsString",
+                                    ____defaultValue: "#"
+                                }
+                            }
                         }
                     }
                 }
             }
         },
         actionResultSpec: {
-            ____label: "ObservableValue Read Action Result",
-            ____types: "jsObject",
-            value: { ____opaque: true },
-            revision: { ____accept: "jsNumber" }
+            ____accept: "jsString",
+            ____defaultValue: "okay"
         },
         bodyFunction: function(actionRequest_) {
 
-            return { error: null, result: { value: "whatever", revision: 0 } }; // TODO
-
+            let response = { error: null };
+            let errors = [];
+            let inBreakScope = false;
+            while (!inBreakScope) {
+                inBreakScope = true;
+                console.log(`[${this.operationID}::${this.operationName}] called on provider cell "${actionRequest_.context.apmBindingPath}"`);
+                const messageBody = actionRequest_.actionRequest.holarchy.common.actions.ObservableValue.resetValue;
+                let ocdResponse = actionRequest_.context.ocdi.readNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.__apmiStep` });
+                if (ocdResponse.error) {
+                    errors.push("Okay - hold up! You cannot reset an ObservableValue cell that is not active!");
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+                // Affect reset operation on the ObservableValue cell instance.
+                ocdResponse = actionRequest_.context.ocdi.writeNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: messageBody.path }, {});
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+                break;
+            }
+            if (errors.length) {
+                response.error = errors.join(" ");
+            }
+            return response;
         }
     });
 

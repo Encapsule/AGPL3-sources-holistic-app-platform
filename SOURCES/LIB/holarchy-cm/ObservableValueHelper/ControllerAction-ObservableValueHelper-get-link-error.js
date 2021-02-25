@@ -27,7 +27,8 @@
                             getLinkError: {
                                 ____types: "jsObject",
                                 path: {
-                                    ____accept: "jsString"
+                                    ____accept: "jsString",
+                                    ____defaultValue: "#"
                                 }
                             }
                         }
