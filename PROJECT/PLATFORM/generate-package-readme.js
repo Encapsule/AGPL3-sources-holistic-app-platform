@@ -168,7 +168,7 @@ markdown.push(targetManifest.description);
 
 markdown.push("```\n" +
               "Package: " + targetManifest.name + " v" + targetManifest.version + " \"" + targetManifest.codename + "\" build ID \"" + targetManifest.buildID + "\"\n" +
-              "Sources: Encapsule/holistic-master#" + targetManifest.buildSource + "\n" +
+              "Sources: @encapsule/holodev#" + targetManifest.buildSource + "\n" +
               
               "Created: " + repoBuild.buildDateISO + " Purpose: " + packageData.packageType + " (" + (packageData.browserSafe?"Node.js + modern browsers (via package bundler)":"Node.js") + ") " +
               "License: " + targetManifest.license + "\n" +
