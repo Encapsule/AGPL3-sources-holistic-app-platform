@@ -1,6 +1,6 @@
 "use strict";
 
-// ObservableValue_T/ObservableValueBase/TransitionOperator-ObservableValueBase-ready.js
+// ObservableValue_T/ObservableValueBase/TransitionOperator-ObservableValueBase-value-has-updated.js
 (function () {
   var holarchy = require("@encapsule/holarchy");
 
@@ -8,15 +8,15 @@
 
   var cmLabel = require("./cell-label");
 
-  var operatorName = "".concat(cmLabel, " Value Is Available");
+  var operatorName = "".concat(cmLabel, " Cell Exists");
   var operator = new holarchy.TransitionOperator({
     id: cmasObservableValueBase.mapLabels({
       TOP: operatorName
     }).result.TOPID,
     name: operatorName,
-    description: "Returns Boolean true iff the ObservableValue cell process is in step 'observable-value-ready' (i.e. the ObservableValue cell value has been written since reset).",
+    description: "Returns Boolean true iff the ObservableValue cell exists in the cellplane at the specified path / coordinates.",
     operatorRequestSpec: {
-      ____label: "ObservableValue Value Has Updated Operator Request",
+      ____label: "ObservableValue Cell Exists Request",
       ____types: "jsObject",
       holarchy: {
         ____types: "jsObject",
@@ -26,7 +26,8 @@
             ____types: "jsObject",
             ObservableValue: {
               ____types: "jsObject",
-              valueIsAvailable: {
+              // TODO: Should be renamed to valueIsActive for consistency w/ObservableValueWorker naming I think.
+              cellExists: {
                 ____types: "jsObject",
                 path: {
                   ____accept: "jsString",
@@ -48,24 +49,14 @@
       while (!inBreakScope) {
         inBreakScope = true;
         console.log("[".concat(this.operationID, "::").concat(this.operationName, "] called on provider cell \"").concat(operatorRequest_.context.apmBindingPath, "\""));
-        var messageBody = operatorRequest_.operatorRequest.holarchy.common.operators.ObservableValue.valueIsAvailable; // If we cannot read the ObservableValue cell's revision number, then it does not exist.
+        var messageBody = operatorRequest_.operatorRequest.holarchy.common.operators.ObservableValue.cellExists; // If we cannot read the ObservableValue cell's revision number, then it does not exist.
 
         var ocdResponse = operatorRequest_.context.ocdi.readNamespace({
           apmBindingPath: operatorRequest_.context.apmBindingPath,
           dataPath: "".concat(messageBody.path, ".revision")
         });
-
-        if (ocdResponse.error) {
-          // Either the provider cell process or the ObservableValue cell process is not active.
-          // So, the answer is false --- the ObservableValue is not available.
-          response.result = false;
-          break;
-        }
-
-        var currentRevision = ocdResponse.result; // The ObservableValue is "available" if it has been written once or more times since since activation / reset.
-
-        response.result = currentRevision > -1;
-        console.log("> Answer is ".concat(response.result, " --- value cell is ").concat(response.result ? "AVAILABLE" : "UNAVAILABLE", "."));
+        response.result = ocdResponse.error ? false : true;
+        console.log("> Answer is ".concat(response.result, " --- value cell is ").concat(response.result ? "ACTIVE" : "inactive", "."));
         break;
       }
 
