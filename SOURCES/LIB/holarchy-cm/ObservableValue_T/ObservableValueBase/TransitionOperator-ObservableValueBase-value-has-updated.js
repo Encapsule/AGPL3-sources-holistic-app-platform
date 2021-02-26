@@ -49,20 +49,34 @@
                 inBreakScope = true;
                 console.log(`[${this.operationID}::${this.operationName}] called on provider cell "${operatorRequest_.context.apmBindingPath}"`);
                 const messageBody = operatorRequest_.operatorRequest.holarchy.common.operators.ObservableValue.valueHasUpdated;
-                // Attempt to read the ObservableValue's current revision number.
-                // Note that failure here indicates that the ObservableValue is not active (and that possibly the provider cell process itself is not active).
-                let ocdResponse = operatorRequest_.context.ocdi.readNamespace({ apmBindingPath: operatorRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.revision` });
+                // Check to see if there's a pending dact. If there is, then the answer is yes --- the value has updated (or it will when read).
+                let ocdResponse = operatorRequest_.context.ocdi.readNamespace({ apmBindingPath: operatorRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.dact` });
                 if (ocdResponse.error) {
-                    // Either the provider cell process or the ObservableValue cell process is not active. So, the answer is false --- the ObservableValue is not available.
-                    response.result = false;
+                    errors.push(ocdResponse.error);
                     break;
                 }
-                const currentRevision = ocdResponse.result;
-                if ((currentRevision < 0) && (messageBody.lastReadRevision < 0)) {
-                    response.result = false;
-                    break;
-                }
-                response.result = (currentRevision !== messageBody.lastReadRevision);
+                const dact = ocdResponse.result;
+                if (dact) {
+                    response.result = true;
+                } else {
+                    // Attempt to read the ObservableValue's current revision number. Note that failure here indicates that the ObservableValue is not active (and that possibly the provider cell process itself is not active).
+                    ocdResponse = operatorRequest_.context.ocdi.readNamespace({ apmBindingPath: operatorRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.revision` });
+                    if (ocdResponse.error) {
+                        // Either the provider cell process or the ObservableValue cell process is not active. So, the answer is false --- the ObservableValue is not available.
+                        response.result = false;
+                        break;
+                    }
+                    const currentRevision = ocdResponse.result;
+                    // We get activated w/default revision === -1.
+                    // And, and ObservableValueWorker cell gets activated w/default lastReadRevision === -2.
+                    // So, if we're -1 (not available) and the ObservableValueWorker has never read (-2) or read
+                    // a unavailable value (-1) the answer is no, the value has not updated.
+                    if ((currentRevision < 0) && (messageBody.lastReadRevision < 0)) {
+                        response.result = false;
+                        break;
+                    }
+                    response.result = (currentRevision !== messageBody.lastReadRevision);
+                } // else
                 console.log(`> Answer is ${response.result} --- value cell ${response.result?"UPDATED":"not updated"} since last read.`);
                 break;
             }

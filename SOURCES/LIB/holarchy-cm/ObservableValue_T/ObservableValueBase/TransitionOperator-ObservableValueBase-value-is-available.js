@@ -55,6 +55,20 @@
                 const currentRevision = ocdResponse.result;
                 // The ObservableValue is "available" if it has been written once or more times since since activation / reset.
                 response.result = (currentRevision > -1);
+
+                if (!response.result) {
+                    // Check and see if there's a dact pending...
+                    ocdResponse = operatorRequest_.context.ocdi.readNamespace({ apmBindingPath: operatorRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.dact` });
+                    if (ocdResponse.error) {
+                        errors.push(ocdResponse.error);
+                        break;
+                    }
+                    const dact = ocdResponse.result;
+                    if (dact) {
+                        response.result = true;
+                    }
+                }
+
                 console.log(`> Answer is ${response.result} --- value cell is ${response.result?"AVAILABLE":"UNAVAILABLE"}.`);
                 break;
             }

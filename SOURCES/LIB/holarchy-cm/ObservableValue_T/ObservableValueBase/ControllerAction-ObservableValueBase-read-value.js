@@ -79,8 +79,53 @@
 
                 }
 
-                // Now we know the ObservableValue cell process is active (available).
-                // So, we can just read it and return the mailbox data to the caller.
+                // The ObservableValue cell process is active (available).
+
+                // If there's a dact --- a Deferred ACTion request, make the action request and then proceed w/the mailbox read.
+                // Otherwise, read and return whatever mailbox data was last written and cached by the cell.
+
+                ocdResponse = actionRequest_.context.ocdi.readNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: `${messageBody.path}.dact` });
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+
+                const dact = ocdResponse.result;
+
+                if (dact) {
+
+                    // We defer until somebody actually asks to read the value. And, they have. So, now we act...
+                    let actResponse = actionRequest_.context.act({
+                        actorName: actionName,
+                        actorTaskDescription: "Processing deferred action request to perform (presumably) some compute-intensive work required to produce and cache a new value.",
+                        actionRequest: dact,
+                        apmBindingPath: actionRequest_.context.apmBindingPath // Deferred action request is made in the context of the provider cell.
+                    });
+                    if (actResponse.error) {
+                        errors.push(actResponse.error);
+                        break;
+                    }
+
+                    const newValue = actResponse.result.actionResult;
+
+                    // Write the new value as if the work was already done before the readValue occurred.
+                    // Note that writeValue clears the dact because we only ever execute it once if it's set.
+                    actResponse = actionRequest_.context.act({
+                        actorName: actionName,
+                        actorTaskDescription: "Writing a lazily-evaluated value to our mailbox prior to servicing original read value request...",
+                        actionRequest: { holarchy: { common: { actions: { ObservableValue: { writeValue: { value: newValue, path: messageBody.path } } } } } },
+                        apmBindingPath: actionRequest_.context.apmBindingPath // Again, we make the action request in the context of the provider cell.
+                    });
+                    if (actResponse.error) {
+                        errors.push(actResponse.error);
+                        break;
+                    }
+
+                    // And, the reader never knows the difference ;-)
+
+                } // if dact
+
+                // Read the cell (the mailbox) return that value to the caller.
 
                 ocdResponse = actionRequest_.context.ocdi.readNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: messageBody.path });
                 if (ocdResponse.error) {

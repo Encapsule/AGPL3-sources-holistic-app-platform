@@ -41,6 +41,7 @@
                             value: { ...request_.specializationData.valueTypeSpec },
                         },
                         revision: { ____types: "jsNumber", ____defaultValue: -1 },
+                        dact: { ____accept: [ "jsUndefined", "jsObject" ] }
                     };
 
                     response.result = {
