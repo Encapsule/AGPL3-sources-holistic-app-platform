@@ -17,6 +17,7 @@
         actions: [
             require("./ControllerAction-ObservableValueBase-read-value"),
             require("./ControllerAction-ObservableValueBase-reset-value"),
+            require("./ControllerAction-ObservableValueBase-set-dact"),
             require("./ControllerAction-ObservableValueBase-write-value")
         ],
 

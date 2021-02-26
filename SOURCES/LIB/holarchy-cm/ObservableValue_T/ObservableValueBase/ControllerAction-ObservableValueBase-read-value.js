@@ -102,6 +102,7 @@
                         apmBindingPath: actionRequest_.context.apmBindingPath // Deferred action request is made in the context of the provider cell.
                     });
                     if (actResponse.error) {
+                        errors.push("Unable to process the deferred action request due to error:");
                         errors.push(actResponse.error);
                         break;
                     }
@@ -117,6 +118,7 @@
                         apmBindingPath: actionRequest_.context.apmBindingPath // Again, we make the action request in the context of the provider cell.
                     });
                     if (actResponse.error) {
+                        errors.push("Unable to write the new value yielded by the deferred action due to error:");
                         errors.push(actResponse.error);
                         break;
                     }
@@ -129,6 +131,7 @@
 
                 ocdResponse = actionRequest_.context.ocdi.readNamespace({ apmBindingPath: actionRequest_.context.apmBindingPath, dataPath: messageBody.path });
                 if (ocdResponse.error) {
+                    errors.push("Unfortunately there's been an unexpected error reading the ObservableValue mailbox value!");
                     errors.push(ocdResponse.error);
                     break;
                 }
