@@ -4,25 +4,21 @@
 
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
-    const cmtObservableValue = require("../cmtObservableValue");
-    const cmObservableValueProxyHelper = require("../ObservableValueProxy");
 
-    // const cmObservableValueBase = require("./ObservableValueBase");
-    // const cmtObservableValueProxyWorker = require("./ObservableValueProxyWorker_T");
+    const cmtObservableValue = require("../cmtObservableValue");
+    const cmObservableValueHelper = require("../ObservableValueHelper");
+
+    const cmtDisplayStreamMessage = require("./DisplayStreamMessage_T");
 
     const templateLabel = "DisplayView";
-
-    // const cellLib = require("./lib");
-
-
-    // const tableDisplayView = cmtDisplayView.synthesizeCellModel({ cellModelLabel: "Table", synthesizeRequest })
 
     const cmtDisplayView = new holarchy.CellModelTemplate({
         cmasScope: cmasHolarchyCMPackage,
         templateLabel,
         cellModelGenerator: {
-            synthesizeMethodRequestSpec: {
-                ____label: `${templateName}<X> Specialization Request`,
+
+            specializationDataSpec: {
+                 ____label: `${templateName}<X> Specialization Data`,
                 ____types: "jsObject",
 
                 description: {
@@ -42,6 +38,14 @@
                 }
             }
         },
+
+        /*
+          generatorRequest = {
+              cmtInstance, // reference to this CellModelTemplate template instance --- aka the DisplayView CellModel synthesizer.
+              cellModelLabel, // passed by cmtInstance.synthesizeCellModel from caller
+              specializationData // passed by cmtInstance.synthesizeCellModel from caller filtered per above spec
+          }
+        */
         generatorFilterBodyFunction: function(generatorRequest_) {
             let response = { error: null };
             let errors = [];
