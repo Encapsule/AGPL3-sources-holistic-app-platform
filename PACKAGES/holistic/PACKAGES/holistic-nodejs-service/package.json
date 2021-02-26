@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "Jsc74yTXTeSvEyK7ZOT52Q",
-    "buildSource": "83c2328291f0e0ccb50e7400cfafbe138b9c8b26",
-    "buildTime": 1614297036,
-    "codename": "malachite",
+    "buildID": "xmwVqOhrSPyh6EaAp73BiA",
+    "buildSource": "eeff2492346710e7e50b165a7a2ee328c098bd54",
+    "buildTime": 1614363930,
+    "codename": "citrine",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -31,8 +31,8 @@
     "name": "@encapsule/holistic-nodejs-service",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.10",
-        "@encapsule/holarchy": "0.0.53",
-        "@encapsule/holarchy-cm": "0.0.53",
+        "@encapsule/holarchy": "0.0.54",
+        "@encapsule/holarchy-cm": "0.0.54",
         "react": "16.12.0",
         "react-dom": "16.12.0"
     },
@@ -40,5 +40,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.53"
+    "version": "0.0.54"
 }
