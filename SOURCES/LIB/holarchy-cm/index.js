@@ -25,4 +25,7 @@ module.exports = {
 
     cmObservableValueHelper: require("./ObservableValueHelper"),
 
+    cmtDisplayView: require("./DisplayView_T"),
+    cmtDisplayStreamMessage: require("./DisplayView_T/DisplayStreamMessage_T")
+
 };

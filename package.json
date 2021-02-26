@@ -49,5 +49,6 @@
     "scripts": {
         "scrubdate": "make scrubdate",
         "test": "make test && git status"
-    }
+    },
+    "dependencies": {}
 }
