@@ -14,7 +14,7 @@
             this.toJSON = this.toJSON.bind(this);
             this.mapLabels = this.mapLabels.bind(this);
             this.makeSubspaceInstance = this.makeSubspaceInstance.bind(this);
-            this.getArtifactSpaceLabel = this.getArtifactSpaceLabel.bind(this);
+            // deprecate this.getArtifactSpaceLabel = this.getArtifactSpaceLabel.bind(this);
         }
 
         isValid() {
@@ -26,23 +26,31 @@
         }
 
         mapLabels(request_) {
-            return (this.isValid()?this._private.mapLabelsMethodFilter.request(request_):{ error: this.toJSON() });
+            return (this.isValid()?this._private.mapLabelsMethodFilter.request({ ...request_, cmasInstance: this }):{ error: this.toJSON() });
         }
 
         makeSubspaceInstance(request_) {
             if (!this.isValid()) {
                 return ({ error: this.toJSON() });
             }
-            const filterResponse = this._private.makeSubspaceInstanceMethodFilter.request(request_);
+            const filterResponse = this._private.makeSubspaceInstanceMethodFilter.request({ ...request_, cmasInstance: this });
             if (filterResponse.error) {
                 return filterResponse;
             }
             return new CellModelArtifactSpace(filterResponse.result);
         }
 
+        // deprecate?
+        /*
         getArtifactSpaceLabel() {
             return (this.isValid()?this._private.artifactSpaceLabel:this._private.constructorError);
         }
+        */
+
+        get spaceLabel() {
+            return (this.isValid()?this._private.spaceLabel:this._private.constructorError);
+        }
+
     }
 
     module.exports = CellModelArtifactSpace;

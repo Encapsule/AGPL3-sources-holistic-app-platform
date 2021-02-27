@@ -111,7 +111,7 @@
                 const cellModelGeneratorFilter = factoryResponse2.result;
 
                 response.result = {
-                    spaceLabel: cmasInstanceScope.getArtifactSpaceLabel(),
+                    spaceLabel: cmasInstanceScope.spaceLabel,
                     cellModelGeneratorFilter
                 };
 
