@@ -85,17 +85,74 @@
                },
 
                     bodyFunction: function(mapLabelsRequest_) {
-                        return ({
-                            error: null,
-                            result: {
+                        let response = { error: null };
+                        let errors = [];
+                        let inBreakScope = false;
+                        while (!inBreakScope) {
+                            inBreakScope = true;
+
+                            /* REJECT ZERO-LENGTH AND ENFORCE CM && ACT || CM && TOP
+                            Object.keys(mapLabelsRequest_).forEach((key_) => {
+                                console.log(key_);
+                                let checkValueLength = false;
+                                let cmLabelRequired = false;
+                                switch (key_) {
+                                case "CM":
+                                    checkValueLength = true;
+                                    break;
+                                case "APM":
+                                    checkValueLength = true;
+                                    break;
+                                case "ACT":
+                                    checkValueLength = true;
+                                    cmLabelRequired = true;
+                                    break;
+                                case "TOP":
+                                    checkValueLength = true;
+                                    cmLabelRequired = true;
+                                    break;
+                                case "OTHER":
+                                    checkValueLength = true;
+                                    break;
+                                default:
+                                    break;
+                                } // switch
+                                if (checkValueLength) {
+                                    if (mapLabelsRequest_[key_] && (mapLabelsRequest_[key_].length === 0)) {
+                                        console.error(`!!! DISCARDING BAD ${key_} VALUE "${mapLabelsRequest_[key_]}"!`);
+                                        delete mapLabelsRequest_[key_];
+                                    } else {
+                                        if (cmLabelRequired) {
+                                            if (!mapLabelsRequest_.CM || (mapLabelsRequest_.CM.length === 0)) {
+                                                console.error(`!!! DISCARDING BAD ${key_} VALUE "${mapLabelsRequest_[key_]}" SPECIFIED w/OUT ALSO SPECIFYING CM LABEL!`);
+                                                delete mapLabelsRequest_[key_];
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                            */
+
+                            response.result = {
                                 ...mapLabelsRequest_,
+                                cmasInstance: undefined,
                                 CMID:  mapLabelsRequest_.CM?arccore.identifier.irut.fromReference(`${mapLabelsRequest_.cmasInstance.spaceLabel}.CellModel.${mapLabelsRequest_.CM}`).result:undefined,
                                 APMID: mapLabelsRequest_.APM?arccore.identifier.irut.fromReference(`${mapLabelsRequest_.cmasInstance.spaceLabel}.AbstractProcessModel.${mapLabelsRequest_.APM}`).result:undefined,
-                                ACTID: mapLabelsRequest_.ACT?arccore.identifier.irut.fromReference(`${mapLabelsRequest_.cmasInstance.spaceLabel}.ControllerAction.${mapLabelsRequest_.ACT}`).result:undefined,
-                                TOPID: mapLabelsRequest_.TOP?arccore.identifier.irut.fromReference(`${mapLabelsRequest_.cmasInstance.spaceLabel}.TransitionOperator.${mapLabelsRequest_.TOP}`).result:undefined,
+                                ACTID: mapLabelsRequest_.ACT?arccore.identifier.irut.fromReference(`${mapLabelsRequest_.cmasInstance.spaceLabel}.ControllerAction.${mapLabelsRequest_.CM}::${mapLabelsRequest_.ACT}`).result:undefined,
+                                TOPID: mapLabelsRequest_.TOP?arccore.identifier.irut.fromReference(`${mapLabelsRequest_.cmasInstance.spaceLabel}.TransitionOperator.${mapLabelsRequest_.CM}::${mapLabelsRequest_.TOP}`).result:undefined,
                                 OTHERID: mapLabelsRequest_.OTHER?arccore.identifier.irut.fromReference(`${mapLabelsRequest_.cmasInstance.spaceLabel}.OtherAsset.${mapLabelsRequest_.OTHER}`).result:undefined
-                            }
-                        });
+                            };
+
+                            break;
+
+                        }
+
+                        if (errors.length) {
+                            response.error = errors.join(" ");
+                        }
+
+                        console.log(JSON.stringify(response));
+                        return response;
                     }
                 });
 
