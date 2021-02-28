@@ -4,12 +4,13 @@
 
     const holarchy = require("@encapsule/holarchy");
     const cmasHolisticHTML5ServicePackage = require("../cmasHolisticHTML5ServicePackage");
+
     const cmLabel = require("./cm-label");
     const actLabel = `${cmLabel}::hashchange`;
     const dlpLib = require("./lib");
 
-    module.exports = new holarchy.ControllerAction({
-        id: cmasHolisticHTML5ServicePackage.mapLabels({ ACT: actLabel }).result.ACTID,
+    const action = new holarchy.ControllerAction({
+        id: cmasHolisticHTML5ServicePackage.mapLabels({ CM: cmLabel, ACT: actLabel }).result.ACTID,
         name: actLabel,
         description: `Processes hashchange events from the DOM on behalf of ${cmLabel} cell.`,
         actionRequestSpec: {
@@ -133,6 +134,12 @@
             return response;
         }
     });
+
+    if (!action.isValid()) {
+        throw new Error(action.toJSON());
+    }
+
+    module.exports = action;
 
 })();
 

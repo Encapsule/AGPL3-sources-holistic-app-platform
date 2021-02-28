@@ -9,7 +9,7 @@
 
 
     const operator = new holarchy.TransitionOperator({
-        id: cmasObservableValueBase.mapLabels({ TOP: operatorName }).result.TOPID,
+        id: cmasObservableValueBase.mapLabels({ CM: cmLabel, TOP: operatorName }).result.TOPID,
         name: operatorName,
         description: "Returns Boolean true iff the ObservableValue cell process is in step 'observable-value-ready' (i.e. the ObservableValue cell value has been written since reset).",
         operatorRequestSpec: {

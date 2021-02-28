@@ -6,7 +6,7 @@
     const actionName = `${cmLabel} Write Value`;
 
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueBase.mapLabels({ ACT: actionName }).result.ACTID,
+        id: cmasObservableValueBase.mapLabels({ CM: cmLabel, ACT: actionName }).result.ACTID,
         name: actionName,
         description: "Writes a new value to any active cell of the family ObservableValue_T replacing the cell's current value and incrementing its revision count.",
         actionRequestSpec: {

@@ -11,7 +11,7 @@
     const actLabel = `${cmLabel}::configure`;
 
     const action = new holarchy.ControllerAction({
-        id: cmasHolisticHTML5ServicePackage.mapLabels({ ACT: actLabel }).result.ACTID,
+        id: cmasHolisticHTML5ServicePackage.mapLabels({ CM: cmLabel, ACT: actLabel }).result.ACTID,
         name: actLabel,
         description: "Used to set the runtime configuration of the process during service boot.",
         actionRequestSpec: {

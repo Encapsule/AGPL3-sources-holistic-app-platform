@@ -8,7 +8,7 @@
     const operatorName = `${cmLabel} Value Has Updated`;
 
     const operator = new holarchy.TransitionOperator({
-        id: cmasObservableValueBase.mapLabels({ TOP: operatorName }).result.TOPID,
+        id: cmasObservableValueBase.mapLabels({ CM: cmLabel, TOP: operatorName }).result.TOPID,
         name: operatorName,
         description: "Returns Boolean true iff the ObservableValue cell's value has been written (updated) since the last time a specific observer (the caller of the this operator) queried the ObservableValue for update(s).",
         operatorRequestSpec: {

@@ -9,7 +9,7 @@
     const lib = require("./lib");
 
     const operator = new holarchy.TransitionOperator({
-        id: cmasObservableValueHelper.mapLabels({ TOP: "hasLinkError" }).result.TOPID,
+        id: cmasObservableValueHelper.mapLabels({ CM: cmLabel, TOP: "hasLinkError" }).result.TOPID,
         name: operatorName,
         description: "Returns Boolean true if the specified ObservableValueHelper cell is not reset and not linked to the target ObservableValue cell's provider cell process.",
         operatorRequestSpec: {

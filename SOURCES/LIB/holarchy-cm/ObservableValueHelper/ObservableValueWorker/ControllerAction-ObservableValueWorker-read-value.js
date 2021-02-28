@@ -16,7 +16,7 @@
     const lib = require("./lib");
 
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueWorker.mapLabels({ ACT: "read" }).result.ACTID,
+        id: cmasObservableValueWorker.mapLabels({ CM: cmLabel, ACT: "read" }).result.ACTID,
         name: actionName,
         description: "Reads the type-specialized ObservableValue cell's value and version mailbox descriptor value.",
         actionRequestSpec: {

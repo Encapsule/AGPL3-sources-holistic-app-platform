@@ -9,7 +9,7 @@
     const lib = require("./lib");
 
     const operator = new holarchy.TransitionOperator({
-        id: cmasObservableValueHelper.mapLabels({ TOP: "valueHasUpdated" }).result.TOPID,
+        id: cmasObservableValueHelper.mapLabels({ CM: cmLabel, TOP: "valueHasUpdated" }).result.TOPID,
         name: operatorName,
         description: "Returns Boolean true if the target ObservableValue cell's value has been written since we last read the value.",
         operatorRequestSpec: {

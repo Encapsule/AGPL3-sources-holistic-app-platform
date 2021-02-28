@@ -8,7 +8,7 @@
     const operatorName = `${cmLabel} Value Is Active`;
 
     const operator = new holarchy.TransitionOperator({
-        id: cmasObservableValueBase.mapLabels({ TOP: operatorName }).result.TOPID,
+        id: cmasObservableValueBase.mapLabels({ CM: cmLabel, TOP: operatorName }).result.TOPID,
         name: operatorName,
         description: "Returns Boolean true iff the ObservableValue cell exists in the cellplane at the specified path / coordinates.",
         operatorRequestSpec: {

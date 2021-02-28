@@ -8,7 +8,7 @@
     const actionName = `${cmLabel} Read Value`;
 
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueBase.mapLabels({ ACT: actionName }).result.ACTID,
+        id: cmasObservableValueBase.mapLabels({ CM: cmLabel, ACT: actionName }).result.ACTID,
         name: actionName,
         description: "Reads and returns an ObervableValue from any active cell that is a member of the ObservableValue CellModel family.",
         actionRequestSpec: {

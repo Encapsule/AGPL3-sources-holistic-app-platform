@@ -8,7 +8,7 @@
     const actionName = `${cmLabel} Set Deferred Action`;
 
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueBase.mapLabels({ ACT: actionName }).result.ACTID,
+        id: cmasObservableValueBase.mapLabels({ CM: cmLabel, ACT: actionName }).result.ACTID,
         name: actionName,
         description: "Sets a deferred action on an ObservableValue that will yield a new value to return opportunistically when the ObservableValue mailbox value is read.",
         actionRequestSpec: {

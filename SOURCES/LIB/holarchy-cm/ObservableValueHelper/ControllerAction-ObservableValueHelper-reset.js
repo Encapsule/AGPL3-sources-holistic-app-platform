@@ -11,7 +11,7 @@
     const actionName = `${cmLabel} Reset Helper`;
     const lib = require("./lib");
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueHelper.mapLabels({ ACT: "reset" }).result.ACTID,
+        id: cmasObservableValueHelper.mapLabels({ CM: cmLabel, ACT: "reset" }).result.ACTID,
         name: actionName,
         description: "Resets the specified ObservableValueHelper cell back to its reset process step.",
         actionRequestSpec: {

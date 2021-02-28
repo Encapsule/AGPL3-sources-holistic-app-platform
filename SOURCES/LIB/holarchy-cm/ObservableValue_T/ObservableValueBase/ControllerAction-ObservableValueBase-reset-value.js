@@ -8,7 +8,7 @@
     const actionName = `${cmLabel} Reset Value`;
 
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueBase.mapLabels({ ACT: actionName }).result.ACTID,
+        id: cmasObservableValueBase.mapLabels({ CM: cmLabel, ACT: actionName }).result.ACTID,
         name: actionName,
         description: "Resets any active ObervableValue cell deleting its value and reseting its revision back to -1 (reset).",
         actionRequestSpec: {

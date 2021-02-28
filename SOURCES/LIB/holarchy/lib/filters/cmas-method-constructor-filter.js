@@ -91,47 +91,37 @@
                         while (!inBreakScope) {
                             inBreakScope = true;
 
-                            /* REJECT ZERO-LENGTH AND ENFORCE CM && ACT || CM && TOP
-                            Object.keys(mapLabelsRequest_).forEach((key_) => {
+                            // REJECT ZERO-LENGTH AND ENFORCE CM && ACT || CM && TOP
+                            let badCheck = false;
+
+                            const keys = Object.keys(mapLabelsRequest_);
+
+                            keys.forEach((key_) => {
                                 console.log(key_);
-                                let checkValueLength = false;
-                                let cmLabelRequired = false;
-                                switch (key_) {
-                                case "CM":
-                                    checkValueLength = true;
-                                    break;
-                                case "APM":
-                                    checkValueLength = true;
-                                    break;
-                                case "ACT":
-                                    checkValueLength = true;
-                                    cmLabelRequired = true;
-                                    break;
-                                case "TOP":
-                                    checkValueLength = true;
-                                    cmLabelRequired = true;
-                                    break;
-                                case "OTHER":
-                                    checkValueLength = true;
-                                    break;
-                                default:
-                                    break;
-                                } // switch
-                                if (checkValueLength) {
-                                    if (mapLabelsRequest_[key_] && (mapLabelsRequest_[key_].length === 0)) {
-                                        console.error(`!!! DISCARDING BAD ${key_} VALUE "${mapLabelsRequest_[key_]}"!`);
-                                        delete mapLabelsRequest_[key_];
-                                    } else {
-                                        if (cmLabelRequired) {
-                                            if (!mapLabelsRequest_.CM || (mapLabelsRequest_.CM.length === 0)) {
-                                                console.error(`!!! DISCARDING BAD ${key_} VALUE "${mapLabelsRequest_[key_]}" SPECIFIED w/OUT ALSO SPECIFYING CM LABEL!`);
-                                                delete mapLabelsRequest_[key_];
+                                if (mapLabelsRequest_[key_] !== undefined) {
+                                    if (["CM", "APM", "ACT", "TOP", "OTHER" ].indexOf(key_) > -1) {
+
+                                        if (mapLabelsRequest_[key_].length === 0) {
+
+                                            console.error(`!!! DISCARDING BAD ${key_} VALUE "${mapLabelsRequest_[key_]}"!`);
+                                            console.log(`Error in space "${mapLabelsRequest_.cmasInstance.spaceLabel}".`);
+                                            delete mapLabelsRequest_[key_];
+
+                                        } else {
+
+                                            if (["ACT", "TOP"].indexOf(key_) > -1) {
+
+                                                const cmLabel = mapLabelsRequest_.CM;
+                                                if ((cmLabel === undefined) || (cmLabel.length === 0)) {
+                                                    console.error(`!!! DISCARDING BAD ${key_} VALUE "${mapLabelsRequest_[key_]}" SPECIFIED w/OUT ALSO SPECIFYING CM LABEL!`);
+                                                    console.log(`Error in space "${mapLabelsRequest_.cmasInstance.spaceLabel}".`);
+                                                    delete mapLabelsRequest_[key_];
+                                                }
                                             }
                                         }
                                     }
                                 }
                             });
-                            */
 
                             response.result = {
                                 ...mapLabelsRequest_,

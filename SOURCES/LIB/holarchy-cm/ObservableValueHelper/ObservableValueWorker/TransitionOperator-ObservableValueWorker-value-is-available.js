@@ -9,7 +9,7 @@
     const lib = require("./lib");
 
     const operator = new holarchy.TransitionOperator({
-        id: cmasObservableValueWorker.mapLabels({ TOP: "valueIsAvailable" }).result.TOPID,
+        id: cmasObservableValueWorker.mapLabels({ CM: cmLabel, TOP: "valueIsAvailable" }).result.TOPID,
         name: operatorName,
         description: "Returns Boolean true if the target ObservableValue cell's value has been written at least once by its provider cell process.",
         operatorRequestSpec: {

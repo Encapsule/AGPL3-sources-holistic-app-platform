@@ -12,7 +12,7 @@
     const lib = require("./lib");
 
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueWorker.mapLabels({ APM: "stepWorker" }).result.APMID,
+        id: cmasObservableValueWorker.mapLabels({ CM: cmLabel, ACT: "stepWorker" }).result.ACTID,
         name: actionName,
         description: `Private evaluation implementation action of ${cmLabel}.`,
         actionRequestSpec: {

@@ -9,7 +9,7 @@
     const lib = require("./lib");
 
     const operator = new holarchy.TransitionOperator({
-        id: cmasObservableValueHelper.mapLabels({ TOP: "valueIsActive" }).result.TOPID,
+        id: cmasObservableValueHelper.mapLabels({ CM: cmLabel, TOP: "valueIsActive" }).result.TOPID,
         name: operatorName,
         description: "Returns Boolean true if the target ObservableValue cell is active.",
         operatorRequestSpec: {

@@ -11,7 +11,7 @@
     const configurationSpec = { ...apmObservableValueHelper._private.declaration.ocdDataSpec.configuration, ____defaultValue: undefined, observableValue: { ...apmObservableValueHelper._private.declaration.ocdDataSpec.configuration.observableValue, ____defaultValue: undefined } };
 
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueHelper.mapLabels({ ACT: "getLinkError" }).result.ACTID,
+        id: cmasObservableValueHelper.mapLabels({ CM: cmLabel, ACT: "getLinkError" }).result.ACTID,
         name: `${cmLabel} Get Link Error`,
         description: "Retrieves link error message string if the process is in the observable-value-helper-link-error step. Or, null.",
         actionRequestSpec: {
