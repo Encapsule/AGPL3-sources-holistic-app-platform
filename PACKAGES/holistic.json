@@ -1,6 +1,6 @@
 {
     "name": "holistic",
-    "description": "A domain and process modeling system for building Node.js/HTML5 SaaS and PaaS products dynamically from JSON data + remixable plug-ins written in JavaScript.",
+    "description": "A platform for building distributed software systems with reusable JavaScript CellModel plug-ins. And, System-in-Cloud (SiC) information circuit architecture.",
     "version": "0.0.54",
     "codename": "citrine",
     "author": "Encapsule",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "h-SrYvDIRHin5c5w_f56iw",
-    "buildSource": "71c170700c188a9330cedc9cb367fae81687bf81",
-    "buildTime": 1614548194,
-    "buildDateISO": "2021-02-28T21:36:34.000Z"
+    "buildID": "qiVt26VdS1KIrpvfxYYoig",
+    "buildSource": "67679779f632975858a76e469bfed4dd1f28dc88",
+    "buildTime": 1614621170,
+    "buildDateISO": "2021-03-01T17:52:50.000Z"
 }
