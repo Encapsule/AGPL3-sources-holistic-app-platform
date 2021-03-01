@@ -14,9 +14,9 @@
         operationDescription: "Processes the request value passed to CellModelTemplate::constructor function.",
         inputFilterSpec: require("./iospecs/cmt-method-constructor-input-spec"),
         outputFilterSpec: {
-            // WIP
             ____types: "jsObject",
             spaceLabel: { ____accept: "jsString" },
+            templateLabel: { ____accept: "jsString" },
             generatorBodyFunction: { ____accept: "jsFunction" }, // This will be a raw function.
             cellModelGeneratorFilter: { ____accept: "jsObject" } // This will be an @encapsule/arccore.filter object.
         },
@@ -99,7 +99,7 @@
                         ____label: "CellModelTemplate::synthesizeCellModel Result",
                         ____description: "A @encapsule/holarchy CellModel::constructor request descriptor object synthesized by this filter."
                     },
-                    bodyFunction: function(generateCellModelRequest_) {
+                    bodyFunction: function(generateRequest_) {
                         let response = { error: null };
                         let errors = [];
                         let inBreakScope = false;
@@ -107,20 +107,50 @@
                             inBreakScope = true;
                             try {
 
-                                if (generateCellModelRequest_.cmasScope) {
+                                let cmtInstance = generateRequest_.cmtInstance; // According to the CellModelTemplate class instance.
+
+                                if (generateRequest_.cmasScope) { // ... but, whomever is calling synthesizeCellModel wants to use their own CMAS instead of our template's intrinsic CMAS. Okay...
+
                                     // cmasSynthScope is (or should be) one of several types of objects:
                                     // - CellModelArtifactSpace class instance
-                                    // - CellModelArtifactSpace::constructor request
+                                    // ? CellModelArtifactSpace::constructor request - Seems rather an exotic case. The main use case is to pass in reference to a cmtInstance here from another generatorBodyFunction.
                                     // - CellModelTemplate class instance that extends CellModelArtifactSpace
-                                    // - CellModelTemplate::constructor request
+                                    // X CellModelTemplate::constructor request --- NAH, not going to support this option
                                     // Determine which of these and instantiate a new CellModelTemplate based on generateCellModelReqeust_.cmtInstance
-                                    
-                                    // Regardless, we want to create a new CellModelTemplate instance based on generateCellModelRequest_.cmtInstance
-                                    // that uses the indicated CMAS scope instead of its intrinsic. We cannot simply reset the intrinsic scope of cmtInstance!
+
+                                    // We really don't care if the caller passed us a CellModelTemplate instance. We just want to know its CMAS.
+                                    let cmasScope = (generateRequest_.cmasScope instanceof CellModelArtifactSpace)?generateRequest_.cmasScope:(new CellModelArtifactSpace(generateRequest_.cmasScope));
+                                    if (!cmasScope.isValid()) {
+                                        errors.push(cmasScope.toJSON());
+                                        break;
+                                    }
+                                    // Now we need a new CellModelTemplate instance to pass to our generatorBodyFunction instead of our own...
+                                    // Note that the new CellModelTemplate instance does exactly what this one does. Except, that CellModel
+                                    // generated via the instance's synthesizeCellModel method will be placed in the specified CMAS.
+
+                                    cmtInstance = new generateRequest_.cmtClass({
+                                        cmasScope,
+                                        templateLabel: generateRequest_.cmtInstance._private.templateLabel,
+                                        cellModelGenerator: {
+                                            specializationDataSpec: generateRequest_.cmtInstance._private.cellModelGeneratorFilter.filterDescriptor.inputFilterSpec.specializationData,
+                                            generatorFilterBodyFunction: generateRequest_.cmtInstance._private.generatorBodyFunction
+                                        }
+                                    });
+                                    if (!cmtInstance.isValid()) {
+                                        errors.push(cmtInstance.toJSON());
+                                        break;
+                                    }
+                                    cmtInstance._private.spaceLabel = cmasScope.spaceLabel; // zap the spaceLabel and keep everything else the same. This keeps the template names nice.
 
                                 }
 
-                                let innerResponse = generateCellModelRequest_.cmtInstance._private.generatorBodyFunction({ ...generateCellModelRequest_, cmasSynthScope: undefined });
+                                const innerRequest = {
+                                    cmtInstance,
+                                    cellModelLabel: generateRequest_.cellModelLabel,
+                                    specializationData: generateRequest_.specializationData
+                                };
+
+                                let innerResponse = generateRequest_.cmtInstance._private.generatorBodyFunction(innerRequest);
                                 if (innerResponse.error) {
                                     errors.push(innerResponse.error);
                                     break;
@@ -148,6 +178,7 @@
 
                 response.result = {
                     spaceLabel: cmasInstanceScope.spaceLabel,
+                    templateLabel: constructorRequest_.templateLabel,
                     generatorBodyFunction: constructorRequest_.cellModelGenerator.generatorFilterBodyFunction,
                     cellModelGeneratorFilter
                 };

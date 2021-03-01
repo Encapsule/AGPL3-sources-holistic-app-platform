@@ -44,7 +44,7 @@
 
                     const displayStreamMessageLabel = `${templateLabel}<${generatorRequest_.cellModelLabel}>`;
 
-                    const apmID = generatorRequest_.cmtInstance.mapLabels({ APM: generatorRequest_.cellModelLabel }).result.APMID;
+                    const apmID = generatorRequest_.cmtInstance.mapLabels({ APM: displayStreamMessageLabel }).result.APMID;
 
                     // Set the invariant portions of all DisplayStreamMessage family members.
 
@@ -70,6 +70,7 @@
                     displayStreamMessageSpec.renderData[apmID] = { ...generatorRequest_.specializationData.renderDataPropsSpec };
 
                     let synthResponse = cmtObservableValue.synthesizeCellModel({
+                        cmasScope: generatorRequest_.cmtInstance,
                         cellModelLabel: displayStreamMessageLabel,
                         specializationData: {
                             valueTypeDescription: `An ObservableValue<${displayStreamMessageLabel}<${generatorRequest_.cellModelLabel}>> CellModel.`,
@@ -83,8 +84,8 @@
 
                     const ovCellModel = synthResponse.result;
 
-                    ovCellModel.id = generatorRequest_.cmtInstance.mapLabels({ CM: generatorRequest_.cellModelLabel }).result.CMID;
-                    ovCellModel.apm.id = generatorRequest_.cmtInstance.mapLabels({ APM: generatorRequest_.cellModelLabel }).result.APMID;
+                    let x = generatorRequest_.cmtInstance.mapLabels({ CM: generatorRequest_.cellModelLabel }).result.CMID;
+                    let y = generatorRequest_.cmtInstance.mapLabels({ APM: generatorRequest_.cellModelLabel }).result.APMID;
 
                     response.result = ovCellModel;
 
