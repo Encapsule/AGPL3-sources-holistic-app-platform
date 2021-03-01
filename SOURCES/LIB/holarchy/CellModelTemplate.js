@@ -25,7 +25,7 @@
         }
 
         synthesizeCellModel(request_) {
-            return (this.isValid()?this._private.cellModelGeneratorFilter.request({ ...request_, cmtInstance: this }):{ error: this.toJSON() });
+            return (this.isValid()?this._private.cellModelGeneratorFilter.request({ ...request_, cmtClass: CellModelTemplate, cmtInstance: this }):{ error: this.toJSON() });
         }
 
 
