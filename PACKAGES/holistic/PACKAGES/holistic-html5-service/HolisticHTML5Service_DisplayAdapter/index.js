@@ -137,15 +137,11 @@
                   break;
                 }
 
-                var displayAdapterStatus = hacdLibResponse.result;
-                var displayAdapterCellData = displayAdapterStatus.cellMemory;
-                displayAdapterCellData.config = {
-                  targetDOMElementID: targetDOMElementID,
-                  targetDOMElement: targetDOMElement,
-                  ComponentRouter: ComponentRouter
-                };
+                var _hacdLibResponse$resu = hacdLibResponse.result,
+                    cellMemory = _hacdLibResponse$resu.cellMemory,
+                    cellProcess = _hacdLibResponse$resu.cellProcess;
                 var ocdResponse = request_.context.ocdi.writeNamespace({
-                  apmBindingPath: displayAdapterStatus.displayAdapterProcess.apmBindingPath,
+                  apmBindingPath: cellProcess.apmBindingPath,
                   dataPath: "#.config"
                 }, {
                   targetDOMElementID: targetDOMElementID,

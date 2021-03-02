@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "qiVt26VdS1KIrpvfxYYoig",
-    "buildSource": "67679779f632975858a76e469bfed4dd1f28dc88",
-    "buildTime": 1614621170,
-    "codename": "citrine",
+    "buildID": "ghUYwmM5Sw-xd_cFQAhxzA",
+    "buildSource": "31b688b38d349c47ea5aee32ec56ade537107580",
+    "buildTime": 1614677243,
+    "codename": "iolite",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -36,11 +36,11 @@
     "name": "@encapsule/holism-services",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.10",
-        "@encapsule/holism": "0.0.54"
+        "@encapsule/holism": "0.0.55"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.54"
+    "version": "0.0.55"
 }

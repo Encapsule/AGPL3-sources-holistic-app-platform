@@ -71,8 +71,8 @@
         }
 
         var _hacdResponse$result = hacdResponse.result,
-            displayAdapterStatus = _hacdResponse$result.displayAdapterStatus,
-            displayAdapterCellData = _hacdResponse$result.displayAdapterCellData; // TODO: Update to more modern conventions. This is old code from March, 2020.
+            cellMemory = _hacdResponse$result.cellMemory,
+            cellProcess = _hacdResponse$result.cellProcess; // TODO: Update to more modern conventions. This is old code from March, 2020.
         // Okay, so... request_.context.apmBindingPath is set to who knows what actually.
         // But, no matter; we know the cell process coordinates of the display adapter because it's a singleton created by the kernel.
         // And, we force the caller to suppy the cell process coordinates of the DisplayView family member cell to register.
@@ -90,9 +90,11 @@
                     configure: {
                       path: "#.inputs.displayViewStream",
                       configuration: {
-                        processCoordinates: messageBody.processCoordinates,
-                        path: "#.outputs.displayView" // TODO make consistent w/above
+                        observableValue: {
+                          processCoordinates: messageBody.processCoordinates,
+                          path: "#.outputs.displayView" // TODO make consistent w/above
 
+                        }
                       }
                     }
                   }
@@ -100,7 +102,7 @@
               }
             }
           },
-          apmBindingPath: displayAdapterStatus.displayAdapterProcess.apmBindingPath
+          apmBindingPath: cellProcess.apmBindingPath
         });
 
         if (actResponse.error) {
