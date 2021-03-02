@@ -16,7 +16,7 @@ const arccore = require("@encapsule/arccore");
             ____label: "Holistic App Client Display Adapter Process Memory & Status",
             ____types: "jsObject",
             cellMemory: { ____accept: "jsObject" },
-            displayAdapterProcess: { ____accept: "jsObject" }
+            cellProcess: { ____accept: "jsObject" }
         },
         bodyFunction: function(request_) {
             let response = { error: null };
@@ -44,7 +44,7 @@ const arccore = require("@encapsule/arccore");
                 }
                 response.result = {
                     cellMemory: ocdResponse.result,
-                    displayAdapterProcess: cachedKernelProcessQuery
+                    cellProcess: cachedKernelProcessQuery
                 };
                 break;
             }

@@ -117,7 +117,7 @@ const arccore = require("@encapsule/arccore");
   <h2>Fatal Exception in ${request_.appBuild.app.name} Tab Service Process</h2>
   <p>Sorry to report that the ${request_.appBuild.app.name} tab service has crashed due to a fatal exception.</p>
   <p>To get to the bottom of this:
-  <ul><li>Read the error carefully.</li><li>Set breakpoints.</li><li>Then, <a href="/">reboot</a> the tab service.</li></ul>
+  <ul><li>Read the error carefully.</li><li>Set breakpoints.</li><li>Then, <a href="/"><h3>reboot</h3></a> the tab service.</li></ul>
   </p>
   <div style="${initPhaseStyles}">
   <p>${request_.headerText}</p>

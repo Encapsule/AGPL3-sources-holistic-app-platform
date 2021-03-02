@@ -125,16 +125,9 @@
                                         errors.push(hacdLibResponse.error);
                                         break;
                                     }
-                                    const displayAdapterStatus = hacdLibResponse.result;
-                                    let displayAdapterCellData = displayAdapterStatus.cellMemory;
+                                    const { cellMemory, cellProcess } = hacdLibResponse.result;
 
-                                    displayAdapterCellData.config = {
-                                        targetDOMElementID,
-                                        targetDOMElement,
-                                        ComponentRouter
-                                    };
-
-                                    let ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: displayAdapterStatus.displayAdapterProcess.apmBindingPath, dataPath: "#.config" }, { targetDOMElementID, targetDOMElement, ComponentRouter });
+                                    let ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: cellProcess.apmBindingPath, dataPath: "#.config" }, { targetDOMElementID, targetDOMElement, ComponentRouter });
                                     if (ocdResponse.error) {
                                         errors.push(ocdResponse.error);
                                         break;

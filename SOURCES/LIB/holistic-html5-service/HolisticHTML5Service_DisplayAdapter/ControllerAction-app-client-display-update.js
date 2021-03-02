@@ -83,10 +83,13 @@ const controllerAction = new holarchy.ControllerAction({
                     errors.push(hacdLibResponse.error);
                     break;
                 }
+
+                const { cellMemory, cellProcess } = hacdLibResponse.result;
+
                 const displayAdapterStatus = hacdLibResponse.result;
                 let displayAdapterCellData = displayAdapterStatus.cellMemory;
 
-                if (displayAdapterCellData.__apmiStep !== "display-adapter-ready") {
+                if (cellMemory.__apmiStep !== "display-adapter-ready") {
                     errors.push("This action may only be called once the app client display adapter process is in its \"display-adapter-ready\" step.");
                     break;
                 }
@@ -95,7 +98,7 @@ const controllerAction = new holarchy.ControllerAction({
                     ...messageBody.thisProps,
                     renderContext: {
                         // NOTE: serverRender Boolean flag is not set here; it is only ever set during initial server-side rendering and initial client-side display activation.
-                        ComponentRouter: displayAdapterCellData.config.ComponentRouter,
+                        ComponentRouter: cellMemory.config.ComponentRouter,
                         act: request_.context.act,
                         apmBindingPath: messageBody.renderContext.apmBindingPath?messageBody.renderContext.apmBindingPath:request_.context.apmBindingPath
                     }
@@ -105,17 +108,17 @@ const controllerAction = new holarchy.ControllerAction({
                     thisProps.renderData = messageBody.renderData;
                 }
 
-                let d2r2Component = React.createElement(displayAdapterCellData.config.ComponentRouter, thisProps);
-                ReactDOM.render(d2r2Component, displayAdapterCellData.config.targetDOMElement);
+                let d2r2Component = React.createElement(cellMemory.config.ComponentRouter, thisProps);
+                ReactDOM.render(d2r2Component, cellMemory.config.targetDOMElement);
 
-                displayAdapterCellData.displayUpdateCount += 1;
-                const ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: displayAdapterStatus.displayAdapterProcess.apmBindingPath, dataPath: "#.displayUpdateCount" }, displayAdapterCellData.displayUpdateCount);
+                cellMemory.displayUpdateCount += 1;
+                const ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: cellProcess.apmBindingPath, dataPath: "#.displayUpdateCount" }, cellMemory.displayUpdateCount);
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
                 }
 
-                console.log(`> d2r2/React display process update #${displayAdapterCellData.displayUpdateCount} completed.`);
+                console.log(`> d2r2/React display process update #${cellMemory.displayUpdateCount} completed.`);
                 break;
             } catch (exception_) {
                 errors.push("AN EXCEPTION OCCURRED INSIDE THE APP CLIENT DISPLAY ADAPATER UPDATE ACTION:");

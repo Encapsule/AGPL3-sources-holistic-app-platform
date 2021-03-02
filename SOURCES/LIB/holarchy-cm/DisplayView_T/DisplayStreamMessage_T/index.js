@@ -21,7 +21,6 @@
                 description: { ____accept: "jsString" },
                 renderDataPropsSpec: {
                     ____accept: "jsObject",
-                    ____defaultValue: { ____types: "jsObject", ____appdsl: { missingRenderDataPropsSpec: true } }
                 }
 
             },

@@ -66,6 +66,8 @@
                     errors.push(hacdLibResponse.error);
                     break;
                 }
+
+                const { cellMemory, cellProcess } = hacdLibResponse.result;
                 const displayAdapterStatus = hacdLibResponse.result;
                 let displayAdapterCellData = displayAdapterStatus.cellMemory;
 
@@ -77,7 +79,7 @@
                 const thisProps = {
                     renderContext: {
                         serverRender: true,
-                        ComponentRouter: displayAdapterCellData.config.ComponentRouter,
+                        ComponentRouter: cellMemory.config.ComponentRouter,
                         act: request_.context.act,
                         apmBindingPath: request_.context.apmBindingPath // This will be the holistic app client kernel - not a view process.
                     },
@@ -87,24 +89,24 @@
                 // This re-renders the exact context rendered via ReactDOM by the app server process again in the client
                 // using markers embedded by React to make it fast. Effectively, this runs the React components through
                 // their full lifecycle (whereas they are not mounted ever in the context of the app server process).
-                let d2r2Component = React.createElement(displayAdapterCellData.config.ComponentRouter, thisProps);
-                ReactDOM.hydrate(d2r2Component, displayAdapterCellData.config.targetDOMElement);
+                let d2r2Component = React.createElement(cellMemory.config.ComponentRouter, thisProps);
+                ReactDOM.hydrate(d2r2Component, cellMemory.config.targetDOMElement);
                 console.log("> App server display process has been re-activated from deserialized bootDOM data via React.hydrate API.");
 
                 // Re-render flipping the renderEnvironment flag to "client". Typically, this is used by the rendering d2r2 Component to trigger some sort of loading/spinner transition.
                 delete thisProps.renderContext.serverRender;
-                d2r2Component = React.createElement(displayAdapterCellData.config.ComponentRouter, thisProps);
-                ReactDOM.render(d2r2Component, displayAdapterCellData.config.targetDOMElement);
+                d2r2Component = React.createElement(cellMemory.config.ComponentRouter, thisProps);
+                ReactDOM.render(d2r2Component, cellMemory.config.targetDOMElement);
                 console.log("> App server display process has been replaced w/client display process from deserialized bootROM data via React.render API.");
 
-                displayAdapterCellData.displayUpdateCount += 1;
-                const ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: displayAdapterStatus.displayAdapterProcess.apmBindingPath, dataPath: "#.displayUpdateCount" }, displayAdapterCellData.displayUpdateCount);
+                cellMemory.displayUpdateCount += 1;
+                const ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: cellProcess.apmBindingPath, dataPath: "#.displayUpdateCount" }, cellMemory.displayUpdateCount);
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
                 }
 
-                console.log(`> App client display process activation via d2r2/React update #${displayAdapterCellData.displayUpdateCount} complete.`);
+                console.log(`> App client display process activation via d2r2/React update #${cellMemory.displayUpdateCount} complete.`);
 
                 break;
             }
