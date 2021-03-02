@@ -89,10 +89,12 @@
                         actionRequest: {
                             holarchy: {
                                 common: {
-                                    ObservableValue: {
-                                        writeValue: {
-                                            value: routerEventDescriptor,
-                                            path: "#.outputs.domLocation" // Relative to apmBindingPath
+                                    actions: {
+                                        ObservableValue: {
+                                            writeValue: {
+                                                value: routerEventDescriptor,
+                                                path: "#.outputs.domLocation" // Relative to apmBindingPath
+                                            }
                                         }
                                     }
                                 }
