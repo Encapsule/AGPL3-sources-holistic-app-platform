@@ -13,6 +13,8 @@
 */
 var holarchy = require("@encapsule/holarchy");
 
+var holarchyCM = require("@encapsule/holarchy-cm");
+
 var apm = new holarchy.AbstractProcessModel({
   id: "IxoJ83u0TXmG7PLUYBvsyg",
   name: "Holistic Client App Kernel: d2r2/React Client Display Adapter",
@@ -46,6 +48,18 @@ var apm = new holarchy.AbstractProcessModel({
         ____label: "d2r2 <ComponentRouter/> React Component",
         ____opaque: true // This is a d2r2 <ComponentRouter/> React class used to dynamically update the display layout.
 
+      }
+    },
+    inputs: {
+      ____types: "jsObject",
+      ____defaultValue: {},
+      displayViewStream: {
+        ____types: "jsObject",
+        ____appdsl: {
+          apm: holarchyCM.cmasHolarchyCMPackage.mapLabels({
+            APM: "ObservableValueHelper"
+          }).result.APMID
+        }
       }
     },
     displayUpdateCount: {
