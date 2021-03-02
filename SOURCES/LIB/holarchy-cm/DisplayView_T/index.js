@@ -112,7 +112,20 @@
                                     }
 
                                 }
-                            }
+                            }, // ~.apm.ocdDataSpec
+                            steps: {
+                                uninitialized: {
+                                    description: "Default starting step of activated cell.",
+                                    transitions: [
+                                        { transitionIf: { always: true }, nextStep: "display-view-ready" }
+                                    ]
+                                },
+
+                                "display-view-ready": {
+                                    description: "It's not really ready yet. But, let's say it is."
+                                }
+
+                            } // ~.apm.steps
                         },
 
                         subcells: [
