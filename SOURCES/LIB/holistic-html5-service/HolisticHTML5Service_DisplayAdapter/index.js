@@ -1,15 +1,20 @@
 
-const arccore = require("@encapsule/arccore");
-const holarchy = require("@encapsule/holarchy");
-const d2r2 = require("@encapsule/d2r2");
-const hacdLib = require("./lib");
 
 (function() {
 
+    const arccore = require("@encapsule/arccore");
+    const holarchy = require("@encapsule/holarchy");
+    const cmasHolisticHTML5ServicePackage = require("../cmasHolisticHTML5ServicePackage");
+    const cmLabel = require("./cell-label");
+
+    const hacdLib = require("./lib");
+    const d2r2 = require("@encapsule/d2r2");
+
+
     const factoryResponse = arccore.filter.create({
         operationID: "IN0xuhS8RQ6F3_M5uXiadg",
-        operationName: "Holistic Tab Service Display Adapter CellModel Factory",
-        operationDescription: "Used to synthesize a specialized HolisticTabService display adapter CellModel for use by HolisticTabService instance.",
+        operationName: `${cmLabel} CellModel Factory`,
+        operationDescription: "Used to synthesize a specialized HolisticTabService display adapter CellModel for use by HolisticHTML5Service_Kernel cell process.",
         inputFilterSpec: {
             ____types: "jsObject",
             appBuild: {
@@ -18,7 +23,7 @@ const hacdLib = require("./lib");
             appModels: {
                 ____types: "jsObject",
                 display: {
-                    ____label: "Holistic Tab Service Display Adapter Specializations",
+                    ____label: `${cmLabel} Specializations`,
                     ____types: "jsObject",
                     targetDOMElementID: {
                         ____accept: "jsString" // This is the platform's selected DOM element id string value used by the caller to obtain targetDOMElement from the DOM.
@@ -72,15 +77,19 @@ const hacdLib = require("./lib");
                 const ComponentRouter = factoryResponse.result;
 
                 const cellModel = new holarchy.CellModel({
-                    id: "UX7JquBhSZO0QyEk7u9-sw",
-                    name: "d2r2/React Display Adapter",
+                    id: "UX7JquBhSZO0QyEk7u9-sw", // TODO: Change to mapLabels and update the kernel to follow the new IRUT ID resolution protocol for APM ID
+                    name: `${cmLabel} Model`,
                     description: "Manages the DOM display via @encapsule/d2r2 and React.",
                     apm: require("./AbstractProcessModel-app-client-display-adapter"),
                     actions: [
+
+                        // ----------------------------------------------------------------
                         {
-                            // v0.0.49-spectrolite this is interesting. But, this means to the end is suspect. Come back and stare at this later; this should easy all the time for everyone everywhere.
+                            // TODO: Don't do this I think... (not this way at least - this can be much much simpler / cleaner).
+                            // ... generic action that returns a result pulled from closure scope is rather suspsect here...
+
                             id: "o24IDZhRRA6MbUoOcT15EQ",
-                            name: "d2r2/React Display Adapter: Load Config",
+                            name: `${cmLabel} Load Config`,
                             description: "Bootstraps information from CellModel construction scope into the cell's memory.",
                             actionRequestSpec: {
                                 ____types: "jsObject",
@@ -137,17 +146,20 @@ const hacdLib = require("./lib");
                                 }
                                 return response;
                             }
-                        }, // holistic.app.client.display._private.loadConfig
-                        // require("./ControllerAction-app-client-display-step-worker"),
+                        }, // ACT: holistic.app.client.display._private.loadConfig
+                        // ----------------------------------------------------------------
+
                         require("./ControllerAction-app-client-display-activate"),
-                        require("./ControllerAction-app-client-display-update")
+                        require("./ControllerAction-app-client-display-update"),
+                        require("./ControllerAction-app-client-display-register-display-view-process")
+
                     ],
                     subcells: [ ]
                 });
 
                 if (!cellModel.isValid()) {
                     errors.push(`Unable to synthesize d2r2/React display adapater CellModel for use in ${appBuild.app.name} tab service due to error:`);
-                    errors.push(cellMode.toJSON());
+                    errors.push(cellModel.toJSON());
                     break;
                 }
 

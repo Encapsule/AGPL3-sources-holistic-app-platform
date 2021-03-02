@@ -11,6 +11,7 @@
 */
 
 const holarchy = require("@encapsule/holarchy");
+const holarchyCM = require("@encapsule/holarchy-cm");
 
 const apm = new holarchy.AbstractProcessModel({
 
@@ -41,6 +42,15 @@ const apm = new holarchy.AbstractProcessModel({
             ComponentRouter: {
                 ____label: "d2r2 <ComponentRouter/> React Component",
                 ____opaque: true // This is a d2r2 <ComponentRouter/> React class used to dynamically update the display layout.
+            }
+        },
+
+        inputs: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            displayViewStream: {
+                ____types: "jsObject",
+                ____appdsl: { apm: holarchyCM.cmasHolarchyCMPackage.mapLabels({ APM: "ObservableValueHelper" }).result.APMID }
             }
         },
 
