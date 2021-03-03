@@ -29,7 +29,7 @@
           ____label: "Display Element Specializations",
           ____types: "jsObject",
           ____defaultValue: {},
-          renderDataPropsSpec: {
+          renderDataSpec: {
             ____accept: "jsObject"
           }
         }
@@ -55,7 +55,7 @@
             cellModelLabel: "".concat(templateLabel, "<").concat(generatorRequest_.cellModelLabel, ">"),
             specializationData: {
               description: "Specialization for ".concat(generatorRequest_.cellModelLabel),
-              renderDataPropsSpec: generatorRequest_.specializationData.displayElement.renderDataPropsSpec
+              renderDataSpec: generatorRequest_.specializationData.displayElement.renderDataSpec
             }
           };
           var cmSynthResponse = cmtDisplayStreamMessage.synthesizeCellModel(cmSynthRequest);

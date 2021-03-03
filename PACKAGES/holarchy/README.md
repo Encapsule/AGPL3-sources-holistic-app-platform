@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 Cellular process modeling and runtime engine for Node.js and browser.
 
 ```
-Package: @encapsule/holarchy v0.0.56 "onyx" build ID "pEJ6rvViSH2NKE8ePT_LUg"
-Sources: @encapsule/holodev#977f0a3435616854eb90880ce94b8d7f8b579907
-Created: 2021-03-02T23:30:08.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/holarchy v0.0.56 "onyx" build ID "6W6y1EuARR-kZO7gCrOWVA"
+Sources: @encapsule/holodev#ac3099747d97d114e36c36058ac29e93a5ead020
+Created: 2021-03-03T15:37:46.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview
