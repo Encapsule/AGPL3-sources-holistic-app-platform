@@ -2,6 +2,7 @@
 
 const d2r2 = require("@encapsule/d2r2");
 const React = require("react");
+const color = require("color");
 
 const factoryResponse = d2r2.ComponentFactory.request({
     id: "jrxl_rGcQvKRCc0PpWqbtg",
@@ -39,12 +40,20 @@ const factoryResponse = d2r2.ComponentFactory.request({
 
                 let content = [];
                 let flexContent = [];
+
                 const statusMessage = (this.props.renderContext.serverRender?"L O A D I N G":(!messageBody.appStarted?"S T A R T I N G":"W E L C O M E !"));
 
-                // let cssAnimationClass = (this.props.renderContext.serverRender?"spinner-dual":(!messageBody.appStarted?"spinner-triple":"spinner-fast"));
+                const backgroundColor = { development: "dodgerblue", test: "turquoise", staging: "coral", production: "limegreen" }[messageBody.deploymentEnvironment];
 
-                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Play", fontSize: "4vw", fontWeight: "bold", paddingBottom: "0.25em", color: "#999", textShadow: "1vw 1vw 0.6vw #DDD" }}>{messageBody.appBuild.app.name}</div>);
-                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Nunito", fontSize: "2.5vw", fontWeight: "bold", color: "#CCC", paddingBottom: "1em", textShadow: "1vw 1vw 0.6vw #DDD" }}>{statusMessage}</div>);
+                const textColorMain = color(backgroundColor).darken(0.25).hex();
+                const textColorMessage = "white";
+                const textColorEnvironment = color(backgroundColor).darken(0.125).hex();
+
+                const textColorVersion = color(backgroundColor).lighten(0.2).hex();
+                const textColorVersionShadow = color(backgroundColor).darken(0.2).hex();
+
+                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Play", fontSize: "4vw", fontWeight: "bold", paddingBottom: "0.25em", color: textColorMain }}>{messageBody.appBuild.app.name}</div>);
+                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Nunito", fontSize: "2.5vw", fontWeight: "bold", color: textColorMessage, paddingBottom: "1em", textShadow: `0px 0px 0.1vw ${color(backgroundColor).darken(0.7).hex()}` }}>{statusMessage}</div>);
 
                 if (this.props.renderContext.serverRender) {
                     flexContent.push(<div key={makeKey()} className="spinner-fast" />);
@@ -74,14 +83,24 @@ const factoryResponse = d2r2.ComponentFactory.request({
                     }
                 }
 
+                // Environment
+                content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
+                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh", width: "100vw", backgroundColor }}>
+                                 <div style={{ fontFamily: "Play", fontSize: "6vw", color: textColorEnvironment }}><strong>{messageBody.deploymentEnvironment}</strong></div>
+                             </div>
+                             </div>
+                            );
+
+                // App name / message / spinner
                 content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
                              <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh", width: "100vw" }}>{flexContent}</div>
                              </div>
                             );
 
+                // App version
                 content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
                              <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", height: "100vh", width: "100vw" }}>
-                             <div style={{ fontFamily: "Play", fontSize: "1.25vw", color: "#F7F7F7", padding: "1vw", textShadow: "-2px -2px 1px #CCC" }}>@{messageBody.appBuild.app.author}/{messageBody.appBuild.app.name} v{messageBody.appBuild.app.version}-{messageBody.appBuild.app.codename}<br/>
+                             <div style={{ fontFamily: "Play", fontSize: "1.25vw", color: textColorVersion, padding: "1vw", textShadow: `-1px -1px 1px ${textColorVersionShadow}` }}>@{messageBody.appBuild.app.author}/{messageBody.appBuild.app.name} v{messageBody.appBuild.app.version}-{messageBody.appBuild.app.codename}<br/>
                              {messageBody.appBuild.app.buildSource}<br/>
                              {messageBody.appBuild.app.buildID}
                              </div>
@@ -89,9 +108,10 @@ const factoryResponse = d2r2.ComponentFactory.request({
                              </div>
                             );
 
+                // Platform version
                 content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
                              <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end", alignItems: "flex-end", height: "100vh", width: "100vw", textAlign: "right" }}>
-                             <div style={{ fontFamily: "Play", fontSize: "1.25vw", color: "#F7F7F7", padding: "1vw", textShadow: "-2px -2px 1px #CCC" }}>@{messageBody.appBuild.platform.app.author}/{messageBody.appBuild.platform.app.name} v{messageBody.appBuild.platform.app.version}-{messageBody.appBuild.platform.app.codename}<br/>
+                             <div style={{ fontFamily: "Play", fontSize: "1.25vw", color: textColorVersion, padding: "1vw", textShadow: `-1px -1px 1px ${textColorVersionShadow}` }}>@{messageBody.appBuild.platform.app.author}/{messageBody.appBuild.platform.app.name} v{messageBody.appBuild.platform.app.version}-{messageBody.appBuild.platform.app.codename}<br/>
                              {messageBody.appBuild.platform.app.buildSource}<br/>
                              {messageBody.appBuild.platform.app.buildID}
                              </div>
@@ -99,12 +119,6 @@ const factoryResponse = d2r2.ComponentFactory.request({
                              </div>
                             );
 
-                content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
-                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh", width: "100vw" }}>
-                                 <div style={{ fontFamily: "Play", fontSize: "6vw", color: "rgba(0,0,0,0.05)" }}><strong>{messageBody.deploymentEnvironment}</strong></div>
-                             </div>
-                             </div>
-                            );
 
                 return (<div key={makeKey()}>{content}</div>);
 
