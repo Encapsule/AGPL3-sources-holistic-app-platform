@@ -56,22 +56,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             ____label: displayStreamMessageLabel,
             ____description: generatorRequest_.specializationData.description,
             ____types: "jsObject",
+            ____defaultValue: {},
             renderContext: {
               ____label: "".concat(displayStreamMessageLabel, " Render Context"),
               ____types: "jsObject",
               ____defaultValue: {},
               apmBindingPath: {
-                ____accept: ["jsUndefined", "jsString"]
-              }
+                ____accept: "jsString"
+              } // make required for now?
+
             },
             renderData: {
               ____label: "".concat(displayStreamMessageLabel, " Render Data"),
-              ____types: "jsObject" //// extended below
+              ____types: "jsObject",
+              ____defaultValue: {} //// extended below
 
             }
           }; // Customize the displayStreamMessageSpec by extending its renderData spec w/instance specialization data.
 
-          displayStreamMessageSpec.renderData[apmID] = _objectSpread({}, generatorRequest_.specializationData.renderDataSpec);
+          displayStreamMessageSpec.renderData[apmID] = _objectSpread({}, generatorRequest_.specializationData.renderDataSpec); // We force this to be friendly to generic call w/no request data that we perform during cell activation.
+
           var filterResponse = arccore.filter.create({
             operationID: "65rI4JXWT02HOmPh1_Eamg",
             operationName: "renderDataSpec MUST ACCEPT NO INPUT w/OUT ERROR",

@@ -123,8 +123,37 @@
                     transitionIf: {
                       always: true
                     },
-                    nextStep: "display-view-ready"
+                    nextStep: "display-view-initialize"
                   }]
+                },
+                "display-view-initialize": {
+                  description: "The display view process is initializing itself...",
+                  transitions: [{
+                    transitionIf: {
+                      always: true
+                    },
+                    nextStep: "display-view-initialized"
+                  }],
+                  actions: {
+                    exit: [{
+                      holarchy: {
+                        common: {
+                          actions: {
+                            DisplayViewBase: {
+                              _private: {
+                                stepWorker: {
+                                  action: "initialize"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }]
+                  }
+                },
+                "display-view-initialized": {
+                  description: "The display view process has been initialized."
                 },
                 "display-view-ready": {
                   description: "It's not really ready yet. But, let's say it is."
@@ -132,7 +161,7 @@
               } // ~.apm.steps
 
             },
-            subcells: [cmDisplayViewOutputObservableValue]
+            subcells: [cmDisplayViewOutputObservableValue, require("./DisplayViewBase")]
           };
           break;
         }
