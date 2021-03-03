@@ -168,7 +168,10 @@
                 description: "The registered display view process has indicated that it's got a new display stream message value for us to read.",
                 transitions: [
                     { transitionIf: { always: true }, nextStep: "display-adapter-wait-display-view" }
-                ]
+                ],
+                actions: {
+                    exit: [ { holistic: { app: { client: { display: { _private: { pumpDisplayStream: {} } } } } } } ]
+                }
             }
 
         } // steps

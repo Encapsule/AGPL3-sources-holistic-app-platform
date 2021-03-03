@@ -144,7 +144,8 @@
 
                         require("./ControllerAction-app-client-display-activate"),
                         require("./ControllerAction-app-client-display-update"),
-                        require("./ControllerAction-app-client-display-register-display-view-process")
+                        require("./ControllerAction-app-client-display-register-display-view-process"),
+                        require("./ControllerAction-app-client-display-pump-display-view-stream")
 
                     ],
                     subcells: [ ]
