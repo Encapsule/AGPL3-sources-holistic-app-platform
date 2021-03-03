@@ -43,8 +43,8 @@ const factoryResponse = d2r2.ComponentFactory.request({
 
                 // let cssAnimationClass = (this.props.renderContext.serverRender?"spinner-dual":(!messageBody.appStarted?"spinner-triple":"spinner-fast"));
 
-                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Play", fontSize: "44pt", fontWeight: "bold", paddingBottom: "0.25em", color: "rgba(0,0,0,0.6)" }}>Viewpath5</div>);
-                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Nunito", fontSize: "32pt", fontWeight: "bold", color: "rgba(0,0,0,0.25)", paddingBottom: "1em" }}>{statusMessage}</div>);
+                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Play", fontSize: "4vw", fontWeight: "bold", paddingBottom: "0.25em", color: "#999", textShadow: "1vw 1vw 0.6vw #DDD" }}>{messageBody.appBuild.app.name}</div>);
+                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Nunito", fontSize: "2.5vw", fontWeight: "bold", color: "#CCC", paddingBottom: "1em", textShadow: "1vw 1vw 0.6vw #DDD" }}>{statusMessage}</div>);
 
                 if (this.props.renderContext.serverRender) {
                     flexContent.push(<div key={makeKey()} className="spinner-fast" />);
@@ -75,14 +75,34 @@ const factoryResponse = d2r2.ComponentFactory.request({
                 }
 
                 content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
-                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh", width: "100vw" }}>
-                             <div style={{ fontFamily: "Play", fontSize: "144pt", color: "rgba(0,0,255,0.025)" }}>{messageBody.deploymentEnvironment}</div>
+                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh", width: "100vw" }}>{flexContent}</div>
+                             </div>
+                            );
+
+                content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
+                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", height: "100vh", width: "100vw" }}>
+                             <div style={{ fontFamily: "Play", fontSize: "1.25vw", color: "#F7F7F7", padding: "1vw", textShadow: "-2px -2px 1px #CCC" }}>@{messageBody.appBuild.app.author}/{messageBody.appBuild.app.name} v{messageBody.appBuild.app.version}-{messageBody.appBuild.app.codename}<br/>
+                             {messageBody.appBuild.app.buildSource}<br/>
+                             {messageBody.appBuild.app.buildID}
+                             </div>
                              </div>
                              </div>
                             );
 
                 content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
-                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh", width: "100vw" }}>{flexContent}</div>
+                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end", alignItems: "flex-end", height: "100vh", width: "100vw", textAlign: "right" }}>
+                             <div style={{ fontFamily: "Play", fontSize: "1.25vw", color: "#F7F7F7", padding: "1vw", textShadow: "-2px -2px 1px #CCC" }}>@{messageBody.appBuild.platform.app.author}/{messageBody.appBuild.platform.app.name} v{messageBody.appBuild.platform.app.version}-{messageBody.appBuild.platform.app.codename}<br/>
+                             {messageBody.appBuild.platform.app.buildSource}<br/>
+                             {messageBody.appBuild.platform.app.buildID}
+                             </div>
+                             </div>
+                             </div>
+                            );
+
+                content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
+                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh", width: "100vw" }}>
+                                 <div style={{ fontFamily: "Play", fontSize: "6vw", color: "rgba(0,0,0,0.05)" }}><strong>{messageBody.deploymentEnvironment}</strong></div>
+                             </div>
                              </div>
                             );
 

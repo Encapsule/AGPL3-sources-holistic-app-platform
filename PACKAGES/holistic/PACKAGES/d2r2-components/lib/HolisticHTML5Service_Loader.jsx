@@ -82,20 +82,22 @@ var factoryResponse = d2r2.ComponentFactory.request({
             key: makeKey(),
             style: {
               fontFamily: "Play",
-              fontSize: "44pt",
+              fontSize: "4vw",
               fontWeight: "bold",
               paddingBottom: "0.25em",
-              color: "rgba(0,0,0,0.6)"
+              color: "#999",
+              textShadow: "1vw 1vw 0.6vw #DDD"
             }
-          }, "Viewpath5"));
+          }, messageBody.appBuild.app.name));
           flexContent.push( /*#__PURE__*/React.createElement("div", {
             key: makeKey(),
             style: {
               fontFamily: "Nunito",
-              fontSize: "32pt",
+              fontSize: "2.5vw",
               fontWeight: "bold",
-              color: "rgba(0,0,0,0.25)",
-              paddingBottom: "1em"
+              color: "#CCC",
+              paddingBottom: "1em",
+              textShadow: "1vw 1vw 0.6vw #DDD"
             }
           }, statusMessage));
 
@@ -148,13 +150,58 @@ var factoryResponse = d2r2.ComponentFactory.request({
               height: "100vh",
               width: "100vw"
             }
+          }, flexContent)));
+          content.push( /*#__PURE__*/React.createElement("div", {
+            key: makeKey(),
+            style: {
+              position: "fixed",
+              top: "0px",
+              left: "0px"
+            }
+          }, /*#__PURE__*/React.createElement("div", {
+            style: {
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              height: "100vh",
+              width: "100vw"
+            }
           }, /*#__PURE__*/React.createElement("div", {
             style: {
               fontFamily: "Play",
-              fontSize: "144pt",
-              color: "rgba(0,0,255,0.025)"
+              fontSize: "1.25vw",
+              color: "#F7F7F7",
+              padding: "1vw",
+              textShadow: "-2px -2px 1px #CCC"
             }
-          }, messageBody.deploymentEnvironment))));
+          }, "@", messageBody.appBuild.app.author, "/", messageBody.appBuild.app.name, " v", messageBody.appBuild.app.version, "-", messageBody.appBuild.app.codename, /*#__PURE__*/React.createElement("br", null), messageBody.appBuild.app.buildSource, /*#__PURE__*/React.createElement("br", null), messageBody.appBuild.app.buildID))));
+          content.push( /*#__PURE__*/React.createElement("div", {
+            key: makeKey(),
+            style: {
+              position: "fixed",
+              top: "0px",
+              left: "0px"
+            }
+          }, /*#__PURE__*/React.createElement("div", {
+            style: {
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+              height: "100vh",
+              width: "100vw",
+              textAlign: "right"
+            }
+          }, /*#__PURE__*/React.createElement("div", {
+            style: {
+              fontFamily: "Play",
+              fontSize: "1.25vw",
+              color: "#F7F7F7",
+              padding: "1vw",
+              textShadow: "-2px -2px 1px #CCC"
+            }
+          }, "@", messageBody.appBuild.platform.app.author, "/", messageBody.appBuild.platform.app.name, " v", messageBody.appBuild.platform.app.version, "-", messageBody.appBuild.platform.app.codename, /*#__PURE__*/React.createElement("br", null), messageBody.appBuild.platform.app.buildSource, /*#__PURE__*/React.createElement("br", null), messageBody.appBuild.platform.app.buildID))));
           content.push( /*#__PURE__*/React.createElement("div", {
             key: makeKey(),
             style: {
@@ -171,7 +218,13 @@ var factoryResponse = d2r2.ComponentFactory.request({
               height: "100vh",
               width: "100vw"
             }
-          }, flexContent)));
+          }, /*#__PURE__*/React.createElement("div", {
+            style: {
+              fontFamily: "Play",
+              fontSize: "6vw",
+              color: "rgba(0,0,0,0.05)"
+            }
+          }, /*#__PURE__*/React.createElement("strong", null, messageBody.deploymentEnvironment)))));
           return /*#__PURE__*/React.createElement("div", {
             key: makeKey()
           }, content); // ================================================================
