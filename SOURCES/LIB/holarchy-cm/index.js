@@ -26,6 +26,8 @@ module.exports = {
     cmObservableValueHelper: require("./ObservableValueHelper"),
 
     cmtDisplayView: require("./DisplayView_T"),
-    cmtDisplayStreamMessage: require("./DisplayView_T/DisplayStreamMessage_T")
+    cmtDisplayStreamMessage: require("./DisplayView_T/DisplayStreamMessage_T"),
+
+    generateDisplayStreamModels: require("./DisplayView_T/display-stream-artifact-generator-filter")
 
 };
