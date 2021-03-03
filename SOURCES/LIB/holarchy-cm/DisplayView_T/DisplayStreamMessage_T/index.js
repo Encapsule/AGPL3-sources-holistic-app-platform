@@ -51,20 +51,22 @@
                         ____label: displayStreamMessageLabel,
                         ____description: generatorRequest_.specializationData.description,
                         ____types: "jsObject",
+                        ____defaultValue: {},
                         renderContext: {
                             ____label: `${displayStreamMessageLabel} Render Context`,
                             ____types: "jsObject",
                             ____defaultValue: {},
-                            apmBindingPath: { ____accept: [ "jsUndefined", "jsString" ] }
+                            apmBindingPath: { ____accept: "jsString" } // make required for now?
                         },
                         renderData: {
                             ____label: `${displayStreamMessageLabel} Render Data`,
-                            ____types: "jsObject"
+                            ____types: "jsObject",
+                            ____defaultValue: {}
                             //// extended below
                         }
                     };
                     // Customize the displayStreamMessageSpec by extending its renderData spec w/instance specialization data.
-                    displayStreamMessageSpec.renderData[apmID] = { ...generatorRequest_.specializationData.renderDataSpec };
+                    displayStreamMessageSpec.renderData[apmID] = { ...generatorRequest_.specializationData.renderDataSpec }; // We force this to be friendly to generic call w/no request data that we perform during cell activation.
 
                     let filterResponse = arccore.filter.create({
                         operationID: "65rI4JXWT02HOmPh1_Eamg",

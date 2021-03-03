@@ -117,8 +117,25 @@
                                 uninitialized: {
                                     description: "Default starting step of activated cell.",
                                     transitions: [
-                                        { transitionIf: { always: true }, nextStep: "display-view-ready" }
+                                        { transitionIf: { always: true }, nextStep: "display-view-initialize" }
                                     ]
+                                },
+
+                                "display-view-initialize": {
+                                    description: "The display view process is initializing itself...",
+                                    transitions: [
+                                        { transitionIf: { always: true }, nextStep: "display-view-initialized" }
+                                    ],
+                                    actions: {
+                                        exit: [
+                                            { holarchy: { common: { actions: { DisplayViewBase: { _private: { stepWorker: { action: "initialize" } } } } } } }
+                                        ]
+                                    }
+
+                                },
+
+                                "display-view-initialized": {
+                                    description: "The display view process has been initialized.",
                                 },
 
                                 "display-view-ready": {
@@ -129,7 +146,8 @@
                         },
 
                         subcells: [
-                            cmDisplayViewOutputObservableValue
+                            cmDisplayViewOutputObservableValue,
+                            require("./DisplayViewBase")
                         ]
                     };
 
