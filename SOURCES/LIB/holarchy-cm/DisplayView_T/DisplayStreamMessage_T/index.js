@@ -2,8 +2,8 @@
 
 (function() {
 
+    const arccore = require("@encapsule/arccore");
     const holarchy = require("@encapsule/holarchy");
-
     const cmasHolarchyCMPackage = require("../../cmasHolarchyCMPackage");
     const cmtObservableValue = require("../../ObservableValue_T");
 
@@ -19,7 +19,7 @@
             specializationDataSpec: {
                 ____types: "jsObject",
                 description: { ____accept: "jsString" },
-                renderDataPropsSpec: {
+                renderDataSpec: {
                     ____accept: "jsObject",
                 }
 
@@ -63,10 +63,26 @@
                             //// extended below
                         }
                     };
-
                     // Customize the displayStreamMessageSpec by extending its renderData spec w/instance specialization data.
+                    displayStreamMessageSpec.renderData[apmID] = { ...generatorRequest_.specializationData.renderDataSpec };
 
-                    displayStreamMessageSpec.renderData[apmID] = { ...generatorRequest_.specializationData.renderDataPropsSpec };
+                    let filterResponse = arccore.filter.create({
+                        operationID: "65rI4JXWT02HOmPh1_Eamg",
+                        operationName: "renderDataSpec MUST ACCEPT NO INPUT w/OUT ERROR",
+                        operationDescription: "A filter that uses your renderDataSpec as inputFilterSpec to determine if it's a valid filter spec and if it can be called generically if used as inputFilterSpec.",
+                        inputFilterSpec: generatorRequest_.specializationData.renderDataSpec
+                    });
+                    if (filterResponse.error) {
+                        errors.push(`Unable to generate ${displayStreamMessageLabel} CellModel because the specified renderDataSpec is not a valid filter spec object.`);
+                        errors.push(filterResponse.error);
+                        break;
+                    }
+                    filterResponse = filterResponse.result.request();
+                    if (filterResponse.error) {
+                        errors.push(`Unable to generate ${displayStreamMessageLabel} CellModel because the specified renderDataSpec is not valid. If we use your renderDataSpec as inputFilterSpec and call our testFilter.request() w/no request input there must be no response.error but instead:`);
+                        errors.push(filterResponse.error);
+                        break;
+                    }
 
                     let synthResponse = cmtObservableValue.synthesizeCellModel({
                         cmasScope: generatorRequest_.cmtInstance,

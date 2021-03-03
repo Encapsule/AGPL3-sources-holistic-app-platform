@@ -87,11 +87,13 @@
                             appServiceProcess: optionalFilterResponseSpec,
                         },
 
+                        /*
                         lifecycleResponses: {
                             ____types: "jsObject",
                             ____defaultValue: {},
                             start: optionalFilterResponseSpec,
                         },
+                        */
 
                         windowLoaded: {
                             ____label: "window.onload Completed Flag",

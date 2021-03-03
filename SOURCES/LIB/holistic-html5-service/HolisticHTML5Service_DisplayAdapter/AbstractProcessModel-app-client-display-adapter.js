@@ -35,7 +35,7 @@
                 ComponentRouter: {
                     ____label: "d2r2 <ComponentRouter/> React Component",
                     ____opaque: true // This is a d2r2 <ComponentRouter/> React class used to dynamically update the display layout.
-                }
+                },
             },
 
             inputs: {
@@ -74,13 +74,6 @@
                     { transitionIf: { always: true }, nextStep: "display-adapter-wait-kernel-config" }
                 ]
             },
-
-            /*
-              "display-adpater-initialized": {
-              description: "HolisticHTML5Service_DisplayAdapter process is initialized.",
-              transitions: [ { transitionIf: { always: true}, nextStep: "display-adapter-wait-kernel-config" } ]
-              },
-            */
 
             "display-adapter-wait-kernel-config": {
                 description: `${cmLabel} process is waiting for the app client kernel to set the display's initial layout.`,

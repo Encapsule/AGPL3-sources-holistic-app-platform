@@ -299,6 +299,7 @@ const controllerAction = new holarchy.ControllerAction({
                                     display: {
                                         _private: {
                                             activate: {
+                                                windowLoadTimeMs: cellMemory.windowLoadTimeMs,
                                                 displayLayoutRequest: {
                                                     renderData: cellMemory.bootROMData.initialDisplayData.renderData
                                                 }
