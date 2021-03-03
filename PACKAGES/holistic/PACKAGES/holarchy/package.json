@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "TjIo9VtDTf-oicLPx6pRCA",
-    "buildSource": "130553dc838f5f07c65ead5ab11d309fda4c740d",
-    "buildTime": 1614711088,
-    "codename": "iolite",
+    "buildID": "pEJ6rvViSH2NKE8ePT_LUg",
+    "buildSource": "977f0a3435616854eb90880ce94b8d7f8b579907",
+    "buildTime": 1614727808,
+    "codename": "onyx",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -40,5 +40,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.55"
+    "version": "0.0.56"
 }
