@@ -83,11 +83,7 @@ const controllerAction = new holarchy.ControllerAction({
                     errors.push(hacdLibResponse.error);
                     break;
                 }
-
                 const { cellMemory, cellProcess } = hacdLibResponse.result;
-
-                const displayAdapterStatus = hacdLibResponse.result;
-                let displayAdapterCellData = displayAdapterStatus.cellMemory;
 
                 switch (cellMemory.__apmiStep) {
                 case "display-adapter-ready":
@@ -112,8 +108,8 @@ const controllerAction = new holarchy.ControllerAction({
                     thisProps.renderData = messageBody.renderData;
                 }
 
-                let d2r2Component = React.createElement(cellMemory.config.ComponentRouter, thisProps);
-                ReactDOM.render(d2r2Component, cellMemory.config.targetDOMElement);
+                let reactElement = React.createElement(cellMemory.config.ComponentRouter, thisProps);
+                ReactDOM.render(reactElement, cellMemory.config.targetDOMElement);
 
                 cellMemory.displayUpdateCount += 1;
                 const ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: cellProcess.apmBindingPath, dataPath: "#.displayUpdateCount" }, cellMemory.displayUpdateCount);
