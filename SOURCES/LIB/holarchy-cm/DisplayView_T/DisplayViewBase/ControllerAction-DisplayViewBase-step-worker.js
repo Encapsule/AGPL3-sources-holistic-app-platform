@@ -79,7 +79,23 @@
                     actResponse = request_.context.act({
                         actorName: actionName,
                         actorTaskDescription: "Attempting to write the initial output of this display view cell to our specialized ObservableValue cell...",
-                        actionRequest: { holarchy: { common: { actions: { ObservableValue: { writeValue: { value: { renderContext: { apmBindingPath: request_.context.apmBindingPath } }, path: "#.outputs.displayView" } } } } } },
+                        actionRequest: {
+                            holarchy: {
+                                common: {
+                                    actions: {
+                                        ObservableValue: {
+                                            writeValue: {
+                                                value: {
+                                                    renderContext: { apmBindingPath: request_.context.apmBindingPath }, // set
+                                                    renderData: {} // reset to default values
+                                                },
+                                                path: "#.outputs.displayView"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
                         apmBindingPath: request_.context.apmBindingPath
                     });
 

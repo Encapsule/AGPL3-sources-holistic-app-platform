@@ -55,18 +55,23 @@
                     break;
                 }
 
-                let renderDataSpec = { ____types: "jsObject" }; // The renderDataSpec is @encapsule/arccore.discriminator-friendly (becaue of bug in @encapsule/arccore I don't have time to address for years).
-                renderDataSpec[cellModelConstructorRequest.apm.id] = {
-                    ...request_.displayViewSynthesizeRequest.specializationData.displayElement.renderDataSpec
-                }
+                let renderDataSpec = {
+                    ____label: `${request_.displayViewSynthesizeRequest.cellModelLabel} Render Data Spec`,
+                    ____types: "jsObject"
+                };
 
-                synthResponse = d2r2.reactElementSynthFilterFactory.request({
+                renderDataSpec[cellModelConstructorRequest.apm.ocdDataSpec.outputs.displayView.____appdsl.apm] = { ...request_.displayViewSynthesizeRequest.specializationData.displayElement.renderDataSpec, ____defaultValue: undefined };
+
+                console.log(`RENDER DATA SPEC FOR NEW d2r2 COMPONENT = "${JSON.stringify(renderDataSpec, undefined, 4)}"`);
+
+                synthResponse = d2r2.ComponentFactory.request({
                     id: cmtDisplayView.mapLabels({ OTHER: `${cellModelConstructorRequest.id}:d2r2Component` }).result.OTHERID,
                     name: `${request_.displayViewSynthesizeRequest.cellModelLabel} Display Process`,
                     description: "A filter that generates a React.Element instance created via React.createElement API from the reactComponentClass specified here bound to the request data.",
-                    renderDataBindingSpec: renderDataSpec, // TODO: Rename this in @encapsule/d2r2 (if we even keep it passed the point where we move @encapsule/holistic-nodejs-service into CellProcessor.
+                    renderDataBindingSpec: { ...renderDataSpec },
                     reactComponent: request_.reactComponentClass
                 });
+
                 if (synthResponse.error) {
                     errors.push("Oh snap. Things were going so well... Unfortunately, we cannot synthesize a d2r2 React.Element synthesizer filter (d2r2Component) due to error:");
                     errors.push(synthResponse.error);
@@ -75,7 +80,10 @@
 
                 const d2r2Component = synthResponse.result;
 
-                // And, we're good.
+                console.log("RESULT d2r2 COMPONENT:");
+                console.log(d2r2Component);
+
+                // And, we're good?
                 response.result = { cellModel, d2r2Component };
 
                 break;
