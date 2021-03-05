@@ -74,7 +74,8 @@
                 // ****************************************************************
                 // ****************************************************************
 
-                class DisplayProcess extends request_.reactComponentClass {
+                class ViewDisplayProcess extends request_.reactComponentClass {
+
                     constructor(props_) {
                         super(props_);
                         this.displayName = renderDataDiscriminatorNamespace;
@@ -84,7 +85,7 @@
                         let actResponse = this.props.renderContext.act({
                             actorName: this.displayName,
                             actorTaskDescription: `This is new a new instance of React.Element ${this.displayName} process notifying its backing DisplayView cell that it has been mounted and is now activated.`,
-                            actionRequest: { holistic: { common: { actions: { service: { html5: { display: { view: { linkDisplayProcess: { reactElement: { displayName: this.displayName, thisRef: this, notifyEvent: "display-process-activated" } } } } } } } } } },
+                            actionRequest: { holistic: { common: { actions: { service: { html5: { display: { view: { linkDisplayProcess: { notifyEvent: "display-process-activated", reactElement: { displayName: this.displayName, thisRef: this } } } } } } } } } },
                             apmBindingPath: this.props.renderContext.apmBindingPath
                         });
                         super.componentDidMount();
@@ -95,12 +96,16 @@
                         let actResponse = this.props.renderContext.act({
                             actorName: this.displayName,
                             actorTaskDescription: `This is a previously-linked React.Element ${this.displayName} process notifying its backing DisplayView cell that is is going to unmount and deactivate.`,
-                            actionRequest: { holistic: { common: { actions: { service: { html5: { display: { view: { linkDisplayProcess: { reactElement: { displayName: this.displayName, thisRef: this, notifyEvent: "display-process-deactivating" } } } } } } } } } },
+                            actionRequest: { holistic: { common: { actions: { service: { html5: { display: { view: { linkDisplayProcess: {  notifyEvent: "display-process-deactivating", reactElement: { displayName: this.displayName, thisRef: this } } } } } } } } } },
                             apmBindingPath: this.props.renderContext.apmBindingPath
                         });
                         super.componentWillUnmount();
                     }
                 } // class DisplayProcess extends request_.reactComponentClass extends React.Component (presumably)
+
+                // WILL THIS WORK? :)
+                function fuckingMagic(magicClassName_) { return eval(`(function() { return (class ${magicClassName_} extends ViewDisplayProcess /*extends React.Component*/ {}); })();`); }
+
 
                 // ****************************************************************
                 // ****************************************************************
@@ -116,7 +121,7 @@
                     name: `${request_.displayViewSynthesizeRequest.cellModelLabel} Display Process`,
                     description: "A filter that generates a React.Element instance created via React.createElement API from the reactComponentClass specified here bound to the request data.",
                     renderDataBindingSpec: { ...renderDataSpec },
-                    reactComponent: DisplayProcess // extends React.Component via developer-defined reactComponentClass
+                    reactComponent: fuckingMagic(`${request_.displayViewSynthesizeRequest.cellModelLabel}_${apmID_displayViewOutputObservableValue}`) // ᕕ( ᐛ )ᕗ
                 });
 
                 if (synthResponse.error) {

@@ -51,6 +51,8 @@
             while (!inBreakScope) {
                 inBreakScope = true;
 
+                console.log(`[${this.operationID}::${this.operationName}] attempting to update display layout due to detected chanage(s)...`);
+
                 // Get our cell memory and process data.
 
                 let hacdLibResponse = hacdLib.getStatus.request(request_.context);
@@ -113,6 +115,8 @@
                     errors.push(ocdResponse.error);
                     break;
                 }
+
+                console.log(`[${this.operationID}::${this.operationName}] display process tree update ${cellMemory.displayUpdateCount} complete.`);
 
                 // And, we're out.
                 break;
