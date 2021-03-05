@@ -31,7 +31,7 @@
                     ____label: "Display Element Specializations",
                     ____types: "jsObject",
                     ____defaultValue: {},
-                    renderDataSpec: {
+                    displayLayoutSpec: {
                         ____accept: "jsObject",
                     }
                 }
@@ -55,7 +55,7 @@
                         cellModelLabel: `${templateLabel}<${generatorRequest_.cellModelLabel}>`,
                         specializationData: {
                             description: `Specialization for ${generatorRequest_.cellModelLabel}`,
-                            renderDataSpec: generatorRequest_.specializationData.displayElement.renderDataSpec
+                            displayLayoutSpec: generatorRequest_.specializationData.displayElement.displayLayoutSpec
                         }
                     };
 

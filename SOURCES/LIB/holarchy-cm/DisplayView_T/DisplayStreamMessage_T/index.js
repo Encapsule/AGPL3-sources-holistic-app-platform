@@ -19,10 +19,9 @@
             specializationDataSpec: {
                 ____types: "jsObject",
                 description: { ____accept: "jsString" },
-                renderDataSpec: {
+                displayLayoutSpec: {
                     ____accept: "jsObject",
                 }
-
             },
 
             /*
@@ -43,6 +42,24 @@
 
                     const displayStreamMessageLabel = `${templateLabel}<${generatorRequest_.cellModelLabel}>`;
 
+                    let filterResponse = arccore.filter.create({
+                        operationID: "65rI4JXWT02HOmPh1_Eamg",
+                        operationName: "displayLayoutSpec MUST ACCEPT NO INPUT w/OUT ERROR",
+                        operationDescription: "A filter that uses your displayLayout as inputFilterSpec to determine if it's a valid filter spec and if it can be called generically if used as inputFilterSpec.",
+                        inputFilterSpec: generatorRequest_.specializationData.displayLayoutSpec
+                    });
+                    if (filterResponse.error) {
+                        errors.push(`Unable to generate ${displayStreamMessageLabel} CellModel because the specified displayLayoutSpec is not a valid filter spec object.`);
+                        errors.push(filterResponse.error);
+                        break;
+                    }
+                    filterResponse = filterResponse.result.request();
+                    if (filterResponse.error) {
+                        errors.push(`Unable to generate ${displayStreamMessageLabel} CellModel because the specified displayLayoutSpec is not valid. If we use your displayLayoutSpec as inputFilterSpec and call our testFilter.request() w/no request input there must be no response.error but instead:`);
+                        errors.push(filterResponse.error);
+                        break;
+                    }
+
                     const apmID = generatorRequest_.cmtInstance.mapLabels({ APM: displayStreamMessageLabel }).result.APMID;
 
                     // Set the invariant portions of all DisplayStreamMessage family members.
@@ -59,32 +76,16 @@
                             apmBindingPath: { ____accept: "jsString" } // make required for now?
                         },
                         renderData: {
-                            ____label: `${displayStreamMessageLabel} Render Data`,
+                            ____label: `${displayStreamMessageLabel} d2r2 Render Data`,
                             ____types: "jsObject",
-                            ____defaultValue: {}
+                            ____defaultValue: {},
                             //// extended below
                         }
                     };
-                    // Customize the displayStreamMessageSpec by extending its renderData spec w/instance specialization data.
-                    displayStreamMessageSpec.renderData[apmID] = { ...generatorRequest_.specializationData.renderDataSpec }; // We force this to be friendly to generic call w/no request data that we perform during cell activation.
 
-                    let filterResponse = arccore.filter.create({
-                        operationID: "65rI4JXWT02HOmPh1_Eamg",
-                        operationName: "renderDataSpec MUST ACCEPT NO INPUT w/OUT ERROR",
-                        operationDescription: "A filter that uses your renderDataSpec as inputFilterSpec to determine if it's a valid filter spec and if it can be called generically if used as inputFilterSpec.",
-                        inputFilterSpec: generatorRequest_.specializationData.renderDataSpec
-                    });
-                    if (filterResponse.error) {
-                        errors.push(`Unable to generate ${displayStreamMessageLabel} CellModel because the specified renderDataSpec is not a valid filter spec object.`);
-                        errors.push(filterResponse.error);
-                        break;
-                    }
-                    filterResponse = filterResponse.result.request();
-                    if (filterResponse.error) {
-                        errors.push(`Unable to generate ${displayStreamMessageLabel} CellModel because the specified renderDataSpec is not valid. If we use your renderDataSpec as inputFilterSpec and call our testFilter.request() w/no request input there must be no response.error but instead:`);
-                        errors.push(filterResponse.error);
-                        break;
-                    }
+                    // Must be kept in sync w/VDDV artifact generator.
+                    const displayLayoutNamespace = `layoutViewDisplay_${apmID}`;
+                    displayStreamMessageSpec.renderData[displayLayoutNamespace] = { ...generatorRequest_.specializationData.displayLayoutSpec };
 
                     let synthResponse = cmtObservableValue.synthesizeCellModel({
                         cmasScope: generatorRequest_.cmtInstance,
@@ -94,6 +95,7 @@
                             valueTypeSpec: displayStreamMessageSpec
                         }
                     });
+
                     if (synthResponse.error) {
                         errors.push(synthResponse.error);
                         break;
@@ -101,8 +103,8 @@
 
                     const ovCellModel = synthResponse.result;
 
-                    let x = generatorRequest_.cmtInstance.mapLabels({ CM: generatorRequest_.cellModelLabel }).result.CMID;
-                    let y = generatorRequest_.cmtInstance.mapLabels({ APM: generatorRequest_.cellModelLabel }).result.APMID;
+                    // let x = generatorRequest_.cmtInstance.mapLabels({ CM: generatorRequest_.cellModelLabel }).result.CMID;
+                    // let y = generatorRequest_.cmtInstance.mapLabels({ APM: generatorRequest_.cellModelLabel }).result.APMID;
 
                     response.result = ovCellModel;
 
