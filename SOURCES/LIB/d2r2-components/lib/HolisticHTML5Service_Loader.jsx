@@ -43,14 +43,14 @@ const factoryResponse = d2r2.ComponentFactory.request({
 
                 const statusMessage = (this.props.renderContext.serverRender?"L O A D I N G":(!messageBody.appStarted?"S T A R T I N G":"W E L C O M E !"));
 
-                const backgroundColor = { development: "dodgerblue", test: "turquoise", staging: "coral", production: "limegreen" }[messageBody.deploymentEnvironment];
+                const backgroundColor = { development: "powderblue", test: "mistyrose", staging: "seashell", production: "aliceblue" }[messageBody.deploymentEnvironment];
 
                 const textColorMain = color(backgroundColor).darken(0.25).hex();
                 const textColorMessage = "white";
                 const textColorEnvironment = color(backgroundColor).darken(0.125).hex();
 
-                const textColorVersion = color(backgroundColor).lighten(0.2).hex();
-                const textColorVersionShadow = color(backgroundColor).darken(0.4).hex();
+                const textColorVersion = color(backgroundColor).darken(0.05).hex();
+                const textColorVersionShadow = color(backgroundColor).darken(0.25).hex();
 
                 flexContent.push(<div key={makeKey()} style={{ fontFamily: "Play", fontSize: "4vw", fontWeight: "bold", paddingBottom: "0.25em", color: textColorMain }}>{messageBody.appBuild.app.name}</div>);
                 flexContent.push(<div key={makeKey()} style={{ fontFamily: "Nunito", fontSize: "2.5vw", fontWeight: "bold", color: textColorMessage, paddingBottom: "1em", textShadow: `0px 0px 0.25vw ${color(backgroundColor).darken(0.7).hex()}` }}>{statusMessage}</div>);
@@ -112,7 +112,7 @@ const factoryResponse = d2r2.ComponentFactory.request({
                 // Platform version
                 content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
                              <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end", alignItems: "flex-end", height: "100vh", width: "100vw", textAlign: "right" }}>
-                             <div style={{ fontFamily: "Play", fontSize: "1.25vw", color: textColorVersion, padding: "1vw", textShadow: `-1px -1px 1px ${textColorVersionShadow}` }}>
+                            <div style={{ fontFamily: "Play", fontSize: "1.25vw", color: textColorVersion, padding: "1vw", textShadow: `-1px -1px 1px ${textColorVersionShadow}` }}>
                              <strong>@{messageBody.appBuild.platform.app.author}/{messageBody.appBuild.platform.app.name} v{messageBody.appBuild.platform.app.version}-{messageBody.appBuild.platform.app.codename}</strong><br/>
                              {messageBody.appBuild.platform.app.buildSource}<br/>
                              {messageBody.appBuild.platform.app.buildID}
