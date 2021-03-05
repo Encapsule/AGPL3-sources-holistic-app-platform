@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "HS7FqKy1STq-GedQWaZUvQ",
-    "buildSource": "8b99426bc9b57bf70ea86d17d2506843ed9328a8",
-    "buildTime": 1614830527,
-    "codename": "onyx",
+    "buildID": "LXpf8imeR9ijNDrWdmKE9g",
+    "buildSource": "a58decf01f9e0c6407d90ba02775f615a389ac45",
+    "buildTime": 1614962629,
+    "codename": "kunzite",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -31,7 +31,7 @@
     "name": "@encapsule/holarchy-cm",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.10",
-        "@encapsule/holarchy": "0.0.56",
+        "@encapsule/holarchy": "0.0.57",
         "react": "16.12.0",
         "react-dom": "16.12.0"
     },
@@ -39,5 +39,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.56"
+    "version": "0.0.57"
 }
