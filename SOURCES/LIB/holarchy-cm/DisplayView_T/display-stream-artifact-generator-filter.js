@@ -55,21 +55,68 @@
                     break;
                 }
 
+                const apmID_displayViewOutputObservableValue = cellModelConstructorRequest.apm.ocdDataSpec.outputs.displayView.____appdsl.apm;
+                const renderDataDiscriminatorNamespace = `${apmID_displayViewOutputObservableValue}_DisplayProcess`;
+
                 let renderDataSpec = {
                     ____label: `${request_.displayViewSynthesizeRequest.cellModelLabel} Render Data Spec`,
                     ____types: "jsObject"
                 };
 
-                renderDataSpec[cellModelConstructorRequest.apm.ocdDataSpec.outputs.displayView.____appdsl.apm] = { ...request_.displayViewSynthesizeRequest.specializationData.displayElement.renderDataSpec, ____defaultValue: undefined };
+                // renderDataSpec[cellModelConstructorRequest.apm.ocdDataSpec.outputs.displayView.____appdsl.apm] = { ...request_.displayViewSynthesizeRequest.specializationData.displayElement.renderDataSpec, ____defaultValue: undefined };
+                renderDataSpec[apmID_displayViewOutputObservableValue] = { ...request_.displayViewSynthesizeRequest.specializationData.displayElement.renderDataSpec, ____defaultValue: undefined };
 
                 console.log(`RENDER DATA SPEC FOR NEW d2r2 COMPONENT = "${JSON.stringify(renderDataSpec, undefined, 4)}"`);
+
+                // ****************************************************************
+                // ****************************************************************
+                // SYNTHESIZE THE DISPLAY PROCESS REACT.COMPONENT
+                // ****************************************************************
+                // ****************************************************************
+
+                class DisplayProcess extends request_.reactComponentClass {
+                    constructor(props_) {
+                        super(props_);
+                        this.displayName = renderDataDiscriminatorNamespace;
+                    }
+
+                    componentDidMount() {
+                        let actResponse = this.props.renderContext.act({
+                            actorName: this.displayName,
+                            actorTaskDescription: `This is new a new instance of React.Element ${this.displayName} process notifying its backing DisplayView cell that it has been mounted and is now activated.`,
+                            actionRequest: { holistic: { common: { actions: { service: { html5: { display: { view: { linkDisplayProcess: { reactElement: { displayName: this.displayName, thisRef: this, notifyEvent: "display-process-activated" } } } } } } } } } },
+                            apmBindingPath: this.props.renderContext.apmBindingPath
+                        });
+                        super.componentDidMount();
+                    }
+
+                    componentWillUnmount() {
+
+                        let actResponse = this.props.renderContext.act({
+                            actorName: this.displayName,
+                            actorTaskDescription: `This is a previously-linked React.Element ${this.displayName} process notifying its backing DisplayView cell that is is going to unmount and deactivate.`,
+                            actionRequest: { holistic: { common: { actions: { service: { html5: { display: { view: { linkDisplayProcess: { reactElement: { displayName: this.displayName, thisRef: this, notifyEvent: "display-process-deactivating" } } } } } } } } } },
+                            apmBindingPath: this.props.renderContext.apmBindingPath
+                        });
+                        super.componentWillUnmount();
+                    }
+                } // class DisplayProcess extends request_.reactComponentClass extends React.Component (presumably)
+
+                // ****************************************************************
+                // ****************************************************************
+                // SYNTHESIZE THE DISPLAY PROCESS REACT.COMPONENT
+                // ****************************************************************
+                // ****************************************************************
+
+                // Now jam the synthesized class into a d2r2-generated filter that accepts data according to renderSpec and returns a bound React.Element via its response.result.
+                // This is what we call a d2r2Component for lack a better short-hand for refering to it. In reality it's a data-to-display process transducer function (w/data filtering).
 
                 synthResponse = d2r2.ComponentFactory.request({
                     id: cmtDisplayView.mapLabels({ OTHER: `${cellModelConstructorRequest.id}:d2r2Component` }).result.OTHERID,
                     name: `${request_.displayViewSynthesizeRequest.cellModelLabel} Display Process`,
                     description: "A filter that generates a React.Element instance created via React.createElement API from the reactComponentClass specified here bound to the request data.",
                     renderDataBindingSpec: { ...renderDataSpec },
-                    reactComponent: request_.reactComponentClass
+                    reactComponent: DisplayProcess // extends React.Component via developer-defined reactComponentClass
                 });
 
                 if (synthResponse.error) {
