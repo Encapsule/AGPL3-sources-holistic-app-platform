@@ -10,6 +10,7 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
 
         constructor(props_) {
             super(props_);
+            this.displayName = "ComponentRouter";
         } // constructor
 
         render() {
@@ -61,7 +62,11 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
                 //////////////////////////////////////////////////////////////////////////
                 // ERROR: The input data does not have an acceptable namespace:type format.
 
-                console.error("!!!!! <ComponentRouter/> ERROR: " + errorMessage);
+                console.error("!!!!! -b8oizqHS3iz_57Q6Ci4TA <ComponentRouter/> ERROR: " + errorMessage);
+                console.log(this.props?this.props.renderData:"RENDER DATA IS UNDEFINED?!");
+                console.warn("^--- this is the rejected this.props.renderData");
+
+
 
                 // Pre-render a JSON-format copy of the specific `this.props.renderData` we cannot identify. Note that we only print out this.props.renderData because typically this all that matters to developers.
                 const renderDataJSON = ((this.props.renderData === undefined)?("this.props.renderData === undefined"):(`this.props.renderData === "${JSON.stringify({ renderData: this.props.renderData }, undefined, 4)}"`));

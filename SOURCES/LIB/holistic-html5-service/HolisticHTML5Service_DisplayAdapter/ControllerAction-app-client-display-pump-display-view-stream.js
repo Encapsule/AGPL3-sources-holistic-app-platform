@@ -51,6 +51,10 @@
             while (!inBreakScope) {
                 inBreakScope = true;
 
+                console.log("================================================================");
+                console.log("================================================================");
+                console.log("================================================================");
+                console.log("================================================================");
                 console.log(`[${this.operationID}::${this.operationName}] attempting to update display layout due to detected chanage(s)...`);
 
                 // Get our cell memory and process data.
@@ -60,6 +64,7 @@
                     errors.push(hacdLibResponse.error);
                     break;
                 }
+                console.log("> HolisticHTML5Service_DisplayAdapter has located its process and read its cell memory...");
                 const { cellMemory, cellProcess } = hacdLibResponse.result;
 
                 // Read the updated DisplayStreamMessage from our ObservableValueHelper input.
@@ -78,6 +83,8 @@
 
                 // Okay, got it!
                 const displayStreamMessage = actResponse.result.actionResult;
+
+                console.log("> HolisticHTML5Service_DisplayAdapter has read a new DisplayStreamMessage from its registered DisplayView cell...");
 
                 // Now, build an object to bind to a React.Component class to create a React.Element instance.
 
@@ -101,6 +108,8 @@
 
                 const reactElement = React.createElement(cellMemory.config.ComponentRouter, thisProps);
 
+                console.log("> HolisticHTML5Service_DisplayAdapter has manufactured a React.Element from request data via d2r2 <ComponentRouter/>...");
+
                 // SO, AFTER ALL THAT ...
                 // Replace the currently user-visible DOM contents (indirectly), by making an "action request" on ReactDOM.render.
                 // We presume that whomever provided the DisplayStreamMessage was smart enough to send along enough info
@@ -108,6 +117,8 @@
                 // via thisProps.renderContext.act function.
 
                 ReactDOM.render(reactElement, cellMemory.config.targetDOMElement);
+
+                console.log("> HolisticHTML5Service_DisplayAdapter has udpated/replaced the current set of ViewDisplay process(es) (aka mounted React.Element) in the React-managed VDOM...");
 
                 cellMemory.displayUpdateCount += 1;
                 const ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: cellProcess.apmBindingPath, dataPath: "#.displayUpdateCount" }, cellMemory.displayUpdateCount);
@@ -117,6 +128,10 @@
                 }
 
                 console.log(`[${this.operationID}::${this.operationName}] display process tree update ${cellMemory.displayUpdateCount} complete.`);
+                console.log("================================================================");
+                console.log("================================================================");
+                console.log("================================================================");
+                console.log("================================================================");
 
                 // And, we're out.
                 break;

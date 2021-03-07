@@ -61,8 +61,8 @@
 
                 // Must be kept in sync w/VDDV artifact generator.
 
-                const viewDisplayClassName = `${request_.displayViewSynthesizeRequest.cellModelLabel}_ViewDisplay_${apmID}`;
-                const displayLayoutNamespace = `layoutViewDisplay_${apmID}`;
+                const viewDisplayClassName = `${request_.displayViewSynthesizeRequest.cellModelLabel}_ViewDisplay_${Buffer.from(apmID, "base64").toString("hex")}`;
+                const displayLayoutNamespace = viewDisplayClassName;
 
                 let renderDataSpec = { ____label: `${request_.displayViewSynthesizeRequest.cellModelLabel} Render Data Spec`, ____types: "jsObject" };
                 renderDataSpec[displayLayoutNamespace] = { ...request_.displayViewSynthesizeRequest.specializationData.displayElement.displayLayoutSpec, ____defaultValue: undefined };
@@ -78,29 +78,45 @@
                 class ViewDisplayProcess extends request_.reactComponentClass {
 
                     constructor(props_) {
+                        console.log(`ViewDisplayProcess::constructor on behalf of ${viewDisplayClassName}`);
                         super(props_);
                         this.displayName = viewDisplayClassName
                     }
 
                     componentDidMount() {
+                        console.log(`ViewDisplayProcess::componentDidMount on behalf of ${viewDisplayClassName}`);
                         let actResponse = this.props.renderContext.act({
                             actorName: this.displayName,
                             actorTaskDescription: `This is new a new instance of React.Element ${this.displayName} process notifying its backing DisplayView cell that it has been mounted and is now activated.`,
                             actionRequest: { holistic: { common: { actions: { service: { html5: { display: { view: { linkDisplayProcess: { notifyEvent: "display-process-activated", reactElement: { displayName: this.displayName, thisRef: this } } } } } } } } } },
                             apmBindingPath: this.props.renderContext.apmBindingPath
                         });
-                        super.componentDidMount();
+                        try {
+                            if (super.componentDidMount) {
+                                super.componentDidMount();
+                            }
+                        } catch (wtaf_) {
+                            console.warn(wtaf_.message);
+                            console.error(wtaf_.stack);
+                        }
                     }
 
                     componentWillUnmount() {
-
+                        console.log(`ViewDisplayProcess::componentWillUnmount on behalf of ${viewDisplayClassName}`);
                         let actResponse = this.props.renderContext.act({
                             actorName: this.displayName,
                             actorTaskDescription: `This is a previously-linked React.Element ${this.displayName} process notifying its backing DisplayView cell that is is going to unmount and deactivate.`,
                             actionRequest: { holistic: { common: { actions: { service: { html5: { display: { view: { linkDisplayProcess: {  notifyEvent: "display-process-deactivating", reactElement: { displayName: this.displayName, thisRef: this } } } } } } } } } },
                             apmBindingPath: this.props.renderContext.apmBindingPath
                         });
-                        super.componentWillUnmount();
+                        try {
+                            if (super.componentWillUnmount) {
+                                super.componentWillUnmount();
+                            }
+                        } catch (wtaf_) {
+                            console.warn(wtaf_.message);
+                            console.error(wtaf_.stack);
+                        }
                     }
                 } // class DisplayProcess extends request_.reactComponentClass extends React.Component (presumably)
 
@@ -111,17 +127,22 @@
                 // ****************************************************************
 
                 // WILL THIS WORK? :) MAGIC! (♥_♥)
-                function fuckingMagic(magicClassName_) { return eval(`(function() { return (class ${magicClassName_} extends ViewDisplayProcess /*extends React.Component*/ {}); })();`); }
+                function makeMagicClass(magicClassName_) {
+                    const classConstructor = eval(`(function() { return (class ${magicClassName_} extends ViewDisplayProcess {}); })();`);
+                    return classConstructor;
+                }
 
                 // Now jam the synthesized class into a d2r2-generated filter that accepts data according to renderSpec and returns a bound React.Element via its response.result.
                 // This is what we call a d2r2Component for lack a better short-hand for refering to it. In reality it's a data-to-display process transducer function (w/data filtering).
+
+                const magicClass = makeMagicClass(viewDisplayClassName);
 
                 synthResponse = d2r2.ComponentFactory.request({
                     id: cmtDisplayView.mapLabels({ OTHER: `${cellModelConstructorRequest.id}:d2r2Component` }).result.OTHERID,
                     name: `${request_.displayViewSynthesizeRequest.cellModelLabel} Display Process`,
                     description: "A filter that generates a React.Element instance created via React.createElement API from the reactComponentClass specified here bound to the request data.",
                     renderDataBindingSpec: { ...renderDataSpec },
-                    reactComponent: fuckingMagic(viewDisplayClassName) // `${request_.displayViewSynthesizeRequest.cellModelLabel}_ViewDisplay_${apmID}`) // ᕕ( ᐛ )ᕗ
+                    reactComponent: magicClass // `${request_.displayViewSynthesizeRequest.cellModelLabel}_ViewDisplay_${apmID}`) // ᕕ( ᐛ )ᕗ
                 });
 
                 if (synthResponse.error) {

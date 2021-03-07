@@ -55,6 +55,7 @@
                         cellModelLabel: `${templateLabel}<${generatorRequest_.cellModelLabel}>`,
                         specializationData: {
                             description: `Specialization for ${generatorRequest_.cellModelLabel}`,
+                            displayViewCellModelLabel: generatorRequest_.cellModelLabel,
                             displayLayoutSpec: generatorRequest_.specializationData.displayElement.displayLayoutSpec
                         }
                     };

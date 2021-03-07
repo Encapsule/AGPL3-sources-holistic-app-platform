@@ -19,6 +19,7 @@
             specializationDataSpec: {
                 ____types: "jsObject",
                 description: { ____accept: "jsString" },
+                displayViewCellModelLabel: { ____accept: "jsString" },
                 displayLayoutSpec: {
                     ____accept: "jsObject",
                 }
@@ -84,8 +85,10 @@
                     };
 
                     // Must be kept in sync w/VDDV artifact generator.
-                    const displayLayoutNamespace = `layoutViewDisplay_${apmID}`;
-                    displayStreamMessageSpec.renderData[displayLayoutNamespace] = { ...generatorRequest_.specializationData.displayLayoutSpec };
+
+                    const viewDisplayClassName = `${generatorRequest_.specializationData.displayViewCellModelLabel}_ViewDisplay_${Buffer.from(apmID, "base64").toString("hex")}`;
+
+                    displayStreamMessageSpec.renderData[viewDisplayClassName] = { ...generatorRequest_.specializationData.displayLayoutSpec };
 
                     let synthResponse = cmtObservableValue.synthesizeCellModel({
                         cmasScope: generatorRequest_.cmtInstance,
