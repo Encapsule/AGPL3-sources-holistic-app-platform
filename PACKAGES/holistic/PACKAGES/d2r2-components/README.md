@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 This package contains a collection of re-usable d2r2 React components for use with the d2r2 ComponentRouter dynamic view compositor.
 
 ```
-Package: @encapsule/d2r2-components v0.0.58 "redcoral" build ID "qii3gkODTC25EKrjnTWkhQ"
-Sources: @encapsule/holodev#f954c5ab245cb11013708e5efd7391667c86a806
-Created: 2021-03-05T22:05:48.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/d2r2-components v0.0.58 "redcoral" build ID "tUJfVVhgT0ib4ELk_DvoUw"
+Sources: @encapsule/holodev#25ccbc5bb88c0b033b0071ad7a40d5f3b6d23537
+Created: 2021-03-07T11:51:57.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview
