@@ -88,18 +88,24 @@
 
                 // Now, build an object to bind to a React.Component class to create a React.Element instance.
 
+                // ATTENTION: THIS IS THE FINAL OUTPUT CONTRACT SENT INTO <ComponentRouter/>.
+                // Changes made here must be reflected (very very carefully) through d2r2 and the all DisplayView* <-> ViewDisplay* codepaths.
+
                 const thisProps = {
                     renderData: {
-                        version: displayStreamMessage.version,
-                        ...displayStreamMessage.value.renderData
+                        ...displayStreamMessage.value.renderData,
+                        revision: displayStreamMessage.version
                     },
                     renderContext: {
                         // NOTE: serverRender Boolean flag is not set here; it is only ever set during initial server-side rendering and initial client-side display activation.
                         ComponentRouter: cellMemory.config.ComponentRouter,
                         act: request_.context.act,
-                        apmBindingPath: displayStreamMessage.value.renderContext.apmBindingPath
+                        apmBindingPath: displayStreamMessage.value.renderContext.apmBindingPath,
+                        displayPath: displayStreamMessage.value.renderContext.displayPath
                     }
                 };
+
+
 
                 // Now, create us a React.Element --- Note that this _appears_ simple.
                 // It's a bridge between two worlds; here we have no idea what's inside thisProps.

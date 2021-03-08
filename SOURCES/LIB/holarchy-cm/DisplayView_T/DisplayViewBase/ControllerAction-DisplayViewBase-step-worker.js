@@ -86,7 +86,10 @@
                                         ObservableValue: {
                                             writeValue: {
                                                 value: {
-                                                    renderContext: { apmBindingPath: request_.context.apmBindingPath }, // set
+                                                    renderContext: {
+                                                        apmBindingPath: request_.context.apmBindingPath,
+                                                        displayPath: "👁"
+                                                    }, // set
                                                     renderData: {} // reset to default values
                                                 },
                                                 path: "#.outputs.displayView"

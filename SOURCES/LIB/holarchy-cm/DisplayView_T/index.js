@@ -101,7 +101,8 @@
                                     ____defaultValue: {},
                                     displayProcessLink: {
                                         ____types: [ "jsUndefined", "jsObject" ],
-                                        reactElement: {
+                                        ____asMap: true,
+                                        displayPath: {
                                             ____types: "jsObject",
                                             displayName: { ____accept: "jsString" },
                                             thisRef: { ____accept: "jsObject" },
@@ -121,7 +122,7 @@
                                         ____defaultValue: {},
                                         subviewLabel: {
                                             ____types: "jsObject",
-                                            ____appdsl: { apm: cmObservableValueHelper.getCMConfig({ type: "APM" }).result[0].getID() }
+                                            ____appdsl: { apm: cmObservableValueHelper.getCMConfig({ type: "APM" }).result[0].getID() } // TODO: CellModel.getAPM()/getAPMID() would be really convenient instead of having to call the lower-level getCMConfig method.
                                         }
                                     }
 

@@ -42,6 +42,7 @@
                                             reactElement: {
                                                 ____types: "jsObject",
                                                 displayName: { ____accept: "jsString" },
+                                                displayPath: { ____accept: "jsString" },
                                                 thisRef: { ____accept: "jsObject" }, // The React.Element sets thisRef to `this` inside its onComponentDidMount and componentWillUnmount methods.
                                             }
                                         }
@@ -79,11 +80,23 @@
                 switch (messageBody.notifyEvent) {
 
                 case "display-process-activated":
+
+                    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                    console.log(`${actionName} received action request from ${messageBody.reactElement.displayName}!`);
+                    console.log(`..... displayPath = "${messageBody.reactElement.displayPath}`);
+                    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
+                    /*
                     if (cellMemory.core.displayProcessLink) {
                         errors.push(`DisplayView cell at apmBindingPath="${request_.context.apmBindingPath}" is already linked to a display process with React.Element.displayName="${cellMemory.core.displayProcessLink.reactElement.displayName}". We presume you did not intend to do this?`);
                         break;
                     }
-                    cellMemory.core.displayProcessLink = { reactElement: messageBody.reactElement };
+                    */
+                    if (!cellMemory.core.displayProcessLink) {
+                        cellMemory.core.displayProcessLink = {};
+                    }
+
+                    cellMemory.core.displayProcessLink[messageBody.reactElement.displayPath] = messageBody.reactElement;
                     break;
 
                 case "display-process-deactivated":
