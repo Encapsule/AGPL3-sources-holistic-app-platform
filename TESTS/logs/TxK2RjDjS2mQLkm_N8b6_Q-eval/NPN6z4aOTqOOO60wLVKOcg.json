@@ -98,7 +98,8 @@
                 }
               }
             }
-          }
+          },
+          "chai": {}
         },
         "harnessResponse": {
           "error": null,

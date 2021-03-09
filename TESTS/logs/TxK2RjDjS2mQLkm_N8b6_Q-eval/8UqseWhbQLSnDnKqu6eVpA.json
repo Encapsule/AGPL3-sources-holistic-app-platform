@@ -12,7 +12,8 @@
                 "ControllerAction": {}
               }
             }
-          }
+          },
+          "chai": {}
         },
         "harnessResponse": {
           "error": null,

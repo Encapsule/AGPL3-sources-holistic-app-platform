@@ -10,7 +10,8 @@
             "testMessage3": {
               "message": "This message should be delivered and returned by harness-filter-3."
             }
-          }
+          },
+          "chai": {}
         },
         "harnessResponse": {
           "error": null,

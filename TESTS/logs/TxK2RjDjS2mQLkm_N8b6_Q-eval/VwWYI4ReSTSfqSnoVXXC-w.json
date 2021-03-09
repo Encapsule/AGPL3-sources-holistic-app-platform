@@ -18,7 +18,8 @@
                 }
               }
             }
-          }
+          },
+          "chai": {}
         },
         "harnessResponse": {
           "error": null,

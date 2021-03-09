@@ -72,7 +72,8 @@
                 }
               }
             }
-          }
+          },
+          "chai": {}
         },
         "harnessResponse": {
           "error": null,

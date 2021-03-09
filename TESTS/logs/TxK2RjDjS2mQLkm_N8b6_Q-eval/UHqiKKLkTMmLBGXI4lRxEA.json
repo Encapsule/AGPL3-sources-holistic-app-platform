@@ -10,7 +10,8 @@
             "testMessage4": {
               "thisIsOpqaue": "so i can do wahtever i want... and it doesn't matter anyway. the harness is hard-wired to explode."
             }
-          }
+          },
+          "chai": {}
         },
         "harnessResponse": {
           "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>] failed while performing main operation. Error attempting to dispatch plug-in harness filter [z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4]: Unexpected harness filter exception: 'Oh, snap!'."

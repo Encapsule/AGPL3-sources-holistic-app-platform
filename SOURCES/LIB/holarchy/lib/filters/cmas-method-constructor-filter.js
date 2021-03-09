@@ -2,6 +2,14 @@
 
 (function() {
 
+    // v0.0.60-andesine --- I have modified the logic in this module to produce IRUT ID's
+    // with a much better random value distribution so that closely related labels produce
+    // generally visually distinctive, dissimlar, IRUT values (e.g. two labels in same same
+    // that differ only by their last character). This is good enough for now. But, the real
+    // issue is a difficiency in @encapsule/arccore.identifier.irut.fromReference implementation
+    // that should implement a better idempotent scrambler on the label before performing
+    // murmur hashing and serialization to final 22-char string format.
+
     const arccore = require("@encapsule/arccore");
 
     const cmasConstructorRequestSpec = require("./iospecs/cmas-method-constructor-input-spec");
@@ -15,9 +23,8 @@
         inputFilterSpec: cmasConstructorRequestSpec,
         outputSpec: {
             ____types: "jsObject",
-            spaceLabel: {
-                ____accept: "jsString"
-            },
+            spaceLabel: { ____accept: "jsString" },
+            spaceID: { ____accept: "jsString" },
             mapLabelsMethodFilter: {
                 ____accept: "jsObject" // This will be an @encapsule/arccore.filter object.
             },
@@ -41,6 +48,12 @@
                     errors.push("You must specify a spaceLabel value of one or more character(s) in length.");
                     break;
                 }
+
+                const spaceLabelReverse = spaceLabel.split("").reverse().join("");
+                const splitPoint = Math.round(spaceLabelReverse.length / 2);
+                const spaceLabelReverseSplit = { a: spaceLabelReverse.slice(0, splitPoint), b: spaceLabelReverse.slice(splitPoint, spaceLabelReverse.length) };
+
+                const spaceID = arccore.identifier.irut.fromReference(`${spaceLabelReverseSplit.b}.e36azEvFSkmAC9MlYT6lZA.${spaceLabelReverseSplit.a}.IcH9EeK6SPyFgqjAPxGh4w`).result; // should be no perceptible relationship between IRUT created from closely-related label strings
 
                 // Create a filter that implements the mapLabels method.
 
@@ -92,6 +105,7 @@
                             inBreakScope = true;
                             // REJECT ZERO-LENGTH AND ENFORCE CM && ACT || CM && TOP
                             const keys = Object.keys(mapLabelsRequest_);
+                            const scrambleRequest = {};
                             keys.forEach((key_) => {
                                 // console.log(key_);
                                 if (mapLabelsRequest_[key_] !== undefined) {
@@ -109,6 +123,9 @@
                                                     delete mapLabelsRequest_[key_]; // JUST IGNORE THE BAD INPUT LABEL
                                                 }
                                             }
+                                            if (!errors.length) {
+                                                scrambleRequest[key_] = mapLabelsRequest_[key_].split("").reverse().join("");
+                                            }
                                         }
                                     }
                                 }
@@ -117,11 +134,11 @@
                             response.result = {
                                 ...mapLabelsRequest_,
                                 cmasInstance: undefined,
-                                CMID:  mapLabelsRequest_.CM?arccore.identifier.irut.fromReference(`${mapLabelsRequest_.cmasInstance.spaceLabel}.CellModel.${mapLabelsRequest_.CM}`).result:undefined,
-                                APMID: mapLabelsRequest_.APM?arccore.identifier.irut.fromReference(`${mapLabelsRequest_.cmasInstance.spaceLabel}.AbstractProcessModel.${mapLabelsRequest_.APM}`).result:undefined,
-                                ACTID: mapLabelsRequest_.ACT?arccore.identifier.irut.fromReference(`${mapLabelsRequest_.cmasInstance.spaceLabel}.ControllerAction.${mapLabelsRequest_.CM}::${mapLabelsRequest_.ACT}`).result:undefined,
-                                TOPID: mapLabelsRequest_.TOP?arccore.identifier.irut.fromReference(`${mapLabelsRequest_.cmasInstance.spaceLabel}.TransitionOperator.${mapLabelsRequest_.CM}::${mapLabelsRequest_.TOP}`).result:undefined,
-                                OTHERID: mapLabelsRequest_.OTHER?arccore.identifier.irut.fromReference(`${mapLabelsRequest_.cmasInstance.spaceLabel}.OtherAsset.${mapLabelsRequest_.OTHER}`).result:undefined
+                                CMID:  mapLabelsRequest_.CM?arccore.identifier.irut.fromReference(`${scrambleRequest.CM}_CellModel_${mapLabelsRequest_.cmasInstance.spaceID}_UmROjf09T5exKvVqlP5Wtw`).result:undefined,
+                                APMID: mapLabelsRequest_.APM?arccore.identifier.irut.fromReference(`${scrambleRequest.APM}_AbstractProcessModel_${mapLabelsRequest_.cmasInstance.spaceID}_szLs1awWSzK56Vtj6o3qAw`).result:undefined,
+                                ACTID: mapLabelsRequest_.ACT?arccore.identifier.irut.fromReference(`${scrambleRequest.ACT}_ControllerAction_${mapLabelsRequest_.CM}${mapLabelsRequest_.cmasInstance.spaceID}_97JU5UMKTYSphoP2Eh3Pow`).result:undefined,
+                                TOPID: mapLabelsRequest_.TOP?arccore.identifier.irut.fromReference(`${scrambleRequest.TOP}_TransitionOperator_${mapLabelsRequest_.CM}${mapLabelsRequest_.cmasInstance.spaceID}_gs2Q6ItMQde2-J_pJTZyeA`).result:undefined,
+                                OTHERID: mapLabelsRequest_.OTHER?arccore.identifier.irut.fromReference(`${scrambleRequest.OTHER}_OtherArtifact_${mapLabelsRequest_.cmasInstance.spaceID}_jTK_Vk7ASq6ofZhcTdqDbQ`).result:undefined
                             };
 
                             break;
@@ -174,6 +191,8 @@
                         while (!inBreakScope) {
                             inBreakScope = true;
                             // Here a "subspace" is an artifact space "boundary". U+2202 (stylized d) is used here to demarcate the boundary.
+                            // See also: https://en.wikipedia.org/wiki/%E2%88%82 <- NOTE: "...or the conjugate of the Dolbeault operator on smooth differential forms over a complex manifold." (https://en.wikipedia.org/wiki/Manifold)
+                            // ... Enough for now, when we can see it we will talk more & speculate about what it means. It's pretty deep.
                             response.result = { spaceLabel: `${makeSubspaceInstanceRequest_.cmasInstance.spaceLabel}∂${makeSubspaceInstanceRequest_.spaceLabel}` };
                             break;
                         }
@@ -182,7 +201,6 @@
                         }
                         return response;
                     }
-
                 });
 
                 if (factoryResponse2.error) {
@@ -192,7 +210,7 @@
 
                 const makeSubspaceInstanceMethodFilter = factoryResponse2.result;
 
-                response.result = { spaceLabel, mapLabelsMethodFilter, makeSubspaceInstanceMethodFilter };
+                response.result = { spaceLabel, spaceID, mapLabelsMethodFilter, makeSubspaceInstanceMethodFilter };
 
                 break;
             }

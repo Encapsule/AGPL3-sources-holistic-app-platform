@@ -12,7 +12,8 @@
                 "CellModel": {}
               }
             }
-          }
+          },
+          "chai": {}
         },
         "harnessResponse": {
           "error": null,

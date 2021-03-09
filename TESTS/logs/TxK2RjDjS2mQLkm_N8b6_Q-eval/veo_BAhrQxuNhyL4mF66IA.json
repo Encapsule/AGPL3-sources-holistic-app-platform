@@ -30,7 +30,8 @@
                 }
               }
             }
-          }
+          },
+          "chai": {}
         },
         "harnessResponse": {
           "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [z8o7ETWrb-47aDkBy1I9wQ::Harness Proxy::<OLdqtYwjToetbonB-pSRyw::Holodeck Runner Test #6>] failed while performing main operation. Error attempting to dispatch plug-in harness filter [OLdqtYwjToetbonB-pSRyw::Holodeck Runner Test #6]: Filter [OLdqtYwjToetbonB-pSRyw::Holodeck Runner Test #6] failed while performing main operation. Filter [XkT3fzhYT0izLU_P2WF54Q::Holodeck Test Runner] failed while performing main operation. Filter [5A8uDJunQUm1w-HcBPQ6Gw::Request Discriminator Filter Factory] failed while performing main operation. Invalid request. You must specify an array of two or more Filter objects to construct a Discriminator Filter."

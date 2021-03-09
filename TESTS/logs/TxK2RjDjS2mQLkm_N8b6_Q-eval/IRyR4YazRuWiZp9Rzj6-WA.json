@@ -8,7 +8,8 @@
           "description": "Attempt to call the harness-filter-1 test harness plug-in.",
           "vectorRequest": {
             "testMessage1": "This request should get routed to harness-filter-1."
-          }
+          },
+          "chai": {}
         },
         "harnessResponse": {
           "error": null,

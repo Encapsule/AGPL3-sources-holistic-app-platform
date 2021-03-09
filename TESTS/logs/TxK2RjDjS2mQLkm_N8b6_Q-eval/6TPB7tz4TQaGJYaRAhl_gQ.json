@@ -12,7 +12,8 @@
                 "TransitionOperator": {}
               }
             }
-          }
+          },
+          "chai": {}
         },
         "harnessResponse": {
           "error": null,

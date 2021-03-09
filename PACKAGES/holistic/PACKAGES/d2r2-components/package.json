@@ -6,10 +6,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "OnhLBMDMSrqXwQOKxfXJuQ",
-    "buildSource": "d246c940700fbdd1840170184d82be8e91d7e544",
-    "buildTime": 1615304042,
-    "codename": "whitecoral",
+    "buildID": "qIytbhUgQP2pgkw75hPuiQ",
+    "buildSource": "12e40f8ff329656bb5cb60fd66fc0e6ee14322cb",
+    "buildTime": 1615330077,
+    "codename": "andesine",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -34,7 +34,7 @@
     "name": "@encapsule/d2r2-components",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.10",
-        "@encapsule/d2r2": "0.0.59",
+        "@encapsule/d2r2": "0.0.60",
         "react": "16.12.0",
         "react-dom": "16.12.0"
     },
@@ -42,5 +42,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.59"
+    "version": "0.0.60"
 }

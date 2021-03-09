@@ -12,7 +12,8 @@
                 "ObservableProcessController": {}
               }
             }
-          }
+          },
+          "chai": {}
         },
         "harnessResponse": {
           "error": null,

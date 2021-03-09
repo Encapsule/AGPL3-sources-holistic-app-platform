@@ -12,7 +12,8 @@
                 "AbstractProcessModel": {}
               }
             }
-          }
+          },
+          "chai": {}
         },
         "harnessResponse": {
           "error": null,
