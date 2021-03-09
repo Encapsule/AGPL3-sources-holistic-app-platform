@@ -11,12 +11,14 @@
         operationDescription: "Returns cellMemory for an activated DisplayViewBase cell.",
         inputFilterSpec: {
             ____types: "jsObject",
+            act: { ____accept: "jsFunction" },
             apmBindingPath: { ____accept: "jsString" },
             ocdi: { ____accept: "jsObject" },
         },
         outputFilterSpec: {
             ____types: "jsObject",
-            cellMemory: { ____accept: "jsObject" }
+            cellMemory: { ____accept: "jsObject" },
+            cellProcess: { ____accept: "jsObject" },
         },
         bodyFunction: function(request_) {
             let response = { error: null };
@@ -40,7 +42,23 @@
                     errors.push(ocdResponse.error);
                     break;
                 }
-                response.result = { cellMemory: ocdResponse.result };
+                const cellMemory = ocdResponse.result;
+
+                let actResponse = request_.act({
+                    actorName: `${cmLabel} Get Status`,
+                    actorTaskDescription: "Querying the DisplayView cell process...",
+                    actionRequest: { CellProcessor: { cell: { cellCoordinates: request_.apmBindingPath, query: { } } } },
+                    apmBindingPath: request_.apmBindingPath
+                });
+                if (actResponse.error) {
+                    errors.push(actResponse.error);
+                    break;
+                }
+
+                const cellProcess = actResponse.result.actionResult;
+
+                response.result = { cellMemory, cellProcess };
+
                 break;
             }
             if (errors.length) {

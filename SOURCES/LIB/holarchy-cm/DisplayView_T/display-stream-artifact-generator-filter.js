@@ -1,6 +1,6 @@
 // display-stream-artifact-generator-filter.js
 
-// OMG ... this module ...
+// OMG ... this module ... IS NAMED POORLY
 
 (function() {
 
@@ -63,6 +63,7 @@
                     break;
                 }
 
+                // This is the ID of of the newly-synthesized DisplayView family CellModel's APM.
                 const apmID = cellModelConstructorRequest.apm.ocdDataSpec.outputs.displayView.____appdsl.apm;
 
                 // Must be kept in sync w/DVVD artifact generator.
@@ -75,10 +76,11 @@
 
                 console.log(`RENDER DATA SPEC FOR NEW d2r2 COMPONENT = "${JSON.stringify(renderDataSpec, undefined, 4)}"`);
 
-                let magicClass;
+                let fascadeClass; // "creative" synthesis done below.
 
                 (function() {
 
+                    // This is the short cellModelLabel used to synthesize the newly-synthesized DisplayView family CellModel.
                     let friendlyClassMoniker = request_.displayViewSynthesizeRequest.cellModelLabel; // viewDisplayClassName;
 
                     // ****************************************************************
@@ -96,8 +98,27 @@
                                 throw new Error(`Um, yea. We're going to have to have you go ahead and get your class "${friendlyClassMoniker}" that extends React.Component to define a constructor function, and then assign this.displayName in the body of that constructor function so that "${viewDisplayClassName}" that extends your "${friendlyClassMoniker}" class can correctly deduce where it is in the display tree when it's time to link to its backing DisplayView cell process. Thanks.`);
                             }
                             this.displayPath = `${props_.renderContext.displayPath}.${this.displayName}`;
+
+                            // TRY
+                            console.log(`ViewDisplayProcess::constructor attempting to register ViewDisplay instance w/backing DisplayView cell on behalf of ${viewDisplayClassName}`);
+                            let actResponse = this.props.renderContext.act({
+                                actorName: this.displayName,
+                                actorTaskDescription: `This is new a new instance of React.Element ${this.displayName} process notifying its backing DisplayView cell that it has been mounted and is now activated.`,
+                                actionRequest: { holistic: { common: { actions: { service: { html5: { display: { view: { linkDisplayProcess: { notifyEvent: "display-process-activated", reactElement: { displayName: this.displayName, displayPath: this.displayPath, thisRef: this } } } } } } } } } },
+                                apmBindingPath: this.props.renderContext.apmBindingPath
+                            });
+                            try {
+                                if (super.componentDidMount) {
+                                    super.componentDidMount();
+                                }
+                            } catch (wtaf_) {
+                                console.warn(wtaf_.message);
+                                console.error(wtaf_.stack);
+                            }
+
                         }
 
+                        /*
                         componentDidMount() {
 
                             console.log(`ViewDisplayProcess::componentDidMount on behalf of ${viewDisplayClassName}`);
@@ -117,6 +138,7 @@
                             }
 
                         }
+                        */
 
                         componentWillUnmount() {
                             console.log(`ViewDisplayProcess::componentWillUnmount on behalf of ${viewDisplayClassName}`);
@@ -146,24 +168,23 @@
                     // ****************************************************************
 
                     // WILL THIS WORK? :) MAGIC! (♥_♥)
-                    function makeMagicClass(magicClassName_) {
-                        const classConstructor = eval(`(function() { return (class ${magicClassName_} extends ViewDisplayProcess {}); })();`);
-                        return classConstructor;
+                    function makeFascadeClass(fascadeClassName_) {
+                        const fascadeClassConstructor = eval(`(function() { return (class ${fascadeClassName_} extends ViewDisplayProcess {}); })();`);
+                        return fascadeClassConstructor;
                     }
 
-                    // Now jam the synthesized class into a d2r2-generated filter that accepts data according to renderSpec and returns a bound React.Element via its response.result.
-                    // This is what we call a d2r2Component for lack a better short-hand for refering to it. In reality it's a data-to-display process transducer function (w/data filtering).
-
-                    magicClass = makeMagicClass(viewDisplayClassName);
+                    // Syntheszie the fascade class.
+                    fascadeClass = makeFascadeClass(viewDisplayClassName);
 
                 })();
 
+                // Now jam the synthesized fascade class into a a DisplayView cell process to ViewDisplay React.Element process transducer (aka d2r2Component ;)-~
                 synthResponse = d2r2.ComponentFactory.request({
                     id: cmtDisplayView.mapLabels({ OTHER: `${cellModelConstructorRequest.id}:d2r2Component` }).result.OTHERID,
                     name: `${request_.displayViewSynthesizeRequest.cellModelLabel} Display Process`,
                     description: "A filter that generates a React.Element instance created via React.createElement API from the reactComponentClass specified here bound to the request data.",
                     renderDataBindingSpec: { ...renderDataSpec },
-                    reactComponent: magicClass // `${request_.displayViewSynthesizeRequest.cellModelLabel}_ViewDisplay_${apmID}`) // ᕕ( ᐛ )ᕗ
+                    reactComponent: fascadeClass // ᕕ( ᐛ )ᕗ
                 });
 
                 if (synthResponse.error) {
