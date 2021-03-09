@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A platform for building distributed software systems with reusable JavaScript CellModel plug-ins. And, System-in-Cloud (SiC) information circuit architecture.",
-    "version": "0.0.58",
-    "codename": "redcoral",
+    "version": "0.0.59",
+    "codename": "whitecoral",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "tUJfVVhgT0ib4ELk_DvoUw",
-    "buildSource": "25ccbc5bb88c0b033b0071ad7a40d5f3b6d23537",
-    "buildTime": 1615117917,
-    "buildDateISO": "2021-03-07T11:51:57.000Z"
+    "buildID": "OnhLBMDMSrqXwQOKxfXJuQ",
+    "buildSource": "d246c940700fbdd1840170184d82be8e91d7e544",
+    "buildTime": 1615304042,
+    "buildDateISO": "2021-03-09T15:34:02.000Z"
 }
