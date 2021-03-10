@@ -239,9 +239,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             var inBreakScope = false;
 
             while (!inBreakScope) {
-              inBreakScope = true; // Here a "subspace" is an artifact space "boundary". U+2202 (stylized d) is used here to demarcate the boundary.
+              inBreakScope = true;
+
+              if (!makeSubspaceInstanceRequest_.spaceLabel.length) {
+                errors.push("You must specify a spaceLabel value of one or more character(s) in length.");
+                break;
+              } // Here a "subspace" is an artifact space "boundary". U+2202 (stylized d) is used here to demarcate the boundary.
               // See also: https://en.wikipedia.org/wiki/%E2%88%82 <- NOTE: "...or the conjugate of the Dolbeault operator on smooth differential forms over a complex manifold." (https://en.wikipedia.org/wiki/Manifold)
               // ... Enough for now, when we can see it we will talk more & speculate about what it means. It's pretty deep.
+
 
               response.result = {
                 spaceLabel: "".concat(makeSubspaceInstanceRequest_.cmasInstance.spaceLabel, "\u2202").concat(makeSubspaceInstanceRequest_.spaceLabel)
