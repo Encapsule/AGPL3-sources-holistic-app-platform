@@ -27,6 +27,11 @@
             while (!inBreakScope) {
                 inBreakScope = true;
 
+                if (!constructorRequest_.templateLabel.length) {
+                    errors.push("You must specify a templateLabel value of one or more characters. Invalid zero-length templateLabel rejected.");
+                    break;
+                }
+
                 let cmasTemplateScope = (constructorRequest_.cmasScope instanceof CellModelArtifactSpace)?constructorRequest_.cmasScope:(new CellModelArtifactSpace(constructorRequest_.cmasScope));
 
                 if (!cmasTemplateScope.isValid()) {
