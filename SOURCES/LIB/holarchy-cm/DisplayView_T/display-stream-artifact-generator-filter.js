@@ -6,6 +6,7 @@
 
     const arccore = require("@encapsule/arccore");
     const holarchy = require("@encapsule/holarchy");
+    const React = require("react");
     const d2r2 = require("@encapsule/d2r2");
     const cmtDisplayView = require("./"); // Currently, we're co-resident w/the DisplayView_T definition.
 
@@ -116,6 +117,11 @@
                                 console.error(wtaf_.stack);
                             }
 
+                            // ? Expect it to be fine for now as it's not being called yet.
+                            this.componentWillUnmount = this.componentWillUnmount.bind(this);
+                            this.foo = this.foo.bind(this);
+
+
                         }
 
                         /*
@@ -158,6 +164,11 @@
                             }
                         }
 
+                        foo() {
+                            console.log("Hello, foo here!");
+                            return (<div>FOO</div>);
+                        }
+
 
                     } // class DisplayProcess extends request_.reactComponentClass extends React.Component (presumably)
 
@@ -180,8 +191,8 @@
 
                 // Now jam the synthesized fascade class into a a DisplayView cell process to ViewDisplay React.Element process transducer (aka d2r2Component ;)-~
                 synthResponse = d2r2.ComponentFactory.request({
-                    id: cmtDisplayView.mapLabels({ OTHER: `${cellModelConstructorRequest.id}:d2r2Component` }).result.OTHERID,
-                    name: `${request_.displayViewSynthesizeRequest.cellModelLabel} Display Process`,
+                    id: cmtDisplayView.mapLabels({ OTHER: `${request_.displayViewSynthesizeRequest.cellModelLabel}::ViewDisplay` }).result.OTHERID,
+                    name: `${request_.displayViewSynthesizeRequest.cellModelLabel} ViewDisplay Process`,
                     description: "A filter that generates a React.Element instance created via React.createElement API from the reactComponentClass specified here bound to the request data.",
                     renderDataBindingSpec: { ...renderDataSpec },
                     reactComponent: fascadeClass // ᕕ( ᐛ )ᕗ
