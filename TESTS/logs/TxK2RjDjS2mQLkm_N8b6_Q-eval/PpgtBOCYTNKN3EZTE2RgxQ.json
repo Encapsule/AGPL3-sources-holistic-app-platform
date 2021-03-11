@@ -37,7 +37,9 @@
                       "error": "Filter [kNjJehTFRz2WhRHkuL9kWA::CellModelArtifactSpace::constructor] failed while performing main operation. You must specify a spaceLabel value of one or more character(s) in length."
                     },
                     "mapLabelsCallErrorExpected": true,
-                    "cm_apm": null
+                    "cm_apm": null,
+                    "collisions": null,
+                    "mapReverse": null
                   }
                 }
               }

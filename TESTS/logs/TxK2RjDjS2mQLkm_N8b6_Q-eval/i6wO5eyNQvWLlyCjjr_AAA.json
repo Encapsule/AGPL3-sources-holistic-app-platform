@@ -1,0 +1,194 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "l_oGWSN3OmNlPla3HFA8TA": {
+      "i6wO5eyNQvWLlyCjjr_AAA": {
+        "harnessRequest": {
+          "id": "i6wO5eyNQvWLlyCjjr_AAA",
+          "name": "CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1",
+          "description": "Test case #1 to check the A vs B harness itself.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellModelArtifactSpace_Compare_A_vs_B": {
+                  "constructorRequestA": {
+                    "spaceLabel": "TestA"
+                  },
+                  "constructorRequestB": {
+                    "spaceLabel": "TestB"
+                  },
+                  "assertSameArtifactSpace": false,
+                  "mapLabelsRequest": {
+                    "A": {
+                      "methodRequest": {
+                        "CM": "test_label_1"
+                      },
+                      "assertValidRequest": true
+                    },
+                    "B": {
+                      "methodRequest": {
+                        "CM": "test_label_1"
+                      },
+                      "assertValidRequest": true
+                    },
+                    "assertRequestsIdentical": true
+                  },
+                  "testAssertion": {
+                    "description": "CellModel ID's for same CM label string in two different CMAS should not be equal."
+                  }
+                }
+              }
+            }
+          },
+          "chaiAssert": {}
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "z_8vu0EWQniw0qdLcUbJPA": {
+                "i6wO5eyNQvWLlyCjjr_AAA": {
+                  "vectorFailed": false,
+                  "subtestVectorResponseA": {
+                    "error": null,
+                    "result": {
+                      "harnessOptions": {
+                        "idempotent": true,
+                        "gitDiffHunkSize": 0
+                      },
+                      "harnessDispatch": {
+                        "PKqr3AM2TeapNhvzxh8_0g": {
+                          "ypfKl5uQm5Bv1G_UnDScNA": {
+                            "cmasFrom": "constructed-by-harness-from-vector-data",
+                            "isValid": true,
+                            "cmasRef": {
+                              "spaceLabel": "TestA",
+                              "spaceID": "D4sPi1UWVRaRsZGxCk4KTg"
+                            },
+                            "invariantAssumptionChecks": {
+                              "mapLabelsResponse": {
+                                "error": null,
+                                "result": {
+                                  "CM": "ypfKl5uQm5Bv1G_UnDScNA::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector A::Attempt to instantiate test CMAS test instance A.",
+                                  "CMID": "AOHdHiwUqBO4xsAA3XN3Bw",
+                                  "APM": "ypfKl5uQm5Bv1G_UnDScNA::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector A::Attempt to instantiate test CMAS test instance A.",
+                                  "APMID": "mue0O1p7RtyaTLZ6obArtw",
+                                  "ACT": "ypfKl5uQm5Bv1G_UnDScNA::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector A::Attempt to instantiate test CMAS test instance A.",
+                                  "ACTID": "4uhzUyK9nk4j7sGEVOh2Yg",
+                                  "TOP": "ypfKl5uQm5Bv1G_UnDScNA::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector A::Attempt to instantiate test CMAS test instance A.",
+                                  "TOPID": "4ir6dyIUcWcjmy8XVDEOGQ",
+                                  "OTHER": "ypfKl5uQm5Bv1G_UnDScNA::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector A::Attempt to instantiate test CMAS test instance A.",
+                                  "OTHERID": "4t0208IoOTNLp5l-kLzDDw"
+                                }
+                              },
+                              "mapLabelsCallErrorExpected": false,
+                              "cm_apm": {
+                                "funcName": "notEqual",
+                                "args": [
+                                  "AOHdHiwUqBO4xsAA3XN3Bw",
+                                  "mue0O1p7RtyaTLZ6obArtw",
+                                  "Generated CM and APM IRUT ID's should not be equal."
+                                ],
+                                "assertion": null
+                              },
+                              "collisions": [],
+                              "mapReverse": {
+                                "AOHdHiwUqBO4xsAA3XN3Bw": "ypfKl5uQm5Bv1G_UnDScNA::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector A::Attempt to instantiate test CMAS test instance A.",
+                                "mue0O1p7RtyaTLZ6obArtw": "ypfKl5uQm5Bv1G_UnDScNA::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector A::Attempt to instantiate test CMAS test instance A.",
+                                "4uhzUyK9nk4j7sGEVOh2Yg": "ypfKl5uQm5Bv1G_UnDScNA::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector A::Attempt to instantiate test CMAS test instance A.",
+                                "4ir6dyIUcWcjmy8XVDEOGQ": "ypfKl5uQm5Bv1G_UnDScNA::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector A::Attempt to instantiate test CMAS test instance A.",
+                                "4t0208IoOTNLp5l-kLzDDw": "ypfKl5uQm5Bv1G_UnDScNA::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector A::Attempt to instantiate test CMAS test instance A."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "subtestVectorResponseB": {
+                    "error": null,
+                    "result": {
+                      "harnessOptions": {
+                        "idempotent": true,
+                        "gitDiffHunkSize": 0
+                      },
+                      "harnessDispatch": {
+                        "PKqr3AM2TeapNhvzxh8_0g": {
+                          "yq_Kr5uGm4ZvaG9onCmcKQ": {
+                            "cmasFrom": "constructed-by-harness-from-vector-data",
+                            "isValid": true,
+                            "cmasRef": {
+                              "spaceLabel": "TestB",
+                              "spaceID": "D3kPeVWOVY6RiZGJCnwKfA"
+                            },
+                            "invariantAssumptionChecks": {
+                              "mapLabelsResponse": {
+                                "error": null,
+                                "result": {
+                                  "CM": "yq_Kr5uGm4ZvaG9onCmcKQ::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector B::Attempt to instantiate test CMAS test instance B.",
+                                  "CMID": "i-HrbfQUH_tpxtONo3Otig",
+                                  "APM": "yq_Kr5uGm4ZvaG9onCmcKQ::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector B::Attempt to instantiate test CMAS test instance B.",
+                                  "APMID": "zeftwP97v-NgTFNGOLD9pQ",
+                                  "ACT": "yq_Kr5uGm4ZvaG9onCmcKQ::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector B::Attempt to instantiate test CMAS test instance B.",
+                                  "ACTID": "oBBi5qbVpXRU9lfUCol7hA",
+                                  "TOP": "yq_Kr5uGm4ZvaG9onCmcKQ::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector B::Attempt to instantiate test CMAS test instance B.",
+                                  "TOPID": "oA9qPKaAFRdUgJu5CgNT8g",
+                                  "OTHER": "yq_Kr5uGm4ZvaG9onCmcKQ::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector B::Attempt to instantiate test CMAS test instance B.",
+                                  "OTHERID": "8N16Op8oqjhRpwvF9LxJgQ"
+                                }
+                              },
+                              "mapLabelsCallErrorExpected": false,
+                              "cm_apm": {
+                                "funcName": "notEqual",
+                                "args": [
+                                  "i-HrbfQUH_tpxtONo3Otig",
+                                  "zeftwP97v-NgTFNGOLD9pQ",
+                                  "Generated CM and APM IRUT ID's should not be equal."
+                                ],
+                                "assertion": null
+                              },
+                              "collisions": [],
+                              "mapReverse": {
+                                "i-HrbfQUH_tpxtONo3Otig": "yq_Kr5uGm4ZvaG9onCmcKQ::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector B::Attempt to instantiate test CMAS test instance B.",
+                                "zeftwP97v-NgTFNGOLD9pQ": "yq_Kr5uGm4ZvaG9onCmcKQ::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector B::Attempt to instantiate test CMAS test instance B.",
+                                "oBBi5qbVpXRU9lfUCol7hA": "yq_Kr5uGm4ZvaG9onCmcKQ::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector B::Attempt to instantiate test CMAS test instance B.",
+                                "oA9qPKaAFRdUgJu5CgNT8g": "yq_Kr5uGm4ZvaG9onCmcKQ::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector B::Attempt to instantiate test CMAS test instance B.",
+                                "8N16Op8oqjhRpwvF9LxJgQ": "yq_Kr5uGm4ZvaG9onCmcKQ::Test Vector i6wO5eyNQvWLlyCjjr_AAA CellModelArtifactSpace A vs B Instance Comparison: Harness Smoke Test 1 Subvector B::Attempt to instantiate test CMAS test instance B."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "assertions": [
+                    {
+                      "funcName": "isTrue",
+                      "args": [
+                        true,
+                        "We expect constructorRequestA and constructorRequestB to yield valid subtest vector responses from which we can get A and B cmasRef for comparison?"
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isFalse",
+                      "args": [
+                        true,
+                        "We expect that constructorRequestA and constructorRequestB to yield valid CMAS instances to compare. But, that's not the case."
+                      ],
+                      "assertion": "We expect that constructorRequestA and constructorRequestB to yield valid CMAS instances to compare. But, that's not the case.: expected true to be false"
+                    }
+                  ],
+                  "assertFailures": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

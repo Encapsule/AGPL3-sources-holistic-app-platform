@@ -6,8 +6,6 @@
 
   var holarchy = require("@encapsule/holarchy");
 
-  var chai = require("chai");
-
   var factoryResponse = holodeck.harnessFactory.request({
     id: "PKqr3AM2TeapNhvzxh8_0g",
     name: "CellModelArtifact Test Harness",
@@ -62,6 +60,21 @@
         cm_apm: {
           ____accept: ["jsNull", "jsObject"],
           ____defaultValue: null
+        },
+        collisions: {
+          ____types: ["jsNull", "jsArray"],
+          ____defaultValue: null,
+          element: {
+            ____accept: "jsString"
+          }
+        },
+        mapReverse: {
+          ____types: ["jsNull", "jsObject"],
+          ____defaultValue: null,
+          ____asMap: true,
+          irutID: {
+            ____accept: "jsString"
+          }
         }
       }
     },
@@ -114,8 +127,32 @@
         });
 
         if (cmasRef.isValid() && !mapLabelsResponse.error) {
-          var labels = mapLabelsResponse.result;
-          response.result.invariantAssumptionChecks.cm_apm = request_.chaiAssert.equal(labels.CMID, labels.APMID, "Generated CM and APM IRUT ID's should not be equal.");
+          (function () {
+            var labels = mapLabelsResponse.result; // THIS IS A TINY EXAMPLE OF USING chaiAssert (fascade) just to show how; here it's redundant.
+
+            response.result.invariantAssumptionChecks.cm_apm = request_.chaiAssert.notEqual(labels.CMID, labels.APMID, "Generated CM and APM IRUT ID's should not be equal.");
+            var spaceID = cmasRef.getArtifactSpaceID();
+            var collisions = [];
+            var mapReverse = {};
+            Object.keys(labels).forEach(function (key_) {
+              if (!key_.endsWith("ID")) {
+                var idKey = "".concat(key_, "ID");
+                var idValue = labels[idKey];
+
+                if (idValue === spaceID) {
+                  collisions(key_);
+                }
+
+                if (mapReverse[idValue]) {
+                  collisions.push(key_);
+                } else {
+                  mapReverse[idValue] = labels[key_];
+                }
+              }
+            });
+            response.result.invariantAssumptionChecks.collisions = collisions;
+            response.result.invariantAssumptionChecks.mapReverse = mapReverse;
+          })();
         }
 
         break;

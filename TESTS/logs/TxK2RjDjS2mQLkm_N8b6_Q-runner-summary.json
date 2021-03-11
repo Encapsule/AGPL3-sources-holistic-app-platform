@@ -1,7 +1,7 @@
 {
-  "totalTestVectors": 115,
-  "totalDispatchedVectors": 107,
-  "totalHarnessResults": 103,
+  "totalTestVectors": 116,
+  "totalDispatchedVectors": 108,
+  "totalHarnessResults": 104,
   "totalHarnessErrors": 4,
   "totalRejectedVectors": 8,
   "totalFailedVectors": 0
