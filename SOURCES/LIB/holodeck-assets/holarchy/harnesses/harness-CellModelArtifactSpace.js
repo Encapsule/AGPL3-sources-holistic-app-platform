@@ -5,8 +5,6 @@
     const holodeck = require("@encapsule/holodeck");
     const holarchy = require("@encapsule/holarchy");
 
-    const chai = require("chai");
-
     const factoryResponse = holodeck.harnessFactory.request({
 
         id: "PKqr3AM2TeapNhvzxh8_0g",
@@ -53,7 +51,9 @@
                 ____types: "jsObject",
                 mapLabelsResponse: { ____accept: "jsObject" },
                 mapLabelsCallErrorExpected: { ____accept: "jsBoolean" },
-                cm_apm: { ____accept: [ "jsNull", "jsObject" ], ____defaultValue: null }
+                cm_apm: { ____accept: [ "jsNull", "jsObject" ], ____defaultValue: null },
+                collisions: { ____types: ["jsNull", "jsArray" ], ____defaultValue: null, element: { ____accept: "jsString" } },
+                mapReverse: { ____types: ["jsNull", "jsObject" ], ____defaultValue: null, ____asMap: true, irutID:  { ____accept: "jsString" } }
             }
 
         },
@@ -104,10 +104,32 @@
                 const mapLabelsResponse = response.result.invariantAssumptionChecks.mapLabelsResponse = cmasRef.mapLabels({ CM: testLabel, APM: testLabel, TOP: testLabel, ACT: testLabel, OTHER: testLabel });
 
                 if (cmasRef.isValid() && !mapLabelsResponse.error) {
-
                     const labels = mapLabelsResponse.result;
 
-                    response.result.invariantAssumptionChecks.cm_apm = request_.chaiAssert.equal(labels.CMID, labels.APMID, "Generated CM and APM IRUT ID's should not be equal.");
+                    // THIS IS A TINY EXAMPLE OF USING chaiAssert (fascade) just to show how; here it's redundant.
+                    response.result.invariantAssumptionChecks.cm_apm = request_.chaiAssert.notEqual(labels.CMID, labels.APMID, "Generated CM and APM IRUT ID's should not be equal.");
+
+                    const spaceID = cmasRef.getArtifactSpaceID();
+
+                    let collisions = [];
+                    let mapReverse = {};
+                    Object.keys(labels).forEach((key_) => {
+                        if (!key_.endsWith("ID")) {
+                            const idKey = `${key_}ID`;
+                            const idValue = labels[idKey];
+                            if (idValue === spaceID) {
+                                collisions(key_);
+                            }
+                            if (mapReverse[idValue]) {
+                                collisions.push(key_);
+                            } else {
+                                mapReverse[idValue] = labels[key_];
+                            }
+                        }
+                    });
+
+                    response.result.invariantAssumptionChecks.collisions = collisions;
+                    response.result.invariantAssumptionChecks.mapReverse = mapReverse;
 
                 }
 

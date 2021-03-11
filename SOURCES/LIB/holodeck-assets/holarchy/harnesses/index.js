@@ -8,4 +8,5 @@ module.exports = [
     require("./harness-TransitionOperator"),
     require("./harness-CellProcessor"),
     require("./harness-CellModelArtifactSpace"),
+    require("./harness-CellModelArtifactSpace-A-vs-B")
 ];
