@@ -6,5 +6,6 @@ module.exports = [
     require("./harness-AbstractProcessModel"),
     require("./harness-ControllerAction"),
     require("./harness-TransitionOperator"),
-    require("./harness-CellProcessor")
+    require("./harness-CellProcessor"),
+    require("./harness-CellModelArtifactSpace"),
 ];

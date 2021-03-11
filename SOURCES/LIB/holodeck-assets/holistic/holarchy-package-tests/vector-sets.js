@@ -36,6 +36,9 @@ module.exports = [
 
 
     require("./vector-set-cpm-shared-processes"),
-    require("./vector-set-cpm-proxy-tests")
+    require("./vector-set-cpm-proxy-tests"),
+
+
+    require("./vector-set-cmas-base-constructor")
 
 ];

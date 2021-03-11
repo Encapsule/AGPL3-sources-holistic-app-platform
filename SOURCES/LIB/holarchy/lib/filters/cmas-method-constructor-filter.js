@@ -21,6 +21,7 @@
         operationDescription: "CellModelArtifactSpace::constructor function request input filter.",
 
         inputFilterSpec: cmasConstructorRequestSpec,
+
         outputSpec: {
             ____types: "jsObject",
             spaceLabel: { ____accept: "jsString" },

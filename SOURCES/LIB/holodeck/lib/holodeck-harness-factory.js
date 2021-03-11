@@ -31,7 +31,7 @@ const factoryResponse = arccore.filter.create({
                 id: { ____accept: "jsString" },
                 name: { ____accept: "jsString" },
                 description: { ____accept: "jsString" },
-                chai: { ____accept: "jsObject" },
+                chaiAssert: { ____accept: "jsObject" }, // <-- See: @encapsule/holodeck/lib/helpers/chai-assert-fascade.js (no-throw wrappers around  https://www.chaijs.com/api/assert/ functions that throw ErrorAssertion)
                 vectorRequest: factoryRequest_.testVectorRequestInputSpec,
                 harnessDispatcher: { ____accept: "jsObject" }, // MDR chaining to retrieve another harness from within a harness
                 harnessRunner: { ____accept: "jsObject" }, // MDR chaining to another holodeck runner instance (separate eval logs)

@@ -174,7 +174,7 @@
               }
             }
           },
-          "chai": {}
+          "chaiAssert": {}
         },
         "harnessResponse": {
           "error": null,

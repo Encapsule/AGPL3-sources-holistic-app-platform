@@ -1,0 +1,46 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XWII2IWkN82H4doCOOAftg": {
+      "6T9b-OukTF6wGWqNgqb_8Q": {
+        "harnessRequest": {
+          "id": "6T9b-OukTF6wGWqNgqb_8Q",
+          "name": "CellModelArtifactSpace Constructor/Method: Bad Constructor Request Undefined",
+          "description": "Attempt to construct a CMAS instance w/undefined constructor request.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellModelArtifactSpace": {}
+              }
+            }
+          },
+          "chaiAssert": {}
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "PKqr3AM2TeapNhvzxh8_0g": {
+                "6T9b-OukTF6wGWqNgqb_8Q": {
+                  "cmasFrom": "constructed-by-harness-from-vector-data",
+                  "isValid": false,
+                  "cmasRef": "Filter [kNjJehTFRz2WhRHkuL9kWA::CellModelArtifactSpace::constructor] failed while normalizing request input. Error at path '~.spaceLabel': Value of type 'jsUndefined' not in allowed type set [jsString].",
+                  "invariantAssumptionChecks": {
+                    "mapLabelsResponse": {
+                      "error": "Filter [kNjJehTFRz2WhRHkuL9kWA::CellModelArtifactSpace::constructor] failed while normalizing request input. Error at path '~.spaceLabel': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                    },
+                    "mapLabelsCallErrorExpected": true,
+                    "cm_apm": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

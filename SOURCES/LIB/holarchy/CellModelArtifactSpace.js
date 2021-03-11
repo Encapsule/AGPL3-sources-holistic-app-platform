@@ -12,6 +12,8 @@
             this._private = !filterResponse.error?filterResponse.result:{ constructorError: filterResponse.error };
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
+            this.getArtifactPath = this.getArtifactPath.bind(this);
+            this.getArtifactSpaceID = this.getArtifactSpaceID.bind(this);
             this.mapLabels = this.mapLabels.bind(this);
             this.makeSubspaceInstance = this.makeSubspaceInstance.bind(this);
             // deprecate this.getArtifactSpaceLabel = this.getArtifactSpaceLabel.bind(this);
@@ -22,7 +24,15 @@
         }
 
         toJSON() {
-            return (this.isValid()?this._private:this._private.constructorError);
+            return (this.isValid()?{ spaceLabel: this._private.spaceLabel, spaceID: this._private.spaceID }:this._private.constructorError);
+        }
+
+        getArtifactPath() {
+            return (this.isValid()?this._private.spaceLabel:this._private.constructorError);
+        }
+
+        getArtifactSpaceID() {
+            return (this.isValid()?this._private.spaceID:this._private.constructorError);
         }
 
         mapLabels(request_) {

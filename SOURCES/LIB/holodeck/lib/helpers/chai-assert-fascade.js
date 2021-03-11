@@ -2,38 +2,33 @@
 //
 
 const chai = require("chai");
-const assert = chai.assert;
 
-// TODO: Follow-up with chai team and see if this is really anything more than an unsafe hack.
+// It will take additional effort to determine how to deal and if it's worth dealing
+// with chai's expect/should features that present a much more complex integration
+// than their assert API's due to function chaining syntax and some or another protocol
+// that has to be reverse engineered from sources it looks like. SO, for now we'll just
+// leverage chai's assert functions slightly modified so that they do not throw ErrorAssertions
+// that are inconvenient for our style of testing w/holodeck.
+
+const assert = chai.assert; // https://www.chaijs.com/api/assert/
 
 const assertFascade = { ...assert }; // copy the original
 const assertFuncs = Object.keys(assert);
 
 while (assertFuncs.length) {
     const funcName = assertFuncs.shift();
-    // Replace all functions (seemingly unbound) on the assert namesapce descriptor with fascades.
+    // Replace all functions (seemingly unbound) on the assert namespace descriptor with fascades.
     if (Object.prototype.toString.call(assert[funcName]) === "[object Function]") {
-
         const originalFunction = assert[funcName];
         assertFascade[funcName] = function() {
             let args = [].slice.call(arguments, 0);
-
-            let response = {
-                error: null,
-                result: {
-                    assert: {
-                        name: funcName,
-                        arg: args,
-                        exception: null
-                    }
-                }
-            };
-
+            let didAssert = false;
+            let response = { funcName, args, assertion: null }; // <--- THIS IS WHAT YOU GET BACK from the fascade wrapper around each chai.assert.X function _instead_ of an exception ErrorAssertion
             try {
-                originalFunction(args);
-            } catch (exception_) {
-                response.error = exception_.toString();
-                response.result.assert.exception = exception_
+                // It's an assertion library ;-) It throws ErrorAssertions to indicate the assertion is not met.
+                originalFunction(...args);
+            } catch(exception_) {
+                response.assertion = exception_.message; // Is an ErrorAssertion object
             }
             return response;
         };

@@ -9,7 +9,7 @@
           "vectorRequest": {
             "testMessage1": "This request should get routed to harness-filter-1."
           },
-          "chai": {}
+          "chaiAssert": {}
         },
         "harnessResponse": {
           "error": null,

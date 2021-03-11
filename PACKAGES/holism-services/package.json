@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "3msb2vMoRF66x1hOYh_bUA",
-    "buildSource": "37505b691b3c4d316372a18d63151e918b5fb9ee",
-    "buildTime": 1615360781,
-    "codename": "andesine",
+    "buildID": "tCzocFbIQuGLZkh7XpE1dQ",
+    "buildSource": "4e913800270f47a9208061a7ea0ab1e751b35231",
+    "buildTime": 1615443396,
+    "codename": "verdelite",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -36,11 +36,11 @@
     "name": "@encapsule/holism-services",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.10",
-        "@encapsule/holism": "0.0.60"
+        "@encapsule/holism": "0.0.61"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.60"
+    "version": "0.0.61"
 }

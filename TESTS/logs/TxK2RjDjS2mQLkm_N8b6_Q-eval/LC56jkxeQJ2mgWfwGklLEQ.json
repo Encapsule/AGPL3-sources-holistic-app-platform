@@ -11,7 +11,7 @@
               "message": "This message should be delivered and returned by harness-filter-3."
             }
           },
-          "chai": {}
+          "chaiAssert": {}
         },
         "harnessResponse": {
           "error": null,

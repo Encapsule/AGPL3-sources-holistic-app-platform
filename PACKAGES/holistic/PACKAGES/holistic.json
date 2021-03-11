@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A platform for building distributed software systems with reusable JavaScript CellModel plug-ins. And, System-in-Cloud (SiC) information circuit architecture.",
-    "version": "0.0.60",
-    "codename": "andesine",
+    "version": "0.0.61",
+    "codename": "verdelite",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "3msb2vMoRF66x1hOYh_bUA",
-    "buildSource": "37505b691b3c4d316372a18d63151e918b5fb9ee",
-    "buildTime": 1615360781,
-    "buildDateISO": "2021-03-10T07:19:41.000Z"
+    "buildID": "tCzocFbIQuGLZkh7XpE1dQ",
+    "buildSource": "4e913800270f47a9208061a7ea0ab1e751b35231",
+    "buildTime": 1615443396,
+    "buildDateISO": "2021-03-11T06:16:36.000Z"
 }

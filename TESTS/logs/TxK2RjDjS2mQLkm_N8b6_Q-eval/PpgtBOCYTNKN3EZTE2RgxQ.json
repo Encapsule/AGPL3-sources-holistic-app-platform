@@ -1,0 +1,50 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XWII2IWkN82H4doCOOAftg": {
+      "PpgtBOCYTNKN3EZTE2RgxQ": {
+        "harnessRequest": {
+          "id": "PpgtBOCYTNKN3EZTE2RgxQ",
+          "name": "CellModelArtifactSpace Constructor/Method: Bad Constructor Request Zero-Length Space Label",
+          "description": "Attempt to construct CMAS instance w/a zero-length spaceLabel string.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellModelArtifactSpace": {
+                  "constructorRequest": {
+                    "spaceLabel": ""
+                  }
+                }
+              }
+            }
+          },
+          "chaiAssert": {}
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "PKqr3AM2TeapNhvzxh8_0g": {
+                "PpgtBOCYTNKN3EZTE2RgxQ": {
+                  "cmasFrom": "constructed-by-harness-from-vector-data",
+                  "isValid": false,
+                  "cmasRef": "Filter [kNjJehTFRz2WhRHkuL9kWA::CellModelArtifactSpace::constructor] failed while performing main operation. You must specify a spaceLabel value of one or more character(s) in length.",
+                  "invariantAssumptionChecks": {
+                    "mapLabelsResponse": {
+                      "error": "Filter [kNjJehTFRz2WhRHkuL9kWA::CellModelArtifactSpace::constructor] failed while performing main operation. You must specify a spaceLabel value of one or more character(s) in length."
+                    },
+                    "mapLabelsCallErrorExpected": true,
+                    "cm_apm": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

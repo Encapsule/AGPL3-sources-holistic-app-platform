@@ -1,0 +1,73 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XWII2IWkN82H4doCOOAftg": {
+      "3uscUmZjQYimppjDK5YUTw": {
+        "harnessRequest": {
+          "id": "3uscUmZjQYimppjDK5YUTw",
+          "name": "CellModelArtifactSpace Constructor/Method: Good Constructor From Valid Request Descriptor",
+          "description": "Attempt to construct a CMAS instance w/a valid spaceLabel string value.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellModelArtifactSpace": {
+                  "constructorRequest": {
+                    "spaceLabel": "Whatever >0 string I want..."
+                  }
+                }
+              }
+            }
+          },
+          "chaiAssert": {}
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "PKqr3AM2TeapNhvzxh8_0g": {
+                "3uscUmZjQYimppjDK5YUTw": {
+                  "cmasFrom": "constructed-by-harness-from-vector-data",
+                  "isValid": true,
+                  "cmasRef": {
+                    "spaceLabel": "Whatever >0 string I want...",
+                    "spaceID": "eZKipSuynQ7hlTFD7eQ33A"
+                  },
+                  "invariantAssumptionChecks": {
+                    "mapLabelsResponse": {
+                      "error": null,
+                      "result": {
+                        "CM": "3uscUmZjQYimppjDK5YUTw::CellModelArtifactSpace Constructor/Method: Good Constructor From Valid Request Descriptor::Attempt to construct a CMAS instance w/a valid spaceLabel string value.",
+                        "CMID": "QuxC_H61-vOLdlIuJxPdmw",
+                        "APM": "3uscUmZjQYimppjDK5YUTw::CellModelArtifactSpace Constructor/Method: Good Constructor From Valid Request Descriptor::Attempt to construct a CMAS instance w/a valid spaceLabel string value.",
+                        "APMID": "f_9aOvRU7IBk80Q6FG7ZvQ",
+                        "ACT": "3uscUmZjQYimppjDK5YUTw::CellModelArtifactSpace Constructor/Method: Good Constructor From Valid Request Descriptor::Attempt to construct a CMAS instance w/a valid spaceLabel string value.",
+                        "ACTID": "JNxRu1bXipGN_JvSwiAIBQ",
+                        "TOP": "3uscUmZjQYimppjDK5YUTw::CellModelArtifactSpace Constructor/Method: Good Constructor From Valid Request Descriptor::Attempt to construct a CMAS instance w/a valid spaceLabel string value.",
+                        "TOPID": "Jk4KvI1904iPBJSV1GszKA",
+                        "OTHER": "3uscUmZjQYimppjDK5YUTw::CellModelArtifactSpace Constructor/Method: Good Constructor From Valid Request Descriptor::Attempt to construct a CMAS instance w/a valid spaceLabel string value.",
+                        "OTHERID": "HuvRWPWk62mw4B5Nd5wOBQ"
+                      }
+                    },
+                    "mapLabelsCallErrorExpected": false,
+                    "cm_apm": {
+                      "funcName": "equal",
+                      "args": [
+                        "QuxC_H61-vOLdlIuJxPdmw",
+                        "f_9aOvRU7IBk80Q6FG7ZvQ",
+                        "Generated CM and APM IRUT ID's should not be equal."
+                      ],
+                      "assertion": "Generated CM and APM IRUT ID's should not be equal.: expected 'QuxC_H61-vOLdlIuJxPdmw' to equal 'f_9aOvRU7IBk80Q6FG7ZvQ'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

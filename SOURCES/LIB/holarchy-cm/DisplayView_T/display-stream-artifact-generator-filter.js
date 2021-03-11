@@ -42,12 +42,16 @@
             while (!inBreakScope) {
                 inBreakScope = true;
 
+                console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+                console.log(`[${this.operationID}::${this.operationName}] Building a new DisplayView <-> ViewDisplay process bus (DVVD Bus) cellModelLabel="${request_.displayViewSynthesizeRequest.cellModelLabel}"...`);
+
                 // ****************************************************************
                 // ****************************************************************
                 // SYNTHESIZE A SPECIALIZED "DISPLAY VIEW" CellModel ARTIFACT
                 // ****************************************************************
                 // ****************************************************************
 
+                console.log(`> Attempting to synthesize a specialized DisplayView CellModel for cellModelLabel="${request_.displayViewSynthesizeRequest.cellModelLabel}"...`);
                 let synthResponse = cmtDisplayView.synthesizeCellModel(request_.displayViewSynthesizeRequest); // Just the request in and see what happens.
                 if (synthResponse.error) {
                     errors.push("The actual call to DisplayView_T::synthesizeCellModel failed with error:");
@@ -59,10 +63,12 @@
 
                 const cellModel = new holarchy.CellModel(cellModelConstructorRequest);
                 if (!cellModel.isValid()) {
-                    errors.push("The CellModel::constructor request we received back from DisplayView_T::synthesizeCellModel is DOA due to error:");
+                    errors.push("The CellModel::constructor request we received back from DisplayView_T::synthesizeCellModel is not a valid CellModel:");
                     errors.push(cellModel.toJSON());
                     break;
                 }
+
+                console.log(`> DisplayView CellModel for cellModelLabel="${request_.displayViewSynthesizeRequest.cellModelLabel}" synthesized!`);
 
                 // This is the ID of of the newly-synthesized DisplayView family CellModel's APM.
                 const apmID = cellModelConstructorRequest.apm.ocdDataSpec.outputs.displayView.____appdsl.apm;
@@ -75,7 +81,7 @@
                 let renderDataSpec = { ____label: `${request_.displayViewSynthesizeRequest.cellModelLabel} Render Data Spec`, ____types: "jsObject" };
                 renderDataSpec[displayLayoutNamespace] = { ...request_.displayViewSynthesizeRequest.specializationData.displayElement.displayLayoutSpec, ____defaultValue: undefined };
 
-                console.log(`RENDER DATA SPEC FOR NEW d2r2 COMPONENT = "${JSON.stringify(renderDataSpec, undefined, 4)}"`);
+                // console.log(`RENDER DATA SPEC FOR NEW d2r2 COMPONENT = "${JSON.stringify(renderDataSpec, undefined, 4)}"`);
 
                 let fascadeClass; // "creative" synthesis done below.
 
@@ -206,11 +212,15 @@
 
                 const d2r2Component = synthResponse.result;
 
-                console.log("RESULT d2r2 COMPONENT:");
-                console.log(d2r2Component);
+                console.log(`> Specialized ViewDisplay d2r2Component (React.Element factor filter) for cellModelLabel="${request_.displayViewSynthesizeRequest.cellModelLabel}" synthesized!`);
 
                 // And, we're good?
                 response.result = { CellModel: cellModel, d2r2Component };
+
+                console.log("----------------------------------------------------------------");
+                console.log(`> NEW DVVD BUS ARTIFACTS for cellModelLabel="${request_.displayViewSynthesizeRequest.cellModelLabel}":`);
+                console.log(response);
+                console.log("----------------------------------------------------------------");
 
                 break;
             }
@@ -218,6 +228,10 @@
                 errors.unshift("Unable to synthesize DisplayStream models due to fatal error:");
                 response.error = errors.join(" ");
             }
+
+            console.log(`[${this.operationID}::${this.operationName}] DVVD Bus generator request for cellModelLabel="${request_.displayViewSynthesizeRequest.cellModelLabel}" ${response.error?"FAILED WITH ERROR!":"completed without errror"}.`);
+            console.log("////////////////////////////////////////////////////////////////");
+
             return response;
         }
 

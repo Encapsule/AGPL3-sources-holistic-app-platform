@@ -67,7 +67,7 @@ const factoryResponse = arccore.filter.create({
                 for (let testNumber = 0 ; testNumber < testSet.length ; testNumber++) {
                     const testRequest = {
                         ...testSet[testNumber],
-                        chai: helpers.chai,
+                        chaiAssert: helpers.chaiAssert,
                         harnessDispatcher: harnessDispatcher,
                         harnessRunner: runnerFascade, // note that we pass the fascade that calls this filter, not the filter itself down the MDR dispatch tree.
                         logsRootDir: request_.logsRootDir,
