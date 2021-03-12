@@ -14,28 +14,28 @@
             id: "6T9b-OukTF6wGWqNgqb_8Q",
             name: `${vectorSetName}: Bad Constructor Request Undefined`,
             description: "Attempt to construct a CMAS instance w/undefined constructor request.",
-            vectorRequest: { holistic: { holarchy: { CellModelArtifactSpace: { } } } }
+            vectorRequest: { holistic: { holarchy: { CellModelArtifactSpace: { assertValidInstance: false } } } }
         },
 
         {
             id: "eQ5T-rDDTOa3YjlDhsAc6A",
             name: `${vectorSetName}: Bad Constructor Request Missing Space Label`,
             description: "Attempt to construct CMAS instance w/bad request object.",
-            vectorRequest: { holistic: { holarchy: { CellModelArtifactSpace: { constructorRequest: {} } } } }
+            vectorRequest: { holistic: { holarchy: { CellModelArtifactSpace: { assertValidInstance: false, constructorRequest: {} } } } }
         },
 
         {
             id: "PpgtBOCYTNKN3EZTE2RgxQ",
             name: `${vectorSetName}: Bad Constructor Request Zero-Length Space Label`,
             description: "Attempt to construct CMAS instance w/a zero-length spaceLabel string.",
-            vectorRequest: { holistic: { holarchy: { CellModelArtifactSpace: { constructorRequest: { spaceLabel: "" } } } } }
+            vectorRequest: { holistic: { holarchy: { CellModelArtifactSpace: { assertValidInstance: false, constructorRequest: { spaceLabel: "" } } } } }
         },
 
         {
             id: "3uscUmZjQYimppjDK5YUTw",
             name: `${vectorSetName}: Good Constructor From Valid Request Descriptor`,
             description: "Attempt to construct a CMAS instance w/a valid spaceLabel string value.",
-            vectorRequest: { holistic: { holarchy: { CellModelArtifactSpace: { constructorRequest: { spaceLabel: "Whatever >0 string I want..." } } } } }
+            vectorRequest: { holistic: { holarchy: { CellModelArtifactSpace: { assertValidInstance: true, constructorRequest: { spaceLabel: "Whatever >0 string I want..." } } } } }
         },
 
 

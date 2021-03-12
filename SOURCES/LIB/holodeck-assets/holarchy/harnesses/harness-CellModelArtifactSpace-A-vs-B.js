@@ -51,13 +51,13 @@
                         /*
                           The harness will call your test vector's comparisonFunction as follows:
 
-                          const comparisonResponse = comparisonFunction({ testVectorRequest, cmasRefA, cmasRefB, mapLabelsRequestA, mapLabelsRequestB, mapLabelsResultA, mapLabelsResultB })
+                          const assertFnResponse = assertionFunction({ testVectorRequest, cmasRefA, cmasRefB, mapLabelsRequestA, mapLabelsRequestB, mapLabelsResultA, mapLabelsResultB })
 
-                          You should return a standard arccore.filter response descriptor.
+                          You should return a standard arccore.filter response descriptor object.
 
                           If you return response.error the harness will mark the current test vector evaluation as FAILED.
 
-                          If you return response.result then it is expected that you will return a chai assertion response descriptor object.
+                          If you return response.result then it is expected to be a chaiAssert result descriptor object.
 
                         */
 
@@ -108,7 +108,7 @@
                     id: arccore.identifier.irut.fromReference(`${request_.id}_subtest_A`).result,
                     name: `Test Vector ${request_.id} ${request_.name} Subvector A`,
                     description: "Attempt to instantiate test CMAS test instance A.",
-                    vectorRequest: { holistic: { holarchy: { CellModelArtifactSpace: { constructorRequest: messageBody.constructorRequestA } } } }
+                    vectorRequest: { holistic: { holarchy: { CellModelArtifactSpace: { assertValidInstance: true, constructorRequest: messageBody.constructorRequestA } } } }
                 };
 
                 const testVectorB = {
@@ -116,7 +116,7 @@
                     id: arccore.identifier.irut.fromReference(`${request_.id}_subtest_B`).result,
                     name: `Test Vector ${request_.id} ${request_.name} Subvector B`,
                     description: "Attempt to instantiate test CMAS test instance B.",
-                    vectorRequest: { holistic: { holarchy: { CellModelArtifactSpace: { constructorRequest: messageBody.constructorRequestB } } } }
+                    vectorRequest: { holistic: { holarchy: { CellModelArtifactSpace: { assertValidInstance: true, constructorRequest: messageBody.constructorRequestB } } } }
                 };
 
                 let harnessResponse = request_.harnessDispatcher.request(testVectorA);

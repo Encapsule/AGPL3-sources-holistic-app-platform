@@ -10,6 +10,7 @@
             "holistic": {
               "holarchy": {
                 "CellModelArtifactSpace": {
+                  "assertValidInstance": false,
                   "constructorRequest": {
                     "spaceLabel": ""
                   }
@@ -29,18 +30,24 @@
             "harnessDispatch": {
               "PKqr3AM2TeapNhvzxh8_0g": {
                 "PpgtBOCYTNKN3EZTE2RgxQ": {
+                  "vectorFailed": false,
                   "cmasFrom": "constructed-by-harness-from-vector-data",
-                  "isValid": false,
                   "cmasRef": "Filter [kNjJehTFRz2WhRHkuL9kWA::CellModelArtifactSpace::constructor] failed while performing main operation. You must specify a spaceLabel value of one or more character(s) in length.",
                   "invariantAssumptionChecks": {
-                    "mapLabelsResponse": {
-                      "error": "Filter [kNjJehTFRz2WhRHkuL9kWA::CellModelArtifactSpace::constructor] failed while performing main operation. You must specify a spaceLabel value of one or more character(s) in length."
-                    },
-                    "mapLabelsCallErrorExpected": true,
-                    "cm_apm": null,
-                    "collisions": null,
-                    "mapReverse": null
-                  }
+                    "mapReverse": null,
+                    "collisions": null
+                  },
+                  "assertions": [
+                    {
+                      "funcName": "isFalse",
+                      "args": [
+                        false,
+                        "The CMAS instance created from constructorRequest is expected to be invalid per the test vector."
+                      ],
+                      "assertion": null
+                    }
+                  ],
+                  "assertFailures": []
                 }
               }
             }
