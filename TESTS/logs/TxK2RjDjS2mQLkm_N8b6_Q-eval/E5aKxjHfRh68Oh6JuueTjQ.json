@@ -1,0 +1,145 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XWII2IWkN82H4doCOOAftg": {
+      "E5aKxjHfRh68Oh6JuueTjQ": {
+        "harnessRequest": {
+          "id": "E5aKxjHfRh68Oh6JuueTjQ",
+          "name": "CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.",
+          "description": "We should be able to instantiate a new subspace from valid CMAS instance.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellModelArtifactSpace": {
+                  "assertValidInstance": true,
+                  "constructorRequest": {
+                    "spaceLabel": "Barcelona"
+                  },
+                  "methodCall": {
+                    "assertValidRequest": true,
+                    "methodName": "makeSubspaceInstance",
+                    "methodRequest": {
+                      "spaceLabel": "Porto"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "chaiAssert": {}
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "PKqr3AM2TeapNhvzxh8_0g": {
+                "E5aKxjHfRh68Oh6JuueTjQ": {
+                  "vectorFailed": false,
+                  "cmasFrom": "constructed-by-harness-from-vector-data",
+                  "cmasRef": {
+                    "spaceLabel": "Barcelona",
+                    "spaceID": "4sfix5GFkYXkcORwqXmpeQ"
+                  },
+                  "invariantAssumptionChecks": {
+                    "mapLabelsResponse": {
+                      "error": null,
+                      "result": {
+                        "CM": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                        "CMID": "27wFqBbeQUc9YdnUrgxI7Q",
+                        "APM": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                        "APMID": "F959dsAN6FJi62MEzlqeww",
+                        "ACT": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                        "ACTID": "3ss8sZgMI2hEJrOmJW_ozQ",
+                        "TOP": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                        "TOPID": "ZQpnhj8HVkBeJxLwBaiBog",
+                        "OTHER": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                        "OTHERID": "bryiqlWreGaC6pHonbDjRw"
+                      }
+                    },
+                    "mapReverse": {
+                      "27wFqBbeQUc9YdnUrgxI7Q": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                      "F959dsAN6FJi62MEzlqeww": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                      "3ss8sZgMI2hEJrOmJW_ozQ": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                      "ZQpnhj8HVkBeJxLwBaiBog": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                      "bryiqlWreGaC6pHonbDjRw": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance."
+                    },
+                    "collisions": []
+                  },
+                  "methodCall": {
+                    "methodResponse": {
+                      "error": null,
+                      "result": {
+                        "spaceLabel": "Barcelona∂Porto",
+                        "spaceID": "diQRZvBsplJDmNHOrfG2Tw"
+                      }
+                    }
+                  },
+                  "assertions": [
+                    {
+                      "funcName": "isTrue",
+                      "args": [
+                        true,
+                        "The CMAS instance created from constructorRequest is expected to be a valid instance according to the test vector."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isObject",
+                      "args": [
+                        {
+                          "error": null,
+                          "result": {
+                            "CM": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                            "CMID": "27wFqBbeQUc9YdnUrgxI7Q",
+                            "APM": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                            "APMID": "F959dsAN6FJi62MEzlqeww",
+                            "ACT": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                            "ACTID": "3ss8sZgMI2hEJrOmJW_ozQ",
+                            "TOP": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                            "TOPID": "ZQpnhj8HVkBeJxLwBaiBog",
+                            "OTHER": "E5aKxjHfRh68Oh6JuueTjQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/valid spaceLabel.::We should be able to instantiate a new subspace from valid CMAS instance.",
+                            "OTHERID": "bryiqlWreGaC6pHonbDjRw"
+                          }
+                        },
+                        "We expect cmasRef.mapLabels to return an object when the instance is valid and the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isNull",
+                      "args": [
+                        null,
+                        "We expect cmasRef.mapLabels to return response.error === null when the instance is valid the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isEmpty",
+                      "args": [
+                        [],
+                        "We expect there to be no collisions between IRUT ID's generated w/the same label string value inside of a CMAS instance scope!"
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isNull",
+                      "args": [
+                        null,
+                        "According to the test vector the method call should not return a response.error"
+                      ],
+                      "assertion": null
+                    }
+                  ],
+                  "assertFailures": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

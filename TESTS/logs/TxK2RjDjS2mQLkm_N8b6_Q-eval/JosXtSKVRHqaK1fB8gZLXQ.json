@@ -1,0 +1,142 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XWII2IWkN82H4doCOOAftg": {
+      "JosXtSKVRHqaK1fB8gZLXQ": {
+        "harnessRequest": {
+          "id": "JosXtSKVRHqaK1fB8gZLXQ",
+          "name": "CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.",
+          "description": "You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellModelArtifactSpace": {
+                  "assertValidInstance": true,
+                  "constructorRequest": {
+                    "spaceLabel": "Florence"
+                  },
+                  "methodCall": {
+                    "assertValidRequest": true,
+                    "methodName": "mapLabels",
+                    "methodRequest": {
+                      "SOME_WEIRD_STUFF": "BLAH BLAH BLAH"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "chaiAssert": {}
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "PKqr3AM2TeapNhvzxh8_0g": {
+                "JosXtSKVRHqaK1fB8gZLXQ": {
+                  "vectorFailed": false,
+                  "cmasFrom": "constructed-by-harness-from-vector-data",
+                  "cmasRef": {
+                    "spaceLabel": "Florence",
+                    "spaceID": "6pYzHYvuy9WcSFZiGsMdJw"
+                  },
+                  "invariantAssumptionChecks": {
+                    "mapLabelsResponse": {
+                      "error": null,
+                      "result": {
+                        "CM": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                        "CMID": "sLiFPHfNmIGflKJq6oBDkw",
+                        "APM": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                        "APMID": "mo3TeB1Z-iAJ1tUHZGxLVw",
+                        "ACT": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                        "ACTID": "rZLibPjiKa49vMI1-1aUjQ",
+                        "TOP": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                        "TOPID": "rctVvPjeTP49Rn-Q-9Wopw",
+                        "OTHER": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                        "OTHERID": "vi6f1FVeOM4CW-fbhxOwvg"
+                      }
+                    },
+                    "mapReverse": {
+                      "sLiFPHfNmIGflKJq6oBDkw": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                      "mo3TeB1Z-iAJ1tUHZGxLVw": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                      "rZLibPjiKa49vMI1-1aUjQ": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                      "rctVvPjeTP49Rn-Q-9Wopw": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                      "vi6f1FVeOM4CW-fbhxOwvg": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names."
+                    },
+                    "collisions": []
+                  },
+                  "methodCall": {
+                    "methodResponse": {
+                      "error": null,
+                      "result": {}
+                    }
+                  },
+                  "assertions": [
+                    {
+                      "funcName": "isTrue",
+                      "args": [
+                        true,
+                        "The CMAS instance created from constructorRequest is expected to be a valid instance according to the test vector."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isObject",
+                      "args": [
+                        {
+                          "error": null,
+                          "result": {
+                            "CM": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                            "CMID": "sLiFPHfNmIGflKJq6oBDkw",
+                            "APM": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                            "APMID": "mo3TeB1Z-iAJ1tUHZGxLVw",
+                            "ACT": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                            "ACTID": "rZLibPjiKa49vMI1-1aUjQ",
+                            "TOP": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                            "TOPID": "rctVvPjeTP49Rn-Q-9Wopw",
+                            "OTHER": "JosXtSKVRHqaK1fB8gZLXQ::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/object request w/no unknown key.::You should get a response.error on mapLabels method call w/request object devoid of known key names.",
+                            "OTHERID": "vi6f1FVeOM4CW-fbhxOwvg"
+                          }
+                        },
+                        "We expect cmasRef.mapLabels to return an object when the instance is valid and the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isNull",
+                      "args": [
+                        null,
+                        "We expect cmasRef.mapLabels to return response.error === null when the instance is valid the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isEmpty",
+                      "args": [
+                        [],
+                        "We expect there to be no collisions between IRUT ID's generated w/the same label string value inside of a CMAS instance scope!"
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isNull",
+                      "args": [
+                        null,
+                        "According to the test vector the method call should not return a response.error"
+                      ],
+                      "assertion": null
+                    }
+                  ],
+                  "assertFailures": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

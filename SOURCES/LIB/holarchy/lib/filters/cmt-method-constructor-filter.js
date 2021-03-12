@@ -39,12 +39,12 @@
                     break;
                 }
 
-                const cmasInstanceScope = cmasTemplateScope.makeSubspaceInstance({ spaceLabel: constructorRequest_.templateLabel });
-
-                if (!cmasInstanceScope.isValid()) {
-                    errors.push(cmasInstanceScope.toJSON());
+                const cmasResponse = cmasTemplateScope.makeSubspaceInstance({ spaceLabel: constructorRequest_.templateLabel });
+                if (cmasResponse.error) {
+                    errors.push(cmasResponse.error);
                     break;
                 }
+                const cmasInstanceScope = cmasResponse.result;
 
                 const templateLabel = `CellModelTemplate<${constructorRequest_.templateLabel}>`;
                 const cellModelTemplateSynthMethodLabel = `${templateLabel}::synthesizeCellModel`;

@@ -62,15 +62,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           break;
         }
 
-        var cmasInstanceScope = cmasTemplateScope.makeSubspaceInstance({
+        var cmasResponse = cmasTemplateScope.makeSubspaceInstance({
           spaceLabel: constructorRequest_.templateLabel
         });
 
-        if (!cmasInstanceScope.isValid()) {
-          errors.push(cmasInstanceScope.toJSON());
+        if (cmasResponse.error) {
+          errors.push(cmasResponse.error);
           break;
         }
 
+        var cmasInstanceScope = cmasResponse.result;
         var templateLabel = "CellModelTemplate<".concat(constructorRequest_.templateLabel, ">");
         var cellModelTemplateSynthMethodLabel = "".concat(templateLabel, "::synthesizeCellModel");
         var cellModelGeneratorFilterLabel = "".concat(templateLabel, "::cellModelGeneratorFilter"); // Construct the specialized CellModel generator filter instance.

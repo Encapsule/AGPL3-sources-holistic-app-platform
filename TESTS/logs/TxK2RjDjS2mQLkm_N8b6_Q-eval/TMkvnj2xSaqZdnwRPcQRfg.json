@@ -1,0 +1,156 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XWII2IWkN82H4doCOOAftg": {
+      "TMkvnj2xSaqZdnwRPcQRfg": {
+        "harnessRequest": {
+          "id": "TMkvnj2xSaqZdnwRPcQRfg",
+          "name": "CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.",
+          "description": "We should be able to retrive CMID from mapLabels.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellModelArtifactSpace": {
+                  "assertValidInstance": true,
+                  "constructorRequest": {
+                    "spaceLabel": "Prague"
+                  },
+                  "methodCall": {
+                    "assertValidRequest": true,
+                    "methodName": "mapLabels",
+                    "methodRequest": {
+                      "CM": "foo"
+                    }
+                  },
+                  "testAssertion": {
+                    "description": "response.result.CMID should be an IRUT."
+                  }
+                }
+              }
+            }
+          },
+          "chaiAssert": {}
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "PKqr3AM2TeapNhvzxh8_0g": {
+                "TMkvnj2xSaqZdnwRPcQRfg": {
+                  "vectorFailed": false,
+                  "cmasFrom": "constructed-by-harness-from-vector-data",
+                  "cmasRef": {
+                    "spaceLabel": "Prague",
+                    "spaceID": "9kU5BODliwrsM8I-nmFbOw"
+                  },
+                  "invariantAssumptionChecks": {
+                    "mapLabelsResponse": {
+                      "error": null,
+                      "result": {
+                        "CM": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                        "CMID": "lWFyILAqFrtEcu14JYfyqw",
+                        "APM": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                        "APMID": "7I8Xq7uoaexySuY9JuXaug",
+                        "ACT": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                        "ACTID": "ZyeF_TChe2HmReVf6D1p0w",
+                        "TOP": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                        "TOPID": "Z88btjAWWl3mkdTk6GHF_g",
+                        "OTHER": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                        "OTHERID": "NsDVkz_AN_kyZXxUNQeqDg"
+                      }
+                    },
+                    "mapReverse": {
+                      "lWFyILAqFrtEcu14JYfyqw": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                      "7I8Xq7uoaexySuY9JuXaug": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                      "ZyeF_TChe2HmReVf6D1p0w": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                      "Z88btjAWWl3mkdTk6GHF_g": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                      "NsDVkz_AN_kyZXxUNQeqDg": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels."
+                    },
+                    "collisions": []
+                  },
+                  "methodCall": {
+                    "methodResponse": {
+                      "error": null,
+                      "result": {
+                        "CM": "foo",
+                        "CMID": "o8RmEY9Gd-zxtqzcigu_dg"
+                      }
+                    }
+                  },
+                  "assertions": [
+                    {
+                      "funcName": "isTrue",
+                      "args": [
+                        true,
+                        "The CMAS instance created from constructorRequest is expected to be a valid instance according to the test vector."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isObject",
+                      "args": [
+                        {
+                          "error": null,
+                          "result": {
+                            "CM": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                            "CMID": "lWFyILAqFrtEcu14JYfyqw",
+                            "APM": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                            "APMID": "7I8Xq7uoaexySuY9JuXaug",
+                            "ACT": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                            "ACTID": "ZyeF_TChe2HmReVf6D1p0w",
+                            "TOP": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                            "TOPID": "Z88btjAWWl3mkdTk6GHF_g",
+                            "OTHER": "TMkvnj2xSaqZdnwRPcQRfg::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve CMID.::We should be able to retrive CMID from mapLabels.",
+                            "OTHERID": "NsDVkz_AN_kyZXxUNQeqDg"
+                          }
+                        },
+                        "We expect cmasRef.mapLabels to return an object when the instance is valid and the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isNull",
+                      "args": [
+                        null,
+                        "We expect cmasRef.mapLabels to return response.error === null when the instance is valid the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isEmpty",
+                      "args": [
+                        [],
+                        "We expect there to be no collisions between IRUT ID's generated w/the same label string value inside of a CMAS instance scope!"
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isNull",
+                      "args": [
+                        null,
+                        "According to the test vector the method call should not return a response.error"
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isTrue",
+                      "args": [
+                        true,
+                        "response.result.CMID must be an IRUT"
+                      ],
+                      "assertion": null
+                    }
+                  ],
+                  "assertFailures": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

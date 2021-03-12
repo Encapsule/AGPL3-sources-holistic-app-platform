@@ -19,26 +19,32 @@
             // deprecate this.getArtifactSpaceLabel = this.getArtifactSpaceLabel.bind(this);
         }
 
+        // Returns Boolean true/false
         isValid() {
             return (this._private.constructorError)?false:true;
         }
 
+        // Mostly for testing.
         toJSON() {
             return (this.isValid()?{ spaceLabel: this._private.spaceLabel, spaceID: this._private.spaceID }:this._private.constructorError);
         }
 
+        // Returns a string (that might be a constructor error string)
         getArtifactPath() {
             return (this.isValid()?this._private.spaceLabel:this._private.constructorError);
         }
 
+        // Returns a string (that might be a constructor error string)
         getArtifactSpaceID() {
             return (this.isValid()?this._private.spaceID:this._private.constructorError);
         }
 
+        // Returns a filter response.
         mapLabels(request_) {
             return (this.isValid()?this._private.mapLabelsMethodFilter.request({ ...request_, cmasInstance: this }):{ error: this.toJSON() });
         }
 
+        // Returns a filter response.
         makeSubspaceInstance(request_) {
             if (!this.isValid()) {
                 return ({ error: this.toJSON() });
@@ -47,7 +53,9 @@
             if (filterResponse.error) {
                 return filterResponse;
             }
-            return new CellModelArtifactSpace(filterResponse.result);
+            // v0.0.62-titanite --- This should be returning response.result
+            const cmasInstance = new CellModelArtifactSpace(filterResponse.result);
+            return cmasInstance.isValid()?{ error: null, result: cmasInstance }:{ error: cmasInstance.toJSON() };
         }
 
         // deprecate?

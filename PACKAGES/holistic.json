@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A platform for building distributed software systems with reusable JavaScript CellModel plug-ins. And, System-in-Cloud (SiC) information circuit architecture.",
-    "version": "0.0.61",
-    "codename": "verdelite",
+    "version": "0.0.62",
+    "codename": "titanite",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "BfR88DDlQYa59ZHHV83_sw",
-    "buildSource": "5cfb944c586530fda66b474000f587cd4b0f1763",
-    "buildTime": 1615490285,
-    "buildDateISO": "2021-03-11T19:18:05.000Z"
+    "buildID": "Fcnwt5JyQYq9giS4QNSFuw",
+    "buildSource": "7c516640d61d666167a198c22ae1f932dc772cbc",
+    "buildTime": 1615569901,
+    "buildDateISO": "2021-03-12T17:25:01.000Z"
 }

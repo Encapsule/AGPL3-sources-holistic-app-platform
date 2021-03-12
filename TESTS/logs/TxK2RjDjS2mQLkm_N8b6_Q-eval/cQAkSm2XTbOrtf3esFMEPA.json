@@ -1,0 +1,139 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XWII2IWkN82H4doCOOAftg": {
+      "cQAkSm2XTbOrtf3esFMEPA": {
+        "harnessRequest": {
+          "id": "cQAkSm2XTbOrtf3esFMEPA",
+          "name": "CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.",
+          "description": "You should get response.error on mapLabels method call with undefined request.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellModelArtifactSpace": {
+                  "assertValidInstance": true,
+                  "constructorRequest": {
+                    "spaceLabel": "Amsterdam"
+                  },
+                  "methodCall": {
+                    "assertValidRequest": true,
+                    "methodName": "mapLabels"
+                  }
+                }
+              }
+            }
+          },
+          "chaiAssert": {}
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "PKqr3AM2TeapNhvzxh8_0g": {
+                "cQAkSm2XTbOrtf3esFMEPA": {
+                  "vectorFailed": false,
+                  "cmasFrom": "constructed-by-harness-from-vector-data",
+                  "cmasRef": {
+                    "spaceLabel": "Amsterdam",
+                    "spaceID": "Ri9GL44RjhGZg5mDwL_Avw"
+                  },
+                  "invariantAssumptionChecks": {
+                    "mapLabelsResponse": {
+                      "error": null,
+                      "result": {
+                        "CM": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                        "CMID": "lIb6cmBk5WA4oMM0-B_NDQ",
+                        "APM": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                        "APMID": "fGlTGlL3W0tVW2h6fYstBQ",
+                        "ACT": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                        "ACTID": "UFVQCDozNpeyOuau2EbsVQ",
+                        "TOP": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                        "TOPID": "UIB9uzrQN2ey8kLI2HIPfQ",
+                        "OTHER": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                        "OTHERID": "hWMkI4-LNCInlsEaC8AC7w"
+                      }
+                    },
+                    "mapReverse": {
+                      "lIb6cmBk5WA4oMM0-B_NDQ": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                      "fGlTGlL3W0tVW2h6fYstBQ": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                      "UFVQCDozNpeyOuau2EbsVQ": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                      "UIB9uzrQN2ey8kLI2HIPfQ": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                      "hWMkI4-LNCInlsEaC8AC7w": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request."
+                    },
+                    "collisions": []
+                  },
+                  "methodCall": {
+                    "methodResponse": {
+                      "error": null,
+                      "result": {}
+                    }
+                  },
+                  "assertions": [
+                    {
+                      "funcName": "isTrue",
+                      "args": [
+                        true,
+                        "The CMAS instance created from constructorRequest is expected to be a valid instance according to the test vector."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isObject",
+                      "args": [
+                        {
+                          "error": null,
+                          "result": {
+                            "CM": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                            "CMID": "lIb6cmBk5WA4oMM0-B_NDQ",
+                            "APM": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                            "APMID": "fGlTGlL3W0tVW2h6fYstBQ",
+                            "ACT": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                            "ACTID": "UFVQCDozNpeyOuau2EbsVQ",
+                            "TOP": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                            "TOPID": "UIB9uzrQN2ey8kLI2HIPfQ",
+                            "OTHER": "cQAkSm2XTbOrtf3esFMEPA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels w/undefined request.::You should get response.error on mapLabels method call with undefined request.",
+                            "OTHERID": "hWMkI4-LNCInlsEaC8AC7w"
+                          }
+                        },
+                        "We expect cmasRef.mapLabels to return an object when the instance is valid and the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isNull",
+                      "args": [
+                        null,
+                        "We expect cmasRef.mapLabels to return response.error === null when the instance is valid the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isEmpty",
+                      "args": [
+                        [],
+                        "We expect there to be no collisions between IRUT ID's generated w/the same label string value inside of a CMAS instance scope!"
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isNull",
+                      "args": [
+                        null,
+                        "According to the test vector the method call should not return a response.error"
+                      ],
+                      "assertion": null
+                    }
+                  ],
+                  "assertFailures": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -22,9 +22,9 @@
                     CellModelArtifactSpace: {
                         ____types: "jsObject",
 
-                        constructorRequest: { ____opaque: true },
-
                         assertValidInstance: { ____accept: "jsBoolean" },
+
+                        constructorRequest: { ____opaque: true },
 
                         methodCall: {
                             ____types: [
@@ -33,22 +33,16 @@
                             ],
                             methodName: { ____accept: "jsString" },
                             methodRequest: { ____opaque: true },
-                            assertValidReqeust: { ____accept: "jsBoolean" }
+                            assertValidRequest: { ____accept: "jsBoolean" }
                         },
 
                         /*
                           If you specify methodCall descriptor, then the harness will call the specified methodName on the CMAS instance under test passing methodRequest as the request.
-
                           You may optionally provide an assertionFunction:
-
                           const assertFnResponse = assertionFunction({ testVectorRequest, cmasRef, methodResponse });
-
                           You should return a standard arccore.filter response descriptor object.
-
                           If you return response.error the harness will mark the current test vector evaluation as FAILED.
-
-                          If you return response.result then it is expected to be a chaiAssert result descriptor object.
-
+                          If you return response.result then it is expected to be a chaiAssert result descriptor object. Or, an array of the same.
                         */
 
                         testAssertion: {
@@ -85,6 +79,11 @@
                 collisions: { ____types: ["jsNull", "jsArray" ], ____defaultValue: null, element: { ____accept: "jsString" } },
             },
 
+            methodCall: {
+                ____types: [ "jsUndefined", "jsObject" ],
+                methodResponse: { ____accept: "jsObject" }
+            },
+
             assertions: {
                 ____types: "jsArray",
                 ____defaultValue: [],
@@ -106,6 +105,7 @@
             let inBreakScope = false;
             while (!inBreakScope) {
                 inBreakScope = true;
+
                 const messageBody = request_.vectorRequest.holistic.holarchy.CellModelArtifactSpace;
 
                 // CONSTRUCTION
@@ -145,7 +145,7 @@
                     } else {
                         assertResult = request_.chaiAssert.isFalse(cmasRef.isValid(), "The CMAS instance created from constructorRequest is expected to be invalid per the test vector.");
                         assertionsLength = response.result.assertions.push(assertResult);
-                        if (assertResult.assertion) {
+                         if (assertResult.assertion) {
                             response.result.assertFailures.push(assertionsLength - 1);
                             break;
                         }
@@ -215,6 +215,53 @@
                             response.result.assertFailures.push(assertionsLength - 1);
                             break;
                         }
+
+                        // Now execute whatever the test vector specified on the valid CMAS instance (if the vector specifies a method call).
+                        if (messageBody.methodCall) {
+
+                            let methodResponse = null;
+
+                            try {
+                                methodResponse = cmasRef[messageBody.methodCall.methodName](messageBody.methodCall.methodRequest);
+                            } catch (methodCallException_) {
+                                methodResponse = { error: `Test harness caught exception attempting to call method "${messageBody.methodCall.methodName}: ${methodCallException_.message}" Is this actually a valid CellModelArtifactSpace method?` };
+                            }
+                            response.result.methodCall = { methodResponse };
+
+                            if (messageBody.methodCall.assertValidRequest) {
+                                assertResult = request_.chaiAssert.isNull(methodResponse.error, "According to the test vector the method call should not return a response.error");
+                                assertionsLength = response.result.assertions.push(assertResult);
+                                if (assertResult.assertion) {
+                                    response.result.assertFailures.push(assertionsLength - 1);
+                                }
+                            } else {
+                                assertResult = request_.chaiAssert.isString(methodResponse.error, "According to the test vector the method call should return a response.error");
+                                assertionsLength = response.result.assertions.push(assertResult);
+                                if (assertResult.assertion) {
+                                    response.result.assertFailures.push(assertionsLength - 1);
+                                }
+                            }
+
+                            if (messageBody.testAssertion) {
+
+                                // NOTE: We dispatch testAssertion if it is defined in the test vector regardless of the disposition of the methodCall.
+
+                                let assertFnResponse = messageBody.testAssertion.assertionFunction({ testVectorRequest: request_, cmasRef, methodResponse });
+                                if (assertFnResponse.error) {
+                                    errors.push(assertFnResponse.error);
+                                    break;
+                                }
+
+                                let assertionsArray = Array.isArray(assertFnResponse.result)?assertFnResponse.result:[ assertFnResponse.result ];
+                                assertionsArray.forEach((assertResult_) => {
+                                    assertionsLength = response.result.assertions.push(assertResult_);
+                                    if (assertResult_.assertion) {
+                                        response.result.assertFailures.push(assertionsLength - 1);
+                                    }
+                                });
+                            }
+
+                        } // end if messageBody.methodCall
 
                     } // If we have a valid CMAS instance to torture...
 

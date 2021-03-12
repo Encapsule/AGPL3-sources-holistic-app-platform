@@ -1,0 +1,139 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XWII2IWkN82H4doCOOAftg": {
+      "5HEaG_IAQeSXqUkUDK5Q7Q": {
+        "harnessRequest": {
+          "id": "5HEaG_IAQeSXqUkUDK5Q7Q",
+          "name": "CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.",
+          "description": "Call to makeSubspaceInstance method should fail.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellModelArtifactSpace": {
+                  "assertValidInstance": true,
+                  "constructorRequest": {
+                    "spaceLabel": "Santorini"
+                  },
+                  "methodCall": {
+                    "assertValidRequest": false,
+                    "methodName": "makeSubspaceInstance"
+                  }
+                }
+              }
+            }
+          },
+          "chaiAssert": {}
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "PKqr3AM2TeapNhvzxh8_0g": {
+                "5HEaG_IAQeSXqUkUDK5Q7Q": {
+                  "vectorFailed": false,
+                  "cmasFrom": "constructed-by-harness-from-vector-data",
+                  "cmasRef": {
+                    "spaceLabel": "Santorini",
+                    "spaceID": "nyefJ4ElgSVvaW9p_-T_5A"
+                  },
+                  "invariantAssumptionChecks": {
+                    "mapLabelsResponse": {
+                      "error": null,
+                      "result": {
+                        "CM": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                        "CMID": "Jlkcn4OyCveC27FB5FPiJg",
+                        "APM": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                        "APMID": "0uHMGH-pr0LiDFKbOJi2Sg",
+                        "ACT": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                        "ACTID": "u2TzhcVUdfdo20UxjhpWkA",
+                        "TOP": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                        "TOPID": "aDollYfiTJ8JnAvU_ZGjcQ",
+                        "OTHER": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                        "OTHERID": "X-zJgSz3nK0JwNIhamzGGQ"
+                      }
+                    },
+                    "mapReverse": {
+                      "Jlkcn4OyCveC27FB5FPiJg": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                      "0uHMGH-pr0LiDFKbOJi2Sg": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                      "u2TzhcVUdfdo20UxjhpWkA": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                      "aDollYfiTJ8JnAvU_ZGjcQ": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                      "X-zJgSz3nK0JwNIhamzGGQ": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail."
+                    },
+                    "collisions": []
+                  },
+                  "methodCall": {
+                    "methodResponse": {
+                      "error": "Filter [SvxfHDdA5R8eBWgVE-_L5g::CellModelArtifactSpace<Santorini>::makeSubspaceInstance] failed while normalizing request input. Error at path '~.spaceLabel': Value of type 'jsUndefined' not in allowed type set [jsString].",
+                      "result": null
+                    }
+                  },
+                  "assertions": [
+                    {
+                      "funcName": "isTrue",
+                      "args": [
+                        true,
+                        "The CMAS instance created from constructorRequest is expected to be a valid instance according to the test vector."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isObject",
+                      "args": [
+                        {
+                          "error": null,
+                          "result": {
+                            "CM": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                            "CMID": "Jlkcn4OyCveC27FB5FPiJg",
+                            "APM": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                            "APMID": "0uHMGH-pr0LiDFKbOJi2Sg",
+                            "ACT": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                            "ACTID": "u2TzhcVUdfdo20UxjhpWkA",
+                            "TOP": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                            "TOPID": "aDollYfiTJ8JnAvU_ZGjcQ",
+                            "OTHER": "5HEaG_IAQeSXqUkUDK5Q7Q::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to makeSubspaceInstance w/missing request.::Call to makeSubspaceInstance method should fail.",
+                            "OTHERID": "X-zJgSz3nK0JwNIhamzGGQ"
+                          }
+                        },
+                        "We expect cmasRef.mapLabels to return an object when the instance is valid and the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isNull",
+                      "args": [
+                        null,
+                        "We expect cmasRef.mapLabels to return response.error === null when the instance is valid the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isEmpty",
+                      "args": [
+                        [],
+                        "We expect there to be no collisions between IRUT ID's generated w/the same label string value inside of a CMAS instance scope!"
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isString",
+                      "args": [
+                        "Filter [SvxfHDdA5R8eBWgVE-_L5g::CellModelArtifactSpace<Santorini>::makeSubspaceInstance] failed while normalizing request input. Error at path '~.spaceLabel': Value of type 'jsUndefined' not in allowed type set [jsString].",
+                        "According to the test vector the method call should return a response.error"
+                      ],
+                      "assertion": null
+                    }
+                  ],
+                  "assertFailures": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

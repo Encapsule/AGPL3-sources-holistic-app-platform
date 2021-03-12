@@ -2,9 +2,9 @@
 
 (function() {
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
-    const cmasObservableValueHelper = cmasHolarchyCMPackage.makeSubspaceInstance({ spaceLabel: require("./cell-label") });
-    if (!cmasObservableValueHelper.isValid()) {
-        throw new Error(cmasObservableValueHelper.toJSON());
+    const factoryResponse = cmasHolarchyCMPackage.makeSubspaceInstance({ spaceLabel: require("./cell-label") });
+    if (factoryResponse.error) {
+        throw new Error(factoryResponse.error);
     }
-    module.exports = cmasObservableValueHelper;
+    module.exports = factoryResponse.result;
 })();

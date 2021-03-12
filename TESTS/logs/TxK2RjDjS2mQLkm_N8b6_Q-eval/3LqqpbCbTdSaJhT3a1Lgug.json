@@ -1,0 +1,154 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XWII2IWkN82H4doCOOAftg": {
+      "3LqqpbCbTdSaJhT3a1Lgug": {
+        "harnessRequest": {
+          "id": "3LqqpbCbTdSaJhT3a1Lgug",
+          "name": "CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.",
+          "description": "You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellModelArtifactSpace": {
+                  "assertValidInstance": true,
+                  "constructorRequest": {
+                    "spaceLabel": "Milan"
+                  },
+                  "methodCall": {
+                    "assertValidRequest": false,
+                    "methodName": "mapLabels",
+                    "methodRequest": {
+                      "cm": "one-two-three",
+                      "ACT": "baz"
+                    }
+                  },
+                  "testAssertion": {
+                    "description": "response.error should be set and response.result should have no IRUTs."
+                  }
+                }
+              }
+            }
+          },
+          "chaiAssert": {}
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "PKqr3AM2TeapNhvzxh8_0g": {
+                "3LqqpbCbTdSaJhT3a1Lgug": {
+                  "vectorFailed": false,
+                  "cmasFrom": "constructed-by-harness-from-vector-data",
+                  "cmasRef": {
+                    "spaceLabel": "Milan",
+                    "spaceID": "mZeZl452jnYQRxBHdXV1dQ"
+                  },
+                  "invariantAssumptionChecks": {
+                    "mapLabelsResponse": {
+                      "error": null,
+                      "result": {
+                        "CM": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                        "CMID": "k3liifQyb6PDR_U7JQ0Qjg",
+                        "APM": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                        "APMID": "Bw92Jn8vENuIiPupQZ1KUw",
+                        "ACT": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                        "ACTID": "z0JG9zO4D5aF9GJKlexIrQ",
+                        "TOP": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                        "TOPID": "z-7COTPGSFqFZSJxlWuURg",
+                        "OTHER": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                        "OTHERID": "_D6yZOaOA1LM5ZPZbiLYnA"
+                      }
+                    },
+                    "mapReverse": {
+                      "k3liifQyb6PDR_U7JQ0Qjg": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                      "Bw92Jn8vENuIiPupQZ1KUw": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                      "z0JG9zO4D5aF9GJKlexIrQ": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                      "z-7COTPGSFqFZSJxlWuURg": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                      "_D6yZOaOA1LM5ZPZbiLYnA": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label."
+                    },
+                    "collisions": []
+                  },
+                  "methodCall": {
+                    "methodResponse": {
+                      "error": "Filter [VrBWsFHbUdt0P3Q_13DXcA::CellModelArtifactSpace::mapLabels<Milan>] failed while performing main operation. !!! DISCARDING BAD ACT VALUE \"baz\" SPECIFIED w/OUT ALSO SPECIFYING CM LABEL! Error in space \"Milan\".",
+                      "result": {}
+                    }
+                  },
+                  "assertions": [
+                    {
+                      "funcName": "isTrue",
+                      "args": [
+                        true,
+                        "The CMAS instance created from constructorRequest is expected to be a valid instance according to the test vector."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isObject",
+                      "args": [
+                        {
+                          "error": null,
+                          "result": {
+                            "CM": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                            "CMID": "k3liifQyb6PDR_U7JQ0Qjg",
+                            "APM": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                            "APMID": "Bw92Jn8vENuIiPupQZ1KUw",
+                            "ACT": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                            "ACTID": "z0JG9zO4D5aF9GJKlexIrQ",
+                            "TOP": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                            "TOPID": "z-7COTPGSFqFZSJxlWuURg",
+                            "OTHER": "3LqqpbCbTdSaJhT3a1Lgug::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve ACTID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                            "OTHERID": "_D6yZOaOA1LM5ZPZbiLYnA"
+                          }
+                        },
+                        "We expect cmasRef.mapLabels to return an object when the instance is valid and the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isNull",
+                      "args": [
+                        null,
+                        "We expect cmasRef.mapLabels to return response.error === null when the instance is valid the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isEmpty",
+                      "args": [
+                        [],
+                        "We expect there to be no collisions between IRUT ID's generated w/the same label string value inside of a CMAS instance scope!"
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isString",
+                      "args": [
+                        "Filter [VrBWsFHbUdt0P3Q_13DXcA::CellModelArtifactSpace::mapLabels<Milan>] failed while performing main operation. !!! DISCARDING BAD ACT VALUE \"baz\" SPECIFIED w/OUT ALSO SPECIFYING CM LABEL! Error in space \"Milan\".",
+                        "According to the test vector the method call should return a response.error"
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isUndefined",
+                      "args": [
+                        null,
+                        "We expect response.result to contain no IRUT ID's."
+                      ],
+                      "assertion": null
+                    }
+                  ],
+                  "assertFailures": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

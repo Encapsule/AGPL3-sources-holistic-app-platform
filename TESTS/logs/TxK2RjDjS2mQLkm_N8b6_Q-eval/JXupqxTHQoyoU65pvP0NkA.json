@@ -1,0 +1,153 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XWII2IWkN82H4doCOOAftg": {
+      "JXupqxTHQoyoU65pvP0NkA": {
+        "harnessRequest": {
+          "id": "JXupqxTHQoyoU65pvP0NkA",
+          "name": "CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.",
+          "description": "You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellModelArtifactSpace": {
+                  "assertValidInstance": true,
+                  "constructorRequest": {
+                    "spaceLabel": "Paris"
+                  },
+                  "methodCall": {
+                    "assertValidRequest": false,
+                    "methodName": "mapLabels",
+                    "methodRequest": {
+                      "TOP": "gopher"
+                    }
+                  },
+                  "testAssertion": {
+                    "description": "response.error should be set and response.result should have no IRUTs."
+                  }
+                }
+              }
+            }
+          },
+          "chaiAssert": {}
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "PKqr3AM2TeapNhvzxh8_0g": {
+                "JXupqxTHQoyoU65pvP0NkA": {
+                  "vectorFailed": false,
+                  "cmasFrom": "constructed-by-harness-from-vector-data",
+                  "cmasRef": {
+                    "spaceLabel": "Paris",
+                    "spaceID": "ru2u7bqBuoEGGQYZJSIlIg"
+                  },
+                  "invariantAssumptionChecks": {
+                    "mapLabelsResponse": {
+                      "error": null,
+                      "result": {
+                        "CM": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                        "CMID": "k9Rit_Rwb4jDsvWaJbEQPg",
+                        "APM": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                        "APMID": "Bwon1X8tuGuIIcUBQXAs-A",
+                        "ACT": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                        "ACTID": "PqS2waarPsw-ebReywUiBg",
+                        "TOP": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                        "TOPID": "PjShT6YCV6M-3lpey6ZiKw",
+                        "OTHER": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                        "OTHERID": "_IJRoeZKZBTMpdX2bp3sxw"
+                      }
+                    },
+                    "mapReverse": {
+                      "k9Rit_Rwb4jDsvWaJbEQPg": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                      "Bwon1X8tuGuIIcUBQXAs-A": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                      "PqS2waarPsw-ebReywUiBg": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                      "PjShT6YCV6M-3lpey6ZiKw": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                      "_IJRoeZKZBTMpdX2bp3sxw": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label."
+                    },
+                    "collisions": []
+                  },
+                  "methodCall": {
+                    "methodResponse": {
+                      "error": "Filter [Vt5W3lHUUdR0vXS91_TX9A::CellModelArtifactSpace::mapLabels<Paris>] failed while performing main operation. !!! DISCARDING BAD TOP VALUE \"gopher\" SPECIFIED w/OUT ALSO SPECIFYING CM LABEL! Error in space \"Paris\".",
+                      "result": {}
+                    }
+                  },
+                  "assertions": [
+                    {
+                      "funcName": "isTrue",
+                      "args": [
+                        true,
+                        "The CMAS instance created from constructorRequest is expected to be a valid instance according to the test vector."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isObject",
+                      "args": [
+                        {
+                          "error": null,
+                          "result": {
+                            "CM": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                            "CMID": "k9Rit_Rwb4jDsvWaJbEQPg",
+                            "APM": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                            "APMID": "Bwon1X8tuGuIIcUBQXAs-A",
+                            "ACT": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                            "ACTID": "PqS2waarPsw-ebReywUiBg",
+                            "TOP": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                            "TOPID": "PjShT6YCV6M-3lpey6ZiKw",
+                            "OTHER": "JXupqxTHQoyoU65pvP0NkA::CellModelArtifactSpace Constructor/Method: Good constructor w/method call to mapLabels to retrieve TOPID with CM label.::You should receive response.error and get no key returned in response.response if you don't also specify CM label.",
+                            "OTHERID": "_IJRoeZKZBTMpdX2bp3sxw"
+                          }
+                        },
+                        "We expect cmasRef.mapLabels to return an object when the instance is valid and the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isNull",
+                      "args": [
+                        null,
+                        "We expect cmasRef.mapLabels to return response.error === null when the instance is valid the the request is also valid (which it is)."
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isEmpty",
+                      "args": [
+                        [],
+                        "We expect there to be no collisions between IRUT ID's generated w/the same label string value inside of a CMAS instance scope!"
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isString",
+                      "args": [
+                        "Filter [Vt5W3lHUUdR0vXS91_TX9A::CellModelArtifactSpace::mapLabels<Paris>] failed while performing main operation. !!! DISCARDING BAD TOP VALUE \"gopher\" SPECIFIED w/OUT ALSO SPECIFYING CM LABEL! Error in space \"Paris\".",
+                        "According to the test vector the method call should return a response.error"
+                      ],
+                      "assertion": null
+                    },
+                    {
+                      "funcName": "isUndefined",
+                      "args": [
+                        null,
+                        "We expect response.result to contain no IRUT ID's."
+                      ],
+                      "assertion": null
+                    }
+                  ],
+                  "assertFailures": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
