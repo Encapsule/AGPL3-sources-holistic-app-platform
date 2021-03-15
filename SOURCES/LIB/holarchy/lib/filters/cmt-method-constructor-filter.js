@@ -32,6 +32,9 @@
                     break;
                 }
 
+                /// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                // v0.0.62-titanite --- IN RETROSPECT IT'S A BAD CHOICE TO COUPLE THE NOTION OF A TEMPLATE W/ARTIFACT SPACE LIKE THIS.
+                // THIS IS GOING TO GET REMOVED / REWORKED. WE WILL ONLY ACTUALLY TAKE CMAS SCOPE IN THROUGH SYNTH REQUEST
                 let cmasTemplateScope = (constructorRequest_.cmasScope instanceof CellModelArtifactSpace)?constructorRequest_.cmasScope:(new CellModelArtifactSpace(constructorRequest_.cmasScope));
 
                 if (!cmasTemplateScope.isValid()) {
@@ -45,6 +48,8 @@
                     break;
                 }
                 const cmasInstanceScope = cmasResponse.result;
+                // WARNING DEAD CODE ---- DO NOT EVER RELY ON CMAS AT TEMPLATE SCOPE UNTIL IT'S ENTIRELY EXORCISED FROM THE CLASS !
+                /// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
                 const templateLabel = `CellModelTemplate<${constructorRequest_.templateLabel}>`;
                 const cellModelTemplateSynthMethodLabel = `${templateLabel}::synthesizeCellModel`;
@@ -64,12 +69,14 @@
                         ____types: "jsObject",
 
                         // Provided by the CellModelTemplate::synthesizeCellModel method implementation that forwards its class constructor reference.
+                        // TODO: Explain why this is passed through here in the comments.
                         cmtClass: {
                             ____label: "CellModelTemplate::constructor Function",
                             ____accept: "jsFunction"
                         },
 
                         // Provided by the CellModelTemplate::synthesizeCellModel method implementation that forwards its this reference.
+                        // TODO: Explain why this is pass through here in the comments. And, if it's not necessary because CMT no longer extends CMAS then remove it and simplify.
                         cmtInstance: {
                             ____label: `${templateLabel} Instance Reference`,
                             ____accept: "jsObject" // This will be a pointer to CellModelTemplate::synthesizeCellModel method's this
@@ -79,10 +86,7 @@
                         cmasScope: {
                             ____label: `{templateLabel}::synthesizeCellModel CMAS`,
                             ____description: "Optional reference to a CellModelArtifactSpace or CellModelTemplate class instance that specifies which CMAS the new CellModel's IRUTs should be generated in.",
-                            ____accept: [
-                                "jsUndefined", // If not specified then CellModelTemplate::synthesizeCellModel uses the template instance's intrinsic CMAS that was assigned at construction-time.
-                                "jsObject",    // If specified, the CellModelTemplate::synthesizeCellModel uses the specified CMAS instead of its intrinsic CMAS when generating CellModel artifact IRUTs. (used when generating specialized CellModel from a template inside of another template)
-                            ]
+                            ____accept: "jsObject" // v0.0.62-titanite // WE CANNOT GUESS WHAT CMAS YOU WANT YOUR CELLMODEL IN. AND, WE CANNOT GET INVOLVED IN THE HASHING. OR, YOU WILL NEVER EVER FIND IT IN THE CELLPLANE!
                         },
 
                         // Provided by caller via CellModelTemplate::synthesizeCellModel request descriptor
@@ -112,17 +116,20 @@
                             inBreakScope = true;
                             try {
 
+                                // v0.0.62-titanite I WANT TO KNOW IF WE REALLY EVEN NEED TO TAKE THIS IN HERE IF WE'RE REQUIRING CMAS?
                                 let cmtInstance = generateRequest_.cmtInstance; // According to the CellModelTemplate class instance.
 
-                                if (generateRequest_.cmasScope) { // ... but, whomever is calling synthesizeCellModel wants to use their own CMAS instead of our template's intrinsic CMAS. Okay...
+                                /// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                // NO - CMAS IS NOW REQUIRED TO BE PASSED TO SYNTH METHOD --- NOTHING SPECIAL --- JUST USE IT
 
+                                /*
+                                if (generateRequest_.cmasScope) { // ... but, whomever is calling synthesizeCellModel wants to use their own CMAS instead of our template's intrinsic CMAS. Okay...
                                     // cmasSynthScope is (or should be) one of several types of objects:
                                     // - CellModelArtifactSpace class instance
                                     // ? CellModelArtifactSpace::constructor request - Seems rather an exotic case. The main use case is to pass in reference to a cmtInstance here from another generatorBodyFunction.
                                     // - CellModelTemplate class instance that extends CellModelArtifactSpace
                                     // X CellModelTemplate::constructor request --- NAH, not going to support this option
                                     // Determine which of these and instantiate a new CellModelTemplate based on generateCellModelReqeust_.cmtInstance
-
                                     // We really don't care if the caller passed us a CellModelTemplate instance. We just want to know its CMAS.
                                     let cmasScope = (generateRequest_.cmasScope instanceof CellModelArtifactSpace)?generateRequest_.cmasScope:(new CellModelArtifactSpace(generateRequest_.cmasScope));
                                     if (!cmasScope.isValid()) {
@@ -146,11 +153,12 @@
                                         break;
                                     }
                                     cmtInstance._private.spaceLabel = cmasScope.spaceLabel; // zap the spaceLabel and keep everything else the same. This keeps the template names nice.
-
                                 }
+                                */
 
                                 const innerRequest = {
-                                    cmtInstance,
+                                    // v0.0.62-titanite disabled this line // replaced w/--v //// cmtInstance, // <=== BINGO: NOPE --- this gets passed through here expressly so that developers can resolve the CMAS scope to use to mapLabels to artifact ID IRUTS.
+                                    cmtInstance: generateRequest_.cmasScope, // HOPEFULLY IF NONE OF MY GENERATORS DOES MORE THAN TREAT THE CMT AS A CMAS IT WILL NEVER EVEN KNOW THE DIFF AND I CAN JUST RENAME THE PARAM AND MOVE ON
                                     cellModelLabel: generateRequest_.cellModelLabel,
                                     specializationData: generateRequest_.specializationData
                                 };

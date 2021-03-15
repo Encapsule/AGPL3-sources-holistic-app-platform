@@ -27,7 +27,7 @@
 
             /*
               generatorRequest = {
-              cmtInstance, // reference to this CellModelTemplate template instance --- aka the DisplayView CellModel synthesizer.
+              cmtInstance, // reference to this CellModelTemplate template instance --- aka the DisplayView CellModel synthesizer. *****TODO WILL BE A CMAS REF IN FUTURE ****
               cellModelLabel, // passed by cmtInstance.synthesizeCellModel from caller
               specializationData // passed by cmtInstance.synthesizeCellModel from caller filtered per above spec
               }
@@ -61,7 +61,7 @@
                         break;
                     }
 
-                    const apmID = generatorRequest_.cmtInstance.mapLabels({ APM: displayStreamMessageLabel }).result.APMID;
+                    const apmID = generatorRequest_.cmtInstance.mapLabels({ APM: displayStreamMessageLabel }).result.APMID; // ***** TODO CHANGE TO CMAS REF
 
                     // Set the invariant portions of all DisplayStreamMessage family members.
 
@@ -101,7 +101,7 @@
                     displayStreamMessageSpec.renderData[viewDisplayClassName] = { ...generatorRequest_.specializationData.displayLayoutSpec };
 
                     let synthResponse = cmtObservableValue.synthesizeCellModel({
-                        cmasScope: generatorRequest_.cmtInstance,
+                        cmasScope: generatorRequest_.cmtInstance, // ***** CHANGE TO CMAS REF
                         cellModelLabel: displayStreamMessageLabel,
                         specializationData: {
                             valueTypeDescription: `An ObservableValue<${displayStreamMessageLabel}<${generatorRequest_.cellModelLabel}>> CellModel.`,
@@ -115,9 +115,6 @@
                     }
 
                     const ovCellModel = synthResponse.result;
-
-                    // let x = generatorRequest_.cmtInstance.mapLabels({ CM: generatorRequest_.cellModelLabel }).result.CMID;
-                    // let y = generatorRequest_.cmtInstance.mapLabels({ APM: generatorRequest_.cellModelLabel }).result.APMID;
 
                     response.result = ovCellModel;
 

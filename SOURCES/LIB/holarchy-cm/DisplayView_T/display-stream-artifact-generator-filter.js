@@ -219,6 +219,9 @@
 
                 console.log("----------------------------------------------------------------");
                 console.log(`> NEW DVVD BUS ARTIFACTS for cellModelLabel="${request_.displayViewSynthesizeRequest.cellModelLabel}":`);
+                const displayViewAPMRef = response.result.CellModel.getAPM();
+                console.log(`[${response.result.CellModel.getID()}::${response.result.CellModel.getName()}] APM ID = "${response.result.CellModel.getAPM().getID()}"`);
+                console.log("response===");
                 console.log(response);
                 console.log("----------------------------------------------------------------");
 

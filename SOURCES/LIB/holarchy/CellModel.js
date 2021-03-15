@@ -5,6 +5,12 @@ const constructorFilter = require("./lib/filters/cm-method-constructor-filter");
 const getArtifactFilter = require("./lib/filters/cm-method-get-artifact-filter");
 const getConfigFilter = require("./lib/filters/cm-method-get-config-filter");
 
+// A CellModel class instance is a container for zero or one AbtractProcessModel definition +
+// zero or more ControllerAction filter(s) + zero or more TransitionOperator filter(s) +
+// a collection of zero or more other CellModel class instance(s) that the producer of the
+// CellModel class instance has aggregated w/their cell declaration for implicit registration
+// with CellProcessor class instance CellProcessManager process.
+
 module.exports = class CellModel {
 
     constructor(request_) {
@@ -22,6 +28,7 @@ module.exports = class CellModel {
             this.getVDID = this.getVDID.bind(this);
             this.getName = this.getName.bind(this);
             this.getDescription = this.getDescription.bind(this);
+            this.getAPM = this.getAPM.bind(this);
 
             // These are primarily for support of CellProcessor ES6 class.
             // But, are also leveraged by the @encapsule/holodeck-assets CellModel harness.
@@ -93,6 +100,24 @@ module.exports = class CellModel {
     // If isValid() then descriptor string returned. Otherwise, constructor error string.
     getDescription() {
         return (this.isValid()?this._private.description:this.toJSON());
+    }
+
+    // if !isValid() returns constructor error message string
+    // if isValid() returns undefined (CM does not declare an APM) or APM reference.
+    getAPM() {
+        if (!this.isValid()) {
+            return this.toJSON(); // Not a valid APM but rather a constructor error message string.
+        }
+        let outEdges = this._private.digraph.outEdges(this.getID());
+        let result = undefined; // The CellModel instance does not define an APM
+        while (outEdges.length) {
+            const edge = outEdges.pop();
+            if (this._private.digraph.getEdgeProperty(edge).type === "CM:APM") {
+                result = this._private.digraph.getVertexProperty(edge.v).artifact;
+                break;
+            }
+        }
+        return result;
     }
 
     // Returns a filter response object.

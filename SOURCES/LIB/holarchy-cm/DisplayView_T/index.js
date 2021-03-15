@@ -52,6 +52,7 @@
                     inBreakScope = true;
 
                     const cmSynthRequest = {
+                        cmasScope: generatorRequest_.cmtInstance, // ? ***** TODO***** THIS WILL NEED TO CHANGE --- TEMPLATES WILL NO LONGER EXTENDED CMAS
                         cellModelLabel: `${templateLabel}<${generatorRequest_.cellModelLabel}>`,
                         specializationData: {
                             description: `Specialization for ${generatorRequest_.cellModelLabel}`,

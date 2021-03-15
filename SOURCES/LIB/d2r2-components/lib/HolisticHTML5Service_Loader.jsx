@@ -45,15 +45,14 @@ const factoryResponse = d2r2.ComponentFactory.request({
 
                 const backgroundColor = { development: "powderblue", test: "mistyrose", staging: "seashell", production: "aliceblue" }[messageBody.deploymentEnvironment];
 
-                const textColorMain = color(backgroundColor).darken(0.25).hex();
+                const textColorMain = color(backgroundColor).darken(0.1).hex();
                 const textColorMessage = "white";
-                const textColorEnvironment = color(backgroundColor).darken(0.125).hex();
+                const textColorEnvironment = color(backgroundColor).darken(0.03).hex();
 
-                const textColorVersion = color(backgroundColor).darken(0.05).hex();
-                const textColorVersionShadow = color(backgroundColor).darken(0.25).hex();
+                const textColorVersion = color(backgroundColor).lighten(0.1).hex();
+                const textColorVersionShadow = color(backgroundColor).darken(0.1).hex();
 
-                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Play", fontSize: "4vw", fontWeight: "bold", paddingBottom: "0.25em", color: textColorMain }}>{messageBody.appBuild.app.name}</div>);
-                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Nunito", fontSize: "2.5vw", fontWeight: "bold", color: textColorMessage, paddingBottom: "1em", textShadow: `0px 0px 0.25vw ${color(backgroundColor).darken(0.7).hex()}` }}>{statusMessage}</div>);
+                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Play", fontSize: "8vw", fontWeight: "bold", color: textColorMain, paddingBottom: "1.3vw" }}>{messageBody.appBuild.app.name}</div>);
 
                 if (this.props.renderContext.serverRender) {
                     flexContent.push(<div key={makeKey()} className="spinner-fast" />);
@@ -83,10 +82,12 @@ const factoryResponse = d2r2.ComponentFactory.request({
                     }
                 }
 
+                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Nunito", fontSize: "6vw", fontWeight: "bold", color: textColorMessage, textShadow: `0px 0px 0.25vw ${color(backgroundColor).darken(0.7).hex()}` }}>{statusMessage}</div>);
+
                 // Environment
                 content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
                              <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh", width: "100vw", backgroundColor }}>
-                                 <div style={{ fontFamily: "Play", fontSize: "6vw", color: textColorEnvironment }}><strong>{messageBody.deploymentEnvironment}</strong></div>
+                                 <div style={{ fontFamily: "Play", fontSize: "10vw", color: textColorEnvironment }}><strong>{messageBody.deploymentEnvironment}</strong></div>
                              </div>
                              </div>
                             );
@@ -100,7 +101,7 @@ const factoryResponse = d2r2.ComponentFactory.request({
                 // App version
                 content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
                              <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", height: "100vh", width: "100vw" }}>
-                             <div style={{ fontFamily: "Play", fontSize: "1.25vw", color: textColorVersion, padding: "1vw", textShadow: `-1px -1px 1px ${textColorVersionShadow}` }}>
+                             <div style={{ fontFamily: "Play", fontSize: "2.5vw", color: textColorVersion, padding: "1vw", textShadow: `-1px -1px 0px ${textColorVersionShadow}` }}>
                              <strong>@{messageBody.appBuild.app.author}/{messageBody.appBuild.app.name} v{messageBody.appBuild.app.version}-{messageBody.appBuild.app.codename}</strong><br/>
                              {messageBody.appBuild.app.buildSource}<br/>
                              {messageBody.appBuild.app.buildID}
@@ -112,7 +113,7 @@ const factoryResponse = d2r2.ComponentFactory.request({
                 // Platform version
                 content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
                              <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end", alignItems: "flex-end", height: "100vh", width: "100vw", textAlign: "right" }}>
-                            <div style={{ fontFamily: "Play", fontSize: "1.25vw", color: textColorVersion, padding: "1vw", textShadow: `-1px -1px 1px ${textColorVersionShadow}` }}>
+                            <div style={{ fontFamily: "Play", fontSize: "2.5vw", color: textColorVersion, padding: "1vw", textShadow: `-1px -1px 0px ${textColorVersionShadow}` }}>
                              <strong>@{messageBody.appBuild.platform.app.author}/{messageBody.appBuild.platform.app.name} v{messageBody.appBuild.platform.app.version}-{messageBody.appBuild.platform.app.codename}</strong><br/>
                              {messageBody.appBuild.platform.app.buildSource}<br/>
                              {messageBody.appBuild.platform.app.buildID}

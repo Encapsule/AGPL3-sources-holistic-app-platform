@@ -44,7 +44,7 @@
                 domLocation: {
                     ____types: "jsObject",
                     ____defaultValue: {},
-                    ____appdsl: { apm: holarchyCM.cmtObservableValue.mapLabels({ APM: "RouterEventDescriptor" }).result.APMID }
+                    ____appdsl: { apm: holarchyCM.cmasHolarchyCMPackage.mapLabels({ APM: "RouterEventDescriptor" }).result.APMID }
                 }
             }
 
