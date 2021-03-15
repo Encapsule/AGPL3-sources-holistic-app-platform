@@ -533,7 +533,7 @@
                       "opc": {
                         "id": "sp3KSxGZpT9WlUFuJkCPrw",
                         "name": "CPM Child Processes All In Step Operator Test Service ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Child Processes All In Step Operator Test Service' CellProcessor instance.",
+                        "description": "Provides generic shared memory and runtime evaluation services for cell process service 'CPM Child Processes All In Step Operator Test Service'.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,

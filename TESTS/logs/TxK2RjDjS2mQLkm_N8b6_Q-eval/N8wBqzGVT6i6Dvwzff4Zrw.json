@@ -579,7 +579,7 @@
                       "opc": {
                         "id": "-JrKSzu4pT95q0Fu4wWPrw",
                         "name": "Proxy Test A Service ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'Proxy Test A Service' CellProcessor instance.",
+                        "description": "Provides generic shared memory and runtime evaluation services for cell process service 'Proxy Test A Service'.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,

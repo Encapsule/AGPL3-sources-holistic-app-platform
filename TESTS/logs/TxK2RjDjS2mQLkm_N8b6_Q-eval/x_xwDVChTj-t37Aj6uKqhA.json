@@ -429,7 +429,7 @@
                       "opc": {
                         "id": "N_XKS1_hpT-r0UFu5UCPrw",
                         "name": "Test Service ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'Test Service' CellProcessor instance.",
+                        "description": "Provides generic shared memory and runtime evaluation services for cell process service 'Test Service'.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,

@@ -511,7 +511,7 @@
                       "opc": {
                         "id": "XzvKS1LCpT8FHUFumCqPrw",
                         "name": "CPM Shared Process Test #2 Service ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Shared Process Test #2 Service' CellProcessor instance.",
+                        "description": "Provides generic shared memory and runtime evaluation services for cell process service 'CPM Shared Process Test #2 Service'.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,

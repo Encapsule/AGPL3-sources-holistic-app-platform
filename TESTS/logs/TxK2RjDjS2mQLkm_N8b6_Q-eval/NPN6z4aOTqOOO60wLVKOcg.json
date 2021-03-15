@@ -504,7 +504,7 @@
                       "opc": {
                         "id": "O7jKS-rSpT-eQUFuRaSPrw",
                         "name": "CellProcessor Constructor #2 Service ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CellProcessor Constructor #2 Service' CellProcessor instance.",
+                        "description": "Provides generic shared memory and runtime evaluation services for cell process service 'CellProcessor Constructor #2 Service'.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,

@@ -478,7 +478,7 @@
                       "opc": {
                         "id": "g6TKS1B3pT8GA0FuQ9CPrw",
                         "name": "CPM Ancestor Processes Any In Step Operator Test Service ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Ancestor Processes Any In Step Operator Test Service' CellProcessor instance.",
+                        "description": "Provides generic shared memory and runtime evaluation services for cell process service 'CPM Ancestor Processes Any In Step Operator Test Service'.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,

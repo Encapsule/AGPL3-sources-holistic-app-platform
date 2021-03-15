@@ -638,7 +638,7 @@
                       "opc": {
                         "id": "9IzKS8ngpT8tiUFuo-mPrw",
                         "name": "CellProcessor Constructur Test #3 Service ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CellProcessor Constructur Test #3 Service' CellProcessor instance.",
+                        "description": "Provides generic shared memory and runtime evaluation services for cell process service 'CellProcessor Constructur Test #3 Service'.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,

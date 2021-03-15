@@ -429,7 +429,7 @@
                       "opc": {
                         "id": "fxLKS3sOpT_ZuUFuvvePrw",
                         "name": "Useless CP Service ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'Useless CP Service' CellProcessor instance.",
+                        "description": "Provides generic shared memory and runtime evaluation services for cell process service 'Useless CP Service'.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,

@@ -478,7 +478,7 @@
                       "opc": {
                         "id": "l1jKSyiapT9t3EFuyzKPrw",
                         "name": "CPM Parent Process Active Test Service ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Parent Process Active Test Service' CellProcessor instance.",
+                        "description": "Provides generic shared memory and runtime evaluation services for cell process service 'CPM Parent Process Active Test Service'.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,

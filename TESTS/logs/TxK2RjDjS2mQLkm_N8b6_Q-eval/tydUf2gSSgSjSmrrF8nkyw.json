@@ -533,7 +533,7 @@
                       "opc": {
                         "id": "OWLKS3J9pT-_iEFuwDCPrw",
                         "name": "CPM Descendant Processes All In Step Test Service ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Descendant Processes All In Step Test Service' CellProcessor instance.",
+                        "description": "Provides generic shared memory and runtime evaluation services for cell process service 'CPM Descendant Processes All In Step Test Service'.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
