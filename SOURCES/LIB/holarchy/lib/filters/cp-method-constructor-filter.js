@@ -219,12 +219,14 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
                 // TODO: This should be a construction-time policy option and not hard-coded behavior probably. Then a service class can expose the option, and we can make it simpler for developers to disable the checks if they really want to dive in.
                 // If you're staring at this comment and think "that's exactly what I need right now" let me know and I'll add it. Otherwise moving on for now; primarily dropping this in here to prevent myself from wasting time
                 // in the debugger on things that are merely APM registration typos as opposed to bugs in CellModelArtifactSpace, CellModelTemplate, or one of the derived CellModel generator filters...
-
+                // 2nd-thought: LET'S NOT DO THIS HERE. IT'S THE WRONG LAYER.
+                /*
                 if (cpOPC._private.constructionWarnings && cpOPC._private.constructionWarnings.length) {
                     errors.push("Warnings were reported during construction of this CellProcessor instance's contained ObservableProcessController that indicate the cellplane could not be configured as declared in your service CellModel definition:");
                     cpOPC._private.constructionWarnings.forEach((warning_) => { errors.push(warning_); });
                     break;
                 }
+                */
 
                 response.result = { cm: cpCM, opc: cpOPC }; // Wow...
 
