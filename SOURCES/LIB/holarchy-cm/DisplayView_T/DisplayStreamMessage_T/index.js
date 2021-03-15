@@ -44,7 +44,7 @@
                     const displayStreamMessageLabel = `${templateLabel}<${generatorRequest_.cellModelLabel}>`;
 
                     let filterResponse = arccore.filter.create({
-                        operationID: "65rI4JXWT02HOmPh1_Eamg",
+                        operationID: "65rI4JXWT02HOmPh1_Eamg", // one-time use local to this function
                         operationName: "displayLayoutSpec MUST ACCEPT NO INPUT w/OUT ERROR",
                         operationDescription: "A filter that uses your displayLayout as inputFilterSpec to determine if it's a valid filter spec and if it can be called generically if used as inputFilterSpec.",
                         inputFilterSpec: generatorRequest_.specializationData.displayLayoutSpec
@@ -54,6 +54,9 @@
                         errors.push(filterResponse.error);
                         break;
                     }
+
+                    // Now we know whatever the caller sent through generatorRequest_.specializationData.displayLayoutSpec is actually a filter spec.
+
                     filterResponse = filterResponse.result.request();
                     if (filterResponse.error) {
                         errors.push(`Unable to generate ${displayStreamMessageLabel} CellModel because the specified displayLayoutSpec is not valid. If we use your displayLayoutSpec as inputFilterSpec and call our testFilter.request() w/no request input there must be no response.error but instead:`);
@@ -61,7 +64,7 @@
                         break;
                     }
 
-                    const apmID = generatorRequest_.cmtInstance.mapLabels({ APM: displayStreamMessageLabel }).result.APMID; // ***** TODO CHANGE TO CMAS REF
+                    // Now we know whatever the caller sent through generatorRequest_.specializationData.displayLayoutSpec is a filter spec that accepts an undefined request.
 
                     // Set the invariant portions of all DisplayStreamMessage family members.
 
@@ -94,8 +97,9 @@
                         }
                     };
 
-                    // Must be kept in sync w/VDDV artifact generator.
+                    // Must be kept in sync w/DVVD artifact generator. Brittle and TAF... Maybe there's a way to break it apart and make it simpler. Or, maybe it's just fucking hard.
 
+                    const apmID = generatorRequest_.cmtInstance.mapLabels({ APM: generatorRequest_.specializationData.displayViewCellModelLabel }).result.APMID; // ***** TODO CHANGE TO CMAS REF
                     const viewDisplayClassName = `${generatorRequest_.specializationData.displayViewCellModelLabel}_ViewDisplay_${Buffer.from(apmID, "base64").toString("hex")}`;
 
                     displayStreamMessageSpec.renderData[viewDisplayClassName] = { ...generatorRequest_.specializationData.displayLayoutSpec };

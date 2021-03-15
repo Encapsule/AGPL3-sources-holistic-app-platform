@@ -92,13 +92,13 @@
                 // DisplayView_T's specialized DisplayStreamMessage_T to generate a unique this.props.renderData.X label for
                 // d2r2 <ComponentRouter/>.
 
-                const apmIDViewDisplay = cellModelConstructorRequest.apm.ocdDataSpec.outputs.displayView.____appdsl.apm;
+                const apmIDDisplayView = cellModel.getAPM().getID(); // cellModelConstructorRequest.apm.ocdDataSpec.outputs.displayView.____appdsl.apm;
 
                 // Must be kept in sync w/DVVD artifact generator. // ? Isn't this the artifact generator? I confuse myself here. // **** Check DisplayStreamMessage_T implementation re: this.renderData[X] OCD namespace details? I think this is what I was talking about here earlier.
 
                 // I don't think this is perfect because I think you cannot go from this hex back to the IRUT due to IRUT performing char subst on base64. But, I do think it's idempotent and unique and that's likely good enough for our current use cases.
 
-                const viewDisplayClassName = `${request_.displayViewSynthesizeRequest.cellModelLabel}_ViewDisplay_${Buffer.from(apmIDViewDisplay, "base64").toString("hex")}`;
+                const viewDisplayClassName = `${request_.displayViewSynthesizeRequest.cellModelLabel}_ViewDisplay_${Buffer.from(apmIDDisplayView, "base64").toString("hex")}`;
                 const displayLayoutNamespace = viewDisplayClassName;
 
                 let renderDataSpec = { ____label: `${request_.displayViewSynthesizeRequest.cellModelLabel} Render Data Spec`, ____types: "jsObject" };
@@ -153,6 +153,7 @@
 
                             // ? Expect it to be fine for now as it's not being called yet.
                             this.componentWillUnmount = this.componentWillUnmount.bind(this);
+                            this.mountSubViewDisplay = this.mountSubViewDisplay.bind(this);
                             this.foo = this.foo.bind(this);
 
 
@@ -203,6 +204,15 @@
                             return (<div>{this.xyzzy}</div>);
                         }
 
+                        mountSubViewDisplay({ cmasScope, displayViewCellModelLabel, displayLayout }) {
+                            const apmID_DisplayViewCell = cmasScope.mapLabels({ APM: displayViewCellModelLabel }).result.APMID;
+                            const hexifiedAPMID = Buffer.from(apmID_DisplayViewCell, "base64").toString("hex");
+                            const layoutNamespace = (`${displayViewCellModelLabel}_ViewDisplay_${hexifiedAPMID}`);
+                            let renderData = {};
+                            renderData[layoutNamespace] = displayLayout;
+                            const ComponentRouter = this.props.renderContext.ComponentRouter;
+                            return (<ComponentRouter {...this.props} renderContext={{ ...this.props.renderContext, displayPath: `${this.props.renderContext.displayPath}.${this.displayName}` }} renderData={renderData} />);
+                        }
 
                     } // class DisplayProcess extends request_.reactComponentClass extends React.Component (presumably)
 
