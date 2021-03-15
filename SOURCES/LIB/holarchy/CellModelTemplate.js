@@ -2,14 +2,12 @@
 
 (function() {
 
-    const CellModelArtifactSpace = require("./CellModelArtifactSpace");
     const constructorFilter = require("./lib/filters/cmt-method-constructor-filter");
 
-    class CellModelTemplate extends CellModelArtifactSpace {
+    class CellModelTemplate {
 
         constructor(request_) {
             const filterResponse = constructorFilter.request(request_);
-            super(filterResponse.result);
             this._private = !filterResponse.error?{ ...this._private, ...filterResponse.result }:{ constructorError: filterResponse.error };
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
@@ -27,7 +25,6 @@
         synthesizeCellModel(request_) {
             return (this.isValid()?this._private.cellModelGeneratorFilter.request({ ...request_, cmtClass: CellModelTemplate, cmtInstance: this }):{ error: this.toJSON() });
         }
-
 
     }
 

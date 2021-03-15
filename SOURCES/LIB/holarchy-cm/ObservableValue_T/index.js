@@ -3,7 +3,6 @@
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
-    const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
 
     const cmObservableValueBase = require("./ObservableValueBase");
     const cmObservableValueHelper = require("../ObservableValueHelper");
@@ -11,7 +10,6 @@
     const templateLabel = "ObservableValue";
 
     const cmtObservableValue = new holarchy.CellModelTemplate({
-        cmasScope: cmasHolarchyCMPackage,
         templateLabel,
         cellModelGenerator: {
             specializationDataSpec: {
@@ -46,13 +44,13 @@
 
                     response.result = {
 
-                        id: request_.cmtInstance.mapLabels({ CM: request_.cellModelLabel }).result.CMID,
+                        id: request_.cmasScope.mapLabels({ CM: request_.cellModelLabel }).result.CMID,
                         name: `${templateLabel}<${request_.cellModelLabel}>`,
                         description: `CellModelTemplate<${templateLabel}> specialization for CellModel label "${request_.cellModelLabel}".`,
 
                         apm: {
 
-                            id: request_.cmtInstance.mapLabels({ APM: request_.cellModelLabel }).result.APMID,
+                            id: request_.cmasScope.mapLabels({ APM: request_.cellModelLabel }).result.APMID,
                             name: `${templateLabel}<${request_.cellModelLabel}>`,
                             description: `CellModelTemplate<${templateLabel}> specialization for CellModel label "${request_.cellModelLabel}".`,
 
@@ -109,6 +107,7 @@
     });
 
     if (!cmtObservableValue.isValid()) {
+        console.error(`${__dirname} ${__filename}`);
         throw new Error(cmtObservableValue.toJSON());
     }
 
