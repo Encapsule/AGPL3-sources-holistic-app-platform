@@ -106,6 +106,13 @@
                                         displayName: { ____accept: "jsString" },
                                         displayPath: { ____accept: "jsString" },
                                         thisRef: { ____accept: "jsObject" },
+                                    },
+                                    dynamicViewDisplayQueue: {
+                                        ____types: "jsArray",
+                                        ____defaultValue: [],
+                                        reactElementDescriptor: {
+                                            ____accept: "jsObject"
+                                        }
                                     }
                                 },
 

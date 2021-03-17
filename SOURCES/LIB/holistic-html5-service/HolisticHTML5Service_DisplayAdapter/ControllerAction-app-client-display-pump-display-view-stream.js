@@ -92,20 +92,19 @@
                 // Changes made here must be reflected (very very carefully) through d2r2 and the all DisplayView* <-> ViewDisplay* codepaths.
 
                 const thisProps = {
-                    renderData: {
-                        ...displayStreamMessage.value.renderData,
-                        revision: displayStreamMessage.version
-                    },
                     renderContext: {
                         // NOTE: serverRender Boolean flag is not set here; it is only ever set during initial server-side rendering and initial client-side display activation.
+                        ...displayStreamMessage.value.renderContext,
+                        //displayPath: `${displayStreamMessage.value.renderContext.displayPath}.${displayStreamMessage.value.renderContext.displayInstance}`,
+                        d2r2BusState: "dv-root-active-vd-root-pending",
                         ComponentRouter: cellMemory.config.ComponentRouter,
-                        act: request_.context.act,
-                        apmBindingPath: displayStreamMessage.value.renderContext.apmBindingPath,
-                        displayPath: displayStreamMessage.value.renderContext.displayPath
+                        act: request_.context.act
+                    },
+                    renderData: {
+                        ...displayStreamMessage.value.renderData,
+                        revision: displayStreamMessage.revision,
                     }
                 };
-
-
 
                 // Now, create us a React.Element --- Note that this _appears_ simple.
                 // It's a bridge between two worlds; here we have no idea what's inside thisProps.

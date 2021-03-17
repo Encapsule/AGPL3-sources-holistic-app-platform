@@ -72,7 +72,11 @@
                     //
                     // @encapsule/d2r2 may be viewed as an IPC mechanism that accepts a variant message
                     // that is parsed to determine a unique "target process" to which to deliver the message.
-                    // Here we define the format of a d2r2 Request (the variant request). 
+                    // Here we define the format of a d2r2 Request (the variant request). Note, that given
+                    // the semantics of React, the semantics of this IPC is rather complicated insofar as
+                    // d2r2 messages affect activation/deactivation of display processes (i.e. mounting and
+                    // unmounting of React.Elements). As well, as providing updates to display processes
+                    // that are mounted and not subject to unmounting at the behest of their parent React.Element.
 
                     // CHANGES MADE HERE MUST BE PROPOGATED FORWARD INTO DISPLAY ADAPTER MESSAGE PUMP ACTION.
 
@@ -85,15 +89,15 @@
                             ____label: `${displayStreamMessageLabel} Render Context`,
                             ____types: "jsObject",
                             ____defaultValue: {},
-                            apmBindingPath: { ____accept: "jsString" }, // MAKE REQUIRED VALUE
-                            displayPath: { ____accept: "jsString" }, // MAKE REQUIRED VALUE , ____defaultValue: "👁" /*This should be a Unicode Eye*/ } // It's on the DisplayView family cell to set its displayPath appropriately.
-                            revision : { ____accept: "jsNumber", ____defaultValue: -500 }
+                            apmBindingPath: { ____accept: "jsString" }, // This is the actual apmBindingPath of the owning DisplayView_T cell.
+                            displayInstance: { ____accept: "jsString", ____defaultValue: "page" },
+                            displayPath: { ____accept: "jsString" },
                         },
                         renderData: {
                             ____label: `${displayStreamMessageLabel} d2r2 Render Data`,
                             ____types: "jsObject",
                             ____defaultValue: {},
-                            //// extended below
+                            // X_DisplayView_012345679ABCDEF01234567890ABCDEF spliced in below
                         }
                     };
 
@@ -105,7 +109,7 @@
                     displayStreamMessageSpec.renderData[viewDisplayClassName] = { ...generatorRequest_.specializationData.displayLayoutSpec };
 
                     let synthResponse = cmtObservableValue.synthesizeCellModel({
-                        cmasScope: generatorRequest_.cmtInstance, // ***** CHANGE TO CMAS REF
+                        cmasScope: generatorRequest_.cmtInstance, // ***** CHANGE TO CMAS REF --- i guess if this isn't throwing I am still extending ? wait - wat?
                         cellModelLabel: displayStreamMessageLabel,
                         specializationData: {
                             valueTypeDescription: `An ObservableValue<${displayStreamMessageLabel}<${generatorRequest_.cellModelLabel}>> CellModel.`,

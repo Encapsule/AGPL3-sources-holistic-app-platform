@@ -43,7 +43,7 @@ const factoryResponse = d2r2.ComponentFactory.request({
 
                 const statusMessage = (this.props.renderContext.serverRender?"L O A D I N G":(!messageBody.appStarted?"S T A R T I N G":"W E L C O M E !"));
 
-                const backgroundColor = { development: "powderblue", test: "mistyrose", staging: "seashell", production: "aliceblue" }[messageBody.deploymentEnvironment];
+                const backgroundColor = { development: "lightslategray", test: "palevioletred", staging: "yellowgreen", production: "skyblue" }[messageBody.deploymentEnvironment];
 
                 const textColorMain = color(backgroundColor).darken(0.1).hex();
                 const textColorMessage = "white";

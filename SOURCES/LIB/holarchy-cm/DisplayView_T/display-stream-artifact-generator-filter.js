@@ -110,10 +110,12 @@
                         constructor(props_) {
                             console.log(`ViewDisplayProcess::constructor on behalf of ${viewDisplayClassName}`);
                             super(props_);
-                            if (!this.displayName) {
-                                throw new Error(`Um, yea. We're going to have to have you go ahead and get your class "${friendlyClassMoniker}" that extends React.Component to define a constructor function, and then assign this.displayName in the body of that constructor function so that "${viewDisplayClassName}" that extends your "${friendlyClassMoniker}" class can correctly deduce where it is in the display tree when it's time to link to its backing DisplayView cell process. Thanks!`);
+
+                            if (!this.displayName || (Object.prototype.toString.call(this.displayName) !== "[object String]") || !this.displayName.length) {
+                                throw new Error(`Please set 'this.displayName' to a non-zero-length string value in your "${friendlyClassMoniker}::constructor" function.`); // Because the base class constructs and starts its lifecycle before we gain control back from super(props_).
                             }
-                            this.displayPath = `${props_.renderContext.displayPath}.${this.displayName}`;
+
+                            this.displayPath = this.props.renderContext.displayPath; // ? `${this.props.renderContext.displayPath}.${this.props.renderContext.displayInstance}`;
 
                             this.xyzzy = "this is a test property";
 
@@ -125,7 +127,32 @@
                             let actResponse = this.props.renderContext.act({
                                 actorName: this.displayName,
                                 actorTaskDescription: `This is new a new instance of React.Element ${this.displayName} process notifying its backing DisplayView cell that it has been mounted and is now activated.`,
-                                actionRequest: { holistic: { common: { actions: { service: { html5: { display: { view: { linkDisplayProcess: { notifyEvent: "display-process-activated", reactElement: { displayName: this.displayName, displayPath: this.displayPath, thisRef: this } } } } } } } } } },
+                                actionRequest: {
+                                    holistic: {
+                                        common: {
+                                            actions: {
+                                                service: {
+                                                    html5: {
+                                                        display: {
+                                                            view: {
+                                                                linkDisplayProcess: {
+                                                                    notifyEvent: ((this.props.renderContext.d2r2BusState === "dv-root-active-vd-root-pending")?"vd-root-activated":"vd-child-activated"),
+                                                                    reactElement: {
+                                                                        displayName: this.displayName,
+                                                                        displayPath: ((this.props.renderContext.d2r2BusState === "dv-root-active-vd-root-pending")?this.displayPath:this.props.renderContext.displayPath),
+                                                                        displayInstance: this.props.renderContext.displayInstance,
+                                                                        d2r2BusState: "ipc-link-pending",
+                                                                        thisRef: this
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
                                 apmBindingPath: this.props.renderContext.apmBindingPath
                             });
                             try {
@@ -144,28 +171,6 @@
 
 
                         }
-
-                        /*
-                        componentDidMount() {
-
-                            console.log(`ViewDisplayProcess::componentDidMount on behalf of ${viewDisplayClassName}`);
-                            let actResponse = this.props.renderContext.act({
-                                actorName: this.displayName,
-                                actorTaskDescription: `This is new a new instance of React.Element ${this.displayName} process notifying its backing DisplayView cell that it has been mounted and is now activated.`,
-                                actionRequest: { holistic: { common: { actions: { service: { html5: { display: { view: { linkDisplayProcess: { notifyEvent: "display-process-activated", reactElement: { displayName: this.displayName, displayPath: this.displayPath, thisRef: this } } } } } } } } } },
-                                apmBindingPath: this.props.renderContext.apmBindingPath
-                            });
-                            try {
-                                if (super.componentDidMount) {
-                                    super.componentDidMount();
-                                }
-                            } catch (wtaf_) {
-                                console.warn(wtaf_.message);
-                                console.error(wtaf_.stack);
-                            }
-
-                        }
-                        */
 
                         componentWillUnmount() {
                             console.log(`ViewDisplayProcess::componentWillUnmount on behalf of ${viewDisplayClassName}`);
@@ -190,14 +195,22 @@
                             return (<div>{this.xyzzy}</div>);
                         }
 
-                        mountSubViewDisplay({ cmasScope, displayViewCellModelLabel, displayLayout }) {
+                        mountSubViewDisplay({ cmasScope, displayViewCellModelLabel, displayInstance, displayLayout }) {
                             const apmID_DisplayViewCell = request_.displayViewSynthesizeRequest.cmasScope.mapLabels({ APM: displayViewCellModelLabel }).result.APMID;
                             const hexifiedAPMID = Buffer.from(apmID_DisplayViewCell, "base64").toString("hex");
                             const layoutNamespace = (`${displayViewCellModelLabel}_ViewDisplay_${hexifiedAPMID}`);
                             let renderData = {};
                             renderData[layoutNamespace] = displayLayout;
                             const ComponentRouter = this.props.renderContext.ComponentRouter;
-                            return (<ComponentRouter {...this.props} renderContext={{ ...this.props.renderContext, displayPath: `${this.props.renderContext.displayPath}.${this.displayName}` }} renderData={renderData} />);
+                            return (<ComponentRouter
+                                    {...this.props}
+                                    renderContext={{
+                                        ...this.props.renderContext,
+                                        d2r2BusState: "vd-process-dynamic-mount",
+                                        displayPath: `${this.displayPath}.${displayInstance}`, // this.props.renderContext.displayPath,
+                                        displayInstance: displayInstance
+                                    }} renderData={renderData} />
+                                   );
                         }
 
                     } // class DisplayProcess extends request_.reactComponentClass extends React.Component (presumably)
