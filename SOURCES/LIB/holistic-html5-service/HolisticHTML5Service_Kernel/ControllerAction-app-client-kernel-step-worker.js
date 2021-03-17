@@ -322,21 +322,24 @@ const controllerAction = new holarchy.ControllerAction({
                 // ****************************************************************
             case "activate-service-process":
 
-                actResponse = request_.context.act({
-                    actorName,
-                    actorTaskDescription: "Attempting to activate the derived HTML5 service cell process...",
-                    actionRequest: {
-                        CellProcessor: {
-                            util: {
-                                writeActionResponseToPath: {
-                                    dataPath: "#.serviceProcesses.appServiceProcess",
-                                    actionRequest: {
-                                        CellProcessor: {
-                                            process: {
-                                                processCoordinates: cellMemory.derivedAppClientProcessCoordinates,
-                                                activate: {
-                                                    processData: {
-                                                        activationMode: (cellMemory.bootROMData.initialDisplayData.httpResponseDisposition.code === 200)?"app-service-start":"app-service-error"
+                setTimeout(function() {
+
+                    actResponse = request_.context.act({
+                        actorName,
+                        actorTaskDescription: "Attempting to activate the derived HTML5 service cell process...",
+                        actionRequest: {
+                            CellProcessor: {
+                                util: {
+                                    writeActionResponseToPath: {
+                                        dataPath: "#.serviceProcesses.appServiceProcess",
+                                        actionRequest: {
+                                            CellProcessor: {
+                                                process: {
+                                                    processCoordinates: cellMemory.derivedAppClientProcessCoordinates,
+                                                    activate: {
+                                                        processData: {
+                                                            activationMode: (cellMemory.bootROMData.initialDisplayData.httpResponseDisposition.code === 200)?"app-service-start":"app-service-error"
+                                                        }
                                                     }
                                                 }
                                             }
@@ -344,15 +347,17 @@ const controllerAction = new holarchy.ControllerAction({
                                     }
                                 }
                             }
-                        }
-                    },
-                    apmBindingPath: request_.context.apmBindingPath // will be the holistic HTML5 service kernel process
-                });
+                        },
+                        apmBindingPath: request_.context.apmBindingPath // will be the holistic HTML5 service kernel process
+                    });
+
+                }, 1000);
+                /*
                 if (actResponse.error) {
                     errors.push(actResponse.error);
                     break;
                 }
-
+                */
                 break;
 
 

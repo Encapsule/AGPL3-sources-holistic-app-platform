@@ -82,7 +82,7 @@ const factoryResponse = d2r2.ComponentFactory.request({
                     }
                 }
 
-                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Nunito", fontSize: "6vw", fontWeight: "bold", color: textColorMessage, textShadow: `0px 0px 0.25vw ${color(backgroundColor).darken(0.7).hex()}` }}>{statusMessage}</div>);
+                flexContent.push(<div key={makeKey()} style={{ fontFamily: "Nunito", fontSize: "3vw", fontWeight: "bold", color: textColorMessage, textShadow: `0px 0px 0.5vw ${color(backgroundColor).darken(0.25).hex()}` }}>{statusMessage}</div>);
 
                 // Environment
                 content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>

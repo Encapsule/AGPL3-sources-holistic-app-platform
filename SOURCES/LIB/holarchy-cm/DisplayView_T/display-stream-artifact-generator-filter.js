@@ -139,9 +139,10 @@
                                                                     notifyEvent: ((this.props.renderContext.d2r2BusState === "dv-root-active-vd-root-pending")?"vd-root-activated":"vd-child-activated"),
                                                                     reactElement: {
                                                                         displayName: this.displayName,
-                                                                        displayPath: ((this.props.renderContext.d2r2BusState === "dv-root-active-vd-root-pending")?this.displayPath:this.props.renderContext.displayPath),
-                                                                        displayInstance: this.props.renderContext.displayInstance,
+                                                                        displayPath: ((props_.renderContext.d2r2BusState === "dv-root-active-vd-root-pending")?this.displayPath:props_.renderContext.displayPath),
+                                                                        displayInstance: props_.renderContext.displayInstance,
                                                                         d2r2BusState: "ipc-link-pending",
+                                                                        displayViewAPMID: props_.renderContext.displayViewAPMID,
                                                                         thisRef: this
                                                                     }
                                                                 }
@@ -208,7 +209,8 @@
                                         ...this.props.renderContext,
                                         d2r2BusState: "vd-process-dynamic-mount",
                                         displayPath: `${this.displayPath}.${displayInstance}`, // this.props.renderContext.displayPath,
-                                        displayInstance: displayInstance
+                                        displayInstance: displayInstance,
+                                        displayViewAPMID: apmID_DisplayViewCell,
                                     }} renderData={renderData} />
                                    );
                         }

@@ -51,6 +51,8 @@
 
                                                 d2r2BusState: { ____accept: "jsString" },
 
+                                                displayViewAPMID: { ____accept: [ "jsUndefined", "jsString" ] }, // set if React.Element is mounted via ViewDisplayProcess::mountSubViewDisplay method
+
                                                 thisRef: { ____accept: "jsObject" }, // The React.Element sets thisRef to `this` inside its onComponentDidMount and componentWillUnmount methods so it's backing DisplayView_T cell can stream data to the component directly w/out re-render of the entire VDOM.
                                             }
                                         }
@@ -126,25 +128,48 @@
                     // And, if all checks out then we further know that the apmBindingPath of the DisplayView family cell that needs to be activated to back the dynamically
                     // mounted sub-ViewDisplay React.Element can be calculated. Possibly via a hack? But we can calculate it...
 
-                    cellMemory.core.dynamicViewDisplayQueue.push(messageBody);
+                    const thisDVPathTokens = cellMemory.core.viewDisplayProcess.displayPath.split(".");
+                    const thisVDPathTokens = messageBody.reactElement.displayPath.split(".");
 
-                    if (!cellMemory.inputs.displayViews[messageBody.reactElement.displayInstance]) {
+                    if (thisDVPathTokens.length === (thisVDPathTokens.length - 1)) {
 
-                        cellMemory.inputs.displayViews[messageBody.reactElement.displayInstance] = {}; // Queue default activation of a new ObservableValueHelper
+                        if (cellMemory.inputs.displayViews[messageBody.reactElement.displayInstance]) {
+                            errors.push(`Invalid duplicate displayInstance key string value "${messageBody.reactElement.displayInstance}" specified. Every call to ViewDisplayProcess::mountSubDisplayView base class must specifiy a unique displayInstance key string value.`);
+                            break;
+                        }
+
+                        cellMemory.inputs.displayViews[messageBody.reactElement.displayInstance] = {
+                            configuration: {
+                                observableValue: {
+                                    processCoordinates: {
+                                        apmID: messageBody.reactElement.displayViewAPMID,
+                                        instanceName: messageBody.reactElement.displayPath
+                                    },
+                                    path: "#.outputs.displayView"
+                                }
+                            }
+
+                        }; // Queue default activation of a new ObservableValueHelper
 
                         let ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.inputs.displayViews"}, cellMemory.inputs.displayViews);
                         if (ocdResponse.error) {
                             errors.push(ocdRepsonse.error);
                             break;
                         }
-                        console.log(`> Queued activation of new ObservableValueHelper to manage subcription for displayPath="${cellMemory.core.viewDisplayProcess}".`);
 
-                    }
+                        console.log(`> Queued deferred link resolution of dynamic ancestor subDisplayView`); // sub display view eHelper to manage subcription for displayPath="${cellMemory.core.viewDisplayProcess}".`);
 
-                    let ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.core.dynamicViewDisplayQueue"}, cellMemory.core.dynamicViewDisplayQueue);
-                    if (ocdResponse.error) {
-                        errors.push(ocdResponse.error);
-                        break;
+                    } else {
+
+                        // This is a new dynamic ancestor (i.e. a sub display view of a sub display view...)
+                        cellMemory.core.dynamicViewDisplayQueue.push(messageBody);
+
+                        let ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.core.dynamicViewDisplayQueue"}, cellMemory.core.dynamicViewDisplayQueue);
+                        if (ocdResponse.error) {
+                            errors.push(ocdResponse.error);
+                            break;
+                        }
+
                     }
 
                     break;
