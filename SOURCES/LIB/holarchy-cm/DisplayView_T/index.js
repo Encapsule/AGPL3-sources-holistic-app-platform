@@ -7,6 +7,7 @@
 
     const cmtObservableValue = require("../ObservableValue_T");
     const cmObservableValueHelper = require("../ObservableValueHelper");
+    const cmObservableValueHelperMap = require("../ObservableValueHelperMap");
 
     const cmtDisplayStreamMessage = require("./DisplayStreamMessage_T");
 
@@ -134,6 +135,12 @@
                                             ____types: "jsObject",
                                             ____appdsl: { apm: cmObservableValueHelper.getAPM().getID() }
                                         }
+                                    },
+
+                                    dynamicSubDisplayViews: {
+                                        ____types: "jsObject",
+                                        ____defaultValue: {},
+                                        ____appdsl: { apm: cmasHolarchyCMPackage.mapLabels({ APM: "ObservableValueHelperMap" }).result.APMID }
                                     }
 
                                 }
@@ -184,6 +191,8 @@
                         },
 
                         subcells: [
+                            cmObservableValueHelper,
+                            cmObservableValueHelperMap,
                             cmDisplayViewOutputObservableValue,
                             require("./DisplayViewBase")
                         ]

@@ -10,6 +10,8 @@
 
   var cmObservableValueHelper = require("../ObservableValueHelper");
 
+  var cmObservableValueHelperMap = require("../ObservableValueHelperMap");
+
   var cmtDisplayStreamMessage = require("./DisplayStreamMessage_T");
 
   var templateLabel = "DisplayView";
@@ -150,6 +152,15 @@
                         apm: cmObservableValueHelper.getAPM().getID()
                       }
                     }
+                  },
+                  dynamicSubDisplayViews: {
+                    ____types: "jsObject",
+                    ____defaultValue: {},
+                    ____appdsl: {
+                      apm: cmasHolarchyCMPackage.mapLabels({
+                        APM: "ObservableValueHelperMap"
+                      }).result.APMID
+                    }
                   }
                 }
               },
@@ -228,7 +239,7 @@
               } // ~.apm.steps
 
             },
-            subcells: [cmDisplayViewOutputObservableValue, require("./DisplayViewBase")]
+            subcells: [cmObservableValueHelper, cmObservableValueHelperMap, cmDisplayViewOutputObservableValue, require("./DisplayViewBase")]
           };
           break;
         }
