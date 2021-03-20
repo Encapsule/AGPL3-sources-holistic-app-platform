@@ -22,7 +22,6 @@
             */
         ],
         operators: [
-            /* gist TODO
             require("./TransitionOperator-ovh-map-has-link-error"), // Boolean true iff ANY signal OVH cell in error state
             require("./TransitionOperator-ovh-map-has-updated"), // Boolean true if ANY available signal OVH is in updated state
             require("./TransitionOperator-ovh-map-is-active"), // Boolean true if ALL signal OVH are in active state
@@ -30,7 +29,6 @@
             require("./TransitionOperator-ovh-map-is-empty"), // Boolean true if the ovhMap object has zero keys
             require("./TransitionOperator-ovh-map-is-linked"), // Boolean true iff ALL signal OVH cells are in link state
             require("./TransitionOperator-ovh-map-is-reset"), // Boolean true if ALL signal OVH cells are in reset state
-            */
         ],
         subcells: [
             ovhCellModel
