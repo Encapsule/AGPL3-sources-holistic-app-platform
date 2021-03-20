@@ -6,9 +6,9 @@
 
   var cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
 
-  var cmLabel = require("./cell-label");
-
-  var cmDescription = "Provides an extensible map (object used as a dictionary) of ObservableValueHelper cell activations, actions for adding/removing connections and reading value(s), and operations for monitoring the status of contained ObservableValueHelper cell activations.";
+  var _require = require("./cell-metadata"),
+      cmLabel = _require.cmLabel,
+      cmDescription = _require.cmDescription;
 
   var ovhCellModel = require("../ObservableValueHelper");
 
@@ -18,32 +18,7 @@
     }).result.CMID,
     name: "".concat(cmLabel, " Model"),
     description: cmDescription,
-    apm: {
-      id: cmasHolarchyCMPackage.mapLabels({
-        APM: cmLabel
-      }).result.APMID,
-      name: "".concat(cmLabel, " Process"),
-      description: cmDescription,
-      ocdDataSpec: {
-        ____label: "".concat(cmLabel, " Cell Memory"),
-        ____description: "Backing cell instance data for ".concat(cmLabel, " cell process."),
-        ____types: "jsObject",
-        ____defaultValue: {},
-        ovhMap: {
-          ____label: "ObservableValueHelper Map",
-          ____description: "An extensible map (object used as a dictionary) of ObservableValueHelper cell activations.",
-          ____types: "jsObject",
-          ____asMap: true,
-          ____defaultValue: {},
-          signalName: {
-            ____types: "jsObject",
-            ____appdsl: {
-              apm: ovhCellModel.getAPM().getID()
-            }
-          }
-        }
-      }
-    },
+    apm: require("./AbstractProcessModel-ovh-map"),
     actions: [
       /* gist TODO
       require("./ControllerAction-ovh-map-add-signals"), // Activate a single signal OVH cell within ovhMap and configure it to link. Or, add a collection of the same.
@@ -55,12 +30,13 @@
     ],
     operators: [
       /* gist TODO
-      require("./TransitionOperator-ovh-map-has-link-error"), // Boolean true iff any signal OVH cell in error state
-      require("./TransitionOperator-ovh-map-is-linked"), // Boolean true iff all signal OVH cells are in link state
-      require("./TransitionOperator-ovh-map-is-reset"), // Boolean true if all signal OVH cells are in reset state
-      require("./TransitionOperator-ovh-map-has-updated"), // Boolean true if any available signal OVH is in updated state
-      require("./TransitionOperator-ovh-map-is-active"), // Boolean true if all signal OVH are in active state
-      require("./TransitionOperator-ovh-map-is-available") // Boolean true if all signal OVH are in available state
+      require("./TransitionOperator-ovh-map-has-link-error"), // Boolean true iff ANY signal OVH cell in error state
+      require("./TransitionOperator-ovh-map-has-updated"), // Boolean true if ANY available signal OVH is in updated state
+      require("./TransitionOperator-ovh-map-is-active"), // Boolean true if ALL signal OVH are in active state
+      require("./TransitionOperator-ovh-map-is-available"), // Boolean true if ALL signal OVH are in available state
+      require("./TransitionOperator-ovh-map-is-empty"), // Boolean true if the ovhMap object has zero keys
+      require("./TransitionOperator-ovh-map-is-linked"), // Boolean true iff ALL signal OVH cells are in link state
+      require("./TransitionOperator-ovh-map-is-reset"), // Boolean true if ALL signal OVH cells are in reset state
       */
     ],
     subcells: [ovhCellModel]
