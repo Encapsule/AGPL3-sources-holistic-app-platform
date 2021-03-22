@@ -4,11 +4,11 @@
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
     const { cmLabel, cmDescription } = require("./cell-metadata");
-    const actionLabel = "mapIsEmpty";
-    const actionName = `${cmLabel}::${actionName}`;
+    const operatorLabel = "mapIsEmpty";
+    const operatorName = `${cmLabel}::${operatorLabel}`;
     const operator = new holarchy.TransitionOperator({
-        id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel, ACT: actionLabel }).result.ACTID,
-        name: actionName,
+        id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel, TOP: operatorLabel }).result.TOPID,
+        name: operatorName,
         description: "Returns Boolean true if the ObservableValueHelperMap cell contains zero ObservableValueHelper cell(s) (aka signals).",
         operatorRequestSpec: {
             ____types: "jsObject",

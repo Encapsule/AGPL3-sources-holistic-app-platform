@@ -4,11 +4,11 @@
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
     const { cmLabel, cmDescription } = require("./cell-metadata");
-    const actionLabel = "mapIsAvailable";
-    const actionName = `${cmLabel}::${actionName}`;
+    const operatorLabel = "mapIsAvailable";
+    const operatorName = `${cmLabel}::${operatorLabel}`;
     const operator = new holarchy.TransitionOperator({
-        id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel, ACT: actionLabel }).result.ACTID,
-        name: actionName,
+        id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel, TOP: operatorLabel }).result.TOPID,
+        name: operatorName,
         description: "Returns Boolean true if the ObservableValueHelperMap cell contains N > 0 ObservableValueHelper cell(s) (aka signals) AND ObservableValueHelper::valueIsAvailable === true for ALL N signals.",
         operatorRequestSpec: {
             ____types: "jsObject",
