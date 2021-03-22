@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 This package contains arccore.filter wrappers for XMLHttpRequest (browser) and the request module (Node.js server). Provides a mechanism to ensure the runtime fidelity of HTTP GET/POST communication between the client and server. And, between the server and other backend REST service integrations.
 
 ```
-Package: @encapsule/hrequest v0.0.63 "lemonquartz" build ID "l7OgoUO6TwqIlHEJgWM_pA"
-Sources: @encapsule/holodev#1153fe683d6ad8fd3462a291adca9f1476c094d3
-Created: 2021-03-20T14:19:01.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/hrequest v0.0.63 "lemonquartz" build ID "oFRNrCGSTMWXMcaWuJeaoQ"
+Sources: @encapsule/holodev#84d882a5f9eecb327ac4ca7c56743ae958dd2e91
+Created: 2021-03-22T14:26:15.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview
