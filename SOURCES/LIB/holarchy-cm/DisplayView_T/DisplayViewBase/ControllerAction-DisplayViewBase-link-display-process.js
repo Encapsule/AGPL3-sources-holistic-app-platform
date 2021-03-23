@@ -40,7 +40,7 @@
                                                     "vd-deactivating",
                                            ]
                                             },
-                                            reactElement: {
+                                            reactElement: { // TODO: BAD NAME HERE IS THE ROOT OF CONFUSION -- This is an object that describes a complex assortment of stuff
                                                 ____types: "jsObject",
                                                 // v--- THIS IS VERY CONFUSING --- IS THE RIGHT NAME OR SHOULD BE RELABLED FOR CLARITY?
                                                 displayName: { ____accept: "jsString" }, // This is the cellModelLabel for the desired specialized member of the DisplayView_T family of CellModel.
@@ -118,6 +118,22 @@
 
                 case "vd-child-activated":
 
+                    // This is a new dynamic ancestor (i.e. a sub display view of a sub display view...)
+                    cellMemory.core.dynamicViewDisplayQueue.push(messageBody);
+
+                    let ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.core.dynamicViewDisplayQueue"}, cellMemory.core.dynamicViewDisplayQueue);
+                    if (ocdResponse.error) {
+                        errors.push(ocdResponse.error);
+                        break;
+                    }
+
+                    break;
+
+                    // ================================================================
+                    // ================================================================
+                    // ================================================================
+                    // SAVE FOR REFERENCE UNTIL THE DETAILS ARE MIGRATED INTO THEIR BERTHS
+
                     // We receive vd-child-activate to indicate that a React.Element's render method has called ViewDisplayProcess::mountSubViewDisplay method
                     // and is attempting to dynamically activate its backing ViewDisplay family cell in order to establish IPC.
 
@@ -128,6 +144,8 @@
                     // And, if all checks out then we further know that the apmBindingPath of the DisplayView family cell that needs to be activated to back the dynamically
                     // mounted sub-ViewDisplay React.Element can be calculated. Possibly via a hack? But we can calculate it...
 
+                    /*
+
                     const thisDVPathTokens = cellMemory.core.viewDisplayProcess.displayPath.split(".");
                     const thisVDPathTokens = messageBody.reactElement.displayPath.split(".");
 
@@ -136,7 +154,6 @@
                         // Per our analysis of this DisplayView cell's displayPath vs the requesing ViewDisplay displayPath we conclude it's a direct child DisplayView that's being requested.
 
                         // LEGACY
-                        /*
                         if (cellMemory.inputs.displayViews[messageBody.reactElement.displayInstance]) {
                             errors.push(`Invalid duplicate displayInstance key string value "${messageBody.reactElement.displayInstance}" specified. Every call to ViewDisplayProcess::mountSubDisplayView base class must specifiy a unique displayInstance key string value.`);
                             break;
@@ -160,7 +177,7 @@
                             break;
                         }
                         console.log(`> Queued deferred link resolution of dynamic ancestor subDisplayView`); // sub display view eHelper to manage subcription for displayPath="${cellMemory.core.viewDisplayProcess}".`);
-                        */
+
 
                         // NEW ObservableValueHelperMap cell
 
@@ -179,22 +196,19 @@
                             break;
                         }
 
-                    } else {
+                        } else {
 
-                        // This is a new dynamic ancestor (i.e. a sub display view of a sub display view...)
-                        cellMemory.core.dynamicViewDisplayQueue.push(messageBody);
+                    */
 
-                        let ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.core.dynamicViewDisplayQueue"}, cellMemory.core.dynamicViewDisplayQueue);
-                        if (ocdResponse.error) {
-                            errors.push(ocdResponse.error);
-                            break;
-                        }
+                    // ================================================================
+                    // ================================================================
+                    // ================================================================
 
-                    }
-
-                    break;
 
                 case "vd-deactivating":
+
+                    // TODO: Haven't exercised this code path at all yet. It's not being hit yet. Shortly....
+
                     if (!cellMemory.core.viewDisplayProcess) {
                         errors.push(`DisplayView cell at apmBindingPath="${request_.context.apmBindingPath}" is not currently linked to a display process. We presume you did not intend to do this?`);
                         break;
