@@ -47,9 +47,9 @@
 
                                                 displayPath: { ____accept: "jsString" }, // 👁.displayInstanceX.displayInstanceY.displayInstanceZ...
 
-                                                displayInstance: { ____accept: "jsString" },
+                                                displayInstance: { ____accept: "jsString" }, // TODO: CLARIFY
 
-                                                d2r2BusState: { ____accept: "jsString" },
+                                                d2r2BusState: { ____accept: "jsString" }, // TODO: CLARIFY
 
                                                 displayViewAPMID: { ____accept: [ "jsUndefined", "jsString" ] }, // set if React.Element is mounted via ViewDisplayProcess::mountSubViewDisplay method
 
@@ -133,11 +133,14 @@
 
                     if (thisDVPathTokens.length === (thisVDPathTokens.length - 1)) {
 
+                        // Per our analysis of this DisplayView cell's displayPath vs the requesing ViewDisplay displayPath we conclude it's a direct child DisplayView that's being requested.
+
+                        // LEGACY
+                        /*
                         if (cellMemory.inputs.displayViews[messageBody.reactElement.displayInstance]) {
                             errors.push(`Invalid duplicate displayInstance key string value "${messageBody.reactElement.displayInstance}" specified. Every call to ViewDisplayProcess::mountSubDisplayView base class must specifiy a unique displayInstance key string value.`);
                             break;
                         }
-
                         cellMemory.inputs.displayViews[messageBody.reactElement.displayInstance] = {
                             configuration: {
                                 observableValue: {
@@ -156,8 +159,25 @@
                             errors.push(ocdRepsonse.error);
                             break;
                         }
-
                         console.log(`> Queued deferred link resolution of dynamic ancestor subDisplayView`); // sub display view eHelper to manage subcription for displayPath="${cellMemory.core.viewDisplayProcess}".`);
+                        */
+
+                        // NEW ObservableValueHelperMap cell
+
+                        let names = {};
+                        names[messageBody.reactElement.displayInstance] = { observableValue: { processCoordinates: { apmID: messageBody.reactElement.displayViewAPMID, instanceName: messageBody.reactElement.displayPath }, path: "#.outputs.displayView" } };
+
+                        let actResponse = request_.context.act({
+                            actorName: actionName,
+                            actorTaskDescription: "Attempting to add a new ObservableValueHelper entry to our ObservableValueHelperMap helper cell...",
+                            actionRequest: { holarchy: { common: { actions: { ObservableValueHelperMap: { addValues: { path: "#.inputs.subDisplayViews", names } } } } } },
+                            apmBindingPath: request_.context.apmBindingPath
+                        });
+
+                        if (actResponse.error) {
+                            errors.push(actResponse.error);
+                            break;
+                        }
 
                     } else {
 

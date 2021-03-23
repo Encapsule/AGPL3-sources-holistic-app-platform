@@ -103,9 +103,7 @@
                                     ____types: "jsObject",
                                     ____defaultValue: {},
                                     viewDisplayProcess: {
-                                        // TEMPORARY: At the moment we are not working very hard to ensure that we can serialize OCD and then later resume the user session in _exactly_ the state they left it.
-                                        // A simple serialization of OCD will not suffice --- there needs to be explicit rules in place for serializing the state of a cell if the intention is that it should
-                                        // later be resumable within a larger system. We'll talk more about this subject later; it's use case #1 for distributed cellplane applications.
+                                        // TODO: Revisit the serialization of non-serializable information from OCD memory when a CellProcessor instance is serialized.
                                         toJSON: { ____accept: "jsFunction", ____defaultValue: function() { return { displayName: this.displayName, displayPath: this.displayPath, thisRef: "****React.Element NOT SERIALIZABLE****" }; } },
                                         ____types: [ "jsUndefined", "jsObject" ],
                                         displayName: { ____accept: "jsString" },
@@ -126,6 +124,8 @@
                                     ____types: "jsObject",
                                     ____defaultValue: {},
 
+                                    //
+                                    /* NOTES TO SELF IN CODE
                                     displayViews: {
                                         ____label: `${generatorRequest_.cellModelLabel} Sub-Display View Inputs`,
                                         ____types: "jsObject",
@@ -136,8 +136,11 @@
                                             ____appdsl: { apm: cmObservableValueHelper.getAPM().getID() }
                                         }
                                     },
+                                    */
+                                    //
+                                    // v--- FOR REAL BASED ON ObservableValueHelperMap CellModel
 
-                                    dynamicSubDisplayViews: {
+                                    subDisplayViews: {
                                         ____types: "jsObject",
                                         ____defaultValue: {},
                                         ____appdsl: { apm: cmasHolarchyCMPackage.mapLabels({ APM: "ObservableValueHelperMap" }).result.APMID }

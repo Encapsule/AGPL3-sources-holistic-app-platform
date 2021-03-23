@@ -5,7 +5,6 @@
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
     const { cmLabel, cmDescription } = require("./cell-metadata");
-    const ovhCellModel = require("../ObservableValueHelper");
 
     const cellModel = new holarchy.CellModel({
         id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel }).result.CMID,
@@ -13,13 +12,10 @@
         description: cmDescription,
         apm: require("./AbstractProcessModel-ovh-map"),
         actions: [
-            /* gist TODO
-            require("./ControllerAction-ovh-map-add-signals"), // Activate a single signal OVH cell within ovhMap and configure it to link. Or, add a collection of the same.
-            require("./ControllerAction-ovh-map-query-updated-signals"), // Obtain information about which signal OVH in ovhMap have been added/removed or have changed their signal state since last query.
+            require("./ControllerAction-ovh-map-add-values"), // Activate a single signal OVH cell within ovhMap and configure it to link. Or, add a collection of the same.
+            require("./ControllerAction-ovh-map-query-updated-values"), // Obtain information about which signal OVH in ovhMap have been added/removed or have changed their signal state since last query.
             require("./ControllerAction-ovh-map-read-values"), // Read the the available values from all signal OVH in ovhMap. Return the result as an map of the values read from each signal OVH.
-            require("./ControllerAction-ovh-map-remove-signals"), // Remove a single signal OVH cell within ovhMap. Or, remove a collection of the same. Supports, predicate filtering based on signal OVH state.
-            require("./ControllerAction-ovh-map-reset"),
-            */
+            require("./ControllerAction-ovh-map-remove-values") // Remove a single signal OVH cell within ovhMap. Or, remove a collection of the same. Supports, predicate filtering based on signal OVH state.
         ],
         operators: [
             require("./TransitionOperator-ovh-map-has-link-error"), // Boolean true iff ANY signal OVH cell in error state
@@ -31,10 +27,9 @@
             require("./TransitionOperator-ovh-map-is-reset"), // Boolean true if ALL signal OVH cells are in reset state
         ],
         subcells: [
-            ovhCellModel
+            require("../ObservableValueHelper")
         ]
     });
-
 
     if (!cellModel.isValid()) {
         throw new Error(cellModel.toJSON());
