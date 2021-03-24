@@ -120,9 +120,9 @@
                 case "vd-child-activated":
 
                     // This is a new dynamic ancestor (i.e. a sub display view of a sub display view...)
-                    cellMemory.core.dynamicViewDisplayQueue.push(messageBody);
+                    cellMemory.core.pendingViewDisplayQueue.push(messageBody);
 
-                    let ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.core.dynamicViewDisplayQueue"}, cellMemory.core.dynamicViewDisplayQueue);
+                    let ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.core.pendingViewDisplayQueue"}, cellMemory.core.pendingViewDisplayQueue);
                     if (ocdResponse.error) {
                         errors.push(ocdResponse.error);
                         break;

@@ -40,7 +40,7 @@
             let inBreakScope = false;
             while (!inBreakScope) {
                 inBreakScope = true;
-                const messageBody = operatorRequest_.operatorRequest.holarchy.common.operators.ObservableValueHelper.isReset;
+                const messageBody = operatorRequest_.operatorRequest.holarchy.common.operators.ObservableValueHelper.hasLinkError;
                 // Query the cell process step of the indicated ObservableValueHelper cell.
                 let operatorRequest = {
                     ...operatorRequest_,

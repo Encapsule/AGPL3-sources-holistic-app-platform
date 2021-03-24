@@ -36,6 +36,7 @@
                                             "noop",
                                             "initialize",
                                             "link-unlinked-view-displays",
+                                            "resolve-pending-view-displays",
                                         ]
                                     }
                                 }
@@ -122,25 +123,17 @@
                     // the cells working in coordination w/their ViewDisplay processes and w/each other to re-stablilize the cell
                     // plane w/all DisplayView_T family members in their quiescent process step.
 
-                    cellMemory.core.dynamicViewDisplayQueue.sort(function(a_, b_) {
-                        return ((a_.reactElement.displayPath > b_.reactElement.displayPath)?1:-1);
-                    });
+                    for (let i = 0 ; i < cellMemory.core.pendingViewDisplayQueue.length ; i++) {
 
-                    let lastChildProcessed = null;
-
-                    while (cellMemory.core.dynamicViewDisplayQueue.length) {
-
-                        const deferredViewDisplayLinkRequest = cellMemory.core.dynamicViewDisplayQueue.shift();
-                        cellMemory.core.pendingViewDisplayQueue.push(deferredViewDisplayLinkRequest);
-
+                        const deferredViewDisplayLinkRequest = cellMemory.core.pendingViewDisplayQueue[i];
                         const ourDisplayPathTokens = cellMemory.core.viewDisplayProcess.displayPath.split(".");
                         const linkRequestDisplayPathTokens = deferredViewDisplayLinkRequest.reactElement.displayPath.split(".");
 
                         if (linkRequestDisplayPathTokens.length === (ourDisplayPathTokens.length + 1)) {
 
                             // The unlinked ViewDisplay process will be registered in this DisplayView cell's #.inputs.subDisplayViews ObservableValueHelperMap.
-                            lastChildProcessed = deferredViewDisplayLinkRequest;
 
+                            // Synthesize the action request names map.
                             let names = {};
                             names[deferredViewDisplayLinkRequest.reactElement.displayInstance] = {
                                 observableValue: {
@@ -167,31 +160,155 @@
                                 break;
                             }
 
-                            // Okay, we're done for now.
-
+                            // Okay, we're done. For now. Once the ObservableValueHelper cells added to ObservableValueHelperMap (if any)
+                            // have linked then we need to circle back, and finally resolve the pendingViewDisplayQueue to sub-display-view
+                            // cell(s) activated above.
 
                             console.log(actResponse.result);
 
 
                         } else {
 
-                            // We think this is a deferred ViewDisplay process link request that needs to be resolved by one of our subDisplayViews; not by this cell.
-                            // So we pass the deferred link request on to the appropriate child which because of our sort, is captured in lastChildProcessed currently.
-
+                            // Just an integrity check here. We deal w/all of these in a 2nd-pass through the queue after our immediate sub-DisplayView_T cell's have been activated.
                             if (!deferredViewDisplayLinkRequest.reactElement.displayPath.startsWith(cellMemory.core.viewDisplayProcess.displayPath)) {
                                 errors.push("INTERNAL ERROR: We expected the sub ViewDisplay link request to be a descendant of one of this DisplayView cell's direct sub DisplayView. This should not happen!");
                                 break;
                             }
 
-                            
-
                         }
+                    } // end for
 
-                    }
-
-                    ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.core" }, cellMemory.core);
+                    ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.core.pendingViewDisplayQueue" }, cellMemory.core.pendingViewDisplayQueue);
                     if (ocdResponse.error) {
                         errors.push(ocdResponse.result);
+                        break;
+                    }
+
+                    break;
+
+                case "resolve-pending-view-displays":
+
+                    cellMemory.core.pendingViewDisplayQueue.sort(function(a_, b_) {
+                        return ((a_.reactElement.displayPath > b_.reactElement.displayPath)?1:-1);
+                    });
+
+                    let lastChildProcessed = null;
+
+                    while (cellMemory.core.pendingViewDisplayQueue.length) {
+
+                        const deferredViewDisplayLinkRequest = cellMemory.core.pendingViewDisplayQueue.shift();
+                        const ourDisplayPathTokens = cellMemory.core.viewDisplayProcess.displayPath.split(".");
+                        const linkRequestDisplayPathTokens = deferredViewDisplayLinkRequest.reactElement.displayPath.split(".");
+
+                        if (linkRequestDisplayPathTokens.length === (ourDisplayPathTokens.length + 1)) {
+
+                            // The pending ViewDisplay_T React.Element wants to be registered to one of our direct sub-DisplayView_T cells
+                            // that we know is active because we have an ObservableValueHelper cell linked to it.
+
+                            actResponse = request_.context.act({
+                                actorName: actionName,
+                                actorTaskDescription: "Attempting to resolve unlinked ViewDisplay_T React.Element link request to its desired owner DisplayView_T family cell instance.",
+                                actionRequest: {
+                                    CellProcessor: {
+                                        cell: {
+                                            cellCoordinates: {
+                                                apmID: deferredViewDisplayLinkRequest.reactElement.displayViewAPMID,
+                                                instanceName: deferredViewDisplayLinkRequest.reactElement.displayPath
+                                            },
+                                            delegate: {
+                                                actionRequest: {
+                                                    holistic: {
+                                                        common: {
+                                                            actions: {
+                                                                service: { // ... wtf --- sorry, too many namespaces, it's not necessary and I got carried away ;-)
+                                                                    html5: {
+                                                                        display: {
+                                                                            view: {
+                                                                                linkDisplayProcess: {
+                                                                                    notifyEvent: "vd-root-activated",
+                                                                                    reactElement: deferredViewDisplayLinkRequest.reactElement
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+
+                            if (actResponse.error) {
+                                errors.push(actResponse.error);
+                                break;
+                            }
+
+                            lastChildProcessed =  deferredViewDisplayLinkRequest;
+
+                        } else {
+
+                            // The pending ViewDisplay_T React.Element wants to link to a DisplayView_T cell that's a descendant of
+                            // one of our direct sub-DisplayView_T cells. Because of the sorting order of the array, we know that if
+                            // we hit this code path, then the correct DisplayView_T cell instance to resolve (via delegation) the
+                            // link request to is identified by lastChildProcessed.
+
+                            actResponse = request_.context.act({
+                                actorName: actionName,
+                                actorTaskDescription: "Attempting to resolve unlinked ViewDisplay_T React.Element link request by passing it down to one of our sub-DisplayView_T family cells to take care of.",
+                                actionRequest: {
+                                    CellProcessor: {
+                                        cell: {
+                                            cellCoordinates: {
+                                                apmID: lastChildProcessed.reactElement.displayViewAPMID,
+                                                instanceName: lastChildProcessed.reactElement.displayPath
+                                            },
+                                            delegate: {
+                                                actionRequest: {
+                                                    holistic: {
+                                                        common: {
+                                                            actions: {
+                                                                service: {
+                                                                    html5: { // ... yea this has to go this deep namespace
+                                                                        display: {
+                                                                            view: {
+                                                                                linkDisplayProcess: {
+                                                                                    notifyEvent: "vd-child-activated",
+                                                                                    reactElement: deferredViewDisplayLinkRequest.reactElement
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+
+                            if (actResponse.error) {
+                                errors.push(actResponse.error);
+                                break;
+                            }
+
+                        } // end else
+
+                    } // end while
+
+                    if (errors.length) {
+                        break;
+                    }
+
+                    ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.core.pendingViewDisplayQueue" }, []);
+                    if (ocdResponse.error) {
+                        errors.push(ocdResponse.error);
                         break;
                     }
 

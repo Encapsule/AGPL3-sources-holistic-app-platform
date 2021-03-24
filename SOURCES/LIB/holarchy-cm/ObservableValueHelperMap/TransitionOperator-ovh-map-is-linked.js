@@ -52,6 +52,12 @@
                 let ovhOperatorTerms = [];
 
                 let signalNames = Object.keys(cellMemory.ovhMap);
+
+                if (signalNames.length === 0) {
+                    response.result = false;
+                    break;
+                }
+
                 while (signalNames.length) {
                     const signalName = signalNames.shift();
                     ovhOperatorTerms.push( { holarchy: { common: { operators:  { ObservableValueHelper: { isLinked: { path: `${messageBody.path}.ovhMap.${signalName}` } } } } } } );
