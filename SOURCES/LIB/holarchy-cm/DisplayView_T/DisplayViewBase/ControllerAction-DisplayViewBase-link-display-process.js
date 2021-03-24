@@ -42,8 +42,9 @@
                                             },
                                             reactElement: { // TODO: BAD NAME HERE IS THE ROOT OF CONFUSION -- This is an object that describes a complex assortment of stuff
                                                 ____types: "jsObject",
-                                                // v--- THIS IS VERY CONFUSING --- IS THE RIGHT NAME OR SHOULD BE RELABLED FOR CLARITY?
-                                                displayName: { ____accept: "jsString" }, // This is the cellModelLabel for the desired specialized member of the DisplayView_T family of CellModel.
+
+                                                // v--- TODO: Take a close look at the semantics of "displayName" data stored in DisplayView and ensure we haven't conflated/badly named this? The moniker itself derives from React display lib.
+                                                displayName: { ____accept: "jsString" }, // Clarify that the label gets used to in both the DisplayView and ViewDisplay
 
                                                 displayPath: { ____accept: "jsString" }, // 👁.displayInstanceX.displayInstanceY.displayInstanceZ...
 

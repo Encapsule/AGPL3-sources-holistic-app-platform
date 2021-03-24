@@ -1,0 +1,23 @@
+{
+    "name": "holistic",
+    "description": "A platform for building distributed software systems with reusable JavaScript CellModel plug-ins. And, System-in-Cloud (SiC) information circuit architecture.",
+    "version": "0.0.63",
+    "codename": "lemonquartz",
+    "author": "Encapsule",
+    "copyright": {
+        "holder": "Christopher D. Russell",
+        "year": 2021
+    },
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "https://github.com/ChrisRus"
+        }
+    ],
+    "license": "MIT",
+    "buildID": "_tYxGQojQ4-XjWv5fKzyGg",
+    "buildSource": "009a64330d26775f85887f1d397ab7ab70a87faf",
+    "buildTime": 1616537197,
+    "buildDateISO": "2021-03-23T22:06:37.000Z"
+}

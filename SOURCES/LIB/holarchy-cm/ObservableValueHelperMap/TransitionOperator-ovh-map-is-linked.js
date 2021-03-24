@@ -6,6 +6,7 @@
     const { cmLabel, cmDescription } = require("./cell-metadata");
     const operatorLabel = "mapIsLinked";
     const operatorName = `${cmLabel}::${operatorLabel}`;
+    const lib = require("./lib");
     const operator = new holarchy.TransitionOperator({
         id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel, TOP: operatorLabel }).result.TOPID,
         name: operatorName,
@@ -33,7 +34,55 @@
             }
         },
         bodyFunction: function(request_) {
-            return { error: null, result: false }; // TODO
+            let response = { error: null, result: false };
+            let errors = [];
+            let inBreakScope = false;
+            while (!inBreakScope) {
+                inBreakScope = true;
+
+                const messageBody = request_.operatorRequest.holarchy.common.operators.ObservableValueHelperMap.mapIsLinked;
+
+                let libResponse = lib.getStatus.request({ ...request_.context, path: messageBody.path });
+                if (libResponse.error) {
+                    errors.push(libResponse.error);
+                    break;
+                }
+                let { cellMemory, ovhmBindingPath } = libResponse.result;
+
+                let ovhOperatorTerms = [];
+
+                let signalNames = Object.keys(cellMemory.ovhMap);
+                while (signalNames.length) {
+                    const signalName = signalNames.shift();
+                    ovhOperatorTerms.push( { holarchy: { common: { operators:  { ObservableValueHelper: { isLinked: { path: `${messageBody.path}.ovhMap.${signalName}` } } } } } } );
+                }
+
+                const operatorRequestDescriptor = {
+                    operatorRequest: { and: ovhOperatorTerms },
+                    context: request_.context
+                };
+
+                let opResponse = request_.context.transitionDispatcher.request(operatorRequestDescriptor);
+                if (opResponse.error) {
+                    errors.push(opResponse.error);
+                    break;
+                }
+                const operatorFilter = opResponse.result;
+
+                opResponse = operatorFilter.request(operatorRequestDescriptor);
+                if (opResponse.error) {
+                    errors.push(opResponse.error);
+                    break;
+                }
+
+                response.result = opResponse.result;
+
+                break;
+            }
+            if (errors.length) {
+                response.error = errors.join(" ");
+            }
+            return response;
         }
     });
     if (!operator.isValid()) {

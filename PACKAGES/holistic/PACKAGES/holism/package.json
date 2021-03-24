@@ -1,0 +1,47 @@
+{
+    "author": "Encapsule",
+    "bugs": {
+        "url": "https://github.com/Encapsule/holistic/issues"
+    },
+    "buildID": "_tYxGQojQ4-XjWv5fKzyGg",
+    "buildSource": "009a64330d26775f85887f1d397ab7ab70a87faf",
+    "buildTime": 1616537197,
+    "codename": "lemonquartz",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "https://github.com/ChrisRus"
+        }
+    ],
+    "description": "This package contains an experimental HTTP 1.1 application server and REST framework derived from the Node.js HTTP API's and the @encapsule/arccore filter RTL. This provides developers with a simple mechanism to define and re-use backend operations as plug-in service filters hosted by the holism server RTL. The package is intended for use in derived applications and services.",
+    "engines": {
+        "node": "14.15.5",
+        "yarn": ">=1.22.0 <=1.22.5"
+    },
+    "homepage": "https://github.com/Encapsule",
+    "keywords": [
+        "Encapsule",
+        "holistic",
+        "holism",
+        "HTTP",
+        "REST",
+        "filter",
+        "server",
+        "framework",
+        "node.js",
+        "plug-in",
+        "declarative"
+    ],
+    "license": "MIT",
+    "main": "index.js",
+    "name": "@encapsule/holism",
+    "peerDependencies": {
+        "@encapsule/arccore": "0.1.10"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/holistic.git"
+    },
+    "version": "0.0.63"
+}
