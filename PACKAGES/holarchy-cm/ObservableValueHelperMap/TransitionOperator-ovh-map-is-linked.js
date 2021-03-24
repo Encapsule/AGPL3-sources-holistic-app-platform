@@ -73,6 +73,53 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var _libResponse$result = libResponse.result,
             cellMemory = _libResponse$result.cellMemory,
             ovhmBindingPath = _libResponse$result.ovhmBindingPath;
+        var ovhOperatorTerms = [];
+        var signalNames = Object.keys(cellMemory.ovhMap);
+
+        if (signalNames.length === 0) {
+          response.result = false;
+          break;
+        }
+
+        while (signalNames.length) {
+          var signalName = signalNames.shift();
+          ovhOperatorTerms.push({
+            holarchy: {
+              common: {
+                operators: {
+                  ObservableValueHelper: {
+                    isLinked: {
+                      path: "".concat(messageBody.path, ".ovhMap.").concat(signalName)
+                    }
+                  }
+                }
+              }
+            }
+          });
+        }
+
+        var operatorRequestDescriptor = {
+          operatorRequest: {
+            and: ovhOperatorTerms
+          },
+          context: request_.context
+        };
+        var opResponse = request_.context.transitionDispatcher.request(operatorRequestDescriptor);
+
+        if (opResponse.error) {
+          errors.push(opResponse.error);
+          break;
+        }
+
+        var operatorFilter = opResponse.result;
+        opResponse = operatorFilter.request(operatorRequestDescriptor);
+
+        if (opResponse.error) {
+          errors.push(opResponse.error);
+          break;
+        }
+
+        response.result = opResponse.result;
         break;
       }
 
