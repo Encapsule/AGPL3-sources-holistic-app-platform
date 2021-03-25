@@ -1,6 +1,6 @@
 {
     "name": "holistic",
-    "description": "A platform for defining problem-domain specific software models for anything and executing them in the cloud using dynamically assembled, strongly-typed distributed software information circuits.",
+    "description": "A system of conventions, semantics, and tools, for defining domain-specific plug-and-play software models and building distributed information circuits in the cloud, the browser tab, or anwhere you can interpret JavaScript.",
     "version": "0.0.64",
     "codename": "rosequartz",
     "author": "Encapsule",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "-2r33aQqTPiFFv_cM0GHAg",
-    "buildSource": "853a8830c2cac74cb8d7d16ed90576ca53add4e7",
-    "buildTime": 1616661368,
-    "buildDateISO": "2021-03-25T08:36:08.000Z"
+    "buildID": "ZN_U68w-Q6CogOsF4auEHQ",
+    "buildSource": "6ea465bfa5d9dbb16d73488a9d0e8b129ab05cfd",
+    "buildTime": 1616705482,
+    "buildDateISO": "2021-03-25T20:51:22.000Z"
 }
