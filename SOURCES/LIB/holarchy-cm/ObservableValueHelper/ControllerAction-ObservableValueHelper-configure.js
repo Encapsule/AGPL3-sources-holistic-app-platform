@@ -3,7 +3,7 @@
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
-    const cmasObservableValueHelper = require("./cmasObservableValueHelper");
+    const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
     const cmLabel = require("./cell-label");
     const lib = require("./lib");
     const apmObservableValueHelper = require("./AbstractProcessModel-ObservableValueHelper");
@@ -11,7 +11,7 @@
     const configurationSpec = { ...apmObservableValueHelper._private.declaration.ocdDataSpec.configuration, ____defaultValue: undefined, observableValue: { ...apmObservableValueHelper._private.declaration.ocdDataSpec.configuration.observableValue, ____defaultValue: undefined } };
 
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueHelper.mapLabels({ CM: cmLabel, ACT: "configure" }).result.ACTID,
+        id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel, ACT: "configure" }).result.ACTID,
         name: `${cmLabel} Configure`,
         description: `Allows an actor to configure a ${cmLabel} cell instance.`,
         actionRequestSpec: {

@@ -8,10 +8,14 @@
     const cmtObservableValue = require("../ObservableValue_T");
     const cmObservableValueHelper = require("../ObservableValueHelper");
     const cmObservableValueHelperMap = require("../ObservableValueHelperMap");
-
     const cmtDisplayStreamMessage = require("./DisplayStreamMessage_T");
-
     const templateLabel = "DisplayView";
+
+    const cmResponse = cmObservableValueHelper.getArtifact({ type: "ACT", id: cmasHolarchyCMPackage.mapLabels({ CM: "ObservableValueHelper", ACT: "configure" }).result.ACTID });
+    if (cmResponse.error) {
+        throw new Error(cmResponse.error);
+    }
+    const ovhConfigureAction = cmResponse.result;
 
     const cmtDisplayView = new holarchy.CellModelTemplate({
         cmasScope: cmasHolarchyCMPackage,
@@ -32,10 +36,31 @@
                     ____label: "Display Element Specializations",
                     ____types: "jsObject",
                     ____defaultValue: {},
+                    // THIS IS SIMILAR TO d2r2RenderData. But... it's not exactly the same.
+                    // 'renderData' is a reserved namespace allocated by d2r2 <ComponentRouter/> for the purposes of routing via @encapsule/arccore.discriminator
+                    // (d2r2 ignores all of this.props _except_ renderData when routing --- it does not care about anything else).
+                    // renderData MUST NOT BE DEFAULT constructable (per long-standing limitation of current @encapsule/arccore package that's on my backlog)
+                    // BUT, 'displayLayoutMust' MUST BE DEFAULT CONSTRUCTABLE so that we can feed React _something_ (even the default layout data for a React.Component)
+                    // when a DisplayView_T cell is activated.
                     displayLayoutSpec: {
                         ____accept: "jsObject",
                     }
+                },
+
+                staticInputs: {
+                    ____types: "jsObject",
+                    ____defaultValue: {},
+                    displayViews: {
+                        ____types: "jsObject",
+                        ____asMap: true,
+                        ____defaultValue: {},
+                        signalName: {
+                            ____types: "jsObject",
+                            
+                        }
+                    }
                 }
+
             },
 
             /*

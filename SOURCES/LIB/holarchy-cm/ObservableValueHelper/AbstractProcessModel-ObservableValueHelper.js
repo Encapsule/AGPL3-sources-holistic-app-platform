@@ -1,6 +1,5 @@
 // AbstractProcessModel-value-observer.js
 
-
 (function() {
 
     const holarchy = require("@encapsule/holarchy");

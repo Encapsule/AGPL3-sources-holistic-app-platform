@@ -3,13 +3,13 @@
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
-    const cmasObservableValueHelper = require("./cmasObservableValueHelper");
+    const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
     const cmLabel = require("./cell-label");
     const operatorName = `${cmLabel} Has Link Error`;
     const lib = require("./lib");
 
     const operator = new holarchy.TransitionOperator({
-        id: cmasObservableValueHelper.mapLabels({ CM: cmLabel, TOP: "hasLinkError" }).result.TOPID,
+        id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel, TOP: "hasLinkError" }).result.TOPID,
         name: operatorName,
         description: "Returns Boolean true if the specified ObservableValueHelper cell is not reset and not linked to the target ObservableValue cell's provider cell process.",
         operatorRequestSpec: {

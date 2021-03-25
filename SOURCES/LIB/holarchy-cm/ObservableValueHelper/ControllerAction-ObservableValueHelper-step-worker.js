@@ -5,13 +5,12 @@
 
     const holarchy = require("@encapsule/holarchy");
     const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
-    const cmasObservableValueHelper = require("./cmasObservableValueHelper");
     const cmLabel = require("./cell-label");
     const actionName = `${cmLabel} Private Step Worker`;
     const lib = require("./lib");
 
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueHelper.mapLabels({ CM: cmLabel, ACT: "stepWorker" }).result.ACTID,
+        id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel, ACT: "stepWorker" }).result.ACTID,
         name: actionName,
         description: `Private evaluation implementation action of ${cmLabel}.`,
         actionRequestSpec: {

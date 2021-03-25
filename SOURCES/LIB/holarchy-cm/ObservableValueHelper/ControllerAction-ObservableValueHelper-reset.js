@@ -6,12 +6,12 @@
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
-    const cmasObservableValueHelper = require("./cmasObservableValueHelper");
+    const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
     const cmLabel = require("./cell-label");
     const actionName = `${cmLabel} Reset Helper`;
     const lib = require("./lib");
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueHelper.mapLabels({ CM: cmLabel, ACT: "reset" }).result.ACTID,
+        id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel, ACT: "reset" }).result.ACTID,
         name: actionName,
         description: "Resets the specified ObservableValueHelper cell back to its reset process step.",
         actionRequestSpec: {

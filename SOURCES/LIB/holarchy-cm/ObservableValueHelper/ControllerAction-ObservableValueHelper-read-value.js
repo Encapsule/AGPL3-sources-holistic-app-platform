@@ -10,13 +10,13 @@
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
-    const cmasObservableValueHelper = require("./cmasObservableValueHelper");
+    const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
     const cmLabel = require("./cell-label");
     const actionName = `${cmLabel} Read Value`;
     const lib = require("./lib");
 
     const action = new holarchy.ControllerAction({
-        id: cmasObservableValueHelper.mapLabels({ CM: cmLabel, ACT: "readValue" }).result.ACTID,
+        id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel, ACT: "readValue" }).result.ACTID,
         name: actionName,
         description: "Reads the type-specialized ObservableValue cell's value and version mailbox descriptor value.",
         actionRequestSpec: {

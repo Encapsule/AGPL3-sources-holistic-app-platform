@@ -3,13 +3,13 @@
 (function() {
 
     const holarchy = require("@encapsule/holarchy");
-    const cmasObservableValueHelper = require("./cmasObservableValueHelper");
+    const cmasHolarchyCMPackage = require("../cmasHolarchyCMPackage");
     const cmLabel = require("./cell-label");
     const operatorName = `${cmLabel} Value Has Updated`;
     const lib = require("./lib");
 
     const operator = new holarchy.TransitionOperator({
-        id: cmasObservableValueHelper.mapLabels({ CM: cmLabel, TOP: "valueHasUpdated" }).result.TOPID,
+        id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel, TOP: "valueHasUpdated" }).result.TOPID,
         name: operatorName,
         description: "Returns Boolean true if the target ObservableValue cell's value has been written since we last read the value.",
         operatorRequestSpec: {
