@@ -13,7 +13,8 @@
 
         actions: [
             require("./ControllerAction-DisplayViewBase-step-worker"),
-            require("./ControllerAction-DisplayViewBase-link-display-process")
+            require("./ControllerAction-DisplayViewBase-link-display-process"),
+            require("./ControllerAction-DisplayViewBase-set-as-root")
         ]
 
     });

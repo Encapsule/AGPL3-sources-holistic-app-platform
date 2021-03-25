@@ -10,11 +10,10 @@
     const hacdLib = require("./lib");
     const d2r2 = require("@encapsule/d2r2");
 
-
     const factoryResponse = arccore.filter.create({
         operationID: "IN0xuhS8RQ6F3_M5uXiadg",
         operationName: `${cmLabel} CellModel Factory`,
-        operationDescription: "Used to synthesize a specialized HolisticTabService display adapter CellModel for use by HolisticHTML5Service_Kernel cell process.",
+        operationDescription: "Used to synthesize a specialized HolisticHTML5Service_DisplayAdapater CellModel for use by HolisticHTML5Service_Kernel cell process.",
         inputFilterSpec: {
             ____types: "jsObject",
             appBuild: {
