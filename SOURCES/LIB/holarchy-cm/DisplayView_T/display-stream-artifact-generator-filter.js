@@ -115,71 +115,19 @@
                                 throw new Error(`Please set 'this.displayName' to a non-zero-length string value in your "${friendlyClassMoniker}::constructor" function.`); // Because the base class constructs and starts its lifecycle before we gain control back from super(props_).
                             }
 
-                            this.displayPath = this.props.renderContext.displayPath; // ? `${this.props.renderContext.displayPath}.${this.props.renderContext.displayInstance}`;
+                            this.displayPath = this.props.renderContext.displayPath;
+                            this.linkedDisplayViewCell = null;
 
-                            this.xyzzy = "this is a test property"; // TODO: GET RID OF THIS!
-
-                            /*
-                            // TRY - THE IMPLICATION OF THIS IS THAT WE CANNOT CONSTRUCT THIS D2R2 COMPONENT ON THE SERVER UNLESS/UNTIL WE ALSO SUPPORT SYMETRIC CELLPLANE CONFIG INSIDE NODEJS SERVICES.
-                            // For now this is not a large problem; what needs to be demonstrated and what needs to work 100% is HTML5 service support for advanced layout and display update. The whole
-                            // story will have to wait until there's time & resources to build a NodeJS service kernel that supports these + many other needed subservices for backend.
-                            console.log(`ViewDisplayProcess::constructor attempting to register ViewDisplay instance w/backing DisplayView cell on behalf of ${viewDisplayClassName}`);
-                            let actResponse = this.props.renderContext.act({
-                                actorName: this.displayName,
-                                actorTaskDescription: `This is new a new instance of React.Element ${this.displayName} process notifying its backing DisplayView cell that it has been mounted and is now activated.`,
-                                actionRequest: {
-                                    holistic: {
-                                        common: {
-                                            actions: {
-                                                service: {
-                                                    html5: {
-                                                        display: {
-                                                            view: {
-                                                                linkDisplayProcess: {
-                                                                    notifyEvent: ((this.props.renderContext.d2r2BusState === "dv-root-active-vd-root-pending")?"vd-root-activated":"vd-child-activated"),
-                                                                    reactElement: {
-                                                                        displayName: this.displayName,
-                                                                        displayPath: ((props_.renderContext.d2r2BusState === "dv-root-active-vd-root-pending")?this.displayPath:props_.renderContext.displayPath),
-                                                                        displayInstance: props_.renderContext.displayInstance,
-                                                                        d2r2BusState: "ipc-link-pending",
-                                                                        displayViewAPMID: props_.renderContext.displayViewAPMID,
-                                                                        thisRef: this
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                },
-                                apmBindingPath: this.props.renderContext.apmBindingPath
-                            });
-                            try {
-                                if (super.componentDidMount) {
-                                    super.componentDidMount();
-                                }
-                            } catch (wtaf_) {
-                                console.warn(wtaf_.message);
-                                console.error(wtaf_.stack);
-                            }
-                            */
-
-                            // ? Expect it to be fine for now as it's not being called yet.
                             this.componentDidMount = this.componentDidMount.bind(this);
                             this.componentWillUnmount = this.componentWillUnmount.bind(this);
                             this.mountSubViewDisplay = this.mountSubViewDisplay.bind(this);
-                            this.foo = this.foo.bind(this);
-
+                            this.finalizeDisplayViewLink = this.finalizeDisplayViewLink.bind(this);
 
                         }
 
                         componentDidMount() {
                             // We are interested in if a newly constructed React.Element is _actually_ mounted in the VDOM.
-
                             console.log(`ViewDisplayProcess::constructor attempting to register ViewDisplay instance w/backing DisplayView cell on behalf of ${viewDisplayClassName}`);
-
                             let actResponse = this.props.renderContext.act({
                                 actorName: this.displayName,
                                 actorTaskDescription: `This is new a new instance of React.Element ${this.displayName} process notifying its backing DisplayView cell that it has been mounted and is now activated.`,
@@ -212,7 +160,6 @@
                                 },
                                 apmBindingPath: this.props.renderContext.apmBindingPath
                             });
-
                             if (actResponse.error) {
                                 console.error("DisplayViewBase::linkDisplayProcess action request failed with error:");
                                 console.error(actResponse.error);
@@ -223,7 +170,6 @@
                                 // console.error for now. Keep an eye on this please; if you end up here often please let me know.
                                 return; //
                             }
-
                             // The developer-provided class we presume extends React.Component may or may not implement the onComponentDidMount React Component lifecycle method.
                             // If it does, then we delegate the call to our superclass and let it do whatever it needs to. Note, that I think in most cases React.Components
                             // written to leverage this mechanism will typically not implement componentDidMount as the primary motivation for doing this is to queue requests
@@ -232,7 +178,6 @@
                             // then extend at scale). In most cases, using holistic platform "display stream" protocol is mutually exclusive to overlapping React functionality.
                             // But, it's fine to use both techniques in the same app and at the same time in whatever combination befits needs I think so long as they're applied
                             // to different branches of the VDOM tree ;-)
-
                             try {
                                 if (super.componentDidMount) {
                                     super.componentDidMount();
@@ -241,8 +186,6 @@
                                 console.error(exception_.message);
                                 console.error(exception_.stack);
                             }
-
-
                         }
 
                         componentWillUnmount() {
@@ -257,15 +200,10 @@
                                 if (super.componentWillUnmount) {
                                     super.componentWillUnmount();
                                 }
-                            } catch (wtaf_) {
-                                console.warn(wtaf_.message);
-                                console.error(wtaf_.stack);
+                            } catch (exception_) {
+                                console.warn(exception_.message);
+                                console.error(exception_.stack);
                             }
-                        }
-
-                        foo() {
-                            // This is an experiment to see if the class we extend w/the fascade can successfully resolve our methods in their render() implementation etc.
-                            return (<div>{this.xyzzy}</div>);
                         }
 
                         mountSubViewDisplay({ cmasScope, displayViewCellModelLabel, displayInstance, displayLayout }) {
@@ -285,6 +223,11 @@
                                         displayViewAPMID: apmID_DisplayViewCell,
                                     }} renderData={renderData} />
                                    );
+                        }
+
+                        finalizeDisplayViewLink({ apmBindingPath }) {
+                            this.linkedDisplayViewCell = apmBindingPath;
+                            this.forceUpdate();
                         }
 
                     } // class DisplayProcess extends request_.reactComponentClass extends React.Component (presumably)

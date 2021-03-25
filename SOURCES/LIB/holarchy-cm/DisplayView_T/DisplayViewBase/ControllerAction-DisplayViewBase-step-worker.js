@@ -35,6 +35,7 @@
                                         ____inValueSet: [
                                             "noop",
                                             "initialize",
+                                            "update-view-display-context",
                                             "link-unlinked-view-displays",
                                             "resolve-pending-view-displays",
                                         ]
@@ -77,7 +78,6 @@
                     break;
 
                 case "initialize":
-
                     actResponse = request_.context.act({
                         actorName: actionName,
                         actorTaskDescription: "Registering a DACT on this DisplayView_T cell's d2r2 ObservableValue_T cell so if we're mounted as the root component, the HolisticHTML5Service_DisplayAdapter can read the DisplayView_T cell's default d2r2 message in order to start the linking and embedding process.",
@@ -97,39 +97,14 @@
                         },
                         apmBindingPath: request_.context.apmBindingPath
                     });
-
-                    /*
-                    actResponse = request_.context.act({
-                        actorName: actionName,
-                        actorTaskDescription: "Attempting to write the initial output of this display view cell to our specialized ObservableValue cell...",
-                        actionRequest: {
-                            holarchy: {
-                                common: {
-                                    actions: {
-                                        ObservableValue: {
-                                            writeValue: {
-                                                value: {
-                                                    renderContext: {
-                                                        apmBindingPath: request_.context.apmBindingPath,
-                                                        displayPath: "👁"
-                                                    }, // set
-                                                    renderData: {} // reset to default values
-                                                },
-                                                path: "#.outputs.displayView"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        apmBindingPath: request_.context.apmBindingPath
-                    });
                     if (actResponse.error) {
                         errors.push(actResponse.error);
                         break;
                     }
-                    */
+                    break;
 
+                case "update-view-display-context":
+                    cellMemory.core.viewDisplayProcess.thisRef.finalizeDisplayViewLink({ apmBindingPath: request_.context.apmBindingPath });
                     break;
 
                 case "link-unlinked-view-displays":

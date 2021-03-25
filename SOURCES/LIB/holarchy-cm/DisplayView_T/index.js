@@ -150,11 +150,13 @@
                                             transitionIf: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.core.viewDisplayProcess" } } } } } },
                                             nextStep: "display-view-view-display-ipc-negotiate"
                                         }
-                                    ]
+                                    ],
+                                    actions: { exit: [ { holarchy: { common: { actions: { DisplayViewBase: { _private: { stepWorker: { action: "update-view-display-context" } } } } } } } ] }
                                 },
 
                                 "display-view-view-display-ipc-negotiate": {
                                     description: "The DisplayView family cell has received a link request from its ViewDisplay_T React.Element.",
+                                    actions: { enter: [ { holarchy: { common: { actions: { ObservableValue: { setDeferredAction: { path: "#.outputs.displayView" } } } } } } ] }, // Clear output DACT
                                     transitions: [
 
                                         // If this DisplayView cell's corresponding ViewDisplay process performed injected unlinked sub-DisplayView into the VDOM,
