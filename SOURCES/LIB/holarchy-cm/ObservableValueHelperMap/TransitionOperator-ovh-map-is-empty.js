@@ -6,6 +6,7 @@
     const { cmLabel, cmDescription } = require("./cell-metadata");
     const operatorLabel = "mapIsEmpty";
     const operatorName = `${cmLabel}::${operatorLabel}`;
+    const lib = require("./lib");
     const operator = new holarchy.TransitionOperator({
         id: cmasHolarchyCMPackage.mapLabels({ CM: cmLabel, TOP: operatorLabel }).result.TOPID,
         name: operatorName,
@@ -33,7 +34,25 @@
             }
         },
         bodyFunction: function(request_) {
-            return { error: null, result: false }; // TODO
+            let response = { error: null, result: true };
+            let errors = [];
+            let inBreakScope = false;
+            while (!inBreakScope) {
+                inBreakScope = true;
+                const messageBody = request_.operatorRequest.holarchy.common.operators.ObservableValueHelperMap.mapIsEmpty;
+                let libResponse = lib.getStatus.request({ ...request_.context, path: messageBody.path });
+                if (libResponse.error) {
+                    errors.push(libResponse.error);
+                    break;
+                }
+                let { cellMemory, ovhmBindingPath } = libResponse.result;
+                response.result = (Object.keys(cellMemory.ovhMap).length === 0)?true:false;
+                break;
+            }
+            if (errors.length) {
+                response.error = errors.join(" ");
+            }
+            return response;
         }
     });
     if (!operator.isValid()) {

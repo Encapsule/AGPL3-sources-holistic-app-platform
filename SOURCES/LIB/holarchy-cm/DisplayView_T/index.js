@@ -135,13 +135,8 @@
 
                                 uninitialized: {
                                     description: "Default starting step of activated cell.",
-                                    transitions: [ { transitionIf: { always: true }, nextStep: "display-view-initialize" } ]
-                                },
-
-                                "display-view-initialize": {
-                                    description: "Cell will perform its process initialization epilogue action(s) on exit from this step...",
-                                    transitions: [ { transitionIf: { always: true }, nextStep: "display-view-wait-view-display-process-mounted" } ],
-                                    actions: { exit: [ { holarchy: { common: { actions: { DisplayViewBase: { _private: { stepWorker: { action: "initialize" } } } } } } } ] }
+                                    actions: { exit: [ { holarchy: { common: { actions: { DisplayViewBase: { _private: { stepWorker: { action: "initialize" } } } } } } } ] },
+                                    transitions: [ { transitionIf: { always: true }, nextStep: "display-view-wait-view-display-process-mounted" } ]
                                 },
 
                                 "display-view-wait-view-display-process-mounted": {
@@ -153,93 +148,50 @@
                                         // DisplayView_T cell and the mounted ViewDisplay_T React.Element.
                                         {
                                             transitionIf: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.core.viewDisplayProcess" } } } } } },
-                                            nextStep: "display-view-view-display-process-registered"
-                                        }
-                                    ]
-                                },
-
-                                "display-view-view-display-process-registered": {
-                                    description: "The ViewDisplay_T React.Element that was rendered from data obtained from this DisplayView_T cell has received onComponentDidMount and registered itself w/this DisplayView_T cell for IPC negotiation.",
-                                    transitions: [
-                                        {
-                                            transitionIf: { always: true },
                                             nextStep: "display-view-view-display-ipc-negotiate"
                                         }
                                     ]
                                 },
 
-
                                 "display-view-view-display-ipc-negotiate": {
-                                    description: "The DisplayView family cell has established a bidirectional IPC link its matching ViewDisplay family React.Element (a process that follows it's own rules and evaluates inside React virtual DOM (VDOM).",
+                                    description: "The DisplayView family cell has received a link request from its ViewDisplay_T React.Element.",
                                     transitions: [
+
                                         // If this DisplayView cell's corresponding ViewDisplay process performed injected unlinked sub-DisplayView into the VDOM,
                                         // then those DisplayView process(es) will have received ViewDisplayProcess.onComponentDidMount and responded by queueing
                                         // their desired link coordinates for us to broker/resolve on their behalf.
                                         {
-                                            transitionIf: { holarchy: { cm: { operators: { ocd: { arrayIsEmpty: { path: "#.core.pendingViewDisplayQueue" } } } } } },
-                                            nextStep: "display-view-wait-sub-display-views-linked"
+                                            transitionIf: { not: { holarchy: { cm: { operators: { ocd: { arrayIsEmpty: { path: "#.core.pendingViewDisplayQueue" } } } } } } },
+                                            nextStep: "display-view-view-display-ipc-negotiate-link-unlinked-view-displays"
+                                        },
+                                        {
+                                            transitionIf: { holarchy: { common: { operators: { ObservableValueHelperMap: { mapIsEmpty: { path: "#.inputs.subDisplayViews" } } } } } },
+                                            nextStep: "display-view-quiescent"
                                         },
                                         {
                                             transitionIf: { always: true },
                                             nextStep: "display-view-view-display-ipc-negotiate-link-unlinked-view-displays"
-                                        }
+                                        },
                                     ]
                                 },
 
                                 "display-view-view-display-ipc-negotiate-link-unlinked-view-displays": {
                                     description: "The DisplayView family cell is resolving IPC link requests from unlinked ViewDisplay processes that were mounted in the last display process update.",
-                                    transitions: [
-                                        {
-                                            transitionIf: { always: true },
-                                            nextStep: "display-view-wait-sub-display-views-linked"
-                                        }
-                                    ],
                                     actions: {
-                                        exit: [
-                                            { holarchy: { common: { actions: { DisplayViewBase: { _private: { stepWorker: { action: "link-unlinked-view-displays" } } } } } } }
-                                        ]
-                                    }
-                                },
-
-                                "display-view-wait-sub-display-views-linked": {
-                                    description: "Wait for all ObservableValueHelper entries in our ObservableValueHelperMap to reach their linked process step.",
+                                        enter: [ { holarchy: { common: { actions: { DisplayViewBase: { _private: { stepWorker: { action: "link-unlinked-view-displays" } } } } } } } ],
+                                        exit: [ { holarchy: { common: { actions: { DisplayViewBase: { _private: { stepWorker: { action: "resolve-pending-view-displays" } } } } } } } ]
+                                    },
                                     transitions: [
                                         {
                                             transitionIf: { holarchy: { common: { operators: { ObservableValueHelperMap: { mapIsLinked: { path: "#.inputs.subDisplayViews" } } } } } },
-                                            nextStep: "display-view-sub-display-views-linked"
-                                        }
-                                    ]
-                                },
-
-                                "display-view-sub-display-views-linked": {
-                                    description: "The DisplayView_T family cell's inputs sub-DisplayView_T cell instance(s) have linked.",
-                                    transitions: [
-                                        {
-                                            transitionIf: { holarchy: { cm: { operators: { ocd: { arrayIsEmpty: { path: "#.core.pendingViewDisplayQueue" } } } } } },
                                             nextStep: "display-view-quiescent"
-                                        },
-                                        {
-                                            transitionIf: { always: true },
-                                            nextStep: "display-view-view-display-ipc-negotiate-resolve-view-displays"
                                         }
                                     ]
-                                },
-
-                                "display-view-view-display-ipc-negotiate-resolve-view-displays": {
-                                    description: "The DisplayView_T family cell is resolving pending ViewDisplay_T link requests by delegating them to their appropriate sub-DisplayView_T family cell(s).",
-                                    transitions: [
-                                        { transitionIf: { always: true }, nextStep: "display-view-quiescent" }
-                                    ],
-                                    actions: {
-                                        exit: [
-                                            { holarchy: { common: { actions: { DisplayViewBase: { _private: { stepWorker: { action: "resolve-pending-view-displays" } } } } } } }
-                                        ]
-                                    }
                                 },
 
                                 "display-view-quiescent": {
                                     description: "The display view process is linked to its matching view display process and is in its quiescient process step waiting for something to change."
-                                },
+                                }
 
                             } // ~.apm.steps
                         },
