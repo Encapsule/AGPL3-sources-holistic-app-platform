@@ -1,7 +1,7 @@
 {
     "name": "holistic-dev",
-    "version": "0.0.65",
-    "codename": "goshenite",
+    "version": "0.0.66",
+    "codename": "moonstone",
     "description": "A system of conventions, semantics, and tools, for defining domain-specific plug-and-play software models and building distributed information circuits in the cloud, the browser tab, or anwhere you can interpret JavaScript.",
     "author": "Encapsule",
     "contributors": [
