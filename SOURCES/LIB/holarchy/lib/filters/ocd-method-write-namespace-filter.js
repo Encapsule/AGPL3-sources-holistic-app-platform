@@ -96,8 +96,20 @@ const factoryResponse = arccore.filter.create({
                                 break;
                             }
                             let parentNamespace = innerResponse.result;
-                            // the actual write & return the validated/normalized data written to the OCD store.
-                            parentNamespace[targetNamespace] = response.result = data_;
+                            // You are only allowed to write into a collection (i.e. an Object or an Array). You cannot write into a POD or function.
+                            const parentNamespaceTypeString = Object.prototype.toString.call(parentNamespace);
+                            switch (parentNamespaceTypeString) {
+                            case "[object Array]":
+                            case "[object Object]":
+                                break;
+                            default:
+                                errors.push(`Unable to write to OCD namespace '${fqPath}' because the value currently stored in the parent namespace, '${parentPath}' is of type "${parentNamespaceTypeString}" instead of "[object Object]" or "[object Array]" as is required to complete this writeNamespace request.`);
+                                break;
+                            }
+                            if (!errors.length) {
+                                // the actual write & return the validated/normalized data written to the OCD store.
+                                parentNamespace[targetNamespace] = response.result = data_;
+                            }
                             break;
                         }
                         if (errors.length) {
