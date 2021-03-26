@@ -127,7 +127,7 @@
 
                         if (linkRequestDisplayPathTokens.length === (ourDisplayPathTokens.length + 1)) {
 
-                            // The unlinked ViewDisplay process will be registered in this DisplayView cell's #.inputs.subDisplayViews ObservableValueHelperMap.
+                            // The unlinked ViewDisplay process will be registered in this DisplayView cell's #.inputs.dynamic.displayViews ObservableValueHelperMap.
 
                             // Synthesize the action request names map.
                             let names = {};
@@ -147,7 +147,7 @@
                             actResponse = request_.context.act({
                                 actorName: actionName,
                                 actorTaskDescription: "Attempting to add a new ObservableValueHelper entry to our ObservableValueHelperMap helper cell...",
-                                actionRequest: { holarchy: { common: { actions: { ObservableValueHelperMap: { addValues: { path: "#.inputs.subDisplayViews", names /*synthesized above*/ } } } } } },
+                                actionRequest: { holarchy: { common: { actions: { ObservableValueHelperMap: { addValues: { path: "#.inputs.dynamic.displayViews", names /*synthesized above*/ } } } } } },
                                 apmBindingPath: request_.context.apmBindingPath
                             });
 

@@ -11,6 +11,9 @@
     const cmtDisplayStreamMessage = require("./DisplayStreamMessage_T");
     const templateLabel = "DisplayView";
 
+    const ovhMemorySpec = cmObservableValueHelper.getAPM().getDataSpec();
+    const ovhConfigurationSpec = { ...ovhMemorySpec.configuration, ____defaultValue: undefined, observableValue: { ...ovhMemorySpec.configuration.observableValue, ____defaultValue: undefined } };
+
     const cmResponse = cmObservableValueHelper.getArtifact({ type: "ACT", id: cmasHolarchyCMPackage.mapLabels({ CM: "ObservableValueHelper", ACT: "configure" }).result.ACTID });
     if (cmResponse.error) {
         throw new Error(cmResponse.error);
@@ -21,46 +24,53 @@
         cmasScope: cmasHolarchyCMPackage,
         templateLabel,
         cellModelGenerator: {
-
             specializationDataSpec: {
-                 ____label: `${templateLabel}<X> Specialization Data`,
+                ____label: `${templateLabel}<X> Specialization Data`,
                 ____types: "jsObject",
-
                 description: {
                     ____label: `${templateLabel}<X> Description`,
                     ____description: `Developer-provided description of the function/purpose of the X member of ${templateLabel} CellModel family.`,
                     ____accept: "jsString"
                 },
-
                 displayElement: {
                     ____label: "Display Element Specializations",
                     ____types: "jsObject",
                     ____defaultValue: {},
                     // THIS IS SIMILAR TO d2r2RenderData. But... it's not exactly the same.
-                    // 'renderData' is a reserved namespace allocated by d2r2 <ComponentRouter/> for the purposes of routing via @encapsule/arccore.discriminator
-                    // (d2r2 ignores all of this.props _except_ renderData when routing --- it does not care about anything else).
-                    // renderData MUST NOT BE DEFAULT constructable (per long-standing limitation of current @encapsule/arccore package that's on my backlog)
-                    // BUT, 'displayLayoutMust' MUST BE DEFAULT CONSTRUCTABLE so that we can feed React _something_ (even the default layout data for a React.Component)
-                    // when a DisplayView_T cell is activated.
+                    /*
+                      'renderData' is a reserved namespace allocated by d2r2 <ComponentRouter/>
+                      for the purposes of routing via @encapsule/arccore.discriminator
+                      (d2r2 ignores all of this.props _except_ renderData when routing ---
+                      it does not care about anything else).
+
+                      renderData must NOT be default constructable.
+
+                      BUT, 'displayLayoutMust' MUST BE DEFAULT CONSTRUCTABLE so that we can feed
+                      React _something_ (even the default layout data for a React.Component) when a
+                      DisplayView_T cell is activated.
+                    */
                     displayLayoutSpec: {
                         ____accept: "jsObject",
                     }
                 },
-
-                staticInputs: {
+                fixedInputs: {
                     ____types: "jsObject",
                     ____defaultValue: {},
+                    dataViews: {
+                        ____types: "jsObject",
+                        ____asMap: true,
+                        ____defaultValue: {},
+                        signalName: ovhConfigurationSpec
+                    },
+                    /* We may enable this later?
                     displayViews: {
                         ____types: "jsObject",
                         ____asMap: true,
                         ____defaultValue: {},
-                        signalName: {
-                            ____types: "jsObject",
-                            
-                        }
+                        signalName: ovhConfigurationSpec
                     }
+                    */
                 }
-
             },
 
             /*
@@ -79,7 +89,7 @@
 
                     // TODO: CLEAN THIS UP... We are getting away w/this here only because ? Actually, I think this maybe should be failing but is somehow not still? In any case, we're getting a unique IRUT and this particular cell is an implementation detail of DisplayView_T.
                     const cmSynthRequest = {
-                        cmasScope: generatorRequest_.cmtInstance, // ? ***** TODO***** THIS WILL NEED TO CHANGE --- TEMPLATES WILL NO LONGER EXTENDED CMAS --- TO BE CLEAR SYNTH REQUEST NOW REQUIRES CMAS INPUT AND GENERATOR NEVER USES CMT TO RESOLVE CMAS
+                        cmasScope: generatorRequest_.cmtInstance, // Fine; this is a synthesis request. And, we now require that the caller pass in CMAS scope as CellModelTemplates.
                         cellModelLabel: `${templateLabel}<${generatorRequest_.cellModelLabel}>`,
                         specializationData: {
                             description: `Specialization for ${generatorRequest_.cellModelLabel}`,
@@ -149,10 +159,38 @@
                                     ____label: "Observable Input Values",
                                     ____types: "jsObject",
                                     ____defaultValue: {},
-                                    subDisplayViews: {
+                                    fixed: {
                                         ____types: "jsObject",
                                         ____defaultValue: {},
-                                        ____appdsl: { apm: cmasHolarchyCMPackage.mapLabels({ APM: "ObservableValueHelperMap" }).result.APMID }
+                                        ____appdsl: { fixedInputBindings: generatorRequest_.specializationData.fixedInputs },
+                                        dataViews: {
+                                            ____types: "jsObject",
+                                            ____defaultValue: {},
+                                            ____appdsl: { apm: cmasHolarchyCMPackage.mapLabels({ APM: "ObservableValueHelperMap" }).result.APMID }
+                                        },
+                                        /* We may add this later?
+                                        displayViews: {
+                                            ____types: "jsObject",
+                                            ____defaultValue: {},
+                                            ____appdsl: { apm: cmasHolarchyCMPackage.mapLabels({ APM: "ObservableValueHelperMap" }).result.APMID }
+                                        }
+                                        */
+                                    },
+                                    dynamic: {
+                                        ____types: "jsObject",
+                                        ____defaultValue: {},
+                                        /* We may add this later?
+                                        dataViews: {
+                                            ____types: "jsObject",
+                                            ____defaultValue: {},
+                                            ____appdsl: { apm: cmasHolarchyCMPackage.mapLabels({ APM: "ObservableValueHelperMap" }).result.APMID }
+                                        },
+                                        */
+                                        displayViews: {
+                                            ____types: "jsObject",
+                                            ____defaultValue: {},
+                                            ____appdsl: { apm: cmasHolarchyCMPackage.mapLabels({ APM: "ObservableValueHelperMap" }).result.APMID }
+                                        }
                                     }
                                 }
                             }, // ~.apm.ocdDataSpec
@@ -192,7 +230,7 @@
                                             nextStep: "display-view-view-display-ipc-negotiate-link-unlinked-view-displays"
                                         },
                                         {
-                                            transitionIf: { holarchy: { common: { operators: { ObservableValueHelperMap: { mapIsEmpty: { path: "#.inputs.subDisplayViews" } } } } } },
+                                            transitionIf: { holarchy: { common: { operators: { ObservableValueHelperMap: { mapIsEmpty: { path: "#.inputs.dynamic.displayViews" } } } } } },
                                             nextStep: "display-view-quiescent"
                                         },
                                         {
@@ -210,7 +248,7 @@
                                     },
                                     transitions: [
                                         {
-                                            transitionIf: { holarchy: { common: { operators: { ObservableValueHelperMap: { mapIsLinked: { path: "#.inputs.subDisplayViews" } } } } } },
+                                            transitionIf: { holarchy: { common: { operators: { ObservableValueHelperMap: { mapIsLinked: { path: "#.inputs.dynamic.displayViews" } } } } } },
                                             nextStep: "display-view-quiescent"
                                         }
                                     ]
