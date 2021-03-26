@@ -4,7 +4,7 @@
 
 Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/HTML5 apps & services w/React based on System in Cloud (SiC) architecture.
 
-# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;[Holistic App Platform](../../README.md#encapsule-project "Back to the Holistic App Platform README...") v0.0.64 rosequartz
+# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;[Holistic App Platform](../../README.md#encapsule-project "Back to the Holistic App Platform README...") v0.0.65 goshenite
 
 ## &#x25F0; Runtime library: @encapsule/holodeck-assets
 
@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 This package contains re-usable test runners, harnesses, and vectors for use in conjunction with @encapsule/holodeck test infrastructure package.
 
 ```
-Package: @encapsule/holodeck-assets v0.0.64 "rosequartz" build ID "ZN_U68w-Q6CogOsF4auEHQ"
-Sources: @encapsule/holodev#6ea465bfa5d9dbb16d73488a9d0e8b129ab05cfd
-Created: 2021-03-25T20:51:22.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/holodeck-assets v0.0.65 "goshenite" build ID "wGyJzJWoScGpr_tSylVRkA"
+Sources: @encapsule/holodev#aefec0c3a6bae4586232e1241175767f61ca5e6a
+Created: 2021-03-26T18:21:05.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview

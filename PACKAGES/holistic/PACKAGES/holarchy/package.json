@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "ZN_U68w-Q6CogOsF4auEHQ",
-    "buildSource": "6ea465bfa5d9dbb16d73488a9d0e8b129ab05cfd",
-    "buildTime": 1616705482,
-    "codename": "rosequartz",
+    "buildID": "wGyJzJWoScGpr_tSylVRkA",
+    "buildSource": "aefec0c3a6bae4586232e1241175767f61ca5e6a",
+    "buildTime": 1616782865,
+    "codename": "goshenite",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -40,5 +40,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.64"
+    "version": "0.0.65"
 }
