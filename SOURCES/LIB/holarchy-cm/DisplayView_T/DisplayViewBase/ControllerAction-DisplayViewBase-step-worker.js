@@ -121,7 +121,7 @@
                     // annotation. Here we go read the ____appdsl annotation and turn the design-time declarations into runtime
                     // behavior by configuring this specific cell instance's to link to the specified DataView_T cell(s).
 
-                    ocdResponse = request_.context.ocdi.readNamespaceSpec(request_.context.apmBindingPath);
+                    ocdResponse = request_.context.ocdi.getNamespaceSpec(request_.context.apmBindingPath);
                     if (ocdResponse.error) {
                         errors.push(ocdResponse.error);
                         break;
