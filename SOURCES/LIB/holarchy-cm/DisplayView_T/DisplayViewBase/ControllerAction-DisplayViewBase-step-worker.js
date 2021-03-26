@@ -129,9 +129,33 @@
 
                     const displayViewSpec = ocdResponse.result;
 
-                    
+                    if (Object.keys(displayViewSpec.inputs.fixed.____appdsl.fixedInputBindings.dataViews).length !== 0) {
 
+                        actResponse = request_.context.act({
+                            actorName: actionName,
+                            actorTaskDescription: "Attempting to auto-link this DisplayView_T cell's declared fixed data view inputs...",
+                            actionRequest: {
+                                holarchy: {
+                                    common: {
+                                        actions: {
+                                            ObservableValueHelperMap: {
+                                                addValues: {
+                                                    path: "#.inputs.fixed.dataViews",
+                                                    names: displayViewSpec.inputs.fixed.____appdsl.fixedInputBindings.dataViews
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            apmBindingPath: request_.context.apmBindingPath
+                        });
+                        if (actResponse.error) {
+                            errors.push(actResponse.error);
+                            break;
+                        }
 
+                    }
 
                     break;
 
