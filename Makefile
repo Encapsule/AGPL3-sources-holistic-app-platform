@@ -491,7 +491,7 @@ source_package_build_holistic:
 # of the distribution repo which is typically then commited and published.
 dist_packages_initialize: dist_packages_reset
 	@echo BEGIN TARGET: dist_packages_initialize
-	git clone git@github.com:Encapsule/holistic.git $(DIR_DIST_PKG_HOLISTIC)
+	git clone git@gitlab.com:alpinelakes/holistic.git $(DIR_DIST_PKG_HOLISTIC)
 	@echo FINISH TARGET: dist_packages_initialize
 
 # OPTIONAL: check the status of the package distribution repositories.

@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "0mfpetROQKW7JWqZ9PgFCg",
-    "buildSource": "21c4cba3edf007b61ee4e2ed97d71b39388caa8a",
-    "buildTime": 1616794213,
-    "codename": "moonstone",
+    "buildID": "28drAxq_T02cLNGByuXeNA",
+    "buildSource": "16448f5884fdf9970ee0d91bf720064812d5312c",
+    "buildTime": 1617662671,
+    "codename": "three-worlds",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -43,5 +43,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.66"
+    "version": "0.1.00"
 }

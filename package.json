@@ -1,8 +1,8 @@
 {
     "name": "holistic-dev",
-    "version": "0.0.66",
-    "codename": "moonstone",
-    "description": "A system of conventions, semantics, and tools, for defining domain-specific plug-and-play software models and building distributed information circuits in the cloud, the browser tab, or anwhere you can interpret JavaScript.",
+    "version": "0.1.00",
+    "codename": "three-worlds",
+    "description": "Encapsule Project private AGPLv3-licensed build sources for @encapsule/holistic distribution package.",
     "author": "Encapsule",
     "contributors": [
         {
