@@ -1,6 +1,6 @@
 [![Encapsule Project](https://encapsule.io/images/blue-burst-encapsule.io-icon-72x72.png "Encapsule Project")](https://encapsule.io)
 
-# Encapsule/holistic
+# Encapsule/dpmr-arc-core-rt
 
 ## Summary
 
@@ -92,4 +92,4 @@ But, `appgen` doesn't actually build your app. It just sets you up to build your
 
 Published by [Encapsule Project](https://encapsule.io) Seattle, Washington
 
-Copyright &copy; 2011-2020 [Christopher D. Russell](https://github.com/ChrisRus)
+Copyright &copy; 2011-2021 [Christopher D. Russell](https://github.com/ChrisRus)
