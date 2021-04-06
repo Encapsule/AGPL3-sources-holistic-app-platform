@@ -9,6 +9,7 @@ const packages = {
     "@encapsule/holism-metadata": require("./holism-metadata"),
     "@encapsule/holism-services": require("./holism-services"),
     "@encapsule/holistic": require("./holistic"),
+    "@encapsule/holistic-app-models": require("./holistic-app-models"),
     "@encapsule/holistic-html5-service": require("./holistic-html5-service"),
     "@encapsule/holistic-nodejs-service": require("./holistic-nodejs-service"),
     "@encapsule/holistic-service-core": require("./holistic-service-core"),

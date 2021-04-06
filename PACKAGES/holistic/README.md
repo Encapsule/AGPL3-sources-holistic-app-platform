@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 Full-stack component engineering platform for building complex stateful webs apps and services with software models.
 
 ```
-Package: @encapsule/holistic v0.1.00 "three-worlds" build ID "S9qViYvxSKubV33t8HH7eg"
-Sources: @encapsule/holodev#1afc640638eec999c0d9a9b716dd78bcff670776
-Created: 2021-04-05T22:49:59.000Z Purpose: tools (Node.js) License: MIT
+Package: @encapsule/holistic v0.1.00 "three-worlds" build ID "FupnUO5OQruR0VZwabFAOA"
+Sources: @encapsule/holodev#8812da1bb822f19858d5eba04e943db33653b54f
+Created: 2021-04-06T21:53:11.000Z Purpose: tools (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview
@@ -49,6 +49,8 @@ Holistic app platform is becoming quite stable. But, lacks examples (required) a
     - &#x25F0; [@encapsule/holism-metadata](PACKAGES/holism-metadata/README.md "Jump to holism-metadata RTL package README...")
 
     - &#x25F0; [@encapsule/holism-services](PACKAGES/holism-services/README.md "Jump to holism-services RTL package README...")
+
+    - &#x25F0; [@encapsule/holistic-app-models](PACKAGES/holistic-app-models/README.md "Jump to holistic-app-models RTL package README...")
 
     - &#x25F0; [@encapsule/holistic-html5-service](PACKAGES/holistic-html5-service/README.md "Jump to holistic-html5-service RTL package README...")
 
@@ -338,6 +340,12 @@ This package contains an extensible framework for defining application-specific 
 This package contains re-usable service filter plug-ins for use with the @encapsule/holism app server package.
 
 > [README &#9656;](PACKAGES/holism-services/README.md "Jump to holism-services RTL package README...")
+
+### &#x25F0; [@encapsule/holistic-app-models](PACKAGES/holistic-app-models/README.md "Jump to holistic-app-models RTL package README...")
+
+This package contains a collection of optional application and service models that may be resused to build holistic-powered runtimes.
+
+> [README &#9656;](PACKAGES/holistic-app-models/README.md "Jump to holistic-app-models RTL package README...")
 
 ### &#x25F0; [@encapsule/holistic-html5-service](PACKAGES/holistic-html5-service/README.md "Jump to holistic-html5-service RTL package README...")
 
