@@ -1,5 +1,5 @@
 {
-    "name": "holistic-dev",
+    "name": "dpmr-arc-core-rt",
     "version": "0.1.00",
     "codename": "three-worlds",
     "description": "Encapsule Project private AGPLv3-licensed build sources for @encapsule/holistic distribution package.",
