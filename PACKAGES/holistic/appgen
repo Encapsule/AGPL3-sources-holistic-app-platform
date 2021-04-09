@@ -156,6 +156,7 @@ const resourceFilePaths = {
         packageReadme: path.join(appRepoDir, "README.md"),
         packageLicense: path.join(appRepoDir, "LICENSE"),
 	    packageMakefile: path.join(appRepoDir, "Makefile"), // template generated
+        packageMakefileApp: path.join(appRepoDir, "Makefile-App"), // template generated
         packageGitIgnore: path.join(appRepoDir, ".gitignore"), // template generated
         packageBabelRc: path.join(appRepoDir, ".babelrc"), // template generated
         packageEslintRc: path.join(appRepoDir, ".eslintrc.js"), // template generated
@@ -305,7 +306,20 @@ if (!fs.existsSync(resourceFilePaths.application.appManifest)) {
 
     let command = [ "cp -Rpv", sourceDirectory, destDirectory ].join(" ");
     consoleOutput = syncExec({ cwd: resourceFilePaths.holistic.packageDir, command: command });
-    console.log("> Updated holsitic platform RLT's.");
+    console.log("> Updated target project repository to current holistic app baseline sample application.");
+
+    ////
+    // Create application Makefile-App
+    docTemplate = loadDocumentTemplate(path.resolve(__dirname, "PROJECT/GENERATOR/TEMPLATES", "Makefile-App-template.hbs"));
+    document = docTemplate(holisticMetadata);
+    filterResponse = arctoolslib.stringToFileSync.request({
+        path: resourceFilePaths.application.packageMakefileApp,
+        resource: document
+    });
+    if (filterResponse.error) {
+        throw new Error(filterResponse.error);
+    }
+    console.log("> Write '" + resourceFilePaths.application.packageMakefileApp + "'.");
 
 } // end if holistic-app.json doesn't exist in target applcation
 
