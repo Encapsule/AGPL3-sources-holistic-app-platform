@@ -77,7 +77,7 @@
                         "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                       ],
                       "requestSpace": {
-                        "name": "Discriminator Decission Tree Model",
+                        "name": "Discriminator Decision Tree Model",
                         "description": "Models the combined input filter specifications of Filter ID's: [KX0V_aQ3RzG01tzBS24MGw, S1GqYjTtSQazSxkIL9vtpA].",
                         "vlist": [
                           {
