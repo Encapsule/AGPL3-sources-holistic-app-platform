@@ -26,8 +26,8 @@
         appTypes: {
             userLoginSession: {
                 trusted: {
-                    userIdentityAssertionSpec: require("./storage/user/identity/user-identity-assertion-descriptor-spec"),
-                    userLoginSessionReplicaDataSpec: require("./storage/user/session/filters/user-session-variant-read-spec"),
+                    userIdentityAssertionSpec: require("./authentication/iospecs/user-identity-assertion-descriptor-spec"),
+                    userLoginSessionReplicaDataSpec: require("./authentication/iospecs/user-session-descriptor-spec"),
                 }
             }
         },
@@ -48,7 +48,7 @@
                         renderHTML5Options: require("./node-service/config/render-html5-options")
                     },
                     appStateContext: {
-                        vp5GroupAuthorizer: require("./authorization/vp5-group-authorizer")
+                        // vp5GroupAuthorizer: require("./authorization/vp5-group-authorizer")
                     }
                 }
             }

@@ -16,16 +16,16 @@
   try {
     console.log("> \"".concat(path.resolve(__filename), "\" module loading..."));
 
-    var appNodeServiceRuntimeSpecializations = require("./nodejs-service-runtime-specializations");
+    var nodeServiceSpecializations = require("./nodejs-service-specializations");
 
-    var appNodeServiceRuntimeInstance = new HolisticNodeService(appNodeServiceRuntimeSpecializations);
+    var nodeServiceInstance = new HolisticNodeService(nodeServiceSpecializations);
 
-    if (!appNodeServiceInstance.isValid()) {
-      throw new Error(appNodeServiceInstance.toJSON());
+    if (!nodeServiceInstance.isValid()) {
+      throw new Error(nodeServiceInstance.toJSON());
     } // START LISTENING FOR HTTP REQUESTS....
 
 
-    appNodeServiceRuntimeInstance.listen(8080);
+    nodeServiceInstance.listen(8080);
   } catch (serviceStartException_) {
     console.log("################################################################");
     console.log("################################################################");

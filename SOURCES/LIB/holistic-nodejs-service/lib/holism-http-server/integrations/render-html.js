@@ -114,7 +114,7 @@ function renderHtmlDocument(request_) {
 `  </head>
   <body>
     <div id="idServiceDisplay">${htmlContent}</div>
-    <script type="text/javascript" src="/javascript/client-app-bundle-${appAgentMetadata.buildID}.js"></script>
+    <script type="text/javascript" src="/javascript/html5-service-runtime-bundle-${appAgentMetadata.buildID}.js"></script>
     <script id="idClientBootROM" type="text/plain">${bootROM}</script>
 `);
 

@@ -31,13 +31,16 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "@babel/plugin-transform-react-jsx": "7.10.4",
         "@babel/preset-env": "7.10.4",
         "chai": "^4.2.0",
+        "css-loader": "3.6.0",
+        "csvtojson": "2.0.10",
         "eslint": "7.4.0",
+        "handlebars": "^4.7.6", // TODO: exorcise this codebase of handlebars
+        "jsdom": "16.3.0",
+        "mkdirp": "^1.0.4",
         "mockery": "^2.1.0",
+        "style-loader": "1.2.1",
         "webpack": "4.43.0",
         "webpack-cli": "3.3.12",
-        "css-loader": "3.6.0",
-        "style-loader": "1.2.1",
-        "handlebars": "^4.7.6", // TODO: exorcise this codebase of handlebars
 
         // Holistic platform runtime library dependencies.
         "@encapsule/arccore": arccore.__meta.version,
@@ -59,9 +62,9 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         // Third-party runtime library dependencies.
         "color": "^3.1.0",
         "color-string": "^1.5.3",
+        "is-reachable": "5.0.0",
         "commander": "^2.19.0",
         "query-string": "^6.2.0",
-        "mkdirp": "^1.0.4",
         "react": "16.12.0",
         "react-dom": "16.12.0",
         "react-markdown": "^2.5.0",

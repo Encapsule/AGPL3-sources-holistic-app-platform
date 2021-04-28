@@ -33,8 +33,8 @@
             }
         };
 
-        const clientAppBundleURI = `/javascript/client-app-bundle-${appBuild.app.buildID}.js`;
-        const clientAppBundleMapURI = `/javascript/client-app-bundle-${appBuild.app.buildID}.js.map`;
+        const clientAppBundleURI = `/javascript/html5-service-runtime-bundle-${appBuild.app.buildID}.js`;
+        const clientAppBundleMapURI = `/javascript/html5-service-runtime-bundle-${appBuild.app.buildID}.js.map`;
 
         const memoryFileRegistrationMap = {
 
@@ -42,8 +42,8 @@
             // HOLISTIC HTML5 SERVICE JAVASCRIPT BUNDLE / DEBUG MAP RESOURCES
 
             // Every HolisticNodeService instance is able to "serve" a HolisticHTML5Service instance
-            // via an HTML5 document containing a reference to the client-app-bundle.js
-            "client-app-bundle.js": {
+            // via an HTML5 document containing a reference to the html5-service-runtime-bundle.js
+            "html5-service-runtime-bundle.js": {
                 request_bindings: { method: "GET", uris: [ clientAppBundleURI ] },
                 response_properties: {
                     contentEncoding: "utf8",
@@ -168,8 +168,8 @@
 
         // Let's not serve our webpack map to the world in production or staging environments (neither sets VP5_DEPLOYMENT_MODE at all).
         if (deploymentEnvironment === "development") {
-            memoryFileRegistrationMap["client-app-bundle.js.map"] = {
-                request_bindings: { method: "GET", uris: [ "/javascript/client-app-bundle.js.map" ] },
+            memoryFileRegistrationMap["html5-service-runtime-bundle.js.map"] = {
+                request_bindings: { method: "GET", uris: [ "/javascript/html5-service-runtime-bundle.js.map" ] },
                 response_properties: {
                     contentEncoding: "utf8",
                     contentType: "text/plain"

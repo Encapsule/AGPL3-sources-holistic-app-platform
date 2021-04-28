@@ -9,13 +9,13 @@
     const { HolisticNodeService } = require("@encapsule/holistic-nodejs-service");
     try {
         console.log(`> "${path.resolve(__filename)}" module loading...`);
-        const appNodeServiceRuntimeSpecializations = require("./nodejs-service-runtime-specializations");
-        const appNodeServiceRuntimeInstance = new HolisticNodeService(appNodeServiceRuntimeSpecializations);
-        if (!appNodeServiceInstance.isValid()) {
-            throw new Error(appNodeServiceInstance.toJSON());
+        const nodeServiceSpecializations = require("./nodejs-service-specializations");
+        const nodeServiceInstance = new HolisticNodeService(nodeServiceSpecializations);
+        if (!nodeServiceInstance.isValid()) {
+            throw new Error(nodeServiceInstance.toJSON());
         }
         // START LISTENING FOR HTTP REQUESTS....
-        appNodeServiceRuntimeInstance.listen(8080);
+        nodeServiceInstance.listen(8080);
     } catch (serviceStartException_) {
         console.log("################################################################");
         console.log("################################################################");

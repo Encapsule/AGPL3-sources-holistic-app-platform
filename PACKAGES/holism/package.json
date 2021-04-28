@@ -3,9 +3,9 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "HljHcsJUR76iLjP5dV4N_g",
-    "buildSource": "7f614ed6e0474c2b113e85b9e04ad8521a0a4acc",
-    "buildTime": 1619114854,
+    "buildID": "HtpXjlOQRbaxic6nbAaMow",
+    "buildSource": "e460e5b431183f8eee389a30d882bbf86fbc8a86",
+    "buildTime": 1619629570,
     "codename": "three-worlds",
     "contributors": [
         {
@@ -37,7 +37,7 @@
     "main": "index.js",
     "name": "@encapsule/holism",
     "peerDependencies": {
-        "@encapsule/arccore": "0.1.10"
+        "@encapsule/arccore": "0.1.11"
     },
     "repository": {
         "type": "git",
