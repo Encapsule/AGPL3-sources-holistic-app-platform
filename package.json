@@ -2,7 +2,7 @@
     "name": "dpmr-arc-core-rt",
     "version": "0.1.00",
     "codename": "three-worlds",
-    "description": "Encapsule Project private AGPLv3-licensed build sources for @encapsule/holistic distribution package.",
+    "description": "@encapsule/holistic is a domain engineering toolkit for building distributed applications and interactive UX from reusable software models.",
     "author": "Encapsule",
     "contributors": [
         {

@@ -16,7 +16,7 @@ let exportObject = {
         keywords: [ "encapsule", "holistic" ],
         license: "MIT",
         main: "index.js",
-        dependencies: {
+        devDependencies: {
             "@encapsule/arccore": arccore.__meta.version,
             "@encapsule/arctools": arccore.__meta.version,
             "mkdirp": packageMeta.devDependencies["mkdirp"],
