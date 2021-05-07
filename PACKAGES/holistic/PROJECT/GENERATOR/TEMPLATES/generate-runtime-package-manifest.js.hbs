@@ -31,11 +31,12 @@ const applicationBuildManifest = filterResponse.result.resource;
 // ================================================================
 // package.json generation
 
-var packageRuntimeManifest = applicationBuildManifest.app;
-packageRuntimeManifest.name = packageRuntimeManifest.name + "-app-runtime";
-packageRuntimeManifest.scripts  = {
-    start: "node ./SERVER/server.js"
-};
+var packageRuntimeManifest = { ...applicationBuildManifest.app };
+
+packageRuntimeManifest.name = `${applicationBuildManifest.app.name}-service-image`;
+packageRuntimeManifest.description = `${packageRuntimeManifest.name} is an npm package containing the pre-built image of the ${applicationBuildManifest.app.name} holistic application service. See the included README.md for additional information.`;
+
+packageRuntimeManifest.scripts  = { start: "node ./SERVER/nodejs-service-runtime.js" };
 
 // Serialize the manifest as JSON and write to stdout.
 console.log(JSON.stringify(packageRuntimeManifest, undefined, 2));
