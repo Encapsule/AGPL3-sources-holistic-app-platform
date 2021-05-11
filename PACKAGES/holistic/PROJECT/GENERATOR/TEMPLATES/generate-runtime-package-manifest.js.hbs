@@ -4,8 +4,8 @@
 // {{author}} {{name}} v{{version}} "{{codename}}" {{buildID}} {{buildSource}}
 //
 
-const arctoolslib = require('@encapsule/arctools');
-
+const path = require("path");
+const arctoolslib = require("@encapsule/arctools");
 const program = arctoolslib.commander;
 
 program
@@ -19,6 +19,10 @@ if (!program.appBuildManifest) {
     console.error("Missing --appBuildManifest option value.");
     process.exit(1);
 }
+
+const holisticRTLPackageNamesJSONFilename = path.resolve(__dirname, "../../HOLISTIC/PACKAGES/holistic-rtl-packages.json");
+// console.log(`***** ${__dirname} // ${holisticRTLPackageNamesJSONFilename} *****`);
+
 
 var filterResponse = arctoolslib.jsrcFileLoaderSync.request(program.appBuildManifest);
 if (filterResponse.error) {

@@ -1,7 +1,7 @@
 {
     "name": "holistic",
     "description": "@encapsule/holistic is a domain engineering toolkit for building distributed applications and interactive UX from reusable software models.",
-    "version": "0.1.00",
+    "version": "0.1.01",
     "codename": "three-worlds",
     "author": "Encapsule",
     "copyright": {
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "u8MJqII9SJ-6G7qWF8s8mQ",
-    "buildSource": "580a1cee46fd9e231b298c88c79ea332b7c80ba5",
-    "buildTime": 1620416440,
-    "buildDateISO": "2021-05-07T19:40:40.000Z"
+    "buildID": "TCNhD7YWTgeNpM4_Jjaxwg",
+    "buildSource": "6db877a5754b1e158dae50e50288c28e92a8e942",
+    "buildTime": 1620757458,
+    "buildDateISO": "2021-05-11T18:24:18.000Z"
 }
