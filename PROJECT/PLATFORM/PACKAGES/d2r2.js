@@ -14,8 +14,8 @@ module.exports = {
         main: "index.js",
         peerDependencies: {
             "@encapsule/arccore": arccore.__meta.version,
-            "react": holisticPlatformManifest.platformDependencies["react"],
-            "react-dom": holisticPlatformManifest.platformDependencies["react-dom"]
+            "react": holisticPlatformManifest.dependencies.common["react"],
+            "react-dom": holisticPlatformManifest.dependencies.common["react-dom"]
         }
     },
 

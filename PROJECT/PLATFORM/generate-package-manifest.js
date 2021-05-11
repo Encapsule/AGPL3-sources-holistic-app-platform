@@ -48,7 +48,7 @@ var manifest = {
     buildID: repoBuild.buildID,
     buildTime: repoBuild.buildTime,
     buildSource: repoBuild.buildSource,
-    engines: holisticPlatformManifest.applicationPackageManifest.engines,
+    engines: holisticPlatformManifest.engines,
 
     repository: {
         type: "git",

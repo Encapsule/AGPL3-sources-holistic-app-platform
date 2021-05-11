@@ -15,8 +15,8 @@ module.exports = {
         peerDependencies: {
             "@encapsule/arccore": arccore.__meta.version,
             "@encapsule/d2r2": holisticBuild.version,
-            "react": holisticPlatformManifest.platformDependencies["react"],
-            "react-dom": holisticPlatformManifest.platformDependencies["react-dom"]
+            "react": holisticPlatformManifest.dependencies.common["react"],
+            "react-dom": holisticPlatformManifest.dependencies.common["react-dom"]
         },
         bin: {
             copy_resources: "./bin/copy_holarchy_resources.js"
