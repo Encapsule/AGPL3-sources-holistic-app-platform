@@ -8,6 +8,8 @@
     const appBuild = require("../app-build");
     try {
         console.log(`> "${path.resolve(__filename)}" module loading...`);
+        process.chdir(path.resolve(path.join(__dirname, "../")));
+
         const nodeServiceSpecializations = require("./nodejs-service-specializations");
         const { HolisticNodeService } = require("@encapsule/holistic-nodejs-service");
         const nodeServiceInstance = new HolisticNodeService(nodeServiceSpecializations);

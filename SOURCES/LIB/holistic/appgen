@@ -167,6 +167,7 @@
 
             projectBuildToolGenerateBuildTag: path.join(appRepoDir, "PROJECT/BUILD/generate-runtime-buildtag.js"),
             projectBuildToolGenerateRuntimeManifest: path.join(appRepoDir, "PROJECT/BUILD/generate-runtime-package-manifest.js"),
+            projectBuildToolAppServiceRuntimeDependencies: path.join(appRepoDir, "PROJECT/BUILD/app-service-runtime-dependencies.json"),
         },
         holistic: {
             appBaselineSourcesDir: path.join(holisticPackageDir, "SOURCES"),
@@ -320,7 +321,6 @@
         console.log("> Write '" + resourceFilePaths.application.packageMakefileApp + "'.");
 
     } // end if holistic-app.json doesn't exist in target applcation
-
 
     // At this point we have either a holistic-app.json that already existed. Or, a new one just initialized above.
     filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.appManifest);
@@ -627,6 +627,24 @@
         throw new Error(filterResponse.error);
     }
     console.log("> Write '" + resourceFilePaths.application.projectBuildToolGenerateRuntimeManifest + "'.");
+
+    ////
+    // Synthesize the application's runtime-package-dependencies.json manifest that is required by generate-runtime-package-manifest.js script.
+
+    const appRuntimeDependencies = {
+        ...holisticAppManifest.dependencies.common,
+        ...holisticAppManifest.dependencies.runtime,
+        ...holisticPlatformManifest.dependencies.common,
+        ...holisticPlatformManifest.dependencies.runtime
+    };
+
+    filterResponse = arctoolslib.stringToFileSync.request({
+        resource: `${JSON.stringify(appRuntimeDependencies, undefined, 2)}\n`,
+        path: resourceFilePaths.application.projectBuildToolAppServiceRuntimeDependencies
+    });
+    if (filterResponse.error) {
+        throw new Error(filterResponse.error);
+    }
 
     ////
     // Create application Makefile

@@ -159,9 +159,8 @@ const factoryResponse = arccore.filter.create({
             // We need the relative path to the actual ASSET resource file.
 
             const cwd = process.cwd();
-            const dirname = __dirname;
 
-            const relativeAssetPath = path.relative(cwd, path.resolve(path.join(cwd, "BUILD/runtime-phase3")));
+            const relativeAssetPath = cwd; // path.relative(cwd, path.resolve(path.join(cwd, "BUILD/runtime-phase3")));
 
             for (let filename_ in memoryFileRegistrationMapInput) {
                 var resourceFilepath = path.join(relativeAssetPath, filename_);

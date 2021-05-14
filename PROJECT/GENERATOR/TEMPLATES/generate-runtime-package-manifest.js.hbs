@@ -1,46 +1,47 @@
 #!/usr/bin/env node
 
 // THIS FILE IS CODE-GENERATED
-// {{author}} {{name}} v{{version}} "{{codename}}" {{buildID}} {{buildSource}}
+// {{author}} {{name}} v{{version}}-{{codename}} {{buildID}} {{buildSource}}
 //
 
-const path = require("path");
-const arctoolslib = require("@encapsule/arctools");
-const program = arctoolslib.commander;
+(function() {
 
-program
-    .name("generate-runtime-package-manifest")
-    .description("Generate runtime package manifest (package.json) from application build manifest (app-build.json).")
-    .version("{{version}}")
-    .option('--appBuildManifest <manifestPath>', 'Use <manifestPath> to select the location of the input app-build.json.')
-    .parse(process.argv);
+    const path = require("path");
+    const arctoolslib = require("@encapsule/arctools");
+    const program = arctoolslib.commander;
+    const appServiceRuntimeDependencies = require("./app-service-runtime-dependencies.json");
 
-if (!program.appBuildManifest) {
-    console.error("Missing --appBuildManifest option value.");
-    process.exit(1);
-}
+    program
+        .name("generate-runtime-package-manifest")
+        .description("Generate runtime package manifest (package.json) from application build manifest (app-build.json).")
+        .version("{{version}}")
+        .option('--appBuildManifest <manifestPath>', 'Use <manifestPath> to select the location of the input app-build.json.')
+        .parse(process.argv);
 
-const holisticRTLPackageNamesJSONFilename = path.resolve(__dirname, "../../HOLISTIC/PACKAGES/holistic-rtl-packages.json");
-// console.log(`***** ${__dirname} // ${holisticRTLPackageNamesJSONFilename} *****`);
+    if (!program.appBuildManifest) {
+        console.error("Missing --appBuildManifest option value.");
+        process.exit(1);
+    }
+
+    var filterResponse = arctoolslib.jsrcFileLoaderSync.request(program.appBuildManifest);
+    if (filterResponse.error) {
+        throw new Error("Invalid --appBuildManifest value. " + filterResponse.error);
+    }
+
+    const applicationBuildManifest = filterResponse.result.resource;
 
 
-var filterResponse = arctoolslib.jsrcFileLoaderSync.request(program.appBuildManifest);
-if (filterResponse.error) {
-    throw new Error("Invalid --appBuildManifest value. " + filterResponse.error);
-}
+    // ================================================================
+    // package.json generation
 
-const applicationBuildManifest = filterResponse.result.resource;
+    const packageRuntimeManifest = { ...applicationBuildManifest.app };
+    packageRuntimeManifest.name = `${applicationBuildManifest.app.name}-service-image`;
+    packageRuntimeManifest.description = `${packageRuntimeManifest.name} is an npm package containing the pre-built image of the ${applicationBuildManifest.app.name} holistic application service. See the included README.md for additional information.`;
+    packageRuntimeManifest.dependencies = appServiceRuntimeDependencies;
+    packageRuntimeManifest.scripts = { start: "node ./SERVER/nodejs-service-runtime.js" };
 
+    // Serialize the manifest as JSON and write to stdout.
+    console.log(JSON.stringify(packageRuntimeManifest, undefined, 2));
 
-// ================================================================
-// package.json generation
+})();
 
-var packageRuntimeManifest = { ...applicationBuildManifest.app };
-
-packageRuntimeManifest.name = `${applicationBuildManifest.app.name}-service-image`;
-packageRuntimeManifest.description = `${packageRuntimeManifest.name} is an npm package containing the pre-built image of the ${applicationBuildManifest.app.name} holistic application service. See the included README.md for additional information.`;
-
-packageRuntimeManifest.scripts  = { start: "node ./SERVER/nodejs-service-runtime.js" };
-
-// Serialize the manifest as JSON and write to stdout.
-console.log(JSON.stringify(packageRuntimeManifest, undefined, 2));

@@ -77,8 +77,8 @@ reset: scrub
 	npm cache clean
 	@echo Dependencies will be re-installed from refreshed package cache \(requires Internet\) on next 'make configure'.
 
-.PHONY: applicationCoreBuild
-corebuild: applicationCoreBuild
+.PHONY: corebuild
+corebuild:
 
 #	For now, this recipe is addative; resource rename and delete in source input directories
 #	will not automatically clean the BUILD directory tree. In this case execute `make clean`.
