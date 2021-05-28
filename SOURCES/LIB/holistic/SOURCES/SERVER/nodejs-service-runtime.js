@@ -6,11 +6,21 @@
     const path = require("path");
     const process = require("process");
     const appBuild = require("../app-build");
-    const httpServiceListenPort = process.env.PORT || 3000;
 
     try {
         console.log(`> "${path.resolve(__filename)}" module loading...`);
         process.chdir(path.resolve(path.join(__dirname, "../")));
+
+        let httpServiceListenPort = null;
+
+        if (process.env.PORT) {
+            httpServiceListenPort = process.env.PORT;
+            console.log(`> The ${appBuild.app.name} Node.js service will listen on port ${httpServiceListenPort} as specified by the 'PORT' environment variable.`);
+        } else {
+            httpServiceListenPort = 8080;
+            console.log(`> The ${appBuild.app.name} Node.js service will listen on its default port ${httpServiceListenPort} because the 'PORT' environment variable is not set.`);
+        };
+
         const nodeServiceSpecializations = require("./nodejs-service-specializations");
         const { HolisticNodeService } = require("@encapsule/holistic-nodejs-service");
         const nodeServiceInstance = new HolisticNodeService(nodeServiceSpecializations);
