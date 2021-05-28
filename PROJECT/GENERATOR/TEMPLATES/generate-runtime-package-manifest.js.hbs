@@ -10,6 +10,15 @@
     const arctoolslib = require("@encapsule/arctools");
     const program = arctoolslib.commander;
     const appServiceRuntimeDependencies = require("./app-service-runtime-dependencies.json");
+    const appSourcesPackageManifest = require("../../package.json");
+
+    function sortObjectKeys(input_) {
+        let result = {};
+        Object.keys(input_).sort().forEach(function(key_) {
+	        result[key_] = input_[key_];
+        });
+        return result;
+    }
 
     program
         .name("generate-runtime-package-manifest")
@@ -28,20 +37,21 @@
         throw new Error("Invalid --appBuildManifest value. " + filterResponse.error);
     }
 
-    const applicationBuildManifest = filterResponse.result.resource;
-
+    const appBuildManifest = filterResponse.result.resource;
 
     // ================================================================
     // package.json generation
 
-    const packageRuntimeManifest = { ...applicationBuildManifest.app };
-    packageRuntimeManifest.name = `${applicationBuildManifest.app.name}-service-image`;
-    packageRuntimeManifest.description = `${packageRuntimeManifest.name} is an npm package containing the pre-built image of the ${applicationBuildManifest.app.name} holistic application service. See the included README.md for additional information.`;
-    packageRuntimeManifest.dependencies = appServiceRuntimeDependencies;
-    packageRuntimeManifest.scripts = { start: "node ./SERVER/nodejs-service-runtime.js" };
+    let appRuntimePackageManifest = { ...appBuildManifest.app };
+    appRuntimePackageManifest.name = `${appBuildManifest.app.name}-service-image`;
+    appRuntimePackageManifest.description = `The '${appRuntimePackageManifest.name}' npm package contains a self-contained runtime image of the '${appBuildManifest.app.name}' holistic application service. See the included README.md for additional information.`;
+    appRuntimePackageManifest.dependencies = sortObjectKeys(appServiceRuntimeDependencies);
+    appRuntimePackageManifest.scripts = { start: "node ./SERVER/nodejs-service-runtime.js" };
+    appRuntimePackageManifest.appgen = appSourcesPackageManifest.appgen;
+    appRuntimePackageManifest.engines = appSourcesPackageManifest.engines;
 
     // Serialize the manifest as JSON and write to stdout.
-    console.log(JSON.stringify(packageRuntimeManifest, undefined, 2));
+    console.log(JSON.stringify(sortObjectKeys(appRuntimePackageManifest), undefined, 2));
 
 })();
 

@@ -3,6 +3,11 @@
 module.exports = function(request_) {
     console.log("..... " + this.operationID + "::" + this.operationName);
     const headers = request_.request_descriptor.headers;
+
+    // Interesting -- we may not need this on ElasticBeanstalk?
+    return { error: null }; // no redirection
+
+    /*
     if (!headers["x-forwarded-proto"] || (headers["x-forwarded-proto"] === "https")) {
         return { error: null }; // no redirection
     }
@@ -15,5 +20,6 @@ module.exports = function(request_) {
             httpCode: 308 // Moved permanently
         }
     });
+    */
 };
 

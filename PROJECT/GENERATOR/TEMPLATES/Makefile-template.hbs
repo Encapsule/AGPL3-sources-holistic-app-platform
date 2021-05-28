@@ -14,6 +14,8 @@ $(info DIR_ROOT is $(DIR_ROOT))
 DIR_MODULES=$(DIR_ROOT)/node_modules
 DIR_TOOLBIN=$(DIR_MODULES)/.bin
 
+DIR_HOLISTIC=$(DIR_ROOT)/HOLISTIC
+
 DIR_PROJECT=$(DIR_ROOT)/PROJECT
 DIR_PROJECT_BUILD=$(DIR_PROJECT)/BUILD
 DIR_PROJECT_TEST=$(DIR_PROJECT)/TEST
@@ -56,26 +58,28 @@ default:
 configure:
 	@echo Configuring build environment...
 	npm install
-	@echo Build environment has been configured.
+	@echo Localhost build environment has been configured.
 
 .PHONY: clean
 clean:
 	@echo Cleaning up the output of the last application build...
 	rm -rf $(DIR_BUILD)
-	@echo The BUILD directory and its contents has been removed.
+	@echo Localhost build environment ./BUILD directory and its contents has been removed.
+	@echo The next run of \'make application\' will generate a clean runtime image package from ./SOURCES.
 
 .PHONY: scrub
 scrub: clean
 	@echo Scrubbing the local build environment...
 	@echo ... removing previously-installed package dependencies.
 	rm -rf $(DIR_MODULES)
-	@echo Dependencies will be re-installed from package cache on next 'make configure'.
+	@echo Localhost build environment ./node_modules caches has been removed.
+	@echo The next run of \'make application\' will re-install a clean copy of ./node_modules.
 
 .PHONY: reset
 reset: scrub
 	@echo Local build environment reset...
 	npm cache clean
-	@echo Dependencies will be re-installed from refreshed package cache \(requires Internet\) on next 'make configure'.
+	@echo Dependencies will be re-installed from refreshed package cache \(requires Internet\) on next \'make configure\'.
 
 .PHONY: corebuild
 corebuild:
@@ -104,7 +108,7 @@ corebuild:
 
 #	PHASE1 - transpile modules from SOURCES into PHASE1 directory overwriting PHASE0 clone copies.
 	@echo ================================================================
-	@echo 'HOLISTIC APPLICATION BUILD PHASE 1 (TRANSPILATION)'
+	@echo 'HOLISTIC APPLICATION BUILD PHASE 1 (TRANSPILATION)goto-l'
 	@echo ================================================================
 	@echo '(=)'
 	@echo ' X'
@@ -140,12 +144,13 @@ corebuild:
 	@echo '(=)'
 	mkdir -p $(DIR_BUILD_PHASE3)
 	cp -r $(DIR_BUILD_PHASE2)/* $(DIR_BUILD_PHASE3)/
-#	cp -r $(DIR_SOURCES_ASSETS) $(DIR_BUILD_PHASE3)/
 	cp -r $(DIR_BUILD_PHASE1)/ASSETS $(DIR_BUILD_PHASE3)/
 
 	cp $(DIR_BUILD_PHASE1)/app-build.json $(DIR_BUILD_PHASE3)/
 	cp -r $(DIR_BUILD_PHASE1)/COMMON $(DIR_BUILD_PHASE3)/
 	cp -r $(DIR_BUILD_PHASE1)/SERVER $(DIR_BUILD_PHASE3)/
+
+	cp -r $(DIR_HOLISTIC) $(DIR_BUILD_PHASE3)/
 
 	node $(TOOL_GEN_APP_RUNTIME_PACKAGE) --appBuildManifest $(DIR_BUILD_PHASE3)/app-build.json > $(DIR_BUILD_PHASE3)/package.json
 
@@ -160,7 +165,11 @@ corebuild:
 
 .PHONY: application
 application: applicationPreBuild corebuild applicationPostBuild
-	@echo completed.
+	@echo Your derived app service has been rebuilt from generic library + your unique specializations ...
+	@echo ... producing an updated app service runtime image package written to the ./BUILD/runtime-phase3 directory.
+	@echo Execute:
+	@echo - \'npm start\' to activate your derived app\'s Node.js service using your localhost build environment\'s currently-installed npm dependency set.
+	@echo - \'cd BUILD/runtime-phase3 \&\& npm install \&\& npm start\' to perform a localhost test of your app\'s runtime image package for pre-deployment test.
 
 .PHONY: applicationPreBuild
 applicationPreBuild: configure

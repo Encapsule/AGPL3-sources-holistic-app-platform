@@ -6,17 +6,17 @@
     const path = require("path");
     const process = require("process");
     const appBuild = require("../app-build");
+    const httpServiceListenPort = process.env.PORT || 3000;
+
     try {
         console.log(`> "${path.resolve(__filename)}" module loading...`);
         process.chdir(path.resolve(path.join(__dirname, "../")));
-
         const nodeServiceSpecializations = require("./nodejs-service-specializations");
         const { HolisticNodeService } = require("@encapsule/holistic-nodejs-service");
         const nodeServiceInstance = new HolisticNodeService(nodeServiceSpecializations);
-        if (!nodeServiceInstance.isValid()) {
-            throw new Error(nodeServiceInstance.toJSON());
-        }
-        nodeServiceInstance.listen(8080); // START LISTENING FOR HTTP REQUESTS....
+        if (!nodeServiceInstance.isValid()) { throw new Error(nodeServiceInstance.toJSON()); }
+        // START LISTENING FOR HTTP REQUESTS....
+        nodeServiceInstance.listen(httpServiceListenPort);
     } catch (serviceStartException_) {
         console.log("################################################################");
         console.log("################################################################");
