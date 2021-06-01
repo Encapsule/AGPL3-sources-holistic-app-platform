@@ -136,15 +136,7 @@ default:
 	@echo See this repo\'s README.md file for further details and instructions.
 
 # ================================================================
-# Environment
-
-env_initialize:
-	@echo env_initialize target starting...
-	yarn install --verbose
-	@echo env_initialize target complete.
-
-env_reinitialize: env_clean_cache env_initialize
-	@echo Your local yarn cache has been repopulated with fresh packages from the Internet. And the contents of $(DIR_MODULES) has been rewritten.
+# Environment (i.e. ./node_modules primarily)
 
 env_clean:
 	@echo env_clean target starting...
@@ -152,10 +144,18 @@ env_clean:
 	rm -rf $(DIR_MODULES)
 	@echo env_clean target complete.
 
-env_clean_cache: env_clean
+env_initialize:
+	@echo env_initialize target starting...
+	npm install
+	@echo env_initialize target complete.
+
+env_verify:
 	@echo env_reset target starting...
-	yarn cache clean
+	npm cache verify
 	@echo env_reset target complete.
+
+env_reinitialize: env_clean_cache env_initialize
+	@echo Your local npm cache has been repopulated with fresh packages from the Internet. And the contents of $(DIR_MODULES) has been rewritten.
 
 env_generate_build_tag:
 	@echo generate_build_tag target starting..
