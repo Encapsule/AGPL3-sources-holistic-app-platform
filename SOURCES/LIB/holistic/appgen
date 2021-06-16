@@ -168,6 +168,8 @@
             projectBuildToolGenerateBuildTag: path.join(appRepoDir, "PROJECT/BUILD/generate-runtime-buildtag.js"),
             projectBuildToolGenerateRuntimeManifest: path.join(appRepoDir, "PROJECT/BUILD/generate-runtime-package-manifest.js"),
             projectBuildToolAppServiceRuntimeDependencies: path.join(appRepoDir, "PROJECT/BUILD/app-service-runtime-dependencies.json"),
+
+            distributionsDir: path.join(appRepoDir, "DISTS"),
         },
         holistic: {
             appBaselineSourcesDir: path.join(holisticPackageDir, "SOURCES"),
@@ -256,8 +258,16 @@
     var holisticAppManifest = null;
 
     if (!fs.existsSync(resourceFilePaths.application.appManifest)) {
-        //// ------------------------------------------------------------
-        // CREATE A NEW holistic-app.json manifest in the root of the derived app service's sources package repo.
+
+        /*
+          ****************************************************************
+          ****************************************************************
+          ****************************************************************
+          CREATE A NEW holistic-app.json manifest in the root of the derived app service's sources package repo.
+          ****************************************************************
+          ****************************************************************
+          **************************************************************** */
+
         console.log("> Initializing new holistic-app.json manifest from package.json...");
         // Assume that the file doesn't exist. Construct a default manifest w/the filter. And then serialize it.
         filterResponse = holisticAppManifestFilter.request({
@@ -306,6 +316,10 @@
         let command = [ "cp -Rpv", sourceDirectory, destDirectory ].join(" ");
         consoleOutput = syncExec({ cwd: resourceFilePaths.holistic.packageDir, command: command });
         console.log("> Updated target project repository to current holistic app baseline sample application.");
+
+        // Create the output distributions directory
+        makeDirectory(resourceFilePaths.application.distributionsDir);
+        touchFile(path.join(resourceFilePaths.application.distributionsDir, ".gitkeep"));
 
         ////
         // Create application Makefile-App
@@ -518,7 +532,6 @@
     });
     console.log(consoleOutput);
 
-
     ////
     // Remove any cached holistic platform runtime packages from application's node_modules.
     // When we're done we'll execute a npm install on the application package to ensure that
@@ -649,7 +662,7 @@
     ////
     // Create application Makefile
     docTemplate = loadDocumentTemplate(path.resolve(__dirname, "PROJECT/GENERATOR/TEMPLATES", "Makefile-template.hbs"));
-    document = docTemplate(holisticMetadata);
+    document = docTemplate({ ...holisticMetadata, app: { ...holisticAppManifest }});
     filterResponse = arctoolslib.stringToFileSync.request({
         path: resourceFilePaths.application.packageMakefile,
         resource: document

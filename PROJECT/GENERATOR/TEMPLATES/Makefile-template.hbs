@@ -35,6 +35,8 @@ DIR_SOURCES_ASSETS=$(DIR_SOURCES)/ASSETS
 DIR_SOURCES_CLIENT=$(DIR_SOURCES)/CLIENT
 DIR_SOURCES_COMMON=$(DIR_SOURCES)/COMMON
 DIR_SOURCES_SERVER=$(DIR_SOURCES)/SERVER
+DIR_SOURCES_DEPLOY=$(DIR_SOURCES)/DEPLOY
+DIR_SOURCES_DEPLOY_AWS_EB=$(DIR_SOURCES_DEPLOY)/aws-elastic-beanstalk
 
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_PHASE1=$(DIR_BUILD)/transpile-phase1
@@ -42,6 +44,7 @@ DIR_BUILD_PHASE2=$(DIR_BUILD)/webpack-phase2
 DIR_BUILD_PHASE3=$(DIR_BUILD)/runtime-phase3
 
 DIR_DISTS=$(DIR_ROOT)/DISTS
+DIR_DIST_APP_SERVICE=$(DIR_DISTS)/{{app.name}}-service-deploy
 
 .PHONY: default
 default:
@@ -51,8 +54,9 @@ default:
 	@echo ================================================================
 
 # ================================================================
-# Build environment
-#
+# ================================================================
+# ================================================================
+# Holistic app service sources git repo build environment targets.
 
 .PHONY: configure
 configure:
@@ -77,15 +81,38 @@ scrub: clean
 
 .PHONY: reset
 reset: scrub
-	@echo Local build environment reset...
-	npm cache clean
+	@echo Verifying local npm cache integrity...
+	npm cache verify
 	@echo Dependencies will be re-installed from refreshed package cache \(requires Internet\) on next \'make configure\'.
 
-.PHONY: corebuild
-corebuild:
 
-#	For now, this recipe is addative; resource rename and delete in source input directories
-#	will not automatically clean the BUILD directory tree. In this case execute `make clean`.
+# ================================================================
+# ================================================================
+# ================================================================
+# Holistic app service runtime image package build targets.
+
+# Create/rebuild a development version of the holistic app service from ./SOURCES/*
+.PHONY: appServiceRuntime
+appServiceRuntime: appServiceRuntimePrebuild holisticServiceRuntime appServiceRuntimePostbuild
+	@echo Your derived app service has been rebuilt from generic library + your unique specializations ...
+	@echo ... producing an updated app service runtime image package written to the ./BUILD/runtime-phase3 directory.
+	@echo Execute:
+	@echo - \'npm start\' to activate your derived app\'s Node.js service using your localhost build environment\'s currently-installed npm dependency set.
+	@echo - \'cd BUILD/runtime-phase3 \&\& npm install \&\& npm start\' to perform a localhost test of your app\'s runtime image package for pre-deployment test.
+
+# Makefile-App service-specific runtime image package prebuild extension:
+.PHONY: appServiceRuntimePrebuild
+appServiceRuntimePrebuild: configure
+	-make --makefile=Makefile-App appServiceRuntimePrebuild
+
+# Makefile-App service-specific runtime image package postbuild extension:
+.PHONY: appServiceRuntimePostbuild
+appServiceRuntimePostbuild:
+	-make --makefile=Makefile-App appServiceRuntimePostbuild
+
+# Service-agnostic runtime image package build target:
+.PHONY: holisticServiceRuntime
+holisticServiceRuntime:
 
 #	PHASE0 - create a copy of the SOURCES directory structure.
 	@echo ================================================================
@@ -95,7 +122,7 @@ corebuild:
 	@echo '| o   O | | o   O | | o   O |'
 	@echo 'o       O o       O o       O'
 	@echo ================================================================
-	@echo 'HOLISTIC APPLICATION BUILD PHASE 0 (PREP SOURCES)'
+	@echo 'HOLISTIC APPLICATION SERVICE BUILD PHASE 0 (PREP SOURCES)'
 	@echo ================================================================
 	@echo '(=)'
 	@echo ' X'
@@ -108,7 +135,7 @@ corebuild:
 
 #	PHASE1 - transpile modules from SOURCES into PHASE1 directory overwriting PHASE0 clone copies.
 	@echo ================================================================
-	@echo 'HOLISTIC APPLICATION BUILD PHASE 1 (TRANSPILATION)goto-l'
+	@echo 'HOLISTIC APPLICATION SERVICE BUILD PHASE 1 (TRANSPILATION)goto-l'
 	@echo ================================================================
 	@echo '(=)'
 	@echo ' X'
@@ -123,7 +150,7 @@ corebuild:
 #	PHASE2 - create application server and client bundles via webpack.
 #	https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
 	@echo ================================================================
-	@echo 'HOLISTIC APPLICATION BUILD PHASE 2 (BUNDLING)'
+	@echo 'HOLISTIC APPLICATION SERVICE BUILD PHASE 2 (BUNDLING)'
 	@echo ================================================================
 	@echo '(=)'
 	@echo ' X'
@@ -135,7 +162,7 @@ corebuild:
 
 #	PHASE3 - create application image
 	@echo ================================================================
-	@echo 'HOLISTIC APPLICATION BUILD PHASE 3 (PACKAGING)'
+	@echo 'HOLISTIC APPLICATION SERVICE BUILD PHASE 3 (PACKAGING)'
 	@echo ================================================================
 	@echo '(=)'
 	@echo ' X'
@@ -155,7 +182,7 @@ corebuild:
 	node $(TOOL_GEN_APP_RUNTIME_PACKAGE) --appBuildManifest $(DIR_BUILD_PHASE3)/app-build.json > $(DIR_BUILD_PHASE3)/package.json
 
 	@echo ================================================================
-	@echo 'HOLISTIC APPLICATION BUILD COMPLETE.'
+	@echo 'HOLISTIC APPLICATION SERVICE BUILD COMPLETE.'
 	@echo ================================================================
 	@echo '(=)'
 	@echo ' X'
@@ -163,19 +190,16 @@ corebuild:
 	@echo ' X'
 	@echo '(=)'
 
-.PHONY: application
-application: applicationPreBuild corebuild applicationPostBuild
-	@echo Your derived app service has been rebuilt from generic library + your unique specializations ...
-	@echo ... producing an updated app service runtime image package written to the ./BUILD/runtime-phase3 directory.
-	@echo Execute:
-	@echo - \'npm start\' to activate your derived app\'s Node.js service using your localhost build environment\'s currently-installed npm dependency set.
-	@echo - \'cd BUILD/runtime-phase3 \&\& npm install \&\& npm start\' to perform a localhost test of your app\'s runtime image package for pre-deployment test.
+# ================================================================
+# ================================================================
+# ================================================================
+# Holistic app service deployment package build targets.
 
-.PHONY: applicationPreBuild
-applicationPreBuild: configure
-	-make --makefile=Makefile-App applicationPreBuild
+.PHONY: appServiceDeployment
+appServiceDeployment:
 
-.PHONY: applicationPostBuild
-applicationPostBuild:
-	-make --makefile=Makefile-App applicationPostBuild
+	@echo App service distribution package build start...
+	mkdir -p $(DIR_DIST_APP_SERVICE)
+	cp -r $(DIR_BUILD_PHASE3)/. $(DIR_DIST_APP_SERVICE)/
+	cp -r $(DIR_SOURCES_DEPLOY_AWS_EB)/. $(DIR_DIST_APP_SERVICE)/
 
