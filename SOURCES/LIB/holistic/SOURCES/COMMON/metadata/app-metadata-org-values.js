@@ -5,10 +5,10 @@ const appBuildManifest = require("../../app-build");
 module.exports = {
     name: appBuildManifest.app.author,
     location: "Seattle, WA USA",
-    url: "https://viewpath.com",
+    url: "https://encapsule.io",
     social: {
-        twitterUrl: "https://twitter.com/viewpath",
-        githubUrl: "https://github.com/viewpath"
+        twitterUrl: "https://twitter.com/encapsule",
+        githubUrl: "https://github.com/encapsule"
     },
     copyrightHolder: {
         name: appBuildManifest.app.author
