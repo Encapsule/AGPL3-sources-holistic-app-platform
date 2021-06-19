@@ -90,7 +90,7 @@ function renderHtmlDocument(request_) {
             htmlDocumentLines.push(
 `<!DOCTYPE html>
   <html lang="en">
-  <!-- @viewpath/${appAgentMetadata.name} v${appAgentMetadata.version}-${appAgentMetadata.codename} buildID "${appAgentMetadata.buildID}" [${request_.appServiceContext.metadataContext.server.environment}] Copyright (C) ${appAgentMetadata.copyright.year} ${appAgentMetadata.copyright.holder} -->
+  <!-- @${appAgentMetadata.author}/${appAgentMetadata.name} v${appAgentMetadata.version}-${appAgentMetadata.codename} buildID "${appAgentMetadata.buildID}" [${request_.appServiceContext.metadataContext.server.environment}] Copyright (C) ${appAgentMetadata.copyright.year} ${appAgentMetadata.copyright.holder} -->
 `);
             if (request_.appServiceRequest.renderOptions.documentPrologueComments) {
                 htmlDocumentLines.push(request_.appServiceRequest.renderOptions.documentPrologueComments);
