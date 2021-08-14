@@ -4,7 +4,7 @@
 
 Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/HTML5 apps & services w/React based on System in Cloud (SiC) architecture.
 
-# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;[Holistic App Platform](../../README.md#encapsule-project "Back to the Holistic App Platform README...") v0.1.06 phoenix06
+# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;[Holistic App Platform](../../README.md#encapsule-project "Back to the Holistic App Platform README...") v0.1.10 wildfire-summer
 
 ## &#x25F0; Runtime library: @encapsule/holism-services
 
@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 This package contains re-usable service filter plug-ins for use with the @encapsule/holism app server package.
 
 ```
-Package: @encapsule/holism-services v0.1.06 "phoenix06" build ID "hoa6rZ24SCm8lTsfrF357A"
-Sources: @encapsule/holodev#678065c29a4fe030186769cf70bb4a748b52ff58
-Created: 2021-07-02T21:13:29.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/holism-services v0.1.10 "wildfire-summer" build ID "ER8LSQ3sQwqzKUZeT0lSvQ"
+Sources: @encapsule/holodev#d848b40a4809fb63d3909da558381c873b05beda
+Created: 2021-08-14T06:25:42.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview
@@ -86,7 +86,7 @@ Join the Holistic App Platform [discussion group](https://groups.google.com/a/en
 
 [![Encapsule Project](ASSETS/blue-burst-encapsule.io-icon-72x72.png "Encapsule Project")](https://encapsule.io)
 
-Copyright &copy; 2021 [Christopher D. Russell](https://github.com/ChrisRus) Seattle, Washington USA
+Copyright &copy; 2021 [Chris Russell](https://github.com/ChrisRus) Seattle, Washington USA
 
 Published under [MIT](LICENSE) license by [Encapsule Project](https://encapsule.io)
 

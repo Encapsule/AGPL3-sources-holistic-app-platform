@@ -6,27 +6,27 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "hoa6rZ24SCm8lTsfrF357A",
-    "buildSource": "678065c29a4fe030186769cf70bb4a748b52ff58",
-    "buildTime": 1625260409,
-    "codename": "phoenix06",
+    "buildID": "ER8LSQ3sQwqzKUZeT0lSvQ",
+    "buildSource": "d848b40a4809fb63d3909da558381c873b05beda",
+    "buildTime": 1628922342,
+    "codename": "wildfire-summer",
     "contributors": [
         {
-            "name": "Christopher D. Russell",
+            "name": "Chris Russell",
             "email": "cdr@encapsule.io",
             "url": "https://github.com/ChrisRus"
         }
     ],
     "description": "Full-stack component engineering platform for building complex stateful webs apps and services with software models.",
     "devDependencies": {
-        "@encapsule/arccore": "0.1.11",
-        "@encapsule/arctools": "0.1.11",
+        "@encapsule/arccore": "0.2.01",
+        "@encapsule/arctools": "0.2.01",
         "mkdirp": "^1.0.4",
         "semver": "^5.6.0"
     },
     "engines": {
-        "node": "14.16.1",
-        "npm": ">=6.14.12"
+        "node": "16.6.1",
+        "npm": "7.20.3"
     },
     "homepage": "https://github.com/Encapsule",
     "keywords": [
@@ -40,5 +40,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.1.06"
+    "version": "0.1.10"
 }
