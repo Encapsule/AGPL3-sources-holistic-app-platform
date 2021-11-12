@@ -55,7 +55,10 @@ const factoryResponse = arccore.filter.create({
                 const bName = b_.filterDescriptor.operationName;
                 return ((aName < bName)?-1:(aName > bName)?1:0);
             });
-            let innerResponse = arccore.discriminator.create({
+            let innerResponse = arccore.discriminator2.create({
+                id: "PyNFH9n9Qsi1skOlo9-q5A",
+                name: "Holodeck Test Runner Discriminator",
+                description: "Routes test requests to an appropriate holodeck test harness plug-in filter for processing, evaluation, and comparison.",
                 options: { action: "getFilter" }, // arccore.discriminator will return a reference to the only filter that might accept your request
                 filters: harnessFilters
             });

@@ -1,7 +1,7 @@
 {
     "name": "dpmr-arc-core-rt",
-    "version": "0.1.10",
-    "codename": "wildfire-summer",
+    "version": "0.2.2",
+    "codename": "firestorm",
     "description": "@encapsule/holistic is a domain engineering toolkit for building distributed applications and interactive UX from reusable software models.",
     "author": "Encapsule",
     "contributors": [
@@ -22,8 +22,8 @@
         "@babel/core": "^7.14.6",
         "@babel/plugin-transform-react-jsx": "^7.14.5",
         "@babel/preset-env": "^7.14.5",
-        "@encapsule/arccore": "0.2.01",
-        "@encapsule/arctools": "0.2.01",
+        "@encapsule/arccore": "0.2.2",
+        "@encapsule/arctools": "0.2.2",
         "chai": "^4.2.0",
         "color": "^3.1.0",
         "color-string": "^1.5.3",

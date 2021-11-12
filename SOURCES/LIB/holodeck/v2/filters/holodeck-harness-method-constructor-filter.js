@@ -2,7 +2,10 @@
 
 const arccore = require("@encapsule/arccore");
 
-let factoryResponse = arccore.discriminator.create({
+let factoryResponse = arccore.discriminator2.create({
+    id: "cOiQs5l_T464i6WKfp76zA",
+    name: "Holodeck Test Harness Discriminator",
+    description: "TODO",
     options: { action: "getFilter" },
     filters: [
         // These filters define the different types of harness plug-ins that may
