@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "ER8LSQ3sQwqzKUZeT0lSvQ",
-    "buildSource": "d848b40a4809fb63d3909da558381c873b05beda",
-    "buildTime": 1628922342,
-    "codename": "wildfire-summer",
+    "buildID": "KMLQHk78Q0qY6Lnm6iuuYA",
+    "buildSource": "cfc5a5494066cb6d92833f8bd6008254fb6a2cf1",
+    "buildTime": 1637083256,
+    "codename": "firestorm",
     "contributors": [
         {
             "name": "Chris Russell",
@@ -34,11 +34,11 @@
     "main": "index.js",
     "name": "@encapsule/holarchy",
     "peerDependencies": {
-        "@encapsule/arccore": "0.2.01"
+        "@encapsule/arccore": "0.2.2"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.1.10"
+    "version": "0.2.2"
 }

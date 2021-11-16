@@ -4,7 +4,7 @@
 
 Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/HTML5 apps & services w/React based on System in Cloud (SiC) architecture.
 
-# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;[Holistic App Platform](../../README.md#encapsule-project "Back to the Holistic App Platform README...") v0.1.10 wildfire-summer
+# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;[Holistic App Platform](../../README.md#encapsule-project "Back to the Holistic App Platform README...") v0.2.2 firestorm
 
 ## &#x25F0; Runtime library: @encapsule/holarchy-cm
 
@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 This package contains the Holistic App Platform's core re-usable CellModel library.
 
 ```
-Package: @encapsule/holarchy-cm v0.1.10 "wildfire-summer" build ID "ER8LSQ3sQwqzKUZeT0lSvQ"
-Sources: @encapsule/holodev#d848b40a4809fb63d3909da558381c873b05beda
-Created: 2021-08-14T06:25:42.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/holarchy-cm v0.2.2 "firestorm" build ID "KMLQHk78Q0qY6Lnm6iuuYA"
+Sources: @encapsule/holodev#cfc5a5494066cb6d92833f8bd6008254fb6a2cf1
+Created: 2021-11-16T17:20:56.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview
