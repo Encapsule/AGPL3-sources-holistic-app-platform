@@ -169,7 +169,6 @@ markdown.push(targetManifest.description);
 markdown.push("```\n" +
               "Package: " + targetManifest.name + " v" + targetManifest.version + " \"" + targetManifest.codename + "\" build ID \"" + targetManifest.buildID + "\"\n" +
               "Sources: @encapsule/holodev#" + targetManifest.buildSource + "\n" +
-              
               "Created: " + repoBuild.buildDateISO + " Purpose: " + packageData.packageType + " (" + (packageData.browserSafe?"Node.js + modern browsers (via package bundler)":"Node.js") + ") " +
               "License: " + targetManifest.license + "\n" +
               "```");
@@ -204,17 +203,8 @@ if (targetManifest.name === "@encapsule/holistic") {
 
     markdown.push("- [GNU Make](https://www.gnu.org/software/make/)");
     markdown.push("- [git](https://git-scm.com/)");
-    markdown.push("- [Node.js](https://nodejs.org) - **WE ARE CURRENTLY STANDARDIZED ON NODE v12.16.1 LTS**");
-    markdown.push("- [yarn](https://yarnpkg.com) (depends on Node.js) - **WE ARE CURRENTLY STANDARDIZED ON YARN v1.22.0**");
-
-    markdown.push("```shell");
-    markdown.push("root@holarchy:~# node --version");
-    markdown.push("v12.16.1");
-    markdown.push("root@holarchy:~# npm --version");
-    markdown.push("6.14.2");
-    markdown.push("root@holarchy:~# yarn --version");
-    markdown.push("1.22.0");
-    markdown.push("```");
+    markdown.push("- [Node.js](https://nodejs.org)");
+    markdown.push("- [npm](https://www.npmjs.com) (bundled w/Node.js)");
 
     markdown.push("**IMPORTANT**");
     markdown.push("Once you have configured these baseline tools dependencies, then all other concerns related to tools and libraries dependencies are managed directly or indirectly under developer control via `appgen`.");
@@ -261,15 +251,15 @@ if (targetManifest.name === "@encapsule/holistic") {
     markdown.push("```\n" +
 		  "$ cd ~/code/holistic\n" +
 		  "$ git pull origin master\n" +
-		  "$ yarn install\n" +
+		  "$ npm install\n" +
 		  "```");
 
-    markdown.push("> Be aware of the disconnect between what is present in your `node_modules` directory (managed by `yarn`). And, the state of critical `package.json` and `yarn.lock` files (managed by `git`).");
+    markdown.push("> Be aware of the disconnect between what is present in your `node_modules` directory (managed by `npm`). And, the state of critical `package.json` and `package-lock.json` files (managed by `git`).");
 
     markdown.push("- Latest supported version is available on #master branch.");
     markdown.push("- Other topic branches are used for testing features prior to release.");
 
-    markdown.push("After you have executed `yarn install`, the [appgen](#appgen-utility) utility is ready to use.");
+    markdown.push("After you have executed `npm install`, the [appgen](#appgen-utility) utility is ready to use.");
 
 } else {
 
