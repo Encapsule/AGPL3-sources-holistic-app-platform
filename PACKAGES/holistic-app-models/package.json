@@ -3,9 +3,9 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "KMLQHk78Q0qY6Lnm6iuuYA",
-    "buildSource": "cfc5a5494066cb6d92833f8bd6008254fb6a2cf1",
-    "buildTime": 1637083256,
+    "buildID": "OXgBRyaVSnuc1Pv4YpUGLg",
+    "buildSource": "e5f49d712bbd00bf82f109f49008be6a28840905",
+    "buildTime": 1637703237,
     "codename": "firestorm",
     "contributors": [
         {
@@ -31,7 +31,7 @@
     "name": "@encapsule/holistic-app-models",
     "peerDependencies": {
         "@encapsule/arccore": "0.2.2",
-        "@encapsule/holarchy": "0.2.2",
+        "@encapsule/holarchy": "0.2.3",
         "react": "16.12.0",
         "react-dom": "16.12.0"
     },
@@ -39,5 +39,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.2.2"
+    "version": "0.2.3"
 }
