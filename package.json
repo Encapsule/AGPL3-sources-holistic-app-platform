@@ -1,6 +1,6 @@
 {
     "name": "dpmr-arc-core-rt",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "codename": "firestorm",
     "description": "@encapsule/holistic is a domain engineering toolkit for building distributed applications and interactive UX from reusable software models.",
     "author": "Encapsule",
@@ -24,10 +24,12 @@
         "@babel/preset-env": "^7.14.5",
         "@encapsule/arccore": "0.2.2",
         "@encapsule/arctools": "0.2.2",
+        "buffer": "^6.0.3",
         "chai": "^4.2.0",
         "color": "^3.1.0",
         "color-string": "^1.5.3",
         "commander": "^2.19.0",
+        "crypto-browserify": "^3.12.0",
         "csvtojson": "2.0.10",
         "enzyme": "3.11.0",
         "enzyme-adapter-react-16": "1.15.2",
@@ -38,6 +40,7 @@
         "jsdom": "16.3.0",
         "mkdirp": "^1.0.4",
         "mockery": "^2.1.0",
+        "path-browserify": "^1.0.1",
         "pg": "8.6.0",
         "query-string": "^6.2.0",
         "react": "16.12.0",
@@ -45,6 +48,8 @@
         "react-markdown": "^2.5.0",
         "request": "^2.88.0",
         "semver": "^5.6.0",
+        "stream-browserify": "^3.0.0",
+        "url": "^0.11.0",
         "webpack": "^5.39.1",
         "webpack-cli": "^4.7.1"
     },
@@ -54,6 +59,5 @@
     "scripts": {
         "scrubdate": "make scrubdate",
         "test": "make test && git status"
-    },
-    "dependencies": {}
+    }
 }
