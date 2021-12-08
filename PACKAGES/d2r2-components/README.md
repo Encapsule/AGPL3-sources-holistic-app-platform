@@ -4,7 +4,7 @@
 
 Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/HTML5 apps & services w/React based on System in Cloud (SiC) architecture.
 
-# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;[Holistic App Platform](../../README.md#encapsule-project "Back to the Holistic App Platform README...") v0.2.3 firestorm
+# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;[Holistic App Platform](../../README.md#encapsule-project "Back to the Holistic App Platform README...") v0.2.4 firestorm
 
 ## &#x25F0; Runtime library: @encapsule/d2r2-components
 
@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 This package contains a collection of re-usable d2r2 React components for use with the d2r2 ComponentRouter dynamic view compositor.
 
 ```
-Package: @encapsule/d2r2-components v0.2.3 "firestorm" build ID "OXgBRyaVSnuc1Pv4YpUGLg"
-Sources: @encapsule/holodev#e5f49d712bbd00bf82f109f49008be6a28840905
-Created: 2021-11-23T21:33:57.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/d2r2-components v0.2.4 "firestorm" build ID "awgGvup7TCa5jcBdP0nx6Q"
+Sources: @encapsule/holodev#2167465682a12602d5d3b855c9d359c268ec117c
+Created: 2021-12-08T05:02:09.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview

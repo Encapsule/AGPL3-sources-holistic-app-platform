@@ -1,6 +1,6 @@
 {
     "name": "dpmr-arc-core-rt",
-    "version": "0.2.3",
+    "version": "0.2.4",
     "codename": "firestorm",
     "description": "@encapsule/holistic is a domain engineering toolkit for building distributed applications and interactive UX from reusable software models.",
     "author": "Encapsule",
@@ -42,6 +42,7 @@
         "mockery": "^2.1.0",
         "path-browserify": "^1.0.1",
         "pg": "8.6.0",
+        "process": "^0.11.10",
         "query-string": "^6.2.0",
         "react": "16.12.0",
         "react-dom": "16.12.0",
