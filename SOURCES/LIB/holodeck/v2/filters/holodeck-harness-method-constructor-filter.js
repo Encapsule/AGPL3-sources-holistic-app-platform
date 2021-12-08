@@ -2,7 +2,7 @@
 
 const arccore = require("@encapsule/arccore");
 
-let factoryResponse = arccore.discriminator2.create({
+let factoryResponse = arccore.discriminator.create({
     id: "cOiQs5l_T464i6WKfp76zA",
     name: "Holodeck Test Harness Discriminator",
     description: "TODO",

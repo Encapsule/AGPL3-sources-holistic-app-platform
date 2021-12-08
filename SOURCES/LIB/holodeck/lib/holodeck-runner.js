@@ -46,7 +46,7 @@ const factoryResponse = arccore.filter.create({
         while (!inBreakScope) {
             inBreakScope = true;
             console.log("> Initializing test harness dispatcher...");
-            const factoryResponse = arccore.discriminator2.create({
+            const factoryResponse = arccore.discriminator.create({
                 id: "Zbcs9U3AT7OOM7svjMG-ew",
                 name: "Holodeck Test Runner Discriminator",
                 description: "Routes a test request to an appropriate holodeck test harness plug-in for evalaution.",
