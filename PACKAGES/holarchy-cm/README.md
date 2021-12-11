@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 This package contains the Holistic App Platform's core re-usable CellModel library.
 
 ```
-Package: @encapsule/holarchy-cm v0.2.6 "firestorm" build ID "_mSBy-DjTYmcislu4q7kCA"
-Sources: @encapsule/holodev#31e41009592363a89bb1181eac681f346836cd40
-Created: 2021-12-09T22:30:36.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/holarchy-cm v0.2.6 "firestorm" build ID "1B6Y1n7FRj2vcQ0HyhPhXg"
+Sources: @encapsule/holodev#85fd07708af653d576fc1d8f68ecf5b1943ba714
+Created: 2021-12-11T22:54:04.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview
