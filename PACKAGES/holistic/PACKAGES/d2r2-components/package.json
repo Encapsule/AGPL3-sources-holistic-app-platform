@@ -6,9 +6,9 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "1B6Y1n7FRj2vcQ0HyhPhXg",
-    "buildSource": "85fd07708af653d576fc1d8f68ecf5b1943ba714",
-    "buildTime": 1639263244,
+    "buildID": "jfkX_v83TSquc__0496vqg",
+    "buildSource": "164c882ec736f2f240419c4bbbe2070611dd2490",
+    "buildTime": 1640060339,
     "codename": "firestorm",
     "contributors": [
         {
@@ -19,8 +19,8 @@
     ],
     "description": "This package contains a collection of re-usable d2r2 React components for use with the d2r2 ComponentRouter dynamic view compositor.",
     "engines": {
-        "node": "16.6.1",
-        "npm": "7.20.3"
+        "node": ">=16.13.1",
+        "npm": ">=8.1.2"
     },
     "homepage": "https://github.com/Encapsule",
     "keywords": [
@@ -33,8 +33,8 @@
     "main": "index.js",
     "name": "@encapsule/d2r2-components",
     "peerDependencies": {
-        "@encapsule/arccore": "0.3.1",
-        "@encapsule/d2r2": "0.2.6",
+        "@encapsule/arccore": "0.3.3",
+        "@encapsule/d2r2": "0.2.7",
         "react": "16.12.0",
         "react-dom": "16.12.0"
     },
@@ -42,5 +42,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.2.6"
+    "version": "0.2.7"
 }
