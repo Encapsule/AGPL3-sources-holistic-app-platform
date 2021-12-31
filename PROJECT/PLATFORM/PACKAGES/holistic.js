@@ -12,7 +12,8 @@ let exportObject = {
     packageType: "tools",
     packageEnvironment: [ "node" ],
     packageManifestOverrides: {
-        description: "Full-stack component engineering platform for building complex stateful webs apps and services with software models.",
+        description: "@encapsule/holistic distribution package contains the Holistic App Platform's consituent runtime libraries, and " +
+            " the 'appgen' command-line tool used to create derived JavaScript projects and keep them up-to-date.",
         keywords: [ "encapsule", "holistic" ],
         license: "MIT",
         main: "index.js",
@@ -27,6 +28,55 @@ let exportObject = {
         }
     },
     packageReadme: {
+
+        introduction: {
+            markdown: [
+                "This is some introductory text..."
+            ]
+        },
+
+        distributionPackage: {
+
+            // Distribution package description comes from the package manifest description string property... (not here)
+
+            prerequisites: {
+                markdown: [
+                    "This is some text in distribution package prerequisites."
+                ]
+            },
+            installation: {
+                markdown: [
+                    "This is some text in distribution package installation."
+                ]
+            },
+            usage: {
+                markdown: [
+                    "This is some text in distribution package usage."
+                ]
+            }
+        },
+
+        holisticAppPlatform: {
+            overview: {
+                markdown: [
+                    "This is an overview of the holistic app platform..."
+                ]
+            },
+            appgen: {
+                markdown: [
+                    "This is a brief decription of the the `appgen` CLI tool."
+                ]
+            },
+
+            rtls: {
+                markdown: [
+                    "This is some introductory text about the Holistic App Platform runtime libraries (RTLs)."
+                ]
+            }
+
+        },
+
+
         overviewDescriptor: {
             markdown: [
                 "### Welcome the the Holistic App Platform",

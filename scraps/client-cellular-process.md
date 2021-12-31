@@ -1,8 +1,9 @@
-^--- Notes about these timing numbers:
-1. Because hashrouting, initial page load time is no longer primary concern.
-1a. We should address client-app-bundle.js cache headers #1.
-1b. We should then seek to reduce the runtime boot reported here.
-================================================================
+2021.12.26 ChrisRus // SAVE THIS TEXT -- it needs to be reworked
+but it is a good capture of HolisticHTML5Service-derived client
+application runtime.
+
+
+============================================================
 \nWe are now leaving client.js and exiting scope.
 What is left is our OPC instance attached to the window.opc.
 So, now what?
