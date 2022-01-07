@@ -6,7 +6,7 @@ const react = require("react");
 
 module.exports = {
     packageType: "library",
-    packageEnvironments: [ "node" ],
+    packageEnvironments: [ "node", "browser" ],
     packageManifestOverrides: {
         description: "This package contains a collection of optional application and service models that may be resused to build holistic-powered runtimes.",
         keywords: [ "Encapsule", "holistic", "holarchy", "CellModel" ],

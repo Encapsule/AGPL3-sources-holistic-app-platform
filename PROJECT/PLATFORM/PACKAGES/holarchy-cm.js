@@ -6,7 +6,7 @@ const react = require("react");
 
 module.exports = {
     packageType: "library",
-    packageEnvironments: [ "node" ],
+    packageEnvironments: [ "node", "browser" ],
     packageManifestOverrides: {
         description: "This package contains the Holistic App Platform's core re-usable CellModel library.",
         keywords: [ "Encapsule", "holistic", "holarchy", "CellModel" ],

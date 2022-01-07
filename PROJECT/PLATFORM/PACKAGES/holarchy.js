@@ -5,7 +5,7 @@ const holistic = require("../../../BUILD/holistic");
 
 module.exports = {
     packageType: "library",
-    packageEnvironments: [ "node" ],
+    packageEnvironments: [ "node", "browser" ],
     packageManifestOverrides: {
         description: "Cellular process modeling and runtime engine for Node.js and browser.",
         keywords: [ "Encapsule", "holistic", "holarchy", "CellModel", "CellProcessor", "streaming", "filtering", "mind-fuck" ],

@@ -4,7 +4,7 @@ const arccore = require('@encapsule/arccore');
 
 module.exports = {
     packageType: "library",
-    packageEnvironments: [ "node" ],
+    packageEnvironments: [ "node", "browser" ],
     packageManifestOverrides: {
         description: "This package contains an extensible framework for defining application-specific metadata - i.e. data about your app. It is intended for use in derived apps/services and is typically used in conjunction with @encapsule/holism integration plug-in filters to satisfy queries re: publishing organization, application, page, route, hashroute, resource, operation...",
         keywords: [ "Encapsule", "holism", "http", "metadata", "integration" ],

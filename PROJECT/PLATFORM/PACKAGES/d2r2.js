@@ -6,9 +6,9 @@ const holisticPlatformManifest = require("../../GENERATOR/holistic-platform-mani
 
 module.exports = {
     packageType: "library",
-    packageEnvironments: [ "node" ],
+    packageEnvironments: [ "node", "browser" ],
     packageManifestOverrides: {
-	description: "This package contains the Data-Driven React Router (d2r2) component factory extension for React. And, the ComponentRouter dynamic view compositor packaged as a generic React component. Used to build extensible view templates, and decoupled view libraries.",
+        description: "This package contains the Data-Driven React Router (d2r2) component factory extension for React. And, the ComponentRouter dynamic view compositor packaged as a generic React component. Used to build extensible view templates, and decoupled view libraries.",
         keywords: [ "Encapsule", "React", "ComponentRouter", "discriminator", "render", "filter", "d2r2", "layout", "template" ],
         license: "MIT",
         main: "index.js",
@@ -20,19 +20,17 @@ module.exports = {
     },
 
     packageReadme: {
-        overviewDescriptor: {
-            markdown: [
-		"**TODO**"
-            ]
-        },
-        bodySections: [
-	    {
-		markdown: [
-		    "**TODO**"
 
-		]
-	    }
-	]
+        bodySections: [
+
+            {
+                markdown: [
+                    "**TODO**"
+
+                ]
+            }
+
+        ]
     }
 
 };

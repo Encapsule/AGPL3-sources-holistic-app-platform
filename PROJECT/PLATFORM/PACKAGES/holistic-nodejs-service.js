@@ -6,7 +6,7 @@ const react = require("react");
 
 module.exports = {
     packageType: "library",
-    packageEnvironments: [ "browser" ],
+    packageEnvironments: [ "node" ],
     packageManifestOverrides: {
         description: "Exports the HolisticAppServer CellModel for use in derived @encapsule/holistic applications/services.",
         keywords: [ "Encapsule", "holistic", "holarchy", "CellModel" ],

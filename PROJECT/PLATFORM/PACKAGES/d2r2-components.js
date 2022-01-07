@@ -6,7 +6,7 @@ const holisticPlatformManifest = require("../../GENERATOR/holistic-platform-mani
 
 module.exports = {
     packageType: "library",
-    packageEnvironments: [ "node" ],
+    packageEnvironments: [ "node", "browser" ],
     packageManifestOverrides: {
         description: "This package contains a collection of re-usable d2r2 React components for use with the d2r2 ComponentRouter dynamic view compositor.",
         keywords: [ "Encapsule", "React", "ComponentRouter", "d2r2" ],
@@ -24,18 +24,14 @@ module.exports = {
     },
 
     packageReadme: {
-	overviewDescriptor: {
-            markdown: [
-		"**TODO**"
-            ]
-        },
+
         bodySections: [
-	    {
-		markdown: [
-		    "**TODO**"
-		]
-	    }
-	]
+	        {
+		        markdown: [
+		            "**TODO**"
+		        ]
+	        }
+	    ]
     }
 
 };
