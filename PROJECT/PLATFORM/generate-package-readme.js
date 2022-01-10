@@ -179,7 +179,7 @@ environments = environments.join(" and ");
 
 markdown.push([
     "```",
-    `Package: ${targetManifest.name} v${targetManifest.version}-${targetManifest.codename} buildID "${targetManifest.buildID}"`,
+    `Package: ${targetManifest.name} v${targetManifest.version}-${targetManifest.codename} build ID "${targetManifest.buildID}"`,
     `Sources: @encapsule/holodev#${targetManifest.buildSource}`,
     `Created: ${repoBuild.buildDateISO} // License: ${targetManifest.license}`,
     `Purpose: ${packageData.packageType} // Environment: ${environments}`,
