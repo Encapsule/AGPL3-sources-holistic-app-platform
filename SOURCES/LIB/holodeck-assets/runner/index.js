@@ -5,25 +5,27 @@
     const arccore = require("@encapsule/arccore");
     const holodeck = require("@encapsule/holodeck");
 
-    const holodeckPackageHarnesses = require("../holodeck/harnesses");
-    const holodeckPackageVectorSets = require("./holodeck-package-tests/vector-sets");
+    // Test harnesses.
 
-    const holarchyPackageHarnesses = require("../holarchy/harnesses");
-    const holarchyPackageVectorSets = require("./holarchy-package-tests/vector-sets");
+    const holodeckPackageHarnesses = require("../harnesses/holodeck");
+    const holarchyPackageHarnesses = require("../harnesses/holarchy");
 
     // const holarchyCMPackageVectorSets = require("./holarchy-cm-package-tests/vector-sets"); // TODO: v0.0.49-spectrolite @encapsule/holarchy-cm package no longer exports CellModels for use in runtime services.
 
-    // const holisticAppClientCMVectorSets = require("./holistic-app-client-cm-package-tests/vector-sets"); // TODO: v0.0.49-spectrolite disabled for now
+    // Test vectors.
 
-    const holisticAppServerCMVectorSets = require("./holistic-app-server-cm-package-tests/vector-sets");
-    const holisticAppCommonCMVectorSets = require("./holistic-app-common-cm-package-tests/vector-sets");
+    const holarchyPackageVectorSets = require("../vectors/holarchy-package-tests/vector-sets");
+    const holodeckPackageVectorSets = require("../vectors/holodeck-package-tests/vector-sets");
+    const holisticAppServerCMVectorSets = require("../vectors/holistic-app-server-cm-package-tests/vector-sets");
+    const holisticAppCommonCMVectorSets = require("../vectors/holistic-app-common-cm-package-tests/vector-sets");
+    // const holisticAppClientCMVectorSets = require("../vectors/holistic-app-client-cm-package-tests/vector-sets"); // TODO: v0.0.49-spectrolite disabled for now
 
     const mkdirp = require("mkdirp");
 
     const factoryResponse = arccore.filter.create({
         operationID: "Ga_AZ-2HSHuB0uJ9l6n3Uw",
         operationName: "Holistic Test Runner Generator",
-        operationDescription: "Filter that accepts config options and returns an @encapsule/holodeck runner filter instance.",
+        operationDescription: "Filter that accepts config options and returns an @encapsule/holodeck runner filter instance configured to run holistic platform regression test vectors through holodeck.",
         inputFilterSpec: {
             ____label: "Holistic Test Runner Generator Request",
             ____description: "A request descriptor object containing config options.",

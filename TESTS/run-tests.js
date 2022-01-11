@@ -13,7 +13,7 @@ const holodeckAssets = require("@encapsule/holodeck-assets");
 
     let processExitCode = 0; // success
 
-    const runnerResponse = holodeckAssets.holistic.request({
+    const runnerResponse = holodeckAssets.runner.request({
         logsDirectory: path.resolve(path.join(__dirname, "logs")),
         testRunnerOptions: {
             // onlyExecuteVectors: ["N8wBqzGVT6i6Dvwzff4Zrw" ]
