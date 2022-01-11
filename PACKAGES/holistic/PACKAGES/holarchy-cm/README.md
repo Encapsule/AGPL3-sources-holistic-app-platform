@@ -11,9 +11,9 @@ _Encapsule Project is a quest to define a universal protocol for domain-specific
 # ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;@encapsule/holarchy-cm
 
 ```
-Package: @encapsule/holarchy-cm v0.2.8-firestorm build ID "UvEImHFNQG6StiD4luj0Jw"
-Sources: @encapsule/holodev#73d7514963a4daa666cbbbddc936ed2e0e33cd1e
-Created: 2022-01-11T08:40:56.000Z // License: MIT
+Package: @encapsule/holarchy-cm v0.2.8-firestorm build ID "1FGblB6BTGuxuscJGTDz6Q"
+Sources: @encapsule/holodev#3f665d8b608755f0e4b0faa01c4380e408201e0f
+Created: 2022-01-11T18:20:20.000Z // License: MIT
 Purpose: library // Environment: Node.js and Browser/HTML5
 ```
 
