@@ -32,6 +32,11 @@
                     keywords: { ____types: "jsArray", keyword: { ____accept: "jsString" } },
                     license: { ____accept: "jsString", ____defaultValue: "MIT" },
                     main: { ____accept: "jsString", ____defaultValue: "index.js" },
+                    devDependencies: {
+                        ____types: [ "jsObject", "jsUndefined" ],
+                        ____asMap: true,
+                        packageName: { ____accept: "jsString", ____description: "Semantic version string." }
+                    },
                     peerDependencies: {
                         ____types: [ "jsObject", "jsUndefined" ],
                         ____asMap: true,
