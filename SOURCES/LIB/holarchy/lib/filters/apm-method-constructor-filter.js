@@ -23,7 +23,7 @@ const factoryResponse = arccore.filter.create({
 
             const irutCheckResponse = arccore.identifier.irut.isIRUT(request_.id);
             if (irutCheckResponse.error || !irutCheckResponse.result) {
-                errors.push("Error validating developer-specified id. Not an IRUT:");
+                errors.push("Error while validating developer-specified id. Not an IRUT:");
                 if (irutCheckResponse.error) {
                     errors.push(irutCheckResponse.error);
                 } else {
@@ -39,7 +39,7 @@ const factoryResponse = arccore.filter.create({
                 inputFilterSpec: request_.ocdDataSpec
             });
             if (filterFactoryResponse.error) {
-                errors.push("Error validating developer-specified APM filter spec.");
+                errors.push("Error while validating developer-specified ocdDataSpec value for APM:");
                 errors.push(filterFactoryResponse.error);
                 break;
             }
@@ -52,7 +52,7 @@ const factoryResponse = arccore.filter.create({
                 description: request_.description
             });
             if (graphFactoryResponse.error) {
-                errors.push("Error constructing directed graph container instance for subcontroller model.");
+                errors.push("Error while constructing directed graph container instance for APM:");
                 errors.push(graphFactoryResponse.error);
                 break;
             }
@@ -62,7 +62,7 @@ const factoryResponse = arccore.filter.create({
             for (let stepName_ in request_.steps) {
                 let stepDescriptor = request_.steps[stepName_];
                 if (apmDigraph.isVertex(stepName_)) {
-                    errors.push("Error while evaluating observable process model step declaration.");
+                    errors.push("Error while evaluating APM step declaration:");
                     errors.push("Invalid duplicate step declaration '" + stepName_ + "'.");
                     break;
                 }
@@ -85,7 +85,7 @@ const factoryResponse = arccore.filter.create({
                 for (let transitionModel of stepDescriptor.transitions) {
 
                     if (!apmDigraph.isVertex(transitionModel.nextStep)) {
-                        errors.push("Error while evalatuing step '" + stepName_ + "'.");
+                        errors.push("Error while evalatuing APM step '" + stepName_ + "' declaration:");
                         errors.push("Invalid transition model specifies unknown next step target '" + transitionModel.nextStep + "'.");
                         break;
                     }
@@ -120,7 +120,6 @@ const factoryResponse = arccore.filter.create({
         }
 
         if (errors.length) {
-            errors.unshift("Error while evaluating subcontroller '" + request_.name + "' declaration.");
             response.error = errors.join(" ");
         }
         return response;

@@ -154,15 +154,30 @@ module.exports = {
         AbstractProcessModel: {
             constructorRequest: require("./lib/filters/iospecs/apm-method-constructor-input-spec")
         },
+
         ControllerAction: {
             constructorRequest: require("./lib/filters/iospecs/cac-method-constructor-input-spec")
         },
+
         TransitionOperator: {
             constructorRequest: require("./lib/filters/iospecs/top-method-constructor-input-spec")
         },
+
         CellModel: {
             constructorRequest: require("./lib/filters/iospecs/cm-method-constructor-input-spec")
-        }
+        },
+
+        // A helper cell type is a filter spec that declares an APM binding to a CellModel intended
+        // to be used as a helper cell process (i.e. a cell process whose lifespan is managed by
+        // a parent cell that is not the Cell Process Manager (CPM).
+        helperCells: {
+
+            cellProcessProxy: {
+                ____types: "jsObject",
+                ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" }
+            }
+        } // helperCells
+
     },
 
     // ================================================================
