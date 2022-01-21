@@ -5,9 +5,8 @@ var holarchy = require("@encapsule/holarchy");
 
 var cellspace = require("../cellspace");
 
-var cmCPPTestMessenger = require("./cellmodel-messenger");
+var cmCPPTestMessenger = require("./cellmodel-messenger"); // const cmCPPTestDroid = require("./cellmodel-droid");
 
-var cmCPPTestDroid = require("./cellmodel-droid");
 
 var connectProxyActionRequest = {
   CellProcessor: {

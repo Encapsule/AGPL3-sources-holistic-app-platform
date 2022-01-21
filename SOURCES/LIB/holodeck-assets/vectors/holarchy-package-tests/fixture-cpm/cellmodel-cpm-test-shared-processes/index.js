@@ -5,7 +5,6 @@ const holarchy = require("@encapsule/holarchy");
 const cellspace = require("../cellspace");
 
 const cmCPPTestMessenger = require("./cellmodel-messenger");
-const cmCPPTestDroid = require("./cellmodel-droid");
 
 const connectProxyActionRequest = {
     CellProcessor: {
@@ -516,7 +515,6 @@ module.exports = new holarchy.CellModel({
     // correctly at runtime in the CellProcessor instance.
     subcells: [
         cmCPPTestMessenger,
-        // cppTestDroid,
         cppTestModel1,
         cppTestModel2,
         cppTestModel2A,
