@@ -1,5 +1,6 @@
 
 const cppTestFixtureCellModel = require("./fixture-cpm");
+
 const cppTestModelSpace = require("./fixture-cpm/cellspace");
 
 const holarchy = require("@encapsule/holarchy");
@@ -166,16 +167,23 @@ module.exports = [
                             }
                         },
                         testActorRequests: [
+
                             {
                                 actRequest: {
                                     actorName: "Test aRXQIZvdSE2rVnqR0HrfYg",
                                     actorTaskDescription: "Activate test cell.",
                                     actionRequest: {
-                                        CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "TQ0j4BIhRQu5SmS-cWxJvQ", instanceName: "root-instance" } } }
+                                        CellProcessor: {
+                                            process: {
+                                                activate: {},
+                                                processCoordinates: { apmID: "TQ0j4BIhRQu5SmS-cWxJvQ", instanceName: "root-instance" }
+                                            }
+                                        }
                                     }
                                 }
                             },
 
+                            /*
                             {
                                 actRequest: {
                                     actorName: "Test aRXQIZvdSE2rVnqR0HrfYg",
@@ -183,16 +191,17 @@ module.exports = [
                                     actionRequest: {
                                         CellProcessor: {
                                             proxy: {
-                                                proxyCoordinates: "#.testNamespace1.testNamespace2",
                                                 connect: {
                                                     processCoordinates: { apmID: "TQ0j4BIhRQu5SmS-cWxJvQ", instanceName: "secondary-instance" }
-                                                }
+                                                },
+                                                proxyCoordinates: "#.testNamespace1.testNamespace2"
                                             }
                                         }
                                     },
                                     apmBindingPath: { apmID: "TQ0j4BIhRQu5SmS-cWxJvQ", instanceName: "root-instance" }
                                 }
                             },
+                            */
 
                             {
                                 actRequest: {
