@@ -111,7 +111,9 @@ module.exports = [
 
                             {
                                 // TODO: THIS IS WRONG! THIS TEST SHOULD PASS. THERE IS WHERE I LEFT OFF WHEN I WENT TO LOCK DOWN CELLPROCESS TEST HARNESS
+
                                 options: { failTestIf: { CellProcessor: { evaluateError: "fail-if-opc-no-errors" } } },
+
                                 actRequest: {
                                     actorName: "CPM Shared Process Test #3",
                                     actorTaskDescription: "Start a test process.",
@@ -134,89 +136,5 @@ module.exports = [
         }
     },
 
-    {
-        id: "aRXQIZvdSE2rVnqR0HrfYg",
-        name: "CPM Shared Process Test #4",
-        description: "Coming back to this and taking a closer look at CellProcessProxy (CPP) (part 1).",
-        vectorRequest: {
-            holistic: {
-                holarchy: {
-                    CellProcessor: {
-                        constructorRequest: {
-                            id: "mtzaOOxAQcaaN_-9CqgZOw", // This is a the CellProcessor instance ID
-                            name: "CPM Shared Process Test #4",
-                            description: "Try to use a CellProcessProxy cell embedded as a helper in a parent cell process (part 1).",
-                            cellmodel: {
-                                id: "xXfx_svjT363tD-optUHog", // This is a the CellModel instance ID
-                                name: "CellModel for aRXQIZvdSE2rVnqR0HrfYg Test",
-                                description: "A top-level CellModel instance for test aRXQIZvdSE2rVnqR0HrfYg.",
-                                apm: {
-                                    id: "TQ0j4BIhRQu5SmS-cWxJvQ", // AbstractProcessModel instance ID
-                                    name: "AbstractProcessModel for aRXQIZvdSE2rVnqR0HrfYg Test",
-                                    description: "A top-level AbstractProcessModel for test aRXQIZvdSE2rVnqR0HrfYg.",
-                                    ocdDataSpec: {
-                                        ____types: "jsObject",
-                                        ____defaultValue: {},
-                                        testNamespace1: {
-                                            ____types: "jsObject",
-                                            ____defaultValue: {},
-                                            testNamespace2: holarchy.appTypes.helperCells.cellProcessProxy
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        testActorRequests: [
-
-                            {
-                                actRequest: {
-                                    actorName: "Test aRXQIZvdSE2rVnqR0HrfYg",
-                                    actorTaskDescription: "Activate test cell.",
-                                    actionRequest: {
-                                        CellProcessor: {
-                                            process: {
-                                                activate: {},
-                                                processCoordinates: { apmID: "TQ0j4BIhRQu5SmS-cWxJvQ", instanceName: "root-instance" }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-
-                            /*
-                            {
-                                actRequest: {
-                                    actorName: "Test aRXQIZvdSE2rVnqR0HrfYg",
-                                    actorTaskDescription: "Attempt to connect a Cell Process Proxy helper cell that's declared at two levels below its parent cell.",
-                                    actionRequest: {
-                                        CellProcessor: {
-                                            proxy: {
-                                                connect: {
-                                                    processCoordinates: { apmID: "TQ0j4BIhRQu5SmS-cWxJvQ", instanceName: "secondary-instance" }
-                                                },
-                                                proxyCoordinates: "#.testNamespace1.testNamespace2"
-                                            }
-                                        }
-                                    },
-                                    apmBindingPath: { apmID: "TQ0j4BIhRQu5SmS-cWxJvQ", instanceName: "root-instance" }
-                                }
-                            },
-                            */
-
-                            {
-                                actRequest: {
-                                    actorName: "Test aRXQIZvdSE2rVnqR0HrfYg",
-                                    actorTaskDescription: "Deactivate test cell.",
-                                    actionRequest: {
-                                        CellProcessor: { process: { deactivate: {}, processCoordinates: { apmID: "TQ0j4BIhRQu5SmS-cWxJvQ", instanceName: "root-instance" } } }
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-        } // vectorRequest
-    } // holodeck test request
 
 ];
