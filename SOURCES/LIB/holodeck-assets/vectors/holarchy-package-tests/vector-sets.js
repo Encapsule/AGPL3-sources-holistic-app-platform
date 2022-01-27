@@ -39,6 +39,8 @@ module.exports = [
     require("./vector-set-cpm-proxy-tests"),
 
     require("./vector-set-cmas-base-constructor"),
-    require("./vector-set-cmas-base-a-vs-b-invariants")
+    require("./vector-set-cmas-base-a-vs-b-invariants"),
+
+    require("./vector-set-cpm-proxy-tests/")
 
 ];
