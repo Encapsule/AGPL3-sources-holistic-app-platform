@@ -12,24 +12,26 @@ const arccore = require("@encapsule/arccore");
         inputFilterSpec: {
             ____label: "Get Namespace In Reference From Path Request",
             ____types: "jsObject",
+
             namespacePath: {
                 ____label: "Filter-Format Namespace Path",
                 ____description: "A dot-delimited namespace path beginning with `~` (indicates anonymous root namespace).",
                 ____accept: "jsString"
             },
+
             dataRef: {
                 ____label: "Source Data Reference",
                 ____description: "A reference to the source data in which to locate the specified namespace. ",
                 ____accept: [
                     "jsNumber", "jsString", "jsBoolean", "jsObject", "jsArray", // Always one of these UNLESS the intent is to retrieve a filter spec namespace descriptor object by namespacePath from specRef.
                               "jsUndefined" // Ignore dataRef and parse only specRef.
-                            ]
+                ]
             },
+
             specRef: {
                 ____label: "Source Spec Reference",
                 ____description: "A reference to the source filter specification descriptor object. Iff dataRef === undefined, then this filter returns the filter spec namespace descriptor object reference corresponding to namespacePath.",
                 ____accept: "jsObject" // This filter presumes specRef to be a reference to a valid filter spec namespace descriptor object (or object tree). But, it does not itself validate this presumption.
-                // ____defaultValue: {} // TODO: Remove this --- it's not optional that the caller specify specRef. We're just not quite there yet.
             },
 
             cellProxyOptions: {
@@ -37,6 +39,7 @@ const arccore = require("@encapsule/arccore");
                 ____description: "Options descriptor object considered only when both dataRef and specRef are specified (i.e. this filter is attempting to resolve a data namespace reference from namespacePath).",
                 ____types: "jsObject",
                 ____defaultValue: {},
+
                 resolveMode: {
                     ____label: "Proxy Resolve Mode",
                     ____description: "The only OCD client that should ever override the default value is CellProcessProxy CellModel implementation. Everyone else should always take the default value.",
@@ -48,12 +51,14 @@ const arccore = require("@encapsule/arccore");
                     ],
                     ____defaultValue: "resolve-entire-proxy-chain" // WARNING: This override is provided explicitly for CellProcessProxy CellModel artifacts. No other client of OCD (direct or otherwise) should ever override this value.
                 },
+
                 indirectionCount: {
                     ____label: "Proxy Indirection Count",
                     ____description: "Never touch this. Not ever. It's only used by this filter itself to call itself when resolving a proxy.",
                     ____accept: "jsNumber",
                     ____defaultValue: 0
                 },
+
                 maxIndirections: {
                     ____label: "Max Proxy Indirections",
                     ____description: "The maximum number of connected CellProcessProxy instances that may be resolved in a single request. In general, it's rare to use more than 2-3 levels of proxy indirection. So, hitting the max limit typically indicates an unresolvable cycle in proxy connections.",
@@ -61,7 +66,9 @@ const arccore = require("@encapsule/arccore");
                     ____inRangeInclusive: { begin: 0, end: 16 },
                     ____defaultValue: 8
                 }
+
             }
+
         },
 
         outputFilterSpec: {
@@ -134,8 +141,8 @@ const arccore = require("@encapsule/arccore");
                         let actualType = arccore.types.convert({ from: "jsReference", to: "jsMoniker", value: specRef}).result;
                         let resolvedPath = resolvedPathTokens.join(".");
                         errors.push("Failed to resolve namespace path '" + request_.namespacePath + "':");
-                        errors.push("Expected namespace '" + resolvedPath + "' to be either an array or object so that we can dereference the next namespace token '" + token + "'.");
-                        errors.push("But, '" + resolvedPath + "' is actually an \"" + actualType + "\" entity type that does not have subnamespaces.");
+                        errors.push("Expected namespace '" + resolvedPath + "' to be either an array or object value type.");
+                        errors.push("But, '" + resolvedPath + "' is actually an \"" + actualType + "\" value type.");
                         break;
                     }
 
@@ -152,8 +159,8 @@ const arccore = require("@encapsule/arccore");
                             let actualType = arccore.types.convert({ from: "jsReference", to: "jsMoniker", value: dataRef}).result;
                             let resolvedPath = resolvedPathTokens.join(".");
                             errors.push("Failed to resolve namespace path '" + request_.namespacePath + "':");
-                            errors.push("Expected namespace '" + resolvedPath + "' to be either an array or object so that we can dereference the next namespace token '" + token + "'.");
-                            errors.push("But, '" + resolvedPath + "' is actually an \"" + actualType + "\" entity type that does not have subnamespaces.");
+                            errors.push("Expected namespace '" + resolvedPath + "' to be either an array or object value type.");
+                            errors.push("But, '" + resolvedPath + "' is actually an \"" + actualType + "\" value type.");
                             break;
                         }
                     }

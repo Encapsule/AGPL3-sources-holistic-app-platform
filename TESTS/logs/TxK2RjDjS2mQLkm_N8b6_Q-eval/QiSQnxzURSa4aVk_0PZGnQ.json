@@ -115,13 +115,6 @@
                   },
                   "testActorRequests": [
                     {
-                      "options": {
-                        "failTestIf": {
-                          "CellProcessor": {
-                            "evaluateError": "fail-if-opc-no-errors"
-                          }
-                        }
-                      },
                       "actRequest": {
                         "actorName": "CPM Shared Process Test #3",
                         "actorTaskDescription": "Start a test process.",
@@ -5285,14 +5278,14 @@
                         "failTestIf": {
                           "CellProcessor": {
                             "actionError": "fail-if-action-error",
-                            "evaluateError": "fail-if-opc-no-errors"
+                            "evaluateError": "fail-if-opc-has-errors"
                           }
                         }
                       },
                       "testHarnessActionSummary": {
                         "testDisposition": "TEST PASS",
                         "actionRequest": "PASS",
-                        "postActionCellProcessorEval": "FAIL"
+                        "postActionCellProcessorEval": "PASS"
                       },
                       "testHarnessActionDispatch": {
                         "actRequest": {
@@ -5321,9 +5314,9 @@
                               "summary": {
                                 "counts": {
                                   "bindings": 1,
-                                  "frames": 1,
-                                  "errors": 1,
-                                  "transitions": 0
+                                  "frames": 2,
+                                  "errors": 0,
+                                  "transitions": 1
                                 }
                               },
                               "evalFrames": [
@@ -5331,14 +5324,14 @@
                                   "summary": {
                                     "counts": {
                                       "bindings": 1,
-                                      "transitions": 0,
-                                      "errors": 1
+                                      "transitions": 1,
+                                      "errors": 0
                                     },
                                     "reports": {
-                                      "transitions": [],
-                                      "errors": [
+                                      "transitions": [
                                         "f6twhe_Rw0JINaXi5wLAfQ"
-                                      ]
+                                      ],
+                                      "errors": []
                                     }
                                   },
                                   "bindings": {
@@ -5357,8 +5350,8 @@
                                         }
                                       },
                                       "evalResponse": {
-                                        "status": "error",
-                                        "finishStep": "uninitialized",
+                                        "status": "transitioned",
+                                        "finishStep": "finished",
                                         "phases": {
                                           "p1_toperator": [
                                             {
@@ -5399,23 +5392,56 @@
                                                 }
                                               },
                                               "response": {
-                                                "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Invalid action request rejected by selected ControllerAction plug-in with error: Filter [wB5QKMYtS7yY2-v7Y3tGWA::Cell Process Manager: ControllerAction Request Delegate To Cell] failed while performing main operation. Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Invalid action request rejected by selected ControllerAction plug-in with error: Filter [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy] failed while performing main operation. Unsupported connection request on CellProcessProxy helper cell at path '~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate.proxyTest' that is declared at namespace height 5 > 2 relative to its owning cell process. NOTE: I am working to remove this restriction now..."
+                                                "error": null,
+                                                "result": {
+                                                  "actionResult": {
+                                                    "host": {
+                                                      "apmBindingPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                                      "processID": "p-9ow7wWMaS8bMpr6Xg_yA"
+                                                    },
+                                                    "proxy": {
+                                                      "apmBindingPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate.proxyTest",
+                                                      "proccessID": "TpErdmXNJukqnuYUZ2RYwQ"
+                                                    },
+                                                    "connected": {
+                                                      "apmBindingPath": "~.blVAl6l4wc87xvb0Bgdidg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                                      "processID": "n6Jow1StMaRPdcprPTY_yA"
+                                                    }
+                                                  }
+                                                }
                                               }
                                             }
                                           ],
                                           "p3_enter": [],
-                                          "p4_finalize": null
+                                          "p4_finalize": {
+                                            "error": null,
+                                            "result": "finished"
+                                          }
                                         },
                                         "errors": {
                                           "p1_toperator": 0,
-                                          "p2_exit": 1,
+                                          "p2_exit": 0,
                                           "p3_enter": 0,
                                           "p4_finalize": 0,
-                                          "total": 1
+                                          "total": 0
                                         }
                                       }
                                     }
                                   }
+                                },
+                                {
+                                  "summary": {
+                                    "counts": {
+                                      "bindings": 0,
+                                      "transitions": 0,
+                                      "errors": 0
+                                    },
+                                    "reports": {
+                                      "transitions": [],
+                                      "errors": []
+                                    }
+                                  },
+                                  "bindings": {}
                                 }
                               ]
                             }
@@ -5453,11 +5479,16 @@
                                         "instanceName": null
                                       },
                                       "proxyTest": {
-                                        "CPPU-UPgS8eWiMap3Ixovg_private": {},
+                                        "CPPU-UPgS8eWiMap3Ixovg_private": {
+                                          "lcpRequest": {
+                                            "apmID": "blVAl6l4wc87xvb0Bgdidg",
+                                            "instanceName": "singleton"
+                                          },
+                                          "lcpConnect": "~.blVAl6l4wc87xvb0Bgdidg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                        },
                                         "__apmiStep": "uninitialized"
                                       },
-                                      "__apmiStep": "uninitialized",
-                                      "__apmiEvalError": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Invalid action request rejected by selected ControllerAction plug-in with error: Filter [wB5QKMYtS7yY2-v7Y3tGWA::Cell Process Manager: ControllerAction Request Delegate To Cell] failed while performing main operation. Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Invalid action request rejected by selected ControllerAction plug-in with error: Filter [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy] failed while performing main operation. Unsupported connection request on CellProcessProxy helper cell at path '~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate.proxyTest' that is declared at namespace height 5 > 2 relative to its owning cell process. NOTE: I am working to remove this restriction now..."
+                                      "__apmiStep": "finished"
                                     }
                                   },
                                   "__apmiStep": "uninitialized"
@@ -5470,12 +5501,16 @@
                           "revision": 1
                         },
                         "blVAl6l4wc87xvb0Bgdidg_CellProcesses": {
-                          "cellProcessMap": {},
-                          "revision": 0
+                          "cellProcessMap": {
+                            "4ODg4BoaGhqkpKSkX19fXw": {
+                              "__apmiStep": "uninitialized"
+                            }
+                          },
+                          "revision": 1
                         },
                         "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                           "ownedCellProcesses": {
-                            "revision": 1,
+                            "revision": 2,
                             "digraph": {
                               "name": "Owned Cell Processes Tree Model",
                               "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -5494,6 +5529,14 @@
                                     "role": "cell-process",
                                     "apmID": "XP3yxl1ciE5MsHkhdn5iQQ"
                                   }
+                                },
+                                {
+                                  "u": "n6Jow1StMaRPdcprPTY_yA",
+                                  "p": {
+                                    "apmBindingPath": "~.blVAl6l4wc87xvb0Bgdidg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                    "role": "cell-process",
+                                    "apmID": "blVAl6l4wc87xvb0Bgdidg"
+                                  }
                                 }
                               ],
                               "elist": [
@@ -5502,17 +5545,64 @@
                                     "u": "U1NTU1paWlqwsLCwxMTExA",
                                     "v": "p-9ow7wWMaS8bMpr6Xg_yA"
                                   }
+                                },
+                                {
+                                  "e": {
+                                    "u": "U1NTU1paWlqwsLCwxMTExA",
+                                    "v": "n6Jow1StMaRPdcprPTY_yA"
+                                  }
                                 }
                               ]
                             }
                           },
                           "sharedCellProcesses": {
-                            "revision": 0,
+                            "revision": 1,
                             "digraph": {
                               "name": "Shared Cell Processes Digraph Model",
                               "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
+                              "vlist": [
+                                {
+                                  "u": "p-9ow7wWMaS8bMpr6Xg_yA",
+                                  "p": {
+                                    "role": "owned",
+                                    "apmBindingPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                  }
+                                },
+                                {
+                                  "u": "TpErdmXNJukqnuYUZ2RYwQ",
+                                  "p": {
+                                    "role": "owned-proxy",
+                                    "apmBindingPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate.proxyTest"
+                                  }
+                                },
+                                {
+                                  "u": "n6Jow1StMaRPdcprPTY_yA",
+                                  "p": {
+                                    "role": "shared",
+                                    "apmBindingPath": "~.blVAl6l4wc87xvb0Bgdidg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                  }
+                                }
+                              ],
+                              "elist": [
+                                {
+                                  "e": {
+                                    "u": "p-9ow7wWMaS8bMpr6Xg_yA",
+                                    "v": "TpErdmXNJukqnuYUZ2RYwQ"
+                                  },
+                                  "p": {
+                                    "role": "host-to-proxy"
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "TpErdmXNJukqnuYUZ2RYwQ",
+                                    "v": "n6Jow1StMaRPdcprPTY_yA"
+                                  },
+                                  "p": {
+                                    "role": "proxy-to-shared"
+                                  }
+                                }
+                              ]
                             }
                           },
                           "__apmiStep": "ready"
@@ -5608,11 +5698,11 @@
                         },
                         "blVAl6l4wc87xvb0Bgdidg_CellProcesses": {
                           "cellProcessMap": {},
-                          "revision": 0
+                          "revision": 2
                         },
                         "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                           "ownedCellProcesses": {
-                            "revision": 2,
+                            "revision": 4,
                             "digraph": {
                               "name": "Owned Cell Processes Tree Model",
                               "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -5629,7 +5719,7 @@
                             }
                           },
                           "sharedCellProcesses": {
-                            "revision": 0,
+                            "revision": 2,
                             "digraph": {
                               "name": "Shared Cell Processes Digraph Model",
                               "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",

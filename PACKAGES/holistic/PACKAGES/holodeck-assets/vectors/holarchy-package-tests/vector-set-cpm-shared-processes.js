@@ -157,14 +157,9 @@ module.exports = [{
             }).result
           },
           testActorRequests: [{
-            // TODO: THIS IS WRONG! THIS TEST SHOULD PASS. THERE IS WHERE I LEFT OFF WHEN I WENT TO LOCK DOWN CELLPROCESS TEST HARNESS
-            options: {
-              failTestIf: {
-                CellProcessor: {
-                  evaluateError: "fail-if-opc-no-errors"
-                }
-              }
-            },
+            // THERE IS WHERE I LEFT OFF WHEN I WENT TO LOCK DOWN CELLPROCESS TEST HARNESS
+            // v0.2.9-firestorm restriction on cell process proxy helper cell depth has been lifted.
+            // options: { failTestIf: { CellProcessor: { evaluateError: "fail-if-opc-no-errors" } } },
             actRequest: {
               actorName: "CPM Shared Process Test #3",
               actorTaskDescription: "Start a test process.",

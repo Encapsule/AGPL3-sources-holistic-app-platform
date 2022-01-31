@@ -12,7 +12,11 @@
             description: "Includes a cm-test-wrapper-D cell as a helper.",
             ocdDataSpec: {
                 ____types: "jsObject",
-                ____appdsl: { apm: "xStE95jnR6u1IJeLznmyxw" } // APM for cm-test-wrapper-C
+                ____defaultValue: {},
+                wrapperC: {
+                    ____types: "jsObject",
+                    ____appdsl: { apm: "xStE95jnR6u1IJeLznmyxw" } // APM for cm-test-wrapper-C
+                }
             }
         },
         subcells: [
