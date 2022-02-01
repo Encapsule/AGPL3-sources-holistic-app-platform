@@ -50,8 +50,92 @@
                                         }
                                     },
                                     apmBindingPath: { apmID: "N6y8PUKiQ_yaW-0vDsQVhA", instanceName: "primary" }
-
                                 } // actRequest
+                            }, // testActorRequest
+
+                            {
+                                actRequest: {
+                                    actorName: "Test d9zubWjfQnOX6DigaBbV6w",
+                                    actorTaskDescription: "Disconnect the cell process proxy from shared cell process.",
+                                    actionRequest: {
+                                        CellProcessor: {
+                                            proxy: {
+                                                proxyCoordinates: "#.proxy",
+                                                disconnect: {}
+                                            }
+                                        }
+                                    },
+                                    apmBindingPath: { apmID: "N6y8PUKiQ_yaW-0vDsQVhA", instanceName: "primary" }
+                                }, // actRequest
+                            }, // testActorRequest
+
+                            {
+                                actRequest: {
+                                    actorName: "Test d9zubWjfQnOX6DigaBbV6w",
+                                    actorTaskDescription: "Activate an owned secondary child cell process.",
+                                    actionRequest: {
+                                        CellProcessor: {
+                                            process: {
+                                                activate: { processData: { /*default*/ } },
+                                                processCoordinates: {  apmID: "N6y8PUKiQ_yaW-0vDsQVhA", instanceName: "secondary" }
+                                            }
+                                        }
+                                    },
+                                    apmBindingPath: { apmID: "N6y8PUKiQ_yaW-0vDsQVhA", instanceName: "primary" }
+                                } // actRequest
+                            }, // testActorRequest
+
+                            {
+
+                                actRequest: {
+                                    actorName: "Test d9zubWjfQnOX6DigaBbV6w",
+                                    actorTaskDescription: "Connect the primary test cell's proxy to the secondary owned test cell.",
+                                    actionRequest: {
+                                        CellProcessor: {
+                                            proxy: {
+                                                proxyCoordinates: "#.proxy",
+                                                connect: {
+                                                    processCoordinates: {  apmID: "N6y8PUKiQ_yaW-0vDsQVhA", instanceName: "secondary" }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    apmBindingPath: { apmID: "N6y8PUKiQ_yaW-0vDsQVhA", instanceName: "primary" }
+                                }
+
+                            }, // testActorRequest
+
+                            {
+                                actRequest: {
+                                    actorName: "Test d9zubWjfQnOX6DigaBbV6w",
+                                    actorTaskDescription: "Attempt to destroy the secondary owned cell process w/the proxy connected.",
+                                    actionRequest: {
+                                        CellProcessor: {
+                                            process: {
+                                                processCoordinates: {  apmID: "N6y8PUKiQ_yaW-0vDsQVhA", instanceName: "secondary" },
+                                                deactivate: {}
+                                            }
+                                        }
+                                    }
+                                } // actRequest
+                            }, // testActorRequest
+
+                            {
+                                actRequest: {
+                                    actorName: "Test d9zubWjfQnOX6DigaBbV6w",
+                                    actorTaskDescription: "Connect the primary test cell's proxy to secondary shared cell.",
+                                    actionRequest: {
+                                        CellProcessor: {
+                                            proxy: {
+                                                proxyCoordinates: "#.proxy",
+                                                connect: {
+                                                    processCoordinates: {  apmID: "N6y8PUKiQ_yaW-0vDsQVhA", instanceName: "secondary" },
+                                                }
+                                            }
+                                        }
+                                    },
+                                    apmBindingPath: { apmID: "N6y8PUKiQ_yaW-0vDsQVhA", instanceName: "primary" }
+                                }
                             }, // testActorRequest
 
                             {

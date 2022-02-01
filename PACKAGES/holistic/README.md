@@ -7,9 +7,9 @@ _Encapsule Project is a quest to define a universal protocol for domain-specific
 # ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;Holistic App Platform v0.2.9-firestorm
 
 ```
-Package: @encapsule/holistic v0.2.9-firestorm build ID "jG3RF0FGQcS7wBIeADvwGw"
-Sources: @encapsule/holodev#7f1e7bcd7ccb9c6893859f47b16275901a7f013c
-Created: 2022-01-31T13:12:05.000Z // License: MIT
+Package: @encapsule/holistic v0.2.9-firestorm build ID "wdzD_gOpSKqiEEjgEwAXpQ"
+Sources: @encapsule/holodev#de01655766ebb137c54fbbfef96a4e2313c63504
+Created: 2022-01-31T22:33:00.000Z // License: MIT
 Purpose: tools // Environment: Node.js
 ```
 
