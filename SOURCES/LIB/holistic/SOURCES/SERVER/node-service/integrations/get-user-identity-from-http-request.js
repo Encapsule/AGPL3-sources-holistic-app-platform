@@ -8,7 +8,7 @@
 const userIdentityCookieName = "holistic-user-session";
 
 module.exports = function(request_) {
-    console.log("..... " + this.operationID + "::" + this.operationName);
+    console.log("..... " + this.filterDescriptor.operationID + "::" + this.filterDescriptor.operationName);
     var response = { error: null, result: undefined }; // If returned unmodified this defaults to anonymous user session (i.e. not authenticated).
     var errors = [];
     var inBreakScope = false;

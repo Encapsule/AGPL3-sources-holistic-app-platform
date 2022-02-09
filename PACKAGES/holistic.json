@@ -1,7 +1,7 @@
 {
     "name": "holistic",
     "description": "@encapsule/holistic is a domain engineering toolkit for building distributed applications and interactive UX from reusable software models.",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "codename": "snowpack",
     "author": "Encapsule",
     "copyright": {
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "iC7coXcVSR653n8x7_Qn3Q",
-    "buildSource": "5a37946fd745a5eaf6de80fed332cd5112fb1e6f",
-    "buildTime": 1643996583,
-    "buildDateISO": "2022-02-04T17:43:03.000Z"
+    "buildID": "sNtRFZUBRyC3qishMGkmew",
+    "buildSource": "3eafb6ba173e9fd6c41a267d87603d269b70ca48",
+    "buildTime": 1644436495,
+    "buildDateISO": "2022-02-09T19:54:55.000Z"
 }
