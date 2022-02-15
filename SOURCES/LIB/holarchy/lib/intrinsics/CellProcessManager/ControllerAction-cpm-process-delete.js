@@ -43,7 +43,7 @@ const controllerAction = new ControllerAction({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            console.log(`[${this.operationID}::${this.operationName}] action start...`);
+            console.log(`[${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}] action start...`);
 
             const messageBody = request_.actionRequest.CellProcessor.process;
 
@@ -224,7 +224,7 @@ const controllerAction = new ControllerAction({
         if (errors.length) {
             response.error = errors.join(" ");
         }
-        console.log(`[${this.operationID}::${this.operationName}] action completed w/status '${response.error?"ERROR":"SUCCESS"}'.`);
+        console.log(`[${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}] action completed w/status '${response.error?"ERROR":"SUCCESS"}'.`);
         return response;
     }
 

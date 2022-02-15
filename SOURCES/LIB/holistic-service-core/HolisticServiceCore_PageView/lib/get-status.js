@@ -41,7 +41,7 @@ const factoryResponse = arccore.filter.create({
 
             // Get information about this process activation from cell process manager.
 
-            const actorName = `[${this.operationID}::${this.operationName}]`;
+            const actorName = `[${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}]`;
 
             let actResponse = request_.context.act({
                 actorName,

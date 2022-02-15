@@ -46,7 +46,7 @@
             let inBreakScope = false;
             while (!inBreakScope) {
                 inBreakScope = true;
-                console.log(`[${this.operationID}::${this.operationName}] called on provider cell "${actionRequest_.context.apmBindingPath}"`);
+                console.log(`[${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}] called on provider cell "${actionRequest_.context.apmBindingPath}"`);
                 const messageBody = actionRequest_.actionRequest.holarchy.common.actions.ObservableValue.readValue;
 
                 // Ensure the existence of the "provider cell" (the cell that is either itself the ObservableValue

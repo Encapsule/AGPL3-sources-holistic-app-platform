@@ -56,7 +56,7 @@ const action = new holarchy.ControllerAction({
             }
             let cellStatus = libResponse.result;
             const messageBody = request_.actionRequest.holistic.service.view.page._private.stepWorker;
-            const actorName = `[${this.operationID}::${this.operationName}`;
+            const actorName = `[${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}`;
 
             let actResponse;
             let ocdResponse;

@@ -52,7 +52,7 @@ const controllerAction = new holarchy.ControllerAction({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const actorName = `[${this.operationID}::${this.operationName}]`;
+            const actorName = `[${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}]`;
             console.log(`${actorName} processing OPC cell plane error via Cell Process Manager process.`);
 
             // This action is called by the CellProcessor's Cell Process Manager process that does

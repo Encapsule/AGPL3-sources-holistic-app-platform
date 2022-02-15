@@ -27,7 +27,7 @@ const opcMethodActOutputSpec = require("./iospecs/opc-method-act-output-spec");
             let inBreakScope = false;
             while (!inBreakScope) {
                 inBreakScope = true;
-                const actorName = `[${this.operationID}::${this.operationName}]`;
+                const actorName = `[${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}]`;
                 const opcActResponse = externalActorRequest_.opcRef.act(externalActorRequest_);
                 let opcActResponse2 = null;
                 response = opcActResponse; // Change no external API behavior.

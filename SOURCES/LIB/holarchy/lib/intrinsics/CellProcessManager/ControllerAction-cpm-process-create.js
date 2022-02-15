@@ -51,7 +51,7 @@ const controllerAction = new ControllerAction({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            console.log(`[${this.operationID}::${this.operationName}] starting...`);
+            console.log(`[${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}] starting...`);
 
             // Read shared memory to retrieve a reference to the CPM's private process management data.
             let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });

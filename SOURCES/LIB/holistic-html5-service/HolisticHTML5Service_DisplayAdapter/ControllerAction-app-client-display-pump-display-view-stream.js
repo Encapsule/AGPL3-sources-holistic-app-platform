@@ -55,7 +55,7 @@
                 console.log("================================================================");
                 console.log("================================================================");
                 console.log("================================================================");
-                console.log(`[${this.operationID}::${this.operationName}] attempting to update display layout due to detected chanage(s)...`);
+                console.log(`[${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}] attempting to update display layout due to detected chanage(s)...`);
 
                 // Get our cell memory and process data.
 
@@ -132,7 +132,7 @@
                     break;
                 }
 
-                console.log(`[${this.operationID}::${this.operationName}] display process tree update ${cellMemory.displayUpdateCount} complete.`);
+                console.log(`[${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}] display process tree update ${cellMemory.displayUpdateCount} complete.`);
                 console.log("================================================================");
                 console.log("================================================================");
                 console.log("================================================================");

@@ -64,7 +64,7 @@ const controllerAction = new holarchy.ControllerAction({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const actorName = `[${this.operationID}::${this.operationName}]`;
+            const actorName = `[${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}]`;
             const messageBody = request_.actionRequest.holistic.app.client.kernel._private.stepWorker;
             console.log(`${actorName} processing "${messageBody.action}" request on behalf of app client kernel process.`);
 

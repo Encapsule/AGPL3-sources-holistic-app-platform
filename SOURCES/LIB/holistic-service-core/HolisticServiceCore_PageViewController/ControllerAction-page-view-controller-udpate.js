@@ -61,7 +61,7 @@ const holarchy = require("@encapsule/holarchy");
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                const actorName = `[${this.operationID}::${this.operationName}]`;
+                const actorName = `[${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}]`;
 
                 // Cache miss? Where is the PageViewController cell process in the cellplane?
                 if (!cachedPageViewControllerProcessQuery) {

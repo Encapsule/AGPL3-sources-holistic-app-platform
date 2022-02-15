@@ -40,7 +40,7 @@ const controllerAction = new ControllerAction({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const actorName = `[${this.operationID}::${this.operationName}]`;
+            const actorName = `[${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}]`;
             console.log(`${actorName} processing cell plane error notification from OPC.`);
 
             /*

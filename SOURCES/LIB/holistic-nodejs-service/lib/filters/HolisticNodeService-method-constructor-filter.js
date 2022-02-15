@@ -40,7 +40,7 @@ const factoryResponse = arccore.filter.create({
     inputFilterSpec,
     outputFilterSpec,
     bodyFunction: function(request_) {
-        console.log(`HolisticNodeService::constructor [${this.operationID}::${this.operationName}]`);
+        console.log(`HolisticNodeService::constructor [${this.filterDescriptor.operationID}::${this.filterDescriptor.operationName}]`);
         let response = {
             error: null,
             result: {
