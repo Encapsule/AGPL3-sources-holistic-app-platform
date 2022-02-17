@@ -6,9 +6,9 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "KVKRc3t3RtSuzmYvQXAr6w",
-    "buildSource": "4d3d457f184a33e53db7bc80cc12e313459d0934",
-    "buildTime": 1644939332,
+    "buildID": "wI5PViGBT-iLfASDqcYC2Q",
+    "buildSource": "7e54d32437759b6c073a2442de6693c481cc0d03",
+    "buildTime": 1645110900,
     "codename": "snowpack",
     "contributors": [
         {
@@ -40,5 +40,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.3.2"
+    "version": "0.3.3"
 }
