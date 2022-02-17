@@ -49,13 +49,16 @@ const factoryResponse = d2r2.ComponentFactory.request({
                 const textColorMessage = "white";
                 const textColorEnvironment = color(backgroundColor).darken(0.03).hex();
 
-                const textColorVersion = color(backgroundColor).lighten(0.2).hex();
-                const textColorVersionShadow = color(backgroundColor).darken(0.2).hex();
+                const textColorVersion = color(backgroundColor).darken(0.05).hex();
+                const textColorVersionShadow = color(backgroundColor).darken(0.25).hex();
 
+                // Application name...
                 flexContent.push(<div key={makeKey()} style={{ fontFamily: "Play", fontSize: "8vw", fontWeight: "bold", color: textColorMain, paddingBottom: "1.3vw" }}>{messageBody.appBuild.app.name}</div>);
 
+                // Application load status...
                 flexContent.push(<div key={makeKey()} style={{ fontFamily: "Nunito", fontSize: "3vw", fontWeight: "bold", color: textColorMessage, textShadow: `0px 0px 0.5vw ${color(backgroundColor).darken(0.25).hex()}` }}>{statusMessage}</div>);
 
+                // Application load spinner...
                 if (this.props.renderContext.serverRender) {
                     flexContent.push(<div key={makeKey()} className="spinner-fast" />);
                 } else {
@@ -85,42 +88,42 @@ const factoryResponse = d2r2.ComponentFactory.request({
                 }
 
 
-                // Environment
+                // Application deployment environment...
                 content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
-                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh", width: "100vw", backgroundColor }}>
+                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh", width: "100vw" }}>
                                  <div style={{ fontFamily: "Play", fontSize: "6vw", color: textColorEnvironment }}><strong>{messageBody.deploymentEnvironment} environment</strong></div>
                              </div>
                              </div>
                             );
 
-                // App name / message / spinner
+                // Application name / message / spinner black
                 content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
                              <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh", width: "100vw" }}>{flexContent}</div>
                              </div>
                             );
 
-                // App version
-                content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
+                // Application version
+                content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px", zIndex: 1 }}>
                              <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", height: "100vh", width: "100vw" }}>
                              <div style={{ fontFamily: "Play", fontSize: "1.25vw", color: textColorVersion, padding: "1vw", textShadow: `-1px -1px 1px ${textColorVersionShadow}` }}>
-                             <strong>@{messageBody.appBuild.app.author}/{messageBody.appBuild.app.name} v{messageBody.appBuild.app.version}-{messageBody.appBuild.app.codename}</strong>{' // '}{messageBody.appBuild.app.buildID}{' // '}{messageBody.appBuild.app.buildSource}<br/>
+                             <strong>@{messageBody.appBuild.app.author}/{messageBody.appBuild.app.name} v{messageBody.appBuild.app.version}-{messageBody.appBuild.app.codename}</strong>&nbsp;&#x2BCE;&nbsp;{messageBody.appBuild.app.buildID}&nbsp;&#x2BCF;&nbsp;{messageBody.appBuild.app.buildSource}<br/>
                              </div>
                              </div>
                              </div>
                             );
 
                 // Platform version
-                content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px" }}>
+                content.push(<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px", zIndex: 1 }}>
                              <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end", alignItems: "flex-end", height: "100vh", width: "100vw", textAlign: "right" }}>
                              <div style={{ fontFamily: "Play", fontSize: "1.25vw", color: textColorVersion, padding: "1vw", textShadow: `-1px -1px 1px ${textColorVersionShadow}` }}>
-                             <strong>@{messageBody.appBuild.platform.app.author}/{messageBody.appBuild.platform.app.name} v{messageBody.appBuild.platform.app.version}-{messageBody.appBuild.platform.app.codename}</strong>{' // '}{messageBody.appBuild.platform.app.buildID}{' // '}{messageBody.appBuild.platform.app.buildSource}<br/>
+                             <strong>@{messageBody.appBuild.platform.app.author}/{messageBody.appBuild.platform.app.name} v{messageBody.appBuild.platform.app.version}-{messageBody.appBuild.platform.app.codename}</strong>&nbsp;&#x2BCE;&nbsp;{messageBody.appBuild.platform.app.buildID}&nbsp;&#x2BCF;&nbsp;{messageBody.appBuild.platform.app.buildSource}<br/>
                              </div>
                              </div>
                              </div>
                             );
 
 
-                return (<div key={makeKey()}>{content}</div>);
+                return (<div key={makeKey()} style={{ position: "fixed", top: "0px", left: "0px", width: "100%", height: "100%", backgroundColor }}>{content}</div>);
 
                 // ================================================================
                 // EXPERIMENTAL CODE (please keep).

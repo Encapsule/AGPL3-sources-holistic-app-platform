@@ -5,9 +5,8 @@
     // const userSessionAccessor = require("../../storage/user/session/");
     const isReachable = require("is-reachable"); // https://github.com/sindresorhus/is-reachable
 
+    // The serviceOnline variable is visible only inside this function scope.
     let serviceOnline = null;
-
-    let lastLogTime = new Date().getTime();
 
     function checkOnline() {
         const startCheckTime = new Date().getTime();
@@ -21,18 +20,22 @@
             serviceOnline = result_;
             if (toggleOnlineState) {
                 console.log("****************************************************************");
-                console.log("Viewpath5 HolisticNodeService backend storage subsystem status:");
+                console.log("HolisticNodeService online status:");
                 console.log(`${serviceOnline?"ONLINE":"OFFLINE"} at ${(new Date()).toString()}`);
                 console.log("****************************************************************");
             }
             setTimeout(checkOnline, delayToNextCheck);
         });
     }
-    checkOnline();
 
+    // Start a setTimeout-derived background process that checks the reachability of google.com every 10s.
+
+    let lastLogTime = new Date().getTime();
+    checkOnline();
     module.exports = function(request_) {
 
         console.log("..... " + this.filterDescriptor.operationID + "::" + this.filterDescriptor.operationName);
+
         var errors = [];
         var inBreakScope = false;
         while (!inBreakScope) {
@@ -55,7 +58,6 @@
                 request_.result_handler(); // w/request value undefined -> anonymous session
                 break;
             }
-
 
             // TEMPORARY HACK
             request_.result_handler(); // w/request value undefined -> anonymous session

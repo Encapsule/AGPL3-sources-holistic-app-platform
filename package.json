@@ -1,6 +1,6 @@
 {
     "name": "dpmr-arc-core-rt",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "codename": "snowpack",
     "description": "@encapsule/holistic is a domain engineering toolkit for building distributed applications and interactive UX from reusable software models.",
     "author": "Encapsule",
