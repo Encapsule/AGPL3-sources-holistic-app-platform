@@ -1,7 +1,7 @@
 # Outputs of the encapsule_app_master monorepo build
 BUILD/*
 DISTS/*
-PACKAGES/*
+PACKAGES
 
 # Node.js
 node_modules/*
