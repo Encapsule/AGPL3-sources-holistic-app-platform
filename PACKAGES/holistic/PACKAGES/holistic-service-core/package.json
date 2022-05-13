@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "q5C8_UzLS4WT2TVWrNsd7Q",
-    "buildSource": "3dc5903a7448efde3cec0a50edad661456993836",
-    "buildTime": 1652459444,
-    "codename": "snowmelt",
+    "buildID": "cr02xpjKRpSWsjfgew4haQ",
+    "buildSource": "aea8130790430ac6d975cdc00016f241c0ae7586",
+    "buildTime": 1652464635,
+    "codename": "verdant",
     "contributors": [
         {
             "name": "Chris Russell",
@@ -31,12 +31,12 @@
     "name": "@encapsule/holistic-service-core",
     "peerDependencies": {
         "@encapsule/arccore": "0.3.6",
-        "@encapsule/holarchy": "0.3.5",
-        "@encapsule/holarchy-cm": "0.3.5"
+        "@encapsule/holarchy": "0.4.0",
+        "@encapsule/holarchy-cm": "0.4.0"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.3.5"
+    "version": "0.4.0"
 }
