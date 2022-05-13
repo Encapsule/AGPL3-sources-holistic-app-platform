@@ -21,6 +21,7 @@
     const ovhConfigureAction = cmResponse.result;
 
     const cmtDisplayView = new holarchy.CellModelTemplate({
+
         cmasScope: cmasHolarchyCMPackage,
         templateLabel,
         cellModelGenerator: {
@@ -75,7 +76,7 @@
 
             /*
               generatorRequest = {
-              cmtInstance, // reference to this CellModelTemplate template instance --- aka the DisplayView CellModel synthesizer.
+              cmtInstance, // reference to this CellModelTemplate template instance --- aka the DisplayView_T CellModel synthesizer.
               cellModelLabel, // passed by cmtInstance.synthesizeCellModel from caller
               specializationData // passed by cmtInstance.synthesizeCellModel from caller filtered per above spec
               }
@@ -100,7 +101,7 @@
 
                     const cmSynthResponse = cmtDisplayStreamMessage.synthesizeCellModel(cmSynthRequest);
                     if (cmSynthResponse.error) {
-                        errors.push("While attempting to synthesize a DisplayStreamMessage family CellModel:");
+                        errors.push("Error synthesizing a DisplayStreamMessage family CellModel:");
                         errors.push(cmSynthResponse.error);
                         break;
                     }

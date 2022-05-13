@@ -160,7 +160,7 @@ const controllerAction = new holarchy.ControllerAction({
 
                 actResponse = request_.context.act({
                     actorName,
-                    actorTaskDescription: "ACtivating the HolisticHTML5Service_PageViewController process on behalf of HolisticHTML5Service_Kernel process.",
+                    actorTaskDescription: "Activating the HolisticHTML5Service_PageViewController process on behalf of HolisticHTML5Service_Kernel process.",
                     actionRequest: {
                         CellProcessor: {
                             util: {
@@ -178,6 +178,7 @@ const controllerAction = new holarchy.ControllerAction({
                     errors.push(actResponse.error);
                     break;
                 }
+
 
                 break;
 
@@ -199,7 +200,7 @@ const controllerAction = new holarchy.ControllerAction({
                     // So now we have some in-memory data deserialized from JSON but have no idea what it is. Or, if it's valid.
                     // There are many levels of meaning to this data potentially. Here we do not have nearly enough context to make those
                     // decisions but do have the ability to write the deserialized bootROM data into the kernel process' OCD memory.
-                    // And, if this fails then we can stop the kernel from booting w/bad initial state.
+                    // Note that if the data is incorrect, corrupt, incomplete that it is likely to fail OCD memory filter.
 
                     ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.bootROMData" }, bootROMShouldBeValidData);
                     if (ocdResponse.error) {
@@ -272,6 +273,10 @@ const controllerAction = new holarchy.ControllerAction({
                     errors.push(actResponse.error);
                     break;
                 }
+
+                // TODO 2022.02.22: Distill to one or two sentences. All this detail is superfluous. We're performing a client-side
+                // React "rehydrate" operation of content that was rendered on the server. 
+
 
                 // At this point the actual contents of the DOM visible to the user as the HolisticHTML5Service is booting
                 // was rendered by HolisticNodeService in response to an HTTP GET request for an HTML5 document. If the HTTP
@@ -351,7 +356,7 @@ const controllerAction = new holarchy.ControllerAction({
                         apmBindingPath: request_.context.apmBindingPath // will be the holistic HTML5 service kernel process
                     });
 
-                }, 1000);
+                }, 1500);
                 /*
                 if (actResponse.error) {
                     errors.push(actResponse.error);
