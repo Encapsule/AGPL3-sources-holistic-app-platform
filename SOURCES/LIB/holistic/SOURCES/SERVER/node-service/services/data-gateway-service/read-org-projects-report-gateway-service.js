@@ -10,7 +10,7 @@ const datastore = require("../../../storage/google-datastore");
 const entityKinds = require("../../../storage/data/constants").datastore.entities.kinds;
 const { makeDatastoreKey } = require("./utils");
 
-// This service will be made available only to members of the Viewpath organization.
+// This service will be made available only to members of the app's owning organization.
 // i.e. external users will not be allowed to create, read, update, delete an organization profile.
 
 const factoryResponse = holism.service.create({

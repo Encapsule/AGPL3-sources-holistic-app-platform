@@ -1,5 +1,3 @@
-// @viewpath/viewpath5/SOURCES/SERVER/holism/services/get-google-oauth2-login-service.js
-//
 
 const appBuild = require("../../../app-build"); // TODO: SERVICE FILTERS can not get appBuild info from request_ data prepared by @encapsule/holism (or they should be able to).
 
@@ -219,7 +217,7 @@ const factoryResponse = holism.service.create({
                                       OAuth2 token indicates, primarily, that the client agent we're dealing with is acting on behalf
                                       of someone who Google has authenticated. And, we know some basic information about them. Most
                                       importantly, we have obtained Google's unique ID for the user that we use to locate
-                                      the user's account (represented as a Viewpath5 user profile entity in DataStore).
+                                      the user's account (represented as an HTML5NodeService user profile entity in DataStore).
                                     */
 
                                     // ================================================================
@@ -229,7 +227,7 @@ const factoryResponse = holism.service.create({
 
                                     let profileOperation = "open"; // "open" is "read" iff profile exists and "new" if it does not
                                     let profileWriteData =  {
-                                        viewpathUserId: arccore.identifier.irut.fromEther(),
+                                        appUserId: arccore.identifier.irut.fromEther(),
                                         createAgent: userStorageConstants.login.agents.googleOAuth2,
                                         createAgentVersion: appBuild.app.version,
                                         createTime: arccore.util.getEpochTime(),
@@ -263,9 +261,9 @@ const factoryResponse = holism.service.create({
 
                                             // ================================================================
                                             // FILTER BY E-MAIL DOMAIN (we trust this because we got it from Google via OAuth and not from the user).
-                                            if (!userData.emailAddress.endsWith("viewpath.com")) {
+                                            if (!userData.emailAddress.endsWith("example-app.com")) {
                                                 filterResponse = request_.integrations.appStateContext.vp5GroupAuthorizer.getUserPermissions({
-                                                    viewpathUserId: accessUserProfileResult_.viewpathUserId,
+                                                    appUserId: accessUserProfileResult_.appUserId,
                                                     subsystemName: "authentication",
                                                     resourceName: "userSession",
                                                     operationName: "allow-login"
@@ -273,7 +271,7 @@ const factoryResponse = holism.service.create({
                                                 if (filterResponse.error || !filterResponse.result.authz.operation) {
                                                     let errorMessage = [
                                                         `Hello, ${userData.givenName} ${userData.familyName}.`,
-                                                        `We were able to confirm your identity with Google but were not able to log you into ${appBuild.app.name} because this server is restricted to Viewpath employees only.`,
+                                                        `We were able to confirm your identity with Google but were not able to log you into ${appBuild.app.name} because this server is restricted to example-app organization members only.`,
                                                         `We have taken note of your interest in our engineering workbench ;-)`
                                                     ].join(" ");
                                                     request_.response_filters.error.request({
@@ -295,7 +293,7 @@ const factoryResponse = holism.service.create({
 
 					    // PROCESS USER BLACKLIST EXCLUSIONS
 					    filterResponse = request_.integrations.appStateContext.vp5GroupAuthorizer.getUserPermissions({
-						viewpathUserId: accessUserProfileResult_.viewpathUserId,
+						appUserId: accessUserProfileResult_.appUserId,
 						subsystemName: "authentication",
 						resourceName: "userSession",
 						operationName: "blacklist-block-login"
@@ -329,7 +327,7 @@ const factoryResponse = holism.service.create({
                                             // REMOVE EXPIRED PER-USER SESSION(S)
                                             // Create new storage Promise.
                                             let filterResponse = userSessionAccessor.deleteExpired.request({
-                                                viewpathUserId: accessUserProfileResult_.viewpathUserId
+                                                appUserId: accessUserProfileResult_.appUserId
                                             });
                                             if (filterResponse.error) {
                                                 // ================================================================
@@ -352,7 +350,7 @@ const factoryResponse = holism.service.create({
                                                         userFamilyName: accessUserProfileResult_.userFamilyName,
                                                         userEmailAddress: accessUserProfileResult_.userEmailAddress,
                                                         userPhotoUrl: accessUserProfileResult_.userPhotoUrl,
-                                                        viewpathUserId: accessUserProfileResult_.viewpathUserId,
+                                                        appUserId: accessUserProfileResult_.appUserId,
                                                         sessionTokens: Buffer.from(JSON.stringify(tokenData), "utf8").toString("base64"),
                                                         userSettings: accessUserProfileResult_.userSettings
                                                     };

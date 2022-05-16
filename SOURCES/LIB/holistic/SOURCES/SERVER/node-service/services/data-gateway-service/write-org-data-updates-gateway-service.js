@@ -431,7 +431,7 @@ const factoryResponse = holism.service.create({
                                                                 const orgProfileMembersMapID = calcOrgProfileMembersMapId(orgID);
                                                                 const orgProfileMembersMapResult = searchQueryResults(orgProfileMembersMapID); // If this finds a result, we use the version number only.
 
-                                                                // Construct a Promise to create a map of userEmailAddresses to viewpathUserIds for an org by streaming all UserProfile entities.
+                                                                // Construct a Promise to create a map of userEmailAddresses to appUserIds for an org by streaming all UserProfile entities.
                                                                 const userProfileQueryStreamPromise = new Promise( (resolve, reject) => {
                                                                     let query;
                                                                     try {
@@ -455,7 +455,7 @@ const factoryResponse = holism.service.create({
                                                                         transaction_.runQueryStream(query)
                                                                             .on("data", userProfileEntity => {
                                                                                 if(updateResult.definition["R6DTqieiQ8Wr5wo9tI0lJA_OrgProfile"].members.includes(userProfileEntity.userEmailAddress)) {
-                                                                                    membersMap[userProfileEntity.userEmailAddress] = userProfileEntity.viewpathUserId;
+                                                                                    membersMap[userProfileEntity.userEmailAddress] = userProfileEntity.appUserId;
                                                                                 }
                                                                             })
                                                                             .on("end", () => resolve(membersMap));

@@ -1,10 +1,9 @@
-// @viewpath/viewpath5/SOURCES/SERVER/holism/services/get-application-homepage.js
 
 const holism = require("@encapsule/holism");
 
 var factoryResponse = holism.service.create({
     id: "zzsAm72FTAKEeVAZg-VvYg",
-    name: "Viewpath Get Account Confirm Page Service",
+    name: "Get Account Confirm Page Service",
     description: "A service filter used to create the account confirm page.",
 
     constraints: {

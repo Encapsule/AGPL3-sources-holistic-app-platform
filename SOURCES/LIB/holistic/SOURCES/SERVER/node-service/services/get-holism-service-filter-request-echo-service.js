@@ -1,4 +1,3 @@
-// @viewpath/viewpath5/SOURCES/SERVER/holism/services/get-holism-service-filter-request-echo-service.js
 
 const holism = require("@encapsule/holism");
 

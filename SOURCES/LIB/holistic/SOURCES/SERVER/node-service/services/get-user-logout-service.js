@@ -1,4 +1,3 @@
-// @viewpath/viewpath5/SOURCES/SERVER/holism/services/get-user-logout-service.js
 
 const holism = require("@encapsule/holism");
 const userSessionAccessor = require("../../storage/user/session/");

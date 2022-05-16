@@ -133,10 +133,10 @@ const factoryResponse = holism.service.create({
                                                                     try {
                                                                         const queryResults = queryResult_[0];
                                                                         queryResults.forEach( userProfileEntity => {
-                                                                            const { viewpathUserId, userEmailAddress, userGivenName, userFamilyName, userPhotoUrl } = userProfileEntity;
-                                                                            report.memberIds.push(viewpathUserId);
-                                                                            report.memberSummaries[viewpathUserId] = {
-                                                                                viewpathUserId,
+                                                                            const { appUserId, userEmailAddress, userGivenName, userFamilyName, userPhotoUrl } = userProfileEntity;
+                                                                            report.memberIds.push(appUserId);
+                                                                            report.memberSummaries[appUserId] = {
+                                                                                appUserId,
                                                                                 userEmailAddress,
                                                                                 userGivenName,
                                                                                 userFamilyName,

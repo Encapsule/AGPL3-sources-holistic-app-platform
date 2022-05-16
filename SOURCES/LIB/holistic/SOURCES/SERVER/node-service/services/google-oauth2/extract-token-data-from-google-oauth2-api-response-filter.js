@@ -1,4 +1,3 @@
-// @viewpath/viewpath5/SOURCES/SERVER/holism/services/google-oauth2/extract-token-data-from-oauth2-api-response-filter.js
 
 const arccore = require("@encapsule/arccore");
 const googleOAuth2TokenResponseSpec = require("./google-oauth2-token-response-spec");

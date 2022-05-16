@@ -44,7 +44,7 @@ const factoryResponse = httpServiceFilterFactory.create({
 
                 const queryProjectsParam = request_.request_descriptor.data.query.projects;
 
-                // e.g. https://vp5.viewpath.com/organization/projects/editor?projects=IRUT[, IRUT, IRUT ... ]
+                // e.g. https://example.com/organization/projects/editor?projects=IRUT[, IRUT, IRUT ... ]
                 const projectsViewInitOptions = {
                     projects: !queryProjectsParam?[]:queryProjectsParam.split(",").map((projectId_) => { return projectId_.trim(); })
                 };
