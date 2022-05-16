@@ -1,7 +1,7 @@
 {
     "name": "AGPL3-sources-holistic-app-platform",
-    "version": "0.4.1",
-    "codename": "shuksan",
+    "version": "0.4.2",
+    "codename": "crystalglacier",
     "description": "@encapsule/holistic is a domain engineering toolkit for building distributed applications and interactive UX from reusable software models.",
     "author": "Encapsule",
     "contributors": [

@@ -162,7 +162,6 @@
                                 enter: [
                                     // Activate cell processes:
                                     // HolisticServiceCore_Metadata
-                                    // HolisticServiceCore_PageViewController
                                     // HolisticHTML5Service_DomLocation
                                     // HolisticHTML5Service_DisplayAdapter
                                     { holistic: { app: { client: { kernel: { _private: { stepWorker: { action: "activate-subprocesses" } } } } } } }
@@ -230,7 +229,6 @@
                                     transitionIf: {
                                         and: [
                                             { CellProcessor: { cell: { query: { inStep: { apmStep: "metadata-ready" } }, cellCoordinates: { apmID: "srjZAO8JQ2StYj07u_rgGg" /* HolisticServiceCore_Metadata Process */  } } } },
-                                            { CellProcessor: { cell: { query: { inStep: { apmStep: "pageview-controller-ready" } }, cellCoordinates: { apmID: "AZaqZtWRSdmHOA6EbTr9HQ" /* HolisticServiceCore_PageViewController */ } } } },
                                             { CellProcessor: { cell: { query: { inStep: { apmStep: "dom-location-ready" } }, cellCoordinates: { apmID: cmasHolisticHTML5ServicePackage.mapLabels({ APM: "HolisticHTML5Service_DOMLocation" }).result.APMID } } } },
                                             { CellProcessor: { cell: { query: { inStep: { apmStep: "display-adapter-ready" } }, cellCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /*display adpater*/ } } } }
                                         ]
