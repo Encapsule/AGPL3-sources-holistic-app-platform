@@ -43,14 +43,14 @@ const factoryResponse = d2r2.ComponentFactory.request({
 
                 const statusMessage = (this.props.renderContext.serverRender?"L O A D I N G":(!messageBody.appStarted?"S T A R T I N G":"W E L C O M E"));
 
-                const backgroundColor = { development: "#DDDDDD", test: "#FFCC99", staging: "#99FFCC", production: "#6699CC" }[messageBody.deploymentEnvironment];
+                const backgroundColor = { development: "#CCCCCC", test: "#CC0000", staging: "#00CC00", production: "#3399CC" }[messageBody.deploymentEnvironment];
 
                 const textColorMain = color(backgroundColor).darken(0.1).hex();
                 const textColorMessage = "white";
                 const textColorEnvironment = color(backgroundColor).darken(0.03).hex();
 
-                const textColorVersion = color(backgroundColor).darken(0.05).hex();
-                const textColorVersionShadow = color(backgroundColor).darken(0.25).hex();
+                const textColorVersion = color(backgroundColor).darken(0.1).hex();
+                const textColorVersionShadow = color(backgroundColor).darken(0.5).hex();
 
                 // Application name...
                 flexContent.push(<div key={makeKey()} style={{ fontFamily: "Play", fontSize: "8vw", fontWeight: "bold", color: textColorMain, paddingBottom: "1.3vw" }}>{messageBody.appBuild.app.name}</div>);
