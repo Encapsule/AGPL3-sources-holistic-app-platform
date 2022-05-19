@@ -2,7 +2,7 @@
 
 const holarchy = require("@encapsule/holarchy");
 const cmasHolisticHTML5ServicePackage = require("../cmasHolisticHTML5ServicePackage");
-const hackLib = require("./lib");
+const lib = require("./lib");
 
 // This action is never expected to be called by an external actor.
 // It is only ever expected to be dispatched in response to a process
@@ -17,8 +17,8 @@ const hackLib = require("./lib");
 const controllerAction = new holarchy.ControllerAction({
 
     id: "4zsKHGrWRPm9fFa-RxsBuw",
-    name: "Holistic App Client Kernel: Process Step Worker",
-    description: "Performs actions on behalf of the Holistic App Client Kernel process.",
+    name: "HolisticHTML5 App Client Kernel: Process Step Worker",
+    description: "Performs actions on behalf of the HolisticHTML5Service_Kernel cell process.",
 
     actionRequestSpec: {
         ____types: "jsObject",
@@ -68,13 +68,13 @@ const controllerAction = new holarchy.ControllerAction({
             const messageBody = request_.actionRequest.holistic.app.client.kernel._private.stepWorker;
             console.log(`${actorName} processing "${messageBody.action}" request on behalf of app client kernel process.`);
 
-            let hackLibResponse  = hackLib.getStatus.request(request_.context);
-            if (hackLibResponse.error) {
-                errors.push(hackLibResponse.error);
+            let getStatusResponse  = lib.getStatus.request(request_.context);
+            if (getStatusResponse.error) {
+                errors.push(getStatusResponse.error);
                 break;
             }
-            const hackDescriptor = hackLibResponse.result;
-            const cellMemory = hackDescriptor.cellMemory;
+            const memoryDescriptor = getStatusResponse.result;
+            const cellMemory = memoryDescriptor.cellMemory;
             let actResponse, ocdResponse;
 
             switch (messageBody.action) {
@@ -190,7 +190,7 @@ const controllerAction = new holarchy.ControllerAction({
                     }
 
                 } catch (exception_) {
-                    errors.push("Unexpected exception caught during HolisticHTML5Service kernel bootROM deserialization is preventing service boot:");
+                    errors.push("Unexpected exception caught during HolisticHTML5Service kernel bootROM deserialization:");
                     errors.push(exception_.toString());
                 }
                 break;
@@ -309,7 +309,7 @@ const controllerAction = new holarchy.ControllerAction({
 
                     actResponse = request_.context.act({
                         actorName,
-                        actorTaskDescription: "Attempting to activate the derived HTML5 service cell process...",
+                        actorTaskDescription: "HolisticHTML5Service_Kernel cell process will now attempt to activate the application service's main cell process...",
                         actionRequest: {
                             CellProcessor: {
                                 util: {
@@ -334,13 +334,15 @@ const controllerAction = new holarchy.ControllerAction({
                         apmBindingPath: request_.context.apmBindingPath // will be the holistic HTML5 service kernel process
                     });
 
-                }, 1500);
-                /*
+                }, 300);
+
+                /* not if we call async above...
                 if (actResponse.error) {
                     errors.push(actResponse.error);
                     break;
                 }
                 */
+
                 break;
 
 
