@@ -103,7 +103,7 @@ function renderHtmlDocument(request_) {
     <title>${appRuntimeMetadata.page.title}</title>
     <meta name="description" content="${appRuntimeMetadata.page.description}" />
     <link rel='stylesheet' href="/css/holistic-html5-service-fonts.css">
-    <link rel='stylesheet' href="/css/spinners.css">
+    <link rel='stylesheet' href="/css/holistic-spinners-dark.css">
 `);
 
             if (request_.appServiceRequest.renderOptions.documentHeadSectionLinksMeta) {

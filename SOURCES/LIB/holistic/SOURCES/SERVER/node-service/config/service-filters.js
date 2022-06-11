@@ -22,15 +22,13 @@
     const holismServicesLib = require("@encapsule/holism-services").services;
 
 
-    // KEEP FOR MS4 (will need some work)
+    // KEEP FOR REFERENCE
     // const getUserLogoutService = require("../services/get-user-logout-service");
     // const getGoogleOAuth2LoginService = require("../services/get-google-oauth2-login-service");
 
-    // DISABLE TEMPORAILY IN MS4
     // const getHtmlViewAdminControlPanel = require("../services/get-html-view-admin-control-panel-service");
     // const getHolismServiceFilterRequestEchoService = require("../services/get-holism-service-filter-request-echo-service");
 
-    // OKAY FOR MS4
     const getHtmlHomepageService = require("../services/get-html-view-homepage");
 
     module.exports = function({ appBuild, deploymentEnvironment }) {
